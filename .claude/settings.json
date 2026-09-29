@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "deny": [
+      "Bash(git push:*)",
+      "Bash(git remote add:*)",
+      "Bash(git remote set-url:*)",
+      "Bash(gh:*)",
+      "Bash(ssh:*)",
+      "Bash(scp:*)",
+      "Bash(npm publish:*)",
+      "Bash(npm login:*)",
+      "Bash(pnpm publish:*)",
+      "Bash(yarn publish:*)",
+      "Bash(yarn npm publish:*)",
+      "Bash(uv publish:*)",
+      "Bash(twine:*)",
+      "Bash(docker push:*)",
+      "Bash(docker login:*)",
+      "Read(~/.ssh/**)",
+      "Edit(~/.ssh/**)",
+      "Read(~/.claude/.credentials.json)",
+      "Read(~/.git-credentials)",
+      "Read(~/.npmrc)",
+      "Read(~/.pypirc)"
+    ]
+  }
+}
