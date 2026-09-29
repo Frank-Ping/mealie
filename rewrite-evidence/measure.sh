@@ -1,7 +1,11 @@
 #!/usr/bin/env bash
 # Measure one frontend at the current checkout and append one row to rewrite-evidence/metrics.csv.
 #
-#   rewrite-evidence/measure.sh [--app frontend|frontend-react] [--label TEXT] [--skip-e2e]
+#   rewrite-evidence/measure.sh [--app DIR] [--label TEXT] [--skip-e2e]
+#
+# --app is a directory name inside this repo (frontend, frontend-react) or a path to an app in another
+# worktree (e.g. ../mealie-wf1/frontend-react). The latter lets a workflow's branch stay free of the
+# yardstick: the E2E suite and this script always come from the checkout the script lives in.
 #
 # Works for both the Vue reference (frontend/, Nuxt) and a React rewrite (any dir with a Vite-style
 # package.json). Steps run one after another, never in parallel: the dev box has 3.8 GB of RAM.
@@ -27,13 +31,22 @@ while [[ $# -gt 0 ]]; do
     --app) APP="$2"; shift 2 ;;
     --label) LABEL="$2"; shift 2 ;;
     --skip-e2e) SKIP_E2E=1; shift ;;
-    -h|--help) sed -n '2,20p' "$0"; exit 0 ;;
+    -h|--help) sed -n '2,24p' "$0"; exit 0 ;;
     *) echo "unknown argument: $1" >&2; exit 2 ;;
   esac
 done
 
-APP_DIR="$REPO/$APP"
-[[ -f "$APP_DIR/package.json" ]] || { echo "no package.json in $APP_DIR" >&2; exit 2; }
+if [[ -d "$REPO/$APP" && "$APP" != /* && "$APP" != .* ]]; then
+  APP_DIR="$REPO/$APP"
+else
+  APP_DIR="$(realpath "$APP" 2>/dev/null)"
+fi
+[[ -f "$APP_DIR/package.json" ]] || { echo "no package.json in ${APP_DIR:-$APP}" >&2; exit 2; }
+APP_REPO="$(git -C "$APP_DIR" rev-parse --show-toplevel)"
+# How the app is named in the CSV: path relative to its own checkout, prefixed by that checkout's
+# directory name when it isn't this one (mealie-wf1/frontend-react).
+APP_NAME="${APP_DIR#"$APP_REPO"/}"
+[[ "$APP_REPO" != "$REPO" ]] && APP_NAME="$(basename "$APP_REPO")/$APP_NAME"
 
 if [[ -f "$APP_DIR/nuxt.config.ts" ]]; then
   KIND="vue"; SRC_DIR="$APP_DIR/app"
@@ -42,7 +55,7 @@ else
 fi
 
 CSV="$REPO/rewrite-evidence/metrics.csv"
-RUN_ID="$(date -u +%Y%m%dT%H%M%SZ)-${APP}${LABEL:+-${LABEL//[^A-Za-z0-9._-]/_}}"
+RUN_ID="$(date -u +%Y%m%dT%H%M%SZ)-${APP_NAME//\//_}${LABEL:+-${LABEL//[^A-Za-z0-9._-]/_}}"
 OUT="$REPO/rewrite-evidence/runs/$RUN_ID"
 TOOLS="$REPO/rewrite-evidence/.tools"
 mkdir -p "$OUT"
@@ -68,10 +81,11 @@ json_get() { # json_get FILE JS_EXPRESSION_ON_d
 }
 
 # ------------------------------------------------------------------------------------------------ git
-BRANCH="$(git -C "$REPO" rev-parse --abbrev-ref HEAD)"
-COMMIT="$(git -C "$REPO" rev-parse --short HEAD)"
+# Of the measured app's checkout, not of the yardstick's.
+BRANCH="$(git -C "$APP_DIR" rev-parse --abbrev-ref HEAD)"
+COMMIT="$(git -C "$APP_DIR" rev-parse --short HEAD)"
 DIRTY=0
-[[ -n "$(git -C "$REPO" status --porcelain -- "$APP" 2>/dev/null)" ]] && DIRTY=1
+[[ -n "$(git -C "$APP_DIR" status --porcelain -- . 2>/dev/null)" ]] && DIRTY=1
 
 # ------------------------------------------------------------------------------------------------ install
 run_step install 1200 pnpm install --frozen-lockfile
@@ -192,7 +206,7 @@ HEADER="timestamp_utc,label,app,branch,commit,dirty,routes_passed,routes_total,f
 csv_field() { local v="${1//\"/\"\"}"; [[ "$v" == *[,\"]* ]] && v="\"$v\""; printf '%s' "$v"; }
 NOTE_TEXT="$(IFS=';'; echo "${NOTES[*]:-}")"
 ROW=(
-  "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$(csv_field "$LABEL")" "$APP" "$BRANCH" "$COMMIT" "$DIRTY"
+  "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$(csv_field "$LABEL")" "$APP_NAME" "$BRANCH" "$COMMIT" "$DIRTY"
   "$ROUTES_PASSED" "$ROUTES_TOTAL" "$FLOWS_PASSED" "$FLOWS_TOTAL"
   "$TSC_ERRORS" "$LINT_ERRORS" "$LINT_WARNINGS"
   "$UNIT_PASSED" "$UNIT_FAILED" "$UNIT_SKIPPED"
