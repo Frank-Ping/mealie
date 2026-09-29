@@ -1,0 +1,566 @@
+[Vue] Load plugin failed: vue-router/volar/sfc-route-blocks
+[Vue] Failed to create plugin TypeError: plugin is not a function
+    at /home/deeumiya/mealie/rewrite-evidence/.tools/vuetsc/node_modules/@vue/language-core/lib/plugins.js:53:30
+    at Array.flatMap (<anonymous>)
+    at createPlugins (/home/deeumiya/mealie/rewrite-evidence/.tools/vuetsc/node_modules/@vue/language-core/lib/plugins.js:51:10)
+    at Object.createVueLanguagePlugin (/home/deeumiya/mealie/rewrite-evidence/.tools/vuetsc/node_modules/@vue/language-core/lib/languagePlugin.js:52:49)
+    at /home/deeumiya/mealie/rewrite-evidence/.tools/vuetsc/node_modules/vue-tsc/index.js:18:43
+    at Object.apply (/home/deeumiya/mealie/rewrite-evidence/.tools/vuetsc/node_modules/@volar/typescript/lib/node/proxyCreateProgram.js:51:33)
+    at performCompilation (/home/deeumiya/mealie/rewrite-evidence/.tools/vuetsc/node_modules/typescript/lib/tsc.js:132243:19)
+    at executeCommandLineWorker (/home/deeumiya/mealie/rewrite-evidence/.tools/vuetsc/node_modules/typescript/lib/tsc.js:132050:7)
+    at executeCommandLine (/home/deeumiya/mealie/rewrite-evidence/.tools/vuetsc/node_modules/typescript/lib/tsc.js:132132:12)
+    at Object.<anonymous> (/home/deeumiya/mealie/rewrite-evidence/.tools/vuetsc/node_modules/typescript/lib/tsc.js:133823:1)
+app/components/Domain/Cookbook/CookbookPage.vue(106,3): error TS2322: Type 'ReadCookBook | null | undefined' is not assignable to type 'ReadCookBook | { name: string; description?: string | undefined; slug?: string | null | undefined; position?: number | undefined; public?: boolean | undefined; queryFilterString?: string | undefined; ... 4 more ...; household?: { ...; } | ... 1 more ... | undefined; } | null'.
+  Type 'undefined' is not assignable to type 'ReadCookBook | { name: string; description?: string | undefined; slug?: string | null | undefined; position?: number | undefined; public?: boolean | undefined; queryFilterString?: string | undefined; ... 4 more ...; household?: { ...; } | ... 1 more ... | undefined; } | null'.
+app/components/Domain/Group/GroupAIProviderDialog.test.ts(109,12): error TS2532: Object is possibly 'undefined'.
+app/components/Domain/Group/GroupAIProviderDialog.test.ts(116,12): error TS2532: Object is possibly 'undefined'.
+app/components/Domain/Household/GroupMealPlanEntryDialog.vue(178,19): error TS2345: Argument of type 'number | undefined' is not assignable to parameter of type 'number'.
+  Type 'undefined' is not assignable to type 'number'.
+app/components/Domain/Household/GroupMealPlanEntryDialog.vue(178,25): error TS18048: 'month' is possibly 'undefined'.
+app/components/Domain/QueryFilterBuilder.vue(175,53): error TS2345: Argument of type 'FieldValue' is not assignable to parameter of type 'string'.
+  Type 'number' is not assignable to type 'string'.
+app/components/Domain/QueryFilterBuilder.vue(176,82): error TS2345: Argument of type 'FieldValue' is not assignable to parameter of type 'string'.
+  Type 'number' is not assignable to type 'string'.
+app/components/Domain/QueryFilterBuilder.vue(479,51): error TS2345: Argument of type 'FieldValue' is not assignable to parameter of type 'number'.
+  Type 'string' is not assignable to type 'number'.
+app/components/Domain/QueryFilterBuilder.vue(601,9): error TS2532: Object is possibly 'undefined'.
+app/components/Domain/QueryFilterBuilder.vue(602,12): error TS2532: Object is possibly 'undefined'.
+app/components/Domain/Recipe/RecipeAssets.vue(41,20): error TS2532: Object is possibly 'undefined'.
+app/components/Domain/Recipe/RecipeAssets.vue(114,34): error TS2532: Object is possibly 'undefined'.
+app/components/Domain/Recipe/RecipeAssets.vue(127,48): error TS2532: Object is possibly 'undefined'.
+app/components/Domain/Recipe/RecipeAssets.vue(149,16): error TS2322: Type '(fileObject: File) => void' is not assignable to type '(payload: unknown) => any'.
+  Types of parameters 'fileObject' and 'payload' are incompatible.
+    Type 'unknown' is not assignable to type 'File'.
+app/components/Domain/Recipe/RecipeCardImage.vue(53,3): error TS2322: Type 'null' is not assignable to type '((props: LooseRequired<Props>) => {}) | undefined'.
+app/components/Domain/Recipe/RecipeCardSection.vue(124,16): error TS2322: Type '{}' is not assignable to type 'string'.
+app/components/Domain/Recipe/RecipeCardSection.vue(148,16): error TS2322: Type '{}' is not assignable to type 'string'.
+app/components/Domain/Recipe/RecipeContextMenu/RecipeContextMenu.vue(36,8): error TS2345: Argument of type '{ slug: string; name: string; recipeId: string; useItems: Partial<ContextMenuIncludes>; appendItems: ContextMenuItem[]; leadingItems: ContextMenuItem[]; ... 9 more ...; onPrint: any; }' is not assignable to parameter of type '{ readonly [x: `on${Capitalize<string>}`]: ((...args: unknown[] & []) => any) | undefined; readonly useItems?: ContextMenuIncludes | undefined; readonly appendItems?: ContextMenuItem[] | undefined; ... 9 more ...; readonly recipeScale?: number | undefined; } & VNodeProps & AllowedComponentProps & ComponentCustomProp...'.
+  Type '{ slug: string; name: string; recipeId: string; useItems: Partial<ContextMenuIncludes>; appendItems: ContextMenuItem[]; leadingItems: ContextMenuItem[]; ... 9 more ...; onPrint: any; }' is not assignable to type '{ readonly [x: `on${Capitalize<string>}`]: ((...args: unknown[] & []) => any) | undefined; readonly useItems?: ContextMenuIncludes | undefined; readonly appendItems?: ContextMenuItem[] | undefined; ... 9 more ...; readonly recipeScale?: number | undefined; }'.
+    The types of 'useItems.delete' are incompatible between these types.
+      Type 'boolean | undefined' is not assignable to type 'boolean'.
+        Type 'undefined' is not assignable to type 'boolean'.
+app/components/Domain/Recipe/RecipeContextMenu/RecipeContextMenuContent.vue(3,67): error TS2322: Type '{ id?: string | null | undefined; userId?: string | undefined; householdId?: string | undefined; groupId?: string | undefined; name?: string | null | undefined; slug?: string | undefined; ... 29 more ...; comments?: { ...; }[] | ... 1 more ... | undefined; } | undefined' is not assignable to type 'NoUndefinedField<Recipe> | undefined'.
+  Type '{ id?: string | null | undefined; userId?: string | undefined; householdId?: string | undefined; groupId?: string | undefined; name?: string | null | undefined; slug?: string | undefined; ... 29 more ...; comments?: { ...; }[] | ... 1 more ... | undefined; }' is not assignable to type 'NoUndefinedField<Recipe>'.
+    Types of property 'id' are incompatible.
+      Type 'string | null | undefined' is not assignable to type 'string'.
+        Type 'undefined' is not assignable to type 'string'.
+app/components/Domain/Recipe/RecipeDialogAddToShoppingList.vue(142,48): error TS2532: Object is possibly 'undefined'.
+app/components/Domain/Recipe/RecipeDialogAddToShoppingList.vue(142,48): error TS2532: Object is possibly 'undefined'.
+app/components/Domain/Recipe/RecipeDialogAddToShoppingList.vue(142,48): error TS2532: Object is possibly 'undefined'.
+app/components/Domain/Recipe/RecipeDialogAddToShoppingList.vue(264,7): error TS2322: Type '{ name?: string | null | undefined; extras?: { [k: string]: unknown; } | null | undefined; createdAt?: string | null | undefined; updatedAt?: string | null | undefined; groupId: string; userId: string; id: string; householdId: string; recipeReferences: { ...; }[]; labelSettings: { ...; }[]; } | undefined' is not assignable to type 'ShoppingListSummary | { name?: string | null | undefined; extras?: { [k: string]: unknown; } | null | undefined; createdAt?: string | null | undefined; updatedAt?: string | null | undefined; ... 5 more ...; labelSettings: { ...; }[]; } | null'.
+  Type 'undefined' is not assignable to type 'ShoppingListSummary | { name?: string | null | undefined; extras?: { [k: string]: unknown; } | null | undefined; createdAt?: string | null | undefined; updatedAt?: string | null | undefined; ... 5 more ...; labelSettings: { ...; }[]; } | null'.
+app/components/Domain/Recipe/RecipeDialogAddToShoppingList.vue(265,40): error TS2345: Argument of type '{ name?: string | null | undefined; extras?: { [k: string]: unknown; } | null | undefined; createdAt?: string | null | undefined; updatedAt?: string | null | undefined; groupId: string; userId: string; id: string; householdId: string; recipeReferences: { ...; }[]; labelSettings: { ...; }[]; } | null' is not assignable to parameter of type 'ShoppingListSummary'.
+  Type 'null' is not assignable to type 'ShoppingListSummary'.
+app/components/Domain/Recipe/RecipeDialogAddToShoppingList.vue(285,41): error TS2532: Object is possibly 'undefined'.
+app/components/Domain/Recipe/RecipeDialogAddToShoppingList.vue(287,9): error TS2532: Object is possibly 'undefined'.
+app/components/Domain/Recipe/RecipeDialogAddToShoppingList.vue(299,5): error TS2532: Object is possibly 'undefined'.
+app/components/Domain/Recipe/RecipeDialogAddToShoppingList.vue(304,5): error TS2532: Object is possibly 'undefined'.
+app/components/Domain/Recipe/RecipeDialogAddToShoppingList.vue(358,49): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string | number'.
+  Type 'undefined' is not assignable to type 'string | number'.
+app/components/Domain/Recipe/RecipeDialogAddToShoppingList.vue(375,5): error TS18048: 'recipeData.recipeIngredient' is possibly 'undefined'.
+app/components/Domain/Recipe/RecipeDialogAddToShoppingList.vue(389,7): error TS2322: Type 'string | null | undefined' is not assignable to type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+app/components/Domain/Recipe/RecipeDialogAddToShoppingList.vue(390,7): error TS2322: Type 'string | null | undefined' is not assignable to type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+app/components/Domain/Recipe/RecipeDialogSearch.test.ts(141,12): error TS2532: Object is possibly 'undefined'.
+app/components/Domain/Recipe/RecipeDialogSearch.test.ts(148,12): error TS2532: Object is possibly 'undefined'.
+app/components/Domain/Recipe/RecipeDialogSearch.test.ts(152,12): error TS2532: Object is possibly 'undefined'.
+app/components/Domain/Recipe/RecipeDialogSearch.vue(63,14): error TS2322: Type 'unknown' is not assignable to type 'string | undefined'.
+app/components/Domain/Recipe/RecipeExplorerPage/RecipeExplorerPageParts/RecipeExplorerPageSearchFilters.vue(7,6): error TS2322: Type 'RecipeCategory[]' is not assignable to type 'ISearchableItem[]'.
+  Type 'RecipeCategory' is not assignable to type 'ISearchableItem'.
+    Types of property 'id' are incompatible.
+      Type 'string | null | undefined' is not assignable to type 'string'.
+        Type 'undefined' is not assignable to type 'string'.
+app/components/Domain/Recipe/RecipeExplorerPage/RecipeExplorerPageParts/RecipeExplorerPageSearchFilters.vue(20,6): error TS2322: Type 'RecipeTag[]' is not assignable to type 'ISearchableItem[]'.
+  Type 'RecipeTag' is not assignable to type 'ISearchableItem'.
+    Types of property 'id' are incompatible.
+      Type 'string | null | undefined' is not assignable to type 'string'.
+        Type 'undefined' is not assignable to type 'string'.
+app/components/Domain/Recipe/RecipeImageUploadBtn.vue(46,16): error TS2322: Type '(fileObject: File) => void' is not assignable to type '(payload: unknown) => any'.
+  Types of parameters 'fileObject' and 'payload' are incompatible.
+    Type 'unknown' is not assignable to type 'File'.
+app/components/Domain/Recipe/RecipeImportImages.vue(13,8): error TS2322: Type '(files: File[]) => void' is not assignable to type '(payload: unknown) => any'.
+  Types of parameters 'files' and 'payload' are incompatible.
+    Type 'unknown' is not assignable to type 'File[]'.
+app/components/Domain/Recipe/RecipeImportImages.vue(75,23): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+app/components/Domain/Recipe/RecipeIngredientEditor.vue(329,5): error TS2322: Type 'undefined' is not assignable to type '{ text: string; event: string; }[]'.
+app/components/Domain/Recipe/RecipeIngredients.test.ts(68,11): error TS2532: Object is possibly 'undefined'.
+app/components/Domain/Recipe/RecipeIngredients.test.ts(71,12): error TS2532: Object is possibly 'undefined'.
+app/components/Domain/Recipe/RecipeIngredients.test.ts(76,12): error TS2532: Object is possibly 'undefined'.
+app/components/Domain/Recipe/RecipeIngredients.test.ts(77,12): error TS2532: Object is possibly 'undefined'.
+app/components/Domain/Recipe/RecipeLastMade.vue(41,22): error TS2322: Type 'string | null | undefined' is not assignable to type 'string | undefined'.
+  Type 'null' is not assignable to type 'string | undefined'.
+app/components/Domain/Recipe/RecipeLastMade.vue(87,22): error TS2322: Type '(fileObject: File) => void' is not assignable to type '(payload: unknown) => any'.
+  Types of parameters 'fileObject' and 'payload' are incompatible.
+    Type 'unknown' is not assignable to type 'File'.
+app/components/Domain/Recipe/RecipeLastMade.vue(335,9): error TS2322: Type 'string' is not assignable to type 'TimelineEventImage | null | undefined'.
+app/components/Domain/Recipe/RecipeList.vue(107,23): error TS18048: 'itemRef' is possibly 'undefined'.
+app/components/Domain/Recipe/RecipeList.vue(107,55): error TS18048: 'itemRef' is possibly 'undefined'.
+app/components/Domain/Recipe/RecipeList.vue(116,11): error TS2532: Object is possibly 'undefined'.
+app/components/Domain/Recipe/RecipeList.vue(139,9): error TS18048: 'itemRef' is possibly 'undefined'.
+app/components/Domain/Recipe/RecipeList.vue(140,35): error TS18048: 'itemRef' is possibly 'undefined'.
+app/components/Domain/Recipe/RecipeNotes.vue(19,24): error TS2532: Object is possibly 'undefined'.
+app/components/Domain/Recipe/RecipeNotes.vue(33,22): error TS2532: Object is possibly 'undefined'.
+app/components/Domain/Recipe/RecipeNutrition.vue(15,21): error TS2532: Object is possibly 'undefined'.
+app/components/Domain/Recipe/RecipeNutrition.vue(16,22): error TS2532: Object is possibly 'undefined'.
+app/components/Domain/Recipe/RecipeOrganizerPage.vue(88,10): error TS2322: Type 'string | number' is not assignable to type 'string'.
+  Type 'number' is not assignable to type 'string'.
+app/components/Domain/Recipe/RecipeOrganizerPage.vue(252,22): error TS2532: Object is possibly 'undefined'.
+app/components/Domain/Recipe/RecipePage/RecipePage.vue(294,60): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(getter: ComputedGetter<NoUndefinedField<Recipe>>, debugOptions?: DebuggerOptions | undefined): ComputedRef<NoUndefinedField<Recipe>>', gave the following error.
+    Argument of type '() => { recipeIngredient: RecipeIngredient[]; id: string; userId: string; householdId: string; groupId: string; name: string; slug: string; image: NoUndefinedField<{}>; ... 27 more ...; comments: NoUndefinedField<...>[]; }' is not assignable to parameter of type 'ComputedGetter<NoUndefinedField<Recipe>>'.
+      Call signature return types '{ recipeIngredient: RecipeIngredient[]; id: string; userId: string; householdId: string; groupId: string; name: string; slug: string; image: NoUndefinedField<{}>; ... 27 more ...; comments: NoUndefinedField<...>[]; }' and 'NoUndefinedField<Recipe>' are incompatible.
+        The types of 'recipeIngredient' are incompatible between these types.
+          Type 'RecipeIngredient[]' is not assignable to type 'NoUndefinedField<RecipeIngredient>[]'.
+            Type 'RecipeIngredient' is not assignable to type 'NoUndefinedField<RecipeIngredient>'.
+              Types of property 'quantity' are incompatible.
+                Type 'number | null | undefined' is not assignable to type 'number'.
+                  Type 'undefined' is not assignable to type 'number'.
+  Overload 2 of 2, '(options: WritableComputedOptions<NoUndefinedField<Recipe>, NoUndefinedField<Recipe>>, debugOptions?: DebuggerOptions | undefined): WritableComputedRef<...>', gave the following error.
+    Argument of type '() => { recipeIngredient: RecipeIngredient[]; id: string; userId: string; householdId: string; groupId: string; name: string; slug: string; image: NoUndefinedField<{}>; ... 27 more ...; comments: NoUndefinedField<...>[]; }' is not assignable to parameter of type 'WritableComputedOptions<NoUndefinedField<Recipe>, NoUndefinedField<Recipe>>'.
+app/components/Domain/Recipe/RecipePage/RecipePage.vue(327,43): error TS18048: 'entry' is possibly 'undefined'.
+app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageComments.vue(109,32): error TS2345: Argument of type 'RecipeCommentOut' is not assignable to parameter of type 'NoUndefinedField<RecipeCommentOut>'.
+  The types of 'user.username' are incompatible between these types.
+    Type 'string | null | undefined' is not assignable to type 'string'.
+      Type 'undefined' is not assignable to type 'string'.
+app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageFooter.vue(47,18): error TS2322: Type 'string | number' is not assignable to type 'string | undefined'.
+  Type 'number' is not assignable to type 'string'.
+app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageIngredientEditor.vue(49,9): error TS2322: Type 'NoUndefinedField<RecipeIngredient> | undefined' is not assignable to type 'RecipeIngredient'.
+  Type 'undefined' is not assignable to type 'RecipeIngredient'.
+app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageIngredientEditor.vue(100,16): error TS2322: Type '(ingredients?: string[] | null) => void' is not assignable to type '((args_0: MouseEvent | KeyboardEvent) => void) & ((e: MouseEvent | KeyboardEvent) => any)'.
+  Type '(ingredients?: string[] | null) => void' is not assignable to type '(args_0: MouseEvent | KeyboardEvent) => void'.
+    Types of parameters 'ingredients' and 'args_0' are incompatible.
+      Type 'MouseEvent | KeyboardEvent' is not assignable to type 'string[] | null | undefined'.
+        Type 'MouseEvent' is missing the following properties from type 'string[]': length, pop, push, concat, and 35 more.
+app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageIngredientEditor.vue(107,16): error TS2322: Type '(recipes?: string[] | null) => void' is not assignable to type '((args_0: MouseEvent | KeyboardEvent) => void) & ((e: MouseEvent | KeyboardEvent) => any)'.
+  Type '(recipes?: string[] | null) => void' is not assignable to type '(args_0: MouseEvent | KeyboardEvent) => void'.
+    Types of parameters 'recipes' and 'args_0' are incompatible.
+      Type 'MouseEvent | KeyboardEvent' is not assignable to type 'string[] | null | undefined'.
+        Type 'MouseEvent' is missing the following properties from type 'string[]': length, pop, push, concat, and 35 more.
+app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageIngredientToolsView.vue(22,24): error TS2532: Object is possibly 'undefined'.
+app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageIngredientToolsView.vue(84,9): error TS18048: 'tool' is possibly 'undefined'.
+app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageIngredientToolsView.vue(84,25): error TS18048: 'tool' is possibly 'undefined'.
+app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageIngredientToolsView.vue(85,12): error TS18048: 'tool' is possibly 'undefined'.
+app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageIngredientToolsView.vue(86,9): error TS18048: 'tool' is possibly 'undefined'.
+app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageIngredientToolsView.vue(89,9): error TS18048: 'tool' is possibly 'undefined'.
+app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageIngredientToolsView.vue(92,15): error TS18048: 'tool' is possibly 'undefined'.
+app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageIngredientToolsView.vue(92,30): error TS18048: 'tool' is possibly 'undefined'.
+app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageIngredientToolsView.vue(93,7): error TS18048: 'tool' is possibly 'undefined'.
+app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageIngredientToolsView.vue(93,33): error TS18048: 'tool' is possibly 'undefined'.
+app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageIngredientToolsView.vue(96,33): error TS2345: Argument of type '{ onHand: boolean; id: string; groupId?: string | null | undefined; name: string; slug: string; recipeCount?: number | undefined; householdsWithTool?: string[] | undefined; } | undefined' is not assignable to parameter of type 'RecipeTool'.
+  Type 'undefined' is not assignable to type 'RecipeTool'.
+app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInstructions.vue(301,57): error TS2345: Argument of type 'string | null | undefined' is not assignable to parameter of type 'string | undefined'.
+  Type 'null' is not assignable to type 'string | undefined'.
+app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInstructions.vue(400,30): error TS2532: Object is possibly 'undefined'.
+app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInstructions.vue(879,17): error TS2532: Object is possibly 'undefined'.
+app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInstructions.vue(880,17): error TS2532: Object is possibly 'undefined'.
+app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInstructions.vue(883,3): error TS2532: Object is possibly 'undefined'.
+app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInstructions.vue(883,47): error TS2532: Object is possibly 'undefined'.
+app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInstructions.vue(898,5): error TS2532: Object is possibly 'undefined'.
+app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInstructions.vue(911,35): error TS2345: Argument of type 'RecipeStep | undefined' is not assignable to parameter of type 'RecipeStep'.
+  Type 'undefined' is not assignable to type 'RecipeStep'.
+app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInstructions.vue(914,32): error TS2345: Argument of type 'RecipeStep | undefined' is not assignable to parameter of type 'RecipeStep'.
+  Type 'undefined' is not assignable to type 'RecipeStep'.
+app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInstructions.vue(934,43): error TS2532: Object is possibly 'undefined'.
+app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInstructions.vue(1021,3): error TS2532: Object is possibly 'undefined'.
+app/components/Domain/Recipe/RecipePrintContainer.vue(4,8): error TS2322: Type 'Recipe' is not assignable to type 'NoUndefinedField<Recipe>'.
+  Types of property 'id' are incompatible.
+    Type 'string | null | undefined' is not assignable to type 'string'.
+      Type 'undefined' is not assignable to type 'string'.
+app/components/Domain/Recipe/RecipePrintView.vue(77,17): error TS2532: Object is possibly 'undefined'.
+app/components/Domain/Recipe/RecipePrintView.vue(80,14): error TS2532: Object is possibly 'undefined'.
+app/components/Domain/Recipe/RecipePrintView.vue(212,26): error TS2532: Object is possibly 'undefined'.
+app/components/Domain/Recipe/RecipePrintView.vue(213,35): error TS2532: Object is possibly 'undefined'.
+app/components/Domain/Recipe/RecipePrintView.vue(213,68): error TS2532: Object is possibly 'undefined'.
+app/components/Domain/Recipe/RecipePrintView.vue(340,13): error TS2532: Object is possibly 'undefined'.
+app/components/Domain/Recipe/RecipePrintView.vue(364,26): error TS2532: Object is possibly 'undefined'.
+app/components/Domain/Recipe/RecipePrintView.vue(365,28): error TS2532: Object is possibly 'undefined'.
+app/components/Domain/Recipe/RecipePrintView.vue(392,5): error TS2532: Object is possibly 'undefined'.
+app/components/Domain/Recipe/RecipeSelector.vue(24,10): error TS2322: Type 'RecipeCategory[]' is not assignable to type 'ISearchableItem[]'.
+  Type 'RecipeCategory' is not assignable to type 'ISearchableItem'.
+    Types of property 'id' are incompatible.
+      Type 'string | null | undefined' is not assignable to type 'string'.
+        Type 'undefined' is not assignable to type 'string'.
+app/components/Domain/Recipe/RecipeSelector.vue(34,10): error TS2322: Type 'RecipeTag[]' is not assignable to type 'ISearchableItem[]'.
+  Type 'RecipeTag' is not assignable to type 'ISearchableItem'.
+    Types of property 'id' are incompatible.
+      Type 'string | null | undefined' is not assignable to type 'string'.
+        Type 'undefined' is not assignable to type 'string'.
+app/components/Domain/Recipe/RecipeSelector.vue(205,3): error TS2345: Argument of type 'Ref<{ accessKey: string; readonly accessKeyLabel: string; autocapitalize: string; autocorrect: boolean; dir: string; draggable: boolean; hidden: boolean; inert: boolean; innerText: string; lang: string; ... 312 more ...; focus: (options?: FocusOptions | undefined) => void; } | null, HTMLElement | ... 1 more ... | nu...' is not assignable to parameter of type 'MaybeComputedElementRef<MaybeElement> | MaybeRefOrGetter<MaybeElement[]> | MaybeComputedElementRef<MaybeElement>[]'.
+  Type 'Ref<{ accessKey: string; readonly accessKeyLabel: string; autocapitalize: string; autocorrect: boolean; dir: string; draggable: boolean; hidden: boolean; inert: boolean; innerText: string; lang: string; ... 312 more ...; focus: (options?: FocusOptions | undefined) => void; } | null, HTMLElement | ... 1 more ... | nu...' is not assignable to type 'Ref<MaybeElement, MaybeElement>'.
+    Type '{ accessKey: string; readonly accessKeyLabel: string; autocapitalize: string; autocorrect: boolean; dir: string; draggable: boolean; hidden: boolean; inert: boolean; innerText: string; lang: string; ... 312 more ...; focus: (options?: FocusOptions | undefined) => void; } | null' is not assignable to type 'MaybeElement'.
+      Type '{ accessKey: string; readonly accessKeyLabel: string; autocapitalize: string; autocorrect: boolean; dir: string; draggable: boolean; hidden: boolean; inert: boolean; innerText: string; lang: string; ... 312 more ...; focus: (options?: FocusOptions | undefined) => void; }' is not assignable to type 'MaybeElement'.
+        Type '{ accessKey: string; readonly accessKeyLabel: string; autocapitalize: string; autocorrect: boolean; dir: string; draggable: boolean; hidden: boolean; inert: boolean; innerText: string; lang: string; ... 312 more ...; focus: (options?: FocusOptions | undefined) => void; }' is not assignable to type 'HTMLElement'.
+          Types of property 'offsetParent' are incompatible.
+            Type '{ readonly attributes: { [x: number]: { readonly localName: string; readonly name: string; readonly namespaceURI: string | null; readonly ownerDocument: { readonly URL: string; alinkColor: string; readonly all: { [x: number]: ...; readonly length: number; item: (nameOrIndex?: string | undefined) => Element | ... 1 m...' is not assignable to type 'Element | null'.
+              Type '{ readonly attributes: { [x: number]: { readonly localName: string; readonly name: string; readonly namespaceURI: string | null; readonly ownerDocument: { readonly URL: string; alinkColor: string; readonly all: { [x: number]: ...; readonly length: number; item: (nameOrIndex?: string | undefined) => Element | ... 1 m...' is not assignable to type 'Element'.
+                Types of property 'attributes' are incompatible.
+                  Type '{ [x: number]: { readonly localName: string; readonly name: string; readonly namespaceURI: string | null; readonly ownerDocument: { readonly URL: string; alinkColor: string; readonly all: { [x: number]: { readonly attributes: ...; ... 183 more ...; readonly assignedSlot: { ...; } | null; }; readonly length: number; ...' is not assignable to type 'NamedNodeMap'.
+                    'number' index signatures are incompatible.
+                      Type '{ readonly localName: string; readonly name: string; readonly namespaceURI: string | null; readonly ownerDocument: { readonly URL: string; alinkColor: string; readonly all: { [x: number]: { readonly attributes: { [x: number]: ...; ... 8 more ...; [Symbol.iterator]: () => ArrayIterator<...>; }; ... 183 more ...; read...' is not assignable to type 'Attr'.
+                        The types of 'ownerDocument.anchors' are incompatible between these types.
+                          Type '{ [x: number]: { charset: string; coords: string; download: string; hreflang: string; name: string; ping: string; referrerPolicy: string; rel: string; relList: { [x: number]: string; readonly length: number; ... 13 more ...; [Symbol.iterator]: () => ArrayIterator<...>; }; ... 339 more ...; username: string; }; item:...' is not assignable to type 'HTMLCollectionOf<HTMLAnchorElement>'.
+                            'number' index signatures are incompatible.
+                              Type '{ charset: string; coords: string; download: string; hreflang: string; name: string; ping: string; referrerPolicy: string; rel: string; relList: { [x: number]: string; readonly length: number; value: string; ... 12 more ...; [Symbol.iterator]: () => ArrayIterator<...>; }; ... 339 more ...; username: string; }' is not assignable to type 'HTMLAnchorElement'.
+                                Types of property 'shadowRoot' are incompatible.
+                                  Type '{ readonly clonable: boolean; readonly delegatesFocus: boolean; readonly host: { readonly attributes: { [x: number]: { readonly localName: string; readonly name: string; readonly namespaceURI: string | null; ... 53 more ...; removeEventListener: { ...; }; }; ... 8 more ...; [Symbol.iterator]: () => ArrayIterator<......' is not assignable to type 'ShadowRoot | null'.
+                                    Type '{ readonly clonable: boolean; readonly delegatesFocus: boolean; readonly host: { readonly attributes: { [x: number]: { readonly localName: string; readonly name: string; readonly namespaceURI: string | null; readonly ownerDocument: { ...; }; ... 52 more ...; removeEventListener: { ...; }; }; ... 8 more ...; [Symbol....' is not assignable to type 'ShadowRoot'.
+                                      Types of property 'adoptedStyleSheets' are incompatible.
+                                        Type '{ readonly cssRules: { [x: number]: { cssText: string; readonly parentRule: ... | null; readonly parentStyleSheet: ... | null; readonly type: number; readonly STYLE_RULE: 1; readonly CHARSET_RULE: 2; ... 9 more ...; readonly FONT_FEATURE_VALUES_RULE: 14; }; readonly length: number; item: (index: number) => CSSRule |...' is not assignable to type 'CSSStyleSheet[]'.
+                                          Type '{ readonly cssRules: { [x: number]: { cssText: string; readonly parentRule: ... | null; readonly parentStyleSheet: ... | null; readonly type: number; readonly STYLE_RULE: 1; readonly CHARSET_RULE: 2; ... 9 more ...; readonly FONT_FEATURE_VALUES_RULE: 14; }; readonly length: number; item: (index: number) => CSSRule |...' is not assignable to type 'CSSStyleSheet'.
+                                            Types of property 'ownerNode' are incompatible.
+                                              Type '{ readonly attributes: { [x: number]: { readonly localName: string; readonly name: string; readonly namespaceURI: string | null; readonly ownerDocument: { readonly URL: string; alinkColor: string; readonly all: { [x: number]: ...; readonly length: number; item: (nameOrIndex?: string | undefined) => Element | ... 1 m...' is not assignable to type 'Element | ProcessingInstruction | null'.
+                                                Type '{ readonly attributes: { [x: number]: { readonly localName: string; readonly name: string; readonly namespaceURI: string | null; readonly ownerDocument: { readonly URL: string; alinkColor: string; readonly all: { [x: number]: ...; readonly length: number; item: (nameOrIndex?: string | undefined) => Element | ... 1 m...' is not assignable to type 'Element | ProcessingInstruction | null'.
+app/components/Domain/Recipe/RecipeSuggestion.vue(6,12): error TS2322: Type 'string | null | undefined' is not assignable to type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+app/components/Domain/Recipe/RecipeSuggestion.vue(7,12): error TS2322: Type 'string | null | undefined' is not assignable to type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+app/components/Domain/Recipe/RecipeSuggestion.vue(8,12): error TS2322: Type 'string | undefined' is not assignable to type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+app/components/Domain/Recipe/RecipeSuggestion.vue(9,12): error TS2322: Type 'number | null | undefined' is not assignable to type 'number | undefined'.
+  Type 'null' is not assignable to type 'number | undefined'.
+app/components/Domain/Recipe/RecipeSuggestion.vue(10,12): error TS2322: Type 'unknown' is not assignable to type 'string | undefined'.
+app/components/Domain/Recipe/RecipeSuggestion.vue(11,12): error TS2322: Type 'string | null | undefined' is not assignable to type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+app/components/Domain/Recipe/RecipeSuggestion.vue(31,41): error TS2345: Argument of type '{ id: string; groupId?: string | null | undefined; name: string; slug: string; recipeCount?: number | undefined; householdsWithTool?: string[] | undefined; } | { id: string; name: string; pluralName?: string | ... 1 more ... | undefined; ... 8 more ...; updatedAt?: string | ... 1 more ... | undefined; }' is not assignable to parameter of type 'IngredientFood & RecipeTool'.
+  Type '{ id: string; name: string; pluralName?: string | null | undefined; description?: string | undefined; extras?: { [k: string]: unknown; } | null | undefined; labelId?: string | null | undefined; aliases?: { ...; }[] | undefined; ... 4 more ...; updatedAt?: string | ... 1 more ... | undefined; }' is not assignable to type 'IngredientFood & RecipeTool'.
+    Property 'slug' is missing in type '{ id: string; name: string; pluralName?: string | null | undefined; description?: string | undefined; extras?: { [k: string]: unknown; } | null | undefined; labelId?: string | null | undefined; aliases?: { ...; }[] | undefined; ... 4 more ...; updatedAt?: string | ... 1 more ... | undefined; }' but required in type 'RecipeTool'.
+app/components/Domain/Recipe/RecipeTimeline.vue(184,19): error TS2532: Object is possibly 'undefined'.
+app/components/Domain/Recipe/RecipeTimeline.vue(198,62): error TS2532: Object is possibly 'undefined'.
+app/components/Domain/Recipe/RecipeTimelineItem.vue(56,16): error TS2322: Type 'string | null | undefined' is not assignable to type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+app/components/Domain/Recipe/RecipeTimelineItem.vue(57,16): error TS2322: Type 'string | undefined' is not assignable to type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+app/components/Domain/Recipe/RecipeTimelineItem.vue(58,16): error TS2322: Type 'string | null | undefined' is not assignable to type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+app/components/Domain/Recipe/RecipeTimelineItem.vue(59,16): error TS2322: Type 'number | null | undefined' is not assignable to type 'number | undefined'.
+  Type 'null' is not assignable to type 'number | undefined'.
+app/components/Domain/Recipe/RecipeTimelineItem.vue(60,16): error TS2322: Type 'unknown' is not assignable to type 'string | undefined'.
+app/components/Domain/Recipe/RecipeTimelineItem.vue(61,16): error TS2322: Type 'string | null | undefined' is not assignable to type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+app/components/Domain/SearchFilter.vue(192,23): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(getter: ComputedGetter<ISearchableItem | null>, debugOptions?: DebuggerOptions | undefined): ComputedRef<ISearchableItem | null>', gave the following error.
+    Object literal may only specify known properties, and 'get' does not exist in type 'ComputedGetter<ISearchableItem | null>'.
+  Overload 2 of 2, '(options: WritableComputedOptions<ISearchableItem | null, ISearchableItem | null>, debugOptions?: DebuggerOptions | undefined): WritableComputedRef<...>', gave the following error.
+    Type 'ISearchableItem | null | undefined' is not assignable to type 'ISearchableItem | null'.
+      Type 'undefined' is not assignable to type 'ISearchableItem | null'.
+app/components/Domain/SearchFilter.vue(205,19): error TS2540: Cannot assign to 'value' because it is a read-only property.
+app/components/Domain/SearchFilter.vue(211,17): error TS2540: Cannot assign to 'value' because it is a read-only property.
+app/components/Domain/User/UserPasswordStrength.vue(21,52): error TS2345: Argument of type 'Composer<{ "af-ZA": LocaleMessage<VueMessageType>; "ar-SA": LocaleMessage<VueMessageType>; "bg-BG": LocaleMessage<VueMessageType>; ... 38 more ...; "zh-TW": LocaleMessage<...>; }, ... 4 more ..., "af-ZA" | ... 40 more ... | "zh-TW">' is not assignable to parameter of type 'VueI18n<{}, {}, {}, "af-ZA" | "ar-SA" | "bg-BG" | "ca-ES" | "cs-CZ" | "da-DK" | "de-DE" | "el-GR" | "en-GB" | "en-US" | "es-ES" | "et-EE" | "fi-FI" | "fr-BE" | "fr-CA" | "fr-FR" | "gl-ES" | ... 24 more ... | "zh-TW", never, "af-ZA" | ... 40 more ... | "zh-TW", Composer<...>>'.
+  Type 'Composer<{ "af-ZA": LocaleMessage<VueMessageType>; "ar-SA": LocaleMessage<VueMessageType>; "bg-BG": LocaleMessage<VueMessageType>; ... 38 more ...; "zh-TW": LocaleMessage<...>; }, ... 4 more ..., "af-ZA" | ... 40 more ... | "zh-TW">' is missing the following properties from type 'VueI18n<{}, {}, {}, "af-ZA" | "ar-SA" | "bg-BG" | "ca-ES" | "cs-CZ" | "da-DK" | "de-DE" | "el-GR" | "en-GB" | "en-US" | "es-ES" | "et-EE" | "fi-FI" | "fr-BE" | "fr-CA" | "fr-FR" | "gl-ES" | ... 24 more ... | "zh-TW", never, "af-ZA" | ... 40 more ... | "zh-TW", Composer<...>>': missing, postTranslation, silentTranslationWarn, silentFallbackWarn, and 5 more.
+app/components/Layout/DefaultLayout.vue(173,9): error TS2532: Object is possibly 'undefined'.
+app/components/global/AppButtonUpload.vue(116,35): error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Argument of type '{ readonly lastModified: number; readonly name: string; readonly webkitRelativePath: string; readonly size: number; readonly type: string; arrayBuffer: { (): Promise<ArrayBuffer>; (): Promise<...>; }; bytes: { ...; }; slice: { ...; }; stream: { ...; }; text: { ...; }; } | undefined' is not assignable to parameter of type 'Blob'.
+      Type 'undefined' is not assignable to type 'Blob'.
+app/components/global/BaseOverflowButton.vue(88,32): error TS2554: Expected 2 arguments, but got 1.
+app/components/global/CrudTable.vue(58,8): error TS2322: Type '({ title: string; text: string; value: string; show: boolean; align?: "start" | "center" | "end" | undefined; sortable?: boolean | undefined; sort?: ((a: any, b: any) => number) | undefined; } | { ...; })[]' is not assignable to type 'readonly { readonly key?: (string & {}) | "data-table-group" | "data-table-select" | "data-table-expand" | undefined; readonly value?: SelectItemKey<any>; readonly title?: string | undefined; ... 13 more ...; readonly children?: readonly ...[] | undefined; }[]'.
+  Type '{ title: string; text: string; value: string; show: boolean; align?: "start" | "center" | "end" | undefined; sortable?: boolean | undefined; sort?: ((a: any, b: any) => number) | undefined; } | { ...; }' is not assignable to type '{ readonly key?: (string & {}) | "data-table-group" | "data-table-select" | "data-table-expand" | undefined; readonly value?: SelectItemKey<any>; readonly title?: string | undefined; ... 13 more ...; readonly children?: readonly ...[] | undefined; }'.
+    Type '{ title: string; value: string; show: boolean; align: string; }' is not assignable to type '{ readonly key?: (string & {}) | "data-table-group" | "data-table-select" | "data-table-expand" | undefined; readonly value?: SelectItemKey<any>; readonly title?: string | undefined; ... 13 more ...; readonly children?: readonly ...[] | undefined; }'.
+      Types of property 'align' are incompatible.
+        Type 'string' is not assignable to type '"start" | "center" | "end" | undefined'.
+app/components/global/DropZone.test.ts(128,12): error TS2532: Object is possibly 'undefined'.
+app/components/global/DropZone.test.ts(129,12): error TS2532: Object is possibly 'undefined'.
+app/components/global/DropZone.test.ts(130,12): error TS2532: Object is possibly 'undefined'.
+app/components/global/DropZone.vue(74,25): error TS2769: No overload matches this call.
+  Overload 1 of 3, '(data: string): string', gave the following error.
+    Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+      Type 'undefined' is not assignable to type 'string'.
+  Overload 2 of 3, '(data: string): string', gave the following error.
+    Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+      Type 'undefined' is not assignable to type 'string'.
+  Overload 3 of 3, '(data: string): string', gave the following error.
+    Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+      Type 'undefined' is not assignable to type 'string'.
+app/components/global/DropZone.vue(82,23): error TS18048: 'type' is possibly 'undefined'.
+app/components/global/InputLabelType.vue(42,20): error TS2769: No overload matches this call.
+  Overload 1 of 4, '(options: ({ required: true; } | { default: DefineModelDefault<IngredientFood | IngredientUnit | MultiPurposeLabelSummary | null>; }) & Omit<...> & DefineModelOptions<...>): ModelRef<...>', gave the following error.
+    Type '() => null' is not assignable to type 'DefineModelDefault<IngredientFood | IngredientUnit | MultiPurposeLabelSummary | null>'.
+      Type 'null' is not assignable to type 'IngredientFood | IngredientUnit | MultiPurposeLabelSummary'.
+  Overload 2 of 4, '(options?: DefineModelRuntimeOptions<IngredientFood | IngredientUnit | MultiPurposeLabelSummary | null, IngredientFood | IngredientUnit | MultiPurposeLabelSummary | null, IngredientFood | ... 2 more ... | null> | undefined): ModelRef<...>', gave the following error.
+    Object literal may only specify known properties, and 'default' does not exist in type 'DefineModelRuntimeOptions<IngredientFood | IngredientUnit | MultiPurposeLabelSummary | null, IngredientFood | IngredientUnit | MultiPurposeLabelSummary | null, IngredientFood | ... 2 more ... | null>'.
+  Overload 3 of 4, '(name: string, options?: DefineModelRuntimeOptions<IngredientFood | IngredientUnit | MultiPurposeLabelSummary | null, IngredientFood | IngredientUnit | MultiPurposeLabelSummary | null, IngredientFood | ... 2 more ... | null> | undefined): ModelRef<...>', gave the following error.
+    Argument of type '{ default: () => null; }' is not assignable to parameter of type 'string'.
+app/components/global/InputLabelType.vue(84,25): error TS2339: Property 'id' does not exist on type 'NonNullable<T>'.
+app/components/global/InputLabelType.vue(85,5): error TS2322: Type 'NonNullable<T> | null' is not assignable to type 'T'.
+  'T' could be instantiated with an arbitrary type which could be unrelated to 'NonNullable<T> | null'.
+app/composables/api/use-downloader.ts(17,58): error TS2322: Type 'unknown' is not assignable to type 'BlobPart'.
+app/composables/partials/__tests__/use-actions-factory.test.ts(19,51): error TS2345: Argument of type 'BaseCRUDAPI<unknown, unknown, unknown>' is not assignable to parameter of type 'BaseCRUDAPI<unknown, BoundT, unknown>'.
+  The types returned by 'createOne(...)' are incompatible between these types.
+    Type 'Promise<RequestResponse<unknown>>' is not assignable to type 'Promise<RequestResponse<BoundT>>'.
+      Type 'RequestResponse<unknown>' is not assignable to type 'RequestResponse<BoundT>'.
+        Type 'unknown' is not assignable to type 'BoundT'.
+app/composables/partials/__tests__/use-actions-factory.test.ts(36,51): error TS2345: Argument of type 'BaseCRUDAPI<unknown, unknown, unknown>' is not assignable to parameter of type 'BaseCRUDAPI<unknown, BoundT, unknown>'.
+  The types returned by 'createOne(...)' are incompatible between these types.
+    Type 'Promise<RequestResponse<unknown>>' is not assignable to type 'Promise<RequestResponse<BoundT>>'.
+      Type 'RequestResponse<unknown>' is not assignable to type 'RequestResponse<BoundT>'.
+        Type 'unknown' is not assignable to type 'BoundT'.
+app/composables/partials/__tests__/use-actions-factory.test.ts(48,51): error TS2345: Argument of type 'BaseCRUDAPI<unknown, unknown, unknown>' is not assignable to parameter of type 'BaseCRUDAPI<unknown, BoundT, unknown>'.
+  The types returned by 'createOne(...)' are incompatible between these types.
+    Type 'Promise<RequestResponse<unknown>>' is not assignable to type 'Promise<RequestResponse<BoundT>>'.
+      Type 'RequestResponse<unknown>' is not assignable to type 'RequestResponse<BoundT>'.
+        Type 'unknown' is not assignable to type 'BoundT'.
+app/composables/partials/__tests__/use-actions-factory.test.ts(62,51): error TS2345: Argument of type 'BaseCRUDAPI<unknown, unknown, unknown>' is not assignable to parameter of type 'BaseCRUDAPI<unknown, BoundT, unknown>'.
+  The types returned by 'createOne(...)' are incompatible between these types.
+    Type 'Promise<RequestResponse<unknown>>' is not assignable to type 'Promise<RequestResponse<BoundT>>'.
+      Type 'RequestResponse<unknown>' is not assignable to type 'RequestResponse<BoundT>'.
+        Type 'unknown' is not assignable to type 'BoundT'.
+app/composables/partials/__tests__/use-actions-factory.test.ts(73,51): error TS2345: Argument of type 'BaseCRUDAPI<unknown, unknown, unknown>' is not assignable to parameter of type 'BaseCRUDAPI<unknown, BoundT, unknown>'.
+  The types returned by 'createOne(...)' are incompatible between these types.
+    Type 'Promise<RequestResponse<unknown>>' is not assignable to type 'Promise<RequestResponse<BoundT>>'.
+      Type 'RequestResponse<unknown>' is not assignable to type 'RequestResponse<BoundT>'.
+        Type 'unknown' is not assignable to type 'BoundT'.
+app/composables/partials/use-actions-factory.ts(78,5): error TS2322: Type '(page?: number, perPage?: number, params?: Record<string, QueryValue>) => AsyncData<T[] | undefined, NuxtError<unknown> | undefined>' is not assignable to type '(page?: number | undefined, perPage?: number | undefined, params?: any) => AsyncData<T[] | null, NuxtError<unknown> | null>'.
+  Type 'AsyncData<T[] | undefined, NuxtError<unknown> | undefined>' is not assignable to type 'AsyncData<T[] | null, NuxtError<unknown> | null>'.
+    Type 'AsyncData<T[] | undefined, NuxtError<unknown> | undefined>' is not assignable to type '_AsyncData<T[] | null, NuxtError<unknown> | null>'.
+      Types of property 'data' are incompatible.
+        Type 'Ref<T[] | undefined, T[] | undefined>' is not assignable to type 'Ref<T[] | null, T[] | null>'.
+          Type 'T[] | undefined' is not assignable to type 'T[] | null'.
+            Type 'undefined' is not assignable to type 'T[] | null'.
+app/composables/partials/use-actions-factory.ts(191,5): error TS2322: Type '(page?: number, perPage?: number, params?: Record<string, QueryValue>) => AsyncData<T[] | undefined, NuxtError<unknown> | undefined>' is not assignable to type '(page?: number | undefined, perPage?: number | undefined, params?: any) => AsyncData<T[] | null, NuxtError<unknown> | null>'.
+  Type 'AsyncData<T[] | undefined, NuxtError<unknown> | undefined>' is not assignable to type 'AsyncData<T[] | null, NuxtError<unknown> | null>'.
+    Type 'AsyncData<T[] | undefined, NuxtError<unknown> | undefined>' is not assignable to type '_AsyncData<T[] | null, NuxtError<unknown> | null>'.
+      Types of property 'data' are incompatible.
+        Type 'Ref<T[] | undefined, T[] | undefined>' is not assignable to type 'Ref<T[] | null, T[] | null>'.
+          Type 'T[] | undefined' is not assignable to type 'T[] | null'.
+            Type 'undefined' is not assignable to type 'T[] | null'.
+app/composables/recipes/use-recipe-ingredients.ts(127,13): error TS2532: Object is possibly 'undefined'.
+app/composables/recipes/use-recipe-tools.ts(3,28): error TS2307: Cannot find module '~/types/vuetify' or its corresponding type declarations.
+app/composables/recipes/use-recipe-tools.ts(40,15): error TS2339: Property 'value' does not exist on type 'Ref<never[], never[]> | AsyncData<RecipeTool[] | null | undefined, NuxtError<unknown> | undefined>'.
+  Property 'value' does not exist on type 'AsyncData<RecipeTool[] | null | undefined, NuxtError<unknown> | undefined>'.
+app/composables/recipes/use-recipe-tools.ts(56,15): error TS2339: Property 'value' does not exist on type 'Ref<never[], never[]> | AsyncData<RecipeTool[] | null | undefined, NuxtError<unknown> | undefined>'.
+  Property 'value' does not exist on type 'AsyncData<RecipeTool[] | null | undefined, NuxtError<unknown> | undefined>'.
+app/composables/recipes/use-recipe-tools.ts(67,15): error TS2339: Property 'value' does not exist on type 'Ref<never[], never[]> | AsyncData<RecipeTool[] | null | undefined, NuxtError<unknown> | undefined>'.
+  Property 'value' does not exist on type 'AsyncData<RecipeTool[] | null | undefined, NuxtError<unknown> | undefined>'.
+app/composables/recipes/use-recipes.ts(89,11): error TS2532: Object is possibly 'undefined'.
+app/composables/recipes/use-scaled-amount.ts(17,7): error TS2532: Object is possibly 'undefined'.
+app/composables/shopping-list-page/sub-composables/use-shopping-list-copy.ts(20,61): error TS2532: Object is possibly 'undefined'.
+app/composables/shopping-list-page/sub-composables/use-shopping-list-search.test.ts(77,47): error TS2739: Type '{ name: string; }' is missing the following properties from type 'MultiPurposeLabelSummary': groupId, id
+app/composables/shopping-list-page/sub-composables/use-shopping-list-search.test.ts(78,46): error TS2739: Type '{ name: string; }' is missing the following properties from type 'MultiPurposeLabelSummary': groupId, id
+app/composables/shopping-list-page/sub-composables/use-shopping-list-search.test.ts(79,38): error TS2739: Type '{ name: string; }' is missing the following properties from type 'MultiPurposeLabelSummary': groupId, id
+app/composables/store/use-user-store.ts(18,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPIReadOnly<UserSummary>'.
+app/composables/store/use-user-store.ts(19,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPIReadOnly<UserSummary>'.
+app/composables/store/use-user-store.ts(24,15): error TS2554: Expected 3 arguments, but got 1.
+app/composables/use-group-recipe-actions.ts(91,9): error TS2353: Object literal may only specify known properties, and 'orderBy' does not exist in type 'Ref<boolean, boolean>'.
+app/composables/use-utils.ts(64,21): error TS2532: Object is possibly 'undefined'.
+app/layouts/error.vue(93,37): error TS2532: Object is possibly 'undefined'.
+app/lib/api/admin/admin-ai-providers.ts(21,92): error TS2345: Argument of type 'AIProviderUpdate' is not assignable to parameter of type 'AIProviderOut'.
+  Property 'id' is missing in type 'AIProviderUpdate' but required in type 'AIProviderOut'.
+app/lib/api/admin/admin-groups.ts(13,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<GroupBase, GroupInDB, GroupAdminUpdate>'.
+app/lib/api/admin/admin-groups.ts(14,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<GroupBase, GroupInDB, GroupAdminUpdate>'.
+app/lib/api/admin/admin-households.ts(12,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<HouseholdCreate, HouseholdInDB, UpdateHouseholdAdmin>'.
+app/lib/api/admin/admin-households.ts(13,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<HouseholdCreate, HouseholdInDB, UpdateHouseholdAdmin>'.
+app/lib/api/admin/admin-users.ts(14,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<UserIn, UserOut, UserOut>'.
+app/lib/api/admin/admin-users.ts(15,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<UserIn, UserOut, UserOut>'.
+app/lib/api/client-admin.ts(25,18): error TS2554: Expected 3 arguments, but got 1.
+app/lib/api/client-admin.ts(26,23): error TS2554: Expected 3 arguments, but got 1.
+app/lib/api/client-admin.ts(27,19): error TS2554: Expected 3 arguments, but got 1.
+app/lib/api/client-user.ts(62,23): error TS2554: Expected 3 arguments, but got 1.
+app/lib/api/client-user.ts(63,17): error TS2554: Expected 3 arguments, but got 1.
+app/lib/api/client-user.ts(64,18): error TS2554: Expected 3 arguments, but got 1.
+app/lib/api/client-user.ts(65,18): error TS2554: Expected 3 arguments, but got 1.
+app/lib/api/client-user.ts(66,18): error TS2554: Expected 3 arguments, but got 1.
+app/lib/api/client-user.ts(69,18): error TS2554: Expected 3 arguments, but got 1.
+app/lib/api/client-user.ts(70,23): error TS2554: Expected 3 arguments, but got 1.
+app/lib/api/client-user.ts(71,19): error TS2554: Expected 3 arguments, but got 1.
+app/lib/api/client-user.ts(72,22): error TS2554: Expected 3 arguments, but got 1.
+app/lib/api/client-user.ts(73,31): error TS2554: Expected 3 arguments, but got 1.
+app/lib/api/client-user.ts(74,26): error TS2554: Expected 3 arguments, but got 1.
+app/lib/api/client-user.ts(76,22): error TS2554: Expected 3 arguments, but got 1.
+app/lib/api/client-user.ts(77,26): error TS2554: Expected 3 arguments, but got 1.
+app/lib/api/client-user.ts(83,31): error TS2554: Expected 3 arguments, but got 1.
+app/lib/api/client-user.ts(96,31): error TS2554: Expected 3 arguments, but got 1.
+app/lib/api/user/group-ai-providers.ts(35,37): error TS2558: Expected 1 type arguments, but got 2.
+app/lib/api/user/group-cookbooks.ts(12,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<CreateCookBook, ReadCookBook, UpdateCookBook>'.
+app/lib/api/user/group-cookbooks.ts(13,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<CreateCookBook, ReadCookBook, UpdateCookBook>'.
+app/lib/api/user/group-event-notifier.ts(16,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<GroupEventNotifierCreate, GroupEventNotifierOut, GroupEventNotifierUpdate>'.
+app/lib/api/user/group-event-notifier.ts(17,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<GroupEventNotifierCreate, GroupEventNotifierOut, GroupEventNotifierUpdate>'.
+app/lib/api/user/group-mealplan-rules.ts(12,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<PlanRulesCreate, PlanRulesOut, PlanRulesCreate>'.
+app/lib/api/user/group-mealplan-rules.ts(13,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<PlanRulesCreate, PlanRulesOut, PlanRulesCreate>'.
+app/lib/api/user/group-mealplan.ts(13,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<CreatePlanEntry, ReadPlanEntry, UpdatePlanEntry>'.
+app/lib/api/user/group-mealplan.ts(14,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<CreatePlanEntry, ReadPlanEntry, UpdatePlanEntry>'.
+app/lib/api/user/group-multiple-purpose-labels.ts(16,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<MultiPurposeLabelCreate, MultiPurposeLabelOut, MultiPurposeLabelUpdate>'.
+app/lib/api/user/group-multiple-purpose-labels.ts(17,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<MultiPurposeLabelCreate, MultiPurposeLabelOut, MultiPurposeLabelUpdate>'.
+app/lib/api/user/group-recipe-actions.ts(13,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<CreateGroupRecipeAction, GroupRecipeActionOut, CreateGroupRecipeAction>'.
+app/lib/api/user/group-recipe-actions.ts(14,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<CreateGroupRecipeAction, GroupRecipeActionOut, CreateGroupRecipeAction>'.
+app/lib/api/user/group-shopping-lists.ts(29,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<ShoppingListCreate, ShoppingListOut, ShoppingListUpdate>'.
+app/lib/api/user/group-shopping-lists.ts(30,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<ShoppingListCreate, ShoppingListOut, ShoppingListUpdate>'.
+app/lib/api/user/group-shopping-lists.ts(50,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<ShoppingListItemCreate, ShoppingListItemOut, ShoppingListItemUpdateBulk>'.
+app/lib/api/user/group-shopping-lists.ts(51,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<ShoppingListItemCreate, ShoppingListItemOut, ShoppingListItemUpdateBulk>'.
+app/lib/api/user/group-shopping-lists.ts(77,18): error TS2554: Expected 3 arguments, but got 1.
+app/lib/api/user/group-shopping-lists.ts(78,18): error TS2554: Expected 3 arguments, but got 1.
+app/lib/api/user/group-webhooks.ts(13,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<CreateWebhook, ReadWebhook, CreateWebhook>'.
+app/lib/api/user/group-webhooks.ts(14,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<CreateWebhook, ReadWebhook, CreateWebhook>'.
+app/lib/api/user/groups.ts(27,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<GroupBase, GroupInDB, GroupAdminUpdate>'.
+app/lib/api/user/groups.ts(28,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<GroupBase, GroupInDB, GroupAdminUpdate>'.
+app/lib/api/user/households.ts(34,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPIReadOnly<HouseholdSummary>'.
+app/lib/api/user/households.ts(35,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPIReadOnly<HouseholdSummary>'.
+app/lib/api/user/organizer-categories.ts(16,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<CategoryIn, RecipeCategoryResponse, CategoryIn>'.
+app/lib/api/user/organizer-categories.ts(17,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<CategoryIn, RecipeCategoryResponse, CategoryIn>'.
+app/lib/api/user/organizer-tags.ts(16,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<TagIn, RecipeTagResponse, TagIn>'.
+app/lib/api/user/organizer-tags.ts(17,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<TagIn, RecipeTagResponse, TagIn>'.
+app/lib/api/user/organizer-tools.ts(14,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<RecipeToolCreate, RecipeTool, RecipeToolCreate>'.
+app/lib/api/user/organizer-tools.ts(15,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<RecipeToolCreate, RecipeTool, RecipeToolCreate>'.
+app/lib/api/user/recipe-foods.ts(13,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<CreateIngredientFood, IngredientFood, CreateIngredientFood>'.
+app/lib/api/user/recipe-foods.ts(14,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<CreateIngredientFood, IngredientFood, CreateIngredientFood>'.
+app/lib/api/user/recipe-foods.ts(17,62): error TS2353: Object literal may only specify known properties, and 'fromFood' does not exist in type 'IngredientFood'.
+app/lib/api/user/recipe-units.ts(13,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<CreateIngredientUnit, IngredientUnit, CreateIngredientUnit>'.
+app/lib/api/user/recipe-units.ts(14,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<CreateIngredientUnit, IngredientUnit, CreateIngredientUnit>'.
+app/lib/api/user/recipe-units.ts(17,62): error TS2353: Object literal may only specify known properties, and 'fromUnit' does not exist in type 'IngredientUnit'.
+app/lib/api/user/recipes/recipe-comments.ts(13,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<RecipeCommentCreate, RecipeCommentOut, RecipeCommentUpdate>'.
+app/lib/api/user/recipes/recipe-comments.ts(14,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<RecipeCommentCreate, RecipeCommentOut, RecipeCommentUpdate>'.
+app/lib/api/user/recipes/recipe-share.ts(13,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<RecipeShareTokenCreate, RecipeShareToken, RecipeShareTokenCreate>'.
+app/lib/api/user/recipes/recipe-share.ts(14,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<RecipeShareTokenCreate, RecipeShareToken, RecipeShareTokenCreate>'.
+app/lib/api/user/recipes/recipe.ts(96,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<CreateRecipe, Recipe, RecipeIn>'.
+app/lib/api/user/recipes/recipe.ts(97,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<CreateRecipe, Recipe, RecipeIn>'.
+app/lib/api/user/recipes/recipe.ts(103,5): error TS2554: Expected 3 arguments, but got 1.
+app/lib/api/user/recipes/recipe.ts(105,21): error TS2554: Expected 3 arguments, but got 1.
+app/lib/api/user/recipes/recipe.ts(106,18): error TS2554: Expected 3 arguments, but got 1.
+app/lib/api/user/users.ts(47,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<UserIn, UserOut, UserBase>'.
+app/lib/api/user/users.ts(48,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<UserIn, UserOut, UserBase>'.
+app/lib/recipe/recipe-visibility.test.ts(53,31): error TS2739: Type '{ privateGroup: true; }' is missing the following properties from type 'ReadGroupPreferences': groupId, id
+app/lib/recipe/recipe-visibility.test.ts(58,39): error TS2741: Property 'id' is missing in type '{ privateHousehold: true; }' but required in type 'ReadHouseholdPreferences'.
+app/lib/sanitize/markdown.ts(74,50): error TS18048: 'property' is possibly 'undefined'.
+app/lib/sanitize/markdown.ts(94,26): error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Argument of type 'DOMPurifyHook' is not assignable to parameter of type 'DocumentFragmentHookName'.
+      Type 'DOMPurifyHook.UponSanitizeAttribute' is not assignable to type 'DocumentFragmentHookName'.
+app/lib/validators/password.ts(26,13): error TS2538: Type 'undefined' cannot be used as an index type.
+app/lib/validators/password.ts(26,33): error TS2538: Type 'undefined' cannot be used as an index type.
+app/lib/validators/password.ts(27,28): error TS2538: Type 'undefined' cannot be used as an index type.
+app/pages/admin/backups.vue(101,12): error TS2322: Type '({ title: string; value: string; align?: undefined; } | { title: string; value: string; align: string; })[]' is not assignable to type 'readonly { readonly key?: (string & {}) | "data-table-group" | "data-table-select" | "data-table-expand" | undefined; readonly value?: SelectItemKey<{ name: string; date: string; size: string; }>; ... 14 more ...; readonly children?: readonly ...[] | undefined; }[]'.
+  Type '{ title: string; value: string; align?: undefined; } | { title: string; value: string; align: string; }' is not assignable to type '{ readonly key?: (string & {}) | "data-table-group" | "data-table-select" | "data-table-expand" | undefined; readonly value?: SelectItemKey<{ name: string; date: string; size: string; }>; ... 14 more ...; readonly children?: readonly ...[] | undefined; }'.
+    Type '{ title: string; value: string; align: string; }' is not assignable to type '{ readonly key?: (string & {}) | "data-table-group" | "data-table-select" | "data-table-expand" | undefined; readonly value?: SelectItemKey<{ name: string; date: string; size: string; }>; ... 14 more ...; readonly children?: readonly ...[] | undefined; }'.
+      Types of property 'align' are incompatible.
+        Type 'string' is not assignable to type '"start" | "center" | "end" | undefined'.
+app/pages/admin/manage/groups/index.vue(49,10): error TS2322: Type '({ title: string; align: string; sortable: boolean; value: string; } | { title: string; value: string; align?: undefined; sortable?: undefined; })[]' is not assignable to type 'readonly { readonly key?: (string & {}) | "data-table-group" | "data-table-select" | "data-table-expand" | undefined; readonly value?: SelectItemKey<{ name: string; id: string; slug: string; categories?: { name: string; id: string; groupId?: string | ... 1 more ... | undefined; slug: string; }[] | null | undefined; ...'.
+  Type '{ title: string; align: string; sortable: boolean; value: string; } | { title: string; value: string; align?: undefined; sortable?: undefined; }' is not assignable to type '{ readonly key?: (string & {}) | "data-table-group" | "data-table-select" | "data-table-expand" | undefined; readonly value?: SelectItemKey<{ name: string; id: string; slug: string; categories?: { name: string; id: string; groupId?: string | ... 1 more ... | undefined; slug: string; }[] | null | undefined; ... 4 mor...'.
+    Type '{ title: string; align: string; sortable: boolean; value: string; }' is not assignable to type '{ readonly key?: (string & {}) | "data-table-group" | "data-table-select" | "data-table-expand" | undefined; readonly value?: SelectItemKey<{ name: string; id: string; slug: string; categories?: { name: string; id: string; groupId?: string | ... 1 more ... | undefined; slug: string; }[] | null | undefined; ... 4 mor...'.
+      Types of property 'align' are incompatible.
+        Type 'string' is not assignable to type '"start" | "center" | "end" | undefined'.
+app/pages/admin/manage/households/[id].vue(114,66): error TS18048: 'household.value' is possibly 'undefined'.
+app/pages/admin/manage/households/[id].vue(114,86): error TS2345: Argument of type 'HouseholdInDB | undefined' is not assignable to parameter of type 'UpdateHouseholdAdmin'.
+  Type 'undefined' is not assignable to type 'UpdateHouseholdAdmin'.
+app/pages/admin/manage/households/index.vue(68,10): error TS2322: Type '({ title: string; align: string; sortable: boolean; value: string; } | { title: string; value: string; align?: undefined; sortable?: undefined; })[]' is not assignable to type 'readonly { readonly key?: (string & {}) | "data-table-group" | "data-table-select" | "data-table-expand" | undefined; readonly value?: SelectItemKey<{ groupId: string; name: string; id: string; slug: string; preferences?: { ...; } | ... 1 more ... | undefined; group: string; users?: { ...; }[] | ... 1 more ... | und...'.
+  Type '{ title: string; align: string; sortable: boolean; value: string; } | { title: string; value: string; align?: undefined; sortable?: undefined; }' is not assignable to type '{ readonly key?: (string & {}) | "data-table-group" | "data-table-select" | "data-table-expand" | undefined; readonly value?: SelectItemKey<{ groupId: string; name: string; id: string; slug: string; preferences?: { ...; } | ... 1 more ... | undefined; group: string; users?: { ...; }[] | ... 1 more ... | undefined; w...'.
+    Type '{ title: string; align: string; sortable: boolean; value: string; }' is not assignable to type '{ readonly key?: (string & {}) | "data-table-group" | "data-table-select" | "data-table-expand" | undefined; readonly value?: SelectItemKey<{ groupId: string; name: string; id: string; slug: string; preferences?: { ...; } | ... 1 more ... | undefined; group: string; users?: { ...; }[] | ... 1 more ... | undefined; w...'.
+      Types of property 'align' are incompatible.
+        Type 'string' is not assignable to type '"start" | "center" | "end" | undefined'.
+app/pages/admin/manage/users/[id].vue(164,28): error TS2304: Cannot find name 'VForm'.
+app/pages/admin/manage/users/index.vue(57,10): error TS2322: Type '({ title: string; align: string; value: string; sortable?: undefined; } | { title: string; value: string; align?: undefined; sortable?: undefined; } | { title: string; value: string; sortable: boolean; align: string; })[]' is not assignable to type 'readonly { readonly key?: (string & {}) | "data-table-group" | "data-table-select" | "data-table-expand" | undefined; readonly value?: SelectItemKey<UserOut>; ... 14 more ...; readonly children?: readonly ...[] | undefined; }[]'.
+  Type '{ title: string; align: string; value: string; sortable?: undefined; } | { title: string; value: string; align?: undefined; sortable?: undefined; } | { title: string; value: string; sortable: boolean; align: string; }' is not assignable to type '{ readonly key?: (string & {}) | "data-table-group" | "data-table-select" | "data-table-expand" | undefined; readonly value?: SelectItemKey<UserOut>; ... 14 more ...; readonly children?: readonly ...[] | undefined; }'.
+    Type '{ title: string; align: string; value: string; sortable?: undefined; }' is not assignable to type '{ readonly key?: (string & {}) | "data-table-group" | "data-table-select" | "data-table-expand" | undefined; readonly value?: SelectItemKey<UserOut>; ... 14 more ...; readonly children?: readonly ...[] | undefined; }'.
+      Types of property 'align' are incompatible.
+        Type 'string' is not assignable to type '"start" | "center" | "end" | undefined'.
+app/pages/admin/site-settings.vue(377,5): error TS2322: Type '{}' is not assignable to type 'AppStatistics | { totalRecipes: number; totalUsers: number; totalHouseholds: number; totalGroups: number; uncategorizedRecipes: number; untaggedRecipes: number; }'.
+app/pages/g/[groupSlug]/cookbooks/index.vue(108,17): error TS2322: Type '{ name: string; description?: string | undefined; slug?: string | null | undefined; position?: number | undefined; public?: boolean | undefined; queryFilterString?: string | undefined; ... 4 more ...; household?: { ...; } | ... 1 more ... | undefined; } | undefined' is not assignable to type 'ReadCookBook'.
+  Type 'undefined' is not assignable to type 'ReadCookBook'.
+app/pages/g/[groupSlug]/cookbooks/index.vue(127,47): error TS2345: Argument of type '{ name: string; description?: string | undefined; slug?: string | null | undefined; position?: number | undefined; public?: boolean | undefined; queryFilterString?: string | undefined; ... 4 more ...; household?: { ...; } | ... 1 more ... | undefined; } | undefined' is not assignable to parameter of type 'ReadCookBook'.
+  Type 'undefined' is not assignable to type 'ReadCookBook'.
+app/pages/g/[groupSlug]/cookbooks/index.vue(128,44): error TS2345: Argument of type '{ name: string; description?: string | undefined; slug?: string | null | undefined; position?: number | undefined; public?: boolean | undefined; queryFilterString?: string | undefined; ... 4 more ...; household?: { ...; } | ... 1 more ... | undefined; } | undefined' is not assignable to parameter of type 'ReadCookBook'.
+  Type 'undefined' is not assignable to type 'ReadCookBook'.
+app/pages/g/[groupSlug]/cookbooks/index.vue(174,14): error TS2345: Argument of type '(a: ReadCookBook, b: ReadCookBook) => boolean' is not assignable to parameter of type '(a: ReadCookBook, b: ReadCookBook) => number'.
+  Type 'boolean' is not assignable to type 'number'.
+app/pages/g/[groupSlug]/cookbooks/index.vue(174,24): error TS18048: 'a.position' is possibly 'undefined'.
+app/pages/g/[groupSlug]/cookbooks/index.vue(174,37): error TS18048: 'b.position' is possibly 'undefined'.
+app/pages/g/[groupSlug]/cookbooks/index.vue(192,27): error TS2345: Argument of type 'CreateCookBook' is not assignable to parameter of type 'ReadCookBook'.
+  Type 'CreateCookBook' is missing the following properties from type 'ReadCookBook': groupId, householdId, id
+app/pages/g/[groupSlug]/r/[slug]/index.vue(5,7): error TS2322: Type '{ id?: string | null | undefined; userId?: string | undefined; householdId?: string | undefined; groupId?: string | undefined; name?: string | null | undefined; slug?: string | undefined; ... 29 more ...; comments?: { ...; }[] | ... 1 more ... | undefined; }' is not assignable to type 'NoUndefinedField<Recipe>'.
+  Types of property 'id' are incompatible.
+    Type 'string | null | undefined' is not assignable to type 'string'.
+      Type 'undefined' is not assignable to type 'string'.
+app/pages/g/[groupSlug]/r/[slug]/index.vue(48,3): error TS2322: Type 'Recipe | null | undefined' is not assignable to type 'Recipe | { id?: string | null | undefined; userId?: string | undefined; householdId?: string | undefined; groupId?: string | undefined; name?: string | null | undefined; slug?: string | undefined; ... 29 more ...; comments?: { ...; }[] | ... 1 more ... | undefined; } | null'.
+  Type 'undefined' is not assignable to type 'Recipe | { id?: string | null | undefined; userId?: string | undefined; householdId?: string | undefined; groupId?: string | undefined; name?: string | null | undefined; slug?: string | undefined; ... 29 more ...; comments?: { ...; }[] | ... 1 more ... | undefined; } | null'.
+app/pages/g/[groupSlug]/r/create/ai.vue(52,11): error TS2322: Type 'string | object | null' is not assignable to type 'object | undefined'.
+  Type 'null' is not assignable to type 'object | undefined'.
+app/pages/g/[groupSlug]/r/create/bulk.vue(25,26): error TS2532: Object is possibly 'undefined'.
+app/pages/g/[groupSlug]/r/create/bulk.vue(60,28): error TS2532: Object is possibly 'undefined'.
+app/pages/g/[groupSlug]/r/create/bulk.vue(80,28): error TS2532: Object is possibly 'undefined'.
+app/pages/g/[groupSlug]/r/create/html.vue(49,11): error TS2322: Type 'string | object | null' is not assignable to type 'object | undefined'.
+  Type 'null' is not assignable to type 'object | undefined'.
+app/pages/g/[groupSlug]/recipes/categories/index.vue(5,8): error TS2322: Type 'RecipeCategory[]' is not assignable to type 'GenericItem[]'.
+  Property 'onHand' is missing in type 'RecipeCategory' but required in type 'GenericItem'.
+app/pages/g/[groupSlug]/recipes/finder/index.vue(84,48): error TS2322: Type 'string | undefined' is not assignable to type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+app/pages/g/[groupSlug]/recipes/finder/index.vue(85,56): error TS2322: Type 'QueryFilterJSON | undefined' is not assignable to type '{}'.
+  Type 'undefined' is not assignable to type '{}'.
+app/pages/g/[groupSlug]/recipes/tags/index.vue(5,8): error TS2322: Type 'RecipeTag[]' is not assignable to type 'GenericItem[]'.
+  Property 'onHand' is missing in type 'RecipeTag' but required in type 'GenericItem'.
+app/pages/g/[groupSlug]/shared/r/[id].vue(6,9): error TS2322: Type 'Recipe' is not assignable to type 'NoUndefinedField<Recipe>'.
+  Types of property 'id' are incompatible.
+    Type 'string | null | undefined' is not assignable to type 'string'.
+      Type 'undefined' is not assignable to type 'string'.
+app/pages/group/data.vue(107,14): error TS2532: Object is possibly 'undefined'.
+app/pages/group/data/foods.vue(68,25): error TS2339: Property 'raw' does not exist on type '{ name: string; value: string; progress: number; dir: string; pluralFoodHandling: string; }'.
+app/pages/group/data/units.vue(81,25): error TS2339: Property 'raw' does not exist on type '{ name: string; value: string; progress: number; dir: string; pluralFoodHandling: string; }'.
+app/pages/group/data/units.vue(252,19): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(getter: ComputedGetter<AutoFormItems>, debugOptions?: DebuggerOptions | undefined): ComputedRef<AutoFormItems>', gave the following error.
+    Type 'null' is not assignable to type 'number | undefined'.
+  Overload 2 of 2, '(options: WritableComputedOptions<AutoFormItems, AutoFormItems>, debugOptions?: DebuggerOptions | undefined): WritableComputedRef<...>', gave the following error.
+    Argument of type '() => ({ cols: number; label: string; varName: string; type: "text"; rules: ((v: string | undefined | null) => string | true)[]; section?: undefined; sectionDetails?: undefined; numberInputConfig?: undefined; selectReturnValue?: undefined; options?: undefined; } | ... 5 more ... | { ...; })[]' is not assignable to parameter of type 'WritableComputedOptions<AutoFormItems, AutoFormItems>'.
+app/pages/group/migrations.vue(60,14): error TS2322: Type '(fileObject: File) => void' is not assignable to type '(payload: unknown) => any'.
+  Types of parameters 'fileObject' and 'payload' are incompatible.
+    Type 'unknown' is not assignable to type 'File'.
+app/pages/group/migrations.vue(442,7): error TS18048: 'migration' is possibly 'undefined'.
+app/pages/group/migrations.vue(442,39): error TS18048: 'migration' is possibly 'undefined'.
+app/pages/group/migrations.vue(444,5): error TS18048: 'migration' is possibly 'undefined'.
+app/pages/household/mealplan/planner/edit.vue(158,22): error TS2532: Object is possibly 'undefined'.
+app/pages/household/mealplan/planner/edit.vue(159,22): error TS2532: Object is possibly 'undefined'.
+app/pages/household/mealplan/planner/edit.vue(161,5): error TS18048: 'mealData' is possibly 'undefined'.
+app/pages/household/mealplan/planner/edit.vue(163,29): error TS2345: Argument of type 'ReadPlanEntry | undefined' is not assignable to parameter of type 'UpdatePlanEntry'.
+  Type 'undefined' is not assignable to type 'UpdatePlanEntry'.
+app/pages/household/mealplan/planner/view.vue(32,24): error TS2322: Type '{} | undefined' is not assignable to type 'string | undefined'.
+  Type '{}' is not assignable to type 'string'.
+app/pages/household/mealplan/settings.vue(78,33): error TS2339: Property 'categories' does not exist on type '{ day?: PlanRulesDay | undefined; entryType?: PlanRulesType | undefined; queryFilterString?: string | undefined; groupId: string; householdId: string; id: string; queryFilter?: { ...; } | undefined; }'.
+app/pages/household/mealplan/settings.vue(83,32): error TS2339: Property 'categories' does not exist on type '{ day?: PlanRulesDay | undefined; entryType?: PlanRulesType | undefined; queryFilterString?: string | undefined; groupId: string; householdId: string; id: string; queryFilter?: { ...; } | undefined; }'.
+app/pages/household/mealplan/settings.vue(84,34): error TS2339: Property 'categories' does not exist on type '{ day?: PlanRulesDay | undefined; entryType?: PlanRulesType | undefined; queryFilterString?: string | undefined; groupId: string; householdId: string; id: string; queryFilter?: { ...; } | undefined; }'.
+app/pages/household/mealplan/settings.vue(100,33): error TS2339: Property 'tags' does not exist on type '{ day?: PlanRulesDay | undefined; entryType?: PlanRulesType | undefined; queryFilterString?: string | undefined; groupId: string; householdId: string; id: string; queryFilter?: { ...; } | undefined; }'.
+app/pages/household/mealplan/settings.vue(105,32): error TS2339: Property 'tags' does not exist on type '{ day?: PlanRulesDay | undefined; entryType?: PlanRulesType | undefined; queryFilterString?: string | undefined; groupId: string; householdId: string; id: string; queryFilter?: { ...; } | undefined; }'.
+app/pages/household/mealplan/settings.vue(106,34): error TS2339: Property 'tags' does not exist on type '{ day?: PlanRulesDay | undefined; entryType?: PlanRulesType | undefined; queryFilterString?: string | undefined; groupId: string; householdId: string; id: string; queryFilter?: { ...; } | undefined; }'.
+app/pages/household/mealplan/settings.vue(122,33): error TS2551: Property 'households' does not exist on type '{ day?: PlanRulesDay | undefined; entryType?: PlanRulesType | undefined; queryFilterString?: string | undefined; groupId: string; householdId: string; id: string; queryFilter?: { ...; } | undefined; }'. Did you mean 'householdId'?
+app/pages/household/mealplan/settings.vue(126,35): error TS2551: Property 'households' does not exist on type '{ day?: PlanRulesDay | undefined; entryType?: PlanRulesType | undefined; queryFilterString?: string | undefined; groupId: string; householdId: string; id: string; queryFilter?: { ...; } | undefined; }'. Did you mean 'householdId'?
+app/pages/household/mealplan/settings.vue(128,48): error TS2551: Property 'households' does not exist on type '{ day?: PlanRulesDay | undefined; entryType?: PlanRulesType | undefined; queryFilterString?: string | undefined; groupId: string; householdId: string; id: string; queryFilter?: { ...; } | undefined; }'. Did you mean 'householdId'?
+app/pages/household/mealplan/settings.vue(153,32): error TS2532: Object is possibly 'undefined'.
+app/pages/household/mealplan/settings.vue(154,39): error TS2532: Object is possibly 'undefined'.
+app/pages/household/mealplan/settings.vue(155,48): error TS2532: Object is possibly 'undefined'.
+app/pages/household/mealplan/settings.vue(156,34): error TS2532: Object is possibly 'undefined'.
+app/pages/household/mealplan/settings.vue(161,33): error TS2532: Object is possibly 'undefined'.
+app/pages/household/members.vue(35,8): error TS2322: Type '({ title: string; value: string; sortable: boolean; align: string; } | { title: string; value: string; sortable?: undefined; align?: undefined; })[]' is not assignable to type 'readonly { readonly key?: (string & {}) | "data-table-group" | "data-table-select" | "data-table-expand" | undefined; readonly value?: SelectItemKey<{ id: string; username?: string | null | undefined; fullName?: string | ... 1 more ... | undefined; ... 17 more ...; cacheKey: string; } | null>; ... 14 more ...; reado...'.
+  Type '{ title: string; value: string; sortable: boolean; align: string; } | { title: string; value: string; sortable?: undefined; align?: undefined; }' is not assignable to type '{ readonly key?: (string & {}) | "data-table-group" | "data-table-select" | "data-table-expand" | undefined; readonly value?: SelectItemKey<{ id: string; username?: string | null | undefined; fullName?: string | ... 1 more ... | undefined; ... 17 more ...; cacheKey: string; } | null>; ... 14 more ...; readonly child...'.
+    Type '{ title: string; value: string; sortable: boolean; align: string; }' is not assignable to type '{ readonly key?: (string & {}) | "data-table-group" | "data-table-select" | "data-table-expand" | undefined; readonly value?: SelectItemKey<{ id: string; username?: string | null | undefined; fullName?: string | ... 1 more ... | undefined; ... 17 more ...; cacheKey: string; } | null>; ... 14 more ...; readonly child...'.
+      Types of property 'align' are incompatible.
+        Type 'string' is not assignable to type '"start" | "center" | "end" | undefined'.
+app/pages/household/members.vue(60,36): error TS2339: Property 'sessionUser' does not exist on type 'CreateComponentPublicInstanceWithMixins<ToResolvedProps<{}, {}>, { UserAvatar: DefineComponent<ExtractPropTypes<{ userId: { type: StringConstructor; required: true; }; list: { type: BooleanConstructor; default: boolean; }; size: { ...; }; tooltip: { ...; }; }>, ... 18 more ..., any>; members: Ref<...>; headers: ({ ....'.
+app/pages/household/members.vue(76,36): error TS2339: Property 'sessionUser' does not exist on type 'CreateComponentPublicInstanceWithMixins<ToResolvedProps<{}, {}>, { UserAvatar: DefineComponent<ExtractPropTypes<{ userId: { type: StringConstructor; required: true; }; list: { type: BooleanConstructor; default: boolean; }; size: { ...; }; tooltip: { ...; }; }>, ... 18 more ..., any>; members: Ref<...>; headers: ({ ....'.
+app/pages/household/members.vue(92,36): error TS2339: Property 'sessionUser' does not exist on type 'CreateComponentPublicInstanceWithMixins<ToResolvedProps<{}, {}>, { UserAvatar: DefineComponent<ExtractPropTypes<{ userId: { type: StringConstructor; required: true; }; list: { type: BooleanConstructor; default: boolean; }; size: { ...; }; tooltip: { ...; }; }>, ... 18 more ..., any>; members: Ref<...>; headers: ({ ....'.
+app/pages/household/members.vue(108,36): error TS2339: Property 'sessionUser' does not exist on type 'CreateComponentPublicInstanceWithMixins<ToResolvedProps<{}, {}>, { UserAvatar: DefineComponent<ExtractPropTypes<{ userId: { type: StringConstructor; required: true; }; list: { type: BooleanConstructor; default: boolean; }; size: { ...; }; tooltip: { ...; }; }>, ... 18 more ..., any>; members: Ref<...>; headers: ({ ....'.
+app/pages/household/notifiers.vue(119,22): error TS2532: Object is possibly 'undefined'.
+app/pages/household/notifiers.vue(123,22): error TS2532: Object is possibly 'undefined'.
+app/pages/household/notifiers.vue(123,39): error TS2339: Property 'appriseUrl' does not exist on type 'GroupEventNotifierOut'.
+app/pages/household/notifiers.vue(128,22): error TS2532: Object is possibly 'undefined'.
+app/pages/household/notifiers.vue(148,26): error TS2532: Object is possibly 'undefined'.
+app/pages/register/index.vue(99,18): error TS2345: Argument of type '{ label: string; rules: ((v: string | undefined | null) => string | true)[]; variant: string; validateOnBlur: boolean; modelValue: any; }' is not assignable to parameter of type 'Partial<{ style: StyleValue; focused: boolean; errorMessages: string | readonly string[] | null; maxErrors: string | number; readonly: boolean | null; rules: readonly (string | boolean | PromiseLike<ValidationResult> | [...] | ((value: any) => ValidationResult) | ((value: any) => PromiseLike<...>))[]; ... 25 more .....'.
+  Type '{ label: string; rules: ((v: string | undefined | null) => string | true)[]; variant: string; validateOnBlur: boolean; modelValue: any; }' is not assignable to type 'Partial<{ style: StyleValue; focused: boolean; errorMessages: string | readonly string[] | null; maxErrors: string | number; readonly: boolean | null; rules: readonly (string | boolean | PromiseLike<ValidationResult> | [...] | ((value: any) => ValidationResult) | ((value: any) => PromiseLike<...>))[]; ... 25 more .....'.
+    Types of property 'variant' are incompatible.
+      Type 'string' is not assignable to type '"outlined" | "plain" | "solo" | "filled" | "solo-filled" | "solo-inverted" | "underlined" | undefined'.
+app/pages/register/index.vue(153,18): error TS2345: Argument of type '{ label: string; rules: ((v: string | undefined | null) => string | true)[]; errorMessages: string[]; variant: string; validateOnBlur: boolean; modelValue: string; onBlur: any; }' is not assignable to parameter of type 'Partial<{ style: StyleValue; focused: boolean; errorMessages: string | readonly string[] | null; maxErrors: string | number; readonly: boolean | null; rules: readonly (string | boolean | PromiseLike<ValidationResult> | [...] | ((value: any) => ValidationResult) | ((value: any) => PromiseLike<...>))[]; ... 25 more .....'.
+  Type '{ label: string; rules: ((v: string | undefined | null) => string | true)[]; errorMessages: string[]; variant: string; validateOnBlur: boolean; modelValue: string; onBlur: any; }' is not assignable to type 'Partial<{ style: StyleValue; focused: boolean; errorMessages: string | readonly string[] | null; maxErrors: string | number; readonly: boolean | null; rules: readonly (string | boolean | PromiseLike<ValidationResult> | [...] | ((value: any) => ValidationResult) | ((value: any) => PromiseLike<...>))[]; ... 25 more .....'.
+    Types of property 'variant' are incompatible.
+      Type 'string' is not assignable to type '"outlined" | "plain" | "solo" | "filled" | "solo-filled" | "solo-inverted" | "underlined" | undefined'.
+app/pages/shopping-lists/[id].vue(67,39): error TS2322: Type 'ShoppingListMultiPurposeLabelOut | undefined' is not assignable to type 'ShoppingListMultiPurposeLabelOut'.
+  Type 'undefined' is not assignable to type 'ShoppingListMultiPurposeLabelOut'.
+app/pages/shopping-lists/[id].vue(225,39): error TS2345: Argument of type 'string | number' is not assignable to parameter of type 'string'.
+  Type 'number' is not assignable to type 'string'.
+app/pages/shopping-lists/[id].vue(227,39): error TS2345: Argument of type 'string | number' is not assignable to parameter of type 'string'.
+  Type 'number' is not assignable to type 'string'.
+app/pages/shopping-lists/[id].vue(246,25): error TS2322: Type 'ShoppingListItemOut | undefined' is not assignable to type 'ShoppingListItemOut'.
+  Type 'undefined' is not assignable to type 'ShoppingListItemOut'.
+app/pages/shopping-lists/[id].vue(308,19): error TS2322: Type '{ quantity?: number | undefined; unit?: { id: string; name: string; pluralName?: string | null | undefined; description?: string | undefined; extras?: { [k: string]: unknown; } | null | undefined; ... 8 more ...; updatedAt?: string | ... 1 more ... | undefined; } | null | undefined; ... 17 more ...; updatedAt?: stri...' is not assignable to type 'ShoppingListItemOut'.
+  Type 'undefined' is not assignable to type 'ShoppingListItemOut'.
+app/pages/shopping-lists/[id].vue(375,18): error TS2532: Object is possibly 'undefined'.
+app/pages/shopping-lists/index.vue(191,37): error TS2532: Object is possibly 'undefined'.
+app/pages/user/profile/api-tokens.vue(15,52): error TS18047: '__VLS_ctx.user' is possibly 'null'.
+app/pages/user/profile/api-tokens.vue(87,36): error TS18047: '__VLS_ctx.user' is possibly 'null'.
+app/pages/user/profile/api-tokens.vue(161,31): error TS2339: Property 'token' does not exist on type 'LongLiveTokenOut'.
+nuxt.config.ts(216,5): error TS2353: Object literal may only specify known properties, and 'lazy' does not exist in type 'Partial<NuxtI18nOptions<unknown, string[] | LocaleObject<"af-ZA" | "ar-SA" | "bg-BG" | "ca-ES" | "cs-CZ" | "da-DK" | "de-DE" | "el-GR" | "en-GB" | "en-US" | "es-ES" | "et-EE" | "fi-FI" | "fr-BE" | "fr-CA" | "fr-FR" | ... 25 more ... | "zh-TW">[]>>'.

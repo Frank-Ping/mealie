@@ -1,0 +1,16 @@
+{
+  "name": "mealie-frontend-e2e",
+  "private": true,
+  "description": "Framework-agnostic E2E yardstick for the Mealie frontend (drives the built SPA through a real browser only)",
+  "scripts": {
+    "test": "playwright test",
+    "test:routes": "playwright test --project=routes",
+    "test:flows": "playwright test --project=flows"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0",
+    "@types/node": "^22.0.0",
+    "typescript": "^5.9.0"
+  },
+  "packageManager": "pnpm@11.23.0"
+}

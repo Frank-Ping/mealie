@@ -1,0 +1,3 @@
+.tools/
+# measure.sh run logs are evidence; the root .gitignore ignores *.log
+!runs/**/*.log

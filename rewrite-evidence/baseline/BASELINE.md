@@ -42,3 +42,23 @@ Full table: `coverage-by-area.txt`.
 1. **pnpm auto-install on `pnpm exec`.** `pnpm-lock.yaml` (2026-09-29) was newer than `node_modules` (2026-09-23), so pnpm 11 ran an implicit `pnpm install` before vitest. With the npm registry answering in 10–14 s per request, this ran for ~12 min and was killed (exit 137), which also restarted the Claude Code session. Fixed by running `pnpm install --frozen-lockfile` explicitly first.
 2. **Memory.** vitest defaults to one worker per CPU (16) on a 3.8 GiB machine; baseline was run with `--maxWorkers=4`. The same limit will cap how many parallel agents can run builds/tests at once in WF2.
 3. **Type check is not part of the project's CI** (`.github/workflows/test-frontend.yml` runs only lint + tests; `task ui:check` = lint + test). `npx -p typescript@5.9.3 -p vue-tsc@2.2.0` still resolved TypeScript 7.0.2 from a stale npx cache and crashed (`ERR_PACKAGE_PATH_NOT_EXPORTED`); the working method was installing both pinned versions into a separate temp directory.
+
+## E2E yardstick and metrics (added at `P0-e2e-green-on-vue`)
+
+- **`frontend-e2e/`** — Playwright, framework-agnostic (roles / accessible names / visible text /
+  tooltips only). Runs the real backend (`PRODUCTION=true`, fresh SQLite per run, port 9091) serving
+  a built SPA from `E2E_STATIC_DIR`, the same way `mealie/routes/spa/` serves it in production.
+  Fixture data is seeded through the REST API. See `frontend-e2e/README.md`.
+  - Tier 1: **66/66** `[route]` tests pass on Vue (one per page file).
+  - Tier 2: **15/15** `[flow]` tests pass on Vue.
+  - Full suite ≈ 4 min with 2 workers. Retries are off. One flake found while writing the suite
+    (shopping-list check-off saved in the background, lost on an immediate reload) and fixed by
+    waiting for the save; 5/5 repeat runs green afterwards.
+- **`rewrite-evidence/measure.sh`** appends one row per run to `rewrite-evidence/metrics.csv`; raw
+  logs/reports go to `rewrite-evidence/runs/<run-id>/`. Row 0 (Vue, `P0-vue-baseline`) reproduces the
+  numbers above: tsc 315, lint 0, unit 517/517, build OK (60 s), routes 66/66, flows 15/15,
+  `any` 88, TODO-like 16, `expect(` 817 in 48 test files.
+- **Observed in the Vue reference:** a non-admin who opens an `/admin/...` URL directly still gets
+  the admin page shell (the `admin-only` middleware does not redirect on a hard load); every admin
+  API call answers 403, so no data leaks. The yardstick therefore tests which admin links a member
+  is offered rather than direct URL access.
