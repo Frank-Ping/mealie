@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { apiClient } from "@/lib/api/client";
 import useDefaultActivity from "@/composables/use-default-activity";
@@ -17,7 +17,7 @@ export default function HomePage() {
   const navigate = useNavigate();
   const activityPreferences = useUserActivityPreferences();
   const { getDefaultActivityRoute } = useDefaultActivity();
-  const groupSlug = useMemo(() => auth.user?.groupSlug, []); // WF4-REVIEW: dependency array
+  const groupSlug = auth.user?.groupSlug; // was computed — plain read stays reactive
 
   async function redirectPublicUserToDefaultGroup() {
     const { data } = await apiClient.get<AppInfo>("/api/app/about");
@@ -30,30 +30,37 @@ export default function HomePage() {
   }
 
   useEffect(() => {
+    let cancelled = false;
     void (async () => {
-    if (groupSlug) {
-      const data = await apiClient.get<AppStartupInfo>("/api/app/about/startup-info");
-      const isDemo = data.data.isDemo;
-      const isFirstLogin = data.data.isFirstLogin;
-      const defaultActivityRoute = getDefaultActivityRoute(
-        activityPreferences.defaultActivity,
-        groupSlug,
-      );
-      if (!isDemo && isFirstLogin && auth.user?.admin) {
-        navigate("/admin/setup");
+      try {
+        if (groupSlug) {
+            const data = await apiClient.get<AppStartupInfo>("/api/app/about/startup-info");
+            const isDemo = data.data.isDemo;
+            const isFirstLogin = data.data.isFirstLogin;
+            const defaultActivityRoute = getDefaultActivityRoute(
+              activityPreferences.defaultActivity,
+              groupSlug,
+            );
+            if (!isDemo && isFirstLogin && auth.user?.admin) {
+              navigate("/admin/setup");
+            }
+            else if (defaultActivityRoute) {
+              navigate(defaultActivityRoute);
+            }
+            else {
+              navigate(`/g/${groupSlug}`);
+            }
+          }
+          else {
+            redirectPublicUserToDefaultGroup();
+          }
       }
-      else if (defaultActivityRoute) {
-        navigate(defaultActivityRoute);
+      catch (err) {
+        if (!cancelled) console.error(err); // WF4-REVIEW: surface load errors (was useAsyncData)
       }
-      else {
-        navigate(`/g/${groupSlug}`);
-      }
-    }
-    else {
-      redirectPublicUserToDefaultGroup();
-    }
-  })();
-  }, []); // WF4-REVIEW: deps, loading & error state (was useAsyncData)
+    })();
+    return () => { cancelled = true; };
+  }, []); // WF4-REVIEW: deps + re-run trigger — confirm against auth-ready init flow
 
   return (
     <>

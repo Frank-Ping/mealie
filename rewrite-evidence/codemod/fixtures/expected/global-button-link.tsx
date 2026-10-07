@@ -16,7 +16,7 @@ export default function ButtonLink({ to, text, icon = "" }: Props) {
   <div>
     <Button variant="outlined" className="rounded-xl my-1 mx-1" component={Link} to={to}>
       {(icon != '') ? (
-        {/* WF4-REVIEW: icon name resolves via lib/icons; dropped Vuetify-only prop "start" on <v-icon> */}
+        /* WF4-REVIEW: icon name resolves via lib/icons; dropped Vuetify-only prop "start" on <v-icon> */
         <MdiIcon name={icon} />
       ) : null}
       {text}

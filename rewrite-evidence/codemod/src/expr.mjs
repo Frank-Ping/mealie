@@ -33,7 +33,9 @@ export function transformExpr(code, ctx = {}) {
   let out = code;
   if (out.includes("$t(")) ctx.needsTranslation = true;
   out = out.replace(/\$t\(/g, "t(");
-  out = out.replace(/\$emit\(\s*['"`]([^'"`]+)['"`]\s*(?:,\s*)?/g, (_, ev) => `${emitToProp(ev)}(`);
+  // $emit('x', a) → onX?.(a): emit props are optional, and Vue's $emit is a no-op
+  // without listeners — the optional call preserves that safety.
+  out = out.replace(/\$emit\(\s*['"`]([^'"`]+)['"`]\s*(?:,\s*)?/g, (_, ev) => `${emitToProp(ev)}?.(`);
   out = stripValueReads(out, ctx);
   if (ctx.destructureProps) {
     out = out.replace(/\bprops\./g, "");

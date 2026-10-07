@@ -1,3 +1,4 @@
+// WF4-REFINED: contains human gate-2 polish beyond codemod output (emit payload types)
 import { Chip } from "@mui/material";
 import type { RecipeCategory, RecipeTag, RecipeTool } from "@/lib/api/types/recipe";
 import { truncateText as truncatePlainText } from "@/lib/sanitize/text";
@@ -10,7 +11,7 @@ interface Props {
   limit?: number;
   small?: boolean;
   maxWidth?: string | null;
-  onItemSelected?: (...args: unknown[]) => void; // WF4-REVIEW: payload types
+  onItemSelected?: (item: RecipeCategory | RecipeTag | RecipeTool, urlPrefix?: UrlPrefixParam) => void; // WF4-REFINED (gate #2): payload types tightened from (...args: unknown[])
 }
 
 export type UrlPrefixParam = "tags" | "categories" | "tools";
@@ -34,8 +35,8 @@ export default function RecipeChips({ truncate = false, items = [], title = fals
         </h2>
       ) : null}
       {items.slice(0, limit).map(category => (
-        {/* WF4-REVIEW: dropped Vuetify-only prop "dark" on <v-chip> */}
-        <Chip key={category.name} label className="mr-1 mt-1" color="accent" variant="flat" size={small ? 'small' : 'default'} onClick={(e) => { e.preventDefault(); onItemSelected(category, urlPrefix); }}>
+        /* WF4-REVIEW: dropped Vuetify-only prop "dark" on <v-chip> */
+        <Chip key={category.name} label className="mr-1 mt-1" color="accent" variant="flat" size={small ? 'small' : 'default'} onClick={(e) => { e.preventDefault(); onItemSelected?.(category, urlPrefix); }}>
           {truncateText(category.name)}
         </Chip>
       ))}

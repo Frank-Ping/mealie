@@ -99,7 +99,7 @@ function camelEvent(s) {
   return s.replace(/[:.-]([a-z])/g, (_, c) => c.toUpperCase());
 }
 
-function renderElement(el, ctx, depth) {
+function renderElement(el, ctx, depth, exprContext = false) {
   const pad = "  ".repeat(depth);
   const notes = [];
 
@@ -107,7 +107,7 @@ function renderElement(el, ctx, depth) {
   const htmlDir = getDir(el, "html");
   if (htmlDir) {
     ctx.needsSafeHtml = true;
-    return `${pad}<SafeHtml html={${transformExpr(htmlDir.exp.content, ctx)}} />`;
+    return comment(notes, pad, exprContext) + `${pad}<SafeHtml html={${transformExpr(htmlDir.exp.content, ctx)}} />`;
   }
 
   let tagJsx;
@@ -143,20 +143,23 @@ function renderElement(el, ctx, depth) {
   if (el.tag === "v-icon") {
     const interp = el.children.find((c) => c.type === NodeTypes.INTERPOLATION);
     const name = interp ? transformExpr(interp.content.content, ctx) : null;
-    return comment(notes, pad) + `${pad}<MdiIcon${name ? ` name={${name}}` : ""}${props ? " " + props : ""} />`;
+    return comment(notes, pad, exprContext) + `${pad}<MdiIcon${name ? ` name={${name}}` : ""}${props ? " " + props : ""} />`;
   }
 
   const kids = el.children.filter((c) => !isWs(c));
   if (kids.length === 0) {
-    return comment(notes, pad) + `${pad}<${tagJsx}${props ? " " + props : ""} />`;
+    return comment(notes, pad, exprContext) + `${pad}<${tagJsx}${props ? " " + props : ""} />`;
   }
   childrenJsx = renderChildren(el.children, ctx, depth + 1);
-  return comment(notes, pad) + `${pad}<${tagJsx}${props ? " " + props : ""}>\n${childrenJsx}\n${pad}</${tagJsx}>`;
+  return comment(notes, pad, exprContext) + `${pad}<${tagJsx}${props ? " " + props : ""}>\n${childrenJsx}\n${pad}</${tagJsx}>`;
 }
 
-function comment(notes, pad) {
+function comment(notes, pad, exprContext) {
   if (!notes.length) return "";
-  return `${pad}{/* WF4-REVIEW: ${notes.join("; ")} */}\n`;
+  const text = `WF4-REVIEW: ${notes.join("; ")}`;
+  // {/* */} is only valid inside JSX children; in expression positions
+  // (ternary branches, .map() callbacks) a plain block comment is required.
+  return exprContext ? `${pad}/* ${text} */\n` : `${pad}{/* ${text} */}\n`;
 }
 
 function renderChildren(children, ctx, depth) {
@@ -181,7 +184,7 @@ function renderChildren(children, ctx, depth) {
     const forDir = getDir(node, "for");
     if (forDir) {
       const parsed = parseFor(forDir.exp.content);
-      const elJsx = renderElement(stripDir(node, "for"), ctx, depth + 1);
+      const elJsx = renderElement(stripDir(node, "for"), ctx, depth + 1, true);
       if (parsed) {
         out.push(`${pad}{${transformExpr(parsed.source, ctx)}.map(${parsed.params} => (\n${elJsx}\n${pad}))}`);
       }
@@ -211,7 +214,7 @@ function renderChildren(children, ctx, depth) {
       }
       i = j - 1;
       const parts = branches.map((b, k) => {
-        const elJsx = renderElement(stripDir(b.node, b.cond === null ? "else" : k === 0 ? "if" : "else-if"), ctx, depth + 1);
+        const elJsx = renderElement(stripDir(b.node, b.cond === null ? "else" : k === 0 ? "if" : "else-if"), ctx, depth + 1, true);
         if (b.cond === null) return `(\n${elJsx}\n${pad})`;
         return `(${b.cond}) ? (\n${elJsx}\n${pad})`;
       });

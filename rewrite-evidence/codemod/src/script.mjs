@@ -109,6 +109,12 @@ export function transformScript(script, ctx) {
   // ---- computed ----
   body = body.replace(/const\s+(\w+)\s*=\s*computed(?:<[^>]*>)?\(\s*\(\)\s*=>\s*([^\n{][^;]*?)\);?/g, (_, name, expr) => {
     ctx.derivedIds.add(name);
+    // Simple member/optional-chain reads are cheap and stay live on every render —
+    // freezing them in useMemo([]) would lose reactivity (gate #2 finding P2).
+    const simpleRead = /^[\w$?.[\]'"\s]+$/.test(expr) && !expr.includes("(");
+    if (simpleRead) {
+      return `const ${name} = ${expr}; // was computed — plain read stays reactive`;
+    }
     ctx.hooks.add("useMemo");
     return `const ${name} = useMemo(() => ${expr}, []); // WF4-REVIEW: dependency array`;
   });
@@ -148,10 +154,22 @@ export function transformScript(script, ctx) {
   });
   body = body.replace(/\$globals\.icons/g, "icons");
 
-  // ---- useAsyncData → useEffect ----
-  body = body.replace(/useAsyncData\(\s*[^,]+,\s*(async\s*\([^)]*\)\s*=>\s*\{[\s\S]*?\})\s*,?\s*\);?/g, (_, fn) => {
+  // ---- useAsyncData → useEffect (skeleton with cancellation + error handling) ----
+  body = body.replace(/useAsyncData\(\s*[^,]+,\s*async\s*\(([^)]*)\)\s*=>\s*\{([\s\S]*?)\}\s*,?\s*\);?/g, (_, _args, inner) => {
     ctx.hooks.add("useEffect");
-    return `useEffect(() => {\n  void (${fn.trim()})();\n}, []); // WF4-REVIEW: deps, loading & error state (was useAsyncData)`;
+    const indented = inner.trim().split("\n").map((l) => (l.trim() ? "      " + l : l)).join("\n");
+    return `useEffect(() => {
+  let cancelled = false;
+  void (async () => {
+    try {
+${indented}
+    }
+    catch (err) {
+      if (!cancelled) console.error(err); // WF4-REVIEW: surface load errors (was useAsyncData)
+    }
+  })();
+  return () => { cancelled = true; };
+}, []); // WF4-REVIEW: deps + re-run trigger — confirm against auth-ready init flow`;
   });
 
   // ---- .value assignments for tracked refs ----
