@@ -11,6 +11,7 @@ import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { convertVue, convertTs } from "./src/index.mjs";
 import { buildComposableIndex } from "./src/composable-index.mjs";
+import { buildComponentIndex } from "./src/component-index.mjs";
 
 const root = fileURLToPath(new URL(".", import.meta.url));
 const samplesDir = join(root, "fixtures", "samples");
@@ -20,6 +21,7 @@ const composablesDir = join(root, "..", "..", "frontend", "app", "composables");
 
 const update = process.argv.includes("--update-actual");
 const index = buildComposableIndex(composablesDir);
+const componentIdx = buildComponentIndex(join(root, "..", "..", "frontend", "app", "components")).index;
 
 // Every line in `refined` that does not exactly mirror `codemod` must carry
 // WF4-REFINED. Marked lines are either insertions (next refined line realigns)
@@ -56,7 +58,7 @@ for (const sample of readdirSync(samplesDir)) {
   const inputFile = readdirSync(dir).find((f) => f.endsWith(".vue") || f.endsWith(".ts"));
   if (!inputFile) continue;
   const input = readFileSync(join(dir, inputFile), "utf8");
-  const result = inputFile.endsWith(".vue") ? convertVue(input, join(dir, inputFile), index) : convertTs(input, join(dir, inputFile), index);
+  const result = inputFile.endsWith(".vue") ? convertVue(input, join(dir, inputFile), index, componentIdx) : convertTs(input, join(dir, inputFile), index);
   if (update) writeFileSync(join(actualDir, `${sample}.tsx`), result.code);
 
   const snapshotPath = join(expectedDir, `${sample}.codemod.tsx`);

@@ -18,7 +18,7 @@ export default function HomePage() {
   const navigate = useNavigate();
   const activityPreferences = useUserActivityPreferences();
   const { getDefaultActivityRoute } = useDefaultActivity();
-  const groupSlug = auth.user?.groupSlug; // was computed — plain read stays reactive
+  const groupSlug = auth.user?.groupSlug; // WF4-REFINED: auth port will expose plain values (the codemod deliberately keeps .value reads visible)
 
   async function redirectPublicUserToDefaultGroup(isStale: () => boolean) { // WF4-REFINED: staleness guard threaded from the effect
     const { data } = await apiClient.get<AppInfo>("/api/app/about");
@@ -42,10 +42,10 @@ export default function HomePage() {
             const isDemo = data.data.isDemo;
             const isFirstLogin = data.data.isFirstLogin;
             const defaultActivityRoute = getDefaultActivityRoute(
-              activityPreferences.defaultActivity,
+              activityPreferences.defaultActivity, // WF4-REFINED: prefs port will expose plain values
               groupSlug,
             );
-            if (!isDemo && isFirstLogin && auth.user?.admin) {
+            if (!isDemo && isFirstLogin && auth.user?.admin) { // WF4-REFINED: auth port will expose plain values
               navigate("/admin/setup");
             }
             else if (defaultActivityRoute) {

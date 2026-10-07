@@ -9,6 +9,7 @@ import { fileURLToPath } from "node:url";
 import { parse as parseSfc } from "@vue/compiler-sfc";
 import { convertVue, convertTs } from "./src/index.mjs";
 import { buildComposableIndex } from "./src/composable-index.mjs";
+import { buildComponentIndex } from "./src/component-index.mjs";
 
 const root = fileURLToPath(new URL(".", import.meta.url));
 const repoRoot = join(root, "..", "..");
@@ -34,6 +35,7 @@ function walk(dir, exts, skipTests = true) {
 }
 
 const index = buildComposableIndex(join(appDir, "composables"));
+const componentIdx = buildComponentIndex(join(appDir, "components")).index;
 const files = [];
 const unmappedHist = new Map();
 let markersTotal = 0, reviewJTotal = 0;
@@ -56,7 +58,7 @@ function convertAll(relScope, ext, converter) {
           continue;
         }
       }
-      const result = converter(source, file, index);
+      const result = converter(source, file, index, componentIdx);
       const outExt = ext === ".vue" ? ".tsx" : ".ts";
       const outPath = join(outDir, rel).replace(/\.[^.]+$/, outExt);
       mkdirSync(dirname(outPath), { recursive: true });

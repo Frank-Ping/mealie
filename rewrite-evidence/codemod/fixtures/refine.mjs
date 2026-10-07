@@ -35,6 +35,18 @@ const refinements = {
       from: "}, []); // WF4-REVIEW: deps + re-run trigger — confirm against auth-ready init flow",
       to: "}, [groupSlug]); // WF4-REFINED: re-run when auth resolves; the original useAsyncData did not watch auth either — confirm the trigger against the init flow",
     },
+    {
+      from: "const groupSlug = auth.user.value?.groupSlug; // was computed — plain read stays reactive",
+      to: "const groupSlug = auth.user?.groupSlug; // WF4-REFINED: auth port will expose plain values (the codemod deliberately keeps .value reads visible)",
+    },
+    {
+      from: "activityPreferences.value.defaultActivity,",
+      to: "activityPreferences.defaultActivity, // WF4-REFINED: prefs port will expose plain values",
+    },
+    {
+      from: "if (!isDemo && isFirstLogin && auth.user.value?.admin) {",
+      to: "if (!isDemo && isFirstLogin && auth.user?.admin) { // WF4-REFINED: auth port will expose plain values",
+    },
   ],
   "domain-recipe-chips": [
     {

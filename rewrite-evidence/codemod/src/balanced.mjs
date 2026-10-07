@@ -53,6 +53,29 @@ export function extractCall(src, idx) {
   return null;
 }
 
+// Balance an angle-bracket generic starting at src[idx] === '<'.
+// Arrow `=>` and nested generics are handled; returns { args, end } or null.
+export function extractAngles(src, idx) {
+  if (src[idx] !== "<") return null;
+  let i = idx + 1, angle = 1, inStr = null;
+  while (i < src.length) {
+    const ch = src[i], prev = src[i - 1];
+    if (inStr) {
+      if (ch === "\\") { i += 2; continue; }
+      if (ch === inStr) inStr = null;
+      i++; continue;
+    }
+    if (ch === '"' || ch === "'" || ch === "`") { inStr = ch; i++; continue; }
+    if (ch === "<") angle++;
+    else if (ch === ">" && prev !== "=") {
+      angle--;
+      if (angle === 0) return { args: src.slice(idx + 1, i), end: i + 1 };
+    }
+    i++;
+  }
+  return null;
+}
+
 // Split a call-argument string on top-level commas (depth/string aware).
 export function splitArgs(s) {
   const parts = [];
@@ -73,4 +96,43 @@ export function splitArgs(s) {
   }
   if (cur.trim()) parts.push(cur);
   return parts.map((p) => p.trim());
+}
+
+// Extract an expression statement's RHS starting at src[idx], terminating at the
+// first depth-0 ';' (or depth-0 newline when the line does not end with a
+// continuation character). String/template/comment aware.
+export function extractStatement(src, idx) {
+  let i = idx, depth = 0, inStr = null, inLine = false, inBlock = false;
+  const CONT = new Set(["(", ",", "+", "|", "&", "?", ":", ".", "=", "-", "*", "/", "<", ">", "!"]);
+  while (i < src.length) {
+    const ch = src[i], next = src[i + 1];
+    if (inLine) { if (ch === "\n") inLine = false; i++; continue; }
+    if (inBlock) { if (ch === "*" && next === "/") { inBlock = false; i += 2; continue; } i++; continue; }
+    if (inStr) {
+      if (ch === "\\") { i += 2; continue; }
+      if (ch === inStr) inStr = null;
+      i++; continue;
+    }
+    if (ch === "/" && next === "/") { inLine = true; i += 2; continue; }
+    if (ch === "/" && next === "*") { inBlock = true; i += 2; continue; }
+    if (ch === '"' || ch === "'" || ch === "`") { inStr = ch; i++; continue; }
+    if (OPEN_TO_CLOSE[ch]) depth++;
+    else if (ch === ")" || ch === "}" || ch === "]") depth--;
+    else if (ch === ";" && depth === 0) return { args: src.slice(idx, i), end: i + 1 };
+    else if (ch === "\n" && depth === 0) {
+      const lineSoFar = src.slice(idx, i).trimEnd();
+      const lastCh = lineSoFar[lineSoFar.length - 1] ?? "";
+      if (!CONT.has(lastCh) && !lineSoFar.endsWith("=>")) {
+        // a statement may still continue on the next line (prettier puts ternary
+        // `?`/`:` and method chains at line start)
+        let k = i + 1;
+        while (k < src.length && (src[k] === "\n" || src[k] === " " || src[k] === "\t" || src[k] === "\r")) k++;
+        const nextCh = src[k] ?? "";
+        const NEXT_CONT = new Set(["?", ":", ".", "&", "|", "+", "-", "*", "/", "%", ","]);
+        if (!NEXT_CONT.has(nextCh)) return { args: lineSoFar, end: i };
+      }
+    }
+    i++;
+  }
+  return null;
 }

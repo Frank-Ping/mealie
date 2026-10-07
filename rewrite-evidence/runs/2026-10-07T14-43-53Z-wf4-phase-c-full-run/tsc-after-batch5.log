@@ -1,0 +1,17 @@
+src/components/Domain/Announcement/Announcements/2026-05-31_1_iframe-embeds.tsx(14,10): error TS17008: JSX element 'iframe' has no corresponding closing tag.
+src/components/Domain/Recipe/RecipeDialogBulkAdd.tsx(29,7): error TS1128: Declaration or statement expected.
+src/components/Domain/Recipe/RecipeIngredientHtml.tsx(12,3): error TS1109: Expression expected.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInstructions.tsx(176,7): error TS1128: Declaration or statement expected.
+src/components/Domain/ShoppingList/ShoppingListItem.tsx(27,1): error TS1131: Property or signature expected.
+src/components/Domain/ShoppingList/ShoppingListItem.tsx(257,1): error TS1128: Declaration or statement expected.
+src/components/global/BaseButton.tsx(31,121): error TS1005: ':' expected.
+src/components/global/BaseButton.tsx(78,15): error TS1109: Expression expected.
+src/pages/admin/manage/users/[id].tsx(79,77): error TS1005: ')' expected.
+src/pages/admin/manage/users/[id].tsx(83,4): error TS1128: Declaration or statement expected.
+src/pages/g/[groupSlug]/r/create/ai.tsx(119,6): error TS1005: ')' expected.
+src/pages/g/[groupSlug]/r/create/ai.tsx(123,26): error TS1128: Declaration or statement expected.
+src/pages/g/[groupSlug]/recipes/timeline.tsx(27,57): error TS1005: ')' expected.
+src/pages/g/[groupSlug]/recipes/timeline.tsx(29,6): error TS1128: Declaration or statement expected.
+src/pages/group/data/foods.tsx(267,7): error TS1128: Declaration or statement expected.
+src/pages/group/data/foods.tsx(267,37): error TS1109: Expression expected.
+src/pages/group/data/foods.tsx(268,7): error TS1128: Declaration or statement expected.

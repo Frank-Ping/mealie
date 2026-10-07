@@ -17,7 +17,7 @@ export default function HomePage() {
   const navigate = useNavigate();
   const activityPreferences = useUserActivityPreferences();
   const { getDefaultActivityRoute } = useDefaultActivity();
-  const groupSlug = auth.user?.groupSlug; // was computed — plain read stays reactive
+  const groupSlug = auth.user.value?.groupSlug; // was computed — plain read stays reactive
 
   async function redirectPublicUserToDefaultGroup() {
     const { data } = await apiClient.get<AppInfo>("/api/app/about");
@@ -39,10 +39,10 @@ export default function HomePage() {
             const isDemo = data.data.isDemo;
             const isFirstLogin = data.data.isFirstLogin;
             const defaultActivityRoute = getDefaultActivityRoute(
-              activityPreferences.defaultActivity,
+              activityPreferences.value.defaultActivity,
               groupSlug,
             );
-            if (!isDemo && isFirstLogin && auth.user?.admin) {
+            if (!isDemo && isFirstLogin && auth.user.value?.admin) {
               navigate("/admin/setup");
             }
             else if (defaultActivityRoute) {
