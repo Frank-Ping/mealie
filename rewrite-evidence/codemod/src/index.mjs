@@ -90,6 +90,7 @@ function assembleImports(ctx, keptImports) {
   if (ctx.needsApiClient) out.push(`import { apiClient } from "@/lib/api/client";`);
   if (ctx.needsIcons) out.push(`import { icons } from "@/lib/icons";`);
   if (ctx.needsFormatters) out.push(`import { useFormatters } from "@/composables/use-formatters";`);
+  if (ctx.needsDocumentTitle) out.push(`import { useDocumentTitle } from "@/composables/use-document-title";`);
   if (ctx.needsMdiIcon) out.push(`import MdiIcon from "@/components/MdiIcon";`);
   if (ctx.needsSafeHtml) out.push(`import SafeHtml from "@/components/SafeHtml";`);
   out.push(...keptImports);
@@ -149,8 +150,7 @@ export function convertVue(source, filename, composableIndex = null, componentIn
 
   const componentBody = [];
   if (ctx.needsTranslation) componentBody.push("  const { t } = useTranslation();");
-  if (ctx.needsFormatters) componentBody.push("  const { d, n } = useFormatters(); // WF4-REVIEW: date style mapping vs dateTimeFormats [S]");
-  const cleaned = rest.replace(/\n{3,}/g, "\n\n").trim();
+  if (ctx.needsFormatters) componentBody.push("  const { d, n } = useFormatters(); // WF4-REVIEW: date style mapping vs dateTimeFormats [S]");  const cleaned = rest.replace(/\n{3,}/g, "\n\n").trim();
   if (cleaned) componentBody.push(cleaned.split("\n").map((l) => (l.trim() ? "  " + l : l)).join("\n"));
   if (templateJsx) {
     componentBody.push("  return (\n    <>\n" + templateJsx + "\n    </>\n  );");

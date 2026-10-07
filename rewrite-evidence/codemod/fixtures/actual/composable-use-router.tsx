@@ -28,7 +28,7 @@ export function useRouteQuery<T extends string | string[]>(name: string, default
       return data;
     },
     set(v) {
-      /* WF4-REVIEW [J] */ nextTick(() => {
+      /* WF4-REVIEW [J] */ /* WF4-REVIEW [J] */ nextTick(() => {
         navigate(/* WF4-REVIEW: replace+query */ { query: { ...route.query, [name]: v } });
       });
     },

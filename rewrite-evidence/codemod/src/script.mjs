@@ -82,11 +82,11 @@ export function transformScript(script, ctx) {
     return out + body.slice(last);
   })();
 
-  // ---- plain defineProps<Props>() (incl. destructured form) ----
+  // ---- plain defineProps<Props>() (incl. destructured and bare forms) ----
   if (!propsDestructure) {
-    const decl = body.match(/const\s*(\{[\s\S]*?\}|\w+)\s*=\s*defineProps<(\w+)>\(\)\s*;?/);
+    const decl = body.match(/(?:const\s*(\{[\s\S]*?\}|\w+)\s*=\s*)?defineProps<(\w+)>\(\)\s*;?/);
     if (decl) {
-      if (decl[1].startsWith("{")) {
+      if (decl[1]?.startsWith("{")) {
         // destructured defineProps: entries already carry defaults — use as-is
         propsDestructure = decl[1].slice(1, -1).trim();
       }
@@ -370,16 +370,7 @@ ${guarded.join("\n")}
   }
   body = stripValueReads(body, ctx);
 
-  // ---- judgement markers (left for the burndown queue) ----
-  for (const api of ["watch", "watchEffect", "reactive", "nextTick", "onMounted", "onUnmounted", "provide", "inject"]) {
-    if (new RegExp(`\\b${api}\\(`).test(body)) {
-      notes.push(`${api} → manual conversion [J]`);
-      body = body.replace(new RegExp(`(\\b${api}\\()`, "g"), `/* WF4-REVIEW [J] */ $1`);
-    }
-  }
-
-  // ---- i18n in script ----
-  // vue-i18n's useI18n → react-i18next's useTranslation (returns { t, i18n })
+  // ---- useI18n → useTranslation ----
   body = body.replace(/const\s+i18n\s*=\s*useI18n\(\);?/g, () => {
     ctx.needsTranslation = true;
     return "const { i18n } = useTranslation();";
@@ -388,11 +379,59 @@ ${guarded.join("\n")}
     ctx.needsTranslation = true;
     return `const {${names}} = useTranslation(); // WF4-REVIEW: d/n/locale mapping [S]`;
   });
+
+  // ---- onMounted/onUnmounted → useEffect [M] ----
+  body = (() => {
+    const re = /\b(onMounted|onUnmounted)\s*\(/g;
+    let out = "", last = 0, m;
+    while ((m = re.exec(body))) {
+      const call = extractCall(body, m.index);
+      if (!call) continue;
+      let end = call.end;
+      if (body[end] === ";") end++;
+      ctx.hooks.add("useEffect");
+      const cb = (splitArgs(call.args)[0] ?? "").trim().replace(/,\s*$/, "");
+      out += body.slice(last, m.index) + (m[1] === "onMounted"
+        ? `useEffect(() => { void (${cb})(); }, []); // was onMounted`
+        : `useEffect(() => () => { void (${cb})(); }, []); // was onUnmounted`);
+      last = end;
+      re.lastIndex = end;
+    }
+    return out + body.slice(last);
+  })();
+
+  // ---- useSeoMeta / useHead → useDocumentTitle (D16: title-only) ----
+  body = (() => {
+    const re = /\buseSeoMeta\s*\(|\buseHead\s*\(/g;
+    let out = "", last = 0, m;
+    while ((m = re.exec(body))) {
+      const call = extractCall(body, m.index);
+      if (!call) continue;
+      let end = call.end;
+      if (body[end] === ";") end++;
+      ctx.needsDocumentTitle = true;
+      const titlePart = splitArgs(call.args.replace(/^\{/, "").replace(/\}$/, "")).find((p) => /^title\s*:/.test(p));
+      const titleExpr = titlePart ? titlePart.replace(/^title\s*:\s*/, "") : "null";
+      const dropped = titlePart && /,/.test(call.args.slice(1)) ? " // WF4-REVIEW: non-title meta dropped (D16)" : "";
+      out += body.slice(last, m.index) + `useDocumentTitle(${titleExpr});${dropped}`;
+      last = end;
+      re.lastIndex = end;
+    }
+    return out + body.slice(last);
+  })();
+
   if (/\$t\(/.test(body)) {
     body = body.replace(/\$t\(/g, "t(");
     ctx.needsTranslation = true;
   }
 
+  // ---- judgement markers (left for the burndown queue) ----
+  for (const api of ["watch", "watchEffect", "reactive", "nextTick", "provide", "inject"]) {
+    if (new RegExp(`\\b${api}\\(`).test(body)) {
+      notes.push(`${api} → manual conversion [J]`);
+      body = body.replace(new RegExp(`(\\b${api}\\()`, "g"), `/* WF4-REVIEW [J] */ $1`);
+    }
+  }
   // ---- composable auto-imports (from prebuilt index) ----
   const KNOWN_EXTERNAL = new Set(["useState", "useEffect", "useMemo", "useCallback", "useRef", "useReducer", "useContext", "useNavigate", "useLocation", "useSearchParams", "useParams", "useTranslation"]);
   const used = new Set([...body.matchAll(/\b(use[A-Z]\w+)\s*\(/g)].map((m) => m[1]));
@@ -441,5 +480,6 @@ export function freshCtx(composableIndex = null) {
     needsFormatters: false,
     propsRename: {},
     componentTags: new Set(),
+    needsDocumentTitle: false,
   };
 }

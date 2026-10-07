@@ -42,3 +42,29 @@ the semantic layer (TS2xxx, conversion residuals) that syntax errors were maskin
 
 Logs: `tsc-initial.log`, `tsc-after-batch{1..7}.log`, `tsc-syntax-final.log`,
 `tsc-after-imports.log` in this run dir; earlier run dirs hold prior cycles.
+
+## Continuation (same session, batches 15–16)
+
+| # | tsc | Δ | batch root causes |
+|---|---|---|---|
+| 15 | 4823 | −112 | `onMounted`/`onUnmounted` → useEffect [M]; `useSeoMeta`/`useHead` → `useDocumentTitle` (D16); bare `defineProps<Props>()`; `$event` handler wrapping; slot-prop notes made self-documenting |
+| 16 | 4823 | 0 | trailing comma in `onMounted` callback (last TS1109); duplicate judgement-marker loop (introduced while fixing the file, caught by fixture STRICT-DIFF — the harness guarded the tool) removed |
+
+**Measurement law discovered:** one TS1xxx anywhere suppresses ALL semantic
+diagnostics program-wide — tsc prints only the parse error. Every earlier
+sub-crossover number (1169 → 274) was therefore a syntax-only count; the type
+layer is measurable only at syntax-zero. Any burndown comparison must first
+state whether the program parses.
+
+## Type-layer baseline (syntax-zero, batch 16): 4823
+
+| code | count | queue |
+|---|---|---|
+| TS2304 | 1279 | cannot find name: writable computeds [J], slot-prop bindings [J], composable-internal refs |
+| TS2322 | 832 | Vuetify-only props on MUI components — **design decision pending (wrappers vs prune)** |
+| TS2339 | 688 | `.value` reads left visible by design; store composable ports |
+| TS2769 | 398 | MUI prop literal-type mismatches |
+| TS7006 | 335 | implicit-any callback params (inherited) |
+| TS2551 | 261 | prop name near-misses |
+| TS2307 | 188 | unresolved module paths |
+| TS18047/18046 | 304 | strict-null violations |

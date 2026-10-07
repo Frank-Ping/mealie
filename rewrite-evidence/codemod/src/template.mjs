@@ -83,6 +83,12 @@ function renderProps(el, ctx, notes) {
       const handler = EVENT_MAP[ev] ?? `on${ev.charAt(0).toUpperCase() + camelEvent(ev.slice(1))}`;
       const mods = (p.modifiers ?? []).map((m) => (typeof m === "string" ? m : m.content));
       let body = exp ?? "";
+      // $event template variable → handler event parameter
+      if (/\$event/.test(body)) {
+        body = body.replace(/\$event/g, "e");
+        if (/^\(\s*\)\s*=>/.test(body)) body = body.replace(/^\(\s*\)\s*=>/, "(e) =>");
+        else if (!/^\([^)]*\)\s*=>/.test(body)) body = `(e) => ${body}`;
+      }
       // multi-statement handlers: wrap in a block, converting ref assignments per statement
       const toStatements = (code) => code.split(";").map((s) => s.trim()).filter(Boolean).map((stmt) => {
         const asg = stmt.match(/^([a-zA-Z_$][\w$]*)\s*=(?!=)\s*([\s\S]+)$/);
@@ -148,7 +154,11 @@ function renderElement(el, ctx, depth, exprContext = false) {
   // Slot usage is judgement; v-if/v-for on <template> is already handled
   // structurally by the caller.
   if (el.tag === "template") {
-    if (hasDir(el, "slot")) notes.push(`<template> slot — convert to render props/children manually [J]`);
+    if (hasDir(el, "slot")) {
+      const slotDir = getDir(el, "slot");
+      const propsText = slotDir?.exp?.content ? ` (props: ${slotDir.exp.content})` : "";
+      notes.push(`<template> slot${propsText} — convert to render props/children manually [J]`);
+    }
     const kids = renderChildren(el.children, ctx, depth + 1);
     return comment(notes, pad, exprContext) + `${pad}<>\n${kids}\n${pad}</>`;
   }
