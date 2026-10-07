@@ -1,6 +1,6 @@
 # WF4 — Conversion rules catalog v1
 
-Status: **v1, pending human review (gate #1)**
+Status: **v1.1 — approved at gate #1 (Frank-Ping, 2026-10-07): D1–D16 all accepted as recommended**
 Produced: 2026-10-07, session `runs/sessions/2026-10-07-wf4-phase-a.md`
 Source: grep scans of `frontend/app` on `rewrite/phase0-baseline` (numbers below are measured, not estimated)
 Target stack: Vite + React 19 + TypeScript strict + React Router (SPA) + MUI + react-i18next
@@ -270,4 +270,5 @@ This estimate is the null hypothesis H1 (≥ 60 %); Phase C measures the real ru
 | D15 | MUI v7 + matching `@mui/x-*` | accept |
 | D16 | `useSeoMeta`/`useHead` → title-only | accept |
 
-Reviewer: ______  Date: ______  (sign off in the commit that amends this file, or in the session log)
+Reviewer: **Frank-Ping**  Date: **2026-10-07** — D1–D16 approved as recommended, no changes
+(verbatim approval: 「按你推荐的来，同意，继续推进」; recorded in `runs/sessions.md` and this commit)
