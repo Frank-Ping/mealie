@@ -4,14 +4,19 @@ import { transformScript, freshCtx } from "./script.mjs";
 import { compileTemplate } from "./template.mjs";
 
 function pascal(s) {
-  return s.split(/[-_]/).map((p) => p.charAt(0).toUpperCase() + p.slice(1)).join("");
+  return s.split(/[-_\s]/).filter(Boolean).map((p) => p.charAt(0).toUpperCase() + p.slice(1)).join("");
 }
 
 export function componentNameFor(filename) {
-  const base = filename.replace(/\.[^.]+$/, "").split(/[\\/]/);
-  let name = base[base.length - 1];
-  if (name === "index") name = (base[base.length - 2] ?? "index") + "Page";
-  return pascal(name);
+  const parts = filename.replace(/\.[^.]+$/, "").split(/[\\/]/);
+  let name = parts[parts.length - 1];
+  if (name === "index") {
+    const parent = parts[parts.length - 2] ?? "index";
+    name = parent === "pages" ? "homePage" : `${parent}Page`;
+  }
+  // strip route brackets and other non-identifier characters: [slug] → Slug
+  const clean = name.replace(/[^a-zA-Z0-9]+/g, " ").trim();
+  return pascal(clean);
 }
 
 function hoistTypesAndHandle(body) {
@@ -38,8 +43,12 @@ function assembleImports(ctx, keptImports) {
   if (ctx.needsOutlet) rr.add("Outlet");
   if (rr.size) out.push(`import { ${[...rr].sort().join(", ")} } from "react-router-dom";`);
   if (ctx.needsTranslation) out.push(`import { useTranslation } from "react-i18next";`);
-  const mui = [...ctx.muiImports].filter(Boolean).sort();
-  if (mui.length) out.push(`import { ${mui.join(", ")} } from "@mui/material";`);
+  if (ctx.muiImportsBySource?.size) {
+    for (const [source, names] of [...ctx.muiImportsBySource.entries()].sort()) {
+      const list = [...names].filter(Boolean).sort();
+      if (list.length) out.push(`import { ${list.join(", ")} } from "${source}";`);
+    }
+  }
   if (ctx.needsApiClient) out.push(`import { apiClient } from "@/lib/api/client";`);
   if (ctx.needsIcons) out.push(`import { icons } from "@/lib/icons";`);
   if (ctx.needsMdiIcon) out.push(`import MdiIcon from "@/components/MdiIcon";`);

@@ -79,9 +79,10 @@ function renderProps(el, ctx, notes) {
       continue;
     }
     if (p.name === "model") {
+      const target = map?.model ?? { prop: "value", handler: "onChange" };
       if (exp && /^[a-zA-Z_$][\w$]*$/.test(exp)) {
         const setter = ctx.stateIds?.get(exp) ?? `/* WF4-REVIEW: setter */ set${exp.charAt(0).toUpperCase() + exp.slice(1)}`;
-        out.push(`value={${exp}}`, `onChange={${setter}}`);
+        out.push(`${target.prop}={${exp}}`, `${target.handler}={${setter}}`);
       }
       else {
         notes.push(`v-model on complex expression "${exp}" [J]`);
@@ -119,13 +120,18 @@ function renderElement(el, ctx, depth, exprContext = false) {
     const map = mapComponent(el.tag);
     if (map) {
       tagJsx = map.name;
-      ctx.muiImports?.add(map.name === "MdiIcon" ? null : map.name);
+      const source = map.from === undefined ? "@mui/material" : map.from;
+      if (source !== null) {
+        if (!ctx.muiImportsBySource) ctx.muiImportsBySource = new Map();
+        if (!ctx.muiImportsBySource.has(source)) ctx.muiImportsBySource.set(source, new Set());
+        ctx.muiImportsBySource.get(source).add(map.name);
+      }
       if (map.note) notes.push(map.note);
       if (map.name === "MdiIcon") { ctx.needsMdiIcon = true; }
     }
     else {
       tagJsx = pascal(el.tag);
-      notes.push(`unmapped <${el.tag}> — add to vuetify-map.mjs`);
+      notes.push(`unmapped <${el.tag}> — judgement component, convert manually [J]`);
       ctx.unmapped?.add(el.tag);
     }
   }

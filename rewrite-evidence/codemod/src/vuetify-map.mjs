@@ -1,47 +1,108 @@
-// Vuetify -> MUI mapping table (subset implemented per rules catalog §6).
-// Each entry: name = JSX component, from = MUI import source (null = local helper),
-// dropProps = Vuetify-only props removed with a WF4-REVIEW marker,
-// propMap = renamed props, note = review hint attached to output.
+// Vuetify -> MUI mapping table, extended for the Phase C full run.
+// Covers every [M]/[S] component from the rules catalog §6. [J] components are
+// deliberately ABSENT so they become marked placeholders (the burndown queue),
+// never fake-converted.
+//
+// Entry fields:
+//   name        JSX component name (required)
+//   from        import source (default "@mui/material"; null = local helper, no import)
+//   staticProps props always added (true = boolean, "str" = string attr, "{{expr}}" = JSX expr)
+//   dropProps   Vuetify-only props removed (noted)
+//   propMap     renamed props (value is the literal replacement prop text)
+//   model       v-model target: { prop, handler } (default { value, onChange })
+//   note        review hint emitted as a WF4-REVIEW marker next to the element
 
 export const componentMap = {
-  "v-btn": { name: "Button", dropProps: [], propMap: {}, note: null },
-  "v-chip": { name: "Chip", dropProps: ["dark"], propMap: {}, note: null },
-  "v-icon": { name: "MdiIcon", from: "@/components/MdiIcon", dropProps: ["start", "end"], propMap: {}, note: "icon name resolves via lib/icons" },
-  "v-app": { name: "Box", dropProps: ["dark"], propMap: {}, note: "app shell — see rules §2" },
-  "v-main": { name: "Box", staticProps: { component: "main" }, dropProps: [], propMap: {}, note: null },
-  "v-scroll-x-transition": { name: "Slide", staticProps: { in: "{{true}}" }, dropProps: [], propMap: {}, note: "transition direction/appear semantics — MUI Slide needs explicit in" },
-  "v-card": { name: "Card", dropProps: [], propMap: {}, note: null },
-  "v-card-text": { name: "CardContent", dropProps: [], propMap: {}, note: null },
-  "v-card-title": { name: "CardHeader", dropProps: [], propMap: {}, note: "title moves to prop" },
-  "v-card-actions": { name: "CardActions", dropProps: [], propMap: {}, note: null },
-  "v-divider": { name: "Divider", dropProps: [], propMap: {}, note: null },
-  "v-container": { name: "Container", dropProps: [], propMap: { fluid: "maxWidth={false}" }, note: null },
-  "v-row": { name: "Grid", staticProps: { container: true }, dropProps: [], propMap: {}, note: null },
-  "v-col": { name: "Grid", dropProps: [], propMap: {}, note: "cols/md → size={{}}" },
-  "v-spacer": { name: "Box", staticProps: { sx: "{{ flexGrow: 1 }}" }, dropProps: [], propMap: {}, note: null },
-  "v-text-field": { name: "TextField", dropProps: [], propMap: {}, note: "rules/error-messages" },
-  "v-select": { name: "TextField", staticProps: { select: true }, dropProps: [], propMap: {}, note: "items API" },
-  "v-checkbox": { name: "FormControlLabel", dropProps: [], propMap: {}, note: "wraps Checkbox" },
-  "v-switch": { name: "FormControlLabel", dropProps: [], propMap: {}, note: "wraps Switch" },
-  "v-textarea": { name: "TextField", staticProps: { multiline: true }, dropProps: [], propMap: {}, note: null },
-  "v-list": { name: "List", dropProps: [], propMap: {}, note: null },
-  "v-list-item": { name: "ListItem", dropProps: [], propMap: {}, note: null },
-  "v-list-item-title": { name: "ListItemText", dropProps: [], propMap: {}, note: "primary" },
-  "v-list-item-subtitle": { name: "ListItemText", dropProps: [], propMap: {}, note: "secondary" },
-  "v-menu": { name: "Menu", dropProps: [], propMap: {}, note: "activator pattern [J]" },
-  "v-tooltip": { name: "Tooltip", dropProps: [], propMap: {}, note: null },
-  "v-alert": { name: "Alert", dropProps: [], propMap: { type: "severity" }, note: null },
-  "v-dialog": { name: "Dialog", dropProps: [], propMap: {}, note: "v-model → open/onClose" },
-  "v-snackbar": { name: "Snackbar", dropProps: [], propMap: {}, note: null },
-  "v-img": { name: "Box", staticProps: { component: "img" }, dropProps: [], propMap: {}, note: "cover → objectFit" },
-  "v-avatar": { name: "Avatar", dropProps: [], propMap: {}, note: null },
-  "v-badge": { name: "Badge", dropProps: [], propMap: {}, note: null },
-  "v-toolbar": { name: "Toolbar", dropProps: [], propMap: {}, note: null },
-  "v-toolbar-title": { name: "Typography", staticProps: { variant: "h6" }, dropProps: [], propMap: {}, note: null },
-  "v-sheet": { name: "Paper", dropProps: [], propMap: {}, note: null },
-  "v-progress-linear": { name: "LinearProgress", dropProps: [], propMap: {}, note: null },
-  "v-progress-circular": { name: "CircularProgress", dropProps: [], propMap: {}, note: null },
-  "v-form": { name: "form", dropProps: [], propMap: {}, note: "validation semantics [J]" },
+  // --- buttons & actions ---
+  "v-btn": { name: "Button" },
+  "v-btn-toggle": { name: "ToggleButtonGroup", note: "value/selection API" },
+  "v-fab": { name: "Fab" },
+  "v-icon": { name: "MdiIcon", from: null, dropProps: ["start", "end"], note: "icon name resolves via lib/icons" },
+
+  // --- cards & layout primitives ---
+  "v-card": { name: "Card" },
+  "v-card-text": { name: "CardContent" },
+  "v-card-title": { name: "CardHeader", note: "title text moves to the title prop" },
+  "v-card-subtitle": { name: "Typography", staticProps: { variant: "body2", color: "text.secondary" }, note: "or CardHeader subheader" },
+  "v-card-actions": { name: "CardActions" },
+  "v-sheet": { name: "Paper" },
+  "v-divider": { name: "Divider" },
+  "v-container": { name: "Container", propMap: { fluid: "maxWidth={false}" } },
+  "v-row": { name: "Grid", staticProps: { container: true } },
+  "v-col": { name: "Grid", note: "cols/sm/md/lg → size={{ xs, sm, md }}" },
+  "v-spacer": { name: "Box", staticProps: { sx: "{{ flexGrow: 1 }}" } },
+  "v-responsive": { name: "Box", note: "aspect-ratio → sx aspectRatio" },
+
+  // --- app shell ---
+  "v-app": { name: "Box", dropProps: ["dark"], note: "app shell — see rules §2" },
+  "v-main": { name: "Box", staticProps: { component: "main" } },
+  "v-footer": { name: "Box", staticProps: { component: "footer" } },
+  "v-app-bar": { name: "AppBar" },
+  "v-navigation-drawer": { name: "Drawer", note: "persistent/temporary variants" },
+  "v-toolbar": { name: "Toolbar" },
+  "v-toolbar-title": { name: "Typography", staticProps: { variant: "h6" } },
+  "v-bottom-sheet": { name: "Drawer", staticProps: { anchor: "bottom" }, note: "swipeable?" },
+
+  // --- form inputs ---
+  "v-text-field": { name: "TextField", note: "rules/error-messages → error+helperText" },
+  "v-textarea": { name: "TextField", staticProps: { multiline: true } },
+  "v-select": { name: "TextField", staticProps: { select: true }, note: "items/item-title/item-value → MenuItem children" },
+  "v-autocomplete": { name: "Autocomplete", note: "items → options/getOptionLabel; value wiring [S]" },
+  "v-checkbox": { name: "FormControlLabel", note: "control={<Checkbox/>} + label prop" },
+  "v-checkbox-btn": { name: "Checkbox" },
+  "v-switch": { name: "FormControlLabel", note: "control={<Switch/>} + label prop" },
+  "v-radio-group": { name: "RadioGroup" },
+  "v-radio": { name: "FormControlLabel", note: "control={<Radio/>}" },
+  "v-slider": { name: "Slider" },
+  "v-rating": { name: "Rating" },
+  "v-form": { name: "form", note: "validation semantics [J]" },
+  "v-date-picker": { name: "DatePicker", from: "@mui/x-date-pickers", note: "value format + LocalizationProvider" },
+
+  // --- data display ---
+  "v-list": { name: "List" },
+  "v-list-item": { name: "ListItem", note: "@click → ListItemButton" },
+  "v-list-item-title": { name: "ListItemText", note: "content → primary prop" },
+  "v-list-item-subtitle": { name: "ListItemText", note: "content → secondary prop" },
+  "v-list-item-action": { name: "ListItemSecondaryAction" },
+  "v-list-item-icon": { name: "ListItemIcon" },
+  "v-chip": { name: "Chip", dropProps: ["dark"] },
+  "v-badge": { name: "Badge", note: "content → badgeContent" },
+  "v-avatar": { name: "Avatar" },
+  "v-tooltip": { name: "Tooltip", note: "activator slot variants [J]" },
+  "v-alert": { name: "Alert", propMap: { type: "severity" } },
+  "v-banner": { name: "Alert", note: "full-width styling" },
+  "v-skeleton-loader": { name: "Skeleton" },
+  "v-img": { name: "Box", staticProps: { component: "img" }, note: "cover → objectFit" },
+  "v-timeline": { name: "Timeline", from: "@mui/lab", note: "lab component" },
+  "v-timeline-item": { name: "TimelineItem", from: "@mui/lab" },
+
+  // --- feedback ---
+  "v-dialog": { name: "Dialog", model: { prop: "open", handler: "onClose" }, note: "max-width/scrollable" },
+  "v-snackbar": { name: "Snackbar", model: { prop: "open", handler: "onClose" } },
+  "v-progress-linear": { name: "LinearProgress" },
+  "v-progress-circular": { name: "CircularProgress" },
+  "v-overlay": { name: "Backdrop", model: { prop: "open", handler: "onClose" } },
+
+  // --- disclosure & navigation ---
+  "v-expansion-panels": { name: "Box", note: "wrapper — accordion group semantics" },
+  "v-expansion-panel": { name: "Accordion" },
+  "v-expansion-panel-title": { name: "AccordionSummary" },
+  "v-expansion-panel-text": { name: "AccordionDetails" },
+  "v-tabs": { name: "Tabs" },
+  "v-tab": { name: "Tab" },
+  "v-breadcrumbs": { name: "Breadcrumbs" },
+  "v-pagination": { name: "Pagination", model: { prop: "page", handler: "onChange" } },
+
+  // --- transitions (MUI needs explicit `in`) ---
+  "v-expand-transition": { name: "Collapse", staticProps: { in: "{{true}}" }, note: "transition semantics" },
+  "v-fade-transition": { name: "Fade", staticProps: { in: "{{true}}" }, note: "transition semantics" },
+  "v-slide-x-transition": { name: "Slide", staticProps: { in: "{{true}}" }, note: "transition semantics" },
+  "v-scroll-x-transition": { name: "Slide", staticProps: { in: "{{true}}" }, note: "transition direction/appear semantics — MUI Slide needs explicit in" },
+
+  // --- menus stay placeholder [J] on purpose: v-menu, v-data-table, v-stepper family,
+  // --- v-virtual-scroll, v-hover, v-lazy, v-list-group, v-list-item-group, v-item-group,
+  // --- v-treeview, v-window, v-number-input, v-file-input, v-empty-state, v-color-picker,
+  // --- v-combobox (needs freeSolo decision per site)
 };
 
 // Vuetify props that never map 1:1 and get dropped with a review marker.

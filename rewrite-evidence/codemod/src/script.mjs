@@ -232,6 +232,7 @@ export function freshCtx(composableIndex = null) {
     hooks: new Set(),
     routerImports: new Set(),
     muiImports: new Set(),
+    muiImportsBySource: new Map(),
     composableIndex,
     destructureProps: false,
     needsTranslation: false,
