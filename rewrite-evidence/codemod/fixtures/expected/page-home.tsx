@@ -1,4 +1,4 @@
-// WF4-REFINED: contains human gate-2 polish beyond codemod output (effect deps)
+// WF4-REFINED: human gate-2 polish — staleness guards, awaited helper call, effect deps
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { apiClient } from "@/lib/api/client";
@@ -20,8 +20,9 @@ export default function HomePage() {
   const { getDefaultActivityRoute } = useDefaultActivity();
   const groupSlug = auth.user?.groupSlug; // was computed — plain read stays reactive
 
-  async function redirectPublicUserToDefaultGroup() {
+  async function redirectPublicUserToDefaultGroup(isStale: () => boolean) { // WF4-REFINED: staleness guard threaded from the effect
     const { data } = await apiClient.get<AppInfo>("/api/app/about");
+    if (isStale()) return; // WF4-REFINED: a superseded effect run must not navigate
     if (data?.defaultGroupSlug) {
       navigate(`/g/${data.defaultGroupSlug}`);
     }
@@ -32,10 +33,12 @@ export default function HomePage() {
 
   useEffect(() => {
     let cancelled = false;
+    const isStale = () => cancelled; // WF4-REFINED: shared staleness check for this effect run
     void (async () => {
       try {
         if (groupSlug) {
             const data = await apiClient.get<AppStartupInfo>("/api/app/about/startup-info");
+            if (cancelled) return;
             const isDemo = data.data.isDemo;
             const isFirstLogin = data.data.isFirstLogin;
             const defaultActivityRoute = getDefaultActivityRoute(
@@ -53,7 +56,7 @@ export default function HomePage() {
             }
           }
           else {
-            redirectPublicUserToDefaultGroup();
+            await redirectPublicUserToDefaultGroup(isStale); // WF4-REFINED: await so request failures reach the catch; thread the guard
           }
       }
       catch (err) {
@@ -61,7 +64,7 @@ export default function HomePage() {
       }
     })();
     return () => { cancelled = true; };
-  }, [groupSlug]); // WF4-REFINED (gate #2): re-run when auth state resolves — the codemod cannot know this dep; note the original useAsyncData did not watch auth either, so confirm the trigger against the init flow
+  }, [groupSlug]); // WF4-REFINED: re-run when auth resolves; the original useAsyncData did not watch auth either — confirm the trigger against the init flow
 
   return (
     <>

@@ -1,4 +1,3 @@
-// WF4-REFINED: human gate-2 polish — emit payload types
 import { Chip } from "@mui/material";
 import type { RecipeCategory, RecipeTag, RecipeTool } from "@/lib/api/types/recipe";
 import { truncateText as truncatePlainText } from "@/lib/sanitize/text";
@@ -11,7 +10,7 @@ interface Props {
   limit?: number;
   small?: boolean;
   maxWidth?: string | null;
-  onItemSelected?: (item: RecipeCategory | RecipeTag | RecipeTool, urlPrefix: UrlPrefixParam) => void; // WF4-REFINED (r3): callback prop stays optional, but the second param is required — the component has a default and always passes it
+  onItemSelected?: (...args: unknown[]) => void; // WF4-REVIEW: payload types
 }
 
 export type UrlPrefixParam = "tags" | "categories" | "tools";

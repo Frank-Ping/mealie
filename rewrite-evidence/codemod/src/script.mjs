@@ -157,12 +157,22 @@ export function transformScript(script, ctx) {
   // ---- useAsyncData → useEffect (skeleton with cancellation + error handling) ----
   body = body.replace(/useAsyncData\(\s*[^,]+,\s*async\s*\(([^)]*)\)\s*=>\s*\{([\s\S]*?)\}\s*,?\s*\);?/g, (_, _args, inner) => {
     ctx.hooks.add("useEffect");
-    const indented = inner.trim().split("\n").map((l) => (l.trim() ? "      " + l : l)).join("\n");
+    const lines = inner.trim().split("\n");
+    const guarded = [];
+    for (const l of lines) {
+      const indented = l.trim() ? "      " + l : l;
+      guarded.push(indented);
+      // After every completed await, a superseded effect run must stop before it
+      // can act on stale data (gate #2 round-3 finding: navigates were unguarded).
+      if (/await/.test(l) && l.trimEnd().endsWith(";")) {
+        guarded.push(indented.match(/^\s*/)[0] + "if (cancelled) return;");
+      }
+    }
     return `useEffect(() => {
   let cancelled = false;
   void (async () => {
     try {
-${indented}
+${guarded.join("\n")}
     }
     catch (err) {
       if (!cancelled) console.error(err); // WF4-REVIEW: surface load errors (was useAsyncData)

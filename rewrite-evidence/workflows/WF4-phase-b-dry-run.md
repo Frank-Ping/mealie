@@ -129,3 +129,59 @@ either, so no auto-re-redirect behaviour is claimed to be lost.
 `node test.mjs` → **3 OK + 2 REFINED, 0 differ.** Hard-manual share unchanged at 1/5
 (the pre-tagged [J] composable). Kill criterion still comfortably below threshold.
 Gate #2 now awaits the reviewer's re-inspection of the round-2 diffs.
+
+---
+
+# Round 3 — after gate #2 re-review (2026-10-07)
+
+Gate #2 second verdict: **still not approved** — 4 findings. Accepted as already-correct:
+plain block comments in expression positions, `onItemSelected?.(...)`, plain-read
+computed. Round-2's "3 OK + 2 REFINED" is **retracted as evidence** for the reason below.
+
+## P1-1 — the REFINED marker exempted exactly the wrong files (harness redesigned)
+
+**Finding.** `test.mjs` treated ANY diff as pass when the expected file contained
+`WF4-REFINED` — a regenerated broken output would still report REFINED.
+**Root cause / lesson for the report.** The verification tool was weaker than the
+artifact it guarded: a file-level marker exempted every line, including unmarked ones.
+This is the fixture-harness version of "tests weakened to make them pass".
+**Redesign.** Two artifacts per sample, checked independently
+(`test.mjs` v3):
+- `expected/<name>.codemod.tsx` — blessed **pure codemod** snapshot, compared
+  **strictly** against fresh output. No markers, no exemptions.
+- `expected/<name>.tsx` — human refinement, allowed to differ from the snapshot
+  **only on lines carrying `WF4-REFINED`** (marked insertion or 1:1 replacement);
+  anything else is a `REFINEMENT-VIOLATION`. Refinements are applied by
+  `fixtures/refine.mjs` (reproducible, reviewable), not by untracked hand edits.
+
+## P1-2 — `[groupSlug]` re-fires the effect but stale runs could still navigate
+
+**Finding.** round-2's `cancelled` guarded only the error log; `navigate()` calls were
+unprotected (race: public redirect from run 1 could land after the user redirect of
+run 2).
+**Fix, split by mechanical vs judgement.** Codemod skeleton now inserts
+`if (cancelled) return;` after every completed `await` inside the effect body
+(mechanical). Threading the guard into the `redirectPublicUserToDefaultGroup` helper
+(`isStale` parameter + guard before its own navigates) is judgement — it lives in the
+refined fixture as `WF4-REFINED` lines, exactly the codemod↔human split WF4 measures.
+
+## P2-3 — helper failures bypassed the catch
+
+**Finding.** `redirectPublicUserToDefaultGroup()` was invoked without `await` inside
+the async IIFE → unhandled rejection, the new `try/catch` never saw it.
+**Fix.** Refined fixture calls `await redirectPublicUserToDefaultGroup(isStale)`.
+(The codemod cannot know the identifier is an async function — documented judgement.)
+
+## P2-4 — `urlPrefix?` parameter optional in the refined callback type
+
+**Finding.** An optional second parameter is incompatible with strictly-typed
+listeners; the component has a default and always passes it.
+**Fix.** `onItemSelected?: (item: …, urlPrefix: UrlPrefixParam) => void` — the prop
+stays optional, the parameter is now required.
+
+## Round-3 status
+
+`node test.mjs` → **5 STRICT-OK + 2 REFINEMENT-OK, 0 failures.** Unlike round 2, every
+OK now means something: strict snapshots pin the codemod with zero exemptions, and the
+two refined files are diff-bounded by their markers. Kill criterion: unchanged (1/5
+hard-manual). Awaiting gate #2 third inspection.
