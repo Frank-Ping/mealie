@@ -82,11 +82,11 @@ function createRecipeExplorerSearchState(groupSlug: string /* WF4-REVIEW: was Co
   const tools = isOwnGroup ? useToolStore() : usePublicToolStore(groupSlug);
 
   // Selected items
-  const selectedCategories = ref<NoUndefinedField<RecipeCategory>[]>([]);
+  const [selectedCategories, setSelectedCategories] = useState([]);
   const [selectedFoods, setSelectedFoods] = useState([]);
-  const selectedHouseholds = ref<NoUndefinedField<HouseholdSummary>[]>([]);
-  const selectedTags = ref<NoUndefinedField<RecipeTag>[]>([]);
-  const selectedTools = ref<NoUndefinedField<RecipeTool>[]>([]);
+  const [selectedHouseholds, setSelectedHouseholds] = useState([]);
+  const [selectedTags, setSelectedTags] = useState([]);
+  const [selectedTools, setSelectedTools] = useState([]);
 
   // Query defaults
   const queryDefaults = {
@@ -130,15 +130,15 @@ function createRecipeExplorerSearchState(groupSlug: string /* WF4-REVIEW: was Co
     };
   }
 
-  const [passedQuery, setPassedQuery] = useState(calcPassedQuery(););
+  const [passedQuery, setPassedQuery] = useState(calcPassedQuery());
 
-  const passedQueryWithSeed = useMemo(() =>  {
+  const passedQueryWithSeed = useMemo(() => {
     return {
       ...passedQuery,
-      _searchSeed: Date.now(, []); // WF4-REVIEW: dependency array.toString(),
+      _searchSeed: Date.now().toString(),
       _randomSeed: state.randomSeed,
     };
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   // Update the seed to trigger a new search
   function setRandomOrderBy() {
@@ -186,11 +186,11 @@ function createRecipeExplorerSearchState(groupSlug: string /* WF4-REVIEW: was Co
     state.requireAllTags = queryDefaults.requireAllTags;
     state.requireAllTools = queryDefaults.requireAllTools;
     state.requireAllFoods = queryDefaults.requireAllFoods;
-    selectedCategories = [];
+    setSelectedCategories([]);
     setSelectedFoods([]);
-    selectedHouseholds = [];
-    selectedTags = [];
-    selectedTools = [];
+    setSelectedHouseholds([]);
+    setSelectedTags([]);
+    setSelectedTools([]);
   }
 
   function toggleOrderDirection() {
@@ -235,15 +235,15 @@ function createRecipeExplorerSearchState(groupSlug: string /* WF4-REVIEW: was Co
   function filterItems(item: RecipeCategory | RecipeTag | RecipeTool, urlPrefix: string) {
     if (urlPrefix === "categories") {
       const result = categories.store.filter(category => (category.id as string).includes(item.id as string));
-      selectedCategories = result as NoUndefinedField<RecipeCategory>[];
+      setSelectedCategories(result as NoUndefinedField<RecipeCategory>[]);
     }
     else if (urlPrefix === "tags") {
       const result = tags.store.filter(tag => (tag.id as string).includes(item.id as string));
-      selectedTags = result as NoUndefinedField<RecipeTag>[];
+      setSelectedTags(result as NoUndefinedField<RecipeTag>[]);
     }
     else if (urlPrefix === "tools") {
       const result = tools.store.filter(tool => (tool.id).includes(item.id || ""));
-      selectedTools = result as NoUndefinedField<RecipeTool>[];
+      setSelectedTools(result as NoUndefinedField<RecipeTool>[]);
     }
   }
 
@@ -301,13 +301,13 @@ function createRecipeExplorerSearchState(groupSlug: string /* WF4-REVIEW: was Co
             const result = categories.store.filter(item =>
               (query.categories as string[]).includes(item.id as string),
             );
-            selectedCategories = result as NoUndefinedField<RecipeCategory>[];
+            setSelectedCategories(result as NoUndefinedField<RecipeCategory>[]);
           },
         ),
       );
     }
     else {
-      selectedCategories = [];
+      setSelectedCategories([]);
     }
 
     if (query.tags?.length) {
@@ -316,13 +316,13 @@ function createRecipeExplorerSearchState(groupSlug: string /* WF4-REVIEW: was Co
           () => tags.store.length > 0,
           () => {
             const result = tags.store.filter(item => (query.tags as string[]).includes(item.id as string));
-            selectedTags = result as NoUndefinedField<RecipeTag>[];
+            setSelectedTags(result as NoUndefinedField<RecipeTag>[]);
           },
         ),
       );
     }
     else {
-      selectedTags = [];
+      setSelectedTags([]);
     }
 
     if (query.tools?.length) {
@@ -331,13 +331,13 @@ function createRecipeExplorerSearchState(groupSlug: string /* WF4-REVIEW: was Co
           () => tools.store.length > 0,
           () => {
             const result = tools.store.filter(item => (query.tools as string[]).includes(item.id));
-            selectedTools = result as NoUndefinedField<RecipeTool>[];
+            setSelectedTools(result as NoUndefinedField<RecipeTool>[]);
           },
         ),
       );
     }
     else {
-      selectedTools = [];
+      setSelectedTools([]);
     }
 
     if (query.foods?.length) {
@@ -371,13 +371,13 @@ function createRecipeExplorerSearchState(groupSlug: string /* WF4-REVIEW: was Co
           },
           () => {
             const result = households.store?.filter(item => (query.households as string[]).includes(item.id));
-            selectedHouseholds = result as NoUndefinedField<HouseholdSummary>[] ?? [];
+            setSelectedHouseholds(result as NoUndefinedField<HouseholdSummary>[] ?? []);
           },
         ),
       );
     }
     else {
-      selectedHouseholds = [];
+      setSelectedHouseholds([]);
     }
 
     await Promise.allSettled(promises);

@@ -86,7 +86,7 @@ export const useLazyRecipes = function (publicGroupSlug: string | null = null) {
   }
 
   function removeRecipe(slug: string) {
-    for (let i = 0; i < recipes??.length; i++) {
+    for (let i = 0; i < recipes?.length; i++) {
       if (recipes?.value[i].slug === slug) {
         recipes?.splice(i, 1);
         break;

@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Box, Card, CardActions, CardContent, CardHeader, Collapse } from "@mui/material";
+import { icons } from "@/lib/icons";
 import RecipeFavoriteBadge from "./RecipeFavoriteBadge";
 import RecipeChips from "./RecipeChips";
 import RecipeContextMenu from "./RecipeContextMenu/RecipeContextMenu";
@@ -35,9 +36,9 @@ export default function RecipeCard({ description = null, rating = 0, ratingColor
   const route = useLocation(); // WF4-REVIEW: .query → useSearchParams [J]
   const groupSlug = useMemo(() => route.params.groupSlug || auth.user?.groupSlug || "", []); // WF4-REVIEW: dependency array
   const showRecipeContent = useMemo(() => recipeId && slug, []); // WF4-REVIEW: dependency array
-  const recipeRoute = computed<string>(() => {
+  const recipeRoute = useMemo(() => {
     return showRecipeContent ? `/g/${groupSlug}/r/${slug}` : "";
-  });
+  }, []); // WF4-REVIEW: dependency array
   const cursor = useMemo(() => showRecipeContent ? "pointer" : "auto", []); // WF4-REVIEW: dependency array
 
   return (
@@ -79,9 +80,9 @@ export default function RecipeCard({ description = null, rating = 0, ratingColor
                   <div className="px-1" />
                 )}
                 <RecipeCardRating model-value={rating} recipe-id={recipeId} />
-                <Box sx={ flexGrow: 1 } />
+                <Box sx={{ flexGrow: 1 }} />
                 {(isOwnGroup && showRecipeContent) ? (
-                  <RecipeContextMenu color="grey-darken-2" slug={slug} menu-icon={$globals.icons.dotsVertical} name={name} recipe-id={recipeId} use-items={{
+                  <RecipeContextMenu color="grey-darken-2" slug={slug} menu-icon={icons.dotsVertical} name={name} recipe-id={recipeId} use-items={{
                   delete: false,
                   edit: false,
                   download: true,

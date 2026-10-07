@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Button, Card, CardActions, CardContent, CardHeader, Container, TextField, form } from "@mui/material";
+import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
 import { useUserApi } from "@/composables/api";
 import { alert } from "@/composables/use-toast";
@@ -25,7 +26,7 @@ export default function ResetPassword() {
 
   const [form, setForm] = useState(null);
 
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
   const passwordMatch = () => state.password === state.passwordConfirm || i18n.t("user.password-must-match");
 
   // Set page title
@@ -85,11 +86,11 @@ export default function ResetPassword() {
         {/* WF4-REVIEW: validation semantics [J] */}
         <form ref="form" onSubmit={(e) => { e.preventDefault(); requestLink(); }}>
           {/* WF4-REVIEW: rules/error-messages → error+helperText; v-model on complex expression "state.email" [J] */}
-          <TextField {/* WF4-REVIEW: v-model state.email */} prepend-inner-icon={$globals.icons.email} variant="solo-filled" flat autofocus name="login" label={t('user.email')} type="text" />
+          <TextField prepend-inner-icon={icons.email} variant="solo-filled" flat autofocus name="login" label={t('user.email')} type="text" />
           {/* WF4-REVIEW: rules/error-messages → error+helperText; v-model on complex expression "state.password" [J] */}
-          <TextField {/* WF4-REVIEW: v-model state.password */} variant="solo-filled" flat prepend-inner-icon={$globals.icons.lock} name="password" label={t('user.password')} type="password" rules={[validators.required]} />
+          <TextField variant="solo-filled" flat prepend-inner-icon={icons.lock} name="password" label={t('user.password')} type="password" rules={[validators.required]} />
           {/* WF4-REVIEW: rules/error-messages → error+helperText; v-model on complex expression "state.passwordConfirm" [J] */}
-          <TextField {/* WF4-REVIEW: v-model state.passwordConfirm */} variant="solo-filled" flat validate-on="blur" prepend-inner-icon={$globals.icons.lock} name="password" label={t('user.confirm-password')} type="password" rules={[validators.required, passwordMatch]} />
+          <TextField variant="solo-filled" flat validate-on="blur" prepend-inner-icon={icons.lock} name="password" label={t('user.confirm-password')} type="password" rules={[validators.required, passwordMatch]} />
           <p className="text-center">
             {t("user.please-enter-password")}
           </p>
@@ -97,7 +98,7 @@ export default function ResetPassword() {
             <div className="max-button">
               <Button loading={state.loading} color="primary" disabled={token === ''} type="submit" size="large" rounded className="rounded-xl" block>
                 {/* WF4-REVIEW: icon name resolves via lib/icons; dropped Vuetify-only prop "start" on <v-icon> */}
-                <MdiIcon name={$globals.icons.lock} />
+                <MdiIcon name={icons.lock} />
                 {token === "" ? "Token Required" : t("user.reset-password")}
               </Button>
             </div>

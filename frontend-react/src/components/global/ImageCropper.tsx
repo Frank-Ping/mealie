@@ -12,6 +12,9 @@ interface Props {
 
 type Control = {
   color: string;
+  icon: string;
+  callback: CallableFunction;
+};
 
 export default function ImageCropper({ img, cropperWidth = undefined, submitted = false }: Props) {
   import "vue-advanced-cropper/dist/style.css";
@@ -35,9 +38,6 @@ export default function ImageCropper({ img, cropperWidth = undefined, submitted 
   }
 
 
-    icon: string;
-    callback: CallableFunction;
-  };
 
   function flip(hortizontal: boolean, vertical?: boolean) {
     if (!cropper) return;
@@ -67,7 +67,7 @@ export default function ImageCropper({ img, cropperWidth = undefined, submitted 
       {
         color: "info",
         icon: icons.flipHorizontal,
-        callback: (); => flip(true, false),
+        callback: () => flip(true, false),
       },
       {
         color: "info",
@@ -112,19 +112,20 @@ export default function ImageCropper({ img, cropperWidth = undefined, submitted 
   <Card className="ma-0 pt-2" elevation={4}>
     <CardContent>
       <Grid container className="mb-2 mx-1">
-        <Button color="error" icon={$globals.icons.delete} disabled={submitted} onClick={onDelete?.()} />
-        <Box sx={ flexGrow: 1 } />
+        <Button color="error" icon={icons.delete} disabled={submitted} onClick={onDelete?.()} />
+        <Box sx={{ flexGrow: 1 }} />
         {(changed) ? (
-          <Button className="mr-2" color="success" icon={$globals.icons.save} disabled={submitted} onClick={save} />
+          <Button className="mr-2" color="success" icon={icons.save} disabled={submitted} onClick={save} />
         ) : null}
         {/* WF4-REVIEW: unmapped <v-menu> — judgement component, convert manually [J] */}
         <VMenu offset-y close-on-content-click={false} location="bottom center">
-          <template>
-            <Button color="info" {...(slotProps)} icon={$globals.icons.edit} disabled={submitted} />
-          </template>
+          {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+          <>
+            <Button color="info" {...(slotProps)} icon={icons.edit} disabled={submitted} />
+          </>
           <List className="mt-1">
             {controls.map((row, keyRow) => (
-              <template key={keyRow}>
+              <>
                 {/* WF4-REVIEW: unmapped <v-list-item-group> — judgement component, convert manually [J] */}
                 <VListItemGroup>
                   {row.map((control, keyControl) => (
@@ -137,12 +138,12 @@ export default function ImageCropper({ img, cropperWidth = undefined, submitted 
                     </ListItem>
                   ))}
                 </VListItemGroup>
-              </template>
+              </>
             ))}
           </List>
         </VMenu>
       </Grid>
-      <Cropper ref="cropper" className="cropper" src={img} default-size={defaultSize} style={`width: ${cropperWidth}; aspect-ratio: ${aspectRatio};`} onChange={changed = changed + 1} onReady={onReady} />
+      <Cropper ref="cropper" className="cropper" src={img} default-size={defaultSize} style={`width: ${cropperWidth}; aspect-ratio: ${aspectRatio};`} onChange={() => setChanged(changed + 1)} onReady={onReady} />
     </CardContent>
   </Card>
     </>

@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { alert } from "@/composables/use-toast";
 import type { NoUndefinedField } from "@/lib/api/types/non-generated";
 import type { IngredientFood, IngredientUnit, ParsedIngredient, RecipeIngredient } from "@/lib/api/types/recipe";
@@ -23,7 +24,7 @@ export function useParseIngredientsDialog(
   const { ingredientToParserString } = useIngredientTextParser();
 
   const { group } = useGroupSelf();
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
   const api = useUserApi();
 
   const unitStore = useUnitStore();
@@ -33,15 +34,15 @@ export function useParseIngredientsDialog(
 
   // The natural language parser is trained on English recipes, so it isn't a sensible default for
   // other languages: it recognises the quantity but leaves the unit in the food name.
-  const isEnglishLocale = useMemo(() => (i18n.locale || "", []); // WF4-REVIEW: dependency array.toLowerCase().startsWith("en"));
+  const isEnglishLocale = useMemo(() => (i18n.locale || "").toLowerCase().startsWith("en"), []); // WF4-REVIEW: dependency array
   const parserPreferences = useParsingPreferences(isEnglishLocale ? "nlp" : "brute");
   const [parser, setParser] = useState(parserPreferences.parser || "nlp");
   const showNlpLanguageHint = useMemo(() => setParser(== "nlp" && !isEnglishLocale, [])); // WF4-REVIEW: dependency array
   const [dontShowInfoPage, setDontShowInfoPage] = useState(parserPreferences.dontShowInfoPage);
-  const availableParsers = useMemo(() =>  {
+  const availableParsers = useMemo(() => {
     return [
       {
-        text: i18n.t("recipe.parser.natural-language-processor", []); // WF4-REVIEW: dependency array,
+        text: i18n.t("recipe.parser.natural-language-processor"),
         value: "nlp",
       },
       {
@@ -54,7 +55,7 @@ export function useParseIngredientsDialog(
         hide: !group?.aiProviderSettings?.aiEnabled,
       },
     ];
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   /**
  * If confidence of parsing is below this threshold,
@@ -170,7 +171,7 @@ export function useParseIngredientsDialog(
     ing.ingredient.food = undefined;
   }
 
-  const ingredientsToReview = useMemo(() => parsedIngs.filter(shouldReview, []); // WF4-REVIEW: dependency array);
+  const ingredientsToReview = useMemo(() => parsedIngs.filter(shouldReview), []); // WF4-REVIEW: dependency array
 
   function nextIngredient() {
     let nextIndex = state.currentParsedIndex;

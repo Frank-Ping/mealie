@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Button, Card, CardContent, CardHeader, Container, Divider, FormControlLabel, Grid, ListItem, Tooltip } from "@mui/material";
+import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
 import { toRefs } from "@vueuse/core";
 import { useUserApi } from "@/composables/api";
@@ -53,7 +54,7 @@ export default function RecipeDialogAddToShoppingList({ recipes = undefined, sho
 
   const dialog = defineModel<boolean>({ default: false });
 
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
   const auth = useMealieAuth();
   const api = useUserApi();
   const preferences = useShoppingListPreferences();
@@ -305,13 +306,14 @@ export default function RecipeDialogAddToShoppingList({ recipes = undefined, sho
   {(dialog) ? (
     <div>
       {(shoppingListDialog && ready) ? (
-        <BaseDialog value={dialog} onChange={/* WF4-REVIEW: setter */ setDialog} bottom-sheet title={t('recipe.add-to-list')} icon={$globals.icons.cartCheck}>
+        <BaseDialog value={dialog} onChange={/* WF4-REVIEW: setter */ setDialog} bottom-sheet title={t('recipe.add-to-list')} icon={icons.cartCheck}>
           {(!filteredShoppingLists.length) ? (
             <Container>
               <BasePageTitle>
-                <template>
+                {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                <>
                   {t('shopping-list.no-shopping-lists-found')}
-                </template>
+                </>
               </BasePageTitle>
             </Container>
           ) : null}
@@ -325,19 +327,21 @@ export default function RecipeDialogAddToShoppingList({ recipes = undefined, sho
               </Card>
             ))}
           </CardContent>
-          <template>
+          {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+          <>
+            {/* WF4-REVIEW: assignment handler "dialog = false" — target not a tracked ref [J] */}
             <Button variant="text" color="grey" onClick={dialog = false}>
               {t("general.cancel")}
             </Button>
             <div className="d-flex justify-end" style="width: 100%;">
               {/* WF4-REVIEW: control={<Checkbox/>} + label prop; v-model on complex expression "preferences.viewAllLists" [J] */}
-              <FormControlLabel {/* WF4-REVIEW: v-model preferences.viewAllLists */} hide-details label={t('general.show-all')} className="my-auto mr-4" onClick={setShowAllToggled()} />
+              <FormControlLabel hide-details label={t('general.show-all')} className="my-auto mr-4" onClick={setShowAllToggled()} />
             </div>
-          </template>
+          </>
         </BaseDialog>
       ) : null}
       {(shoppingListIngredientDialog) ? (
-        <BaseDialog value={dialog} onChange={/* WF4-REVIEW: setter */ setDialog} title={selectedShoppingList?.name || t('recipe.add-to-list')} icon={$globals.icons.cartCheck} width="70%" submit-text={t('recipe.add-to-list')} can-submit onSubmit={addRecipesToList()}>
+        <BaseDialog value={dialog} onChange={/* WF4-REVIEW: setter */ setDialog} title={selectedShoppingList?.name || t('recipe.add-to-list')} icon={icons.cartCheck} width="70%" submit-text={t('recipe.add-to-list')} can-submit onSubmit={addRecipesToList()}>
           <div style="max-height: 70vh;  overflow-y: auto">
             {recipeIngredientSections.map((recipeSection, recipeSectionIndex) => (
               <Card key={recipeSection.recipeId + recipeSectionIndex} elevation="0" height="fit-content" width="100%">
@@ -355,10 +359,11 @@ export default function RecipeDialogAddToShoppingList({ recipes = undefined, sho
                           {(recipeSection.parentRecipe?.name) ? (
                             /* WF4-REVIEW: activator slot variants [J] */
                             <Tooltip location="top">
-                              <template>
+                              {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                              <>
                                 {/* WF4-REVIEW: icon name resolves via lib/icons */}
-                                <MdiIcon name={$globals.icons.potSteam} {...(tooltipProps)} size="tiny" className="mb-2 ml-2" style="cursor: pointer" />
-                              </template>
+                                <MdiIcon name={icons.potSteam} {...(tooltipProps)} size="tiny" className="mb-2 ml-2" style="cursor: pointer" />
+                              </>
                               <span>
                                 {t("shopping-list.ingredient-of-recipe", { recipe: recipeSection.parentRecipe.name })}
                               </span>
@@ -420,12 +425,12 @@ export default function RecipeDialogAddToShoppingList({ recipes = undefined, sho
           <div className="d-flex justify-end mb-4 mt-2">
             <BaseButtonGroup buttons={[
             {
-              icon: $globals.icons.checkboxMultipleBlankOutline,
+              icon: icons.checkboxMultipleBlankOutline,
               text: t('shopping-list.uncheck-all-items'),
               event: 'uncheck',
             },
             {
-              icon: $globals.icons.checkboxMultipleMarkedOutline,
+              icon: icons.checkboxMultipleMarkedOutline,
               text: t('shopping-list.check-all-items'),
               event: 'check',
             },

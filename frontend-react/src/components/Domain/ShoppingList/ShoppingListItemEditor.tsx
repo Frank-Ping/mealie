@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { Card, CardActions } from "@mui/material";
+import { icons } from "@/lib/icons";
 import { useShoppingListItemEditor } from "@/composables/shopping-list-page/use-shopping-list-item-editor";
 import type { ShoppingListItemOut } from "@/lib/api/types/household";
 import type { MultiPurposeLabelOut } from "@/lib/api/types/labels";
@@ -46,14 +47,14 @@ export default function ShoppingListItemEditor({ labels, units, foods, allowDele
     },
   );
 
-  const autoFocus = useMemo(() => (!listItem.food && listItem.note ? "note" : "food", []); // WF4-REVIEW: dependency array);
+  const autoFocus = useMemo(() => (!listItem.food && listItem.note ? "note" : "food"), []); // WF4-REVIEW: dependency array
 
   return (
     <>
   <Card variant="elevated" className="pa-2" border="primary s-lg opacity-100">
     <div className="d-flex flex-column ga-3">
       {/* WF4-REVIEW: v-model on complex expression "listItem.food" [J]; v-model on complex expression "listItem.foodId!" [J] */}
-      <InputLabelType {/* WF4-REVIEW: v-model listItem.food */} {/* WF4-REVIEW: v-model listItem.foodId! */} items={foods} label={t('shopping-list.food')} icon={$globals.icons.foods} autofocus={autoFocus === 'food'} create onCreate={createAssignFood} />
+      <InputLabelType items={foods} label={t('shopping-list.food')} icon={icons.foods} autofocus={autoFocus === 'food'} create onCreate={createAssignFood} />
       <ShoppingListItemDetails value={listItem} onChange={/* WF4-REVIEW: setter */ setListItem} labels={labels} units={units} onSave={onSave?.()} />
     </div>
     <CardActions className="justify-end pa-0">
@@ -61,19 +62,19 @@ export default function ShoppingListItemEditor({ labels, units, foods, allowDele
           ...(allowDelete
             ? [
               {
-                icon: $globals.icons.delete,
+                icon: icons.delete,
                 text: t('general.delete'),
                 event: 'delete',
               },
             ]
             : []),
           {
-            icon: $globals.icons.close,
+            icon: icons.close,
             text: t('general.cancel'),
             event: 'cancel',
           },
           {
-            icon: $globals.icons.save,
+            icon: icons.save,
             text: t('general.save'),
             event: 'save',
           },

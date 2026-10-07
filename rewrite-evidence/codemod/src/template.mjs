@@ -1,5 +1,6 @@
-// Vue template AST -> JSX. Uses @vue/compiler-dom baseParse (raw directive nodes).
-import { baseParse, NodeTypes } from "@vue/compiler-dom";
+// Vue template AST -> JSX. Uses @vue/compiler-dom parse (HTML mode — baseParse is
+// XML-strict and rejects void tags like <br> that legal Vue templates use).
+import { parse as domParse, NodeTypes } from "@vue/compiler-dom";
 import { mapComponent, globalDropProps } from "./vuetify-map.mjs";
 import { transformExpr } from "./expr.mjs";
 
@@ -33,7 +34,7 @@ function renderProps(el, ctx, notes) {
   if (map?.staticProps) {
     for (const [k, v] of Object.entries(map.staticProps)) {
       if (v === true) out.push(k);
-      else if (typeof v === "string" && v.startsWith("{{")) out.push(`${k}={${v.slice(2, -2)}}`);
+      else if (typeof v === "string" && v.startsWith("{")) out.push(`${k}=${v}`); // braces included in the map value
       else out.push(`${k}="${v}"`);
     }
   }
@@ -66,15 +67,23 @@ function renderProps(el, ctx, notes) {
       const ev = p.arg?.content ?? "click";
       const handler = EVENT_MAP[ev] ?? `on${ev.charAt(0).toUpperCase() + camelEvent(ev.slice(1))}`;
       const mods = (p.modifiers ?? []).map((m) => (typeof m === "string" ? m : m.content));
+      let body = exp ?? "";
+      // assignment handlers: `x = expr` on a tracked ref → () => setX(expr)
+      const assign = body.match(/^([a-zA-Z_$][\w$]*)\s*=(?!=)\s*([\s\S]+)$/);
+      if (assign && ctx.stateIds?.has(assign[1])) {
+        body = `() => ${ctx.stateIds.get(assign[1])}(${assign[2].trim()})`;
+      }
+      else if (assign) {
+        notes.push(`assignment handler "${body}" — target not a tracked ref [J]`);
+      }
       if (mods.includes("prevent") || mods.includes("stop")) {
-        let body = exp ?? "";
         const arrow = body.match(/^\(\s*\)\s*=>\s*(.+)$/s);
         if (arrow) body = arrow[1];
         const guards = [mods.includes("prevent") ? "e.preventDefault();" : null, mods.includes("stop") ? "e.stopPropagation();" : null].filter(Boolean).join(" ");
         out.push(`${handler}={(e) => { ${guards} ${body}; }}`);
       }
       else {
-        out.push(`${handler}={${exp ?? "/* WF4-REVIEW: missing handler */ undefined"}}`);
+        out.push(`${handler}={${body || "/* WF4-REVIEW: missing handler */ undefined"}}`);
       }
       continue;
     }
@@ -85,8 +94,9 @@ function renderProps(el, ctx, notes) {
         out.push(`${target.prop}={${exp}}`, `${target.handler}={${setter}}`);
       }
       else {
+        // complex v-model (member path) → judgement note only; emitting a comment
+        // inside the props list is invalid JSX (Phase C TS1005 family)
         notes.push(`v-model on complex expression "${exp}" [J]`);
-        out.push(`{/* WF4-REVIEW: v-model ${exp} */}`);
       }
       continue;
     }
@@ -103,6 +113,15 @@ function camelEvent(s) {
 function renderElement(el, ctx, depth, exprContext = false) {
   const pad = "  ".repeat(depth);
   const notes = [];
+
+  // <template> grouping wrapper (Vue-only): render children as a fragment.
+  // Slot usage is judgement; v-if/v-for on <template> is already handled
+  // structurally by the caller.
+  if (el.tag === "template") {
+    if (hasDir(el, "slot")) notes.push(`<template> slot — convert to render props/children manually [J]`);
+    const kids = renderChildren(el.children, ctx, depth + 1);
+    return comment(notes, pad, exprContext) + `${pad}<>\n${kids}\n${pad}</>`;
+  }
 
   // v-html → SafeHtml wrapper (decision D14)
   const htmlDir = getDir(el, "html");
@@ -241,7 +260,9 @@ function stripDir(el, name) {
 }
 
 export function compileTemplate(template, ctx = {}) {
-  const ast = baseParse(template);
+  const ast = domParse(template, {
+    onError: (e) => { ctx.parseErrors?.push(`${e.code ?? ""} ${e.message}`.trim()); },
+  });
   const body = renderChildren(ast.children, ctx, 1);
   return body;
 }

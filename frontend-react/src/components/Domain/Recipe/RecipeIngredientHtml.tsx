@@ -11,11 +11,11 @@ export default function RecipeIngredientHtml({ ingredient, scale }: Props) {
   const { ingredient, scale = 1 } = /* props via destructured signature */
   const { useParsedIngredientText } = useIngredientTextParser();
 
-  const baseText = useMemo(() =>  {
-    if (!ingredient, []); // WF4-REVIEW: dependency array return "";
+  const baseText = useMemo(() => {
+    if (!ingredient) return "";
     const parsed = useParsedIngredientText(ingredient, scale);
     return [parsed.quantity, parsed.unit, parsed.name].filter(Boolean).join(" ").trim();
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   return (
     <>

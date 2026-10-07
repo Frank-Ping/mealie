@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Alert, Button, Card, CardActions, CardContent, CardHeader, Container, Divider, FormControlLabel, TextField, Toolbar, Typography, form } from "@mui/material";
+import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
 import { useDark, useSessionStorage, whenever } from "@vueuse/core";
 import { useLoggedInState } from "@/composables/use-logged-in-state";
@@ -24,7 +25,7 @@ export default function Login() {
 
   const navigate = useNavigate();
   const route = useLocation(); // WF4-REVIEW: .query → useSearchParams [J]
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
   const auth = useMealieAuth();
   const { $appInfo, $axios } = useNuxtApp();
   const { loggedIn } = useLoggedInState();
@@ -203,7 +204,7 @@ export default function Login() {
       'bg-off-white': !$vuetify.theme.current.dark && !isDark,
     }}>
     {(isFirstLogin) ? (
-      <Alert className="my-4" type="info" icon={$globals.icons.information} style={{ flex: 'none' }}>
+      <Alert className="my-4" type="info" icon={icons.information} style={{ flex: 'none' }}>
         <div>
           <p className="mb-3">
             {t('user.it-looks-like-this-is-your-first-time-logging-in')}
@@ -247,15 +248,15 @@ export default function Login() {
         <form onSubmit={(e) => { e.preventDefault(); authenticate; }}>
           {($appInfo.allowPasswordLogin) ? (
             /* WF4-REVIEW: rules/error-messages → error+helperText; v-model on complex expression "form.email" [J] */
-            <TextField id="username" {/* WF4-REVIEW: v-model form.email */} prepend-inner-icon={$globals.icons.email} variant="solo-filled" flat width="100%" autofocus autocomplete="username" name="username" label={t('user.email-or-username')} type="text" />
+            <TextField id="username" prepend-inner-icon={icons.email} variant="solo-filled" flat width="100%" autofocus autocomplete="username" name="username" label={t('user.email-or-username')} type="text" />
           ) : null}
           {($appInfo.allowPasswordLogin) ? (
             /* WF4-REVIEW: rules/error-messages → error+helperText; v-model on complex expression "form.password" [J] */
-            <TextField id="password" {/* WF4-REVIEW: v-model form.password */} prepend-inner-icon={$globals.icons.lock} append-inner-icon={passwordIcon} variant="solo-filled" flat autocomplete="current-password" name="password" label={t('user.password')} type={inputType} onClickAppendInner={togglePasswordShow} />
+            <TextField id="password" prepend-inner-icon={icons.lock} append-inner-icon={passwordIcon} variant="solo-filled" flat autocomplete="current-password" name="password" label={t('user.password')} type={inputType} onClickAppendInner={togglePasswordShow} />
           ) : null}
           {($appInfo.allowPasswordLogin) ? (
             /* WF4-REVIEW: control={<Checkbox/>} + label prop; v-model on complex expression "form.remember" [J] */
-            <FormControlLabel {/* WF4-REVIEW: v-model form.remember */} className="ml-2 mt-n2" label={t('user.remember-me')} />
+            <FormControlLabel className="ml-2 mt-n2" label={t('user.remember-me')} />
           ) : null}
           {($appInfo.allowPasswordLogin) ? (
             <CardActions className="justify-center pt-0">
@@ -309,17 +310,17 @@ export default function Login() {
         {[
             {
               text: t('about.sponsor'),
-              icon: $globals.icons.heart,
+              icon: icons.heart,
               href: 'https://github.com/sponsors/hay-kot',
             },
             {
               text: t('about.github'),
-              icon: $globals.icons.github,
+              icon: icons.github,
               href: 'https://github.com/mealie-recipes/mealie',
             },
             {
               text: t('about.docs'),
-              icon: $globals.icons.folderOutline,
+              icon: icons.folderOutline,
               href: 'https://docs.mealie.io/',
             },
           ].map(link => (

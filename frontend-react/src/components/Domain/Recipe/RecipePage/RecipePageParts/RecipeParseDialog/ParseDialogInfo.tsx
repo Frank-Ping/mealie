@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { Chip, FormControlLabel } from "@mui/material";
+import { icons } from "@/lib/icons";
 
 export default function ParseDialogInfo() {
   const { t } = useTranslation();
@@ -13,7 +14,7 @@ export default function ParseDialogInfo() {
   return (
     <>
   {/* WF4-REVIEW: unmapped <v-empty-state> — judgement component, convert manually [J] */}
-  <VEmptyState color="success" icon={$globals.icons.progressCheck} headline={t('recipe.parser.ingredient-parser-headline')}>
+  <VEmptyState color="success" icon={icons.progressCheck} headline={t('recipe.parser.ingredient-parser-headline')}>
     <div className="d-flex ga-2 flex-column">
       <h3 className="my-0">
         {t("recipe.parser.ingredient-parser-title")}
@@ -29,11 +30,11 @@ export default function ParseDialogInfo() {
       </h3>
       <div className="d-flex ga-2 flex-wrap">
         {(autoParsed) ? (
-          <Chip size="large" color="success" prepend-icon={$globals.icons.checkboxMarkedCircle}>
+          <Chip size="large" color="success" prepend-icon={icons.checkboxMarkedCircle}>
             {t("recipe.parser.ingredient-parser-result-success", autoParsed)}
           </Chip>
         ) : null}
-        <Chip size="large" color="warning" prepend-icon={$globals.icons.alert}>
+        <Chip size="large" color="warning" prepend-icon={icons.alert}>
           {t("recipe.parser.ingredient-parser-result-failed", toReview)}
         </Chip>
       </div>

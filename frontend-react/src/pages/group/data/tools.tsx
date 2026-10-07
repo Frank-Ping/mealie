@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
+import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
 import { validators } from "@/composables/use-validators";
 import { fieldTypes } from "@/composables/forms";
@@ -16,7 +17,7 @@ export default function Tools() {
     onHand: boolean;
   }
 
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
   const tableConfig: TableConfig = {
     hideColumns: true,
     canExport: true,
@@ -44,10 +45,10 @@ export default function Tools() {
   const auth = useMealieAuth();
   const userHousehold = useMemo(() => auth.user?.householdSlug || "", []); // WF4-REVIEW: dependency array
   const toolStore = useToolStore();
-  const tools = useMemo(() => toolStore.store.map((tools, []); // WF4-REVIEW: dependency array => {
+  const tools = useMemo(() => toolStore.store.map((tools) => {
     const onHand = tools.householdsWithTool?.includes(userHousehold) || false;
     return { ...tools, onHand } as RecipeToolWithOnHand;
-  }));
+  }), []); // WF4-REVIEW: dependency array
 
   /* WF4-REVIEW [J] */ onMounted(() => {
     toolStore.actions.refresh();
@@ -119,11 +120,12 @@ export default function Tools() {
   return (
     <>
   <div>
-    <GroupDataPage icon={$globals.icons.tools} title={t('data-pages.tools.tool-data')} create-title={t('data-pages.tools.new-tool')} edit-title={t('data-pages.tools.edit-tool')} table-headers={tableHeaders} table-config={tableConfig} data={tools || []} bulk-actions={[{ icon: $globals.icons.delete, text: t('general.delete'), event: 'delete-selected' }]} create-form={createForm} edit-form={editForm} onCreateOne={handleCreate} onEditOne={handleEdit} onDeleteOne={toolStore.actions.deleteOne} onBulkAction={handleBulkAction}>
-      <template>
+    <GroupDataPage icon={icons.tools} title={t('data-pages.tools.tool-data')} create-title={t('data-pages.tools.new-tool')} edit-title={t('data-pages.tools.edit-tool')} table-headers={tableHeaders} table-config={tableConfig} data={tools || []} bulk-actions={[{ icon: icons.delete, text: t('general.delete'), event: 'delete-selected' }]} create-form={createForm} edit-form={editForm} onCreateOne={handleCreate} onEditOne={handleEdit} onDeleteOne={toolStore.actions.deleteOne} onBulkAction={handleBulkAction}>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
         {/* WF4-REVIEW: icon name resolves via lib/icons */}
-        <MdiIcon name={item.onHand ? $globals.icons.check : $globals.icons.close} color={item.onHand ? 'success' : undefined} />
-      </template>
+        <MdiIcon name={item.onHand ? icons.check : icons.close} color={item.onHand ? 'success' : undefined} />
+      </>
     </GroupDataPage>
   </div>
     </>

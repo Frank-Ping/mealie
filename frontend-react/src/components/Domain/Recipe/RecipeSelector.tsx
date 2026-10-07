@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Alert, Chip, CircularProgress, List, TextField } from "@mui/material";
+import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
 import { useIntersectionObserver, watchDebounced } from "@vueuse/core";
 import RecipeCardLineItem from "./RecipeCardLineItem";
@@ -30,8 +31,8 @@ export default function RecipeSelector({ queryFilter = null, height = "100%" }: 
   const { store: tags } = useTagStore();
 
   const [search, setSearch] = useState("");
-  const selectedCategories = ref<NoUndefinedField<RecipeCategory>[]>([]);
-  const selectedTags = ref<NoUndefinedField<RecipeTag>[]>([]);
+  const [selectedCategories, setSelectedCategories] = useState([]);
+  const [selectedTags, setSelectedTags] = useState([]);
 
   const [recipes, setRecipes] = useState([]);
   const [page, setPage] = useState(1);
@@ -41,13 +42,13 @@ export default function RecipeSelector({ queryFilter = null, height = "100%" }: 
   // discards the results of any request that was superseded while it was in flight
   let latestRequest = 0;
 
-  const query = useMemo(() =>  {
+  const query = useMemo(() => {
     return {
       search: search || "",
-      categories: selectedCategories.map(category => category.id, []); // WF4-REVIEW: dependency array,
+      categories: selectedCategories.map(category => category.id),
       tags: selectedTags.map(tag => tag.id),
     };
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   function select(recipe: RecipeSummary | null) {
     modelValue = recipe;
@@ -55,8 +56,8 @@ export default function RecipeSelector({ queryFilter = null, height = "100%" }: 
 
   function reset() {
     setSearch("");
-    selectedCategories = [];
-    selectedTags = [];
+    setSelectedCategories([]);
+    setSelectedTags([]);
   }
 
   defineExpose({ reset });
@@ -129,19 +130,19 @@ export default function RecipeSelector({ queryFilter = null, height = "100%" }: 
     <>
   <div className="recipe-selector d-flex flex-column" style={{ height }}>
     {/* WF4-REVIEW: rules/error-messages → error+helperText */}
-    <TextField value={search} onChange={setSearch} className="flex-grow-0" variant="outlined" density="compact" color="primary" autofocus hide-details clearable placeholder={t('search.search-placeholder')} prepend-inner-icon={$globals.icons.search} />
+    <TextField value={search} onChange={setSearch} className="flex-grow-0" variant="outlined" density="compact" color="primary" autofocus hide-details clearable placeholder={t('search.search-placeholder')} prepend-inner-icon={icons.search} />
     <div className="d-flex flex-wrap align-start ga-2 mt-3">
       {(categories.length) ? (
-        <SearchFilter value={selectedCategories} onChange={/* WF4-REVIEW: setter */ setSelectedCategories} items={categories}>
+        <SearchFilter value={selectedCategories} onChange={setSelectedCategories} items={categories}>
           {/* WF4-REVIEW: icon name resolves via lib/icons; dropped Vuetify-only prop "start" on <v-icon> */}
-          <MdiIcon name={$globals.icons.categories} />
+          <MdiIcon name={icons.categories} />
           {t("category.categories")}
         </SearchFilter>
       ) : null}
       {(tags.length) ? (
-        <SearchFilter value={selectedTags} onChange={/* WF4-REVIEW: setter */ setSelectedTags} items={tags}>
+        <SearchFilter value={selectedTags} onChange={setSelectedTags} items={tags}>
           {/* WF4-REVIEW: icon name resolves via lib/icons; dropped Vuetify-only prop "start" on <v-icon> */}
-          <MdiIcon name={$globals.icons.tags} />
+          <MdiIcon name={icons.tags} />
           {t("tag.tags")}
         </SearchFilter>
       ) : null}
@@ -152,7 +153,7 @@ export default function RecipeSelector({ queryFilter = null, height = "100%" }: 
         <span className="text-caption text-medium-emphasis">
           {t("general.selected")}
         </span>
-        <Chip label color="primary" closable prepend-icon={$globals.icons.silverwareForkKnife} onClickClose={select(null)}>
+        <Chip label color="primary" closable prepend-icon={icons.silverwareForkKnife} onClickClose={select(null)}>
           {modelValue.name}
         </Chip>
       </div>

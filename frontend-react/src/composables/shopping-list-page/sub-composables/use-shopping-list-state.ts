@@ -47,11 +47,10 @@ export function useShoppingListState() {
   );
 
   const recipeMap = useMemo(() => new Map(
-    (shoppingList?.recipeReferences?.map(ref => ref.recipe, []); // WF4-REVIEW: dependency array ?? [])
-      .map(recipe => [recipe.id || "", recipe])),
-  );
+    (shoppingList?.recipeReferences?.map(ref => ref.recipe) ?? [])
+      .map(recipe => [recipe.id || "", recipe])),, []); // WF4-REVIEW: dependency array
 
-  const recipeList = useMemo(() => Array.from(recipeMap.values(, []); // WF4-REVIEW: dependency array));
+  const recipeList = useMemo(() => Array.from(recipeMap.values()), []); // WF4-REVIEW: dependency array
 
   return {
     shoppingList,

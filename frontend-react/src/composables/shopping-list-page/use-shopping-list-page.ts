@@ -40,18 +40,18 @@ export function useShoppingListPage(listId: string) {
 
   // Number of checked items currently visible, so the checked section can show
   // how many of them the search matched rather than the total.
-  const visibleCheckedCount = useMemo(() => countMatches(listItems.checked, []); // WF4-REVIEW: dependency array);
+  const visibleCheckedCount = useMemo(() => countMatches(listItems.checked), []); // WF4-REVIEW: dependency array
 
   // Whether the search matched anything at all, used to show an empty state.
-  const hasSearchResults = useMemo(() =>  {
-    if (!isSearching, []); // WF4-REVIEW: dependency array {
+  const hasSearchResults = useMemo(() => {
+    if (!isSearching) {
       return true;
     }
     return (
       Object.values(itemsByLabel).some(items => items.some(matchesSearch))
       || listItems.checked.some(matchesSearch)
     );
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   function updateListItemOrder() {
     if (!shoppingList) return;

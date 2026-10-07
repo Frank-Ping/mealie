@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { CUSTOMARY_SYSTEMS, STANDARDIZED_UNITS, UNIT_SYSTEMS, type StandardizedUnit, type UnitRung, type UnitSystem } from "./unit-systems";
 import type { CreateIngredientUnit, RecipeIngredient } from "@/lib/api/types/recipe";
 
@@ -143,7 +144,7 @@ function roundToRung(rungs: UnitRung[], magnitude: number): { rung: UnitRung; qu
 }
 
 export function useUnitConversion() {
-  const { t, te } = useI18n();
+  const { t, te } = useTranslation(); // WF4-REVIEW: d/n/locale mapping [S]
 
   /**
    * Names come from the ingredient unit seed data, which app/lang/locales/*.ts merge into the

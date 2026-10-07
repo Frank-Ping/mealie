@@ -25,7 +25,8 @@ function hoistTypesAndHandle(body) {
   body = body.replace(/^export const handle = \{[\s\S]*?\};.*$/m, (m) => { hoisted.push(m); return ""; });
   // interface / type declarations (must be module-scope for the signature)
   body = body.replace(/^(export\s+)?interface\s+\w+\s*\{[\s\S]*?^\}/gm, (m) => { hoisted.push(m); return ""; });
-  body = body.replace(/^(export\s+)?type\s+\w+[\s\S]*?;$/gm, (m) => { hoisted.push(m); return ""; });
+  // type aliases: object form spans to a line-starting `}`, scalar/union form to `;`
+  body = body.replace(/^(export\s+)?type\s+\w+[^=]*=\s*(\{[\s\S]*?^\}|[^;]+);/gm, (m) => { hoisted.push(m); return ""; });
   return { hoisted, rest: body };
 }
 

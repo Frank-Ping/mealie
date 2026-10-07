@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Avatar, Button, CardContent, Divider, List, ListItem, ListItemText, TextField } from "@mui/material";
+import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
 
 interface Props {
@@ -23,7 +24,7 @@ export default function RecipeDialogBulkAdd({ inputTextProp = "" }: Props) {
     return inputText.split("\n").filter(line => line.trim().length > 0);
   }
 
-  const canSave = useMemo(() => splitText(, []); // WF4-REVIEW: dependency array.length > 0);
+  const canSave = useMemo(() => splitText().length > 0, []); // WF4-REVIEW: dependency array
 
   function removeFirstCharacter() {
     setInputText(splitText()
@@ -69,12 +70,12 @@ export default function RecipeDialogBulkAdd({ inputTextProp = "" }: Props) {
     setDialog(false);
   }
 
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
 
   const utilities = useMemo(() => [
     {
       id: "trim-whitespace",
-      description: i18n.t("new-recipe.trim-whitespace-description", []); // WF4-REVIEW: dependency array,
+      description: i18n.t("new-recipe.trim-whitespace-description"),
       action: trimAllLines,
     },
     {
@@ -87,7 +88,7 @@ export default function RecipeDialogBulkAdd({ inputTextProp = "" }: Props) {
       description: i18n.t("new-recipe.split-by-numbered-line-description"),
       action: splitByNumberedLine,
     },
-  ]);
+  ], []); // WF4-REVIEW: dependency array
 
   // Expose functions to parent components
   defineExpose({
@@ -98,32 +99,33 @@ export default function RecipeDialogBulkAdd({ inputTextProp = "" }: Props) {
   return (
     <>
   <div className="text-center">
-    <BaseButton onClick={dialog = true}>
+    <BaseButton onClick={() => setDialog(true)}>
       {t("new-recipe.bulk-add")}
     </BaseButton>
-    <BaseDialog value={dialog} onChange={setDialog} width="800" title={t('new-recipe.bulk-add')} icon={$globals.icons.createAlt} submit-text={t('general.add')} submit-disabled={!canSave} disable-submit-on-enter={true} can-submit onSubmit={save}>
+    <BaseDialog value={dialog} onChange={setDialog} width="800" title={t('new-recipe.bulk-add')} icon={icons.createAlt} submit-text={t('general.add')} submit-disabled={!canSave} disable-submit-on-enter={true} can-submit onSubmit={save}>
       <CardContent>
         <TextField multiline value={inputText} onChange={setInputText} variant="outlined" rows="12" hide-details autofocus placeholder={t('new-recipe.paste-in-your-recipe-data-each-line-will-be-treated-as-an-item-in-a-list')} />
         <Divider />
         <List lines="two">
           {utilities.map((util) => (
-            <template key={util.id}>
+            <>
               {/* WF4-REVIEW: @click → ListItemButton */}
               <ListItem className="px-0">
-                <template>
+                {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                <>
                   <Avatar>
                     <Button icon variant="tonal" base-color="info" title={t('general.run')} onClick={util.action}>
                       {/* WF4-REVIEW: icon name resolves via lib/icons */}
-                      <MdiIcon name={$globals.icons.play} />
+                      <MdiIcon name={icons.play} />
                     </Button>
                   </Avatar>
-                </template>
+                </>
                 {/* WF4-REVIEW: content → primary prop */}
                 <ListItemText className="text-pre-wrap">
                   {util.description}
                 </ListItemText>
               </ListItem>
-            </template>
+            </>
           ))}
         </List>
       </CardContent>

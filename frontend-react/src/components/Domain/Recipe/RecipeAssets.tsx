@@ -32,7 +32,7 @@ export default function RecipeAssets({ slug, recipeId, edit = true }: Props) {
     },
   });
 
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
   // icons imported directly (was $globals)
   const { copyText } = useCopy();
 
@@ -160,11 +160,12 @@ export default function RecipeAssets({ slug, recipeId, edit = true }: Props) {
           <CardHeader>
             {t("asset.assets")}
           </CardHeader>
-          <template>
+          {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+          <>
             {(edit) ? (
-              <Button variant="plain" icon={$globals.icons.create} onClick={state.newAssetDialog = true} />
+              <Button variant="plain" icon={icons.create} onClick={state.newAssetDialog = true} />
             ) : null}
-          </template>
+          </>
         </ListItem>
         <Divider className="mx-2" />
         {(model.length > 0) ? (
@@ -172,7 +173,8 @@ export default function RecipeAssets({ slug, recipeId, edit = true }: Props) {
             {model.map((item, i) => (
               /* WF4-REVIEW: @click → ListItemButton */
               <ListItem key={i} to={!edit && !isImage(item.fileName) ? assetURL(item.fileName ?? '') : undefined} target={!edit && !isImage(item.fileName) ? '_blank' : undefined} className="pr-2" onClick={handleRowClick($event, item)}>
-                <template>
+                {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                <>
                   <Avatar size="48" rounded="lg" className="elevation-1">
                     {(isImage(item.fileName)) ? (
                       /* WF4-REVIEW: cover → objectFit */
@@ -182,33 +184,35 @@ export default function RecipeAssets({ slug, recipeId, edit = true }: Props) {
                       <MdiIcon name={getIconDefinition(item.icon).icon} size="large" />
                     )}
                   </Avatar>
-                </template>
+                </>
                 {/* WF4-REVIEW: content → primary prop */}
                 <ListItemText>
                   {item.name}
                 </ListItemText>
-                <template>
+                {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                <>
                   {(edit) ? (
                     /* WF4-REVIEW: unmapped <v-menu> — judgement component, convert manually [J] */
                     <VMenu location="bottom end">
-                      <template>
+                      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                      <>
                         <Button {...(menuProps)} icon variant="plain">
                           {/* WF4-REVIEW: icon name resolves via lib/icons */}
-                          <MdiIcon icon={$globals.icons.dotsVertical} />
+                          <MdiIcon icon={icons.dotsVertical} />
                         </Button>
-                      </template>
+                      </>
                       <List density="compact" min-width="220">
                         {/* WF4-REVIEW: @click → ListItemButton */}
-                        <ListItem to={!isImage(item.fileName) ? assetURL(item.fileName ?? '') : undefined} target={!isImage(item.fileName) ? '_blank' : undefined} prepend-icon={$globals.icons.eye} title={t('general.view')} onClick={handleViewClick($event, item)} />
+                        <ListItem to={!isImage(item.fileName) ? assetURL(item.fileName ?? '') : undefined} target={!isImage(item.fileName) ? '_blank' : undefined} prepend-icon={icons.eye} title={t('general.view')} onClick={handleViewClick($event, item)} />
                         {/* WF4-REVIEW: @click → ListItemButton */}
-                        <ListItem to={assetURL(item.fileName ?? '')} prepend-icon={$globals.icons.download} title={t('general.download')} download onClick={(e) => { e.stopPropagation(); ; }} />
+                        <ListItem to={assetURL(item.fileName ?? '')} prepend-icon={icons.download} title={t('general.download')} download onClick={(e) => { e.stopPropagation(); ; }} />
                         {(edit) ? (
                           /* WF4-REVIEW: @click → ListItemButton */
-                          <ListItem prepend-icon={$globals.icons.contentCopy} title={t('general.copy')} onClick={copyText(assetEmbed(item.fileName ?? ''))} />
+                          <ListItem prepend-icon={icons.contentCopy} title={t('general.copy')} onClick={copyText(assetEmbed(item.fileName ?? ''))} />
                         ) : null}
                         {(edit) ? (
                           /* WF4-REVIEW: @click → ListItemButton */
-                          <ListItem prepend-icon={$globals.icons.delete} title={t('general.delete')} onClick={model.splice(i, 1)} />
+                          <ListItem prepend-icon={icons.delete} title={t('general.delete')} onClick={model.splice(i, 1)} />
                         ) : null}
                       </List>
                     </VMenu>
@@ -216,10 +220,10 @@ export default function RecipeAssets({ slug, recipeId, edit = true }: Props) {
                   {(!edit) ? (
                     <Button icon variant="plain" to={assetURL(item.fileName ?? '')} download onClick={(e) => { e.stopPropagation(); ; }}>
                       {/* WF4-REVIEW: icon name resolves via lib/icons */}
-                      <MdiIcon name={$globals.icons.download} />
+                      <MdiIcon name={icons.download} />
                     </Button>
                   ) : null}
-                </template>
+                </>
               </ListItem>
             ))}
           </List>
@@ -227,29 +231,31 @@ export default function RecipeAssets({ slug, recipeId, edit = true }: Props) {
       </Card>
       {(lightbox.open) ? (
         /* WF4-REVIEW: v-model on complex expression "lightbox.open" [J] */
-        <RecipeImageLightbox {/* WF4-REVIEW: v-model lightbox.open */} image-url={lightbox.imageUrl} image-alt={lightbox.imageAlt} />
+        <RecipeImageLightbox image-url={lightbox.imageUrl} image-alt={lightbox.imageAlt} />
       ) : null}
       <div className="d-flex ml-auto mt-2">
-        <Box sx={ flexGrow: 1 } />
+        <Box sx={{ flexGrow: 1 }} />
         {/* WF4-REVIEW: v-model on complex expression "state.newAssetDialog" [J] */}
-        <BaseDialog {/* WF4-REVIEW: v-model state.newAssetDialog */} title={t('asset.new-asset')} icon={getIconDefinition(state.newAsset.icon).icon} can-submit onSubmit={addAsset}>
+        <BaseDialog title={t('asset.new-asset')} icon={getIconDefinition(state.newAsset.icon).icon} can-submit onSubmit={addAsset}>
           <CardContent className="pt-4">
             {/* WF4-REVIEW: rules/error-messages → error+helperText; v-model on complex expression "state.newAsset.name" [J] */}
-            <TextField {/* WF4-REVIEW: v-model state.newAsset.name */} label={t('general.name')} />
+            <TextField label={t('general.name')} />
             <div className="d-flex justify-space-between">
               {/* WF4-REVIEW: items/item-title/item-value → MenuItem children; v-model on complex expression "state.newAsset.icon" [J] */}
-              <TextField select {/* WF4-REVIEW: v-model state.newAsset.icon */} density="compact" prepend-icon={getIconDefinition(state.newAsset.icon).icon} items={iconOptions} item-title="title" item-value="name" className="mr-2">
-                <template>
+              <TextField select density="compact" prepend-icon={getIconDefinition(state.newAsset.icon).icon} items={iconOptions} item-title="title" item-value="name" className="mr-2">
+                {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                <>
                   {/* WF4-REVIEW: @click → ListItemButton */}
                   <ListItem {...(itemProps)}>
-                    <template>
+                    {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                    <>
                       <Avatar>
                         {/* WF4-REVIEW: icon name resolves via lib/icons */}
                         <MdiIcon name={item.icon} />
                       </Avatar>
-                    </template>
+                    </>
                   </ListItem>
-                </template>
+                </>
               </TextField>
               <AppButtonUpload post={false} file-name="file" text-btn={false} onUploaded={setFileObject} />
             </div>

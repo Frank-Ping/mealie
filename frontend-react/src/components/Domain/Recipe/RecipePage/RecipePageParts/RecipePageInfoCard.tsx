@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { Card, CardContent, CardHeader, Container, Divider, Grid } from "@mui/material";
 import { useLoggedInState } from "@/composables/use-logged-in-state";
 import RecipeRating from "@/components/Domain/Recipe/RecipeRating";
@@ -19,10 +20,10 @@ export default function RecipePageInfoCard({ recipeScale = 1 }: Props) {
 
   const { isOwnGroup } = useLoggedInState();
 
-  const hasTime = computed(() => {
+  const hasTime = useMemo(() => {
     const { prepTime, totalTime, performTime, prepTimeSeconds, totalTimeSeconds, performTimeSeconds } = recipe;
     return [prepTime, totalTime, performTime, prepTimeSeconds, totalTimeSeconds, performTimeSeconds].some(x => !!x);
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   return (
     <>

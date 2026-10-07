@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { Button, Card, CardContent } from "@mui/material";
+import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
 import { substitutionFoodName, useFoodPlurality, useIngredientSubstitutions } from "@/composables/recipes";
 import type { IngredientFoodSubstitution, RecipeIngredient } from "@/lib/api/types/recipe";
@@ -22,13 +23,13 @@ export default function RecipeIngredientSubstitutions({ scale = 1 }: Props) {
 
   /* props via destructured signature (was withDefaults(defineProps<Props>) */
 
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
   const { recipeSubstitutions, foodSubstitutions, hasSubstitutions } = useIngredientSubstitutions(() => ingredient);
 
   // a substitute stands in for the food at this line's quantity and unit, so it takes the same
   // plural form the food itself does -- both sections alike, since they sit under the one line
   const { shouldPluralizeFood } = useFoodPlurality();
-  const pluralFood = useMemo(() => shouldPluralizeFood(ingredient, scale, []); // WF4-REVIEW: dependency array);
+  const pluralFood = useMemo(() => shouldPluralizeFood(ingredient, scale), []); // WF4-REVIEW: dependency array
 
 
 
@@ -37,7 +38,7 @@ export default function RecipeIngredientSubstitutions({ scale = 1 }: Props) {
   const sections = useMemo(() => [
     {
       key: "recipe",
-      title: i18n.t("recipe.substitutions", []); // WF4-REVIEW: dependency array,
+      title: i18n.t("recipe.substitutions"),
       items: recipeSubstitutions,
       dimmed: false,
     },
@@ -47,19 +48,20 @@ export default function RecipeIngredientSubstitutions({ scale = 1 }: Props) {
       items: foodSubstitutions,
       dimmed: true,
     },
-  ].filter(section => section.items.length));
+  ].filter(section => section.items.length), []); // WF4-REVIEW: dependency array
 
   return (
     <>
   {(hasSubstitutions) ? (
     /* WF4-REVIEW: unmapped <v-menu> — judgement component, convert manually [J] */
     <VMenu location="bottom start" max-width="360">
-      <template>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
         <Button {...(menuProps)} icon variant="plain" aria-label={t('recipe.substitutions')} onClick={(e) => { e.stopPropagation(); ; }}>
           {/* WF4-REVIEW: icon name resolves via lib/icons */}
-          <MdiIcon name={$globals.icons.swapHorizontal} />
+          <MdiIcon name={icons.swapHorizontal} />
         </Button>
-      </template>
+      </>
       <Card className="ingredient-substitutions">
         <CardContent className="py-2 px-3 text-body-2">
           {/* WF4-REVIEW: unparseable v-for "section, sectionIndex in sections" */}
@@ -70,14 +72,14 @@ export default function RecipeIngredientSubstitutions({ scale = 1 }: Props) {
               {/* WF4-REVIEW: unparseable v-for "substitution, i in section.items" */}
                 <div key={i} className="substitution">
                   {(substitution.substituteFood) ? (
-                    <template>
+                    <>
                       <span className="substitution-primary">
                         {substitutionFoodName(substitution, pluralFood)}
                       </span>
                       {(substitution.note) ? (
                         <SafeMarkdown className="substitution-note" source={substitution.note} />
                       ) : null}
-                    </template>
+                    </>
                   ) : null}
                   <SafeMarkdown className="substitution-primary" source={substitution.note} />
                 </div>

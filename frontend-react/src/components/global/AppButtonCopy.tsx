@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Button, Tooltip } from "@mui/material";
+import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
 import { useClipboard } from "@vueuse/core";
 
@@ -46,17 +47,18 @@ export default function AppButtonCopy({ copyText, color = "", icon = true, btnCl
     <>
   {/* WF4-REVIEW: activator slot variants [J] */}
   <Tooltip ref="copyToolTip" value={show} onChange={setShow} location="top" open-on-hover={false} open-on-click={true} close-delay="500" transition="slide-y-transition">
-    <template>
+    {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+    <>
       <Button variant="flat" icon={icon} color={color} retain-focus-on-click className={btnClass} disabled={copyText !== '' ? false : true} {...(hoverProps)} onClick={textToClipboard()}>
         {/* WF4-REVIEW: icon name resolves via lib/icons */}
-        <MdiIcon name={$globals.icons.contentCopy} />
+        <MdiIcon name={icons.contentCopy} />
         {icon ? "" : t("general.copy")}
       </Button>
-    </template>
+    </>
     {(!isSupported || copiedSuccess !== null) ? (
       <span>
         {/* WF4-REVIEW: icon name resolves via lib/icons; dropped Vuetify-only prop "start" on <v-icon> */}
-        <MdiIcon name={$globals.icons.clipboardCheck} />
+        <MdiIcon name={icons.clipboardCheck} />
         {(!isSupported) ? (
           <slot>
             {t("general.your-browser-does-not-support-clipboard")}

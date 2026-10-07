@@ -19,8 +19,8 @@ export default function BaseKeyValueEditor() {
 
   // icons imported directly (was $globals)
 
-  const resolvedKeyLabel = useMemo(() => props.keyLabel ?? i18n.t("general.key", []); // WF4-REVIEW: dependency array);
-  const resolvedValueLabel = useMemo(() => props.valueLabel ?? i18n.t("general.value", []); // WF4-REVIEW: dependency array);
+  const resolvedKeyLabel = useMemo(() => props.keyLabel ?? i18n.t("general.key"), []); // WF4-REVIEW: dependency array
+  const resolvedValueLabel = useMemo(() => props.valueLabel ?? i18n.t("general.value"), []); // WF4-REVIEW: dependency array
 
   const [newKey, setNewKey] = useState("");
   const [newValue, setNewValue] = useState("");
@@ -71,7 +71,7 @@ export default function BaseKeyValueEditor() {
         <TextField model-value={value} label={resolvedValueLabel} density="compact" variant="outlined" hide-details className="ms-3 flex-grow-1" onUpdateModelValue={updateValue(key, $event)} />
         <Button icon variant="text" color="error" size="small" onClick={removeEntry(key)}>
           {/* WF4-REVIEW: icon name resolves via lib/icons */}
-          <MdiIcon name={$globals.icons.delete} />
+          <MdiIcon name={icons.delete} />
         </Button>
       </div>
     ))}
@@ -82,7 +82,7 @@ export default function BaseKeyValueEditor() {
       <TextField value={newValue} onChange={setNewValue} label={resolvedValueLabel} density="compact" variant="outlined" hide-details className="ms-3 flex-grow-1" onKeyDown={(e) => { e.preventDefault(); addEntry; }} />
       <Button icon variant="text" color="primary" size="small" disabled={!newKey?.trim()} onClick={addEntry}>
         {/* WF4-REVIEW: icon name resolves via lib/icons */}
-        <MdiIcon name={$globals.icons.createAlt} />
+        <MdiIcon name={icons.createAlt} />
       </Button>
     </div>
   </div>

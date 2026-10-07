@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Box, Card, CardActions, CardContent, FormControlLabel, Grid, TextField } from "@mui/material";
 import { DatePicker } from "@mui/x-date-pickers";
+import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
 import { VueDraggable } from "vue-draggable-plus";
 import { useDebounceFn } from "@vueuse/core";
@@ -47,9 +48,9 @@ export default function QueryFilterBuilder({ fieldDefs, initialQueryFilter = nul
     isOrganizerType,
   } = useQueryFilterBuilder();
 
-  const firstDayOfWeek = computed(() => {
+  const firstDayOfWeek = useMemo(() => {
     return household?.preferences?.firstDayOfWeek || 0;
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   const state = /* WF4-REVIEW [J] */ reactive({
     showAdvanced: false,
@@ -394,7 +395,7 @@ export default function QueryFilterBuilder({ fieldDefs, initialQueryFilter = nul
     }
   }
 
-  const config = computed(() => {
+  const config = useMemo(() => {
     const adv = state.showAdvanced;
 
     return {
@@ -445,12 +446,13 @@ export default function QueryFilterBuilder({ fieldDefs, initialQueryFilter = nul
         },
       },
     };
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   return (
     <>
   <Card className="ma-0" flat fluid>
     <CardContent className="ma-0 pa-0">
+      {/* WF4-REVIEW: assignment handler "drag = true" — target not a tracked ref [J] */}
       <VueDraggable value={fields} onChange={setFields} handle=".handle" delay={250} delay-on-touch-only={true} {...({
           animation: 200,
           group: 'recipe-instructions',
@@ -461,7 +463,7 @@ export default function QueryFilterBuilder({ fieldDefs, initialQueryFilter = nul
             {/* WF4-REVIEW: cols/sm/md/lg → size={{ xs, sm, md }} */}
             <Grid cols={config.items.icon.cols(index)} sm={config.items.icon.sm(index)} className={$vuetify.display.smAndDown ? 'd-flex pa-0' : 'd-flex'}>
               {/* WF4-REVIEW: icon name resolves via lib/icons */}
-              <MdiIcon name={$globals.icons.arrowUpDown} className="handle my-auto" size={28} style="cursor: move;" />
+              <MdiIcon name={icons.arrowUpDown} className="handle my-auto" size={28} style="cursor: move;" />
             </Grid>
             {(index != 0 || $vuetify.display.smAndUp) ? (
               /* WF4-REVIEW: cols/sm/md/lg → size={{ xs, sm, md }} */
@@ -507,32 +509,33 @@ export default function QueryFilterBuilder({ fieldDefs, initialQueryFilter = nul
                 <FormControlLabel model-value={field} onUpdateModelValue={setFieldValue(field, index, $event!)} />
               ) : (field.type === 'date') ? (
                 /* WF4-REVIEW: unmapped <v-menu> — judgement component, convert manually [J]; v-model on complex expression "datePickers[index]" [J] */
-                <VMenu {/* WF4-REVIEW: v-model datePickers[index] */} close-on-content-click={false} transition="scale-transition" offset-y max-width="290px" min-width="auto">
-                  <template>
+                <VMenu close-on-content-click={false} transition="scale-transition" offset-y max-width="290px" min-width="auto">
+                  {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                  <>
                     {/* WF4-REVIEW: rules/error-messages → error+helperText */}
                     <TextField model-value={$d(safeNewDate(field + 'T00:00:00'))} variant="underlined" color="primary" className="date-input" {...(activatorProps)} readonly />
-                  </template>
-                  {/* WF4-REVIEW: value format + LocalizationProvider */}
+                  </>
+                  {/* WF4-REVIEW: value format + LocalizationProvider; assignment handler "val => setFieldValue(field, index, val ? val.toISOString().slice(0, 10) : '')" — target not a tracked ref [J] */}
                   <DatePicker model-value={safeNewDate(field + 'T00:00:00')} hide-header first-day-of-week={firstDayOfWeek} local={$i18n.locale} onUpdateModelValue={val => setFieldValue(field, index, val ? val.toISOString().slice(0, 10) : '')} />
                 </VMenu>
               ) : null}
               {/* WF4-REVIEW: unmapped <v-number-input> — judgement component, convert manually [J] */}
               <VNumberInput model-value={parseRelativeDateOffset(field)} suffix={t('query-filter.dates.days-ago', parseRelativeDateOffset(field))} variant="underlined" density="compact" inset min={0} precision={0} className="date-input" onUpdateModelValue={setFieldValue(field, index, $event)} />
               <RecipeTimeInput seconds={field as number || null} hide-text className="w-100" onUpdateSeconds={setFieldValue(field, index, $event ?? '')} />
-              {/* WF4-REVIEW: v-model on complex expression "field.organizers" [J] */}
-              <RecipeOrganizerSelector {/* WF4-REVIEW: v-model field.organizers */} selector-type={Organizer.Category} show-add={false} show-label={false} show-icon={false} variant="underlined" onUpdateModelValue={val => setFieldOrganizers(field, index, (val || []) as OrganizerBase[])} />
-              {/* WF4-REVIEW: v-model on complex expression "field.organizers" [J] */}
-              <RecipeOrganizerSelector {/* WF4-REVIEW: v-model field.organizers */} selector-type={Organizer.Tag} show-add={false} show-label={false} show-icon={false} variant="underlined" onUpdateModelValue={val => setFieldOrganizers(field, index, (val || []) as OrganizerBase[])} />
-              {/* WF4-REVIEW: v-model on complex expression "field.organizers" [J] */}
-              <RecipeOrganizerSelector {/* WF4-REVIEW: v-model field.organizers */} selector-type={Organizer.Tool} show-add={false} show-label={false} show-icon={false} variant="underlined" onUpdateModelValue={val => setFieldOrganizers(field, index, (val || []) as OrganizerBase[])} />
-              {/* WF4-REVIEW: v-model on complex expression "field.organizers" [J] */}
-              <RecipeOrganizerSelector {/* WF4-REVIEW: v-model field.organizers */} selector-type={Organizer.Food} show-add={false} show-label={false} show-icon={false} variant="underlined" onUpdateModelValue={val => setFieldOrganizers(field, index, (val || []) as OrganizerBase[])} />
-              {/* WF4-REVIEW: v-model on complex expression "field.organizers" [J] */}
-              <RecipeOrganizerSelector {/* WF4-REVIEW: v-model field.organizers */} selector-type={Organizer.Household} show-add={false} show-label={false} show-icon={false} variant="underlined" onUpdateModelValue={val => setFieldOrganizers(field, index, (val || []) as OrganizerBase[])} />
-              {/* WF4-REVIEW: v-model on complex expression "field.organizers" [J] */}
-              <RecipeOrganizerSelector {/* WF4-REVIEW: v-model field.organizers */} selector-type={Organizer.User} show-add={false} show-label={false} show-icon={false} variant="underlined" onUpdateModelValue={val => setFieldOrganizers(field, index, (val || []) as OrganizerBase[])} />
-              {/* WF4-REVIEW: v-model on complex expression "field.organizers" [J] */}
-              <RecipeOrganizerSelector {/* WF4-REVIEW: v-model field.organizers */} selector-type={Organizer.Label} show-add={false} show-label={false} show-icon={false} variant="underlined" onUpdateModelValue={val => setFieldOrganizers(field, index, (val || []) as OrganizerBase[])} />
+              {/* WF4-REVIEW: v-model on complex expression "field.organizers" [J]; assignment handler "val => setFieldOrganizers(field, index, (val || []) as OrganizerBase[])" — target not a tracked ref [J] */}
+              <RecipeOrganizerSelector selector-type={Organizer.Category} show-add={false} show-label={false} show-icon={false} variant="underlined" onUpdateModelValue={val => setFieldOrganizers(field, index, (val || []) as OrganizerBase[])} />
+              {/* WF4-REVIEW: v-model on complex expression "field.organizers" [J]; assignment handler "val => setFieldOrganizers(field, index, (val || []) as OrganizerBase[])" — target not a tracked ref [J] */}
+              <RecipeOrganizerSelector selector-type={Organizer.Tag} show-add={false} show-label={false} show-icon={false} variant="underlined" onUpdateModelValue={val => setFieldOrganizers(field, index, (val || []) as OrganizerBase[])} />
+              {/* WF4-REVIEW: v-model on complex expression "field.organizers" [J]; assignment handler "val => setFieldOrganizers(field, index, (val || []) as OrganizerBase[])" — target not a tracked ref [J] */}
+              <RecipeOrganizerSelector selector-type={Organizer.Tool} show-add={false} show-label={false} show-icon={false} variant="underlined" onUpdateModelValue={val => setFieldOrganizers(field, index, (val || []) as OrganizerBase[])} />
+              {/* WF4-REVIEW: v-model on complex expression "field.organizers" [J]; assignment handler "val => setFieldOrganizers(field, index, (val || []) as OrganizerBase[])" — target not a tracked ref [J] */}
+              <RecipeOrganizerSelector selector-type={Organizer.Food} show-add={false} show-label={false} show-icon={false} variant="underlined" onUpdateModelValue={val => setFieldOrganizers(field, index, (val || []) as OrganizerBase[])} />
+              {/* WF4-REVIEW: v-model on complex expression "field.organizers" [J]; assignment handler "val => setFieldOrganizers(field, index, (val || []) as OrganizerBase[])" — target not a tracked ref [J] */}
+              <RecipeOrganizerSelector selector-type={Organizer.Household} show-add={false} show-label={false} show-icon={false} variant="underlined" onUpdateModelValue={val => setFieldOrganizers(field, index, (val || []) as OrganizerBase[])} />
+              {/* WF4-REVIEW: v-model on complex expression "field.organizers" [J]; assignment handler "val => setFieldOrganizers(field, index, (val || []) as OrganizerBase[])" — target not a tracked ref [J] */}
+              <RecipeOrganizerSelector selector-type={Organizer.User} show-add={false} show-label={false} show-icon={false} variant="underlined" onUpdateModelValue={val => setFieldOrganizers(field, index, (val || []) as OrganizerBase[])} />
+              {/* WF4-REVIEW: v-model on complex expression "field.organizers" [J]; assignment handler "val => setFieldOrganizers(field, index, (val || []) as OrganizerBase[])" — target not a tracked ref [J] */}
+              <RecipeOrganizerSelector selector-type={Organizer.Label} show-add={false} show-label={false} show-icon={false} variant="underlined" onUpdateModelValue={val => setFieldOrganizers(field, index, (val || []) as OrganizerBase[])} />
             </Grid>
             {(showAdvanced) ? (
               /* WF4-REVIEW: cols/sm/md/lg → size={{ xs, sm, md }} */
@@ -547,7 +550,7 @@ export default function QueryFilterBuilder({ fieldDefs, initialQueryFilter = nul
                 {(!$vuetify.display.smAndDown || index === fields.length - 1) ? (
                   <BaseButtonGroup buttons={[
                 {
-                  icon: $globals.icons.delete,
+                  icon: icons.delete,
                   text: t('general.delete'),
                   event: 'delete',
                   disabled: fields.length === 1,
@@ -562,7 +565,7 @@ export default function QueryFilterBuilder({ fieldDefs, initialQueryFilter = nul
     </CardContent>
     <CardActions>
       <Grid container fluid className="d-flex justify-end ma-2">
-        <Box sx={ flexGrow: 1 } />
+        <Box sx={{ flexGrow: 1 }} />
         {/* WF4-REVIEW: control={<Checkbox/>} + label prop */}
         <FormControlLabel value={showAdvanced} onChange={/* WF4-REVIEW: setter */ setShowAdvanced} hide-details label={t('general.show-advanced')} className="my-auto mr-4" color="primary" />
         <BaseButton create text={t('general.add-field')} className="my-auto" onClick={addField(fieldDefs[0]!)} />

@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import { icons } from "@/lib/icons";
 import { validators } from "@/composables/use-validators";
 import MultiPurposeLabel from "@/components/Domain/ShoppingList/MultiPurposeLabel";
 import { fieldTypes } from "@/composables/forms";
@@ -10,7 +11,7 @@ import type { TableHeaders, TableConfig } from "@/components/global/CrudTable";
 export default function Labels() {
   const { t } = useTranslation();
 
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
 
   const tableConfig: TableConfig = {
     hideColumns: true,
@@ -87,24 +88,27 @@ export default function Labels() {
   return (
     <>
   <div>
-    <GroupDataPage icon={$globals.icons.tags} title={t('data-pages.labels.labels')} create-title={t('data-pages.labels.new-label')} edit-title={t('data-pages.labels.edit-label')} table-headers={tableHeaders} table-config={tableConfig} data={labelStore.store || []} bulk-actions={[{ icon: $globals.icons.delete, text: t('general.delete'), event: 'delete-selected' }]} create-form={createForm} edit-form={editForm} onCreateOne={handleCreate} onEditOne={handleEdit} onDeleteOne={labelStore.actions.deleteOne} onBulkAction={handleBulkAction}>
-      <template>
+    <GroupDataPage icon={icons.tags} title={t('data-pages.labels.labels')} create-title={t('data-pages.labels.new-label')} edit-title={t('data-pages.labels.edit-label')} table-headers={tableHeaders} table-config={tableConfig} data={labelStore.store || []} bulk-actions={[{ icon: icons.delete, text: t('general.delete'), event: 'delete-selected' }]} create-form={createForm} edit-form={editForm} onCreateOne={handleCreate} onEditOne={handleEdit} onDeleteOne={labelStore.actions.deleteOne} onBulkAction={handleBulkAction}>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
         {(item) ? (
           <MultiPurposeLabel label={item}>
             {item.name}
           </MultiPurposeLabel>
         ) : null}
-      </template>
-      <template>
+      </>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
         {(createForm.data.name) ? (
           <MultiPurposeLabel label={createForm.data} className="my-2" />
         ) : null}
-      </template>
-      <template>
+      </>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
         {(editForm.data.name) ? (
           <MultiPurposeLabel label={editForm.data} className="my-2" />
         ) : null}
-      </template>
+      </>
     </GroupDataPage>
   </div>
     </>

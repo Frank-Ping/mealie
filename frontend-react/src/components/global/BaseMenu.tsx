@@ -12,39 +12,33 @@ export interface ButtonOption {
   loading?: boolean;
 }
 
-export default function BaseMenu() {
+export default function BaseMenu({ large = true, stretch = false }: Props) {
   defineEmits<{
     menu: [string];
   }>();
 
-  withDefaults(defineProps<{
-    activator: ButtonOption;
-    children: ButtonOption[];
-    large?: boolean;
-    stretch?: boolean;
-  }>(), {
-    large: true,
-    stretch: false,
-  });
+  /* props via destructured signature (was withDefaults(defineProps<?>) */
 
   return (
     <>
   {/* WF4-REVIEW: unmapped <v-menu> — judgement component, convert manually [J] */}
   <VMenu key={'menu-' + activator.event} active-class="pa-0" start max-height="80vh" style={stretch ? 'width: 100%;' : ''}>
-    <template>
+    {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+    <>
       <slot name="activator" {...({ props: hoverProps })}>
         <Button tile large={large} icon color={activator.color} variant="plain" {...(hoverProps)} loading={activator.loading || children.some(({ loading }) => loading)}>
           {/* WF4-REVIEW: icon name resolves via lib/icons */}
           <MdiIcon name={activator.icon} />
         </Button>
       </slot>
-    </template>
+    </>
     <List density="compact">
       {children.map((child, idx) => (
-        <template key={idx}>
+        <>
           {(child.children) ? (
             <BaseMenu activator={child} children={child.children} open-on-hover open-on-focus open-on-click submenu onMenu={(childEvent) => onMenu?.(childEvent)}>
-              <template>
+              {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+              <>
                 {/* WF4-REVIEW: @click → ListItemButton */}
                 <ListItem density="compact" prepend-icon={child.icon} disabled={child.disabled} {...(hoverProps)}>
                   {/* WF4-REVIEW: content → primary prop */}
@@ -52,7 +46,7 @@ export default function BaseMenu() {
                     {child.text}
                   </ListItemText>
                 </ListItem>
-              </template>
+              </>
             </BaseMenu>
           ) : (
             /* WF4-REVIEW: @click → ListItemButton */
@@ -66,7 +60,7 @@ export default function BaseMenu() {
           {(child.divider) ? (
             <Divider key={`divider-${idx}`} className="my-1" />
           ) : null}
-        </template>
+        </>
       ))}
     </List>
   </VMenu>

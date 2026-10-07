@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Accordion, AccordionDetails, AccordionSummary, Box, Button, CardActions, CardContent, Container, Divider, FormControlLabel, TextField } from "@mui/material";
+import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
 import { useUserApi } from "@/composables/api";
 import { useAsyncKey } from "@/composables/use-utils";
@@ -25,7 +26,7 @@ export default function Notifiers() {
   const { t } = useTranslation();
 
   const api = useUserApi();
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
 
   useSeoMeta({
     title: i18n.t("profile.notifiers"),
@@ -44,7 +45,6 @@ export default function Notifiers() {
         const { data } = await api.groupEventNotifier.getAll();
         if (cancelled) return;
           return data?.items;
-        }, { deep: true
       }
       catch (err) {
         if (!cancelled) console.error(err); // WF4-REVIEW: surface load errors (was useAsyncData)
@@ -235,28 +235,30 @@ export default function Notifiers() {
     <>
   <Container className="narrow-container">
     {/* WF4-REVIEW: v-model on complex expression "state.deleteDialog" [J] */}
-    <BaseDialog {/* WF4-REVIEW: v-model state.deleteDialog */} bottom-sheet color="error" title={t('general.confirm')} icon={$globals.icons.alertCircle} can-confirm onConfirm={deleteNotifier(state.deleteTargetId)}>
+    <BaseDialog bottom-sheet color="error" title={t('general.confirm')} icon={icons.alertCircle} can-confirm onConfirm={deleteNotifier(state.deleteTargetId)}>
       <CardContent>
         {t("general.confirm-delete-generic")}
       </CardContent>
     </BaseDialog>
     {/* WF4-REVIEW: v-model on complex expression "state.createDialog" [J] */}
-    <BaseDialog {/* WF4-REVIEW: v-model state.createDialog */} title={t('events.new-notification')} icon={$globals.icons.bellPlus} can-submit onSubmit={createNewNotifier}>
+    <BaseDialog title={t('events.new-notification')} icon={icons.bellPlus} can-submit onSubmit={createNewNotifier}>
       <CardContent>
         {/* WF4-REVIEW: rules/error-messages → error+helperText; v-model on complex expression "createNotifierData.name" [J] */}
-        <TextField {/* WF4-REVIEW: v-model createNotifierData.name */} label={t('general.name')} />
+        <TextField label={t('general.name')} />
         {/* WF4-REVIEW: rules/error-messages → error+helperText; v-model on complex expression "createNotifierData.appriseUrl" [J] */}
-        <TextField {/* WF4-REVIEW: v-model createNotifierData.appriseUrl */} label={t('events.apprise-url')} />
+        <TextField label={t('events.apprise-url')} />
       </CardContent>
     </BaseDialog>
     <BasePageTitle divider>
-      <template>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
         {/* WF4-REVIEW: cover → objectFit */}
         <Box component="img" width="100%" max-height="125" max-width="125" src="/svgs/manage-notifiers.svg" />
-      </template>
-      <template>
+      </>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
         {t("events.event-notifiers")}
-      </template>
+      </>
       {t("events.new-notification-form-description")}
       <div className="mt-3 d-flex flex-wrap justify-space-between mx-n2">
         <a href="https://github.com/caronc/apprise/wiki" target="_blanks" className="mx-2 text-primary">
@@ -289,20 +291,21 @@ export default function Notifiers() {
               <div className="d-flex align-center">
                 {notifier.name}
               </div>
-              <template>
+              {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+              <>
                 <Button icon flat className="ml-2">
                   {/* WF4-REVIEW: icon name resolves via lib/icons */}
-                  <MdiIcon name={$globals.icons.edit} />
+                  <MdiIcon name={icons.edit} />
                 </Button>
-              </template>
+              </>
             </AccordionSummary>
             <AccordionDetails>
               {/* WF4-REVIEW: rules/error-messages → error+helperText; v-model on complex expression "notifiers[index].name" [J] */}
-              <TextField {/* WF4-REVIEW: v-model notifiers[index].name */} label={t('general.name')} />
+              <TextField label={t('general.name')} />
               {/* WF4-REVIEW: rules/error-messages → error+helperText; v-model on complex expression "notifiers[index].appriseUrl" [J] */}
-              <TextField {/* WF4-REVIEW: v-model notifiers[index].appriseUrl */} label={t('events.apprise-url-skipped-if-blank')} hint={t('events.apprise-url-is-left-intentionally-blank')} />
+              <TextField label={t('events.apprise-url-skipped-if-blank')} hint={t('events.apprise-url-is-left-intentionally-blank')} />
               {/* WF4-REVIEW: control={<Checkbox/>} + label prop; v-model on complex expression "notifiers[index].enabled" [J] */}
-              <FormControlLabel {/* WF4-REVIEW: v-model notifiers[index].enabled */} label={t('events.enable-notifier')} density="compact" />
+              <FormControlLabel label={t('events.enable-notifier')} density="compact" />
               <Divider />
               <p className="pt-4">
                 {t("events.what-events")}
@@ -315,26 +318,26 @@ export default function Notifiers() {
                     </h4>
                     {sec.options.map(opt => (
                       /* WF4-REVIEW: control={<Checkbox/>} + label prop; v-model on complex expression "notifiers[index].options[opt.key]" [J] */
-                      <FormControlLabel key={opt.key} {/* WF4-REVIEW: v-model notifiers[index].options[opt.key] */} hide-details density="compact" label={opt.text} />
+                      <FormControlLabel key={opt.key} hide-details density="compact" label={opt.text} />
                     ))}
                   </section>
                 ))}
               </div>
               <CardActions className="py-0">
-                <Box sx={ flexGrow: 1 } />
+                <Box sx={{ flexGrow: 1 }} />
                 <BaseButtonGroup buttons={[
                 {
-                  icon: $globals.icons.delete,
+                  icon: icons.delete,
                   text: t('general.delete'),
                   event: 'delete',
                 },
                 {
-                  icon: $globals.icons.testTube,
+                  icon: icons.testTube,
                   text: t('general.test'),
                   event: 'test',
                 },
                 {
-                  icon: $globals.icons.save,
+                  icon: icons.save,
                   text: t('general.save'),
                   event: 'save',
                 },

@@ -45,16 +45,16 @@ export default function BaseDialog({ color = "primary", title = "Modal Title", i
   /* props via destructured signature (was withDefaults(defineProps<DialogProps>) */
   const emit = defineEmits<DialogEmits>();
 
-  /* WF4-REVIEW [J]: writable computed — split into state + handlers */ const dialog = computed({
+  /* WF4-REVIEW [J]: writable computed — split into state + handlers */ /* WF4-REVIEW [J]: writable computed — split into state + handlers */ const dialog = computed({
     get: () => modelValue,
     set: val => emit("update:modelValue", val),
   });
 
   const [submitted, setSubmitted] = useState(false);
 
-  const determineClose = computed(() => {
+  const determineClose = useMemo(() => {
     return submitted && !loading && !keepOpen;
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   /* WF4-REVIEW [J] */ watch(determineClose, (shouldClose) => {
     if (shouldClose) {
@@ -104,7 +104,7 @@ export default function BaseDialog({ color = "primary", title = "Modal Title", i
     icon: icon,
     loading: loading,
     submitIcon: submitIcon,
-    submitText: submitText ?? i18n.t("general.create", []); // WF4-REVIEW: dependency array,
+    submitText: submitText ?? i18n.t("general.create"),
     submitDisabled: submitDisabled,
     cancelText: cancelText ?? i18n.t("general.cancel"),
     canDelete: canDelete,
@@ -120,7 +120,7 @@ export default function BaseDialog({ color = "primary", title = "Modal Title", i
     },
     onSubmit: submitEvent,
     onDelete: deleteEvent,
-  }));
+  }), []); // WF4-REVIEW: dependency array
 
   return (
     <>
@@ -132,30 +132,36 @@ export default function BaseDialog({ color = "primary", title = "Modal Title", i
         style: 'overflow: hidden',
       }} max-width={maxWidth ?? undefined} onKeyDown={submitOnEnter} onClickOutside={emit('cancel')} onKeyDown={emit('cancel')}>
         <BaseDialogContent {...(bindings)}>
-          <template>
+          {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+          <>
             <slot {...({ submitEvent })} />
-          </template>
-          <template>
+          </>
+          {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+          <>
             <slot name="card-actions" />
-          </template>
-          <template>
+          </>
+          {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+          <>
             <slot name="custom-card-action" />
-          </template>
+          </>
         </BaseDialogContent>
       </Drawer>
     ) : (
       /* WF4-REVIEW: max-width/scrollable */
       <Dialog open={dialog} onClose={/* WF4-REVIEW: setter */ setDialog} width={width} max-width={maxWidth ?? undefined} content-class={top ? 'top-dialog' : undefined} fullscreen={$vuetify.display.xs} onKeyDown={submitOnEnter} onClickOutside={emit('cancel')} onKeyDown={emit('cancel')}>
         <BaseDialogContent {...(bindings)}>
-          <template>
+          {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+          <>
             <slot {...({ submitEvent })} />
-          </template>
-          <template>
+          </>
+          {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+          <>
             <slot name="card-actions" />
-          </template>
-          <template>
+          </>
+          {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+          <>
             <slot name="custom-card-action" />
-          </template>
+          </>
         </BaseDialogContent>
       </Dialog>
     )}

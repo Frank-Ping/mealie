@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { Container } from "@mui/material";
+import { icons } from "@/lib/icons";
 import RecipeOrganizerPage from "@/components/Domain/Recipe/RecipeOrganizerPage";
 import { useTagStore } from "@/composables/store";
 
@@ -11,7 +12,7 @@ export default function TagsPage() {
   const { t } = useTranslation();
 
   const { store, actions } = useTagStore();
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
 
   useSeoMeta({
     title: i18n.t("tag.tags"),
@@ -21,10 +22,11 @@ export default function TagsPage() {
     <>
   <Container>
     {(store) ? (
-      <RecipeOrganizerPage items={store} icon={$globals.icons.tags} item-type="tags" onDelete={actions.deleteOne} onUpdate={actions.updateOne}>
-        <template>
+      <RecipeOrganizerPage items={store} icon={icons.tags} item-type="tags" onDelete={actions.deleteOne} onUpdate={actions.updateOne}>
+        {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+        <>
           {t("tag.tags")}
-        </template>
+        </>
       </RecipeOrganizerPage>
     ) : null}
   </Container>

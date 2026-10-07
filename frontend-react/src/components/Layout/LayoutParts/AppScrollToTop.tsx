@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Button, Fade } from "@mui/material";
+import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
 
 export default function AppScrollToTop() {
@@ -29,7 +30,7 @@ export default function AppScrollToTop() {
     {(showButton) ? (
       <Button icon position="fixed" location="bottom right" className="ma-4" color="primary" elevation="4" style="z-index: 999;" onClick={scrollToTop}>
         {/* WF4-REVIEW: icon name resolves via lib/icons */}
-        <MdiIcon name={$globals.icons.arrowUp} />
+        <MdiIcon name={icons.arrowUp} />
       </Button>
     ) : null}
   </Fade>

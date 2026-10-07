@@ -24,8 +24,8 @@ export function substitutionFoodName(substitution: IngredientFoodSubstitution, u
  * Both tiers have the same {substituteFood, note} shape, so callers can render them alike.
  */
 export function useIngredientSubstitutions(ingredient: () => RecipeIngredient) {
-  const recipeSubstitutions = useMemo(() => ingredient(, []); // WF4-REVIEW: dependency array.substitutions || []);
-  const foodSubstitutions = useMemo(() => foodSubstitutionsOf(ingredient(, []); // WF4-REVIEW: dependency array));
+  const recipeSubstitutions = useMemo(() => ingredient().substitutions || [], []); // WF4-REVIEW: dependency array
+  const foodSubstitutions = useMemo(() => foodSubstitutionsOf(ingredient()), []); // WF4-REVIEW: dependency array
   const hasSubstitutions = useMemo(() => !!recipeSubstitutions.length || !!foodSubstitutions.length, []); // WF4-REVIEW: dependency array
 
   return { recipeSubstitutions, foodSubstitutions, hasSubstitutions };

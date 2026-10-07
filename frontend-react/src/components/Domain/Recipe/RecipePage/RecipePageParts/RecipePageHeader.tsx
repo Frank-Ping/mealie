@@ -45,9 +45,9 @@ export default function RecipePageHeader({ recipeScale = 1, landscape = false, o
 
   const [hideImage, setHideImage] = useState(false);
 
-  const recipeImageUrl = useMemo(() =>  {
-    return recipeImage(recipe.id, recipe.image, imageKey, []); // WF4-REVIEW: dependency array
-  });
+  const recipeImageUrl = useMemo(() => {
+    return recipeImage(recipe.id, recipe.image, imageKey);
+  }, []); // WF4-REVIEW: dependency array
 
   /* WF4-REVIEW [J] */ watch(
     () => recipeImageUrl,

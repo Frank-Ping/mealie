@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { CardActions, CardContent, CardHeader, TextField, form } from "@mui/material";
+import { icons } from "@/lib/icons";
 import type { AxiosResponse } from "axios";
 import { useUserApi } from "@/composables/api";
 import { validators } from "@/composables/use-validators";
@@ -54,7 +55,7 @@ export default function New() {
       {/* WF4-REVIEW: validation semantics [J] */}
       <form ref="domCreateByName" onSubmit={(e) => { e.preventDefault(); ; }}>
         {/* WF4-REVIEW: rules/error-messages → error+helperText */}
-        <TextField value={newRecipeName} onChange={setNewRecipeName} label={t('recipe.recipe-name')} prepend-inner-icon={$globals.icons.primary} validate-on="blur" autofocus variant="solo-filled" clearable className="rounded-lg mt-2" color="primary" rounded rules={[validators.required]} hint={t('recipe.new-recipe-names-must-be-unique')} persistent-hint onKeyUp={createByName(newRecipeName)} />
+        <TextField value={newRecipeName} onChange={setNewRecipeName} label={t('recipe.recipe-name')} prepend-inner-icon={icons.primary} validate-on="blur" autofocus variant="solo-filled" clearable className="rounded-lg mt-2" color="primary" rounded rules={[validators.required]} hint={t('recipe.new-recipe-names-must-be-unique')} persistent-hint onKeyUp={createByName(newRecipeName)} />
       </form>
     </CardContent>
     <CardActions className="justify-center">

@@ -79,10 +79,11 @@ export default function RecipePageIngredientToolsView({ isCookMode = false, ingr
           {recipe.tools.map((tool, index) => (
             /* WF4-REVIEW: @click → ListItemButton */
             <ListItem key={index} density="compact" className="px-1">
-              <template>
+              {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+              <>
                 {/* WF4-REVIEW: control={<Checkbox/>} + label prop; v-model on complex expression "recipeTools[index].onHand" [J] */}
-                <FormControlLabel {/* WF4-REVIEW: v-model recipeTools[index].onHand */} hide-details className="pt-0 py-auto" color="secondary" density="compact" onChange={updateTool(index)} />
-              </template>
+                <FormControlLabel hide-details className="pt-0 py-auto" color="secondary" density="compact" onChange={updateTool(index)} />
+              </>
               {/* WF4-REVIEW: content → primary prop */}
               <ListItemText>
                 {tool.name}

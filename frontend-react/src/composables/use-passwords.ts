@@ -7,10 +7,10 @@ export function usePasswordField() {
   const [show, setShow] = useState(false);
   // icons imported directly (was $globals)
 
-  const passwordIcon = computed(() => {
+  const passwordIcon = useMemo(() => {
     return show ? icons.eyeOff : icons.eye;
-  });
-  const inputType = useMemo(() => (show ? "text" : "password", []); // WF4-REVIEW: dependency array);
+  }, []); // WF4-REVIEW: dependency array
+  const inputType = useMemo(() => (show ? "text" : "password"), []); // WF4-REVIEW: dependency array
 
   const togglePasswordShow = () => {
     setShow(!show);
@@ -24,9 +24,9 @@ export function usePasswordField() {
 }
 
 export const usePasswordStrength = (password: string /* WF4-REVIEW: was Ref */, i18n: VueI18n) => {
-  const score = useMemo(() => scorePassword(password, []); // WF4-REVIEW: dependency array);
-  const strength = useMemo(() =>  {
-    if (score < 50, []); // WF4-REVIEW: dependency array {
+  const score = useMemo(() => scorePassword(password), []); // WF4-REVIEW: dependency array
+  const strength = useMemo(() => {
+    if (score < 50) {
       return i18n.t("user.password-strength-values.weak");
     }
     else if (score < 80) {
@@ -38,10 +38,10 @@ export const usePasswordStrength = (password: string /* WF4-REVIEW: was Ref */, 
     else {
       return i18n.t("user.password-strength-values.very-strong");
     }
-  });
+  }, []); // WF4-REVIEW: dependency array
 
-  const color = useMemo(() =>  {
-    if (score < 50, []); // WF4-REVIEW: dependency array {
+  const color = useMemo(() => {
+    if (score < 50) {
       return "error";
     }
     else if (score < 80) {
@@ -53,7 +53,7 @@ export const usePasswordStrength = (password: string /* WF4-REVIEW: was Ref */, 
     else {
       return "success";
     }
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   return { score, strength, color };
 };

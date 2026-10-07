@@ -19,15 +19,10 @@ interface Props {
   variant?: "filled" | "underlined" | "outlined" | "plain" | "solo" | "solo-inverted" | "solo-filled";
 }
 
-export default function RecipeOrganizerSelector({ inputAttrs = ({ }: Props) {
+export default function RecipeOrganizerSelector({ inputAttrs = ({}), showAdd = true, showLabel = true, showIcon = true, variant = "outlined" }: Props) {
   const { t } = useTranslation();
 
-  /* props via destructured signature (was withDefaults(defineProps<Props>) */,
-    showAdd: true,
-    showLabel: true,
-    showIcon: true,
-    variant: "outlined",
-  });
+  /* props via destructured signature (was withDefaults(defineProps<Props>) */
 
   const selected = defineModel<(
     | HouseholdSummary
@@ -44,11 +39,11 @@ export default function RecipeOrganizerSelector({ inputAttrs = ({ }: Props) {
     }
   });
 
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
   // icons imported directly (was $globals)
 
-  const label = useMemo(() =>  {
-    if (!showLabel, []); // WF4-REVIEW: dependency array {
+  const label = useMemo(() => {
+    if (!showLabel) {
       return "";
     }
 
@@ -70,10 +65,10 @@ export default function RecipeOrganizerSelector({ inputAttrs = ({ }: Props) {
       default:
         return i18n.t("general.organizer");
     }
-  });
+  }, []); // WF4-REVIEW: dependency array
 
-  const icon = useMemo(() =>  {
-    if (!showIcon, []); // WF4-REVIEW: dependency array {
+  const icon = useMemo(() => {
+    if (!showIcon) {
       return "";
     }
 
@@ -95,12 +90,11 @@ export default function RecipeOrganizerSelector({ inputAttrs = ({ }: Props) {
       default:
         return icons.tags;
     }
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   const itemTitle = useMemo(() => selectorType === Organizer.User
-      ? (i: any, []); // WF4-REVIEW: dependency array => i?.fullName ?? i?.name ?? ""
-      : "name",
-  );
+      ? (i: any) => i?.fullName ?? i?.name ?? ""
+      : "name",, []); // WF4-REVIEW: dependency array
 
   // ===========================================================================
   // Store & Items Setup
@@ -115,15 +109,15 @@ export default function RecipeOrganizerSelector({ inputAttrs = ({ }: Props) {
     [Organizer.User]: useUserStore(),
   };
 
-  const activeStore = computed(() => {
+  const activeStore = useMemo(() => {
     const { store } = storeMap[selectorType];
     return store;
-  });
+  }, []); // WF4-REVIEW: dependency array
 
-  const items = useMemo(() =>  {
-    const list = (activeStore as unknown as any[], []); // WF4-REVIEW: dependency array ?? [];
+  const items = useMemo(() => {
+    const list = (activeStore as unknown as any[]) ?? [];
     return list;
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   function removeByIndex(index: number) {
     if (selected === undefined) {
@@ -179,28 +173,32 @@ export default function RecipeOrganizerSelector({ inputAttrs = ({ }: Props) {
   return (
     <>
   {/* WF4-REVIEW: items → options/getOptionLabel; value wiring [S] */}
-  <Autocomplete value={selected} onChange={/* WF4-REVIEW: setter */ setSelected} {...(inputAttrs)} value={searchInput} onChange={setSearchInput} items={items} custom-filter={normalizeFilter} label={label} chips closable-chips item-title={itemTitle} item-value="name" multiple variant={variant} prepend-inner-icon={icon} append-icon={showAdd ? $globals.icons.create : undefined} return-object auto-select-first className="pa-0 ma-0" onUpdateModelValue={resetSearchInput} onClickAppend={dialog = true} onKeyUp={handleEnter}>
-    <template>
+  <Autocomplete value={selected} onChange={/* WF4-REVIEW: setter */ setSelected} {...(inputAttrs)} value={searchInput} onChange={setSearchInput} items={items} custom-filter={normalizeFilter} label={label} chips closable-chips item-title={itemTitle} item-value="name" multiple variant={variant} prepend-inner-icon={icon} append-icon={showAdd ? icons.create : undefined} return-object auto-select-first className="pa-0 ma-0" onUpdateModelValue={resetSearchInput} onClickAppend={() => setDialog(true)} onKeyUp={handleEnter}>
+    {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+    <>
       <Chip key={index} className="ma-1" color="accent" variant="flat" label text={item.name} closable onClickClose={removeByIndex(index)} />
-    </template>
+    </>
     {(showAdd) ? (
-      <template>
+      /* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */
+      <>
         <div className="caption text-center pb-2">
           {t("recipe.press-enter-to-create")}
         </div>
-      </template>
+      </>
     ) : null}
     {(showAdd && searchInput) ? (
-      <template>
+      /* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */
+      <>
         <div className="px-2">
           <BaseButton block size="small" onClick={createItem()} />
         </div>
-      </template>
+      </>
     ) : null}
     {(showAdd) ? (
-      <template>
+      /* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */
+      <>
         <RecipeOrganizerDialog value={dialog} onChange={setDialog} item-type={selectorType} onCreatedItem={appendCreated} />
-      </template>
+      </>
     ) : null}
   </Autocomplete>
     </>

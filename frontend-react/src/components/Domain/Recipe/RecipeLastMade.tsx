@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Box, Button, CardContent, Container, FormControlLabel, Grid, List, ListItem, TextField, Tooltip, form } from "@mui/material";
 import { DatePicker } from "@mui/x-date-pickers";
+import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
 import { whenever } from "@vueuse/core";
 import { formatISO } from "date-fns";
@@ -23,7 +24,7 @@ export default function RecipeLastMade() {
   const [madeThisDialog, setMadeThisDialog] = useState(false);
   const userApi = useUserApi();
   const { household } = useHouseholdSelf();
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
   const auth = useMealieAuth();
   const [domMadeThisForm, setDomMadeThisForm] = useState(undefined);
   const [newTimelineEvent, setNewTimelineEvent] = useState({
@@ -36,15 +37,15 @@ export default function RecipeLastMade() {
   const [newTimelineEventImage, setNewTimelineEventImage] = useState(undefined);
   const [newTimelineEventImageName, setNewTimelineEventImageName] = useState("");
   const [newTimelineEventImagePreviewUrl, setNewTimelineEventImagePreviewUrl] = useState(undefined);
-  const [newTimelineEventTimestamp, setNewTimelineEventTimestamp] = useState(new Date(););
-  const newTimelineEventTimestampString = useMemo(() =>  {
-    return formatISO(newTimelineEventTimestamp, { representation: "date" }, []); // WF4-REVIEW: dependency array
-  });
+  const [newTimelineEventTimestamp, setNewTimelineEventTimestamp] = useState(new Date());
+  const newTimelineEventTimestampString = useMemo(() => {
+    return formatISO(newTimelineEventTimestamp, { representation: "date" });
+  }, []); // WF4-REVIEW: dependency array
 
   const [lastMade, setLastMade] = useState(props.recipe.lastMade);
   const [lastMadeReady, setLastMadeReady] = useState(false);
   /* WF4-REVIEW [J] */ onMounted(async () => {
-    if (!auth.user??.householdSlug) {
+    if (!auth.user?.householdSlug) {
       setLastMade(props.recipe.lastMade);
     }
     else {
@@ -55,8 +56,8 @@ export default function RecipeLastMade() {
     setLastMadeReady(true);
   });
 
-  const childRecipes = useMemo(() =>  {
-    return props.recipe.recipeIngredient?.map((ingredient, []); // WF4-REVIEW: dependency array => {
+  const childRecipes = useMemo(() => {
+    return props.recipe.recipeIngredient?.map((ingredient) => {
       if (ingredient.referencedRecipe) {
         return {
           checked: false, // Default value for checked
@@ -68,7 +69,7 @@ export default function RecipeLastMade() {
         return undefined;
       }
     }).filter(recipe => recipe !== undefined); // Filter out undefined values
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   whenever(
     () => madeThisDialog,
@@ -78,9 +79,9 @@ export default function RecipeLastMade() {
     },
   );
 
-  const firstDayOfWeek = computed(() => {
+  const firstDayOfWeek = useMemo(() => {
     return household?.preferences?.firstDayOfWeek || 0;
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   function clearImage() {
     setNewTimelineEventImage(undefined);
@@ -218,12 +219,12 @@ export default function RecipeLastMade() {
     <>
   <div>
     <div>
-      <BaseDialog value={madeThisDialog} onChange={setMadeThisDialog} bottom-sheet loading={madeThisFormLoading} icon={$globals.icons.chefHat} title={t('recipe.made-this')} submit-text={t('recipe.add-to-timeline')} can-submit disable-submit-on-enter onSubmit={createTimelineEvent}>
+      <BaseDialog value={madeThisDialog} onChange={setMadeThisDialog} bottom-sheet loading={madeThisFormLoading} icon={icons.chefHat} title={t('recipe.made-this')} submit-text={t('recipe.add-to-timeline')} can-submit disable-submit-on-enter onSubmit={createTimelineEvent}>
         <CardContent>
           {/* WF4-REVIEW: validation semantics [J] */}
           <form ref="domMadeThisForm">
             {/* WF4-REVIEW: v-model on complex expression "newTimelineEvent.eventMessage" [J] */}
-            <TextField multiline {/* WF4-REVIEW: v-model newTimelineEvent.eventMessage */} autofocus label={t('recipe.comment')} hint={t('recipe.how-did-it-turn-out')} persistent-hint rows="4" />
+            <TextField multiline autofocus label={t('recipe.comment')} hint={t('recipe.how-did-it-turn-out')} persistent-hint rows="4" />
             {(childRecipes?.length) ? (
               <div>
                 <CardContent className="pt-6 pb-0 text-title-medium">
@@ -246,15 +247,16 @@ export default function RecipeLastMade() {
                 <Grid cols="5">
                   {/* WF4-REVIEW: unmapped <v-menu> — judgement component, convert manually [J] */}
                   <VMenu value={datePickerMenu} onChange={setDatePickerMenu} close-on-content-click={false} transition="scale-transition" offset-y>
-                    <template>
+                    {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                    <>
                       {/* WF4-REVIEW: rules/error-messages → error+helperText */}
-                      <TextField model-value={$d(newTimelineEventTimestamp)} prepend-icon={$globals.icons.calendar} {...(activatorProps)} readonly density="compact" min-width="160" />
-                    </template>
+                      <TextField model-value={$d(newTimelineEventTimestamp)} prepend-icon={icons.calendar} {...(activatorProps)} readonly density="compact" min-width="160" />
+                    </>
                     {/* WF4-REVIEW: value format + LocalizationProvider */}
-                    <DatePicker value={newTimelineEventTimestamp} onChange={setNewTimelineEventTimestamp} hide-header first-day-of-week={firstDayOfWeek} local={$i18n.locale} onUpdateModelValue={datePickerMenu = false} />
+                    <DatePicker value={newTimelineEventTimestamp} onChange={setNewTimelineEventTimestamp} hide-header first-day-of-week={firstDayOfWeek} local={$i18n.locale} onUpdateModelValue={() => setDatePickerMenu(false)} />
                   </VMenu>
                 </Grid>
-                <Box sx={ flexGrow: 1 } />
+                <Box sx={{ flexGrow: 1 }} />
                 {/* WF4-REVIEW: cols/sm/md/lg → size={{ xs, sm, md }} */}
                 <Grid cols="auto">
                   {(!newTimelineEventImage) ? (
@@ -263,7 +265,7 @@ export default function RecipeLastMade() {
                   {(!!newTimelineEventImage) ? (
                     <Button color="error" onClick={clearImage}>
                       {/* WF4-REVIEW: icon name resolves via lib/icons; dropped Vuetify-only prop "start" on <v-icon> */}
-                      <MdiIcon name={$globals.icons.close} />
+                      <MdiIcon name={icons.close} />
                       {t("recipe.remove-image")}
                     </Button>
                   ) : null}
@@ -288,10 +290,11 @@ export default function RecipeLastMade() {
           <Grid container no-gutters className="d-flex flex-wrap align-center" style="font-size: larger">
             {/* WF4-REVIEW: activator slot variants [J] */}
             <Tooltip location="bottom">
-              <template>
-                <Button rounded variant="outlined" size="large" {...(tooltipProps)} className="font-weight-400" style="border-color: rgb(var(--v-theme-primary));" onClick={madeThisDialog = true}>
+              {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+              <>
+                <Button rounded variant="outlined" size="large" {...(tooltipProps)} className="font-weight-400" style="border-color: rgb(var(--v-theme-primary));" onClick={() => setMadeThisDialog(true)}>
                   {/* WF4-REVIEW: icon name resolves via lib/icons; dropped Vuetify-only prop "start" on <v-icon> */}
-                  <MdiIcon name={$globals.icons.calendar} size="large" color="primary" />
+                  <MdiIcon name={icons.calendar} size="large" color="primary" />
                   <span className="opacity-80">
                     <strong>
                       {t("general.last-made")}
@@ -300,9 +303,9 @@ export default function RecipeLastMade() {
                     {lastMade ? $d(new Date(lastMade)) : t("general.never")}
                   </span>
                   {/* WF4-REVIEW: icon name resolves via lib/icons; dropped Vuetify-only prop "end" on <v-icon> */}
-                  <MdiIcon name={$globals.icons.createAlt} size="large" color="primary" />
+                  <MdiIcon name={icons.createAlt} size="large" color="primary" />
                 </Button>
-              </template>
+              </>
               <span>
                 {t("recipe.made-this")}
               </span>

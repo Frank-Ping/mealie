@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Timeline } from "@mui/lab";
 import { Badge, Box, Button, Card, CardHeader, Divider, Grid, List, ListItem, ListItemText } from "@mui/material";
+import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
 import { useThrottleFn, whenever } from "@vueuse/core";
 import RecipeTimelineItem from "./RecipeTimelineItem";
@@ -24,7 +25,7 @@ export default function RecipeTimeline({ modelValue = false, maxHeight = undefin
   /* props via destructured signature (was withDefaults(defineProps<Props>) */
 
   const api = useUserApi();
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
   const preferences = useTimelinePreferences();
   const { eventTypeOptions } = useTimelineEventTypes();
   const [loading, setLoading] = useState(true);
@@ -37,14 +38,14 @@ export default function RecipeTimeline({ modelValue = false, maxHeight = undefin
   const [timelineEvents, setTimelineEvents] = useState([] as RecipeTimelineEventOut[]);
   const recipes = new Map<string, Recipe>();
   const filterBadgeCount = useMemo(() => eventTypeOptions.length - preferences.types.length, []); // WF4-REVIEW: dependency array
-  const eventTypeFilterState = useMemo(() =>  {
-    return eventTypeOptions.map((option, []); // WF4-REVIEW: dependency array => {
+  const eventTypeFilterState = useMemo(() => {
+    return eventTypeOptions.map((option) => {
       return {
         ...option,
         checked: preferences.types.includes(option),
       };
     });
-  });
+  }, []); // WF4-REVIEW: dependency array
   const screenBuffer = 4;
 
   whenever(
@@ -220,31 +221,33 @@ export default function RecipeTimeline({ modelValue = false, maxHeight = undefin
     <>
   <div style="height: 100%;">
     <Grid container className="mb-0 mt-3 mx-7">
-      <Box sx={ flexGrow: 1 } />
+      <Box sx={{ flexGrow: 1 }} />
       {/* WF4-REVIEW: cols/sm/md/lg → size={{ xs, sm, md }} */}
       <Grid className="text-right">
         {/* WF4-REVIEW: unmapped <v-menu> — judgement component, convert manually [J] */}
         <VMenu offset-y bottom start nudge-bottom="3" close-on-content-click={false}>
-          <template>
+          {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+          <>
             {/* WF4-REVIEW: content → badgeContent */}
             <Badge content={filterBadgeCount} model-value={filterBadgeCount > 0} bordered>
-              <Button variant="text" {...(activatorProps)} prepend-icon={$globals.icons.filter}>
+              <Button variant="text" {...(activatorProps)} prepend-icon={icons.filter}>
                 {t("general.filter")}
               </Button>
             </Badge>
-          </template>
+          </>
           <Card>
             <List>
               {/* WF4-REVIEW: @click → ListItemButton */}
-              <ListItem prepend-icon={preferences.orderDirection === 'asc' ? $globals.icons.sortCalendarDescending : $globals.icons.sortCalendarAscending} title={preferences.orderDirection === 'asc' ? t('general.sort-descending') : t('general.sort-ascending')} onClick={reverseSort} />
+              <ListItem prepend-icon={preferences.orderDirection === 'asc' ? icons.sortCalendarDescending : icons.sortCalendarAscending} title={preferences.orderDirection === 'asc' ? t('general.sort-descending') : t('general.sort-ascending')} onClick={reverseSort} />
               <Divider />
               {/* WF4-REVIEW: unparseable v-for "option, idx in eventTypeFilterState" */}
                 /* WF4-REVIEW: @click → ListItemButton */
                 <ListItem key={idx} active={option.checked} color={option.checked ? 'primary' : undefined} onClick={toggleEventTypeOption(option)}>
-                  <template>
+                  {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                  <>
                     {/* WF4-REVIEW: icon name resolves via lib/icons */}
                     <MdiIcon name={option.icon} />
-                  </template>
+                  </>
                   {/* WF4-REVIEW: content → primary prop */}
                   <ListItemText>
                     {option.label}

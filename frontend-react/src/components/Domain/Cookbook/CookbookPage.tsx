@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { CardContent, Container, Paper, Typography } from "@mui/material";
+import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
 import { useLazyRecipes } from "@/composables/recipes";
 import RecipeCardSection from "@/components/Domain/Recipe/RecipeCardSection";
@@ -29,13 +30,13 @@ export default function CookbookPage() {
 
   const book = getOne(slug);
 
-  const isOwnHousehold = useMemo(() =>  {
-    if (!(auth.user && book?.householdId, []); // WF4-REVIEW: dependency array) {
+  const isOwnHousehold = useMemo(() => {
+    if (!(auth.user && book?.householdId)) {
       return false;
     }
 
     return auth.user.householdId === book.householdId;
-  });
+  }, []); // WF4-REVIEW: dependency array
   const canEdit = useMemo(() => isOwnGroup && isOwnHousehold, []); // WF4-REVIEW: dependency array
 
   const dialogStates = /* WF4-REVIEW [J] */ reactive({
@@ -67,7 +68,7 @@ export default function CookbookPage() {
   }
 
   useSeoMeta({
-    title: book??.name || "Cookbook",
+    title: book?.name || "Cookbook",
   });
 
   return (
@@ -75,7 +76,7 @@ export default function CookbookPage() {
   <div>
     {(editTarget) ? (
       /* WF4-REVIEW: v-model on complex expression "dialogStates.edit" [J] */
-      <BaseDialog {/* WF4-REVIEW: v-model dialogStates.edit */} width="100%" max-width="1100px" icon={$globals.icons.pages} title={t('general.edit')} submit-icon={$globals.icons.save} submit-text={t('general.save')} submit-disabled={!editTarget.queryFilterString} can-submit onSubmit={editCookbook}>
+      <BaseDialog width="100%" max-width="1100px" icon={icons.pages} title={t('general.edit')} submit-icon={icons.save} submit-text={t('general.save')} submit-disabled={!editTarget.queryFilterString} can-submit onSubmit={editCookbook}>
         <CardContent>
           <CookbookEditor value={editTarget} onChange={setEditTarget} />
         </CardContent>
@@ -87,7 +88,7 @@ export default function CookbookPage() {
           <div className="d-flex align-center w-100 mb-2">
             <Typography variant="h6" className="headline mb-0">
               {/* WF4-REVIEW: icon name resolves via lib/icons */}
-              <MdiIcon name={$globals.icons.pages} size="large" className="mr-3" />
+              <MdiIcon name={icons.pages} size="large" className="mr-3" />
               {book.name}
             </Typography>
             {(canEdit) ? (

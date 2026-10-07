@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Avatar, Button, CardActions, CardContent, ListItem, ListItemText, TextField } from "@mui/material";
 import { DatePicker } from "@mui/x-date-pickers";
+import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
 import { useClipboard, useShare, whenever } from "@vueuse/core";
 import type { RecipeShareToken } from "@/lib/api/types/recipe";
@@ -24,7 +25,7 @@ export default function RecipeDialogShare({ recipeId, name }: Props) {
   const dialog = defineModel<boolean>({ default: false });
 
   const [datePickerMenu, setDatePickerMenu] = useState(false);
-  const [expirationDate, setExpirationDate] = useState(new Date(Date.now(); - new Date().getTimezoneOffset() * 60000));
+  const [expirationDate, setExpirationDate] = useState(new Date(Date.now() - new Date().getTimezoneOffset() * 60000));
   const [tokens, setTokens] = useState([]);
 
   whenever(
@@ -37,15 +38,15 @@ export default function RecipeDialogShare({ recipeId, name }: Props) {
     },
   );
 
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
   const auth = useMealieAuth();
   const { household } = useHouseholdSelf();
   const route = useLocation(); // WF4-REVIEW: .query → useSearchParams [J]
   const groupSlug = useMemo(() => route.params.groupSlug as string || auth.user?.groupSlug || "", []); // WF4-REVIEW: dependency array
 
-  const firstDayOfWeek = computed(() => {
+  const firstDayOfWeek = useMemo(() => {
     return household?.preferences?.firstDayOfWeek || 0;
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   // ============================================================
   // Token Actions
@@ -115,16 +116,17 @@ export default function RecipeDialogShare({ recipeId, name }: Props) {
   return (
     <>
   <div>
-    <BaseDialog value={dialog} onChange={/* WF4-REVIEW: setter */ setDialog} bottom-sheet title={t('recipe-share.share-recipe')} icon={$globals.icons.link}>
+    <BaseDialog value={dialog} onChange={/* WF4-REVIEW: setter */ setDialog} bottom-sheet title={t('recipe-share.share-recipe')} icon={icons.link}>
       <CardContent>
         {/* WF4-REVIEW: unmapped <v-menu> — judgement component, convert manually [J] */}
         <VMenu value={datePickerMenu} onChange={setDatePickerMenu} close-on-content-click={false} transition="scale-transition" offset-y max-width="290px" min-width="auto">
-          <template>
+          {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+          <>
             {/* WF4-REVIEW: rules/error-messages → error+helperText */}
-            <TextField model-value={$d(expirationDate)} label={t('recipe-share.expiration-date')} hint={t('recipe-share.default-30-days')} persistent-hint prepend-icon={$globals.icons.calendar} {...(activatorProps)} readonly />
-          </template>
+            <TextField model-value={$d(expirationDate)} label={t('recipe-share.expiration-date')} hint={t('recipe-share.default-30-days')} persistent-hint prepend-icon={icons.calendar} {...(activatorProps)} readonly />
+          </>
           {/* WF4-REVIEW: value format + LocalizationProvider */}
-          <DatePicker value={expirationDate} onChange={setExpirationDate} hide-header first-day-of-week={firstDayOfWeek} local={$i18n.locale} onUpdateModelValue={datePickerMenu = false} />
+          <DatePicker value={expirationDate} onChange={setExpirationDate} hide-header first-day-of-week={firstDayOfWeek} local={$i18n.locale} onUpdateModelValue={() => setDatePickerMenu(false)} />
         </VMenu>
       </CardContent>
       <CardActions className="justify-end">
@@ -138,7 +140,7 @@ export default function RecipeDialogShare({ recipeId, name }: Props) {
           <div className="d-flex align-center" style="width: 100%;">
             <Avatar color="grey">
               {/* WF4-REVIEW: icon name resolves via lib/icons */}
-              <MdiIcon name={$globals.icons.link} />
+              <MdiIcon name={icons.link} />
             </Avatar>
             <div className="pl-3 flex-grow-1" style="min-width: 0;">
               {/* WF4-REVIEW: content → primary prop */}
@@ -148,11 +150,11 @@ export default function RecipeDialogShare({ recipeId, name }: Props) {
             </div>
             <Button icon variant="text" className="ml-2" onClick={(e) => { e.stopPropagation(); deleteToken(token.id); }}>
               {/* WF4-REVIEW: icon name resolves via lib/icons */}
-              <MdiIcon name={$globals.icons.delete} color="error-lighten-1" />
+              <MdiIcon name={icons.delete} color="error-lighten-1" />
             </Button>
             <Button icon variant="text" className="ml-2" onClick={(e) => { e.stopPropagation(); copyTokenLink(token.id); }}>
               {/* WF4-REVIEW: icon name resolves via lib/icons */}
-              <MdiIcon name={$globals.icons.contentCopy} color="info-lighten-1" />
+              <MdiIcon name={icons.contentCopy} color="info-lighten-1" />
             </Button>
           </div>
         </ListItem>

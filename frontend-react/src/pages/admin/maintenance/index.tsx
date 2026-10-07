@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Card, Container, Divider, ListItem, ListItemText } from "@mui/material";
+import { icons } from "@/lib/icons";
 import { useAdminApi } from "@/composables/api";
 import type { MaintenanceStorageDetails, MaintenanceSummary } from "@/lib/api/types/admin";
 
@@ -19,7 +20,7 @@ export default function MaintenancePage() {
   });
 
   const adminApi = useAdminApi();
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
 
   // Set page title
   useSeoMeta({
@@ -30,7 +31,7 @@ export default function MaintenancePage() {
   // General Info
 
   const [infoResults, setInfoResults] = useState({
-    dataDirSize: i18n.t("about.unknown-version");,
+    dataDirSize: i18n.t("about.unknown-version"),
     cleanableDirs: 0,
     cleanableImages: 0,
   });
@@ -48,10 +49,10 @@ export default function MaintenancePage() {
     state.fetchingInfo = false;
   }
 
-  const info = useMemo(() =>  {
+  const info = useMemo(() => {
     return [
       {
-        name: i18n.t("admin.maintenance.info-description-data-dir-size", []); // WF4-REVIEW: dependency array,
+        name: i18n.t("admin.maintenance.info-description-data-dir-size"),
         value: infoResults.dataDirSize,
       },
       {
@@ -63,7 +64,7 @@ export default function MaintenancePage() {
         value: infoResults.cleanableImages,
       },
     ];
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   // ==========================================================================
   // Storage Details
@@ -138,10 +139,10 @@ export default function MaintenancePage() {
     <>
   <Container fluid className="narrow-container">
     {/* WF4-REVIEW: v-model on complex expression "state.storageDetails" [J] */}
-    <BaseDialog {/* WF4-REVIEW: v-model state.storageDetails */} bottom-sheet title={t('admin.maintenance.storage-details')} icon={$globals.icons.folderOutline}>
+    <BaseDialog bottom-sheet title={t('admin.maintenance.storage-details')} icon={icons.folderOutline}>
       <div className="py-2">
         {storageDetails.map((value, key, idx) => (
-          <template key={`item-${key}`}>
+          <>
             {/* WF4-REVIEW: @click → ListItemButton */}
             <ListItem>
               {/* WF4-REVIEW: content → primary prop */}
@@ -158,34 +159,37 @@ export default function MaintenancePage() {
             {(idx != 4) ? (
               <Divider key={`divider-${key}`} className="mx-2" />
             ) : null}
-          </template>
+          </>
         ))}
       </div>
     </BaseDialog>
     <BasePageTitle divider>
-      <template>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
         {t("admin.maintenance.page-title")}
-      </template>
+      </>
     </BasePageTitle>
     <section>
-      <BaseCardSectionTitle className="pb-0" icon={$globals.icons.wrench} title={t('admin.maintenance.summary-title')} />
+      <BaseCardSectionTitle className="pb-0" icon={icons.wrench} title={t('admin.maintenance.summary-title')} />
       <div className="mb-6 d-flex" style="gap: 0.3rem">
         <BaseButton color="info" onClick={getSummary}>
-          <template>
-            {$globals.icons.tools}
-          </template>
+          {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+          <>
+            {icons.tools}
+          </>
           {t("admin.maintenance.button-label-get-summary")}
         </BaseButton>
         <BaseButton color="info" onClick={openDetails}>
-          <template>
-            {$globals.icons.folderOutline}
-          </template>
+          {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+          <>
+            {icons.folderOutline}
+          </>
           {t("admin.maintenance.button-label-open-details")}
         </BaseButton>
       </div>
       <Card className="" loading={state.fetchingInfo}>
         {info.map((value, idx) => (
-          <template key={`item-${idx}`}>
+          <>
             {/* WF4-REVIEW: @click → ListItemButton */}
             <ListItem>
               {/* WF4-REVIEW: content → primary prop */}
@@ -200,28 +204,30 @@ export default function MaintenancePage() {
               </ListItemText>
             </ListItem>
             <Divider className="mx-2" />
-          </template>
+          </>
         ))}
       </Card>
     </section>
     <section>
-      <BaseCardSectionTitle className="pb-0 mt-8" icon={$globals.icons.wrench} title={t('admin.mainentance.actions-title')}>
+      <BaseCardSectionTitle className="pb-0 mt-8" icon={icons.wrench} title={t('admin.mainentance.actions-title')}>
         <i18n-t keypath="admin.maintenance.actions-description">
-          <template>
+          {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+          <>
             <b>
               {t("admin.maintenance.actions-description-destructive")}
             </b>
-          </template>
-          <template>
+          </>
+          {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+          <>
             <b>
               {t("admin.maintenance.actions-description-irreversible")}
             </b>
-          </template>
+          </>
         </i18n-t>
       </BaseCardSectionTitle>
       <Card className="ma-0" flat loading={state.actionLoading}>
         {actions.map((action, idx) => (
-          <template key={`item-${idx}`}>
+          <>
             {/* WF4-REVIEW: @click → ListItemButton */}
             <ListItem className="py-2 px-0">
               {/* WF4-REVIEW: content → primary prop */}
@@ -234,17 +240,19 @@ export default function MaintenancePage() {
                   {action.subtitle}
                 </ListItemText>
               </ListItemText>
-              <template>
+              {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+              <>
                 <BaseButton color="info" onClick={action.handler}>
-                  <template>
-                    {$globals.icons.robot}
-                  </template>
+                  {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                  <>
+                    {icons.robot}
+                  </>
                   {t("general.run")}
                 </BaseButton>
-              </template>
+              </>
             </ListItem>
             <Divider className="mx-2" />
-          </template>
+          </>
         ))}
       </Card>
     </section>

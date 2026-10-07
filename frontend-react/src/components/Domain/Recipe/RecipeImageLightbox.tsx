@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Button, Dialog } from "@mui/material";
+import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
 import { useTheme } from "vuetify";
 
@@ -18,13 +19,11 @@ export default function RecipeImageLightbox({ imageUrl, imageAlt }: Props) {
   const theme = useTheme();
   const isDark = theme.global.current.dark; // was computed — plain read stays reactive
 
-  const scrimColor = useMemo(() => isDark ? "rgba(0, 0, 0, 0.75, []); // WF4-REVIEW: dependency array" : "rgba(255, 255, 255, 0.75)",
-  );
+  const scrimColor = useMemo(() => isDark ? "rgba(0, 0, 0, 0.75)" : "rgba(255, 255, 255, 0.75)",, []); // WF4-REVIEW: dependency array
 
   const imageShadow = useMemo(() => isDark
-      ? "0 0 24px rgba(255, 255, 255, 0.45, []); // WF4-REVIEW: dependency array, 0 0 140px rgba(255, 255, 255, 0.45)"
-      : "0 6px 16px rgba(0, 0, 0, 0.55), 0 18px 80px rgba(0, 0, 0, 0.7)",
-  );
+      ? "0 0 24px rgba(255, 255, 255, 0.45), 0 0 140px rgba(255, 255, 255, 0.45)"
+      : "0 6px 16px rgba(0, 0, 0, 0.55), 0 18px 80px rgba(0, 0, 0, 0.7)",, []); // WF4-REVIEW: dependency array
 
   // The <img> box must be sized to the actual rendered pixels of the image (not the
   // frame's bounding box) so the box-shadow/glow hugs the photo's real edges rather
@@ -56,14 +55,14 @@ export default function RecipeImageLightbox({ imageUrl, imageAlt }: Props) {
     window.removeEventListener("resize", updateFrameSize);
   });
 
-  const renderedSize = useMemo(() =>  {
-    if (!naturalSize.w || !naturalSize.h || !frameSize.w || !frameSize.h, []); // WF4-REVIEW: dependency array {
+  const renderedSize = useMemo(() => {
+    if (!naturalSize.w || !naturalSize.h || !frameSize.w || !frameSize.h) {
       return null;
     }
 
     const scale = Math.min(frameSize.w / naturalSize.w, frameSize.h / naturalSize.h);
     return { width: naturalSize.w * scale, height: naturalSize.h * scale };
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   const ZOOM_SCALE = 2;
 
@@ -148,12 +147,12 @@ export default function RecipeImageLightbox({ imageUrl, imageAlt }: Props) {
   const imgStyle = useMemo(() => ({
     ...(renderedSize
       ? { width: `${renderedSize.width}px`, height: `${renderedSize.height}px` }
-      : {}, []); // WF4-REVIEW: dependency array,
+      : {}),
     boxShadow: imageShadow,
     transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoomed ? ZOOM_SCALE : 1})`,
     transition: dragging ? "none" : "transform 0.2s ease, box-shadow 0.2s ease",
     cursor: zoomed ? "zoom-out" : "zoom-in",
-  }));
+  }), []); // WF4-REVIEW: dependency array
 
   return (
     <>
@@ -165,9 +164,10 @@ export default function RecipeImageLightbox({ imageUrl, imageAlt }: Props) {
           <img src={imageUrl} alt={imageAlt} className="lightbox-img" draggable="false" style={imgStyle} onLoad={onImageLoad} onClick={onImageClick} onPointerdown={onPointerDown} onPointermove={onPointerMove} onPointerup={onPointerUp} onPointercancel={onPointerUp} />
         ) : null}
       </div>
+      {/* WF4-REVIEW: assignment handler "model = false" — target not a tracked ref [J] */}
       <Button icon variant="text" className="lightbox-close" aria-label={t('general.close')} onClick={(e) => { e.stopPropagation(); model = false; }}>
         {/* WF4-REVIEW: icon name resolves via lib/icons */}
-        <MdiIcon name={$globals.icons.close} />
+        <MdiIcon name={icons.close} />
       </Button>
     </div>
   </Dialog>

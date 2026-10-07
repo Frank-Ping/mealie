@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { Box, Card, CardActions, CardContent, CardHeader, Container, FormControlLabel } from "@mui/material";
 import { icons } from "@/lib/icons";
@@ -42,7 +43,7 @@ export default function Migrations() {
 
 
 
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
   // icons imported directly (was $globals)
 
   useSeoMeta({
@@ -398,7 +399,7 @@ export default function Migrations() {
     getMigrationReports();
   });
 
-  const content = computed(() => {
+  const content = useMemo(() => {
     const data = _content[state.migrationType];
 
     if (data) {
@@ -411,19 +412,21 @@ export default function Migrations() {
         tree: false,
       };
     }
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   return (
     <>
   <Container>
     <BasePageTitle divider>
-      <template>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
         {/* WF4-REVIEW: cover → objectFit */}
         <Box component="img" width="100%" max-height="200" max-width="200" className="mb-2" src="/svgs/manage-data-migrations.svg" />
-      </template>
-      <template>
+      </>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
         {t('migration.recipe-data-migrations')}
-      </template>
+      </>
       {t('migration.recipe-data-migrations-explanation')}
     </BasePageTitle>
     <Container className={$vuetify.display.smAndDown ? 'px-0': ''}>
@@ -437,16 +440,17 @@ export default function Migrations() {
           <CardContent className="pb-0">
             <div className="mb-2">
               {/* WF4-REVIEW: v-model on complex expression "state.migrationType" [J] */}
-              <BaseOverflowButton {/* WF4-REVIEW: v-model state.migrationType */} mode="model" items={items} />
+              <BaseOverflowButton mode="model" items={items} />
             </div>
             {content.text}
             {(content.tree && Array.isArray(content.tree)) ? (
               /* WF4-REVIEW: unmapped <v-treeview> — judgement component, convert manually [J] */
               <VTreeview key={state.migrationType} density="compact" items={content.tree}>
-                <template>
+                {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                <>
                   {/* WF4-REVIEW: icon name resolves via lib/icons */}
                   <MdiIcon name={item.icon} />
-                </template>
+                </>
               </VTreeview>
             ) : null}
           </CardContent>
@@ -461,16 +465,18 @@ export default function Migrations() {
         </CardContent>
         <CardContent>
           {/* WF4-REVIEW: control={<Checkbox/>} + label prop; v-model on complex expression "state.addMigrationTag" [J] */}
-          <FormControlLabel {/* WF4-REVIEW: v-model state.addMigrationTag */}>
-            <template>
+          <FormControlLabel>
+            {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+            <>
               <i18n-t keypath="migration.tag-all-recipes">
-                <template>
+                {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                <>
                   <b className="mx-1">
                     {state.migrationType}
                   </b>
-                </template>
+                </>
               </i18n-t>
-            </template>
+            </>
           </FormControlLabel>
         </CardContent>
         <CardActions className="justify-end">

@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { icons } from "@/lib/icons";
 
 export interface ContextMenuItem {
@@ -14,7 +15,7 @@ export interface ContextMenuPresets {
 }
 
 export function useContextPresets(): ContextMenuPresets {
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
   // icons imported directly (was $globals)
 
   return {

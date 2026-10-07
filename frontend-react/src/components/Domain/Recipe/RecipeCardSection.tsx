@@ -54,16 +54,16 @@ export default function RecipeCardSection({ disableToolbar = false, disableSort 
   const auth = useMealieAuth();
   // icons imported directly (was $globals)
   const { isOwnGroup } = useLoggedInState();
-  const useMobileCards = computed(() => {
+  const useMobileCards = useMemo(() => {
     return display.smAndDown || preferences.useMobileCards;
-  });
+  }, []); // WF4-REVIEW: dependency array
 
-  const displayTitleIcon = computed(() => {
+  const displayTitleIcon = useMemo(() => {
     return icon || icons.tags;
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   const [sortLoading, setSortLoading] = useState(false);
-  const [randomSeed, setRandomSeed] = useState(Date.now();.toString());
+  const [randomSeed, setRandomSeed] = useState(Date.now().toString());
 
   const route = useLocation(); // WF4-REVIEW: .query → useSearchParams [J]
   const groupSlug = useMemo(() => route.params.groupSlug as string || auth.user?.groupSlug || "", []); // WF4-REVIEW: dependency array
@@ -78,7 +78,7 @@ export default function RecipeCardSection({ disableToolbar = false, disableSort 
   const { savePosition, getSavedPage, restorePosition } = useScrollPosition();
   const navigate = useNavigate();
 
-  const queryFilter = computed(() => {
+  const queryFilter = useMemo(() => {
     return query?.queryFilter || null;
 
     // TODO: allow user to filter out null values when ordering by a value that may be null (such as lastMade)
@@ -93,7 +93,7 @@ export default function RecipeCardSection({ disableToolbar = false, disableSort 
     // } else {
     //   return orderByFilter;
     // }
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   async function fetchRecipes(pageCount = 1) {
     const orderDir = query?.orderDirection || preferences.orderDirection;
@@ -307,28 +307,29 @@ export default function RecipeCardSection({ disableToolbar = false, disableSort 
         <span className="text-headline-small">
           {title}
         </span>
-        <Box sx={ flexGrow: 1 } />
+        <Box sx={{ flexGrow: 1 }} />
         <Button icon={$vuetify.display.xs} variant="text" disabled={recipes.length === 0} onClick={navigateRandom}>
           {/* WF4-REVIEW: icon name resolves via lib/icons */}
-          <MdiIcon name={$globals.icons.diceMultiple} start={!$vuetify.display.xs} />
+          <MdiIcon name={icons.diceMultiple} start={!$vuetify.display.xs} />
           {$vuetify.display.xs ? null : t("general.random")}
         </Button>
         {(!disableSort) ? (
           /* WF4-REVIEW: unmapped <v-menu> — judgement component, convert manually [J] */
           <VMenu offset-y start>
-            <template>
+            {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+            <>
               <Button variant="text" icon={$vuetify.display.xs} {...(activatorProps)} loading={sortLoading}>
                 {/* WF4-REVIEW: icon name resolves via lib/icons */}
                 <MdiIcon name={preferences.sortIcon} start={!$vuetify.display.xs} />
                 {$vuetify.display.xs ? null : t("general.sort")}
               </Button>
-            </template>
+            </>
             <List>
               {/* WF4-REVIEW: @click → ListItemButton */}
               <ListItem onClick={sortRecipes(EVENTS.az)}>
                 <div className="d-flex align-center flex-nowrap">
                   {/* WF4-REVIEW: icon name resolves via lib/icons */}
-                  <MdiIcon name={$globals.icons.orderAlphabeticalAscending} className="mr-2" inline />
+                  <MdiIcon name={icons.orderAlphabeticalAscending} className="mr-2" inline />
                   {/* WF4-REVIEW: content → primary prop */}
                   <ListItemText>
                     {t("general.sort-alphabetically")}
@@ -339,7 +340,7 @@ export default function RecipeCardSection({ disableToolbar = false, disableSort 
               <ListItem onClick={sortRecipes(EVENTS.rating)}>
                 <div className="d-flex align-center flex-nowrap">
                   {/* WF4-REVIEW: icon name resolves via lib/icons */}
-                  <MdiIcon name={$globals.icons.star} className="mr-2" inline />
+                  <MdiIcon name={icons.star} className="mr-2" inline />
                   {/* WF4-REVIEW: content → primary prop */}
                   <ListItemText>
                     {t("general.rating")}
@@ -350,7 +351,7 @@ export default function RecipeCardSection({ disableToolbar = false, disableSort 
               <ListItem onClick={sortRecipes(EVENTS.created)}>
                 <div className="d-flex align-center flex-nowrap">
                   {/* WF4-REVIEW: icon name resolves via lib/icons */}
-                  <MdiIcon name={$globals.icons.newBox} className="mr-2" inline />
+                  <MdiIcon name={icons.newBox} className="mr-2" inline />
                   {/* WF4-REVIEW: content → primary prop */}
                   <ListItemText>
                     {t("general.created")}
@@ -361,7 +362,7 @@ export default function RecipeCardSection({ disableToolbar = false, disableSort 
               <ListItem onClick={sortRecipes(EVENTS.updated)}>
                 <div className="d-flex align-center flex-nowrap">
                   {/* WF4-REVIEW: icon name resolves via lib/icons */}
-                  <MdiIcon name={$globals.icons.update} className="mr-2" inline />
+                  <MdiIcon name={icons.update} className="mr-2" inline />
                   {/* WF4-REVIEW: content → primary prop */}
                   <ListItemText>
                     {t("general.updated")}
@@ -372,7 +373,7 @@ export default function RecipeCardSection({ disableToolbar = false, disableSort 
               <ListItem onClick={sortRecipes(EVENTS.lastMade)}>
                 <div className="d-flex align-center flex-nowrap">
                   {/* WF4-REVIEW: icon name resolves via lib/icons */}
-                  <MdiIcon name={$globals.icons.chefHat} className="mr-2" inline />
+                  <MdiIcon name={icons.chefHat} className="mr-2" inline />
                   {/* WF4-REVIEW: content → primary prop */}
                   <ListItemText>
                     {t("general.last-made")}
@@ -383,7 +384,7 @@ export default function RecipeCardSection({ disableToolbar = false, disableSort 
               <ListItem onClick={sortRecipes(EVENTS.shuffle)}>
                 <div className="d-flex align-center flex-nowrap">
                   {/* WF4-REVIEW: icon name resolves via lib/icons */}
-                  <MdiIcon name={$globals.icons.diceMultiple} className="mr-2" inline />
+                  <MdiIcon name={icons.diceMultiple} className="mr-2" inline />
                   {/* WF4-REVIEW: content → primary prop */}
                   <ListItemText>
                     {t("general.random")}
@@ -397,7 +398,7 @@ export default function RecipeCardSection({ disableToolbar = false, disableSort 
           <ContextMenu items={[
           {
             title: t('general.toggle-view'),
-            icon: $globals.icons.eye,
+            icon: icons.eye,
             event: 'toggle-dense-view',
           },
         ]} onToggleDenseView={toggleMobileCards()} />

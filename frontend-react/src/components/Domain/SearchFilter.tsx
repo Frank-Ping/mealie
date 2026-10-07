@@ -28,21 +28,21 @@ export default function SearchFilter({ items, requireAll = undefined, radio = fa
   // Use the search composable
   const { search: searchInput, filtered } = useSearch(computed(() => items));
 
-  /* WF4-REVIEW [J]: writable computed — split into state + handlers */ const combinator = computed({
+  /* WF4-REVIEW [J]: writable computed — split into state + handlers */ /* WF4-REVIEW [J]: writable computed — split into state + handlers */ const combinator = computed({
     get: () => (requireAll ? "hasAll" : "hasAny"),
     set: (value: string) => {
       emit("update:requireAll", value === "hasAll");
     },
   });
 
-  /* WF4-REVIEW [J]: writable computed — split into state + handlers */ const selected = computed<ISearchableItem[]>({
+  /* WF4-REVIEW [J]: writable computed — split into state + handlers */ /* WF4-REVIEW [J]: writable computed — split into state + handlers */ const selected = computed({
     get: () => modelValue ?? [],
     set: (value: ISearchableItem[]) => {
       modelValue = value;
     },
   });
 
-  /* WF4-REVIEW [J]: writable computed — split into state + handlers */ const selectedRadio = computed<null | ISearchableItem>({
+  /* WF4-REVIEW [J]: writable computed — split into state + handlers */ /* WF4-REVIEW [J]: writable computed — split into state + handlers */ const selectedRadio = computed({
     get: () => (selected.length > 0 ? selected.value[0] : null),
     set: (value: ISearchableItem | null) => {
       const next = value ? [value] : [];
@@ -51,7 +51,7 @@ export default function SearchFilter({ items, requireAll = undefined, radio = fa
   });
 
   const selectedCount = selected.length; // was computed — plain read stays reactive
-  const selectedIds = useMemo(() => new Set(selected.map(item => item.id, []); // WF4-REVIEW: dependency array));
+  const selectedIds = useMemo(() => new Set(selected.map(item => item.id)), []); // WF4-REVIEW: dependency array
 
   const handleRadioClick = (item: ISearchableItem) => {
     if (selectedRadio === item) {
@@ -69,8 +69,9 @@ export default function SearchFilter({ items, requireAll = undefined, radio = fa
     <>
   <div>
     {/* WF4-REVIEW: unmapped <v-menu> — judgement component, convert manually [J]; v-model on complex expression "state.menu" [J] */}
-    <VMenu {/* WF4-REVIEW: v-model state.menu */} offset-y bottom nudge-bottom="3" close-on-content-click={false}>
-      <template>
+    <VMenu offset-y bottom nudge-bottom="3" close-on-content-click={false}>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
         {/* WF4-REVIEW: content → badgeContent */}
         <Badge model-value={selectedCount > 0} size="small" color="primary" content={selectedCount}>
           {/* WF4-REVIEW: dropped Vuetify-only prop "dark" on <v-btn> */}
@@ -78,7 +79,7 @@ export default function SearchFilter({ items, requireAll = undefined, radio = fa
             <slot />
           </Button>
         </Badge>
-      </template>
+      </>
       <Card width="400">
         <CardContent>
           {/* WF4-REVIEW: rules/error-messages → error+helperText */}
@@ -96,7 +97,7 @@ export default function SearchFilter({ items, requireAll = undefined, radio = fa
                 </Button>
               </ToggleButtonGroup>
             ) : null}
-            <Box sx={ flexGrow: 1 } />
+            <Box sx={{ flexGrow: 1 }} />
             <Button size="small" color="accent" className="my-1" onClick={clearSelection}>
               {t("search.clear-selection")}
             </Button>
@@ -107,37 +108,41 @@ export default function SearchFilter({ items, requireAll = undefined, radio = fa
                 <RadioGroup value={selectedRadio} onChange={/* WF4-REVIEW: setter */ setSelectedRadio} className="ma-0 pa-0">
                   {/* WF4-REVIEW: unmapped <v-virtual-scroll> — judgement component, convert manually [J] */}
                   <VVirtualScroll items={filtered} height="300">
-                    <template>
+                    {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                    <>
                       {/* WF4-REVIEW: @click → ListItemButton */}
                       <ListItem key={`radio-${item.id}`} value={item} title={item.name}>
-                        <template>
+                        {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                        <>
                           <ListItemSecondaryAction start>
                             {(radio) ? (
                               /* WF4-REVIEW: control={<Radio/>} */
                               <FormControlLabel value={item} color="primary" onClick={handleRadioClick(item)} />
                             ) : null}
                           </ListItemSecondaryAction>
-                        </template>
+                        </>
                       </ListItem>
                       <Divider />
-                    </template>
+                    </>
                   </VVirtualScroll>
                 </RadioGroup>
               ) : null}
               <Grid container className="mt-1">
                 {/* WF4-REVIEW: unmapped <v-virtual-scroll> — judgement component, convert manually [J] */}
                 <VVirtualScroll items={filtered} height="300">
-                  <template>
+                  {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                  <>
                     {/* WF4-REVIEW: @click → ListItemButton */}
                     <ListItem key={`checkbox-${item.id}`} value={item} title={item.name}>
-                      <template>
+                      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                      <>
                         <ListItemSecondaryAction start>
                           <Checkbox value={selected} onChange={/* WF4-REVIEW: setter */ setSelected} value={item} color="primary" />
                         </ListItemSecondaryAction>
-                      </template>
+                      </>
                     </ListItem>
                     <Divider />
-                  </template>
+                  </>
                 </VVirtualScroll>
               </Grid>
             </Card>

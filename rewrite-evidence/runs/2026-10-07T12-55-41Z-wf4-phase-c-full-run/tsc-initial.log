@@ -1,0 +1,517 @@
+src/components/Domain/Announcement/AnnouncementDialog.tsx(60,5): error TS2657: JSX expressions must have one parent element.
+src/components/Domain/Announcement/AnnouncementDialog.tsx(65,153): error TS1005: '}' expected.
+src/components/Domain/Announcement/AnnouncementDialog.tsx(65,170): error TS1381: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/Domain/Announcement/AnnouncementDialog.tsx(65,171): error TS1382: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/Domain/Announcement/AnnouncementDialog.tsx(82,15): error TS17002: Expected corresponding JSX closing tag for 'List'.
+src/components/Domain/Announcement/AnnouncementDialog.tsx(83,13): error TS1381: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/Domain/Announcement/AnnouncementDialog.tsx(84,11): error TS17002: Expected corresponding JSX closing tag for 'div'.
+src/components/Domain/Announcement/AnnouncementDialog.tsx(106,9): error TS17002: Expected corresponding JSX closing tag for 'BaseDialog'.
+src/components/Domain/Announcement/AnnouncementDialog.tsx(113,5): error TS1005: ')' expected.
+src/components/Domain/Announcement/AnnouncementDialog.tsx(113,7): error TS17015: Expected corresponding closing tag for JSX fragment.
+src/components/Domain/Announcement/AnnouncementDialog.tsx(114,3): error TS1109: Expression expected.
+src/components/Domain/Announcement/AnnouncementDialog.tsx(114,5): error TS1128: Declaration or statement expected.
+src/components/Domain/Announcement/AnnouncementDialog.tsx(115,5): error TS1128: Declaration or statement expected.
+src/components/Domain/Announcement/AnnouncementDialog.tsx(115,7): error TS1109: Expression expected.
+src/components/Domain/Announcement/AnnouncementDialog.tsx(116,3): error TS1109: Expression expected.
+src/components/Domain/Announcement/AnnouncementDialog.tsx(117,1): error TS1128: Declaration or statement expected.
+src/components/Domain/Announcement/Announcements/2026-03-27_1_welcome.tsx(6,25): error TS1005: '(' expected.
+src/components/Domain/Announcement/Announcements/2026-03-27_1_welcome.tsx(6,34): error TS1005: ';' expected.
+src/components/Domain/Announcement/Announcements/2026-03-27_1_welcome.tsx(6,34): error TS1351: An identifier or keyword cannot immediately follow a numeric literal.
+src/components/Domain/Announcement/Announcements/2026-03-27_1_welcome.tsx(6,44): error TS1005: ';' expected.
+src/components/Domain/Announcement/Announcements/2026-05-21_1_ai-providers.tsx(7,25): error TS1005: '(' expected.
+src/components/Domain/Announcement/Announcements/2026-05-21_1_ai-providers.tsx(7,34): error TS1005: ';' expected.
+src/components/Domain/Announcement/Announcements/2026-05-21_1_ai-providers.tsx(7,34): error TS1351: An identifier or keyword cannot immediately follow a numeric literal.
+src/components/Domain/Announcement/Announcements/2026-05-21_1_ai-providers.tsx(7,48): error TS1005: ';' expected.
+src/components/Domain/Announcement/Announcements/2026-05-31_1_iframe-embeds.tsx(5,25): error TS1005: '(' expected.
+src/components/Domain/Announcement/Announcements/2026-05-31_1_iframe-embeds.tsx(5,34): error TS1005: ';' expected.
+src/components/Domain/Announcement/Announcements/2026-05-31_1_iframe-embeds.tsx(5,34): error TS1351: An identifier or keyword cannot immediately follow a numeric literal.
+src/components/Domain/Announcement/Announcements/2026-05-31_1_iframe-embeds.tsx(5,49): error TS1005: ';' expected.
+src/components/Domain/Announcement/Announcements/2026-05-31_1_iframe-embeds.tsx(14,10): error TS17008: JSX element 'iframe' has no corresponding closing tag.
+src/components/Domain/Announcement/Announcements/2026-07-27_1_oidc-email-verification.tsx(5,25): error TS1005: '(' expected.
+src/components/Domain/Announcement/Announcements/2026-07-27_1_oidc-email-verification.tsx(5,34): error TS1005: ';' expected.
+src/components/Domain/Announcement/Announcements/2026-07-27_1_oidc-email-verification.tsx(5,34): error TS1351: An identifier or keyword cannot immediately follow a numeric literal.
+src/components/Domain/Announcement/Announcements/2026-07-27_1_oidc-email-verification.tsx(5,58): error TS1005: ';' expected.
+src/components/Domain/Announcement/Announcements/2026-07-27_2_scraper-proxy-flaresolverr.tsx(5,25): error TS1005: '(' expected.
+src/components/Domain/Announcement/Announcements/2026-07-27_2_scraper-proxy-flaresolverr.tsx(5,34): error TS1005: ';' expected.
+src/components/Domain/Announcement/Announcements/2026-07-27_2_scraper-proxy-flaresolverr.tsx(5,34): error TS1351: An identifier or keyword cannot immediately follow a numeric literal.
+src/components/Domain/Announcement/Announcements/2026-07-27_2_scraper-proxy-flaresolverr.tsx(5,61): error TS1005: ';' expected.
+src/components/Domain/Announcement/Announcements/2026-09-04_1_outbound-request-protection.tsx(5,25): error TS1005: '(' expected.
+src/components/Domain/Announcement/Announcements/2026-09-04_1_outbound-request-protection.tsx(5,34): error TS1005: ';' expected.
+src/components/Domain/Announcement/Announcements/2026-09-04_1_outbound-request-protection.tsx(5,34): error TS1351: An identifier or keyword cannot immediately follow a numeric literal.
+src/components/Domain/Announcement/Announcements/2026-09-04_1_outbound-request-protection.tsx(5,62): error TS1005: ';' expected.
+src/components/Domain/Cookbook/CookbookEditor.tsx(82,60): error TS1005: '...' expected.
+src/components/Domain/Cookbook/CookbookEditor.tsx(84,77): error TS1005: '...' expected.
+src/components/Domain/Cookbook/CookbookEditor.tsx(87,69): error TS1005: '...' expected.
+src/components/Domain/Cookbook/CookbookPage.tsx(70,18): error TS1109: Expression expected.
+src/components/Domain/Cookbook/CookbookPage.tsx(78,63): error TS1005: '...' expected.
+src/components/Domain/Group/GroupAIProviderDialog.tsx(190,62): error TS1005: '...' expected.
+src/components/Domain/Group/GroupAIProviderDialog.tsx(192,63): error TS1005: '...' expected.
+src/components/Domain/Group/GroupAIProviderDialog.tsx(194,64): error TS1005: '...' expected.
+src/components/Domain/Group/GroupAIProviderDialog.tsx(200,65): error TS1005: '...' expected.
+src/components/Domain/Group/GroupAIProviderDialog.tsx(202,68): error TS1005: '...' expected.
+src/components/Domain/Group/GroupAIProviderDialog.tsx(214,87): error TS1005: '...' expected.
+src/components/Domain/Group/GroupAIProviderDialog.tsx(220,86): error TS1005: '...' expected.
+src/components/Domain/Group/GroupAIProviderSettingsEditor.tsx(22,105): error TS1135: Argument expression expected.
+src/components/Domain/Group/GroupAIProviderSettingsEditor.tsx(74,75): error TS1005: '...' expected.
+src/components/Domain/Group/GroupAIProviderSettingsEditor.tsx(83,73): error TS1005: '...' expected.
+src/components/Domain/Group/GroupAIProviderSettingsEditor.tsx(92,73): error TS1005: '...' expected.
+src/components/Domain/Group/GroupDataPage.tsx(33,77): error TS1109: Expression expected.
+src/components/Domain/Group/GroupDataPage.tsx(34,6): error TS1128: Declaration or statement expected.
+src/components/Domain/Group/GroupDataPage.tsx(37,15): error TS1005: ';' expected.
+src/components/Domain/Group/GroupDataPage.tsx(38,5): error TS1109: Expression expected.
+src/components/Domain/Group/GroupDataPage.tsx(38,6): error TS1128: Declaration or statement expected.
+src/components/Domain/Group/GroupDataPage.tsx(41,15): error TS1005: ';' expected.
+src/components/Domain/Group/GroupDataPage.tsx(42,5): error TS1109: Expression expected.
+src/components/Domain/Group/GroupDataPage.tsx(42,6): error TS1128: Declaration or statement expected.
+src/components/Domain/Group/GroupDataPage.tsx(45,7): error TS1109: Expression expected.
+src/components/Domain/Group/GroupDataPage.tsx(45,14): error TS1128: Declaration or statement expected.
+src/components/Domain/Group/GroupDataPage.tsx(46,5): error TS1109: Expression expected.
+src/components/Domain/Group/GroupDataPage.tsx(46,6): error TS1128: Declaration or statement expected.
+src/components/Domain/Group/GroupDataPage.tsx(49,7): error TS1109: Expression expected.
+src/components/Domain/Group/GroupDataPage.tsx(49,14): error TS1128: Declaration or statement expected.
+src/components/Domain/Group/GroupDataPage.tsx(50,5): error TS1109: Expression expected.
+src/components/Domain/Group/GroupDataPage.tsx(50,6): error TS1128: Declaration or statement expected.
+src/components/Domain/Group/GroupDataPage.tsx(51,3): error TS1128: Declaration or statement expected.
+src/components/Domain/Group/GroupDataPage.tsx(51,4): error TS1128: Declaration or statement expected.
+src/components/Domain/Group/GroupDataPage.tsx(106,59): error TS1005: '...' expected.
+src/components/Domain/Group/GroupDataPage.tsx(113,57): error TS1005: '...' expected.
+src/components/Domain/Group/GroupDataPage.tsx(171,1): error TS1128: Declaration or statement expected.
+src/components/Domain/Group/GroupPreferencesEditor.tsx(20,72): error TS1005: '...' expected.
+src/components/Domain/Group/GroupPreferencesEditor.tsx(30,77): error TS1005: '...' expected.
+src/components/Domain/Household/GroupMealPlanEntryDialog.tsx(43,47): error TS1109: Expression expected.
+src/components/Domain/Household/GroupWebhookEditor.tsx(51,71): error TS1005: '...' expected.
+src/components/Domain/Household/GroupWebhookEditor.tsx(53,61): error TS1005: '...' expected.
+src/components/Domain/Household/GroupWebhookEditor.tsx(55,60): error TS1005: '...' expected.
+src/components/Domain/Household/HouseholdPreferencesEditor.tsx(8,1): error TS1131: Property or signature expected.
+src/components/Domain/Household/HouseholdPreferencesEditor.tsx(89,76): error TS1005: '...' expected.
+src/components/Domain/Household/HouseholdPreferencesEditor.tsx(99,94): error TS1005: '...' expected.
+src/components/Domain/Household/HouseholdPreferencesEditor.tsx(108,77): error TS1005: '...' expected.
+src/components/Domain/Household/HouseholdPreferencesEditor.tsx(116,72): error TS1005: '...' expected.
+src/components/Domain/Household/HouseholdPreferencesEditor.tsx(124,70): error TS1005: '...' expected.
+src/components/Domain/Household/HouseholdPreferencesEditor.tsx(135,1): error TS1128: Declaration or statement expected.
+src/components/Domain/Mealplan/MealPlanDay.tsx(127,67): error TS1005: '...' expected.
+src/components/Domain/QueryFilterBuilder.tsx(35,3): error TS1109: Expression expected.
+src/components/Domain/QueryFilterBuilder.tsx(331,48): error TS1109: Expression expected.
+src/components/Domain/QueryFilterBuilder.tsx(332,59): error TS1109: Expression expected.
+src/components/Domain/QueryFilterBuilder.tsx(471,72): error TS1109: Expression expected.
+src/components/Domain/QueryFilterBuilder.tsx(491,78): error TS1109: Expression expected.
+src/components/Domain/QueryFilterBuilder.tsx(510,69): error TS1005: '...' expected.
+src/components/Domain/QueryFilterBuilder.tsx(523,83): error TS1005: '...' expected.
+src/components/Domain/QueryFilterBuilder.tsx(525,83): error TS1005: '...' expected.
+src/components/Domain/QueryFilterBuilder.tsx(527,83): error TS1005: '...' expected.
+src/components/Domain/QueryFilterBuilder.tsx(529,83): error TS1005: '...' expected.
+src/components/Domain/QueryFilterBuilder.tsx(531,83): error TS1005: '...' expected.
+src/components/Domain/QueryFilterBuilder.tsx(533,83): error TS1005: '...' expected.
+src/components/Domain/QueryFilterBuilder.tsx(535,83): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipeActionMenu.tsx(42,3): error TS1109: Expression expected.
+src/components/Domain/Recipe/RecipeAssets.tsx(22,3): error TS1109: Expression expected.
+src/components/Domain/Recipe/RecipeAssets.tsx(230,70): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipeAssets.tsx(235,68): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipeAssets.tsx(238,70): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipeAssets.tsx(241,79): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipeCardRating.tsx(14,3): error TS1109: Expression expected.
+src/components/Domain/Recipe/RecipeCardRating.tsx(42,7): error TS1135: Argument expression expected.
+src/components/Domain/Recipe/RecipeContextMenu/RecipeContextMenuContent.tsx(207,105): error TS1135: Argument expression expected.
+src/components/Domain/Recipe/RecipeContextMenu/RecipeContextMenuContent.tsx(231,94): error TS1135: Argument expression expected.
+src/components/Domain/Recipe/RecipeDataAliasManagerDialog.tsx(91,65): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipeDialogAddToShoppingList.tsx(334,84): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipeDialogPrintPreferences.tsx(33,84): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipeDialogPrintPreferences.tsx(52,87): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipeDialogPrintPreferences.tsx(56,81): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipeDialogPrintPreferences.tsx(63,85): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipeDialogPrintPreferences.tsx(67,90): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipeDialogPrintPreferences.tsx(74,93): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipeDialogPrintPreferences.tsx(78,89): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipeDialogSearch.tsx(161,79): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipeExplorerPage/RecipeExplorerPageParts/RecipeExplorerPageSearch.tsx(113,71): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipeExplorerPage/RecipeExplorerPageParts/RecipeExplorerPageSearch.tsx(164,70): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipeExplorerPage/RecipeExplorerPageParts/RecipeExplorerPageSearchFilters.tsx(59,157): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipeExplorerPage/RecipeExplorerPageParts/RecipeExplorerPageSearchFilters.tsx(67,139): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipeExplorerPage/RecipeExplorerPageParts/RecipeExplorerPageSearchFilters.tsx(75,142): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipeExplorerPage/RecipeExplorerPageParts/RecipeExplorerPageSearchFilters.tsx(83,142): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipeImageLightbox.tsx(21,97): error TS1135: Argument expression expected.
+src/components/Domain/Recipe/RecipeImageLightbox.tsx(25,74): error TS1135: Argument expression expected.
+src/components/Domain/Recipe/RecipeImageUploadBtn.tsx(66,96): error TS1135: Argument expression expected.
+src/components/Domain/Recipe/RecipeIngredientEditor.tsx(44,3): error TS1109: Expression expected.
+src/components/Domain/Recipe/RecipeIngredientEditor.tsx(124,99): error TS1135: Argument expression expected.
+src/components/Domain/Recipe/RecipeIngredientEditor.tsx(159,99): error TS1135: Argument expression expected.
+src/components/Domain/Recipe/RecipeIngredientEditor.tsx(241,56): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipeIngredientEditor.tsx(259,68): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipeIngredientEditor.tsx(261,87): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipeIngredientEditor.tsx(293,89): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipeIngredientEditor.tsx(326,97): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipeIngredientEditor.tsx(326,138): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipeIngredientEditor.tsx(329,61): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipeIngredientHtml.tsx(12,3): error TS1109: Expression expected.
+src/components/Domain/Recipe/RecipeIngredientListItem.tsx(20,72): error TS1109: Expression expected.
+src/components/Domain/Recipe/RecipeIngredients.tsx(55,28): error TS1109: Expression expected.
+src/components/Domain/Recipe/RecipeIngredients.tsx(55,47): error TS1005: ':' expected.
+src/components/Domain/Recipe/RecipeIngredientSubstitutionEditor.tsx(47,81): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipeIngredientSubstitutionEditor.tsx(49,66): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipeLastMade.tsx(47,21): error TS1109: Expression expected.
+src/components/Domain/Recipe/RecipeLastMade.tsx(226,90): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipeNotes.tsx(42,78): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipeNotes.tsx(49,85): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipeOrganizerPage.tsx(52,82): error TS1109: Expression expected.
+src/components/Domain/Recipe/RecipeOrganizerPage.tsx(154,74): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipeOrganizerPage.tsx(157,62): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipeOrganizerPage.tsx(170,62): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipeOrganizerPage.tsx(173,68): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipeOrganizerPage.tsx(176,79): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipeOrganizerSelector.tsx(97,16): error TS1135: Argument expression expected.
+src/components/Domain/Recipe/RecipePage/RecipePage.tsx(54,14): error TS1135: Argument expression expected.
+src/components/Domain/Recipe/RecipePage/RecipePage.tsx(56,84): error TS1109: Expression expected.
+src/components/Domain/Recipe/RecipePage/RecipePage.tsx(134,27): error TS1109: Expression expected.
+src/components/Domain/Recipe/RecipePage/RecipePage.tsx(134,36): error TS1005: ')' expected.
+src/components/Domain/Recipe/RecipePage/RecipePage.tsx(135,19): error TS1005: ';' expected.
+src/components/Domain/Recipe/RecipePage/RecipePage.tsx(385,93): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipePage/RecipePage.tsx(385,135): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipePage/RecipePage.tsx(400,69): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipePage/RecipePage.tsx(441,87): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipePage/RecipePage.tsx(441,129): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipePage/RecipePage.tsx(450,83): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipePage/RecipePage.tsx(450,125): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageEditorToolbar.tsx(75,67): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageEditorToolbar.tsx(78,63): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageFooter.tsx(50,60): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageFooter.tsx(72,75): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInfoEditor.tsx(17,54): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInfoEditor.tsx(33,67): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInfoEditor.tsx(38,72): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInfoEditor.tsx(38,117): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInfoEditor.tsx(40,71): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInfoEditor.tsx(40,115): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInfoEditor.tsx(42,74): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInfoEditor.tsx(42,121): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInfoEditor.tsx(44,71): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageIngredientEditor.tsx(158,71): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageIngredientEditor.tsx(166,121): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageIngredientToolsView.tsx(41,86): error TS1005: ',' expected.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageIngredientToolsView.tsx(41,87): error TS1005: ')' expected.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageIngredientToolsView.tsx(43,8): error TS1128: Declaration or statement expected.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageIngredientToolsView.tsx(45,3): error TS1128: Declaration or statement expected.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageIngredientToolsView.tsx(45,4): error TS1128: Declaration or statement expected.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageIngredientToolsView.tsx(45,25): error TS1128: Declaration or statement expected.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageIngredientToolsView.tsx(84,87): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageIngredientToolsView.tsx(98,1): error TS1128: Declaration or statement expected.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInstructions.tsx(22,19): error TS1005: ';' expected.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInstructions.tsx(22,42): error TS1005: ':' expected.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInstructions.tsx(40,3): error TS1109: Expression expected.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInstructions.tsx(42,3): error TS1109: Expression expected.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInstructions.tsx(78,27): error TS1109: Expression expected.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInstructions.tsx(78,112): error TS1005: ')' expected.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInstructions.tsx(79,28): error TS1005: ';' expected.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInstructions.tsx(82,7): error TS1005: ',' expected.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInstructions.tsx(82,49): error TS1005: ')' expected.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInstructions.tsx(83,6): error TS1128: Declaration or statement expected.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInstructions.tsx(88,3): error TS1128: Declaration or statement expected.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInstructions.tsx(88,4): error TS1128: Declaration or statement expected.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInstructions.tsx(179,27): error TS1109: Expression expected.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInstructions.tsx(179,112): error TS1005: ')' expected.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInstructions.tsx(180,28): error TS1005: ';' expected.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInstructions.tsx(182,5): error TS1128: Declaration or statement expected.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInstructions.tsx(182,6): error TS1128: Declaration or statement expected.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInstructions.tsx(183,3): error TS1128: Declaration or statement expected.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInstructions.tsx(693,69): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInstructions.tsx(712,73): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInstructions.tsx(819,96): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInstructions.tsx(819,145): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInstructions.tsx(909,1): error TS1128: Declaration or statement expected.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageOrganizers.tsx(30,86): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageOrganizers.tsx(47,76): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageOrganizers.tsx(63,75): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageOrganizers.tsx(69,67): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageOrganizers.tsx(73,61): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipeParseDialog/ParseDialogChangeParser.tsx(47,120): error TS1005: '}' expected.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipeParseDialog/ParseDialogChangeParser.tsx(48,22): error TS1381: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipeParseDialog/ParseDialogChangeParser.tsx(48,23): error TS1382: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipeParseDialog/ParseDialogChangeParser.tsx(50,11): error TS17002: Expected corresponding JSX closing tag for 'List'.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipeParseDialog/ParseDialogChangeParser.tsx(51,9): error TS1381: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipeParseDialog/ParseDialogChangeParser.tsx(52,7): error TS17002: Expected corresponding JSX closing tag for 'BaseDialog'.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipeParseDialog/ParseDialogChangeParser.tsx(53,5): error TS17015: Expected corresponding closing tag for JSX fragment.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipeParseDialog/ParseDialogChangeParser.tsx(54,5): error TS1109: Expression expected.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipeParseDialog/ParseDialogChangeParser.tsx(54,7): error TS1109: Expression expected.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipeParseDialog/ParseDialogChangeParser.tsx(55,3): error TS1109: Expression expected.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipeParseDialog/ParseDialogParse.tsx(59,79): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipeParseDialog/ParseDialogReview.tsx(46,69): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipePage/RecipePageParts/RecipeParseDialog/ParseDialogReview.tsx(64,89): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipePrintView.tsx(25,1): error TS1131: Property or signature expected.
+src/components/Domain/Recipe/RecipePrintView.tsx(28,1): error TS1131: Property or signature expected.
+src/components/Domain/Recipe/RecipePrintView.tsx(31,33): error TS1011: An element access expression should take an argument.
+src/components/Domain/Recipe/RecipePrintView.tsx(36,30): error TS1011: An element access expression should take an argument.
+src/components/Domain/Recipe/RecipePrintView.tsx(37,3): error TS1128: Declaration or statement expected.
+src/components/Domain/Recipe/RecipePrintView.tsx(384,1): error TS1128: Declaration or statement expected.
+src/components/Domain/Recipe/RecipeSettingsSwitches.tsx(28,72): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipeTimelineContextMenu.tsx(38,3): error TS1109: Expression expected.
+src/components/Domain/Recipe/RecipeTimelineContextMenu.tsx(118,67): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipeTimelineContextMenu.tsx(120,82): error TS1005: '...' expected.
+src/components/Domain/Recipe/RecipeTimelineItem.tsx(39,86): error TS1109: Expression expected.
+src/components/Domain/Recipe/RecipeUnitSystemButton.tsx(43,108): error TS1135: Argument expression expected.
+src/components/Domain/SearchFilter.tsx(18,3): error TS1109: Expression expected.
+src/components/Domain/SearchFilter.tsx(72,49): error TS1005: '...' expected.
+src/components/Domain/ShoppingList/ShoppingListAddItemForm.tsx(75,86): error TS1005: '...' expected.
+src/components/Domain/ShoppingList/ShoppingListAddItemForm.tsx(75,131): error TS1005: '...' expected.
+src/components/Domain/ShoppingList/ShoppingListAddItemForm.tsx(92,55): error TS1005: '}' expected.
+src/components/Domain/ShoppingList/ShoppingListAddItemForm.tsx(92,69): error TS1381: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/Domain/ShoppingList/ShoppingListAddItemForm.tsx(92,72): error TS1382: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/components/Domain/ShoppingList/ShoppingListAddItemForm.tsx(93,17): error TS1381: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/components/Domain/ShoppingList/ShoppingListItem.tsx(32,3): error TS1109: Expression expected.
+src/components/Domain/ShoppingList/ShoppingListItemDetails.tsx(41,63): error TS1005: '...' expected.
+src/components/Domain/ShoppingList/ShoppingListItemDetails.tsx(43,61): error TS1005: '...' expected.
+src/components/Domain/ShoppingList/ShoppingListItemDetails.tsx(43,106): error TS1005: '...' expected.
+src/components/Domain/ShoppingList/ShoppingListItemDetails.tsx(46,64): error TS1005: '...' expected.
+src/components/Domain/ShoppingList/ShoppingListItemDetails.tsx(49,62): error TS1005: '...' expected.
+src/components/Domain/ShoppingList/ShoppingListItemDetails.tsx(49,108): error TS1005: '...' expected.
+src/components/Domain/ShoppingList/ShoppingListItemEditor.tsx(56,63): error TS1005: '...' expected.
+src/components/Domain/ShoppingList/ShoppingListItemEditor.tsx(56,108): error TS1005: '...' expected.
+src/components/Domain/User/UserAvatar.tsx(16,3): error TS1109: Expression expected.
+src/components/Domain/User/UserPasswordStrength.tsx(21,66): error TS1005: '...' expected.
+src/components/Domain/User/UserRegistrationForm.tsx(21,3): error TS1109: Expression expected.
+src/components/Domain/User/UserRegistrationForm.tsx(57,70): error TS1005: '...' expected.
+src/components/Domain/User/UserRegistrationForm.tsx(59,70): error TS1005: '...' expected.
+src/components/Domain/User/UserRegistrationForm.tsx(61,67): error TS1005: '...' expected.
+src/components/Domain/User/UserRegistrationForm.tsx(63,68): error TS1005: '...' expected.
+src/components/Domain/User/UserRegistrationForm.tsx(65,79): error TS1005: '...' expected.
+src/components/Domain/User/UserRegistrationForm.tsx(67,68): error TS1005: '...' expected.
+src/components/Domain/User/UserRegistrationForm.tsx(70,86): error TS1005: '...' expected.
+src/components/global/AppButtonCopy.tsx(19,3): error TS1109: Expression expected.
+src/components/global/AppButtonUpload.tsx(29,3): error TS1109: Expression expected.
+src/components/global/AppLoader.tsx(20,3): error TS1109: Expression expected.
+src/components/global/AutoForm.tsx(27,3): error TS1109: Expression expected.
+src/components/global/AutoForm.tsx(66,87): error TS1005: '...' expected.
+src/components/global/AutoForm.tsx(75,78): error TS1005: '...' expected.
+src/components/global/AutoForm.tsx(77,88): error TS1005: '...' expected.
+src/components/global/AutoForm.tsx(79,81): error TS1005: '...' expected.
+src/components/global/AutoForm.tsx(81,85): error TS1005: '...' expected.
+src/components/global/AutoForm.tsx(84,81): error TS1005: '...' expected.
+src/components/global/BaseButton.tsx(31,121): error TS1005: ':' expected.
+src/components/global/BaseButton.tsx(36,3): error TS1109: Expression expected.
+src/components/global/BaseButton.tsx(78,15): error TS1109: Expression expected.
+src/components/global/BaseButtonGroup.tsx(16,3): error TS1109: Expression expected.
+src/components/global/BaseOverflowButton.tsx(27,47): error TS1005: ',' expected.
+src/components/global/BaseOverflowButton.tsx(27,54): error TS1005: ',' expected.
+src/components/global/BaseOverflowButton.tsx(40,3): error TS1109: Expression expected.
+src/components/global/BaseOverflowButton.tsx(49,7): error TS1135: Argument expression expected.
+src/components/global/CrudTable.tsx(34,77): error TS1109: Expression expected.
+src/components/global/CrudTable.tsx(35,6): error TS1128: Declaration or statement expected.
+src/components/global/CrudTable.tsx(38,15): error TS1005: ';' expected.
+src/components/global/CrudTable.tsx(39,5): error TS1109: Expression expected.
+src/components/global/CrudTable.tsx(39,6): error TS1128: Declaration or statement expected.
+src/components/global/CrudTable.tsx(42,15): error TS1005: ';' expected.
+src/components/global/CrudTable.tsx(43,5): error TS1109: Expression expected.
+src/components/global/CrudTable.tsx(43,6): error TS1128: Declaration or statement expected.
+src/components/global/CrudTable.tsx(46,7): error TS1109: Expression expected.
+src/components/global/CrudTable.tsx(46,14): error TS1128: Declaration or statement expected.
+src/components/global/CrudTable.tsx(47,5): error TS1109: Expression expected.
+src/components/global/CrudTable.tsx(47,6): error TS1128: Declaration or statement expected.
+src/components/global/CrudTable.tsx(50,7): error TS1109: Expression expected.
+src/components/global/CrudTable.tsx(50,14): error TS1128: Declaration or statement expected.
+src/components/global/CrudTable.tsx(51,5): error TS1109: Expression expected.
+src/components/global/CrudTable.tsx(51,6): error TS1128: Declaration or statement expected.
+src/components/global/CrudTable.tsx(54,7): error TS1109: Expression expected.
+src/components/global/CrudTable.tsx(54,14): error TS1128: Declaration or statement expected.
+src/components/global/CrudTable.tsx(55,5): error TS1109: Expression expected.
+src/components/global/CrudTable.tsx(55,6): error TS1128: Declaration or statement expected.
+src/components/global/CrudTable.tsx(56,3): error TS1128: Declaration or statement expected.
+src/components/global/CrudTable.tsx(56,4): error TS1128: Declaration or statement expected.
+src/components/global/CrudTable.tsx(87,11): error TS1135: Argument expression expected.
+src/components/global/CrudTable.tsx(132,114): error TS1005: '...' expected.
+src/components/global/CrudTable.tsx(183,1): error TS1128: Declaration or statement expected.
+src/components/global/DevDumpJson.tsx(8,3): error TS1109: Expression expected.
+src/components/global/DocLink.tsx(16,3): error TS1109: Expression expected.
+src/components/global/DropZone.tsx(19,3): error TS1109: Expression expected.
+src/components/global/ImageCropper.tsx(16,1): error TS1131: Property or signature expected.
+src/components/global/ImageCropper.tsx(150,1): error TS1128: Declaration or statement expected.
+src/components/global/InputLabelType.tsx(23,3): error TS1109: Expression expected.
+src/components/global/MarkdownEditor.tsx(14,77): error TS1109: Expression expected.
+src/components/global/MarkdownEditor.tsx(15,6): error TS1128: Declaration or statement expected.
+src/components/global/MarkdownEditor.tsx(16,3): error TS1128: Declaration or statement expected.
+src/components/global/MarkdownEditor.tsx(16,4): error TS1128: Declaration or statement expected.
+src/components/global/MarkdownEditor.tsx(59,1): error TS1128: Declaration or statement expected.
+src/components/global/SafeMarkdown.tsx(13,3): error TS1109: Expression expected.
+src/components/global/StatsCards.tsx(18,3): error TS1109: Expression expected.
+src/components/Layout/LayoutParts/AppSidebar.tsx(25,3): error TS1109: Expression expected.
+src/components/Layout/LayoutParts/AppSidebar.tsx(70,68): error TS1005: '...' expected.
+src/components/Layout/LayoutParts/AppSidebar.tsx(102,65): error TS1005: '...' expected.
+src/components/Layout/LayoutParts/AppSidebar.tsx(109,130): error TS1005: '...' expected.
+src/components/Layout/LayoutParts/AppSidebar.tsx(135,65): error TS1005: '...' expected.
+src/components/Layout/LayoutParts/AppSidebar.tsx(142,130): error TS1005: '...' expected.
+src/components/Layout/LayoutParts/AppSidebar.tsx(173,60): error TS1005: '...' expected.
+src/components/Layout/LayoutParts/TheSnackbar.tsx(30,57): error TS1005: '...' expected.
+src/components/Layout/LayoutParts/TheSnackbar.tsx(47,59): error TS1005: '...' expected.
+src/composables/partials/use-actions-factory.ts(166,24): error TS1109: Expression expected.
+src/composables/partials/use-actions-factory.ts(183,24): error TS1109: Expression expected.
+src/composables/partials/use-actions-factory.ts(193,28): error TS1109: Expression expected.
+src/composables/partials/use-actions-factory.ts(205,16): error TS1109: Expression expected.
+src/composables/recipe-page/use-cook-mode-query.test.ts(21,44): error TS1109: Expression expected.
+src/composables/recipe-page/use-cook-mode-query.test.ts(22,13): error TS1005: ',' expected.
+src/composables/recipe-page/use-cook-mode-query.test.ts(24,3): error TS1135: Argument expression expected.
+src/composables/recipe-page/use-cook-mode-query.test.ts(24,5): error TS1005: ',' expected.
+src/composables/recipe-page/use-cook-mode-query.test.ts(51,44): error TS1109: Expression expected.
+src/composables/recipe-page/use-cook-mode-query.test.ts(52,13): error TS1005: ',' expected.
+src/composables/recipe-page/use-cook-mode-query.test.ts(54,3): error TS1135: Argument expression expected.
+src/composables/recipe-page/use-cook-mode-query.test.ts(54,5): error TS1005: ',' expected.
+src/composables/recipes/use-parse-ingredients-dialog.ts(40,55): error TS1109: Expression expected.
+src/composables/recipes/use-recipe-time.ts(29,52): error TS1109: Expression expected.
+src/composables/recipes/use-recipe-time.ts(29,59): error TS1005: ':' expected.
+src/composables/recipes/use-recipes.ts(89,34): error TS1109: Expression expected.
+src/composables/shopping-list-page/sub-composables/use-shopping-list-crud.ts(213,58): error TS1109: Expression expected.
+src/composables/shopping-list-page/sub-composables/use-shopping-list-crud.ts(213,90): error TS1005: ')' expected.
+src/composables/shopping-list-page/sub-composables/use-shopping-list-crud.ts(214,13): error TS1109: Expression expected.
+src/composables/shopping-list-page/sub-composables/use-shopping-list-item-actions.ts(38,41): error TS1003: Identifier expected.
+src/composables/shopping-list-page/sub-composables/use-shopping-list-item-actions.ts(38,42): error TS1003: Identifier expected.
+src/composables/shopping-list-page/sub-composables/use-shopping-list-item-actions.ts(38,44): error TS1003: Identifier expected.
+src/composables/shopping-list-page/sub-composables/use-shopping-list-search.ts(47,9): error TS1135: Argument expression expected.
+src/composables/shopping-list-page/sub-composables/use-shopping-list-state.ts(51,50): error TS1135: Argument expression expected.
+src/composables/use-announcements.ts(57,9): error TS1135: Argument expression expected.
+src/composables/use-mealie-auth.ts(29,52): error TS1109: Expression expected.
+src/composables/use-users/user-registration-form.ts(81,44): error TS1109: Expression expected.
+src/layouts/error.tsx(25,3): error TS1109: Expression expected.
+src/pages/admin/backups.tsx(117,64): error TS1005: '...' expected.
+src/pages/admin/backups.tsx(123,64): error TS1005: '...' expected.
+src/pages/admin/backups.tsx(143,75): error TS1005: '...' expected.
+src/pages/admin/debug/parser.tsx(160,67): error TS1005: '...' expected.
+src/pages/admin/debug/parser.tsx(178,65): error TS1005: '...' expected.
+src/pages/admin/maintenance/index.tsx(141,64): error TS1005: '...' expected.
+src/pages/admin/manage/groups/[id].tsx(125,63): error TS1005: '...' expected.
+src/pages/admin/manage/groups/[id].tsx(128,85): error TS1005: '...' expected.
+src/pages/admin/manage/groups/[id].tsx(132,99): error TS1005: '...' expected.
+src/pages/admin/manage/groups/index.tsx(75,62): error TS1005: '...' expected.
+src/pages/admin/manage/groups/index.tsx(79,72): error TS1005: '...' expected.
+src/pages/admin/manage/groups/index.tsx(83,63): error TS1005: '...' expected.
+src/pages/admin/manage/households/[id].tsx(96,79): error TS1005: '...' expected.
+src/pages/admin/manage/households/[id].tsx(99,67): error TS1005: '...' expected.
+src/pages/admin/manage/households/[id].tsx(102,93): error TS1005: '...' expected.
+src/pages/admin/manage/households/index.tsx(96,90): error TS1005: '...' expected.
+src/pages/admin/manage/households/index.tsx(99,72): error TS1005: '...' expected.
+src/pages/admin/manage/users/[id].tsx(61,48): error TS1109: Expression expected.
+src/pages/admin/manage/users/[id].tsx(61,57): error TS1005: ')' expected.
+src/pages/admin/manage/users/[id].tsx(61,63): error TS1109: Expression expected.
+src/pages/admin/manage/users/[id].tsx(71,17): error TS1109: Expression expected.
+src/pages/admin/manage/users/[id].tsx(71,26): error TS1005: ')' expected.
+src/pages/admin/manage/users/[id].tsx(71,32): error TS1109: Expression expected.
+src/pages/admin/manage/users/[id].tsx(127,78): error TS1005: '...' expected.
+src/pages/admin/manage/users/[id].tsx(134,82): error TS1005: '...' expected.
+src/pages/admin/manage/users/create.tsx(87,83): error TS1005: '...' expected.
+src/pages/admin/manage/users/index.tsx(112,62): error TS1005: '...' expected.
+src/pages/admin/setup.tsx(332,24): error TS1109: Expression expected.
+src/pages/admin/setup.tsx(332,44): error TS1005: ')' expected.
+src/pages/admin/setup.tsx(333,42): error TS1005: ';' expected.
+src/pages/admin/setup.tsx(336,24): error TS1109: Expression expected.
+src/pages/admin/setup.tsx(336,42): error TS1005: ')' expected.
+src/pages/admin/setup.tsx(337,40): error TS1005: ';' expected.
+src/pages/admin/setup.tsx(459,99): error TS1005: '...' expected.
+src/pages/admin/site-settings.tsx(416,63): error TS1005: '}' expected.
+src/pages/admin/site-settings.tsx(416,64): error TS1381: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/pages/admin/site-settings.tsx(416,65): error TS1382: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/pages/admin/site-settings.tsx(421,9): error TS17002: Expected corresponding JSX closing tag for 'div'.
+src/pages/admin/site-settings.tsx(422,7): error TS17002: Expected corresponding JSX closing tag for 'Container'.
+src/pages/admin/site-settings.tsx(459,62): error TS1005: '...' expected.
+src/pages/admin/site-settings.tsx(555,5): error TS17015: Expected corresponding closing tag for JSX fragment.
+src/pages/admin/site-settings.tsx(556,5): error TS1109: Expression expected.
+src/pages/admin/site-settings.tsx(556,7): error TS1109: Expression expected.
+src/pages/admin/site-settings.tsx(557,3): error TS1109: Expression expected.
+src/pages/forgot-password.tsx(74,60): error TS1005: '...' expected.
+src/pages/g/[groupSlug]/cookbooks/index.tsx(116,65): error TS1005: '...' expected.
+src/pages/g/[groupSlug]/cookbooks/index.tsx(123,63): error TS1005: '...' expected.
+src/pages/g/[groupSlug]/cookbooks/index.tsx(148,93): error TS1005: '...' expected.
+src/pages/g/[groupSlug]/cookbooks/index.tsx(180,78): error TS1005: '...' expected.
+src/pages/g/[groupSlug]/r/create/ai.tsx(179,72): error TS1005: '...' expected.
+src/pages/g/[groupSlug]/r/create/bulk.tsx(101,72): error TS1005: '...' expected.
+src/pages/g/[groupSlug]/r/create/bulk.tsx(115,97): error TS1005: '...' expected.
+src/pages/g/[groupSlug]/r/create/bulk.tsx(128,91): error TS1005: '...' expected.
+src/pages/g/[groupSlug]/r/create/bulk.tsx(143,76): error TS1005: '}' expected.
+src/pages/g/[groupSlug]/r/create/bulk.tsx(144,40): error TS1381: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/pages/g/[groupSlug]/r/create/bulk.tsx(144,41): error TS1382: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/pages/g/[groupSlug]/r/create/bulk.tsx(146,15): error TS17002: Expected corresponding JSX closing tag for 'CardActions'.
+src/pages/g/[groupSlug]/r/create/bulk.tsx(155,77): error TS1005: '...' expected.
+src/pages/g/[groupSlug]/r/create/bulk.tsx(156,13): error TS17002: Expected corresponding JSX closing tag for 'section'.
+src/pages/g/[groupSlug]/r/create/bulk.tsx(159,75): error TS1005: '...' expected.
+src/pages/g/[groupSlug]/r/create/bulk.tsx(170,11): error TS17002: Expected corresponding JSX closing tag for 'div'.
+src/pages/g/[groupSlug]/r/create/bulk.tsx(177,5): error TS17015: Expected corresponding closing tag for JSX fragment.
+src/pages/g/[groupSlug]/r/create/bulk.tsx(178,5): error TS1109: Expression expected.
+src/pages/g/[groupSlug]/r/create/bulk.tsx(178,7): error TS1109: Expression expected.
+src/pages/g/[groupSlug]/r/create/bulk.tsx(179,3): error TS1109: Expression expected.
+src/pages/g/[groupSlug]/r/create/debug.tsx(71,73): error TS1005: '...' expected.
+src/pages/g/[groupSlug]/r/create/html.tsx(143,70): error TS1005: '...' expected.
+src/pages/g/[groupSlug]/recipes/finder/index.tsx(368,85): error TS1005: '...' expected.
+src/pages/g/[groupSlug]/recipes/finder/index.tsx(390,71): error TS1005: '...' expected.
+src/pages/g/[groupSlug]/recipes/finder/index.tsx(410,107): error TS1005: '...' expected.
+src/pages/g/[groupSlug]/recipes/finder/index.tsx(414,107): error TS1005: '...' expected.
+src/pages/g/[groupSlug]/recipes/finder/index.tsx(417,107): error TS1005: '...' expected.
+src/pages/group/data/categories.tsx(128,124): error TS1135: Argument expression expected.
+src/pages/group/data/categories.tsx(129,121): error TS1135: Argument expression expected.
+src/pages/group/data/foods.tsx(110,8): error TS1135: Argument expression expected.
+src/pages/group/data/recipes.tsx(306,72): error TS1005: '...' expected.
+src/pages/group/data/recipes.tsx(416,84): error TS1005: '...' expected.
+src/pages/group/data/recipes.tsx(435,56): error TS1005: '}' expected.
+src/pages/group/data/recipes.tsx(436,40): error TS1381: Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+src/pages/group/data/recipes.tsx(436,41): error TS1382: Unexpected token. Did you mean `{'>'}` or `&gt;`?
+src/pages/group/data/recipes.tsx(441,13): error TS17002: Expected corresponding JSX closing tag for 'CardActions'.
+src/pages/group/data/recipes.tsx(442,11): error TS17002: Expected corresponding JSX closing tag for 'Card'.
+src/pages/group/data/recipes.tsx(443,9): error TS17002: Expected corresponding JSX closing tag for 'section'.
+src/pages/group/data/recipes.tsx(444,7): error TS17002: Expected corresponding JSX closing tag for 'Container'.
+src/pages/group/data/recipes.tsx(456,5): error TS17015: Expected corresponding closing tag for JSX fragment.
+src/pages/group/data/recipes.tsx(457,5): error TS1109: Expression expected.
+src/pages/group/data/recipes.tsx(457,7): error TS1109: Expression expected.
+src/pages/group/data/recipes.tsx(458,3): error TS1109: Expression expected.
+src/pages/group/data/units.tsx(21,1): error TS1131: Property or signature expected.
+src/pages/group/data/units.tsx(389,1): error TS1128: Declaration or statement expected.
+src/pages/group/index.tsx(121,85): error TS1005: '...' expected.
+src/pages/group/index.tsx(139,99): error TS1005: '...' expected.
+src/pages/group/migrations.tsx(441,81): error TS1005: '...' expected.
+src/pages/group/migrations.tsx(465,77): error TS1005: '...' expected.
+src/pages/household/index.tsx(68,91): error TS1005: '...' expected.
+src/pages/household/mealplan/planner.tsx(187,53): error TS1005: '...' expected.
+src/pages/household/mealplan/planner.tsx(199,69): error TS1005: '...' expected.
+src/pages/household/mealplan/planner/edit.tsx(96,69): error TS1005: '...' expected.
+src/pages/household/mealplan/planner/edit.tsx(101,90): error TS1005: '...' expected.
+src/pages/household/mealplan/planner/view.tsx(34,69): error TS1005: '...' expected.
+src/pages/household/mealplan/settings.tsx(116,97): error TS1005: '...' expected.
+src/pages/household/mealplan/settings.tsx(116,146): error TS1005: '...' expected.
+src/pages/household/mealplan/settings.tsx(116,203): error TS1005: '...' expected.
+src/pages/household/mealplan/settings.tsx(209,88): error TS1005: '...' expected.
+src/pages/household/mealplan/settings.tsx(209,140): error TS1005: '...' expected.
+src/pages/household/mealplan/settings.tsx(209,200): error TS1005: '...' expected.
+src/pages/household/members.tsx(107,81): error TS1005: '...' expected.
+src/pages/household/members.tsx(115,72): error TS1005: '...' expected.
+src/pages/household/members.tsx(123,74): error TS1005: '...' expected.
+src/pages/household/members.tsx(131,72): error TS1005: '...' expected.
+src/pages/household/notifiers.tsx(237,62): error TS1005: '...' expected.
+src/pages/household/notifiers.tsx(243,62): error TS1005: '...' expected.
+src/pages/household/notifiers.tsx(246,70): error TS1005: '...' expected.
+src/pages/household/notifiers.tsx(248,76): error TS1005: '...' expected.
+src/pages/household/notifiers.tsx(300,74): error TS1005: '...' expected.
+src/pages/household/notifiers.tsx(302,80): error TS1005: '...' expected.
+src/pages/household/notifiers.tsx(304,84): error TS1005: '...' expected.
+src/pages/household/notifiers.tsx(317,115): error TS1005: '...' expected.
+src/pages/login.tsx(250,75): error TS1005: '...' expected.
+src/pages/login.tsx(254,78): error TS1005: '...' expected.
+src/pages/login.tsx(258,71): error TS1005: '...' expected.
+src/pages/register/index.tsx(317,79): error TS1005: '...' expected.
+src/pages/register/index.tsx(320,91): error TS1005: '...' expected.
+src/pages/register/index.tsx(325,88): error TS1005: '...' expected.
+src/pages/reset-password.tsx(88,60): error TS1005: '...' expected.
+src/pages/reset-password.tsx(90,63): error TS1005: '...' expected.
+src/pages/reset-password.tsx(92,70): error TS1005: '...' expected.
+src/pages/shopping-lists/[id].tsx(116,66): error TS1005: '...' expected.
+src/pages/shopping-lists/[id].tsx(122,68): error TS1005: '...' expected.
+src/pages/shopping-lists/[id].tsx(128,71): error TS1005: '...' expected.
+src/pages/shopping-lists/[id].tsx(140,90): error TS1005: '...' expected.
+src/pages/shopping-lists/[id].tsx(250,92): error TS1005: '...' expected.
+src/pages/shopping-lists/[id].tsx(301,92): error TS1005: '...' expected.
+src/pages/shopping-lists/index.tsx(177,64): error TS1005: '...' expected.
+src/pages/shopping-lists/index.tsx(180,65): error TS1005: '...' expected.
+src/pages/shopping-lists/index.tsx(184,63): error TS1005: '...' expected.
+src/pages/shopping-lists/index.tsx(194,64): error TS1005: '...' expected.
+src/pages/shopping-lists/index.tsx(210,78): error TS1005: '...' expected.
+src/pages/user/profile/api-tokens.tsx(49,27): error TS1109: Expression expected.
+src/pages/user/profile/edit.tsx(139,78): error TS1005: '...' expected.
+src/pages/user/profile/edit.tsx(141,78): error TS1005: '...' expected.
+src/pages/user/profile/edit.tsx(143,75): error TS1005: '...' expected.
+src/pages/user/profile/edit.tsx(160,77): error TS1005: '...' expected.
+src/pages/user/profile/edit.tsx(162,76): error TS1005: '...' expected.
+src/pages/user/profile/edit.tsx(164,76): error TS1005: '...' expected.
+src/pages/user/profile/edit.tsx(166,87): error TS1005: '...' expected.
+src/pages/user/profile/edit.tsx(187,82): error TS1005: '...' expected.
+src/pages/user/profile/edit.tsx(189,73): error TS1005: '...' expected.

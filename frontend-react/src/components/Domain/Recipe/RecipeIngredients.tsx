@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Divider, FormControlLabel, ListItem, ListItemText } from "@mui/material";
 import RecipeIngredientListItem from "./RecipeIngredientListItem";
@@ -24,13 +24,13 @@ export default function RecipeIngredients({ value = [], scale = 1, isCookMode = 
     return !(title === undefined || title === "" || title === null);
   }
 
-  const transientChecked = ref<Record<string, boolean>>({});
+  const [transientChecked, setTransientChecked] = useState({});
   const sessionChecked = storageKey
     ? useSessionStorage<Record<string, boolean>>(storageKey, {})
     : null;
-  const showTitleEditor = useMemo(() => map(x => validateTitle(x.title, []); // WF4-REVIEW: dependency array));
+  const showTitleEditor = useMemo(() => map(x => validateTitle(x.title)), []); // WF4-REVIEW: dependency array
 
-  const ingredientCopyText = computed(() => {
+  const ingredientCopyText = useMemo(() => {
     const components: string[] = [];
     forEach((ingredient) => {
       if (ingredient.title) {
@@ -45,7 +45,7 @@ export default function RecipeIngredients({ value = [], scale = 1, isCookMode = 
     });
 
     return components.join("\n");
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   function toggleChecked(index: number) {
     setChecked(index, !isChecked(index));
@@ -72,7 +72,7 @@ export default function RecipeIngredients({ value = [], scale = 1, isCookMode = 
       sessionChecked = { ...state };
     }
     else {
-      transientChecked = { ...state };
+      setTransientChecked({ ...state });
     }
   }
 
@@ -101,10 +101,11 @@ export default function RecipeIngredients({ value = [], scale = 1, isCookMode = 
             ) : null}
             {/* WF4-REVIEW: @click → ListItemButton */}
             <ListItem density="compact" className="px-0 py-1 ingredient-list-item" onClick={(e) => { e.stopPropagation(); toggleChecked(index); }}>
-              <template>
+              {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+              <>
                 {/* WF4-REVIEW: control={<Checkbox/>} + label prop */}
                 <FormControlLabel model-value={isChecked(index)} hide-details className="pt-0 mt-0" color="secondary" density="comfortable" onClick={(e) => { e.stopPropagation(); ; }} onUpdateModelValue={setChecked(index, !!$event)} />
-              </template>
+              </>
               {/* WF4-REVIEW: content → primary prop */}
               <ListItemText>
                 <RecipeIngredientListItem ingredient={ingredient} scale={scale} show-substitutions />

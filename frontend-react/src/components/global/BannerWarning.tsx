@@ -1,4 +1,5 @@
 import { Alert } from "@mui/material";
+import { icons } from "@/lib/icons";
 
 interface Props {
   title?: string;
@@ -10,7 +11,7 @@ export default function BannerWarning({ title = "", description = "" }: Props) {
 
   return (
     <>
-  <Alert border="start" variant="tonal" type="warning" elevation="2" icon={$globals.icons.alert}>
+  <Alert border="start" variant="tonal" type="warning" elevation="2" icon={icons.alert}>
     {(title) ? (
       <b>
         {title}

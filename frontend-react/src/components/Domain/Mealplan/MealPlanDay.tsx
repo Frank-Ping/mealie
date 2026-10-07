@@ -14,15 +14,14 @@ interface Props {
   inlineActions?: boolean;
 }
 
-export default function MealPlanDay({ recipes = [], meal = ({ }: Props) {
+export default function MealPlanDay({ recipes = [], meal = ({}) }: Props) {
   const { t } = useTranslation();
 
   const { open: shoppingListDialog, shoppingLists, addAllLoading, addAllToList } = useAddToShoppingListDialog();
   // icons imported directly (was $globals)
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
   const api = useUserApi();
-  /* props via destructured signature (was withDefaults(defineProps<Props>) */,
-  });
+  /* props via destructured signature (was withDefaults(defineProps<Props>) */
 
   const commonButtons = [
     {
@@ -82,9 +81,9 @@ export default function MealPlanDay({ recipes = [], meal = ({ }: Props) {
     },
   ];
 
-  const recipesWithScales = useMemo(() =>  {
-    return recipes.map(recipe => ({ scale: 1, ...recipe }, []); // WF4-REVIEW: dependency array);
-  });
+  const recipesWithScales = useMemo(() => {
+    return recipes.map(recipe => ({ scale: 1, ...recipe }));
+  }, []); // WF4-REVIEW: dependency array
 
   async function randomMeal(date: Date, type: PlanEntryType) {
     const { data } = await api.mealplans.setRandom({
@@ -125,26 +124,26 @@ export default function MealPlanDay({ recipes = [], meal = ({ }: Props) {
     <>
   <RecipeDialogAddToShoppingList value={shoppingListDialog} onChange={/* WF4-REVIEW: setter */ setShoppingListDialog} recipes={recipesWithScales} shopping-lists={shoppingLists} />
   {/* WF4-REVIEW: v-model on complex expression "dialog.open" [J] */}
-  <GroupMealPlanEntryDialog {/* WF4-REVIEW: v-model dialog.open */} entry={dialog.entry} date={dialog.date} onCreate={actions.createOne($event)} onUpdate={actions.updateOne($event)} />
+  <GroupMealPlanEntryDialog entry={dialog.entry} date={dialog.date} onCreate={actions.createOne($event)} onUpdate={actions.updateOne($event)} />
   {(inlineActions) ? (
-    <template>
+    <>
       <MealPlanDayHeader day={day} />
       <slot />
       <div className="d-flex justify-end">
         <BaseButtonGroup {...(bindings)} buttons={[...commonButtons, ...inlineButtons]} />
       </div>
-    </template>
+    </>
   ) : (
-    <template>
+    <>
       <MealPlanDayHeader day={day}>
         <BaseButtonGroup {...(bindings)} buttons={[{
-          icon: $globals.icons.dotsVertical,
+          icon: icons.dotsVertical,
           event: '',
           text: '',
           children: [
             {
               text: t('meal-plan.add-day-to-list'),
-              icon: $globals.icons.cartCheck,
+              icon: icons.cartCheck,
               event: 'shopping-list',
               loading: addAllLoading,
               disabled: !recipes.length,
@@ -155,7 +154,7 @@ export default function MealPlanDay({ recipes = [], meal = ({ }: Props) {
         }]} />
       </MealPlanDayHeader>
       <slot />
-    </template>
+    </>
   )}
     </>
   );

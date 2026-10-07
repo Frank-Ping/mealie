@@ -41,7 +41,7 @@ export default function RecipeIngredientEditor({ menuAttachTarget = "body", isRe
 
   /* emits → props: onClickIngredientField, onInsertAbove, onInsertBelow, onDelete */
 
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
   // icons imported directly (was $globals)
 
   const state = /* WF4-REVIEW [J] */ reactive({
@@ -56,12 +56,12 @@ export default function RecipeIngredientEditor({ menuAttachTarget = "body", isRe
   const titleVisible = useMemo(() => !!model.title || state.showTitle, []); // WF4-REVIEW: dependency array
   const substitutionsVisible = useMemo(() => !!model.substitutions?.length || state.showSubstitutions, []); // WF4-REVIEW: dependency array
 
-  const contextMenuOptions = useMemo(() =>  {
+  const contextMenuOptions = useMemo(() => {
     // these entries clear what they hide, so they name the action instead of saying "toggle"
     const options = [
       {
         text: titleVisible
-          ? i18n.t("recipe.clear-section", []); // WF4-REVIEW: dependency array
+          ? i18n.t("recipe.clear-section")
           : i18n.t("recipe.add-section"),
         event: "toggle-section",
       },
@@ -86,13 +86,13 @@ export default function RecipeIngredientEditor({ menuAttachTarget = "body", isRe
     ];
 
     return options;
-  });
+  }, []); // WF4-REVIEW: dependency array
 
-  const btns = useMemo(() =>  {
+  const btns = useMemo(() => {
     const out = [
       {
         icon: icons.dotsVertical,
-        text: i18n.t("general.menu", []); // WF4-REVIEW: dependency array,
+        text: i18n.t("general.menu"),
         event: "open",
         children: contextMenuOptions,
       },
@@ -108,7 +108,7 @@ export default function RecipeIngredientEditor({ menuAttachTarget = "body", isRe
       disabled: deleteDisabled,
     });
     return out;
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   // Foods
   const foodStore = useFoodStore();
@@ -121,8 +121,7 @@ export default function RecipeIngredientEditor({ menuAttachTarget = "body", isRe
   const allFoods = foodStore.store; // was computed — plain read stays reactive
 
   const showCreateFood = useMemo(() => !!foodSearch
-    && !filteredFoods.some((f: any, []); // WF4-REVIEW: dependency array => (f.name ?? "").toLowerCase() === foodSearch.toLowerCase()),
-  );
+    && !filteredFoods.some((f: any) => (f.name ?? "").toLowerCase() === foodSearch.toLowerCase()),, []); // WF4-REVIEW: dependency array
 
   async function createAssignFood() {
     foodData.data.name = foodSearch;
@@ -157,8 +156,7 @@ export default function RecipeIngredientEditor({ menuAttachTarget = "body", isRe
   const { search: unitSearch, filtered: filteredUnits } = useSearch(unitStore.store);
 
   const showCreateUnit = useMemo(() => !!unitSearch
-    && !filteredUnits.some((u: any, []); // WF4-REVIEW: dependency array => (u.name ?? "").toLowerCase() === unitSearch.toLowerCase()),
-  );
+    && !filteredUnits.some((u: any) => (u.name ?? "").toLowerCase() === unitSearch.toLowerCase()),, []); // WF4-REVIEW: dependency array
 
   async function createAssignUnit() {
     unitsData.data.name = unitSearch;
@@ -240,105 +238,116 @@ export default function RecipeIngredientEditor({ menuAttachTarget = "body", isRe
   <div>
     {(titleVisible) ? (
       /* WF4-REVIEW: rules/error-messages → error+helperText; v-model on complex expression "model.title" [J] */
-      <TextField {/* WF4-REVIEW: v-model model.title */} density="compact" variant="underlined" hide-details className="mx-1 mt-3 mb-4" placeholder={t('recipe.section-title')} style="max-width: 500px" onClick={onClickIngredientField?.('title')} />
+      <TextField density="compact" variant="underlined" hide-details className="mx-1 mt-3 mb-4" placeholder={t('recipe.section-title')} style="max-width: 500px" onClick={onClickIngredientField?.('title')} />
     ) : null}
     <RecipeIngredientEditorLayout header={enableDragHandle || enableContextMenu}>
       {(enableDragHandle) ? (
-        <template>
+        /* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */
+        <>
           {/* WF4-REVIEW: icon name resolves via lib/icons */}
-          <MdiIcon name={$globals.icons.arrowUpDown} className="ma-2 handle" size="large" />
-        </template>
+          <MdiIcon name={icons.arrowUpDown} className="ma-2 handle" size="large" />
+        </>
       ) : null}
       {(enableContextMenu) ? (
-        <template>
+        /* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */
+        <>
           <BaseButtonGroup hover large={false} className="ml-auto" buttons={btns} onToggleSection={toggleTitle} onToggleSubrecipe={toggleIsRecipe} onToggleSubstitutions={toggleSubstitutions} onInsertAbove={onInsertAbove?.()} onInsertBelow={onInsertBelow?.()} onDelete={onDelete?.()} />
-        </template>
+        </>
       ) : null}
-      <template>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
         <div className="flex-grow-1">
           <div className="d-flex ga-2 py-2" className={$vuetify.display.mdAndDown ? 'flex-column' : ''}>
             {/* WF4-REVIEW: unmapped <v-number-input> — judgement component, convert manually [J]; v-model on complex expression "model.quantity" [J] */}
-            <VNumberInput {/* WF4-REVIEW: v-model model.quantity */} variant="filled" precision={null} min={0} hide-details inset density="compact" style={$vuetify.display.mdAndDown ? '' : 'flex: 3 0 50px;'} placeholder={t('recipe.quantity')} onKeypress={quantityFilter} />
+            <VNumberInput variant="filled" precision={null} min={0} hide-details inset density="compact" style={$vuetify.display.mdAndDown ? '' : 'flex: 3 0 50px;'} placeholder={t('recipe.quantity')} onKeypress={quantityFilter} />
             {/* WF4-REVIEW: items → options/getOptionLabel; value wiring [S]; v-model on complex expression "model.unit" [J] */}
-            <Autocomplete ref="unitAutocomplete" {/* WF4-REVIEW: v-model model.unit */} value={unitSearch} onChange={/* WF4-REVIEW: setter */ setUnitSearch} auto-select-first hide-details density="compact" style={$vuetify.display.mdAndDown ? '' : 'flex: 4 0 50px;'} variant="filled" return-object items={filteredUnits} custom-filter={() => true} item-title="name" placeholder={t('recipe.choose-unit')} clearable menu-props={{ attach: menuAttachTarget, maxHeight: '250px' }} onKeyUp={handleUnitEnter}>
+            <Autocomplete ref="unitAutocomplete" value={unitSearch} onChange={/* WF4-REVIEW: setter */ setUnitSearch} auto-select-first hide-details density="compact" style={$vuetify.display.mdAndDown ? '' : 'flex: 4 0 50px;'} variant="filled" return-object items={filteredUnits} custom-filter={() => true} item-title="name" placeholder={t('recipe.choose-unit')} clearable menu-props={{ attach: menuAttachTarget, maxHeight: '250px' }} onKeyUp={handleUnitEnter}>
               {(unitError) ? (
-                <template>
+                /* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */
+                <>
                   {/* WF4-REVIEW: activator slot variants [J] */}
                   <Tooltip location="bottom">
-                    <template>
+                    {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                    <>
                       {/* WF4-REVIEW: icon name resolves via lib/icons */}
-                      <MdiIcon name={$globals.icons.alert} {...(unitTooltipProps)} className="opacity-100" color="primary" />
-                    </template>
+                      <MdiIcon name={icons.alert} {...(unitTooltipProps)} className="opacity-100" color="primary" />
+                    </>
                     {(unitErrorTooltip) ? (
                       <span>
                         {unitErrorTooltip}
                       </span>
                     ) : null}
                   </Tooltip>
-                </template>
+                </>
               ) : null}
-              <template>
+              {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+              <>
                 <div className="caption text-center pb-2">
                   {t("recipe.press-enter-to-create")}
                 </div>
-              </template>
-              <template>
+              </>
+              {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+              <>
                 {(showCreateUnit) ? (
                   <div className="px-2">
                     <BaseButton block size="small" onClick={createAssignUnit()} />
                   </div>
                 ) : null}
-              </template>
+              </>
             </Autocomplete>
             {(!state.isRecipe) ? (
               /* WF4-REVIEW: items → options/getOptionLabel; value wiring [S]; v-model on complex expression "model.food" [J] */
-              <Autocomplete ref="foodAutocomplete" {/* WF4-REVIEW: v-model model.food */} value={foodSearch} onChange={/* WF4-REVIEW: setter */ setFoodSearch} auto-select-first hide-details density="compact" style={$vuetify.display.mdAndDown ? '' : 'flex: 7 0 50px;'} variant="filled" return-object items={filteredFoods} custom-filter={() => true} item-title="name" placeholder={t('recipe.choose-food')} clearable menu-props={{ attach: menuAttachTarget, maxHeight: '250px' }} onKeyUp={handleFoodEnter}>
+              <Autocomplete ref="foodAutocomplete" value={foodSearch} onChange={/* WF4-REVIEW: setter */ setFoodSearch} auto-select-first hide-details density="compact" style={$vuetify.display.mdAndDown ? '' : 'flex: 7 0 50px;'} variant="filled" return-object items={filteredFoods} custom-filter={() => true} item-title="name" placeholder={t('recipe.choose-food')} clearable menu-props={{ attach: menuAttachTarget, maxHeight: '250px' }} onKeyUp={handleFoodEnter}>
                 {(foodError) ? (
-                  <template>
+                  /* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */
+                  <>
                     {/* WF4-REVIEW: activator slot variants [J] */}
                     <Tooltip location="bottom">
-                      <template>
+                      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                      <>
                         {/* WF4-REVIEW: icon name resolves via lib/icons */}
-                        <MdiIcon name={$globals.icons.alert} {...(foodTooltipProps)} className="opacity-100" color="primary" />
-                      </template>
+                        <MdiIcon name={icons.alert} {...(foodTooltipProps)} className="opacity-100" color="primary" />
+                      </>
                       {(foodErrorTooltip) ? (
                         <span>
                           {foodErrorTooltip}
                         </span>
                       ) : null}
                     </Tooltip>
-                  </template>
+                  </>
                 ) : null}
-                <template>
+                {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                <>
                   <div className="caption text-center pb-2">
                     {t("recipe.press-enter-to-create")}
                   </div>
-                </template>
-                <template>
+                </>
+                {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                <>
                   {(showCreateFood) ? (
                     <div className="px-2">
                       <BaseButton block size="small" onClick={createAssignFood()} />
                     </div>
                   ) : null}
-                </template>
+                </>
               </Autocomplete>
             ) : null}
             {(state.isRecipe) ? (
               /* WF4-REVIEW: items → options/getOptionLabel; value wiring [S]; v-model on complex expression "model.referencedRecipe" [J]; v-model on complex expression "search.query" [J] */
-              <Autocomplete ref="search.query" {/* WF4-REVIEW: v-model model.referencedRecipe */} {/* WF4-REVIEW: v-model search.query */} auto-select-first hide-details density="compact" style={$vuetify.display.mdAndDown ? '' : 'flex: 7 0 50px;'} variant="filled" return-object items={search.data || []} item-title="name" placeholder={t('search.type-to-search')} clearable label={!model.referencedRecipe ? t('recipe.choose-recipe') : ''} onClick={search.trigger()} onFocus={search.trigger()} />
+              <Autocomplete ref="search.query" auto-select-first hide-details density="compact" style={$vuetify.display.mdAndDown ? '' : 'flex: 7 0 50px;'} variant="filled" return-object items={search.data || []} item-title="name" placeholder={t('search.type-to-search')} clearable label={!model.referencedRecipe ? t('recipe.choose-recipe') : ''} onClick={search.trigger()} onFocus={search.trigger()} />
             ) : null}
             {/* WF4-REVIEW: rules/error-messages → error+helperText; v-model on complex expression "model.note" [J] */}
-            <TextField {/* WF4-REVIEW: v-model model.note */} hide-details density="compact" style={$vuetify.display.mdAndDown ? '' : 'flex: 7 0 50px;'} variant="filled" placeholder={t('recipe.notes')} className="" onClick={onClickIngredientField?.('note')} />
+            <TextField hide-details density="compact" style={$vuetify.display.mdAndDown ? '' : 'flex: 7 0 50px;'} variant="filled" placeholder={t('recipe.notes')} className="" onClick={onClickIngredientField?.('note')} />
           </div>
         </div>
-      </template>
+      </>
     </RecipeIngredientEditorLayout>
     <div className="px-2" className={{ 'ml-10': !$vuetify.display.mdAndDown }}>
       {(substitutionsVisible) ? (
         <div className="py-2">
           <div className="d-flex align-center text-caption mb-1">
             {/* WF4-REVIEW: icon name resolves via lib/icons */}
-            <MdiIcon name={$globals.icons.swapHorizontal} size="small" className="mr-1" />
+            <MdiIcon name={icons.swapHorizontal} size="small" className="mr-1" />
             {t("recipe.substitutions")}
           </div>
           <RecipeIngredientSubstitutionEditor substitutions={model.substitutions || []} foods={allFoods} menu-attach-target={menuAttachTarget} onAdd={addSubstitution} onDelete={deleteSubstitution} />

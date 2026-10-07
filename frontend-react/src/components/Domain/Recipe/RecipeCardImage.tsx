@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import { Box } from "@mui/material";
+import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
 import { useStaticRoutes } from "@/composables/api";
 
@@ -32,12 +33,12 @@ export default function RecipeCardImage({ tiny = null, small = null, large = nul
   // Rendering the image anyway would only produce a 404 before falling back.
   const showImage = useMemo(() => !!imageVersion && !fallBackImage, []); // WF4-REVIEW: dependency array
 
-  const imageSize = useMemo(() =>  {
-    if (tiny, []); // WF4-REVIEW: dependency array return "tiny";
+  const imageSize = useMemo(() => {
+    if (tiny) return "tiny";
     if (small) return "small";
     if (large) return "large";
     return "large";
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   /* WF4-REVIEW [J] */ watch(
     [() => recipeId, () => imageVersion],
@@ -61,13 +62,13 @@ export default function RecipeCardImage({ tiny = null, small = null, large = nul
     <>
   {(showImage) ? (
     /* WF4-REVIEW: cover → objectFit */
-    <Box component="img" height={height} cover min-height={minHeight} max-height="fill-height" src={getImage(recipeId)} onClick={onClick?.()} onLoad={fallBackImage = false} onError={fallBackImage = true}>
+    <Box component="img" height={height} cover min-height={minHeight} max-height="fill-height" src={getImage(recipeId)} onClick={onClick?.()} onLoad={() => setFallBackImage(false)} onError={() => setFallBackImage(true)}>
       <slot />
     </Box>
   ) : (
     <div className="icon-slot" onClick={onClick?.()}>
       {/* WF4-REVIEW: icon name resolves via lib/icons */}
-      <MdiIcon name={$globals.icons.primary} color="primary" className="icon-position" size={iconSize} />
+      <MdiIcon name={icons.primary} color="primary" className="icon-position" size={iconSize} />
       <slot />
     </div>
   )}

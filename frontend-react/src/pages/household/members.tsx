@@ -14,7 +14,7 @@ export default function Members() {
   const { t } = useTranslation();
 
   const api = useUserApi();
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
 
   useSeoMeta({
     title: i18n.t("profile.members"),
@@ -60,29 +60,34 @@ export default function Members() {
     <>
   <Container>
     <BasePageTitle divider>
-      <template>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
         {/* WF4-REVIEW: cover → objectFit */}
         <Box component="img" width="100%" max-height="125" max-width="125" src="/svgs/manage-members.svg" />
-      </template>
-      <template>
+      </>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
         {t('group.manage-members')}
-      </template>
+      </>
       <i18n-t keypath="group.manage-members-description">
-        <template>
+        {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+        <>
           <b>
             {t('group.manage')}
           </b>
-        </template>
-        <template>
+        </>
+        {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+        <>
           <b>
             {t('settings.organize')}
           </b>
-        </template>
-        <template>
+        </>
+        {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+        <>
           <b>
             {t('group.invite')}
           </b>
-        </template>
+        </>
       </i18n-t>
       <Container className="mt-1 px-0">
         <nuxt-link className="text-center text-primary" to={`/user/profile/edit`}>
@@ -92,46 +97,52 @@ export default function Members() {
     </BasePageTitle>
     {/* WF4-REVIEW: unmapped <v-data-table> — judgement component, convert manually [J] */}
     <VDataTable headers={headers} items={members || []} item-key="id" className="elevation-0" items-per-page={-1} hide-default-footer disable-pagination>
-      <template>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
         {(item) ? (
           <UserAvatar tooltip={false} user-id={item.id} />
         ) : null}
-      </template>
-      <template>
+      </>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
         {item && item.admin ? t('user.admin') : t('user.user')}
-      </template>
-      <template>
+      </>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
         {(item) ? (
           <div className="d-flex justify-center">
             {/* WF4-REVIEW: control={<Checkbox/>} + label prop; v-model on complex expression "item.canManageHousehold" [J] */}
-            <FormControlLabel {/* WF4-REVIEW: v-model item.canManageHousehold */} disabled={item.id === sessionUser?.id || item.admin} color="primary" className="" style="max-width: 30px" hide-details onChange={setPermissions(item)} />
+            <FormControlLabel disabled={item.id === sessionUser?.id || item.admin} color="primary" className="" style="max-width: 30px" hide-details onChange={setPermissions(item)} />
           </div>
         ) : null}
-      </template>
-      <template>
+      </>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
         {(item) ? (
           <div className="d-flex justify-center">
             {/* WF4-REVIEW: control={<Checkbox/>} + label prop; v-model on complex expression "item.canManage" [J] */}
-            <FormControlLabel {/* WF4-REVIEW: v-model item.canManage */} disabled={item.id === sessionUser?.id || item.admin} className="" style="max-width: 30px" hide-details color="primary" onChange={setPermissions(item)} />
+            <FormControlLabel disabled={item.id === sessionUser?.id || item.admin} className="" style="max-width: 30px" hide-details color="primary" onChange={setPermissions(item)} />
           </div>
         ) : null}
-      </template>
-      <template>
+      </>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
         {(item) ? (
           <div className="d-flex justify-center">
             {/* WF4-REVIEW: control={<Checkbox/>} + label prop; v-model on complex expression "item.canOrganize" [J] */}
-            <FormControlLabel {/* WF4-REVIEW: v-model item.canOrganize */} disabled={item.id === sessionUser?.id || item.admin} className="" style="max-width: 30px" hide-details color="primary" onChange={setPermissions(item)} />
+            <FormControlLabel disabled={item.id === sessionUser?.id || item.admin} className="" style="max-width: 30px" hide-details color="primary" onChange={setPermissions(item)} />
           </div>
         ) : null}
-      </template>
-      <template>
+      </>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
         {(item) ? (
           <div className="d-flex justify-center">
             {/* WF4-REVIEW: control={<Checkbox/>} + label prop; v-model on complex expression "item.canInvite" [J] */}
-            <FormControlLabel {/* WF4-REVIEW: v-model item.canInvite */} disabled={item.id === sessionUser?.id || item.admin} className="" style="max-width: 30px" hide-details color="primary" onChange={setPermissions(item)} />
+            <FormControlLabel disabled={item.id === sessionUser?.id || item.admin} className="" style="max-width: 30px" hide-details color="primary" onChange={setPermissions(item)} />
           </div>
         ) : null}
-      </template>
+      </>
     </VDataTable>
   </Container>
     </>

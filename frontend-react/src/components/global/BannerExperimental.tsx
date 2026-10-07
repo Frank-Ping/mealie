@@ -14,11 +14,12 @@ export default function BannerExperimental({ issue = "" }: Props) {
     <>
   <BannerWarning title={t('banner-experimental.title')} description={t('banner-experimental.description')}>
     {(issue) ? (
-      <template>
+      /* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */
+      <>
         <a to={issue} target="_blank" color="primary">
           {t("banner-experimental.issue-link-text")}
         </a>
-      </template>
+      </>
     ) : null}
   </BannerWarning>
     </>

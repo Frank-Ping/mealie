@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { CardContent, Container, Grid, TextField } from "@mui/material";
+import { icons } from "@/lib/icons";
 import { whenever } from "@vueuse/core";
 import { validators } from "@/composables/use-validators";
 import type { IngredientFood, IngredientUnit } from "@/lib/api/types/recipe";
@@ -80,7 +81,7 @@ export default function RecipeDataAliasManagerDialog({ data }: Props) {
   return (
     <>
   <div>
-    <BaseDialog value={dialog} onChange={/* WF4-REVIEW: setter */ setDialog} title={t('data-pages.manage-aliases')} icon={$globals.icons.edit} submit-icon={$globals.icons.check} submit-text={t('general.confirm')} can-submit onSubmit={saveAliases} onCancel={onCancel?.()}>
+    <BaseDialog value={dialog} onChange={/* WF4-REVIEW: setter */ setDialog} title={t('data-pages.manage-aliases')} icon={icons.edit} submit-icon={icons.check} submit-text={t('general.confirm')} can-submit onSubmit={saveAliases} onCancel={onCancel?.()}>
       <CardContent>
         <Container>
           {/* WF4-REVIEW: unparseable v-for "alias, i in aliases" */}
@@ -88,13 +89,13 @@ export default function RecipeDataAliasManagerDialog({ data }: Props) {
               {/* WF4-REVIEW: cols/sm/md/lg → size={{ xs, sm, md }} */}
               <Grid cols="10">
                 {/* WF4-REVIEW: rules/error-messages → error+helperText; v-model on complex expression "alias.name" [J] */}
-                <TextField {/* WF4-REVIEW: v-model alias.name */} label={t('general.name')} rules={[validators.required]} />
+                <TextField label={t('general.name')} rules={[validators.required]} />
               </Grid>
               {/* WF4-REVIEW: cols/sm/md/lg → size={{ xs, sm, md }} */}
               <Grid cols="2">
                 <BaseButtonGroup buttons={[
                   {
-                    icon: $globals.icons.delete,
+                    icon: icons.delete,
                     text: t('general.delete'),
                     event: 'delete',
                   },
@@ -103,14 +104,16 @@ export default function RecipeDataAliasManagerDialog({ data }: Props) {
             </Grid>
         </Container>
       </CardContent>
-      <template>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
         <BaseButton edit onClick={createAlias}>
           {t('data-pages.create-alias')}
-          <template>
-            {$globals.icons.create}
-          </template>
+          {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+          <>
+            {icons.create}
+          </>
         </BaseButton>
-      </template>
+      </>
     </BaseDialog>
   </div>
     </>

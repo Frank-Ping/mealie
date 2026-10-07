@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Alert, Autocomplete, CardContent, ListItem, ListItemText } from "@mui/material";
+import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
 import type { LocaleObject } from "@nuxtjs/i18n";
 import RecipeDataAliasManagerDialog from "@/components/Domain/Recipe/RecipeDataAliasManagerDialog";
@@ -17,12 +18,14 @@ import { fieldTypes } from "@/composables/forms";
 
 type StandardizedUnitTypeOption = {
   text: string;
+  value: StandardizedUnitType;
+};
 
 export default function Units() {
   const { t } = useTranslation();
 
   const userApi = useUserApi();
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
 
   const tableConfig: TableConfig = {
     hideColumns: true,
@@ -98,13 +101,11 @@ export default function Units() {
   // ============================================================
   // Form items (shared)
 
-    value: StandardizedUnitType;
-  };
 
   const formItems = useMemo(() => [
     {
       cols: 8,
-      label: i18n.t("general.name", []); // WF4-REVIEW: dependency array,
+      label: i18n.t("general.name"),
       varName: "name",
       type: fieldTypes.TEXT,
       rules: [validators.required],
@@ -198,7 +199,7 @@ export default function Units() {
       varName: "fraction",
       type: fieldTypes.BOOLEAN,
     },
-  ]);
+  ], []); // WF4-REVIEW: dependency array
 
   // ============================================================
   // Create
@@ -261,9 +262,9 @@ export default function Units() {
   const [fromUnit, setFromUnit] = useState(null);
   const [toUnit, setToUnit] = useState(null);
 
-  const canMerge = computed(() => {
+  const canMerge = useMemo(() => {
     return fromUnit && toUnit && fromUnit.id !== toUnit.id;
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   async function mergeUnits() {
     if (!canMerge || !fromUnit || !toUnit) {
@@ -304,39 +305,41 @@ export default function Units() {
   return (
     <>
   <div>
-    <BaseDialog value={mergeDialog} onChange={setMergeDialog} bottom-sheet icon={$globals.icons.units} title={t('data-pages.units.combine-unit')} can-confirm onConfirm={mergeUnits}>
+    <BaseDialog value={mergeDialog} onChange={setMergeDialog} bottom-sheet icon={icons.units} title={t('data-pages.units.combine-unit')} can-confirm onConfirm={mergeUnits}>
       <CardContent>
         <i18n-t keypath="data-pages.units.combine-unit-description">
-          <template>
+          {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+          <>
             <strong>
               {t('data-pages.recipes.source-unit-will-be-deleted')}
             </strong>
-          </template>
+          </>
         </i18n-t>
         {/* WF4-REVIEW: items → options/getOptionLabel; value wiring [S] */}
         <Autocomplete value={fromUnit} onChange={setFromUnit} return-object items={unitStore} custom-filter={normalizeFilter} item-title="name" label={t('data-pages.units.source-unit')} className="mt-2" />
         {/* WF4-REVIEW: items → options/getOptionLabel; value wiring [S] */}
         <Autocomplete value={toUnit} onChange={setToUnit} return-object items={unitStore} custom-filter={normalizeFilter} item-title="name" label={t('data-pages.units.target-unit')} />
         {(canMerge && fromUnit && toUnit) ? (
-          <template>
+          <>
             <div className="text-center">
               {t('data-pages.units.merging-unit-into-unit', [fromUnit.name, toUnit.name])}
             </div>
-          </template>
+          </>
         ) : null}
       </CardContent>
     </BaseDialog>
     {(editForm.data) ? (
-      <RecipeDataAliasManagerDialog value={aliasManagerDialog} onChange={setAliasManagerDialog} data={editForm.data} can-submit onSubmit={updateUnitAlias} onCancel={aliasManagerDialog = false} />
+      <RecipeDataAliasManagerDialog value={aliasManagerDialog} onChange={setAliasManagerDialog} data={editForm.data} can-submit onSubmit={updateUnitAlias} onCancel={() => setAliasManagerDialog(false)} />
     ) : null}
-    <BaseDialog value={seedDialog} onChange={setSeedDialog} bottom-sheet icon={$globals.icons.foods} title={t('data-pages.seed-data')} can-confirm onConfirm={seedDatabase}>
+    <BaseDialog value={seedDialog} onChange={setSeedDialog} bottom-sheet icon={icons.foods} title={t('data-pages.seed-data')} can-confirm onConfirm={seedDatabase}>
       <CardContent>
         <div className="pb-2">
           {t("data-pages.units.seed-dialog-text")}
         </div>
         {/* WF4-REVIEW: items → options/getOptionLabel; value wiring [S] */}
         <Autocomplete value={locale} onChange={setLocale} items={locales} item-title="name" label={t('data-pages.select-language')} className="my-3" hide-details variant="outlined" offset>
-          <template>
+          {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+          <>
             {/* WF4-REVIEW: @click → ListItemButton */}
             <ListItem {...(props)}>
               {/* WF4-REVIEW: content → secondary prop */}
@@ -346,7 +349,7 @@ export default function Units() {
                 {t("language-dialog.translated")}
               </ListItemText>
             </ListItem>
-          </template>
+          </>
         </Autocomplete>
         {(unitStore && unitStore.length > 0) ? (
           <Alert type="error" className="mb-0 text-body-2">
@@ -355,33 +358,39 @@ export default function Units() {
         ) : null}
       </CardContent>
     </BaseDialog>
-    <GroupDataPage icon={$globals.icons.units} title={t('general.units')} create-title={t('data-pages.units.create-unit')} edit-title={t('data-pages.units.edit-unit')} table-headers={tableHeaders} table-config={tableConfig} data={unitStore || []} bulk-actions={[{ icon: $globals.icons.delete, text: t('general.delete'), event: 'delete-selected' }]} create-form={createForm} edit-form={editForm} onCreateOne={handleCreate} onEditOne={handleEdit} onDeleteOne={unitActions.deleteOne} onBulkAction={handleBulkAction}>
-      <template>
-        <BaseButton icon={$globals.icons.externalLink} onClick={mergeDialog = true}>
+    <GroupDataPage icon={icons.units} title={t('general.units')} create-title={t('data-pages.units.create-unit')} edit-title={t('data-pages.units.edit-unit')} table-headers={tableHeaders} table-config={tableConfig} data={unitStore || []} bulk-actions={[{ icon: icons.delete, text: t('general.delete'), event: 'delete-selected' }]} create-form={createForm} edit-form={editForm} onCreateOne={handleCreate} onEditOne={handleEdit} onDeleteOne={unitActions.deleteOne} onBulkAction={handleBulkAction}>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
+        <BaseButton icon={icons.externalLink} onClick={() => setMergeDialog(true)}>
           {t('data-pages.combine')}
         </BaseButton>
-      </template>
-      <template>
+      </>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
         {/* WF4-REVIEW: icon name resolves via lib/icons */}
-        <MdiIcon name={item.useAbbreviation ? $globals.icons.check : $globals.icons.close} color={item.useAbbreviation ? 'success' : undefined} />
-      </template>
-      <template>
+        <MdiIcon name={item.useAbbreviation ? icons.check : icons.close} color={item.useAbbreviation ? 'success' : undefined} />
+      </>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
         {/* WF4-REVIEW: icon name resolves via lib/icons */}
-        <MdiIcon name={item.fraction ? $globals.icons.check : $globals.icons.close} color={item.fraction ? 'success' : undefined} />
-      </template>
-      <template>
+        <MdiIcon name={item.fraction ? icons.check : icons.close} color={item.fraction ? 'success' : undefined} />
+      </>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
         {item.createdAt ? $d(new Date(item.createdAt)) : ''}
-      </template>
-      <template>
-        <BaseButton icon={$globals.icons.database} onClick={seedDialog = true}>
+      </>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
+        <BaseButton icon={icons.database} onClick={() => setSeedDialog(true)}>
           {t('data-pages.seed')}
         </BaseButton>
-      </template>
-      <template>
-        <BaseButton icon={$globals.icons.tags} color="info" onClick={aliasManagerDialog = true}>
+      </>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
+        <BaseButton icon={icons.tags} color="info" onClick={() => setAliasManagerDialog(true)}>
           {t('data-pages.manage-aliases')}
         </BaseButton>
-      </template>
+      </>
     </GroupDataPage>
   </div>
     </>

@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { Container } from "@mui/material";
+import { icons } from "@/lib/icons";
 import { ParseStep, useParseIngredientsDialog } from "@/composables/recipes/use-parse-ingredients-dialog";
 import type { NoUndefinedField } from "@/lib/api/types/non-generated";
 import type { RecipeIngredient } from "@/lib/api/types/recipe";
@@ -46,7 +47,7 @@ export default function RecipePageParseDialog() {
 
   return (
     <>
-  <BaseDialog model-value={modelValue} title={t('recipe.parse-ingredients')} icon={$globals.icons.fileSign} disable-submit-on-enter onUpdateModelValue={emit('update:modelValue', $event)}>
+  <BaseDialog model-value={modelValue} title={t('recipe.parse-ingredients')} icon={icons.fileSign} disable-submit-on-enter onUpdateModelValue={emit('update:modelValue', $event)}>
     <Container fluid className="pa-2 ma-0">
       <SwipeTransition direction="left">
         {(state.step === ParseStep.LOADING) ? (
@@ -69,17 +70,18 @@ export default function RecipePageParseDialog() {
       </SwipeTransition>
     </Container>
     {(state.step !== ParseStep.LOADING) ? (
-      <template>
+      /* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */
+      <>
         <SwipeTransition direction="left">
           {(state.step === ParseStep.INFO) ? (
-            <BaseButton color="info" icon-right icon={$globals.icons.arrowRightBold} text={t('general.next')} onClick={nextStep} />
+            <BaseButton color="info" icon-right icon={icons.arrowRightBold} text={t('general.next')} onClick={nextStep} />
           ) : (state.step === ParseStep.PARSE) ? (
-            <BaseButton color={currentIngShouldDelete ? 'error' : 'info'} icon={currentIngShouldDelete ? $globals.icons.delete : $globals.icons.arrowRightBold} icon-right={!currentIngShouldDelete} text={t(currentIngShouldDelete ? 'recipe.parser.delete-item' : 'general.next')} onClick={nextIngredient} />
+            <BaseButton color={currentIngShouldDelete ? 'error' : 'info'} icon={currentIngShouldDelete ? icons.delete : icons.arrowRightBold} icon-right={!currentIngShouldDelete} text={t(currentIngShouldDelete ? 'recipe.parser.delete-item' : 'general.next')} onClick={nextIngredient} />
           ) : (state.step === ParseStep.REVIEW) ? (
-            <BaseButton create text={t('general.save')} icon={$globals.icons.save} loading={state.saveLoading} onClick={saveIngs} />
+            <BaseButton create text={t('general.save')} icon={icons.save} loading={state.saveLoading} onClick={saveIngs} />
           ) : null}
         </SwipeTransition>
-      </template>
+      </>
     ) : null}
   </BaseDialog>
     </>

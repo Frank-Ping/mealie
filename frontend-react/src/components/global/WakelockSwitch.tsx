@@ -18,7 +18,7 @@ export default function WakelockSwitch() {
     }
   }
 
-  /* WF4-REVIEW [J]: writable computed — split into state + handlers */ const wakeLock = computed({
+  /* WF4-REVIEW [J]: writable computed — split into state + handlers */ /* WF4-REVIEW [J]: writable computed — split into state + handlers */ const wakeLock = computed({
     get: () => userExperiencePreferences.lockScreen,
     set: () => {
       userExperiencePreferences.lockScreen = !userExperiencePreferences.lockScreen;

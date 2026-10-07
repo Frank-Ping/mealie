@@ -12,12 +12,12 @@ export default function RecipePageScale() {
 
   const { isEditMode } = usePageState(props.recipe.slug);
 
-  const recipeServings = computed<number>(() => {
+  const recipeServings = useMemo(() => {
     return props.recipe.recipeServings || props.recipe.recipeYieldQuantity || 1;
-  });
+  }, []); // WF4-REVIEW: dependency array
 
-  const hasFoodOrUnit = useMemo(() =>  {
-    if (props.recipe.recipeIngredient, []); // WF4-REVIEW: dependency array {
+  const hasFoodOrUnit = useMemo(() => {
+    if (props.recipe.recipeIngredient) {
       for (const ingredient of props.recipe.recipeIngredient) {
         if (ingredient.food || ingredient.unit) {
           return true;
@@ -25,7 +25,7 @@ export default function RecipePageScale() {
       }
     }
     return false;
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   return (
     <>

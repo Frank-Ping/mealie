@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Alert, CardActions, CardContent, CardHeader, Collapse, Divider, FormControlLabel, TextField, form } from "@mui/material";
+import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
 import type { AxiosResponse } from "axios";
 import { useTagStore } from "@/composables/store/use-tag-store";
@@ -140,13 +141,13 @@ export default function Html() {
           </p>
         ) : null}
         {/* WF4-REVIEW: control={<Switch/>} + label prop; v-model on complex expression "state.isEditJSON" [J] */}
-        <FormControlLabel {/* WF4-REVIEW: v-model state.isEditJSON */} label={t('recipe.json-editor')} color="primary" className="mt-2" onChange={handleIsEditJson} />
+        <FormControlLabel label={t('recipe.json-editor')} color="primary" className="mt-2" onChange={handleIsEditJson} />
         {/* WF4-REVIEW: rules/error-messages → error+helperText */}
-        <TextField value={newRecipeUrl} onChange={setNewRecipeUrl} label={t('new-recipe.recipe-url')} prepend-inner-icon={$globals.icons.link} validate-on="blur" variant="solo-filled" clearable rounded rules={[validators.urlOptional]} hint={t('new-recipe.copy-and-paste-the-source-url-of-your-data-optional')} persistent-hint className="mt-10 mb-4" style="max-width: 500px" />
+        <TextField value={newRecipeUrl} onChange={setNewRecipeUrl} label={t('new-recipe.recipe-url')} prepend-inner-icon={icons.link} validate-on="blur" variant="solo-filled" clearable rounded rules={[validators.urlOptional]} hint={t('new-recipe.copy-and-paste-the-source-url-of-your-data-optional')} persistent-hint className="mt-10 mb-4" style="max-width: 500px" />
         {(state.isEditJSON) ? (
           <RecipeJsonEditor value={newRecipeData} onChange={setNewRecipeData} height="250px" mode="code" main-menu-bar={false} />
         ) : (
-          <TextField multiline value={newRecipeData} onChange={setNewRecipeData} label={t('new-recipe.recipe-html-or-json')} prepend-inner-icon={$globals.icons.codeTags} validate-on="blur" autofocus variant="solo-filled" clearable rounded />
+          <TextField multiline value={newRecipeData} onChange={setNewRecipeData} label={t('new-recipe.recipe-html-or-json')} prepend-inner-icon={icons.codeTags} validate-on="blur" autofocus variant="solo-filled" clearable rounded />
         )}
         {/* WF4-REVIEW: control={<Checkbox/>} + label prop */}
         <FormControlLabel value={importKeywordsAsTags} onChange={/* WF4-REVIEW: setter */ setImportKeywordsAsTags} color="primary" hide-details label={t('recipe.import-original-keywords-as-tags')} />
@@ -174,7 +175,7 @@ export default function Html() {
             {/* WF4-REVIEW: title text moves to the title prop */}
             <CardHeader className="ma-0 pa-0">
               {/* WF4-REVIEW: icon name resolves via lib/icons; dropped Vuetify-only prop "start" on <v-icon> */}
-              <MdiIcon name={$globals.icons.robot} color="white" size="x-large" />
+              <MdiIcon name={icons.robot} color="white" size="x-large" />
               {t("new-recipe.error-title")}
             </CardHeader>
             <Divider className="my-3 mx-2" />

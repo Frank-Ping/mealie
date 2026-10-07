@@ -1,3 +1,5 @@
+import { useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import { Organizer } from "@/lib/api/types/non-generated";
 import type { LogicalOperator, PlaceholderKeyword, RecipeOrganizer, RelationalKeyword, RelationalOperator } from "@/lib/api/types/non-generated";
 
@@ -65,9 +67,9 @@ export interface Field extends FieldDefinition {
 }
 
 export function useQueryFilterBuilder() {
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
 
-  const logOps = computed<Record<LogicalOperator, FieldLogicalOperator>>(() => {
+  const logOps = useMemo(() => {
     const AND = {
       label: i18n.t("query-filter.logical-operators.and"),
       value: "AND",
@@ -82,9 +84,9 @@ export function useQueryFilterBuilder() {
       AND,
       OR,
     };
-  });
+  }, []); // WF4-REVIEW: dependency array
 
-  const relOps = computed<Record<RelationalKeyword | RelationalOperator, FieldRelationalOperator>>(() => {
+  const relOps = useMemo(() => {
     const EQ = {
       label: i18n.t("query-filter.relational-operators.equals"),
       value: "=",
@@ -165,9 +167,9 @@ export function useQueryFilterBuilder() {
       "LIKE": LIKE,
       "NOT LIKE": NOT_LIKE,
     };
-  });
+  }, []); // WF4-REVIEW: dependency array
 
-  const placeholderKeywords = computed<Record<PlaceholderKeyword, FieldPlaceholderKeyword>>(() => {
+  const placeholderKeywords = useMemo(() => {
     const NOW = {
       label: "Now",
       value: "$NOW",
@@ -176,16 +178,16 @@ export function useQueryFilterBuilder() {
     return {
       $NOW: NOW,
     };
-  });
+  }, []); // WF4-REVIEW: dependency array
 
-  const relativeDateRelOps = computed<Record<RelationalKeyword | RelationalOperator, FieldRelationalOperator>>(() => {
+  const relativeDateRelOps = useMemo(() => {
     const ops = { ...relOps };
 
     ops[">="] = { ...relOps.value[">="], label: i18n.t("query-filter.relational-operators.is-newer-than") };
     ops["<="] = { ...relOps.value["<="], label: i18n.t("query-filter.relational-operators.is-older-than") };
 
     return ops;
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   function getRelOps(fieldType: FieldType): typeof relOps | typeof relativeDateRelOps {
     switch (fieldType) {

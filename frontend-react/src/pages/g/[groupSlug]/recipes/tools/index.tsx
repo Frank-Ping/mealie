@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { Container } from "@mui/material";
+import { icons } from "@/lib/icons";
 import RecipeOrganizerPage from "@/components/Domain/Recipe/RecipeOrganizerPage";
 import { useToolStore } from "@/composables/store";
 import type { RecipeTool } from "@/lib/api/types/recipe";
@@ -21,7 +22,7 @@ export default function ToolsPage() {
 
   const auth = useMealieAuth();
   const toolStore = useToolStore();
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
 
   useSeoMeta({
     title: i18n.t("tool.tools"),
@@ -31,9 +32,9 @@ export default function ToolsPage() {
   const tools = useMemo(() => toolStore.store.map(tool => (
     {
       ...tool,
-      onHand: tool.householdsWithTool?.includes(userHousehold, []); // WF4-REVIEW: dependency array || false,
+      onHand: tool.householdsWithTool?.includes(userHousehold) || false,
     } as RecipeToolWithOnHand
-  )));
+  )), []); // WF4-REVIEW: dependency array
 
   async function deleteOne(id: string | number) {
     await toolStore.actions.deleteOne(id);
@@ -60,10 +61,11 @@ export default function ToolsPage() {
     <>
   <Container>
     {(tools) ? (
-      <RecipeOrganizerPage icon={$globals.icons.potSteam} items={tools} item-type="tools" onDelete={deleteOne} onUpdate={updateOne}>
-        <template>
+      <RecipeOrganizerPage icon={icons.potSteam} items={tools} item-type="tools" onDelete={deleteOne} onUpdate={updateOne}>
+        {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+        <>
           {t("tool.tools")}
-        </template>
+        </>
       </RecipeOrganizerPage>
     ) : null}
   </Container>

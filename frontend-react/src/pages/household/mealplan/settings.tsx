@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Box, Card, CardActions, CardContent, CardHeader, Chip, Container, Divider } from "@mui/material";
+import { icons } from "@/lib/icons";
 import { useUserApi } from "@/composables/api";
 import type { PlanRulesCreate, PlanRulesOut } from "@/lib/api/types/meal-plan";
 import GroupMealPlanRuleForm from "@/components/Domain/Household/GroupMealPlanRuleForm";
@@ -15,7 +16,7 @@ export default function Settings() {
   const { t } = useTranslation();
 
   const api = useUserApi();
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
 
   useSeoMeta({
     title: i18n.t("meal-plan.meal-plan-settings"),
@@ -95,13 +96,15 @@ export default function Settings() {
     <>
   <Container className="lg-container">
     <BasePageTitle divider>
-      <template>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
         {/* WF4-REVIEW: cover → objectFit */}
         <Box component="img" width="100%" max-height="100" max-width="100" src="/svgs/manage-cookbooks.svg" />
-      </template>
-      <template>
+      </>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
         {t('meal-plan.meal-plan-rules')}
-      </template>
+      </>
       {t('meal-plan.meal-plan-rules-description')}
     </BasePageTitle>
     <Card>
@@ -113,7 +116,7 @@ export default function Settings() {
       <CardContent>
         {t('meal-plan.new-rule-description')}
         {/* WF4-REVIEW: v-model on complex expression "createData.day" [J]; v-model on complex expression "createData.entryType" [J]; v-model on complex expression "createData.queryFilterString" [J] */}
-        <GroupMealPlanRuleForm key={createDataFormKey} {/* WF4-REVIEW: v-model createData.day */} {/* WF4-REVIEW: v-model createData.entryType */} {/* WF4-REVIEW: v-model createData.queryFilterString */} className="mt-2" />
+        <GroupMealPlanRuleForm key={createDataFormKey} className="mt-2" />
       </CardContent>
       <CardActions className="justify-end">
         <BaseButton create disabled={!createData.queryFilterString} onClick={createRule} />
@@ -132,12 +135,12 @@ export default function Settings() {
                 <span className="ml-auto">
                   <BaseButtonGroup buttons={[
                     {
-                      icon: $globals.icons.edit,
+                      icon: icons.edit,
                       text: t('general.edit'),
                       event: 'edit',
                     },
                     {
-                      icon: $globals.icons.delete,
+                      icon: icons.delete,
                       text: t('general.delete'),
                       event: 'delete',
                     },
@@ -146,7 +149,7 @@ export default function Settings() {
               </CardHeader>
               <CardContent>
                 {(!editState[rule.id]) ? (
-                  <template>
+                  <>
                     {(rule.categories) ? (
                       <div>
                         <h4 className="py-1">
@@ -202,15 +205,15 @@ export default function Settings() {
                         )}
                       </div>
                     ) : null}
-                  </template>
+                  </>
                 ) : (
-                  <template>
+                  <>
                     {/* WF4-REVIEW: v-model on complex expression "allRules[idx].day" [J]; v-model on complex expression "allRules[idx].entryType" [J]; v-model on complex expression "allRules[idx].queryFilterString" [J] */}
-                    <GroupMealPlanRuleForm {/* WF4-REVIEW: v-model allRules[idx].day */} {/* WF4-REVIEW: v-model allRules[idx].entryType */} {/* WF4-REVIEW: v-model allRules[idx].queryFilterString */} query-filter={allRules[idx].queryFilter} />
+                    <GroupMealPlanRuleForm query-filter={allRules[idx].queryFilter} />
                     <div className="d-flex justify-end">
                       <BaseButton update disabled={!allRules[idx].queryFilterString} onClick={updateRule(rule)} />
                     </div>
-                  </template>
+                  </>
                 )}
               </CardContent>
             </Card>

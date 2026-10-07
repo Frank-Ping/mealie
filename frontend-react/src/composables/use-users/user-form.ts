@@ -1,9 +1,10 @@
+import { useTranslation } from "react-i18next";
 import { fieldTypes } from "../forms";
 import { validators } from "../use-validators";
 import type { AutoFormItems } from "@/types/auto-forms";
 
 export const useUserForm = () => {
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
 
   const userForm: AutoFormItems = [
     {

@@ -19,7 +19,7 @@ export default function GroupMealPlanRuleForm({ queryFilter = null, showHelp = f
   const entryType = defineModel<string>("entryType", { default: "unset" });
   const queryFilterString = defineModel<string>("queryFilterString", { default: "" });
 
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
 
   const MEAL_TYPE_OPTIONS = [
     { title: i18n.t("meal-plan.breakfast"), value: "breakfast" },

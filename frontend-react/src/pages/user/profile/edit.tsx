@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Box, Button, Card, CardActions, CardContent, Container, FormControlLabel, Slide, TextField, form } from "@mui/material";
+import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
 import { useUserApi } from "@/composables/api";
 import UserAvatar from "@/components/Domain/User/UserAvatar";
@@ -20,7 +21,7 @@ export const handle = {
 export default function Edit() {
   const { t } = useTranslation();
 
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
   const auth = useMealieAuth();
   const { getDefaultActivityLabels, getActivityLabel, getActivityKey } = useDefaultActivity();
   const user = auth.user; // was computed — plain read stays reactive
@@ -31,7 +32,7 @@ export default function Edit() {
 
   const activityPreferences = useUserActivityPreferences();
   const activityOptions = getDefaultActivityLabels(i18n);
-  const [selectedDefaultActivity, setSelectedDefaultActivity] = useState(getActivityLabel(i18n, activityPreferences.defaultActivity););
+  const [selectedDefaultActivity, setSelectedDefaultActivity] = useState(getActivityLabel(i18n, activityPreferences.defaultActivity));
   /* WF4-REVIEW [J] */ watch(selectedDefaultActivity, () => {
     activityPreferences.defaultActivity = getActivityKey(i18n, selectedDefaultActivity) ?? ActivityKey.RECIPES;
   });
@@ -98,34 +99,38 @@ export default function Edit() {
     <>
   <Container className="narrow-container">
     <BasePageTitle divider>
-      <template>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
         <div className="d-flex flex-column align-center justify-center">
           <UserAvatar tooltip={false} size="96" user-id={userCopy.id!} />
           <AppButtonUpload className="my-1" file-name="profile" accept="image/*" url={`/api/users/${userCopy.id}/image`} onUploaded={auth.getSession()} />
         </div>
-      </template>
-      <template>
+      </>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
         {t("profile.user-settings")}
-      </template>
+      </>
     </BasePageTitle>
     <section className="mt-5">
       <ToggleState tag="article">
-        <template>
+        {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+        <>
           {(!toggleState && $appInfo.allowPasswordLogin) ? (
             <Button color="info" className="mt-2 mb-n3" onClick={toggle}>
               {/* WF4-REVIEW: icon name resolves via lib/icons; dropped Vuetify-only prop "start" on <v-icon> */}
-              <MdiIcon name={$globals.icons.lock} />
+              <MdiIcon name={icons.lock} />
               {t("settings.change-password")}
             </Button>
           ) : ($appInfo.allowPasswordLogin) ? (
             <Button color="info" className="mt-2 mb-n3" onClick={toggle}>
               {/* WF4-REVIEW: icon name resolves via lib/icons; dropped Vuetify-only prop "start" on <v-icon> */}
-              <MdiIcon name={$globals.icons.user} />
+              <MdiIcon name={icons.user} />
               {t("settings.profile")}
             </Button>
           ) : null}
-        </template>
-        <template>
+        </>
+        {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+        <>
           {/* WF4-REVIEW: transition semantics */}
           <Slide in={true} leave-absolute hide-on-leave>
             {(!toggleState) ? (
@@ -136,15 +141,15 @@ export default function Edit() {
                     {/* WF4-REVIEW: validation semantics [J] */}
                     <form ref="userUpdate">
                       {/* WF4-REVIEW: rules/error-messages → error+helperText; v-model on complex expression "userCopy.username" [J] */}
-                      <TextField {/* WF4-REVIEW: v-model userCopy.username */} label={t('user.username')} required validate-on="blur" density="comfortable" variant="underlined" />
+                      <TextField label={t('user.username')} required validate-on="blur" density="comfortable" variant="underlined" />
                       {/* WF4-REVIEW: rules/error-messages → error+helperText; v-model on complex expression "userCopy.fullName" [J] */}
-                      <TextField {/* WF4-REVIEW: v-model userCopy.fullName */} label={t('user.full-name')} required validate-on="blur" density="comfortable" variant="underlined" />
+                      <TextField label={t('user.full-name')} required validate-on="blur" density="comfortable" variant="underlined" />
                       {/* WF4-REVIEW: rules/error-messages → error+helperText; v-model on complex expression "userCopy.email" [J] */}
-                      <TextField {/* WF4-REVIEW: v-model userCopy.email */} label={t('user.email')} validate-on="blur" required density="comfortable" variant="underlined" />
+                      <TextField label={t('user.email')} validate-on="blur" required density="comfortable" variant="underlined" />
                     </form>
                   </CardContent>
                   <CardActions>
-                    <Box sx={ flexGrow: 1 } />
+                    <Box sx={{ flexGrow: 1 }} />
                     <BaseButton update onClick={updateUser} />
                   </CardActions>
                 </Card>
@@ -157,24 +162,24 @@ export default function Edit() {
                     {/* WF4-REVIEW: validation semantics [J] */}
                     <form ref="passChange">
                       {/* WF4-REVIEW: rules/error-messages → error+helperText; v-model on complex expression "password.current" [J] */}
-                      <TextField {/* WF4-REVIEW: v-model password.current */} prepend-icon={$globals.icons.lock} label={t('user.current-password')} validate-on="blur" type={showPassword ? 'text' : 'password'} append-icon={showPassword ? $globals.icons.eye : $globals.icons.eyeOff} rules={[validators.minLength(1)]} density="comfortable" variant="underlined" onClickAppend={showPassword = !showPassword} />
+                      <TextField prepend-icon={icons.lock} label={t('user.current-password')} validate-on="blur" type={showPassword ? 'text' : 'password'} append-icon={showPassword ? icons.eye : icons.eyeOff} rules={[validators.minLength(1)]} density="comfortable" variant="underlined" onClickAppend={() => setShowPassword(!showPassword)} />
                       {/* WF4-REVIEW: rules/error-messages → error+helperText; v-model on complex expression "password.newOne" [J] */}
-                      <TextField {/* WF4-REVIEW: v-model password.newOne */} prepend-icon={$globals.icons.lock} label={t('user.new-password')} type={showPassword ? 'text' : 'password'} append-icon={showPassword ? $globals.icons.eye : $globals.icons.eyeOff} rules={[validators.minLength(8)]} density="comfortable" variant="underlined" onClickAppend={showPassword = !showPassword} />
+                      <TextField prepend-icon={icons.lock} label={t('user.new-password')} type={showPassword ? 'text' : 'password'} append-icon={showPassword ? icons.eye : icons.eyeOff} rules={[validators.minLength(8)]} density="comfortable" variant="underlined" onClickAppend={() => setShowPassword(!showPassword)} />
                       {/* WF4-REVIEW: rules/error-messages → error+helperText; v-model on complex expression "password.newTwo" [J] */}
-                      <TextField {/* WF4-REVIEW: v-model password.newTwo */} prepend-icon={$globals.icons.lock} label={t('user.confirm-password')} rules={[password.newOne === password.newTwo || t('user.password-must-match')]} validate-on="blur" type={showPassword ? 'text' : 'password'} append-icon={showPassword ? $globals.icons.eye : $globals.icons.eyeOff} density="comfortable" variant="underlined" onClickAppend={showPassword = !showPassword} />
+                      <TextField prepend-icon={icons.lock} label={t('user.confirm-password')} rules={[password.newOne === password.newTwo || t('user.password-must-match')]} validate-on="blur" type={showPassword ? 'text' : 'password'} append-icon={showPassword ? icons.eye : icons.eyeOff} density="comfortable" variant="underlined" onClickAppend={() => setShowPassword(!showPassword)} />
                       {/* WF4-REVIEW: v-model on complex expression "password.newOne" [J] */}
-                      <UserPasswordStrength {/* WF4-REVIEW: v-model password.newOne */} />
+                      <UserPasswordStrength />
                     </form>
                   </CardContent>
                   <CardActions>
-                    <Box sx={ flexGrow: 1 } />
+                    <Box sx={{ flexGrow: 1 }} />
                     <BaseButton update disabled={!passwordsMatch || password.current.length < 0} onClick={updatePassword} />
                   </CardActions>
                 </Card>
               </div>
             )}
           </Slide>
-        </template>
+        </>
       </ToggleState>
     </section>
     <section>
@@ -184,9 +189,9 @@ export default function Edit() {
           {/* WF4-REVIEW: unmapped <v-combobox> — judgement component, convert manually [J] */}
           <VCombobox value={selectedDefaultActivity} onChange={setSelectedDefaultActivity} label={t('user.default-activity')} items={activityOptions} hint={t('user.default-activity-hint')} density="comfortable" variant="underlined" validate-on="blur" persistent-hint />
           {/* WF4-REVIEW: control={<Checkbox/>} + label prop; v-model on complex expression "userCopy.showAnnouncements" [J] */}
-          <FormControlLabel {/* WF4-REVIEW: v-model userCopy.showAnnouncements */} hide-details label={t('announcements.show-announcements-from-mealie')} color="primary" onChange={updateUser} />
+          <FormControlLabel hide-details label={t('announcements.show-announcements-from-mealie')} color="primary" onChange={updateUser} />
           {/* WF4-REVIEW: control={<Checkbox/>} + label prop; v-model on complex expression "userCopy.advanced" [J] */}
-          <FormControlLabel {/* WF4-REVIEW: v-model userCopy.advanced */} hide-details label={t('profile.show-advanced-description')} color="primary" onChange={updateUser} />
+          <FormControlLabel hide-details label={t('profile.show-advanced-description')} color="primary" onChange={updateUser} />
         </CardContent>
       </Card>
       <nuxt-link className="mt-5 d-flex flex-column justify-center text-center text-primary" to={`/group`}>
@@ -195,7 +200,7 @@ export default function Edit() {
       <div className="d-flex flex-wrap justify-center mt-5">
         <Button variant="outlined" className="rounded-xl my-1 mx-1" component={Link} to={`/user/profile`} nuxt exact>
           {/* WF4-REVIEW: icon name resolves via lib/icons; dropped Vuetify-only prop "start" on <v-icon> */}
-          <MdiIcon name={$globals.icons.backArrow} />
+          <MdiIcon name={icons.backArrow} />
           {t('profile.back-to-profile')}
         </Button>
       </div>

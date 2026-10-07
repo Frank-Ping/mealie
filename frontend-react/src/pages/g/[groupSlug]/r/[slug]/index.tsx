@@ -38,7 +38,10 @@ export default function SlugPage() {
         if (cancelled) return;
             if (error) {
               console.error("error loading recipe -> ", error);
-              navigate({ path: `/g/${groupSlug}`, query: { redirect: route.fullPath }
+              navigate({ path: `/g/${groupSlug}`, query: { redirect: route.fullPath } });
+            }
+
+            return data;
       }
       catch (err) {
         if (!cancelled) console.error(err); // WF4-REVIEW: surface load errors (was useAsyncData)
@@ -46,10 +49,6 @@ export default function SlugPage() {
     })();
     return () => { cancelled = true; };
   }, []); // WF4-REVIEW: deps + re-run trigger — confirm against auth-ready init flow
-      }
-
-      return data;
-    });
     setRecipe(data);
   }
 

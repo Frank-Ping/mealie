@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Box, Card, CardActions, Collapse, ListItem, ListItemText } from "@mui/material";
+import { icons } from "@/lib/icons";
 import { useLoggedInState } from "@/composables/use-logged-in-state";
 import RecipeCardImage from "./RecipeCardImage";
 import RecipeCardRating from "./RecipeCardRating";
@@ -42,9 +43,9 @@ export default function RecipeCardMobile({ rating = 0, image = undefined, tags =
   const route = useLocation(); // WF4-REVIEW: .query → useSearchParams [J]
   const groupSlug = useMemo(() => route.params.groupSlug || auth.user?.groupSlug || "", []); // WF4-REVIEW: dependency array
   const showRecipeContent = useMemo(() => recipeId && slug, []); // WF4-REVIEW: dependency array
-  const recipeRoute = computed<string>(() => {
+  const recipeRoute = useMemo(() => {
     return showRecipeContent ? `/g/${groupSlug}/r/${slug}` : "";
-  });
+  }, []); // WF4-REVIEW: dependency array
   const cursor = useMemo(() => showRecipeContent ? "pointer" : "auto", []); // WF4-REVIEW: dependency array
 
   return (
@@ -64,13 +65,14 @@ export default function RecipeCardMobile({ rating = 0, image = undefined, tags =
         ) : null}
         {/* WF4-REVIEW: @click → ListItemButton */}
         <ListItem lines="two" className="py-0" className={vertical ? 'px-2' : 'px-0'} item-props height="100%" density="compact">
-          <template>
+          {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+          <>
             {(!vertical) ? (
               <slot name="avatar">
                 <RecipeCardImage tiny icon-size={100} slug={slug} recipe-id={recipeId} image-version={image} width="125" height={height} />
               </slot>
             ) : null}
-          </template>
+          </>
           <div className="pl-4 d-flex flex-column justify-space-between align-stretch pr-2">
             {/* WF4-REVIEW: content → primary prop */}
             <ListItemText className="mt-3 mb-1 text-top text-truncate w-100">
@@ -104,7 +106,7 @@ export default function RecipeCardMobile({ rating = 0, image = undefined, tags =
               ) : null}
               <slot name="context-menu">
                 {(isOwnGroup && showRecipeContent) ? (
-                  <RecipeContextMenu slug={slug} menu-icon={$globals.icons.dotsHorizontal} name={name} recipe-id={recipeId} className="ml-auto" use-items={{
+                  <RecipeContextMenu slug={slug} menu-icon={icons.dotsHorizontal} name={name} recipe-id={recipeId} className="ml-auto" use-items={{
                     delete: false,
                     edit: false,
                     download: true,

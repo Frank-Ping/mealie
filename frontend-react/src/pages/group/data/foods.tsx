@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Alert, Autocomplete, Card, CardContent, CardHeader, ListItem, ListItemText } from "@mui/material";
+import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
 import type { LocaleObject } from "@nuxtjs/i18n";
 import RecipeDataAliasManagerDialog from "@/components/Domain/Recipe/RecipeDataAliasManagerDialog";
@@ -38,7 +39,7 @@ export default function Foods() {
   }
 
   const userApi = useUserApi();
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
   const auth = useMealieAuth();
   const tableConfig: TableConfig = {
     hideColumns: true,
@@ -104,11 +105,10 @@ export default function Foods() {
   const userHousehold = useMemo(() => auth.user?.householdSlug || "", []); // WF4-REVIEW: dependency array
   const userGroup = useMemo(() => auth.user?.groupSlug || "", []); // WF4-REVIEW: dependency array
   const foodStore = useFoodStore();
-  const foods = useMemo(() => foodStore.store.map((food, []); // WF4-REVIEW: dependency array => {
+  const foods = useMemo(() => foodStore.store.map((food) => {
       const onHand = food.householdsWithIngredientFood?.includes(userHousehold) || false;
       return { ...food, onHand } as IngredientFoodWithOnHand;
-    }),
-  );
+    }),, []); // WF4-REVIEW: dependency array
 
   /* WF4-REVIEW [J] */ onMounted(() => {
     foodStore.actions.refresh();
@@ -118,13 +118,13 @@ export default function Foods() {
   // Labels
   const labelStore = useLabelStore();
   const { store: allLabels } = labelStore;
-  const labelOptions = useMemo(() => allLabels.map(label => ({ text: label.name, value: label.id }, []); // WF4-REVIEW: dependency array) || []);
+  const labelOptions = useMemo(() => allLabels.map(label => ({ text: label.name, value: label.id })) || [], []); // WF4-REVIEW: dependency array
 
   // ============================================================
   // Form items (shared)
   const formItems = useMemo(() => [
     {
-      label: i18n.t("general.name", []); // WF4-REVIEW: dependency array,
+      label: i18n.t("general.name"),
       varName: "name",
       type: fieldTypes.TEXT,
       rules: [validators.required],
@@ -152,7 +152,7 @@ export default function Foods() {
       type: fieldTypes.BOOLEAN,
       hint: i18n.t("data-pages.foods.on-hand-checkbox-label"),
     },
-  ]);
+  ], []); // WF4-REVIEW: dependency array
 
   // ===============================================================
   // Create
@@ -328,9 +328,9 @@ export default function Foods() {
   const [fromFood, setFromFood] = useState(null);
   const [toFood, setToFood] = useState(null);
 
-  const canMerge = computed(() => {
+  const canMerge = useMemo(() => {
     return fromFood && toFood && fromFood.id !== toFood.id;
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   async function mergeFoods() {
     if (!canMerge || !fromFood || !toFood) {
@@ -398,7 +398,7 @@ export default function Foods() {
   return (
     <>
   <div>
-    <BaseDialog value={mergeDialog} onChange={setMergeDialog} bottom-sheet icon={$globals.icons.foods} title={t('data-pages.foods.combine-food')} can-confirm onConfirm={mergeFoods}>
+    <BaseDialog value={mergeDialog} onChange={setMergeDialog} bottom-sheet icon={icons.foods} title={t('data-pages.foods.combine-food')} can-confirm onConfirm={mergeFoods}>
       <CardContent>
         <div>
           {t("data-pages.foods.merge-dialog-text")}
@@ -408,22 +408,23 @@ export default function Foods() {
         {/* WF4-REVIEW: items → options/getOptionLabel; value wiring [S] */}
         <Autocomplete value={toFood} onChange={setToFood} return-object items={foods} custom-filter={normalizeFilter} item-title="name" label={t('data-pages.foods.target-food')} />
         {(canMerge && fromFood && toFood) ? (
-          <template>
+          <>
             <div className="text-center">
               {t("data-pages.foods.merge-food-example", { food1: fromFood.name, food2: toFood.name })}
             </div>
-          </template>
+          </>
         ) : null}
       </CardContent>
     </BaseDialog>
-    <BaseDialog value={seedDialog} onChange={setSeedDialog} bottom-sheet icon={$globals.icons.foods} title={t('data-pages.seed-data')} can-confirm onConfirm={seedDatabase}>
+    <BaseDialog value={seedDialog} onChange={setSeedDialog} bottom-sheet icon={icons.foods} title={t('data-pages.seed-data')} can-confirm onConfirm={seedDatabase}>
       <CardContent>
         <div className="pb-2">
           {t("data-pages.foods.seed-dialog-text")}
         </div>
         {/* WF4-REVIEW: items → options/getOptionLabel; value wiring [S] */}
         <Autocomplete value={locale} onChange={setLocale} items={locales} item-title="name" custom-filter={normalizeFilter} label={t('data-pages.select-language')} className="my-3" hide-details variant="outlined" offset>
-          <template>
+          {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+          <>
             {/* WF4-REVIEW: @click → ListItemButton */}
             <ListItem {...(props)}>
               {/* WF4-REVIEW: content → secondary prop */}
@@ -433,7 +434,7 @@ export default function Foods() {
                 {t("language-dialog.translated")}
               </ListItemText>
             </ListItem>
-          </template>
+          </>
         </Autocomplete>
         {(foods && foods.length > 0) ? (
           <Alert type="error" className="mb-0 text-body-2">
@@ -443,12 +444,12 @@ export default function Foods() {
       </CardContent>
     </BaseDialog>
     {(editForm.data) ? (
-      <RecipeDataAliasManagerDialog value={aliasManagerDialog} onChange={setAliasManagerDialog} data={editForm.data} onSubmit={updateFoodAlias} onCancel={aliasManagerDialog = false} />
+      <RecipeDataAliasManagerDialog value={aliasManagerDialog} onChange={setAliasManagerDialog} data={editForm.data} onSubmit={updateFoodAlias} onCancel={() => setAliasManagerDialog(false)} />
     ) : null}
     {(editForm.data) ? (
-      <RecipeDataSubstitutionManagerDialog value={substitutionManagerDialog} onChange={setSubstitutionManagerDialog} data={editForm.data} onSubmit={updateFoodSubstitutions} onCancel={substitutionManagerDialog = false} />
+      <RecipeDataSubstitutionManagerDialog value={substitutionManagerDialog} onChange={setSubstitutionManagerDialog} data={editForm.data} onSubmit={updateFoodSubstitutions} onCancel={() => setSubstitutionManagerDialog(false)} />
     ) : null}
-    <BaseDialog value={bulkAssignLabelDialog} onChange={setBulkAssignLabelDialog} bottom-sheet title={t('data-pages.labels.assign-label')} icon={$globals.icons.tags} can-confirm onConfirm={assignSelected}>
+    <BaseDialog value={bulkAssignLabelDialog} onChange={setBulkAssignLabelDialog} bottom-sheet title={t('data-pages.labels.assign-label')} icon={icons.tags} can-confirm onConfirm={assignSelected}>
       <CardContent>
         <Card className="mb-4">
           {/* WF4-REVIEW: title text moves to the title prop */}
@@ -464,7 +465,8 @@ export default function Foods() {
         <Card variant="outlined">
           {/* WF4-REVIEW: unmapped <v-virtual-scroll> — judgement component, convert manually [J] */}
           <VVirtualScroll height="400" item-height="25" items={bulkAssignTarget}>
-            <template>
+            {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+            <>
               {/* WF4-REVIEW: @click → ListItemButton */}
               <ListItem className="pb-2">
                 {/* WF4-REVIEW: content → primary prop */}
@@ -472,57 +474,67 @@ export default function Foods() {
                   {item.name}
                 </ListItemText>
               </ListItem>
-            </template>
+            </>
           </VVirtualScroll>
         </Card>
       </CardContent>
     </BaseDialog>
-    <GroupDataPage icon={$globals.icons.foods} title={t('data-pages.foods.food-data')} create-title={t('data-pages.foods.create-food')} edit-title={t('data-pages.foods.edit-food')} table-headers={tableHeaders} table-config={tableConfig} data={foods || []} bulk-actions={[
-        { icon: $globals.icons.delete, text: t('general.delete'), event: 'delete-selected' },
-        { icon: $globals.icons.tags, text: t('data-pages.labels.assign-label'), event: 'assign-selected' },
+    <GroupDataPage icon={icons.foods} title={t('data-pages.foods.food-data')} create-title={t('data-pages.foods.create-food')} edit-title={t('data-pages.foods.edit-food')} table-headers={tableHeaders} table-config={tableConfig} data={foods || []} bulk-actions={[
+        { icon: icons.delete, text: t('general.delete'), event: 'delete-selected' },
+        { icon: icons.tags, text: t('data-pages.labels.assign-label'), event: 'assign-selected' },
       ]} create-form={createForm} edit-form={editForm} on-delete-dialog-open={onDeleteDialogOpen} onCreateOne={handleCreate} onEditOne={handleEdit} onDeleteOne={foodStore.actions.deleteOne} onBulkAction={handleBulkAction}>
-      <template>
-        <BaseButton onClick={mergeDialog = true}>
-          <template>
-            {$globals.icons.externalLink}
-          </template>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
+        <BaseButton onClick={() => setMergeDialog(true)}>
+          {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+          <>
+            {icons.externalLink}
+          </>
           {t("data-pages.combine")}
         </BaseButton>
-      </template>
-      <template>
+      </>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
         {(item.label) ? (
           <MultiPurposeLabel label={item.label}>
             {item.label.name}
           </MultiPurposeLabel>
         ) : null}
-      </template>
-      <template>
+      </>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
         {/* WF4-REVIEW: icon name resolves via lib/icons */}
-        <MdiIcon name={item.onHand ? $globals.icons.check : $globals.icons.close} color={item.onHand ? 'success' : undefined} />
-      </template>
-      <template>
+        <MdiIcon name={item.onHand ? icons.check : icons.close} color={item.onHand ? 'success' : undefined} />
+      </>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
         {item.substitutions ? item.substitutions.length : 0}
-      </template>
-      <template>
+      </>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
         {item.createdAt ? $d(new Date(item.createdAt)) : ""}
-      </template>
-      <template>
-        <BaseButton onClick={seedDialog = true}>
-          <template>
-            {$globals.icons.database}
-          </template>
+      </>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
+        <BaseButton onClick={() => setSeedDialog(true)}>
+          {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+          <>
+            {icons.database}
+          </>
           {t("data-pages.seed")}
         </BaseButton>
-      </template>
-      <template>
-        <BaseButton edit onClick={aliasManagerDialog = true}>
+      </>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
+        <BaseButton edit onClick={() => setAliasManagerDialog(true)}>
           {t("data-pages.manage-aliases")}
         </BaseButton>
-        <BaseButton edit onClick={substitutionManagerDialog = true}>
+        <BaseButton edit onClick={() => setSubstitutionManagerDialog(true)}>
           {t("data-pages.foods.manage-substitutions")}
         </BaseButton>
-      </template>
-      <template>
+      </>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
         {(affectedRecipes.length > 0) ? (
           <Alert type="warning" density="compact" className="mt-4 mb-0">
             {t("data-pages.foods.delete-affects-recipes", { count: affectedRecipesTotal })}
@@ -542,7 +554,7 @@ export default function Foods() {
             ) : null}
           </Alert>
         ) : null}
-      </template>
+      </>
     </GroupDataPage>
   </div>
     </>

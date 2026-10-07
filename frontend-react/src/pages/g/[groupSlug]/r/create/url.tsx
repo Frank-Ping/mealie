@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Alert, CardActions, CardContent, CardHeader, Collapse, Divider, FormControlLabel, TextField, form } from "@mui/material";
+import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
 import type { AxiosResponse } from "axios";
 import { useUserApi } from "@/composables/api";
@@ -59,7 +60,7 @@ export default function Url() {
     navigateToRecipe(response.data, groupSlug, `/g/${groupSlug}/r/create/url`);
   }
 
-  /* WF4-REVIEW [J]: writable computed — split into state + handlers */ const recipeUrl = computed({
+  /* WF4-REVIEW [J]: writable computed — split into state + handlers */ /* WF4-REVIEW [J]: writable computed — split into state + handlers */ const recipeUrl = computed({
     set(recipe_import_url: string | null) {
       if (recipe_import_url !== null) {
         recipe_import_url = recipe_import_url.trim();
@@ -195,7 +196,7 @@ export default function Url() {
             ) : null}
           </CardContent>
           {/* WF4-REVIEW: rules/error-messages → error+helperText */}
-          <TextField value={recipeUrl} onChange={/* WF4-REVIEW: setter */ setRecipeUrl} label={t('new-recipe.recipe-url')} prepend-inner-icon={$globals.icons.link} validate-on="blur" autofocus variant="solo-filled" clearable className="rounded-lg mt-2" rounded rules={[validators.url]} hint={t('new-recipe.url-form-hint')} persistent-hint />
+          <TextField value={recipeUrl} onChange={/* WF4-REVIEW: setter */ setRecipeUrl} label={t('new-recipe.recipe-url')} prepend-inner-icon={icons.link} validate-on="blur" autofocus variant="solo-filled" clearable className="rounded-lg mt-2" rounded rules={[validators.url]} hint={t('new-recipe.url-form-hint')} persistent-hint />
         </CardContent>
         {/* WF4-REVIEW: control={<Checkbox/>} + label prop */}
         <FormControlLabel value={importKeywordsAsTags} onChange={/* WF4-REVIEW: setter */ setImportKeywordsAsTags} color="primary" hide-details label={t('recipe.import-original-keywords-as-tags')} />
@@ -224,7 +225,7 @@ export default function Url() {
           {/* WF4-REVIEW: title text moves to the title prop */}
           <CardHeader className="ma-0 pa-0">
             {/* WF4-REVIEW: icon name resolves via lib/icons; dropped Vuetify-only prop "start" on <v-icon> */}
-            <MdiIcon name={$globals.icons.robot} color="white" size="x-large" />
+            <MdiIcon name={icons.robot} color="white" size="x-large" />
             {t("new-recipe.error-title")}
           </CardHeader>
           <Divider className="my-3 mx-2" />

@@ -96,9 +96,9 @@ export default function Admin() {
   <Box>
     <TheSnackbar />
     <AppHeader>
-      <Button icon onClick={(e) => { e.stopPropagation(); sidebar = !sidebar; }}>
+      <Button icon onClick={(e) => { e.stopPropagation(); setSidebar(!sidebar); }}>
         {/* WF4-REVIEW: icon name resolves via lib/icons */}
-        <MdiIcon name={$globals.icons.menu} />
+        <MdiIcon name={icons.menu} />
       </Button>
     </AppHeader>
     <AppSidebar value={sidebar} onChange={setSidebar} top-link={topLinks} user={{ data: true }} secondary-header={t('sidebar.developer')} secondary-links={developerLinks} />

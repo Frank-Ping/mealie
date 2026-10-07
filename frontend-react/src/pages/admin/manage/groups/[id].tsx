@@ -18,7 +18,7 @@ export default function Id() {
 
   const route = useLocation(); // WF4-REVIEW: .query → useSearchParams [J]
 
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
 
   const groupId = route.params.id as string; // was computed — plain read stays reactive
 
@@ -104,13 +104,15 @@ export default function Id() {
   {(group) ? (
     <Container className="narrow-container">
       <BasePageTitle>
-        <template>
+        {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+        <>
           {/* WF4-REVIEW: cover → objectFit */}
           <Box component="img" width="100%" max-height="125" max-width="125" src="/svgs/manage-group-settings.svg" />
-        </template>
-        <template>
+        </>
+        {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+        <>
           {t('group.admin-group-management')}
-        </template>
+        </>
       </BasePageTitle>
       <AppToolbar back />
       <CardContent>
@@ -122,14 +124,14 @@ export default function Id() {
           <Card variant="outlined" style="border-color: lightgrey;">
             <CardContent>
               {/* WF4-REVIEW: rules/error-messages → error+helperText; v-model on complex expression "group.name" [J] */}
-              <TextField {/* WF4-REVIEW: v-model group.name */} label={t('group.group-name')} />
+              <TextField label={t('group.group-name')} />
               {(group.preferences) ? (
                 /* WF4-REVIEW: v-model on complex expression "group.preferences" [J] */
-                <GroupPreferencesEditor {/* WF4-REVIEW: v-model group.preferences */} />
+                <GroupPreferencesEditor />
               ) : null}
               {(group.aiProviderSettings) ? (
                 /* WF4-REVIEW: v-model on complex expression "group.aiProviderSettings" [J] */
-                <GroupAIProviderSettingsEditor {/* WF4-REVIEW: v-model group.aiProviderSettings */} onCreate={handleCreateProvider} onUpdate={handleUpdateProvider} onDelete={handleDeleteProvider} />
+                <GroupAIProviderSettingsEditor onCreate={handleCreateProvider} onUpdate={handleUpdateProvider} onDelete={handleDeleteProvider} />
               ) : null}
             </CardContent>
           </Card>

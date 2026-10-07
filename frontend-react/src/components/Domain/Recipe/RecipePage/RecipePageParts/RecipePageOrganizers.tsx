@@ -27,7 +27,7 @@ export default function RecipePageOrganizers() {
         <CardContent>
           {(isEditForm) ? (
             /* WF4-REVIEW: v-model on complex expression "recipe.recipeCategory" [J] */
-            <RecipeOrganizerSelector {/* WF4-REVIEW: v-model recipe.recipeCategory */} return-object={true} show-add={true} selector-type="categories" />
+            <RecipeOrganizerSelector return-object={true} show-add={true} selector-type="categories" />
           ) : (
             <RecipeChips items={recipe.recipeCategory} {...($attrs)} />
           )}
@@ -44,7 +44,7 @@ export default function RecipePageOrganizers() {
         <CardContent>
           {(isEditForm) ? (
             /* WF4-REVIEW: v-model on complex expression "recipe.tags" [J] */
-            <RecipeOrganizerSelector {/* WF4-REVIEW: v-model recipe.tags */} return-object={true} show-add={true} selector-type="tags" />
+            <RecipeOrganizerSelector return-object={true} show-add={true} selector-type="tags" />
           ) : (
             <RecipeChips items={recipe.tags} url-prefix="tags" {...($attrs)} />
           )}
@@ -60,17 +60,17 @@ export default function RecipePageOrganizers() {
         <Divider className="mx-2" />
         <CardContent>
           {/* WF4-REVIEW: v-model on complex expression "recipe.tools" [J] */}
-          <RecipeOrganizerSelector {/* WF4-REVIEW: v-model recipe.tools */} selector-type="tools" />
+          <RecipeOrganizerSelector selector-type="tools" />
         </CardContent>
       </Card>
     ) : null}
     {(recipe.settings.showNutrition) ? (
       /* WF4-REVIEW: v-model on complex expression "recipe.nutrition" [J] */
-      <RecipeNutrition {/* WF4-REVIEW: v-model recipe.nutrition */} className="mt-4" edit={isEditForm} />
+      <RecipeNutrition className="mt-4" edit={isEditForm} />
     ) : null}
     {(recipe.settings.showAssets) ? (
       /* WF4-REVIEW: v-model on complex expression "recipe.assets" [J] */
-      <RecipeAssets {/* WF4-REVIEW: v-model recipe.assets */} edit={isEditForm} slug={recipe.slug} recipe-id={recipe.id} />
+      <RecipeAssets edit={isEditForm} slug={recipe.slug} recipe-id={recipe.id} />
     ) : null}
   </div>
     </>

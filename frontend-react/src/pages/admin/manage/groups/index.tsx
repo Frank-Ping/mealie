@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { Button, CardContent, Container, Divider, Toolbar, Tooltip } from "@mui/material";
+import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
 import { fieldTypes } from "@/composables/forms";
 import { useGroups } from "@/composables/use-groups";
@@ -13,7 +14,7 @@ export const handle = {
 export default function GroupsPage() {
   const { t } = useTranslation();
 
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
 
   useHead({
     title: i18n.t("group.manage-groups"),
@@ -72,16 +73,22 @@ export default function GroupsPage() {
     <>
   <Container fluid>
     {/* WF4-REVIEW: v-model on complex expression "state.createDialog" [J] */}
-    <BaseDialog {/* WF4-REVIEW: v-model state.createDialog */} bottom-sheet title={t('group.create-group')} icon={$globals.icons.group} can-submit onSubmit={createGroup(state.createGroupForm.data)}>
-      <template />
+    <BaseDialog bottom-sheet title={t('group.create-group')} icon={icons.group} can-submit onSubmit={createGroup(state.createGroupForm.data)}>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
+
+      </>
       <CardContent>
         {/* WF4-REVIEW: v-model on complex expression "state.createGroupForm.data" [J] */}
-        <AutoForm {/* WF4-REVIEW: v-model state.createGroupForm.data */} update-mode={state.updateMode} items={state.createGroupForm.items} />
+        <AutoForm update-mode={state.updateMode} items={state.createGroupForm.items} />
       </CardContent>
     </BaseDialog>
     {/* WF4-REVIEW: v-model on complex expression "state.confirmDialog" [J] */}
-    <BaseDialog {/* WF4-REVIEW: v-model state.confirmDialog */} bottom-sheet title={t('general.confirm')} icon={$globals.icons.alertCircle} color="error" can-confirm onConfirm={deleteGroup(state.deleteTarget)}>
-      <template />
+    <BaseDialog bottom-sheet title={t('general.confirm')} icon={icons.alertCircle} color="error" can-confirm onConfirm={deleteGroup(state.deleteTarget)}>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
+
+      </>
       <CardContent>
         {t("general.confirm-delete-generic")}
       </CardContent>
@@ -95,29 +102,33 @@ export default function GroupsPage() {
       </Toolbar>
       {/* WF4-REVIEW: unmapped <v-data-table> — judgement component, convert manually [J] */}
       <VDataTable headers={state.headers} items={groups || []} item-key="id" className="elevation-0" items-per-page={-1} hide-default-footer disable-pagination search={state.search} onClickRow={($event, { item }) => handleRowClick(item)}>
-        <template>
+        {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+        <>
           {item.households!.length}
-        </template>
-        <template>
+        </>
+        {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+        <>
           {item.users!.length}
-        </template>
-        <template>
+        </>
+        {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+        <>
           {/* WF4-REVIEW: activator slot variants [J] */}
           <Tooltip location="bottom" disabled={!(item && (item.households!.length > 0 || item.users!.length > 0))}>
-            <template>
+            {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+            <>
               <div {...(props)}>
                 <Button disabled={item && (item.households!.length > 0 || item.users!.length > 0)} className="mr-1" icon color="error" variant="text" onClick={(e) => { e.stopPropagation(); state.confirmDialog = true;
                     state.deleteTarget = item.id;; }}>
                   {/* WF4-REVIEW: icon name resolves via lib/icons */}
-                  <MdiIcon name={$globals.icons.delete} />
+                  <MdiIcon name={icons.delete} />
                 </Button>
               </div>
-            </template>
+            </>
             <span>
               {t("admin.group-delete-note")}
             </span>
           </Tooltip>
-        </template>
+        </>
       </VDataTable>
       <Divider />
     </section>

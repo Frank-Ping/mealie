@@ -10,7 +10,7 @@ export const handle = {
 export default function Data() {
   const { t } = useTranslation();
 
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
   const buttonLookup: { [key: string]: string } = {
     recipes: i18n.t("general.recipes"),
     recipeActions: i18n.t("recipe.recipe-actions"),
@@ -26,7 +26,7 @@ export default function Data() {
 
   const DATA_TYPE_OPTIONS = useMemo(() => [
     {
-      text: i18n.t("general.recipes", []); // WF4-REVIEW: dependency array,
+      text: i18n.t("general.recipes"),
       value: "new",
       to: "/group/data/recipes",
     },
@@ -67,11 +67,11 @@ export default function Data() {
       value: "new",
       to: "/group/data/tools",
     },
-  ]);
+  ], []); // WF4-REVIEW: dependency array
 
-  const buttonText = useMemo(() =>  {
+  const buttonText = useMemo(() => {
     const last = route.path
-      .split("/", []); // WF4-REVIEW: dependency array
+      .split("/")
       .pop()
     // convert hypenated-values to camelCase
       ?.replace(/-([a-z])/g, function (g) {
@@ -83,7 +83,7 @@ export default function Data() {
     }
 
     return i18n.t("data-pages.select-data");
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   useSeoMeta({
     title: i18n.t("data-pages.data-management"),
@@ -93,19 +93,22 @@ export default function Data() {
     <>
   <Container>
     <BasePageTitle>
-      <template>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
         {/* WF4-REVIEW: cover → objectFit */}
         <Box component="img" width="100%" max-height="175" max-width="175" src="/svgs/manage-recipes.svg" />
-      </template>
-      <template>
+      </>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
         {t('data-pages.data-management')}
-      </template>
+      </>
       {t('data-pages.data-management-description')}
-      <template>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
         <div>
           <BaseOverflowButton btn-text={buttonText} mode="link" rounded items={DATA_TYPE_OPTIONS} />
         </div>
-      </template>
+      </>
     </BasePageTitle>
     <section>
       {/* WF4-REVIEW: transition direction/appear semantics — MUI Slide needs explicit in */}

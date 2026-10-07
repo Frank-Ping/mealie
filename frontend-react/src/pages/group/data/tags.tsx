@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Autocomplete, CardContent, Divider } from "@mui/material";
+import { icons } from "@/lib/icons";
 import { validators } from "@/composables/use-validators";
 import { useTagStore } from "@/composables/store";
 import { useUserApi } from "@/composables/api";
@@ -16,7 +17,7 @@ import { useMealieAuth } from "@/composables/use-mealie-auth";
 export default function Tags() {
   const { t } = useTranslation();
 
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
   const auth = useMealieAuth();
   const groupSlug = useMemo(() => auth.user?.groupSlug || "", []); // WF4-REVIEW: dependency array
   const userApi = useUserApi();
@@ -100,9 +101,9 @@ export default function Tags() {
   const [fromTag, setFromTag] = useState(null);
   const [toTag, setToTag] = useState(null);
 
-  const canMerge = computed(() => {
+  const canMerge = useMemo(() => {
     return fromTag && toTag && fromTag.id !== toTag.id;
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   async function mergeTags() {
     if (!canMerge || !fromTag?.id || !toTag?.id) {
@@ -124,9 +125,9 @@ export default function Tags() {
 
   const [deleteUnusedDialog, setDeleteUnusedDialog] = useState(false);
   const [unusedTags, setUnusedTags] = useState([]);
-  const unusedTagIds = useMemo(() => unusedTags.filter(t => t.id != null, []); // WF4-REVIEW: dependency array.map(t => t.id!));
-  const unusedTagNamesPreview = useMemo(() => unusedTags.slice(0, DELETE_UNUSED_PREVIEW_LIMIT, []); // WF4-REVIEW: dependency array.map(t => t.name));
-  const unusedTagNamesRemaining = useMemo(() => Math.max(unusedTags.length - DELETE_UNUSED_PREVIEW_LIMIT, 0, []); // WF4-REVIEW: dependency array);
+  const unusedTagIds = useMemo(() => unusedTags.filter(t => t.id != null).map(t => t.id!), []); // WF4-REVIEW: dependency array
+  const unusedTagNamesPreview = useMemo(() => unusedTags.slice(0, DELETE_UNUSED_PREVIEW_LIMIT).map(t => t.name), []); // WF4-REVIEW: dependency array
+  const unusedTagNamesRemaining = useMemo(() => Math.max(unusedTags.length - DELETE_UNUSED_PREVIEW_LIMIT, 0), []); // WF4-REVIEW: dependency array
   const [loadingEmpty, setLoadingEmpty] = useState(false);
 
   async function openDeleteUnusedDialog() {
@@ -151,7 +152,7 @@ export default function Tags() {
   return (
     <>
   <div>
-    <BaseDialog value={mergeDialog} onChange={setMergeDialog} bottom-sheet icon={$globals.icons.tags} title={t('data-pages.tags.combine-tag')} can-confirm onConfirm={mergeTags}>
+    <BaseDialog value={mergeDialog} onChange={setMergeDialog} bottom-sheet icon={icons.tags} title={t('data-pages.tags.combine-tag')} can-confirm onConfirm={mergeTags}>
       <CardContent>
         <div>
           {t("data-pages.tags.merge-dialog-text")}
@@ -161,15 +162,15 @@ export default function Tags() {
         {/* WF4-REVIEW: items → options/getOptionLabel; value wiring [S] */}
         <Autocomplete value={toTag} onChange={setToTag} return-object items={tagStore.store} custom-filter={normalizeFilter} item-title="name" label={t('data-pages.tags.target-tag')} />
         {(canMerge && fromTag && toTag) ? (
-          <template>
+          <>
             <div className="text-center">
               {t("data-pages.tags.merge-tag-example", { tag1: fromTag.name, tag2: toTag.name })}
             </div>
-          </template>
+          </>
         ) : null}
       </CardContent>
     </BaseDialog>
-    <BaseDialog value={deleteUnusedDialog} onChange={setDeleteUnusedDialog} bottom-sheet title={t('general.confirm')} icon={$globals.icons.alertCircle} color="error" can-confirm onConfirm={confirmDeleteUnused}>
+    <BaseDialog value={deleteUnusedDialog} onChange={setDeleteUnusedDialog} bottom-sheet title={t('general.confirm')} icon={icons.alertCircle} color="error" can-confirm onConfirm={confirmDeleteUnused}>
       <CardContent>
         {t('data-pages.tags.delete-unused-confirm', { count: unusedTagIds.length }, unusedTagIds.length)}
         <ul style="margin: 0.5rem 0 0; padding-left: 1.25rem; font-size: 0.85rem; color: rgba(var(--v-theme-on-surface), 0.7); line-height: 1.8;">
@@ -186,8 +187,9 @@ export default function Tags() {
         ) : null}
       </CardContent>
     </BaseDialog>
-    <GroupDataPage icon={$globals.icons.tags} title={t('data-pages.tags.tag-data')} create-title={t('data-pages.tags.new-tag')} edit-title={t('data-pages.tags.edit-tag')} table-headers={tableHeaders} table-config={tableConfig} data={tagStore.store || []} bulk-actions={[{ icon: $globals.icons.delete, text: t('general.delete'), event: 'delete-selected' }]} create-form={createForm} edit-form={editForm} onCreateOne={handleCreate} onEditOne={handleEdit} onDeleteOne={tagStore.actions.deleteOne} onBulkAction={handleBulkAction}>
-      <template>
+    <GroupDataPage icon={icons.tags} title={t('data-pages.tags.tag-data')} create-title={t('data-pages.tags.new-tag')} edit-title={t('data-pages.tags.edit-tag')} table-headers={tableHeaders} table-config={tableConfig} data={tagStore.store || []} bulk-actions={[{ icon: icons.delete, text: t('general.delete'), event: 'delete-selected' }]} create-form={createForm} edit-form={editForm} onCreateOne={handleCreate} onEditOne={handleEdit} onDeleteOne={tagStore.actions.deleteOne} onBulkAction={handleBulkAction}>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
         {(groupSlug && item.recipeCount > 0) ? (
           <NuxtLink to={`/g/${groupSlug}?tags=${item.id}`}>
             {item.recipeCount}
@@ -197,22 +199,25 @@ export default function Tags() {
             {item.recipeCount || 0}
           </span>
         )}
-      </template>
-      <template>
-        <BaseButton onClick={mergeDialog = true}>
-          <template>
-            {$globals.icons.externalLink}
-          </template>
+      </>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
+        <BaseButton onClick={() => setMergeDialog(true)}>
+          {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+          <>
+            {icons.externalLink}
+          </>
           {t("data-pages.combine")}
         </BaseButton>
         <Divider vertical className="mx-2" />
         <BaseButton color="error" loading={loadingEmpty} onClick={openDeleteUnusedDialog}>
-          <template>
-            {$globals.icons.broom}
-          </template>
+          {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+          <>
+            {icons.broom}
+          </>
           {t("data-pages.delete-unused")}
         </BaseButton>
-      </template>
+      </>
     </GroupDataPage>
   </div>
     </>

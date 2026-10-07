@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Badge, Box, Button, Card, CardContent, CardHeader, Chip, Container, Divider, FormControlLabel, Grid } from "@mui/material";
+import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
 import { watchDebounced } from "@vueuse/core";
 import { useUserApi } from "@/composables/api";
@@ -28,7 +29,7 @@ export default function FinderPage() {
   const { t } = useTranslation();
 
   const display = useDisplay();
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
   const auth = useMealieAuth();
   const route = useLocation(); // WF4-REVIEW: .query → useSearchParams [J]
 
@@ -64,14 +65,14 @@ export default function FinderPage() {
     },
   });
 
-  /* WF4-REVIEW [J]: writable computed — split into state + handlers */ const maxMissingFoods = computed({
+  /* WF4-REVIEW [J]: writable computed — split into state + handlers */ /* WF4-REVIEW [J]: writable computed — split into state + handlers */ const maxMissingFoods = computed({
     get: () => state.settings.maxMissingFoods,
     set: (value) => {
       state.settings.maxMissingFoods = normalizeMissingItemLimit(value);
     },
   });
 
-  /* WF4-REVIEW [J]: writable computed — split into state + handlers */ const maxMissingTools = computed({
+  /* WF4-REVIEW [J]: writable computed — split into state + handlers */ /* WF4-REVIEW [J]: writable computed — split into state + handlers */ const maxMissingTools = computed({
     get: () => state.settings.maxMissingTools,
     set: (value) => {
       state.settings.maxMissingTools = normalizeMissingItemLimit(value);
@@ -101,7 +102,7 @@ export default function FinderPage() {
     },
   );
 
-  const attrs = computed(() => {
+  const attrs = useMemo(() => {
     return {
       title: {
         class: {
@@ -117,7 +118,7 @@ export default function FinderPage() {
         colClass: useMobile ? "d-flex flex-wrap justify-end" : "d-flex flex-wrap justify-start",
       },
     };
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   const foodStore = isOwnGroup ? useFoodStore() : usePublicFoodStore(groupSlug);
   const foods = foodStore.store;
@@ -202,7 +203,7 @@ export default function FinderPage() {
   });
 
   const [recipeResponseItems, setRecipeResponseItems] = useState([]);
-  const recipeSuggestions = computed<RecipeSuggestions>(() => {
+  const recipeSuggestions = useMemo(() => {
     const readyToMake: RecipeSuggestionResponseItem[] = [];
     const missingItems: RecipeSuggestionResponseItem[] = [];
     recipeResponseItems.forEach((responseItem) => {
@@ -218,7 +219,7 @@ export default function FinderPage() {
       readyToMake,
       missingItems,
     };
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   watchDebounced(
     [selectedFoods, selectedTools, state.settings], async () => {
@@ -322,16 +323,19 @@ export default function FinderPage() {
     <>
   <Container>
     <BasePageTitle divider>
-      <template>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
         {/* WF4-REVIEW: cover → objectFit */}
         <Box component="img" width="100" max-height="100" max-width="100" src="/svgs/manage-cookbooks.svg" />
-      </template>
-      <template>
+      </>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
         {t('recipe-finder.recipe-finder')}
-      </template>
-      <template>
+      </>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
         {t('recipe-finder.recipe-finder-description')}
-      </template>
+      </>
     </BasePageTitle>
     {(state.ready) ? (
       <Container>
@@ -345,14 +349,14 @@ export default function FinderPage() {
                   {(foods) ? (
                     <SearchFilter value={selectedFoods} onChange={setSelectedFoods} items={foods} className={attrs.searchFilter.filterClass}>
                       {/* WF4-REVIEW: icon name resolves via lib/icons; dropped Vuetify-only prop "start" on <v-icon> */}
-                      <MdiIcon name={$globals.icons.foods} />
+                      <MdiIcon name={icons.foods} />
                       {t("general.foods")}
                     </SearchFilter>
                   ) : null}
                   {(tools) ? (
                     <SearchFilter value={selectedTools} onChange={setSelectedTools} items={tools} className={attrs.searchFilter.filterClass}>
                       {/* WF4-REVIEW: icon name resolves via lib/icons; dropped Vuetify-only prop "start" on <v-icon> */}
-                      <MdiIcon name={$globals.icons.potSteam} />
+                      <MdiIcon name={icons.potSteam} />
                       {t("tool.tools")}
                     </SearchFilter>
                   ) : null}
@@ -362,21 +366,23 @@ export default function FinderPage() {
                       {/* WF4-REVIEW: dropped Vuetify-only prop "dark" on <v-btn> */}
                       <Button size="small" color="accent" onClick={state.queryFilterMenu = !state.queryFilterMenu}>
                         {/* WF4-REVIEW: icon name resolves via lib/icons; dropped Vuetify-only prop "start" on <v-icon> */}
-                        <MdiIcon name={$globals.icons.filter} />
+                        <MdiIcon name={icons.filter} />
                         {t("recipe-finder.other-filters")}
                         {/* WF4-REVIEW: v-model on complex expression "state.queryFilterMenu" [J] */}
-                        <BaseDialog {/* WF4-REVIEW: v-model state.queryFilterMenu */} title={t('recipe-finder.other-filters')} icon={$globals.icons.filter} width="100%" max-width="1100px" submit-disabled={!state.queryFilterEditorValue} can-confirm onConfirm={saveQueryFilter}>
+                        <BaseDialog title={t('recipe-finder.other-filters')} icon={icons.filter} width="100%" max-width="1100px" submit-disabled={!state.queryFilterEditorValue} can-confirm onConfirm={saveQueryFilter}>
                           <CardContent>
                             <QueryFilterBuilder key={state.queryFilterMenuKey} initial-query-filter={state.queryFilterJSON} field-defs={queryFilterBuilderFields} onInput={(value) => state.queryFilterEditorValue = value} onInputJSON={(value) => state.queryFilterEditorValueJSON = value} />
                           </CardContent>
-                          <template>
+                          {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                          <>
                             <BaseButton color="error" type="submit" onClick={clearQueryFilter}>
-                              <template>
-                                {$globals.icons.close}
-                              </template>
+                              {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                              <>
+                                {icons.close}
+                              </>
                               {t("search.clear-selection")}
                             </BaseButton>
-                          </template>
+                          </>
                         </BaseDialog>
                       </Button>
                     </Badge>
@@ -387,15 +393,16 @@ export default function FinderPage() {
                 {/* WF4-REVIEW: cols/sm/md/lg → size={{ xs, sm, md }} */}
                 <Grid cols="12" className={attrs.settings.colClass}>
                   {/* WF4-REVIEW: unmapped <v-menu> — judgement component, convert manually [J]; v-model on complex expression "state.settingsMenu" [J] */}
-                  <VMenu {/* WF4-REVIEW: v-model state.settingsMenu */} offset-y nudge-bottom="3" close-on-content-click={false}>
-                    <template>
+                  <VMenu offset-y nudge-bottom="3" close-on-content-click={false}>
+                    {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                    <>
                       {/* WF4-REVIEW: dropped Vuetify-only prop "dark" on <v-btn> */}
                       <Button size="small" color="primary" {...(props)}>
                         {/* WF4-REVIEW: icon name resolves via lib/icons; dropped Vuetify-only prop "start" on <v-icon> */}
-                        <MdiIcon name={$globals.icons.cog} />
+                        <MdiIcon name={icons.cog} />
                         {t("general.settings")}
                       </Button>
-                    </template>
+                    </>
                     <Card>
                       <CardContent>
                         <div>
@@ -407,14 +414,14 @@ export default function FinderPage() {
                         <div className="mt-1">
                           {(isOwnGroup) ? (
                             /* WF4-REVIEW: control={<Checkbox/>} + label prop; v-model on complex expression "state.settings.includeFoodsOnHand" [J] */
-                            <FormControlLabel {/* WF4-REVIEW: v-model state.settings.includeFoodsOnHand */} density="compact" hide-details className="my-auto" label={t('recipe-finder.include-ingredients-on-hand')} />
+                            <FormControlLabel density="compact" hide-details className="my-auto" label={t('recipe-finder.include-ingredients-on-hand')} />
                           ) : null}
                           {(isOwnGroup) ? (
                             /* WF4-REVIEW: control={<Checkbox/>} + label prop; v-model on complex expression "state.settings.includeToolsOnHand" [J] */
-                            <FormControlLabel {/* WF4-REVIEW: v-model state.settings.includeToolsOnHand */} density="compact" hide-details className="my-auto" label={t('recipe-finder.include-tools-on-hand')} />
+                            <FormControlLabel density="compact" hide-details className="my-auto" label={t('recipe-finder.include-tools-on-hand')} />
                           ) : null}
                           {/* WF4-REVIEW: control={<Checkbox/>} + label prop; v-model on complex expression "state.settings.includeSubstitutions" [J] */}
-                          <FormControlLabel {/* WF4-REVIEW: v-model state.settings.includeSubstitutions */} density="compact" hide-details className="my-auto" label={t('recipe-finder.include-substitutions')} />
+                          <FormControlLabel density="compact" hide-details className="my-auto" label={t('recipe-finder.include-substitutions')} />
                         </div>
                       </CardContent>
                     </Card>

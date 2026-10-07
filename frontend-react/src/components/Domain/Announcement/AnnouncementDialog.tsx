@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Button, CardContent, CardHeader, Chip, List, ListItem, ListItemText } from "@mui/material";
+import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
 import { useAnnouncements } from "@/composables/use-announcements";
 import type { Announcement } from "@/composables/use-announcements";
@@ -57,7 +58,7 @@ export default function AnnouncementDialog() {
   return (
     <>
   {(currentAnnouncement) ? (
-    <BaseDialog value={dialog} onChange={/* WF4-REVIEW: setter */ setDialog} title={t('announcements.announcements')} icon={$globals.icons.bullhornVariant} cancel-text={t('general.done')} width="100%" max-width="1200">
+    <BaseDialog value={dialog} onChange={/* WF4-REVIEW: setter */ setDialog} title={t('announcements.announcements')} icon={icons.bullhornVariant} cancel-text={t('general.done')} width="100%" max-width="1200">
       <div className="d-flex" style={{ height: useMobile ? '100%' : '60vh', minHeight: '60vh' }}>
         <List sx={{ display: (!useMobile || navOpen) ? undefined : "none" }} nav density="compact" color="primary" className="overflow-y-auto border-e flex-shrink-0" style="width: 200px; max-height: 60vh">
           {allAnnouncements.toReversed().map(announcement => (
@@ -74,17 +75,18 @@ export default function AnnouncementDialog() {
                 </ListItemText>
               ) : null}
               {(newAnnouncements.some(a => a.key === announcement.key)) ? (
-                <template>
+                /* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */
+                <>
                   {/* WF4-REVIEW: icon name resolves via lib/icons */}
-                  <MdiIcon name={$globals.icons.alertCircle} size="x-small" color="info" />
-                </template>
+                  <MdiIcon name={icons.alertCircle} size="x-small" color="info" />
+                </>
               ) : null}
             </ListItem>
           ))}
         </List>
         <div className="flex-grow-1 overflow-y-auto">
           {(useMobile) ? (
-            <Button prepend-icon={navOpen ? $globals.icons.chevronLeft : $globals.icons.chevronRight} density="compact" variant="text" className="mt-2 ms-2" onClick={navOpen = !navOpen}>
+            <Button prepend-icon={navOpen ? icons.chevronLeft : icons.chevronRight} density="compact" variant="text" className="mt-2 ms-2" onClick={() => setNavOpen(!navOpen)}>
               {t("announcements.all-announcements")}
             </Button>
           ) : null}
@@ -93,7 +95,7 @@ export default function AnnouncementDialog() {
             {(currentAnnouncement.date) ? (
               <Chip label large className="me-1">
                 {/* WF4-REVIEW: icon name resolves via lib/icons */}
-                <MdiIcon name={$globals.icons.calendar} className="me-1" />
+                <MdiIcon name={icons.calendar} className="me-1" />
                 {$d(currentAnnouncement.date)}
               </Chip>
             ) : null}
@@ -104,12 +106,13 @@ export default function AnnouncementDialog() {
           </CardContent>
         </div>
       </div>
-      <template>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
         {(newAnnouncements.length) ? (
-          <BaseButton color="success" icon={$globals.icons.textBoxCheckOutline} text={t('announcements.mark-all-as-read')} onClick={markAllAsRead} />
+          <BaseButton color="success" icon={icons.textBoxCheckOutline} text={t('announcements.mark-all-as-read')} onClick={markAllAsRead} />
         ) : null}
-        <BaseButton disabled={isLastAnnouncement(currentAnnouncement.key)} color="info" icon={$globals.icons.arrowRightBold} icon-right text={t('general.next')} onClick={nextAnnouncement} />
-      </template>
+        <BaseButton disabled={isLastAnnouncement(currentAnnouncement.key)} color="info" icon={icons.arrowRightBold} icon-right text={t('general.next')} onClick={nextAnnouncement} />
+      </>
     </BaseDialog>
   ) : null}
     </>

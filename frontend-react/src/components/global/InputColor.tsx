@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Button, Card, CardContent, TextField } from "@mui/material";
+import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
 
 export default function InputColor() {
@@ -27,19 +28,22 @@ export default function InputColor() {
     <>
   {/* WF4-REVIEW: rules/error-messages → error+helperText */}
   <TextField value={modelValue} onChange={/* WF4-REVIEW: setter */ setModelValue} label={t('general.color')}>
-    <template>
+    {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+    <>
       <Button className="elevation-0" size="small" height="30px" width="30px" color={modelValue || 'grey'} onClick={setRandomHex}>
         {/* WF4-REVIEW: icon name resolves via lib/icons */}
-        <MdiIcon name={$globals.icons.refreshCircle} color="white" />
+        <MdiIcon name={icons.refreshCircle} color="white" />
       </Button>
-    </template>
-    <template>
+    </>
+    {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+    <>
       {/* WF4-REVIEW: unmapped <v-menu> — judgement component, convert manually [J] */}
       <VMenu value={menu} onChange={setMenu} start nudge-left="30" nudge-top="20" close-on-content-click={false}>
-        <template>
+        {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+        <>
           {/* WF4-REVIEW: icon name resolves via lib/icons */}
-          <MdiIcon name={$globals.icons.formatColorFill} {...(props)} />
-        </template>
+          <MdiIcon name={icons.formatColorFill} {...(props)} />
+        </>
         <Card>
           <CardContent className="pa-0">
             {/* WF4-REVIEW: unmapped <v-color-picker> — judgement component, convert manually [J] */}
@@ -47,7 +51,7 @@ export default function InputColor() {
           </CardContent>
         </Card>
       </VMenu>
-    </template>
+    </>
   </TextField>
     </>
   );

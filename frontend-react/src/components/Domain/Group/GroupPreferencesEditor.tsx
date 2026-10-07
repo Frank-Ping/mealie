@@ -17,7 +17,7 @@ export default function GroupPreferencesEditor() {
       <BaseCardSectionTitle title={t('group.group-preferences')} />
       <div className="mb-6">
         {/* WF4-REVIEW: control={<Checkbox/>} + label prop; v-model on complex expression "local.privateGroup" [J] */}
-        <FormControlLabel {/* WF4-REVIEW: v-model local.privateGroup */} hide-details density="compact" color="primary" label={t('group.private-group')} />
+        <FormControlLabel hide-details density="compact" color="primary" label={t('group.private-group')} />
         <div className="ml-8">
           <p className="text-subtitle-2 my-0 py-0">
             {t("group.private-group-description")}
@@ -27,7 +27,7 @@ export default function GroupPreferencesEditor() {
       </div>
       <div className="mb-6">
         {/* WF4-REVIEW: control={<Checkbox/>} + label prop; v-model on complex expression "local.showAnnouncements" [J] */}
-        <FormControlLabel {/* WF4-REVIEW: v-model local.showAnnouncements */} hide-details density="compact" color="primary" label={t('announcements.show-announcements-from-mealie')} />
+        <FormControlLabel hide-details density="compact" color="primary" label={t('announcements.show-announcements-from-mealie')} />
         <div className="ml-8">
           <p className="text-subtitle-2 my-0 py-0">
             {t("announcements.show-announcements-setting-description")}

@@ -1,3 +1,5 @@
+import { useTranslation } from "react-i18next";
+
 const DURATION_UNITS = [
   ["day", 86400],
   ["hour", 3600],
@@ -38,7 +40,7 @@ export function recipeTimeDisplay(
 }
 
 export function useRecipeTime() {
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
 
   return {
     durationUnitLabel: (unit: "hour" | "minute") => durationUnitLabel(unit, i18n.locale),

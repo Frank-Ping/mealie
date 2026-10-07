@@ -1,16 +1,13 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Button, Grid } from "@mui/material";
+import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
 
-export default function RecipeImportImages() {
+export default function RecipeImportImages({ disabled = false }: Props) {
   const { t } = useTranslation();
 
-  withDefaults(defineProps<{
-    disabled?: boolean;
-  }>(), {
-    disabled: false,
-  });
+  /* props via destructured signature (was withDefaults(defineProps<?>) */
 
   const images = defineModel<(Blob | File)[]>({ default: () => [] });
 
@@ -78,7 +75,7 @@ export default function RecipeImportImages() {
                 {(images.length > 1) ? (
                   <Button disabled={disabled || index === 0} color="primary" onClick={() => setCoverImage(index)}>
                     {/* WF4-REVIEW: icon name resolves via lib/icons; dropped Vuetify-only prop "start" on <v-icon> */}
-                    <MdiIcon name={index === 0 ? $globals.icons.check : $globals.icons.fileImage} />
+                    <MdiIcon name={index === 0 ? icons.check : icons.fileImage} />
                     {index === 0 ? t("recipe.cover-image") : t("recipe.set-as-cover-image")}
                   </Button>
                 ) : null}

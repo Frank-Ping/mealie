@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Button, CardContent, Container, Divider, FormControlLabel, LinearProgress, Toolbar } from "@mui/material";
+import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
 import { useAdminApi } from "@/composables/api";
 import type { AllBackups } from "@/lib/api/types/admin";
@@ -14,7 +15,7 @@ export const handle = {
 export default function Backups() {
   const { t } = useTranslation();
 
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
 
   const adminApi = useAdminApi();
   const [selected, setSelected] = useState("");
@@ -114,42 +115,46 @@ export default function Backups() {
   <Container fluid>
     <section>
       {/* WF4-REVIEW: v-model on complex expression "state.deleteDialog" [J] */}
-      <BaseDialog {/* WF4-REVIEW: v-model state.deleteDialog */} bottom-sheet title={t('settings.backup.delete-backup')} color="error" icon={$globals.icons.alertCircle} can-confirm onConfirm={deleteBackup()}>
+      <BaseDialog bottom-sheet title={t('settings.backup.delete-backup')} color="error" icon={icons.alertCircle} can-confirm onConfirm={deleteBackup()}>
         <CardContent>
           {t("general.confirm-delete-generic")}
         </CardContent>
       </BaseDialog>
       {/* WF4-REVIEW: v-model on complex expression "state.importDialog" [J] */}
-      <BaseDialog {/* WF4-REVIEW: v-model state.importDialog */} bottom-sheet color="error" title={t('settings.backup.backup-restore')} icon={$globals.icons.database}>
+      <BaseDialog bottom-sheet color="error" title={t('settings.backup.backup-restore')} icon={icons.database}>
         <Divider />
         <CardContent>
           <i18n-t keypath="settings.backup.back-restore-description">
-            <template>
+            {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+            <>
               <b>
                 {t('settings.backup.cannot-be-undone')}
               </b>
-            </template>
+            </>
           </i18n-t>
           <p className="mt-3">
             <i18n-t keypath="settings.backup.postgresql-note">
-              <template>
+              {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+              <>
                 <a className="text-primary" href="https://nightly.mealie.io/documentation/getting-started/usage/backups-and-restoring/">
                   {t('settings.backup.backup-restore-process-in-the-documentation')}
                 </a>
-              </template>
+              </>
             </i18n-t>
           </p>
           {/* WF4-REVIEW: control={<Checkbox/>} + label prop; v-model on complex expression "state.confirmImport" [J] */}
-          <FormControlLabel {/* WF4-REVIEW: v-model state.confirmImport */} className="checkbox-top" color="error" hide-details label={t('settings.backup.irreversible-acknowledgment')} />
+          <FormControlLabel className="checkbox-top" color="error" hide-details label={t('settings.backup.irreversible-acknowledgment')} />
         </CardContent>
-        <template>
+        {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+        <>
           <BaseButton delete disabled={!state.confirmImport || state.runningRestore} onClick={restoreBackup(selected)}>
-            <template>
-              {$globals.icons.database}
-            </template>
+            {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+            <>
+              {icons.database}
+            </>
             {t('settings.backup.restore-backup')}
           </BaseButton>
-        </template>
+        </>
         <p className="caption pb-0 mb-1 text-center">
           {selected}
         </p>
@@ -171,23 +176,26 @@ export default function Backups() {
         </Toolbar>
         {/* WF4-REVIEW: unmapped <v-data-table> — judgement component, convert manually [J] */}
         <VDataTable headers={state.headers} items={backups.imports || []} className="elevation-0" items-per-page={-1} hide-default-footer disable-pagination search={state.search} onClickRow={setSelected}>
-          <template>
+          {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+          <>
             {$d(Date.parse(item.date))}
-          </template>
-          <template>
+          </>
+          {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+          <>
             <Button icon className="mx-1" color="error" variant="text" onClick={(e) => { e.stopPropagation(); state.deleteDialog = true;
                 deleteTarget = item.name;; }}>
               {/* WF4-REVIEW: icon name resolves via lib/icons */}
-              <MdiIcon name={$globals.icons.delete} />
+              <MdiIcon name={icons.delete} />
             </Button>
             <BaseButton small download download-url={backupsFileNameDownload(item.name)} className="mx-1" onClick={(e) => { e.stopPropagation(); { }; }} />
             <BaseButton small onClick={(e) => { e.stopPropagation(); setSelected(item); state.importDialog = true; }}>
-              <template>
-                {$globals.icons.backupRestore}
-              </template>
+              {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+              <>
+                {icons.backupRestore}
+              </>
               {t("settings.backup.backup-restore")}
             </BaseButton>
-          </template>
+          </>
         </VDataTable>
         <Divider />
         <div className="d-flex justify-end mt-6">

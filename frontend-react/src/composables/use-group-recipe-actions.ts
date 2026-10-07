@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useStoreActions } from "./partials/use-actions-factory";
 import { useUserApi } from "@/composables/api";
 import type { GroupRecipeActionOut, GroupRecipeActionType } from "@/lib/api/types/household";
@@ -47,9 +47,9 @@ export const useGroupRecipeActions = function (
     setLoading(false);
   }
 
-  const recipeActions = computed<GroupRecipeActionOut[] | null>(() => {
+  const recipeActions = useMemo(() => {
     return groupRecipeActions;
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   function parseRecipeActionUrl(url: string, recipe: Recipe, recipeScale: number): string {
     const recipeServings = (recipe.recipeServings || 1) * recipeScale;

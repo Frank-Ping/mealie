@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { CardContent, TextField } from "@mui/material";
+import { icons } from "@/lib/icons";
 import { useUserApi } from "@/composables/api";
 import { alert } from "@/composables/use-toast";
 import type { PlanEntryType } from "@/lib/api/types/meal-plan";
@@ -18,21 +19,21 @@ export default function MealPlanAddRecipeDialog() {
     default: false,
   });
 
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
   const api = useUserApi();
   const planTypeOptions = usePlanTypeOptions();
   const navigate = useNavigate();
 
   const [newMealType, setNewMealType] = useState("dinner");
-  const [newMealdate, setNewMealdate] = useState(new Date(););
+  const [newMealdate, setNewMealdate] = useState(new Date());
 
-  const newMealdateString = useMemo(() =>  {
+  const newMealdateString = useMemo(() => {
     // Format the date to YYYY-MM-DD in the same timezone as newMealdate
-    const year = newMealdate.getFullYear(, []); // WF4-REVIEW: dependency array
+    const year = newMealdate.getFullYear();
     const month = String(newMealdate.getMonth() + 1).padStart(2, "0");
     const day = String(newMealdate.getDate()).padStart(2, "0");
     return `${year}-${month}-${day}`;
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   async function addRecipeToPlan() {
     const { response } = await api.mealplans.createOne({
@@ -58,7 +59,7 @@ export default function MealPlanAddRecipeDialog() {
 
   return (
     <>
-  <BaseDialog value={mealplannerDialog} onChange={/* WF4-REVIEW: setter */ setMealplannerDialog} bottom-sheet title={t('recipe.add-recipe-to-mealplan')} color="primary" icon={$globals.icons.calendar} can-confirm onConfirm={addRecipeToPlan}>
+  <BaseDialog value={mealplannerDialog} onChange={/* WF4-REVIEW: setter */ setMealplannerDialog} bottom-sheet title={t('recipe.add-recipe-to-mealplan')} color="primary" icon={icons.calendar} can-confirm onConfirm={addRecipeToPlan}>
     <CardContent>
       <MealPlanDatePicker value={newMealdate} onChange={setNewMealdate} entry-type={newMealType} />
       {/* WF4-REVIEW: items/item-title/item-value → MenuItem children */}

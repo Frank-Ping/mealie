@@ -1,10 +1,5 @@
-export default function SwipeTransition() {
-  withDefaults(defineProps<{
-    direction: "left" | "right";
-    group?: boolean;
-  }>(), {
-    group: false,
-  });
+export default function SwipeTransition({ group = false }: Props) {
+  /* props via destructured signature (was withDefaults(defineProps<?>) */
 
   return (
     <>

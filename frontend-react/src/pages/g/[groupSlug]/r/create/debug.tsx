@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { CardActions, CardContent, CardHeader, FormControlLabel, TextField, form } from "@mui/material";
+import { icons } from "@/lib/icons";
 import { useUserApi } from "@/composables/api";
 import { useGroupSelf } from "@/composables/use-groups";
 import { validators } from "@/composables/use-validators";
@@ -20,7 +21,7 @@ export default function Debug() {
   const navigate = useNavigate();
   const { group } = useGroupSelf();
 
-  /* WF4-REVIEW [J]: writable computed — split into state + handlers */ const recipeUrl = computed({
+  /* WF4-REVIEW [J]: writable computed — split into state + handlers */ /* WF4-REVIEW [J]: writable computed — split into state + handlers */ const recipeUrl = computed({
     set(recipe_import_url: string | null) {
       if (recipe_import_url !== null) {
         recipe_import_url = recipe_import_url.trim();
@@ -62,21 +63,22 @@ export default function Debug() {
         <CardContent>
           {t('recipe.recipe-debugger-description')}
           {/* WF4-REVIEW: rules/error-messages → error+helperText */}
-          <TextField value={recipeUrl} onChange={/* WF4-REVIEW: setter */ setRecipeUrl} label={t('new-recipe.recipe-url')} validate-on="blur" prepend-inner-icon={$globals.icons.link} autofocus variant="solo-filled" clearable rounded className="rounded-lg mt-2" rules={[validators.url]} hint={t('new-recipe.url-form-hint')} persistent-hint />
+          <TextField value={recipeUrl} onChange={/* WF4-REVIEW: setter */ setRecipeUrl} label={t('new-recipe.recipe-url')} validate-on="blur" prepend-inner-icon={icons.link} autofocus variant="solo-filled" clearable rounded className="rounded-lg mt-2" rules={[validators.url]} hint={t('new-recipe.url-form-hint')} persistent-hint />
         </CardContent>
         {(group?.aiProviderSettings?.aiEnabled) ? (
           <CardContent>
             {t('recipe.recipe-debugger-use-openai-description')}
             {/* WF4-REVIEW: control={<Checkbox/>} + label prop; v-model on complex expression "state.useOpenAI" [J] */}
-            <FormControlLabel {/* WF4-REVIEW: v-model state.useOpenAI */} label={t('recipe.use-openai')} />
+            <FormControlLabel label={t('recipe.use-openai')} />
           </CardContent>
         ) : null}
         <CardActions className="justify-center">
           <div style="width: 250px">
             <BaseButton disabled={recipeUrl === null} rounded block type="submit" color="info" loading={state.loading}>
-              <template>
-                {$globals.icons.robot}
-              </template>
+              {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+              <>
+                {icons.robot}
+              </>
               {t('recipe.debug')}
             </BaseButton>
           </div>

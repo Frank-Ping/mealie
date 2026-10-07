@@ -17,7 +17,7 @@ export default function RecipeNutrition({ edit = true }: Props) {
   const modelValue = defineModel<Nutrition>({ required: true });
 
   const { labels } = useNutritionLabels();
-  const valueNotNull = computed(() => {
+  const valueNotNull = useMemo(() => {
     let key: keyof Nutrition;
     for (key in modelValue) {
       if (modelValue.value[key] !== null) {
@@ -25,7 +25,7 @@ export default function RecipeNutrition({ edit = true }: Props) {
       }
     }
     return false;
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   const showViewer = useMemo(() => !edit && valueNotNull, []); // WF4-REVIEW: dependency array
 
@@ -34,8 +34,8 @@ export default function RecipeNutrition({ edit = true }: Props) {
   }
 
   // Build a new list that only contains nutritional information that has a value
-  const renderedList = useMemo(() =>  {
-    return Object.entries(labels, []); // WF4-REVIEW: dependency array.reduce((item: NutritionLabelType, [key, label]) => {
+  const renderedList = useMemo(() => {
+    return Object.entries(labels).reduce((item: NutritionLabelType, [key, label]) => {
       if (modelValue.value[key]?.trim()) {
         item[key] = {
           ...label,
@@ -44,7 +44,7 @@ export default function RecipeNutrition({ edit = true }: Props) {
       }
       return item;
     }, {});
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   return (
     <>

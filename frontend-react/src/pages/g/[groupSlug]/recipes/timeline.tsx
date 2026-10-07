@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Box, Paper } from "@mui/material";
 import { useUserApi } from "@/composables/api";
@@ -11,7 +11,7 @@ export const handle = {
 export default function Timeline() {
   const { t } = useTranslation();
 
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
   const api = useUserApi();
   const [ready, setReady] = useState(false);
 
@@ -31,20 +31,33 @@ export default function Timeline() {
     setReady(true);
   }
 
-  useAsyncData("house-hold", fetchHousehold);
+  useEffect(() => {
+    let cancelled = false;
+    void (async () => {
+      try {
+        fetchHousehold
+      }
+      catch (err) {
+        if (!cancelled) console.error(err); // WF4-REVIEW: surface load errors (was useAsyncData)
+      }
+    })();
+    return () => { cancelled = true; };
+  }, []); // WF4-REVIEW: deps + re-run trigger — confirm against auth-ready init flow
 
   return (
     <>
   <div>
     {(groupName) ? (
       <BasePageTitle className="mt-n4 pt-8">
-        <template>
+        {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+        <>
           {/* WF4-REVIEW: cover → objectFit */}
           <Box component="img" width="100%" max-height="200" max-width="150" src="/svgs/manage-members.svg" />
-        </template>
-        <template>
+        </>
+        {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+        <>
           {t("recipe.group-global-timeline", { groupName })}
-        </template>
+        </>
       </BasePageTitle>
     ) : null}
     <Paper className={$vuetify.display.smAndDown ? 'pa-0' : 'px-3 py-0'} style="background-color: transparent;">

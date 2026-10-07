@@ -17,7 +17,7 @@ export default function GroupPage() {
   const { t } = useTranslation();
 
   const { group, actions: groupActions } = useGroupSelf();
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
 
   useSeoMeta({
     title: i18n.t("group.group"),
@@ -102,13 +102,15 @@ export default function GroupPage() {
   {(group) ? (
     <Container className="narrow-container">
       <BasePageTitle className="mb-5">
-        <template>
+        {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+        <>
           {/* WF4-REVIEW: cover → objectFit */}
           <Box component="img" width="100%" max-height="100" max-width="100" src="/svgs/manage-group-settings.svg" />
-        </template>
-        <template>
+        </>
+        {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+        <>
           {t("profile.group-settings")}
-        </template>
+        </>
         {t("profile.group-description")}
       </BasePageTitle>
       <div className="mb-10">
@@ -118,7 +120,7 @@ export default function GroupPage() {
             <CardContent>
               {(group.preferences) ? (
                 /* WF4-REVIEW: v-model on complex expression "group.preferences" [J] */
-                <GroupPreferencesEditor {/* WF4-REVIEW: v-model group.preferences */} />
+                <GroupPreferencesEditor />
               ) : null}
             </CardContent>
           </Card>
@@ -136,7 +138,7 @@ export default function GroupPage() {
             <CardContent>
               {(group.aiProviderSettings) ? (
                 /* WF4-REVIEW: v-model on complex expression "group.aiProviderSettings" [J] */
-                <GroupAIProviderSettingsEditor {/* WF4-REVIEW: v-model group.aiProviderSettings */} onCreate={handleCreateProvider} onUpdate={handleUpdateProvider} onDelete={handleDeleteProvider} />
+                <GroupAIProviderSettingsEditor onCreate={handleCreateProvider} onUpdate={handleUpdateProvider} onDelete={handleDeleteProvider} />
               ) : null}
             </CardContent>
           </Card>

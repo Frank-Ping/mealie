@@ -7,14 +7,14 @@ export const useLoggedInState = function () {
   const route = useLocation(); // WF4-REVIEW: .query → useSearchParams [J]
 
   const loggedIn = auth.loggedIn; // was computed — plain read stays reactive
-  const isOwnGroup = useMemo(() =>  {
-    if (!route.params.groupSlug, []); // WF4-REVIEW: dependency array {
+  const isOwnGroup = useMemo(() => {
+    if (!route.params.groupSlug) {
       return loggedIn;
     }
     else {
       return loggedIn && auth.user?.groupSlug === route.params.groupSlug;
     }
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   return { loggedIn, isOwnGroup };
 };

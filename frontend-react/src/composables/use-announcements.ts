@@ -54,8 +54,7 @@ export function useAnnouncements() {
         auth.user?.showAnnouncements
         && household?.preferences?.showAnnouncements
         && group?.preferences?.showAnnouncements
-      , []); // WF4-REVIEW: dependency array,
-  );
+      ),, []); // WF4-REVIEW: dependency array
 
   function updateUnreadAnnouncements(lastReadKey: string) {
     newAnnouncements = allAnnouncements.filter(a => a.key > lastReadKey);

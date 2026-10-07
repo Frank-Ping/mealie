@@ -15,7 +15,7 @@ import { useMealieAuth } from "@/composables/use-mealie-auth";
 export default function DefaultLayout() {
   const { t } = useTranslation();
 
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
   // icons imported directly (was $globals)
   const display = useDisplay();
   const auth = useMealieAuth();
@@ -26,18 +26,18 @@ export default function DefaultLayout() {
   const groupSlug = useMemo(() => route.params.groupSlug as string || auth.user?.groupSlug || "", []); // WF4-REVIEW: dependency array
 
   const cookbookPreferences = useCookbookPreferences();
-  const ownCookbookStore = useMemo(() => isOwnGroup ? useCookbookStore(i18n, []); // WF4-REVIEW: dependency array : null);
-  const publicCookbookStoreCache = ref<Record<string, ReturnType<typeof usePublicCookbookStore>>>({});
+  const ownCookbookStore = useMemo(() => isOwnGroup ? useCookbookStore(i18n) : null, []); // WF4-REVIEW: dependency array
+  const [publicCookbookStoreCache, setPublicCookbookStoreCache] = useState({});
 
   function getPublicCookbookStore(slug: string) {
-    if (!publicCookbookStoreCache.value[slug]) {
-      publicCookbookStoreCache.value[slug] = usePublicCookbookStore(slug, i18n);
+    if (!publicCookbookStoreCache[slug]) {
+      publicCookbookStoreCache[slug] = usePublicCookbookStore(slug, i18n);
     }
-    return publicCookbookStoreCache.value[slug];
+    return publicCookbookStoreCache[slug];
   }
 
-  const cookbooks = useMemo(() =>  {
-    if (ownCookbookStore, []); // WF4-REVIEW: dependency array {
+  const cookbooks = useMemo(() => {
+    if (ownCookbookStore) {
       return ownCookbookStore.store;
     }
     else if (groupSlug) {
@@ -45,7 +45,7 @@ export default function DefaultLayout() {
       return unref(publicStore.store);
     }
     return [];
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   const showAIImport = group?.aiProviderSettings?.aiEnabled; // was computed — plain read stays reactive
 
@@ -65,8 +65,8 @@ export default function DefaultLayout() {
   }
 
   const currentUserHouseholdId = auth.user?.householdId; // was computed — plain read stays reactive
-  const cookbookLinks = useMemo(() =>  {
-    if (!cookbooks?.length, []); // WF4-REVIEW: dependency array {
+  const cookbookLinks = useMemo(() => {
+    if (!cookbooks?.length) {
       return [];
     }
 
@@ -105,13 +105,13 @@ export default function DefaultLayout() {
     else {
       return [...ownLinks, ...links];
     }
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   const createLinks = useMemo(() => [
     {
       insertDivider: false,
       icon: icons.link,
-      title: i18n.t("general.import", []); // WF4-REVIEW: dependency array,
+      title: i18n.t("general.import"),
       subtitle: i18n.t("new-recipe.import-by-url"),
       to: `/g/${groupSlug}/r/create/url`,
       restricted: true,
@@ -135,13 +135,13 @@ export default function DefaultLayout() {
       restricted: true,
       hide: false,
     },
-  ]);
+  ], []); // WF4-REVIEW: dependency array
 
   const topLinks = useMemo(() => [
     {
       icon: icons.silverwareForkKnife,
       to: `/g/${groupSlug}`,
-      title: i18n.t("general.recipes", []); // WF4-REVIEW: dependency array,
+      title: i18n.t("general.recipes"),
       restricted: false,
     },
     {
@@ -199,7 +199,7 @@ export default function DefaultLayout() {
         },
       ],
     },
-  ]);
+  ], []); // WF4-REVIEW: dependency array
 
   return (
     <>
@@ -207,26 +207,27 @@ export default function DefaultLayout() {
   <Box>
     <TheSnackbar />
     <AppHeader>
-      <Button icon onClick={(e) => { e.stopPropagation(); sidebar = !sidebar; }}>
+      <Button icon onClick={(e) => { e.stopPropagation(); setSidebar(!sidebar); }}>
         {/* WF4-REVIEW: icon name resolves via lib/icons */}
-        <MdiIcon name={$globals.icons.menu} />
+        <MdiIcon name={icons.menu} />
       </Button>
     </AppHeader>
     <AppSidebar value={sidebar} onChange={setSidebar} top-link={topLinks} secondary-links={cookbookLinks || []}>
       {/* WF4-REVIEW: unmapped <v-menu> — judgement component, convert manually [J] */}
       <VMenu offset-y nudge-bottom="5" close-delay="50" nudge-right="15">
-        <template>
+        {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+        <>
           {(isOwnGroup) ? (
             <Button rounded size="large" className="ml-2 mt-3" {...(props)} variant="elevated" elevation="2" color={$vuetify.theme.current.dark ? 'background-lighten-1' : 'background-darken-1'}>
               {/* WF4-REVIEW: icon name resolves via lib/icons; dropped Vuetify-only prop "start" on <v-icon> */}
-              <MdiIcon name={$globals.icons.createAlt} size="large" color="primary" />
+              <MdiIcon name={icons.createAlt} size="large" color="primary" />
               {t("general.create")}
             </Button>
           ) : null}
-        </template>
+        </>
         <List density="comfortable" className="mb-0 mt-1 py-0" variant="flat">
           {createLinks.map((item, index) => (
-            <template>
+            <>
               {(!item.hide) ? (
                 <div key={item.title}>
                   {(item.insertDivider) ? (
@@ -235,10 +236,11 @@ export default function DefaultLayout() {
                   {(!item.restricted || isOwnGroup) ? (
                     /* WF4-REVIEW: @click → ListItemButton */
                     <ListItem key={item.title} to={item.to} exact className="my-1">
-                      <template>
+                      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                      <>
                         {/* WF4-REVIEW: icon name resolves via lib/icons */}
                         <MdiIcon size="40" icon={item.icon} />
-                      </template>
+                      </>
                       {/* WF4-REVIEW: content → primary prop */}
                       <ListItemText className="font-weight-medium" style="font-size: small;">
                         {item.title}
@@ -251,7 +253,7 @@ export default function DefaultLayout() {
                   ) : null}
                 </div>
               ) : null}
-            </template>
+            </>
           ))}
         </List>
       </VMenu>

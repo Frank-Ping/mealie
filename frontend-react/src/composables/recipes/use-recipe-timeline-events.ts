@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import { icons } from "@/lib/icons";
 import type { TimelineEventType } from "@/lib/api/types/recipe";
 
@@ -9,13 +10,13 @@ export interface TimelineEventTypeData {
 }
 
 export const useTimelineEventTypes = () => {
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
   // icons imported directly (was $globals)
-  const eventTypeOptions = useMemo(() =>  {
+  const eventTypeOptions = useMemo(() => {
     return [
       {
         value: "comment",
-        label: i18n.t("recipe.comment", []); // WF4-REVIEW: dependency array,
+        label: i18n.t("recipe.comment"),
         icon: icons.commentTextMultiple,
       },
       {
@@ -29,7 +30,7 @@ export const useTimelineEventTypes = () => {
         icon: icons.cog,
       },
     ];
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   return {
     eventTypeOptions,

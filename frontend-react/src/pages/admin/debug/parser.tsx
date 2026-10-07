@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Box, Button, Card, CardActions, CardContent, CardHeader, Chip, Container, FormControlLabel, TextField, ToggleButtonGroup } from "@mui/material";
+import { icons } from "@/lib/icons";
 import { alert } from "@/composables/use-toast";
 import { useUserApi } from "@/composables/api";
 import type { IngredientConfidence } from "@/lib/api/types/recipe";
@@ -24,7 +25,7 @@ export default function Parser() {
     parser: "nlp" as Parser,
   });
 
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
 
   // Set page title
   useSeoMeta({
@@ -157,7 +158,7 @@ export default function Parser() {
       </BaseCardSectionTitle>
       <div className="d-flex align-center justify-center justify-md-start flex-wrap">
         {/* WF4-REVIEW: value/selection API; v-model on complex expression "state.parser" [J] */}
-        <ToggleButtonGroup {/* WF4-REVIEW: v-model state.parser */} density="compact" mandatory="force" onChange={processIngredient}>
+        <ToggleButtonGroup density="compact" mandatory="force" onChange={processIngredient}>
           <Button value="nlp">
             {t('admin.nlp')}
           </Button>
@@ -168,20 +169,21 @@ export default function Parser() {
             {t('admin.openai')}
           </Button>
         </ToggleButtonGroup>
-        <Box sx={ flexGrow: 1 } />
+        <Box sx={{ flexGrow: 1 }} />
         {/* WF4-REVIEW: control={<Checkbox/>} + label prop */}
         <FormControlLabel value={showConfidence} onChange={setShowConfidence} className="ml-5" label={t('admin.show-individual-confidence')} hide-details />
       </div>
       <Card flat>
         <CardContent>
           {/* WF4-REVIEW: rules/error-messages → error+helperText; v-model on complex expression "state.ingredient" [J] */}
-          <TextField {/* WF4-REVIEW: v-model state.ingredient */} label={t('admin.ingredient-text')} />
+          <TextField label={t('admin.ingredient-text')} />
         </CardContent>
         <CardActions>
           <BaseButton className="ml-auto" onClick={processIngredient}>
-            <template>
-              {$globals.icons.check}
-            </template>
+            {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+            <>
+              {icons.check}
+            </>
             {t("general.submit")}
           </BaseButton>
         </CardActions>
@@ -199,7 +201,7 @@ export default function Parser() {
         ) : null}
         <div className="d-flex justify-center flex-wrap" style="gap: 1.5rem">
           {properties.map((prop, index) => (
-            <template>
+            <>
               {(prop) ? (
                 <div key={index} className="flex-grow-1">
                   <Card min-width="200px">
@@ -219,7 +221,7 @@ export default function Parser() {
                   ) : null}
                 </div>
               ) : null}
-            </template>
+            </>
           ))}
         </div>
       </Container>

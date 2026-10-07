@@ -6,7 +6,7 @@ export default function UserPasswordStrength() {
   const { t } = useTranslation();
 
   const modelValue = defineModel<string>({ default: "" });
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
 
   const pwStrength = usePasswordStrength(modelValue, i18n);
 
@@ -18,7 +18,7 @@ export default function UserPasswordStrength() {
         {t("user.password-strength", { strength: pwStrength.strength })}
       </strong>
       {/* WF4-REVIEW: v-model on complex expression "pwStrength.score" [J] */}
-      <LinearProgress {/* WF4-REVIEW: v-model pwStrength.score */} rounded color={pwStrength.color} height="15" />
+      <LinearProgress rounded color={pwStrength.color} height="15" />
     </div>
   </div>
     </>

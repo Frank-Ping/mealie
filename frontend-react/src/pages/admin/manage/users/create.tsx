@@ -31,7 +31,7 @@ export default function Create() {
     fullName: "",
     email: "",
     admin: false,
-    group: computed((); => selectedGroup?.name || ""),
+    group: computed(() => selectedGroup?.name || ""),
     household: "",
     advanced: false,
     canInvite: false,
@@ -61,13 +61,15 @@ export default function Create() {
     <>
   <Container className="narrow-container">
     <BasePageTitle className="mb-2">
-      <template>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
         {/* WF4-REVIEW: cover → objectFit */}
         <Box component="img" width="100%" max-height="125" max-width="125" src="/svgs/manage-profile.svg" />
-      </template>
-      <template>
+      </>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
         {t('user.admin-user-creation')}
-      </template>
+      </>
     </BasePageTitle>
     <AppToolbar back />
     {/* WF4-REVIEW: validation semantics [J] */}
@@ -84,7 +86,7 @@ export default function Create() {
               {/* WF4-REVIEW: cols/sm/md/lg → size={{ xs, sm, md }} */}
               <Grid cols="6">
                 {/* WF4-REVIEW: items/item-title/item-value → MenuItem children; v-model on complex expression "newUserData.household" [J] */}
-                <TextField select {/* WF4-REVIEW: v-model newUserData.household */} disabled={!selectedGroup} items={households} item-title="name" item-value="name" variant="filled" label={t('household.user-household')} hint={selectedGroup ? '' : t('group.you-must-select-a-group-before-selecting-a-household')} persistent-hint rules={[validators.required]} />
+                <TextField select disabled={!selectedGroup} items={households} item-title="name" item-value="name" variant="filled" label={t('household.user-household')} hint={selectedGroup ? '' : t('group.you-must-select-a-group-before-selecting-a-household')} persistent-hint rules={[validators.required]} />
               </Grid>
             </Grid>
           </Paper>

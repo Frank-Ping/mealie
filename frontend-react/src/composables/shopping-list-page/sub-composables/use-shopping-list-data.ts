@@ -12,7 +12,7 @@ export function useShoppingListData(
   loadingCounter: number /* WF4-REVIEW: was Ref */,
   maxAttempts = 17280,
 ) {
-  const isOffline = useMemo(() => useOnline(, []); // WF4-REVIEW: dependency array === false);
+  const isOffline = useMemo(() => useOnline() === false, []); // WF4-REVIEW: dependency array
   const { idle } = useIdle(5 * 60 * 1000); // 5 minutes
   const shoppingListItemActions = useShoppingListItemActions(listId);
 

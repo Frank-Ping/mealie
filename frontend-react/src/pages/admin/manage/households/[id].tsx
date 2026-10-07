@@ -17,7 +17,7 @@ export default function Id() {
   const { t } = useTranslation();
 
   const route = useLocation(); // WF4-REVIEW: .query → useSearchParams [J]
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
 
   const { groups } = useGroups();
   const householdId = route.params.id as string; // was computed — plain read stays reactive
@@ -46,7 +46,6 @@ export default function Id() {
             setUserError(true);
           }
           return data;
-        }, { watch: [householdId]
       }
       catch (err) {
         if (!cancelled) console.error(err); // WF4-REVIEW: surface load errors (was useAsyncData)
@@ -75,13 +74,15 @@ export default function Id() {
   {(household) ? (
     <Container className="narrow-container">
       <BasePageTitle>
-        <template>
+        {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+        <>
           {/* WF4-REVIEW: cover → objectFit */}
           <Box component="img" width="100%" max-height="125" max-width="125" src="/svgs/manage-group-settings.svg" />
-        </template>
-        <template>
+        </>
+        {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+        <>
           {t('household.admin-household-management')}
-        </template>
+        </>
       </BasePageTitle>
       <AppToolbar back />
       <CardContent>
@@ -94,13 +95,13 @@ export default function Id() {
             <CardContent>
               {(groups) ? (
                 /* WF4-REVIEW: items/item-title/item-value → MenuItem children; v-model on complex expression "household.groupId" [J] */
-                <TextField select {/* WF4-REVIEW: v-model household.groupId */} disabled items={groups} variant="solo-filled" flat item-title="name" item-value="id" return-object={false} label={t('group.user-group')} rules={[validators.required]} />
+                <TextField select disabled items={groups} variant="solo-filled" flat item-title="name" item-value="id" return-object={false} label={t('group.user-group')} rules={[validators.required]} />
               ) : null}
               {/* WF4-REVIEW: rules/error-messages → error+helperText; v-model on complex expression "household.name" [J] */}
-              <TextField {/* WF4-REVIEW: v-model household.name */} variant="solo-filled" flat label={t('household.household-name')} rules={[validators.required]} />
+              <TextField variant="solo-filled" flat label={t('household.household-name')} rules={[validators.required]} />
               {(household.preferences) ? (
                 /* WF4-REVIEW: v-model on complex expression "household.preferences" [J] */
-                <HouseholdPreferencesEditor {/* WF4-REVIEW: v-model household.preferences */} variant="solo-filled" flat />
+                <HouseholdPreferencesEditor variant="solo-filled" flat />
               ) : null}
             </CardContent>
           </Card>

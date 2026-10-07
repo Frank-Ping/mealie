@@ -14,7 +14,7 @@ export default function HouseholdPage() {
   const { t } = useTranslation();
 
   const { household, actions: householdActions } = useHouseholdSelf();
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
 
   useSeoMeta({
     title: i18n.t("household.household"),
@@ -50,13 +50,15 @@ export default function HouseholdPage() {
   {(household) ? (
     <Container className="narrow-container">
       <BasePageTitle className="mb-5">
-        <template>
+        {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+        <>
           {/* WF4-REVIEW: cover → objectFit */}
           <Box component="img" width="100%" max-height="100" max-width="100" src="/svgs/manage-group-settings.svg" />
-        </template>
-        <template>
+        </>
+        {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+        <>
           {t("profile.household-settings")}
-        </template>
+        </>
         {t("profile.household-description")}
       </BasePageTitle>
       {/* WF4-REVIEW: validation semantics [J] */}
@@ -65,7 +67,7 @@ export default function HouseholdPage() {
           <CardContent>
             {(household.preferences) ? (
               /* WF4-REVIEW: v-model on complex expression "household.preferences" [J] */
-              <HouseholdPreferencesEditor {/* WF4-REVIEW: v-model household.preferences */} />
+              <HouseholdPreferencesEditor />
             ) : null}
           </CardContent>
         </Card>

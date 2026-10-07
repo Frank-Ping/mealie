@@ -67,19 +67,11 @@ export default function RecipeContextMenuContent({ useItems = ({
     print: true,
     printPreferences: true,
     share: true,
-    recipeActions: true, }: Props) {
+    recipeActions: true,
+  }), appendItems = [], leadingItems = [], menuTop = true, fab = false, color = "primary", menuIcon = null, recipe = undefined, recipeScale = 1 }: Props) {
   const { t } = useTranslation();
 
-  /* props via destructured signature (was withDefaults(defineProps<Props>) */,
-    appendItems: () => [],
-    leadingItems: () => [],
-    menuTop: true,
-    fab: false,
-    color: "primary",
-    menuIcon: null,
-    recipe: undefined,
-    recipeScale: 1,
-  });
+  /* props via destructured signature (was withDefaults(defineProps<Props>) */
 
   const emit = defineEmits<{
     [key: string]: any;
@@ -101,7 +93,7 @@ export default function RecipeContextMenuContent({ useItems = ({
   const [loading, setLoading] = useState(false);
   const [menuItems, setMenuItems] = useState([]);
 
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
   const auth = useMealieAuth();
   // icons imported directly (was $globals)
   const { group, actions: groupActions } = useGroupSelf();
@@ -212,8 +204,7 @@ export default function RecipeContextMenuContent({ useItems = ({
   // Context Menu Event Handler
 
   const [recipeRef, setRecipeRef] = useState(recipe);
-  const recipeRefWithScale = useMemo(() => recipeRef ? { scale: recipeScale, ...recipeRef } : undefined,
-  , []); // WF4-REVIEW: dependency array
+  const recipeRefWithScale = useMemo(() => recipeRef ? { scale: recipeScale, ...recipeRef } : undefined,, []); // WF4-REVIEW: dependency array
   // the recipe may belong to another household in our group, so we can't reuse the current user's
   const [recipeHousehold, setRecipeHousehold] = useState(undefined);
 
@@ -237,19 +228,18 @@ export default function RecipeContextMenuContent({ useItems = ({
 
   /* WF4-REVIEW [J] */ watch(() => recipeRef?.householdId, refreshRecipeHousehold, { immediate: true });
 
-  const isFullyPublic = useMemo(() => isRecipeFullyPublic(recipeRef, group, recipeHousehold, []); // WF4-REVIEW: dependency array,
-  );
-  const isAdminAndNotOwner = useMemo(() =>  {
+  const isFullyPublic = useMemo(() => isRecipeFullyPublic(recipeRef, group, recipeHousehold),, []); // WF4-REVIEW: dependency array
+  const isAdminAndNotOwner = useMemo(() => {
     return (
       auth.user?.admin
       && auth.user?.id !== recipeRef?.userId
-    , []); // WF4-REVIEW: dependency array
-  });
-  const canDelete = computed(() => {
+    );
+  }, []); // WF4-REVIEW: dependency array
+  const canDelete = useMemo(() => {
     const user = auth.user;
     const recipe = recipeRef;
     return user && recipe && (user.admin || user.id === recipe.userId);
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   // Get Default Menu Items Specified in Props
   for (const [key, value] of Object.entries(useItems)) {
@@ -385,20 +375,20 @@ export default function RecipeContextMenuContent({ useItems = ({
     <>
   <RecipeDialogShare value={shareDialog} onChange={setShareDialog} recipe-id={recipeId} name={name} />
   <RecipeDialogPrintPreferences value={printPreferencesDialog} onChange={setPrintPreferencesDialog} recipe={recipeRef} />
-  <BaseDialog value={recipeDeleteDialog} onChange={setRecipeDeleteDialog} bottom-sheet title={t('recipe.delete-recipe')} color="error" icon={$globals.icons.alertCircle} can-confirm onConfirm={deleteRecipe()}>
+  <BaseDialog value={recipeDeleteDialog} onChange={setRecipeDeleteDialog} bottom-sheet title={t('recipe.delete-recipe')} color="error" icon={icons.alertCircle} can-confirm onConfirm={deleteRecipe()}>
     <CardContent>
       {(isAdminAndNotOwner) ? (
-        <template>
+        <>
           {t("recipe.admin-delete-confirmation")}
-        </template>
+        </>
       ) : (
-        <template>
+        <>
           {t("recipe.delete-confirmation")}
-        </template>
+        </>
       )}
     </CardContent>
   </BaseDialog>
-  <BaseDialog value={recipeDuplicateDialog} onChange={setRecipeDuplicateDialog} bottom-sheet title={t('recipe.duplicate')} color="primary" icon={$globals.icons.duplicate} can-confirm onConfirm={duplicateRecipe()}>
+  <BaseDialog value={recipeDuplicateDialog} onChange={setRecipeDuplicateDialog} bottom-sheet title={t('recipe.duplicate')} color="primary" icon={icons.duplicate} can-confirm onConfirm={duplicateRecipe()}>
     <CardContent>
       {/* WF4-REVIEW: rules/error-messages → error+helperText */}
       <TextField value={recipeName} onChange={setRecipeName} density="compact" label={t('recipe.recipe-name')} autofocus />
@@ -412,10 +402,11 @@ export default function RecipeContextMenuContent({ useItems = ({
     {menuItems.map((item, index) => (
       /* WF4-REVIEW: @click → ListItemButton */
       <ListItem key={index} onClick={contextMenuEventHandler(item.event)}>
-        <template>
+        {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+        <>
           {/* WF4-REVIEW: icon name resolves via lib/icons */}
           <MdiIcon name={item.icon} color={item.color} />
-        </template>
+        </>
         {/* WF4-REVIEW: content → primary prop */}
         <ListItemText>
           {item.title}
@@ -428,10 +419,11 @@ export default function RecipeContextMenuContent({ useItems = ({
         {recipeActions.map((action, index) => (
           /* WF4-REVIEW: @click → ListItemButton */
           <ListItem key={index} onClick={executeRecipeAction(action)}>
-            <template>
+            {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+            <>
               {/* WF4-REVIEW: icon name resolves via lib/icons */}
-              <MdiIcon name={$globals.icons.linkVariantPlus} color="undefined" />
-            </template>
+              <MdiIcon name={icons.linkVariantPlus} color="undefined" />
+            </>
             {/* WF4-REVIEW: content → primary prop */}
             <ListItemText>
               {action.title}

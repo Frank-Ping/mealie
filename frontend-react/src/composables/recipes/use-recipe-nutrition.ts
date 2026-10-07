@@ -1,3 +1,5 @@
+import { useTranslation } from "react-i18next";
+
 export interface NutritionLabelType {
   [key: string]: {
     label: string;
@@ -16,7 +18,7 @@ export function parseNutritionValue(value: string | null | undefined): number | 
 }
 
 export function useNutritionLabels() {
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
   const labels = <NutritionLabelType>{
     calories: {
       label: i18n.t("recipe.calories"),

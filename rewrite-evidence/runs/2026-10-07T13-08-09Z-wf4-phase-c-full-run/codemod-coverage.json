@@ -1,0 +1,2441 @@
+{
+  "runId": "2026-10-07T13-08-09Z",
+  "totals": {
+    "filesProcessed": 324,
+    "converted": 324,
+    "errors": 0,
+    "skippedOptionsApi": 0,
+    "wf4ReviewMarkers": 2405,
+    "judgementMarkers": 1087,
+    "libFilesCopied": 91,
+    "libFilesWithVueDeps": []
+  },
+  "unmappedComponents": {
+    "v-menu": 32,
+    "v-number-input": 11,
+    "v-data-table": 10,
+    "v-virtual-scroll": 4,
+    "v-lazy": 3,
+    "v-hover": 2,
+    "v-stepper": 1,
+    "v-stepper-header": 1,
+    "v-stepper-item": 1,
+    "v-stepper-window": 1,
+    "v-stepper-window-item": 1,
+    "v-stepper-actions": 1,
+    "v-file-input": 1,
+    "v-treeview": 1,
+    "v-combobox": 1,
+    "v-empty-state": 1,
+    "v-item-group": 1,
+    "v-list-item-group": 1,
+    "v-color-picker": 1,
+    "v-list-group": 1
+  },
+  "files": [
+    {
+      "file": "pages/admin/backups.vue",
+      "status": "ok",
+      "markers": 15,
+      "jMarkers": 13,
+      "unmapped": [
+        "v-data-table"
+      ]
+    },
+    {
+      "file": "pages/admin/debug/openai.vue",
+      "status": "ok",
+      "markers": 12,
+      "jMarkers": 2,
+      "unmapped": []
+    },
+    {
+      "file": "pages/admin/debug/parser.vue",
+      "status": "ok",
+      "markers": 11,
+      "jMarkers": 5,
+      "unmapped": []
+    },
+    {
+      "file": "pages/admin/maintenance/index.vue",
+      "status": "ok",
+      "markers": 20,
+      "jMarkers": 9,
+      "unmapped": []
+    },
+    {
+      "file": "pages/admin/manage/groups/index.vue",
+      "status": "ok",
+      "markers": 14,
+      "jMarkers": 12,
+      "unmapped": [
+        "v-data-table"
+      ]
+    },
+    {
+      "file": "pages/admin/manage/groups/[id].vue",
+      "status": "ok",
+      "markers": 9,
+      "jMarkers": 7,
+      "unmapped": []
+    },
+    {
+      "file": "pages/admin/manage/households/index.vue",
+      "status": "ok",
+      "markers": 16,
+      "jMarkers": 14,
+      "unmapped": [
+        "v-data-table"
+      ]
+    },
+    {
+      "file": "pages/admin/manage/households/[id].vue",
+      "status": "ok",
+      "markers": 11,
+      "jMarkers": 7,
+      "unmapped": []
+    },
+    {
+      "file": "pages/admin/manage/users/create.vue",
+      "status": "ok",
+      "markers": 10,
+      "jMarkers": 4,
+      "unmapped": []
+    },
+    {
+      "file": "pages/admin/manage/users/index.vue",
+      "status": "ok",
+      "markers": 10,
+      "jMarkers": 6,
+      "unmapped": [
+        "v-data-table"
+      ]
+    },
+    {
+      "file": "pages/admin/manage/users/[id].vue",
+      "status": "ok",
+      "markers": 13,
+      "jMarkers": 8,
+      "unmapped": []
+    },
+    {
+      "file": "pages/admin/setup.vue",
+      "status": "ok",
+      "markers": 40,
+      "jMarkers": 29,
+      "unmapped": [
+        "v-stepper",
+        "v-stepper-header",
+        "v-stepper-item",
+        "v-stepper-window",
+        "v-stepper-window-item",
+        "v-stepper-actions"
+      ]
+    },
+    {
+      "file": "pages/admin/site-settings.vue",
+      "status": "ok",
+      "markers": 31,
+      "jMarkers": 13,
+      "unmapped": []
+    },
+    {
+      "file": "pages/admin.vue",
+      "status": "ok",
+      "markers": 1,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "pages/forgot-password.vue",
+      "status": "ok",
+      "markers": 6,
+      "jMarkers": 3,
+      "unmapped": []
+    },
+    {
+      "file": "pages/g/[groupSlug]/cookbooks/index.vue",
+      "status": "ok",
+      "markers": 16,
+      "jMarkers": 10,
+      "unmapped": []
+    },
+    {
+      "file": "pages/g/[groupSlug]/cookbooks/[slug].vue",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "pages/g/[groupSlug]/index.vue",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "pages/g/[groupSlug]/r/create/ai.vue",
+      "status": "ok",
+      "markers": 29,
+      "jMarkers": 6,
+      "unmapped": []
+    },
+    {
+      "file": "pages/g/[groupSlug]/r/create/bulk.vue",
+      "status": "ok",
+      "markers": 14,
+      "jMarkers": 9,
+      "unmapped": []
+    },
+    {
+      "file": "pages/g/[groupSlug]/r/create/debug.vue",
+      "status": "ok",
+      "markers": 12,
+      "jMarkers": 7,
+      "unmapped": []
+    },
+    {
+      "file": "pages/g/[groupSlug]/r/create/html.vue",
+      "status": "ok",
+      "markers": 20,
+      "jMarkers": 4,
+      "unmapped": []
+    },
+    {
+      "file": "pages/g/[groupSlug]/r/create/image.vue",
+      "status": "ok",
+      "markers": 3,
+      "jMarkers": 2,
+      "unmapped": []
+    },
+    {
+      "file": "pages/g/[groupSlug]/r/create/index.vue",
+      "status": "ok",
+      "markers": 3,
+      "jMarkers": 2,
+      "unmapped": []
+    },
+    {
+      "file": "pages/g/[groupSlug]/r/create/new.vue",
+      "status": "ok",
+      "markers": 6,
+      "jMarkers": 3,
+      "unmapped": []
+    },
+    {
+      "file": "pages/g/[groupSlug]/r/create/url.vue",
+      "status": "ok",
+      "markers": 28,
+      "jMarkers": 6,
+      "unmapped": []
+    },
+    {
+      "file": "pages/g/[groupSlug]/r/create/zip.vue",
+      "status": "ok",
+      "markers": 6,
+      "jMarkers": 4,
+      "unmapped": [
+        "v-file-input"
+      ]
+    },
+    {
+      "file": "pages/g/[groupSlug]/r/create.vue",
+      "status": "ok",
+      "markers": 11,
+      "jMarkers": 6,
+      "unmapped": []
+    },
+    {
+      "file": "pages/g/[groupSlug]/r/[slug]/index.vue",
+      "status": "ok",
+      "markers": 6,
+      "jMarkers": 3,
+      "unmapped": []
+    },
+    {
+      "file": "pages/g/[groupSlug]/recipes/categories/index.vue",
+      "status": "ok",
+      "markers": 2,
+      "jMarkers": 1,
+      "unmapped": []
+    },
+    {
+      "file": "pages/g/[groupSlug]/recipes/finder/index.vue",
+      "status": "ok",
+      "markers": 60,
+      "jMarkers": 27,
+      "unmapped": [
+        "v-menu",
+        "v-number-input",
+        "v-lazy"
+      ]
+    },
+    {
+      "file": "pages/g/[groupSlug]/recipes/tags/index.vue",
+      "status": "ok",
+      "markers": 2,
+      "jMarkers": 1,
+      "unmapped": []
+    },
+    {
+      "file": "pages/g/[groupSlug]/recipes/timeline.vue",
+      "status": "ok",
+      "markers": 6,
+      "jMarkers": 2,
+      "unmapped": []
+    },
+    {
+      "file": "pages/g/[groupSlug]/recipes/tools/index.vue",
+      "status": "ok",
+      "markers": 4,
+      "jMarkers": 1,
+      "unmapped": []
+    },
+    {
+      "file": "pages/g/[groupSlug]/shared/r/[id].vue",
+      "status": "ok",
+      "markers": 6,
+      "jMarkers": 1,
+      "unmapped": []
+    },
+    {
+      "file": "pages/group/data/categories.vue",
+      "status": "ok",
+      "markers": 14,
+      "jMarkers": 7,
+      "unmapped": []
+    },
+    {
+      "file": "pages/group/data/foods.vue",
+      "status": "ok",
+      "markers": 33,
+      "jMarkers": 17,
+      "unmapped": [
+        "v-virtual-scroll"
+      ]
+    },
+    {
+      "file": "pages/group/data/index.vue",
+      "status": "ok",
+      "markers": 1,
+      "jMarkers": 1,
+      "unmapped": []
+    },
+    {
+      "file": "pages/group/data/labels.vue",
+      "status": "ok",
+      "markers": 5,
+      "jMarkers": 5,
+      "unmapped": []
+    },
+    {
+      "file": "pages/group/data/recipe-actions.vue",
+      "status": "ok",
+      "markers": 3,
+      "jMarkers": 2,
+      "unmapped": []
+    },
+    {
+      "file": "pages/group/data/recipes.vue",
+      "status": "ok",
+      "markers": 26,
+      "jMarkers": 13,
+      "unmapped": [
+        "v-virtual-scroll",
+        "v-menu"
+      ]
+    },
+    {
+      "file": "pages/group/data/tags.vue",
+      "status": "ok",
+      "markers": 14,
+      "jMarkers": 7,
+      "unmapped": []
+    },
+    {
+      "file": "pages/group/data/tools.vue",
+      "status": "ok",
+      "markers": 7,
+      "jMarkers": 4,
+      "unmapped": []
+    },
+    {
+      "file": "pages/group/data/units.vue",
+      "status": "ok",
+      "markers": 20,
+      "jMarkers": 11,
+      "unmapped": []
+    },
+    {
+      "file": "pages/group/data.vue",
+      "status": "ok",
+      "markers": 9,
+      "jMarkers": 4,
+      "unmapped": []
+    },
+    {
+      "file": "pages/group/index.vue",
+      "status": "ok",
+      "markers": 9,
+      "jMarkers": 7,
+      "unmapped": []
+    },
+    {
+      "file": "pages/group/migrations.vue",
+      "status": "ok",
+      "markers": 16,
+      "jMarkers": 10,
+      "unmapped": [
+        "v-treeview"
+      ]
+    },
+    {
+      "file": "pages/group/reports/[id].vue",
+      "status": "ok",
+      "markers": 11,
+      "jMarkers": 8,
+      "unmapped": [
+        "v-data-table"
+      ]
+    },
+    {
+      "file": "pages/household/index.vue",
+      "status": "ok",
+      "markers": 7,
+      "jMarkers": 5,
+      "unmapped": []
+    },
+    {
+      "file": "pages/household/mealplan/planner/edit.vue",
+      "status": "ok",
+      "markers": 18,
+      "jMarkers": 8,
+      "unmapped": [
+        "v-menu"
+      ]
+    },
+    {
+      "file": "pages/household/mealplan/planner/view.vue",
+      "status": "ok",
+      "markers": 4,
+      "jMarkers": 4,
+      "unmapped": []
+    },
+    {
+      "file": "pages/household/mealplan/planner.vue",
+      "status": "ok",
+      "markers": 21,
+      "jMarkers": 11,
+      "unmapped": [
+        "v-menu",
+        "v-number-input"
+      ]
+    },
+    {
+      "file": "pages/household/mealplan/settings.vue",
+      "status": "ok",
+      "markers": 14,
+      "jMarkers": 8,
+      "unmapped": []
+    },
+    {
+      "file": "pages/household/members.vue",
+      "status": "ok",
+      "markers": 19,
+      "jMarkers": 17,
+      "unmapped": [
+        "v-data-table"
+      ]
+    },
+    {
+      "file": "pages/household/notifiers.vue",
+      "status": "ok",
+      "markers": 19,
+      "jMarkers": 13,
+      "unmapped": []
+    },
+    {
+      "file": "pages/household/webhooks.vue",
+      "status": "ok",
+      "markers": 8,
+      "jMarkers": 3,
+      "unmapped": []
+    },
+    {
+      "file": "pages/index.vue",
+      "status": "ok",
+      "markers": 3,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "pages/login.vue",
+      "status": "ok",
+      "markers": 13,
+      "jMarkers": 6,
+      "unmapped": []
+    },
+    {
+      "file": "pages/register/index.vue",
+      "status": "ok",
+      "markers": 36,
+      "jMarkers": 14,
+      "unmapped": []
+    },
+    {
+      "file": "pages/reset-password.vue",
+      "status": "ok",
+      "markers": 8,
+      "jMarkers": 5,
+      "unmapped": []
+    },
+    {
+      "file": "pages/shopping-lists/index.vue",
+      "status": "ok",
+      "markers": 25,
+      "jMarkers": 13,
+      "unmapped": []
+    },
+    {
+      "file": "pages/shopping-lists/[id].vue",
+      "status": "ok",
+      "markers": 26,
+      "jMarkers": 19,
+      "unmapped": [
+        "v-lazy"
+      ]
+    },
+    {
+      "file": "pages/user/profile/api-tokens.vue",
+      "status": "ok",
+      "markers": 12,
+      "jMarkers": 4,
+      "unmapped": []
+    },
+    {
+      "file": "pages/user/profile/edit.vue",
+      "status": "ok",
+      "markers": 25,
+      "jMarkers": 19,
+      "unmapped": [
+        "v-combobox"
+      ]
+    },
+    {
+      "file": "pages/user/profile/index.vue",
+      "status": "ok",
+      "markers": 32,
+      "jMarkers": 13,
+      "unmapped": []
+    },
+    {
+      "file": "pages/user/[id]/favorites.vue",
+      "status": "ok",
+      "markers": 2,
+      "jMarkers": 1,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Admin/Setup/EndPageContent.vue",
+      "status": "ok",
+      "markers": 6,
+      "jMarkers": 1,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Announcement/AnnouncementDialog.vue",
+      "status": "ok",
+      "markers": 12,
+      "jMarkers": 5,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Announcement/Announcements/2026-03-27_1_welcome.vue",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Announcement/Announcements/2026-05-21_1_ai-providers.vue",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Announcement/Announcements/2026-05-31_1_iframe-embeds.vue",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Announcement/Announcements/2026-07-27_1_oidc-email-verification.vue",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Announcement/Announcements/2026-07-27_2_scraper-proxy-flaresolverr.vue",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Announcement/Announcements/2026-09-04_1_outbound-request-protection.vue",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Cookbook/CookbookEditor.vue",
+      "status": "ok",
+      "markers": 4,
+      "jMarkers": 4,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Cookbook/CookbookPage.vue",
+      "status": "ok",
+      "markers": 7,
+      "jMarkers": 3,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Group/GroupAIProviderDialog.vue",
+      "status": "ok",
+      "markers": 17,
+      "jMarkers": 12,
+      "unmapped": [
+        "v-number-input"
+      ]
+    },
+    {
+      "file": "components/Domain/Group/GroupAIProviderSettingsEditor.vue",
+      "status": "ok",
+      "markers": 20,
+      "jMarkers": 10,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Group/GroupDataPage.vue",
+      "status": "ok",
+      "markers": 14,
+      "jMarkers": 9,
+      "unmapped": [
+        "v-virtual-scroll"
+      ]
+    },
+    {
+      "file": "components/Domain/Group/GroupExportData.vue",
+      "status": "ok",
+      "markers": 3,
+      "jMarkers": 3,
+      "unmapped": [
+        "v-data-table"
+      ]
+    },
+    {
+      "file": "components/Domain/Group/GroupPreferencesEditor.vue",
+      "status": "ok",
+      "markers": 5,
+      "jMarkers": 5,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Household/GroupMealPlanEntryDialog.vue",
+      "status": "ok",
+      "markers": 16,
+      "jMarkers": 3,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Household/GroupMealPlanRuleForm.vue",
+      "status": "ok",
+      "markers": 4,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Household/GroupWebhookEditor.vue",
+      "status": "ok",
+      "markers": 7,
+      "jMarkers": 5,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Household/HouseholdPreferencesEditor.vue",
+      "status": "ok",
+      "markers": 8,
+      "jMarkers": 8,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Mealplan/MealPlanAddRecipeDialog.vue",
+      "status": "ok",
+      "markers": 3,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Mealplan/MealPlanDatePicker.vue",
+      "status": "ok",
+      "markers": 5,
+      "jMarkers": 1,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Mealplan/MealPlanDay.vue",
+      "status": "ok",
+      "markers": 4,
+      "jMarkers": 2,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Mealplan/MealPlanDayHeader.vue",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Mealplan/MealPlanLayout.vue",
+      "status": "ok",
+      "markers": 1,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Mealplan/MealPlanNoteMenu.vue",
+      "status": "ok",
+      "markers": 5,
+      "jMarkers": 2,
+      "unmapped": [
+        "v-menu"
+      ]
+    },
+    {
+      "file": "components/Domain/QueryFilterBuilder.vue",
+      "status": "ok",
+      "markers": 38,
+      "jMarkers": 24,
+      "unmapped": [
+        "v-number-input",
+        "v-menu"
+      ]
+    },
+    {
+      "file": "components/Domain/Recipe/RecipeActionMenu.vue",
+      "status": "ok",
+      "markers": 11,
+      "jMarkers": 2,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Recipe/RecipeAssets.vue",
+      "status": "ok",
+      "markers": 27,
+      "jMarkers": 13,
+      "unmapped": [
+        "v-menu"
+      ]
+    },
+    {
+      "file": "components/Domain/Recipe/RecipeCard.vue",
+      "status": "ok",
+      "markers": 8,
+      "jMarkers": 2,
+      "unmapped": [
+        "v-hover"
+      ]
+    },
+    {
+      "file": "components/Domain/Recipe/RecipeCardImage.vue",
+      "status": "ok",
+      "markers": 5,
+      "jMarkers": 1,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Recipe/RecipeCardLineItem.vue",
+      "status": "ok",
+      "markers": 8,
+      "jMarkers": 3,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Recipe/RecipeCardMobile.vue",
+      "status": "ok",
+      "markers": 11,
+      "jMarkers": 2,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Recipe/RecipeCardRating.vue",
+      "status": "ok",
+      "markers": 4,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Recipe/RecipeCardSection.vue",
+      "status": "ok",
+      "markers": 33,
+      "jMarkers": 5,
+      "unmapped": [
+        "v-menu"
+      ]
+    },
+    {
+      "file": "components/Domain/Recipe/RecipeChips.vue",
+      "status": "ok",
+      "markers": 2,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Recipe/RecipeContextMenu/RecipeContextMenu.vue",
+      "status": "ok",
+      "markers": 5,
+      "jMarkers": 2,
+      "unmapped": [
+        "v-menu"
+      ]
+    },
+    {
+      "file": "components/Domain/Recipe/RecipeContextMenu/RecipeContextMenuContent.vue",
+      "status": "ok",
+      "markers": 17,
+      "jMarkers": 4,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Recipe/RecipeDataAliasManagerDialog.vue",
+      "status": "ok",
+      "markers": 7,
+      "jMarkers": 3,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Recipe/RecipeDataSubstitutionManagerDialog.vue",
+      "status": "ok",
+      "markers": 4,
+      "jMarkers": 1,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Recipe/RecipeDataTable.vue",
+      "status": "ok",
+      "markers": 10,
+      "jMarkers": 8,
+      "unmapped": [
+        "v-data-table"
+      ]
+    },
+    {
+      "file": "components/Domain/Recipe/RecipeDialogAddToShoppingList.vue",
+      "status": "ok",
+      "markers": 18,
+      "jMarkers": 8,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Recipe/RecipeDialogBulkAdd.vue",
+      "status": "ok",
+      "markers": 6,
+      "jMarkers": 1,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Recipe/RecipeDialogPrintPreferences.vue",
+      "status": "ok",
+      "markers": 15,
+      "jMarkers": 7,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Recipe/RecipeDialogSearch.vue",
+      "status": "ok",
+      "markers": 11,
+      "jMarkers": 7,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Recipe/RecipeDialogShare.vue",
+      "status": "ok",
+      "markers": 13,
+      "jMarkers": 3,
+      "unmapped": [
+        "v-menu"
+      ]
+    },
+    {
+      "file": "components/Domain/Recipe/RecipeExplorerPage/RecipeExplorerPage.vue",
+      "status": "ok",
+      "markers": 3,
+      "jMarkers": 1,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Recipe/RecipeExplorerPage/RecipeExplorerPageParts/RecipeExplorerPageSearch.vue",
+      "status": "ok",
+      "markers": 23,
+      "jMarkers": 11,
+      "unmapped": [
+        "v-menu"
+      ]
+    },
+    {
+      "file": "components/Domain/Recipe/RecipeExplorerPage/RecipeExplorerPageParts/RecipeExplorerPageSearchFilters.vue",
+      "status": "ok",
+      "markers": 17,
+      "jMarkers": 6,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Recipe/RecipeFavoriteBadge.vue",
+      "status": "ok",
+      "markers": 4,
+      "jMarkers": 2,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Recipe/RecipeImageLightbox.vue",
+      "status": "ok",
+      "markers": 14,
+      "jMarkers": 7,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Recipe/RecipeImageUploadBtn.vue",
+      "status": "ok",
+      "markers": 8,
+      "jMarkers": 3,
+      "unmapped": [
+        "v-menu"
+      ]
+    },
+    {
+      "file": "components/Domain/Recipe/RecipeImportImages.vue",
+      "status": "ok",
+      "markers": 3,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Recipe/RecipeIngredientEditor.vue",
+      "status": "ok",
+      "markers": 39,
+      "jMarkers": 24,
+      "unmapped": [
+        "v-number-input"
+      ]
+    },
+    {
+      "file": "components/Domain/Recipe/RecipeIngredientEditorLayout.vue",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Recipe/RecipeIngredientHtml.vue",
+      "status": "ok",
+      "markers": 1,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Recipe/RecipeIngredientListItem.vue",
+      "status": "ok",
+      "markers": 3,
+      "jMarkers": 1,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Recipe/RecipeIngredients.vue",
+      "status": "ok",
+      "markers": 6,
+      "jMarkers": 1,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Recipe/RecipeIngredientSubstitutionEditor.vue",
+      "status": "ok",
+      "markers": 5,
+      "jMarkers": 2,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Recipe/RecipeIngredientSubstitutions.vue",
+      "status": "ok",
+      "markers": 7,
+      "jMarkers": 2,
+      "unmapped": [
+        "v-menu"
+      ]
+    },
+    {
+      "file": "components/Domain/Recipe/RecipeLastMade.vue",
+      "status": "ok",
+      "markers": 20,
+      "jMarkers": 7,
+      "unmapped": [
+        "v-menu"
+      ]
+    },
+    {
+      "file": "components/Domain/Recipe/RecipeList.vue",
+      "status": "ok",
+      "markers": 6,
+      "jMarkers": 2,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Recipe/RecipeNotes.vue",
+      "status": "ok",
+      "markers": 4,
+      "jMarkers": 2,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Recipe/RecipeNutrition.vue",
+      "status": "ok",
+      "markers": 7,
+      "jMarkers": 1,
+      "unmapped": [
+        "v-number-input"
+      ]
+    },
+    {
+      "file": "components/Domain/Recipe/RecipeOrganizerDialog.vue",
+      "status": "ok",
+      "markers": 6,
+      "jMarkers": 2,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Recipe/RecipeOrganizerPage.vue",
+      "status": "ok",
+      "markers": 19,
+      "jMarkers": 7,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Recipe/RecipeOrganizerSelector.vue",
+      "status": "ok",
+      "markers": 12,
+      "jMarkers": 5,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Recipe/RecipePage/RecipePage.vue",
+      "status": "ok",
+      "markers": 36,
+      "jMarkers": 16,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageComments.vue",
+      "status": "ok",
+      "markers": 3,
+      "jMarkers": 1,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageEditorToolbar.vue",
+      "status": "ok",
+      "markers": 4,
+      "jMarkers": 3,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageFooter.vue",
+      "status": "ok",
+      "markers": 7,
+      "jMarkers": 3,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageHeader.vue",
+      "status": "ok",
+      "markers": 6,
+      "jMarkers": 1,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInfoCard.vue",
+      "status": "ok",
+      "markers": 4,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInfoCardImage.vue",
+      "status": "ok",
+      "markers": 5,
+      "jMarkers": 1,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInfoEditor.vue",
+      "status": "ok",
+      "markers": 11,
+      "jMarkers": 11,
+      "unmapped": [
+        "v-number-input"
+      ]
+    },
+    {
+      "file": "components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageIngredientEditor.vue",
+      "status": "ok",
+      "markers": 11,
+      "jMarkers": 5,
+      "unmapped": [
+        "v-menu"
+      ]
+    },
+    {
+      "file": "components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageIngredientToolsView.vue",
+      "status": "ok",
+      "markers": 5,
+      "jMarkers": 3,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInstructions.vue",
+      "status": "ok",
+      "markers": 41,
+      "jMarkers": 18,
+      "unmapped": [
+        "v-hover"
+      ]
+    },
+    {
+      "file": "components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageOrganizers.vue",
+      "status": "ok",
+      "markers": 8,
+      "jMarkers": 5,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageScale.vue",
+      "status": "ok",
+      "markers": 3,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Recipe/RecipePage/RecipePageParts/RecipeParseDialog/ParseDialogChangeParser.vue",
+      "status": "ok",
+      "markers": 4,
+      "jMarkers": 2,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Recipe/RecipePage/RecipePageParts/RecipeParseDialog/ParseDialogInfo.vue",
+      "status": "ok",
+      "markers": 3,
+      "jMarkers": 1,
+      "unmapped": [
+        "v-empty-state"
+      ]
+    },
+    {
+      "file": "components/Domain/Recipe/RecipePage/RecipePageParts/RecipeParseDialog/ParseDialogParse.vue",
+      "status": "ok",
+      "markers": 5,
+      "jMarkers": 1,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Recipe/RecipePage/RecipePageParts/RecipeParseDialog/ParseDialogReview.vue",
+      "status": "ok",
+      "markers": 7,
+      "jMarkers": 5,
+      "unmapped": [
+        "v-lazy"
+      ]
+    },
+    {
+      "file": "components/Domain/Recipe/RecipePage/RecipePageParts/RecipeParseDialog/RecipePageParseDialog.vue",
+      "status": "ok",
+      "markers": 4,
+      "jMarkers": 2,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Recipe/RecipePrintContainer.vue",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Recipe/RecipePrintView.vue",
+      "status": "ok",
+      "markers": 16,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Recipe/RecipeRating.vue",
+      "status": "ok",
+      "markers": 5,
+      "jMarkers": 1,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Recipe/RecipeScaleEditButton.vue",
+      "status": "ok",
+      "markers": 18,
+      "jMarkers": 8,
+      "unmapped": [
+        "v-menu",
+        "v-number-input"
+      ]
+    },
+    {
+      "file": "components/Domain/Recipe/RecipeSelector.vue",
+      "status": "ok",
+      "markers": 5,
+      "jMarkers": 1,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Recipe/RecipeSettingsMenu.vue",
+      "status": "ok",
+      "markers": 6,
+      "jMarkers": 2,
+      "unmapped": [
+        "v-menu"
+      ]
+    },
+    {
+      "file": "components/Domain/Recipe/RecipeSettingsSwitches.vue",
+      "status": "ok",
+      "markers": 1,
+      "jMarkers": 1,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Recipe/RecipeSuggestion.vue",
+      "status": "ok",
+      "markers": 10,
+      "jMarkers": 3,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Recipe/RecipeTimeCard.vue",
+      "status": "ok",
+      "markers": 11,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Recipe/RecipeTimeInput.vue",
+      "status": "ok",
+      "markers": 6,
+      "jMarkers": 4,
+      "unmapped": [
+        "v-number-input"
+      ]
+    },
+    {
+      "file": "components/Domain/Recipe/RecipeTimeline.vue",
+      "status": "ok",
+      "markers": 15,
+      "jMarkers": 4,
+      "unmapped": [
+        "v-menu"
+      ]
+    },
+    {
+      "file": "components/Domain/Recipe/RecipeTimelineBadge.vue",
+      "status": "ok",
+      "markers": 4,
+      "jMarkers": 2,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Recipe/RecipeTimelineContextMenu.vue",
+      "status": "ok",
+      "markers": 13,
+      "jMarkers": 7,
+      "unmapped": [
+        "v-menu"
+      ]
+    },
+    {
+      "file": "components/Domain/Recipe/RecipeTimelineItem.vue",
+      "status": "ok",
+      "markers": 17,
+      "jMarkers": 2,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/Recipe/RecipeUnitSystemButton.vue",
+      "status": "ok",
+      "markers": 11,
+      "jMarkers": 5,
+      "unmapped": [
+        "v-menu"
+      ]
+    },
+    {
+      "file": "components/Domain/Recipe/RecipeYield.vue",
+      "status": "ok",
+      "markers": 2,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/SearchFilter.vue",
+      "status": "ok",
+      "markers": 27,
+      "jMarkers": 16,
+      "unmapped": [
+        "v-menu",
+        "v-virtual-scroll"
+      ]
+    },
+    {
+      "file": "components/Domain/ShoppingList/MultiPurposeLabel.vue",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/ShoppingList/MultiPurposeLabelSection.vue",
+      "status": "ok",
+      "markers": 4,
+      "jMarkers": 2,
+      "unmapped": [
+        "v-menu"
+      ]
+    },
+    {
+      "file": "components/Domain/ShoppingList/ShoppingListAddItemForm.vue",
+      "status": "ok",
+      "markers": 7,
+      "jMarkers": 5,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/ShoppingList/ShoppingListItem.vue",
+      "status": "ok",
+      "markers": 19,
+      "jMarkers": 7,
+      "unmapped": [
+        "v-menu"
+      ]
+    },
+    {
+      "file": "components/Domain/ShoppingList/ShoppingListItemDetails.vue",
+      "status": "ok",
+      "markers": 5,
+      "jMarkers": 7,
+      "unmapped": [
+        "v-number-input"
+      ]
+    },
+    {
+      "file": "components/Domain/ShoppingList/ShoppingListItemEditor.vue",
+      "status": "ok",
+      "markers": 5,
+      "jMarkers": 4,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/User/UserAvatar.vue",
+      "status": "ok",
+      "markers": 6,
+      "jMarkers": 2,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/User/UserInviteDialog.vue",
+      "status": "ok",
+      "markers": 18,
+      "jMarkers": 6,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/User/UserPasswordStrength.vue",
+      "status": "ok",
+      "markers": 1,
+      "jMarkers": 1,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/User/UserProfileLinkCard.vue",
+      "status": "ok",
+      "markers": 3,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "components/Domain/User/UserRegistrationForm.vue",
+      "status": "ok",
+      "markers": 12,
+      "jMarkers": 9,
+      "unmapped": []
+    },
+    {
+      "file": "components/global/AdvancedOnly.vue",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "components/global/AppButtonCopy.vue",
+      "status": "ok",
+      "markers": 4,
+      "jMarkers": 2,
+      "unmapped": []
+    },
+    {
+      "file": "components/global/AppButtonUpload.vue",
+      "status": "ok",
+      "markers": 2,
+      "jMarkers": 1,
+      "unmapped": []
+    },
+    {
+      "file": "components/global/AppLoader.vue",
+      "status": "ok",
+      "markers": 2,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "components/global/AppLogo.vue",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "components/global/AppToolbar.vue",
+      "status": "ok",
+      "markers": 1,
+      "jMarkers": 1,
+      "unmapped": []
+    },
+    {
+      "file": "components/global/AutoForm.vue",
+      "status": "ok",
+      "markers": 13,
+      "jMarkers": 9,
+      "unmapped": [
+        "v-number-input"
+      ]
+    },
+    {
+      "file": "components/global/BannerExperimental.vue",
+      "status": "ok",
+      "markers": 1,
+      "jMarkers": 1,
+      "unmapped": []
+    },
+    {
+      "file": "components/global/BannerWarning.vue",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "components/global/BaseButton.vue",
+      "status": "ok",
+      "markers": 4,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "components/global/BaseButtonGroup.vue",
+      "status": "ok",
+      "markers": 5,
+      "jMarkers": 3,
+      "unmapped": [
+        "v-item-group"
+      ]
+    },
+    {
+      "file": "components/global/BaseCardSectionTitle.vue",
+      "status": "ok",
+      "markers": 2,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "components/global/BaseDialog.vue",
+      "status": "ok",
+      "markers": 16,
+      "jMarkers": 10,
+      "unmapped": []
+    },
+    {
+      "file": "components/global/BaseDialogContent.vue",
+      "status": "ok",
+      "markers": 7,
+      "jMarkers": 3,
+      "unmapped": []
+    },
+    {
+      "file": "components/global/BaseDivider.vue",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "components/global/BaseExpansionPanels.vue",
+      "status": "ok",
+      "markers": 1,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "components/global/BaseKeyValueEditor.vue",
+      "status": "ok",
+      "markers": 8,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "components/global/BaseMenu.vue",
+      "status": "ok",
+      "markers": 8,
+      "jMarkers": 3,
+      "unmapped": [
+        "v-menu"
+      ]
+    },
+    {
+      "file": "components/global/BaseOverflowButton.vue",
+      "status": "ok",
+      "markers": 17,
+      "jMarkers": 5,
+      "unmapped": [
+        "v-menu"
+      ]
+    },
+    {
+      "file": "components/global/BasePageTitle.vue",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "components/global/ButtonLink.vue",
+      "status": "ok",
+      "markers": 1,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "components/global/ContextMenu.vue",
+      "status": "ok",
+      "markers": 7,
+      "jMarkers": 3,
+      "unmapped": [
+        "v-menu"
+      ]
+    },
+    {
+      "file": "components/global/CrudTable.vue",
+      "status": "ok",
+      "markers": 15,
+      "jMarkers": 8,
+      "unmapped": [
+        "v-menu",
+        "v-data-table"
+      ]
+    },
+    {
+      "file": "components/global/DevDumpJson.vue",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "components/global/DocLink.vue",
+      "status": "ok",
+      "markers": 2,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "components/global/DropZone.vue",
+      "status": "ok",
+      "markers": 3,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "components/global/HelpIcon.vue",
+      "status": "ok",
+      "markers": 3,
+      "jMarkers": 2,
+      "unmapped": [
+        "v-menu"
+      ]
+    },
+    {
+      "file": "components/global/ImageCropper.vue",
+      "status": "ok",
+      "markers": 6,
+      "jMarkers": 4,
+      "unmapped": [
+        "v-menu",
+        "v-list-item-group"
+      ]
+    },
+    {
+      "file": "components/global/InputColor.vue",
+      "status": "ok",
+      "markers": 10,
+      "jMarkers": 5,
+      "unmapped": [
+        "v-menu",
+        "v-color-picker"
+      ]
+    },
+    {
+      "file": "components/global/InputLabelType.vue",
+      "status": "ok",
+      "markers": 6,
+      "jMarkers": 3,
+      "unmapped": []
+    },
+    {
+      "file": "components/global/LanguageDialog.vue",
+      "status": "ok",
+      "markers": 7,
+      "jMarkers": 3,
+      "unmapped": []
+    },
+    {
+      "file": "components/global/MarkdownEditor.vue",
+      "status": "ok",
+      "markers": 4,
+      "jMarkers": 3,
+      "unmapped": []
+    },
+    {
+      "file": "components/global/RecipeJsonEditor.vue",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "components/global/ReportTable.vue",
+      "status": "ok",
+      "markers": 7,
+      "jMarkers": 5,
+      "unmapped": [
+        "v-data-table"
+      ]
+    },
+    {
+      "file": "components/global/SafeMarkdown.vue",
+      "status": "ok",
+      "markers": 1,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "components/global/StatsCards.vue",
+      "status": "ok",
+      "markers": 4,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "components/global/ToggleState.vue",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "components/global/Transition/SpinTransition.vue",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "components/global/Transition/SwipeTransition.vue",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "components/global/WakelockSwitch.vue",
+      "status": "ok",
+      "markers": 6,
+      "jMarkers": 4,
+      "unmapped": []
+    },
+    {
+      "file": "components/Layout/DefaultLayout.vue",
+      "status": "ok",
+      "markers": 19,
+      "jMarkers": 5,
+      "unmapped": [
+        "v-menu"
+      ]
+    },
+    {
+      "file": "components/Layout/LayoutParts/AppFooter.vue",
+      "status": "ok",
+      "markers": 2,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "components/Layout/LayoutParts/AppHeader.vue",
+      "status": "ok",
+      "markers": 11,
+      "jMarkers": 2,
+      "unmapped": []
+    },
+    {
+      "file": "components/Layout/LayoutParts/AppScrollToTop.vue",
+      "status": "ok",
+      "markers": 4,
+      "jMarkers": 2,
+      "unmapped": []
+    },
+    {
+      "file": "components/Layout/LayoutParts/AppSidebar.vue",
+      "status": "ok",
+      "markers": 41,
+      "jMarkers": 17,
+      "unmapped": [
+        "v-list-group",
+        "v-menu"
+      ]
+    },
+    {
+      "file": "components/Layout/LayoutParts/TheSnackbar.vue",
+      "status": "ok",
+      "markers": 5,
+      "jMarkers": 3,
+      "unmapped": []
+    },
+    {
+      "file": "layouts/admin.vue",
+      "status": "ok",
+      "markers": 4,
+      "jMarkers": 1,
+      "unmapped": []
+    },
+    {
+      "file": "layouts/basic.vue",
+      "status": "ok",
+      "markers": 2,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "layouts/blank.vue",
+      "status": "ok",
+      "markers": 3,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "layouts/default.vue",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "layouts/error.vue",
+      "status": "ok",
+      "markers": 8,
+      "jMarkers": 1,
+      "unmapped": []
+    },
+    {
+      "file": "composables/api/api-client.ts",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/api/index.ts",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/api/static-routes.ts",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/api/use-downloader.ts",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/forms/index.ts",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/forms/use-field-types.ts",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/partials/types.ts",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/partials/use-actions-factory.ts",
+      "status": "ok",
+      "markers": 10,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/partials/use-store-factory.ts",
+      "status": "ok",
+      "markers": 7,
+      "jMarkers": 1,
+      "unmapped": []
+    },
+    {
+      "file": "composables/recipe-page/shared-state.ts",
+      "status": "ok",
+      "markers": 9,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/recipe-page/use-cook-mode-query.test.ts",
+      "status": "ok",
+      "markers": 10,
+      "jMarkers": 10,
+      "unmapped": []
+    },
+    {
+      "file": "composables/recipe-page/use-cook-mode-query.ts",
+      "status": "ok",
+      "markers": 5,
+      "jMarkers": 2,
+      "unmapped": []
+    },
+    {
+      "file": "composables/recipe-page/use-extract-ingredient-references.ts",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/recipes/index.ts",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/recipes/unit-systems.ts",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/recipes/use-fraction.ts",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/recipes/use-ingredient-substitutions.ts",
+      "status": "ok",
+      "markers": 3,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/recipes/use-parse-ingredients-dialog.ts",
+      "status": "ok",
+      "markers": 10,
+      "jMarkers": 4,
+      "unmapped": []
+    },
+    {
+      "file": "composables/recipes/use-recipe-ingredients.ts",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/recipes/use-recipe-nutrition.ts",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/recipes/use-recipe-permissions.ts",
+      "status": "ok",
+      "markers": 2,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/recipes/use-recipe-search.ts",
+      "status": "ok",
+      "markers": 4,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/recipes/use-recipe-time.ts",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/recipes/use-recipe-timeline-events.ts",
+      "status": "ok",
+      "markers": 1,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/recipes/use-recipe-tools.ts",
+      "status": "ok",
+      "markers": 2,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/recipes/use-recipe.ts",
+      "status": "ok",
+      "markers": 1,
+      "jMarkers": 1,
+      "unmapped": []
+    },
+    {
+      "file": "composables/recipes/use-recipes.ts",
+      "status": "ok",
+      "markers": 3,
+      "jMarkers": 1,
+      "unmapped": []
+    },
+    {
+      "file": "composables/recipes/use-scaled-amount.ts",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/recipes/use-unit-conversion.ts",
+      "status": "ok",
+      "markers": 1,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/recipes/use-unit-system.ts",
+      "status": "ok",
+      "markers": 3,
+      "jMarkers": 2,
+      "unmapped": []
+    },
+    {
+      "file": "composables/shopping-list-page/sub-composables/use-shopping-list-copy.ts",
+      "status": "ok",
+      "markers": 1,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/shopping-list-page/sub-composables/use-shopping-list-crud.ts",
+      "status": "ok",
+      "markers": 3,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/shopping-list-page/sub-composables/use-shopping-list-data.ts",
+      "status": "ok",
+      "markers": 3,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/shopping-list-page/sub-composables/use-shopping-list-item-actions.ts",
+      "status": "ok",
+      "markers": 3,
+      "jMarkers": 2,
+      "unmapped": []
+    },
+    {
+      "file": "composables/shopping-list-page/sub-composables/use-shopping-list-labels.ts",
+      "status": "ok",
+      "markers": 3,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/shopping-list-page/sub-composables/use-shopping-list-recipes.ts",
+      "status": "ok",
+      "markers": 3,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/shopping-list-page/sub-composables/use-shopping-list-search.test.ts",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/shopping-list-page/sub-composables/use-shopping-list-search.ts",
+      "status": "ok",
+      "markers": 5,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/shopping-list-page/sub-composables/use-shopping-list-sorting.ts",
+      "status": "ok",
+      "markers": 1,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/shopping-list-page/sub-composables/use-shopping-list-state.ts",
+      "status": "ok",
+      "markers": 5,
+      "jMarkers": 3,
+      "unmapped": []
+    },
+    {
+      "file": "composables/shopping-list-page/use-add-to-shopping-list-dialog.ts",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/shopping-list-page/use-shopping-list-item-editor.ts",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/shopping-list-page/use-shopping-list-page.ts",
+      "status": "ok",
+      "markers": 4,
+      "jMarkers": 2,
+      "unmapped": []
+    },
+    {
+      "file": "composables/store/index.ts",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/store/use-category-store.ts",
+      "status": "ok",
+      "markers": 1,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/store/use-cookbook-store.ts",
+      "status": "ok",
+      "markers": 1,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/store/use-food-store.ts",
+      "status": "ok",
+      "markers": 1,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/store/use-household-store.ts",
+      "status": "ok",
+      "markers": 1,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/store/use-label-store.ts",
+      "status": "ok",
+      "markers": 1,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/store/use-tag-store.ts",
+      "status": "ok",
+      "markers": 1,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/store/use-tool-store.ts",
+      "status": "ok",
+      "markers": 1,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/store/use-unit-store.ts",
+      "status": "ok",
+      "markers": 1,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/store/use-user-store.ts",
+      "status": "ok",
+      "markers": 1,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/use-ai-providers.ts",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/use-announcements.ts",
+      "status": "ok",
+      "markers": 2,
+      "jMarkers": 1,
+      "unmapped": []
+    },
+    {
+      "file": "composables/use-auth-backend.ts",
+      "status": "ok",
+      "markers": 1,
+      "jMarkers": 1,
+      "unmapped": []
+    },
+    {
+      "file": "composables/use-backups.ts",
+      "status": "ok",
+      "markers": 3,
+      "jMarkers": 1,
+      "unmapped": []
+    },
+    {
+      "file": "composables/use-clear-composable-caches.ts",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/use-context-presents.ts",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/use-copy.ts",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/use-default-activity.ts",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/use-global-i18n.ts",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/use-group-cookbooks.ts",
+      "status": "ok",
+      "markers": 2,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/use-group-mealplan.ts",
+      "status": "ok",
+      "markers": 4,
+      "jMarkers": 1,
+      "unmapped": []
+    },
+    {
+      "file": "composables/use-group-recipe-actions.ts",
+      "status": "ok",
+      "markers": 2,
+      "jMarkers": 1,
+      "unmapped": []
+    },
+    {
+      "file": "composables/use-group-webhooks.ts",
+      "status": "ok",
+      "markers": 2,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/use-groups.ts",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/use-households.ts",
+      "status": "ok",
+      "markers": 1,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/use-locales/available-locales.ts",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/use-locales/index.ts",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/use-locales/use-locales.ts",
+      "status": "ok",
+      "markers": 3,
+      "jMarkers": 3,
+      "unmapped": []
+    },
+    {
+      "file": "composables/use-logged-in-state.ts",
+      "status": "ok",
+      "markers": 2,
+      "jMarkers": 1,
+      "unmapped": []
+    },
+    {
+      "file": "composables/use-mealie-auth.ts",
+      "status": "ok",
+      "markers": 3,
+      "jMarkers": 2,
+      "unmapped": []
+    },
+    {
+      "file": "composables/use-mealplan-rules.ts",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/use-navigation-warning.ts",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/use-new-recipe-options.ts",
+      "status": "ok",
+      "markers": 13,
+      "jMarkers": 12,
+      "unmapped": []
+    },
+    {
+      "file": "composables/use-passwords.ts",
+      "status": "ok",
+      "markers": 6,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/use-query-filter-builder.ts",
+      "status": "ok",
+      "markers": 4,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/use-recipe-explorer-search.ts",
+      "status": "ok",
+      "markers": 16,
+      "jMarkers": 4,
+      "unmapped": []
+    },
+    {
+      "file": "composables/use-router.ts",
+      "status": "ok",
+      "markers": 6,
+      "jMarkers": 4,
+      "unmapped": []
+    },
+    {
+      "file": "composables/use-scroll-position.ts",
+      "status": "ok",
+      "markers": 1,
+      "jMarkers": 1,
+      "unmapped": []
+    },
+    {
+      "file": "composables/use-search.test.ts",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/use-search.ts",
+      "status": "ok",
+      "markers": 5,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/use-setup/common-settings-form.ts",
+      "status": "ok",
+      "markers": 1,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/use-setup/index.ts",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/use-toast.ts",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/use-token-cookie.ts",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/use-user.ts",
+      "status": "ok",
+      "markers": 2,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/use-users/index.ts",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/use-users/preferences.ts",
+      "status": "ok",
+      "markers": 12,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/use-users/user-form.ts",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/use-users/user-ratings.ts",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/use-users/user-registration-form.ts",
+      "status": "ok",
+      "markers": 1,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/use-utils.ts",
+      "status": "ok",
+      "markers": 0,
+      "jMarkers": 0,
+      "unmapped": []
+    },
+    {
+      "file": "composables/use-validators.ts",
+      "status": "ok",
+      "markers": 2,
+      "jMarkers": 0,
+      "unmapped": []
+    }
+  ]
+}

@@ -37,19 +37,19 @@ export default function RecipePageInfoCardImage({ maxWidth = undefined }: Props)
     setLightboxOpen(true);
   }
 
-  const imageHeight = computed(() => {
+  const imageHeight = useMemo(() => {
     return display.xs ? "200" : "400";
-  });
+  }, []); // WF4-REVIEW: dependency array
 
-  const recipeFullImageUrl = useMemo(() =>  {
-    return recipeImage(recipe.id, recipe.image, imageKey, []); // WF4-REVIEW: dependency array
-  });
+  const recipeFullImageUrl = useMemo(() => {
+    return recipeImage(recipe.id, recipe.image, imageKey);
+  }, []); // WF4-REVIEW: dependency array
 
-  const recipeImageUrl = useMemo(() =>  {
+  const recipeImageUrl = useMemo(() => {
     return display.smAndDown
-      ? recipeSmallImage(recipe.id, recipe.image, imageKey, []); // WF4-REVIEW: dependency array
+      ? recipeSmallImage(recipe.id, recipe.image, imageKey)
       : recipeFullImageUrl;
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   /* WF4-REVIEW [J] */ watch(
     () => recipeImageUrl,
@@ -61,7 +61,7 @@ export default function RecipePageInfoCardImage({ maxWidth = undefined }: Props)
   return (
     <>
   {/* WF4-REVIEW: cover → objectFit */}
-  <Box component="img" key={imageKey} max-width={maxWidth} min-height="50" cover width="100%" height={hideImage ? undefined : imageHeight} src={recipeImageUrl} className="d-print-none" style={hideImage ? undefined : 'cursor: zoom-in'} {...($attrs)} onError={hideImage = true} onClick={openLightbox} />
+  <Box component="img" key={imageKey} max-width={maxWidth} min-height="50" cover width="100%" height={hideImage ? undefined : imageHeight} src={recipeImageUrl} className="d-print-none" style={hideImage ? undefined : 'cursor: zoom-in'} {...($attrs)} onError={() => setHideImage(true)} onClick={openLightbox} />
   {(lightboxOpen) ? (
     <RecipeImageLightbox value={lightboxOpen} onChange={setLightboxOpen} image-url={recipeFullImageUrl} image-alt={recipe.name} />
   ) : null}

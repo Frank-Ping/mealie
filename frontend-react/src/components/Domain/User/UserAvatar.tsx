@@ -17,35 +17,36 @@ export default function UserAvatar({ userId, list = false, size = "42", tooltip 
 
   const auth = useMealieAuth();
   const { store: users } = useUserStore();
-  const user = useMemo(() =>  {
-    return users.find(user => user.id === userId, []); // WF4-REVIEW: dependency array
-  });
+  const user = useMemo(() => {
+    return users.find(user => user.id === userId);
+  }, []); // WF4-REVIEW: dependency array
 
-  const imageURL = computed(() => {
+  const imageURL = useMemo(() => {
     // Note: auth.user is a ref now
     const authUser = auth.user;
     const key = authUser?.cacheKey ?? "";
     return `/api/media/users/${userId}/profile.webp?cacheKey=${key}`;
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   return (
     <>
   {(userId) ? (
     /* WF4-REVIEW: activator slot variants [J] */
     <Tooltip disabled={!user || !tooltip} location="end">
-      <template>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
         {(list) ? (
           <Avatar {...(tooltipProps)}>
             {/* WF4-REVIEW: cover → objectFit */}
-            <Box component="img" src={imageURL} alt={userId} onLoad={error = false} onError={error = true} />
+            <Box component="img" src={imageURL} alt={userId} onLoad={() => setError(false)} onError={() => setError(true)} />
           </Avatar>
         ) : (
           <Avatar size={size} {...(tooltipProps)}>
             {/* WF4-REVIEW: cover → objectFit */}
-            <Box component="img" src={imageURL} alt={userId} onLoad={error = false} onError={error = true} />
+            <Box component="img" src={imageURL} alt={userId} onLoad={() => setError(false)} onError={() => setError(true)} />
           </Avatar>
         )}
-      </template>
+      </>
       {(user) ? (
         <span>
           {user.fullName}

@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { Button } from "@mui/material";
 import { DatePicker } from "@mui/x-date-pickers";
+import { icons } from "@/lib/icons";
 import { addMonths, format, isDate } from "date-fns";
 import type { DatePickerEventColorValue } from "vuetify/lib/components/VDatePicker/VDatePickerMonth.mjs";
 import type { PlanEntryType } from "@/lib/api/types/meal-plan";
@@ -15,16 +16,16 @@ export default function MealPlanDatePicker() {
 
   const { household } = useHouseholdSelf();
 
-  const [target, setTarget] = useState(new Date(););
+  const [target, setTarget] = useState(new Date());
   const range = useMemo(() => ({
-    start: addMonths(target, -1, []); // WF4-REVIEW: dependency array,
+    start: addMonths(target, -1),
     end: addMonths(target, 2),
-  }));
+  }), []); // WF4-REVIEW: dependency array
   const { mealplans } = useMealplans(range);
 
-  const firstDayOfWeek = computed(() => {
+  const firstDayOfWeek = useMemo(() => {
     return household?.preferences?.firstDayOfWeek || 0;
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   function updateMonth(month: number) {
     const copy = new Date(target);
@@ -54,9 +55,10 @@ export default function MealPlanDatePicker() {
     <>
   {/* WF4-REVIEW: value format + LocalizationProvider */}
   <DatePicker value={selectedDate} onChange={/* WF4-REVIEW: setter */ setSelectedDate} className="mx-auto" hide-header show-adjacent-months color="primary" first-day-of-week={firstDayOfWeek} local={$i18n.locale} events={hasMealPlanned} onUpdateMonth={updateMonth} onUpdateYear={updateYear}>
-    <template>
+    {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+    <>
       <div className="d-flex justify-space-between w-100">
-        <Button disabled={disabled.includes('prev-month')} icon={$globals.icons.chevronLeft} flat density="comfortable" onClick={prevMonth} />
+        <Button disabled={disabled.includes('prev-month')} icon={icons.chevronLeft} flat density="comfortable" onClick={prevMonth} />
         <div className="text-center">
           <div className="text-body-large">
             {monthYearText.split(' ')[0]}
@@ -65,9 +67,9 @@ export default function MealPlanDatePicker() {
             {yearText}
           </div>
         </div>
-        <Button disabled={disabled.includes('next-month')} icon={$globals.icons.chevronRight} flat density="comfortable" onClick={nextMonth} />
+        <Button disabled={disabled.includes('next-month')} icon={icons.chevronRight} flat density="comfortable" onClick={nextMonth} />
       </div>
-    </template>
+    </>
   </DatePicker>
     </>
   );

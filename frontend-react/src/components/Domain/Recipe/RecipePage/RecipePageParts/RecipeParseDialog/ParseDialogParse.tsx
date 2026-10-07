@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { Box, CardActions, CardContent, FormControlLabel } from "@mui/material";
+import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
 import type { useParseIngredientsDialog } from "@/composables/recipes/use-parse-ingredients-dialog";
 
@@ -48,7 +49,7 @@ export default function ParseDialogParse() {
       </div>
       <div className="d-flex align-center pa-0 ma-0">
         {/* WF4-REVIEW: icon name resolves via lib/icons */}
-        <MdiIcon name={(currentIng.confidence?.average || 0) < confidenceThreshold ? $globals.icons.alert : $globals.icons.check} color={(currentIng.confidence?.average || 0) < confidenceThreshold ? 'error' : 'success'} />
+        <MdiIcon name={(currentIng.confidence?.average || 0) < confidenceThreshold ? icons.alert : icons.check} color={(currentIng.confidence?.average || 0) < confidenceThreshold ? 'error' : 'success'} />
         <span className="ml-2" color={currentIngHasError ? 'error-text' : 'success-text'}>
           {t("recipe.parser.confidence-score")}
           :
@@ -56,32 +57,32 @@ export default function ParseDialogParse() {
         </span>
       </div>
       {/* WF4-REVIEW: v-model on complex expression "currentIng.ingredient" [J] */}
-      <RecipeIngredientEditor {/* WF4-REVIEW: v-model currentIng.ingredient */} unit-error={!!currentMissingUnit} unit-error-tooltip={t('recipe.parser.this-unit-could-not-be-parsed-automatically')} food-error={!!currentMissingFood} food-error-tooltip={t('recipe.parser.this-food-could-not-be-parsed-automatically')} />
+      <RecipeIngredientEditor unit-error={!!currentMissingUnit} unit-error-tooltip={t('recipe.parser.this-unit-could-not-be-parsed-automatically')} food-error={!!currentMissingFood} food-error-tooltip={t('recipe.parser.this-food-could-not-be-parsed-automatically')} />
       <CardActions className="flex-wrap">
         {/* WF4-REVIEW: control={<Checkbox/>} + label prop */}
         <FormControlLabel value={currentIngShouldDelete} onChange={/* WF4-REVIEW: setter */ setCurrentIngShouldDelete} color="error" hide-details density="compact" className="mt-8" label={t('recipe.parser.delete-item')} />
-        <Box sx={ flexGrow: 1 } />
+        <Box sx={{ flexGrow: 1 }} />
         {(currentMissingUnit && !currentIng.ingredient.unit?.id) ? (
-          <BaseButton icon={$globals.icons.units} color="warning" size="small" loading={state.loading.unit} onClick={createMissingUnit}>
+          <BaseButton icon={icons.units} color="warning" size="small" loading={state.loading.unit} onClick={createMissingUnit}>
             {t("recipe.parser.missing-unit", { unit: currentMissingUnit })}
           </BaseButton>
         ) : null}
         {(currentMissingUnit
             && currentIng.ingredient.unit?.id
             && currentMissingUnit.toLowerCase() != currentIng.ingredient.unit?.name.toLowerCase()) ? (
-          <BaseButton icon={$globals.icons.units} color="warning" size="small" loading={state.loading.unit} onClick={addMissingUnitAsAlias}>
+          <BaseButton icon={icons.units} color="warning" size="small" loading={state.loading.unit} onClick={addMissingUnitAsAlias}>
             {t("recipe.parser.add-text-as-alias-for-item", { text: currentMissingUnit, item: currentIng.ingredient.unit.name })}
           </BaseButton>
         ) : null}
         {(currentMissingFood && !currentIng.ingredient.food?.id) ? (
-          <BaseButton icon={$globals.icons.foods} color="warning" size="small" loading={state.loading.food} onClick={createMissingFood}>
+          <BaseButton icon={icons.foods} color="warning" size="small" loading={state.loading.food} onClick={createMissingFood}>
             {t("recipe.parser.missing-food", { food: currentMissingFood })}
           </BaseButton>
         ) : null}
         {(currentMissingFood
             && currentIng.ingredient.food?.id
             && currentMissingFood.toLowerCase() != currentIng.ingredient.food?.name.toLowerCase()) ? (
-          <BaseButton icon={$globals.icons.foods} color="warning" size="small" loading={state.loading.food} onClick={addMissingFoodAsAlias}>
+          <BaseButton icon={icons.foods} color="warning" size="small" loading={state.loading.food} onClick={addMissingFoodAsAlias}>
             {t("recipe.parser.add-text-as-alias-for-item", { text: currentMissingFood, item: currentIng.ingredient.food.name })}
           </BaseButton>
         ) : null}

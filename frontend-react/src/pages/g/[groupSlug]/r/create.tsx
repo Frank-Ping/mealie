@@ -15,7 +15,7 @@ export const handle = {
 export default function Create() {
   const { t } = useTranslation();
 
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
   const auth = useMealieAuth();
   // icons imported directly (was $globals)
   const { group } = useGroupSelf();
@@ -27,7 +27,7 @@ export default function Create() {
   const subpages = useMemo(() => [
     {
       icon: icons.link,
-      text: i18n.t("recipe.import-with-url", []); // WF4-REVIEW: dependency array,
+      text: i18n.t("recipe.import-with-url"),
       value: "url",
     },
     {
@@ -61,13 +61,13 @@ export default function Create() {
       text: i18n.t("recipe.debug-scraper"),
       value: "debug",
     },
-  ]);
+  ], []); // WF4-REVIEW: dependency array
 
   const route = useLocation(); // WF4-REVIEW: .query → useSearchParams [J]
   const navigate = useNavigate();
   const groupSlug = useMemo(() => route.params.groupSlug || auth.user?.groupSlug || "", []); // WF4-REVIEW: dependency array
 
-  /* WF4-REVIEW [J]: writable computed — split into state + handlers */ const subpage = computed({
+  /* WF4-REVIEW [J]: writable computed — split into state + handlers */ /* WF4-REVIEW [J]: writable computed — split into state + handlers */ const subpage = computed({
     set(subpage: string) {
       navigate({ path: `/g/${groupSlug}/r/create/${subpage}`, query: route.query });
     },
@@ -81,14 +81,17 @@ export default function Create() {
   <div>
     <Container className="flex-column">
       <BasePageTitle divider>
-        <template>
+        {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+        <>
           {/* WF4-REVIEW: cover → objectFit */}
           <Box component="img" width="100%" max-height="175" max-width="175" src="/svgs/recipes-create.svg" />
-        </template>
-        <template>
+        </>
+        {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+        <>
           {t('recipe.recipe-creation')}
-        </template>
-        <template>
+        </>
+        {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+        <>
           <div className="flex-1-1 d-flex flex-column justify-center align-center ga-2">
             <p>
               {t('recipe.select-one-of-the-various-ways-to-create-a-recipe')}
@@ -97,7 +100,7 @@ export default function Create() {
               <BaseOverflowButton value={subpage} onChange={/* WF4-REVIEW: setter */ setSubpage} rounded items={subpages} />
             </div>
           </div>
-        </template>
+        </>
       </BasePageTitle>
       <section>
         <Outlet />

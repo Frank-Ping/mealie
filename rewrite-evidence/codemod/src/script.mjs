@@ -1,5 +1,6 @@
 // <script setup> / composable .ts -> React TS transforms (line/regex based v1).
 import { stripValueReads, transformExpr, setterFor, emitToProp } from "./expr.mjs";
+import { extractCall, splitArgs } from "./balanced.mjs";
 
 const TYPE_MAP = { String: "string", Number: "number", Boolean: "boolean", Array: "unknown[]", Object: "Record<string, unknown>", Function: "(...args: unknown[]) => unknown" };
 
@@ -49,14 +50,29 @@ export function transformScript(script, ctx) {
     return `export const handle = ${obj}; // WF4-REVIEW: merged into the route table (was definePageMeta)`;
   });
 
-  // ---- withDefaults(defineProps<Props>(), {...}) ----
+  // ---- withDefaults(defineProps<Props>(), {...}) via balanced scan ----
   let propsDestructure = null;
-  body = body.replace(/(?:const\s+props\s*=\s*)?withDefaults\(\s*defineProps<(\w+)>\(\)\s*,\s*\{([\s\S]*?)\}\s*\);?/g, (_, typeName, defBody) => {
-    const defaults = parseDefaults(defBody);
-    propsDestructure = defaults.map((d) => `${d.key} = ${d.value}`).join(", ");
-    ctx.destructureProps = true;
-    return `/* props via destructured signature (was withDefaults(defineProps<${typeName}>) */`;
-  });
+  body = (() => {
+    const re = /(const\s+props\s*=\s*)?withDefaults\b/g;
+    let out = "", last = 0, m;
+    while ((m = re.exec(body))) {
+      const callIdx = m.index + m[0].length - "withDefaults".length;
+      const call = extractCall(body, callIdx);
+      if (!call) continue;
+      let end = call.end;
+      if (body[end] === ";") end++;
+      const [propsPart, defaultsPart] = splitArgs(call.args);
+      const typeName = (propsPart ?? "").match(/defineProps<(\w+)>/)?.[1];
+      const defBody = (defaultsPart ?? "").trim().replace(/^\{/, "").replace(/\}$/, "");
+      const defaults = parseDefaults(defBody);
+      propsDestructure = defaults.map((d) => `${d.key} = ${d.value}`).join(", ");
+      ctx.destructureProps = true;
+      out += body.slice(last, m.index) + `/* props via destructured signature (was withDefaults(defineProps<${typeName ?? "?"}>) */`;
+      last = end;
+      re.lastIndex = end;
+    }
+    return out + body.slice(last);
+  })();
 
   // ---- plain defineProps<Props>() ----
   if (!propsDestructure) {
@@ -98,29 +114,56 @@ export function transformScript(script, ctx) {
     return `/* emits → props: ${names.map((n) => emitToProp(n)).join(", ")} */`;
   });
 
-  // ---- refs ----
-  body = body.replace(/const\s+(\w+)\s*=\s*ref(?:<[^>]*>)?\(([^)]*)\);?/g, (_, name, init) => {
-    const setter = setterFor(name);
-    ctx.stateIds.set(name, setter);
-    ctx.hooks.add("useState");
-    return `const [${name}, ${setter}] = useState(${init || "undefined"});`;
-  });
-
-  // ---- computed ----
-  body = body.replace(/const\s+(\w+)\s*=\s*computed(?:<[^>]*>)?\(\s*\(\)\s*=>\s*([^\n{][^;]*?)\);?/g, (_, name, expr) => {
-    ctx.derivedIds.add(name);
-    // Simple member/optional-chain reads are cheap and stay live on every render —
-    // freezing them in useMemo([]) would lose reactivity (gate #2 finding P2).
-    const simpleRead = /^[\w$?.[\]'"\s]+$/.test(expr) && !expr.includes("(");
-    if (simpleRead) {
-      return `const ${name} = ${expr}; // was computed — plain read stays reactive`;
+  // ---- refs & computed via balanced-call scanning (regex truncation was the
+  // root cause of the Phase C TS1xxx family) ----
+  body = (() => {
+    const declRe = /const\s+(\w+)\s*=\s*(ref|computed)\b/g;
+    let out = "", last = 0, m;
+    while ((m = declRe.exec(body))) {
+      const kind = m[2];
+      const callIdx = m.index + m[0].length - kind.length;
+      const call = extractCall(body, callIdx);
+      if (!call) continue;
+      let end = call.end;
+      if (body[end] === ";") end++;
+      const name = m[1];
+      let replacement = null;
+      if (kind === "ref") {
+        const setter = setterFor(name);
+        ctx.stateIds.set(name, setter);
+        ctx.hooks.add("useState");
+        replacement = `const [${name}, ${setter}] = useState(${call.args.trim() || "undefined"});`;
+      }
+      else {
+        const arg = call.args.trim();
+        if (arg.startsWith("{")) {
+          notes.push("writable computed → manual conversion [J]");
+          replacement = `/* WF4-REVIEW [J]: writable computed — split into state + handlers */ const ${name} = computed(${arg});`;
+        }
+        else {
+          const arrow = arg.match(/^\(\s*\)\s*=>\s*([\s\S]+)$/);
+          const expr = (arrow ? arrow[1] : arg).trim().replace(/;$/, "");
+          ctx.derivedIds.add(name);
+          const simpleRead = /^[\w$?.[\]'"\s]+$/.test(expr) && !expr.includes("(") && !expr.includes("\n");
+          if (simpleRead) {
+            replacement = `const ${name} = ${expr}; // was computed — plain read stays reactive`;
+          }
+          else {
+            ctx.hooks.add("useMemo");
+            replacement = `const ${name} = useMemo(() => ${expr}, []); // WF4-REVIEW: dependency array`;
+          }
+        }
+      }
+      out += body.slice(last, m.index) + replacement;
+      last = end;
+      declRe.lastIndex = end;
     }
-    ctx.hooks.add("useMemo");
-    return `const ${name} = useMemo(() => ${expr}, []); // WF4-REVIEW: dependency array`;
-  });
+    return out + body.slice(last);
+  })();
+  // annotated writable computeds the scanner can't own: still mark them
   if (/computed(?:<[^>]*>)?\(\s*\{/.test(body)) {
     notes.push("writable computed → manual conversion [J]");
-    body = body.replace(/(const\s+\w+\s*=\s*computed(?:<[^>]*>)?\(\s*\{)/g, "/* WF4-REVIEW [J]: writable computed — split into state + handlers */ $1");
+    body = body.replace(/(const\s+\w+[^=]*=\s*computed(?:<[^>]*>)?\(\s*\{)/g, "/* WF4-REVIEW [J]: writable computed — split into state + handlers */ $1");
   }
 
   // ---- vue ref type annotations ----
@@ -154,21 +197,42 @@ export function transformScript(script, ctx) {
   });
   body = body.replace(/\$globals\.icons/g, "icons");
 
-  // ---- useAsyncData → useEffect (skeleton with cancellation + error handling) ----
-  body = body.replace(/useAsyncData\(\s*[^,]+,\s*async\s*\(([^)]*)\)\s*=>\s*\{([\s\S]*?)\}\s*,?\s*\);?/g, (_, _args, inner) => {
-    ctx.hooks.add("useEffect");
-    const lines = inner.trim().split("\n");
-    const guarded = [];
-    for (const l of lines) {
-      const indented = l.trim() ? "      " + l : l;
-      guarded.push(indented);
-      // After every completed await, a superseded effect run must stop before it
-      // can act on stale data (gate #2 round-3 finding: navigates were unguarded).
-      if (/await/.test(l) && l.trimEnd().endsWith(";")) {
-        guarded.push(indented.match(/^\s*/)[0] + "if (cancelled) return;");
+  // ---- useAsyncData → useEffect (skeleton with cancellation + error handling),
+  // balanced-scan version: the callback body routinely contains `})` pairs ----
+  body = (() => {
+    const re = /useAsyncData\b/g;
+    let out = "", last = 0, m;
+    while ((m = re.exec(body))) {
+      const call = extractCall(body, m.index);
+      if (!call) continue;
+      let end = call.end;
+      if (body[end] === ";") end++;
+      const parts = splitArgs(call.args);
+      const fn = parts[1] ?? "";
+      const blockMatch = fn.match(/=>\s*\{/);
+      let inner = "";
+      if (blockMatch) {
+        const braceStart = fn.indexOf("{", blockMatch.index);
+        const block = extractCall(fn, braceStart);
+        inner = block ? block.args : fn;
       }
-    }
-    return `useEffect(() => {
+      else {
+        inner = fn;
+        notes.push("useAsyncData with non-block callback [S]");
+      }
+      ctx.hooks.add("useEffect");
+      const lines = inner.trim().split("\n");
+      const guarded = [];
+      for (const l of lines) {
+        const indented = l.trim() ? "      " + l : l;
+        guarded.push(indented);
+        // After every completed await, a superseded effect run must stop before it
+        // can act on stale data (gate #2 round-3 finding: navigates were unguarded).
+        if (/await/.test(l) && l.trimEnd().endsWith(";")) {
+          guarded.push(indented.match(/^\s*/)[0] + "if (cancelled) return;");
+        }
+      }
+      out += body.slice(last, m.index) + `useEffect(() => {
   let cancelled = false;
   void (async () => {
     try {
@@ -180,7 +244,11 @@ ${guarded.join("\n")}
   })();
   return () => { cancelled = true; };
 }, []); // WF4-REVIEW: deps + re-run trigger — confirm against auth-ready init flow`;
-  });
+      last = end;
+      re.lastIndex = end;
+    }
+    return out + body.slice(last);
+  })();
 
   // ---- .value assignments for tracked refs ----
   for (const [name, setter] of ctx.stateIds) {
@@ -197,6 +265,15 @@ ${guarded.join("\n")}
   }
 
   // ---- i18n in script ----
+  // vue-i18n's useI18n → react-i18next's useTranslation (returns { t, i18n })
+  body = body.replace(/const\s+i18n\s*=\s*useI18n\(\);?/g, () => {
+    ctx.needsTranslation = true;
+    return "const { i18n } = useTranslation();";
+  });
+  body = body.replace(/const\s*\{([^}]*)\}\s*=\s*useI18n\(\);?/g, (_, names) => {
+    ctx.needsTranslation = true;
+    return `const {${names}} = useTranslation(); // WF4-REVIEW: d/n/locale mapping [S]`;
+  });
   if (/\$t\(/.test(body)) {
     body = body.replace(/\$t\(/g, "t(");
     ctx.needsTranslation = true;
@@ -244,5 +321,6 @@ export function freshCtx(composableIndex = null) {
     needsMdiIcon: false,
     hasPageMeta: false,
     unmapped: new Set(),
+    parseErrors: [],
   };
 }

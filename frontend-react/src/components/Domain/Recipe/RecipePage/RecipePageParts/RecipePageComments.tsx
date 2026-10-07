@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Button, Card, CardActions, CardContent, CardHeader, Divider, TextField } from "@mui/material";
+import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
 import { useUserApi } from "@/composables/api";
 import type { Recipe } from "@/lib/api/types/recipe";
@@ -48,7 +49,7 @@ export default function RecipePageComments() {
     {/* WF4-REVIEW: title text moves to the title prop */}
     <CardHeader className="headline pb-3">
       {/* WF4-REVIEW: icon name resolves via lib/icons */}
-      <MdiIcon name={$globals.icons.commentTextMultipleOutline} className="mr-2" />
+      <MdiIcon name={icons.commentTextMultipleOutline} className="mr-2" />
       {t("recipe.comments")}
     </CardHeader>
     <Divider className="mx-2" />
@@ -60,9 +61,10 @@ export default function RecipePageComments() {
         </div>
         <div className="ml-auto mt-1">
           <BaseButton size="small" disabled={!comment.trim()} onClick={submitComment}>
-            <template>
-              {$globals.icons.check}
-            </template>
+            {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+            <>
+              {icons.check}
+            </>
             {t("general.submit")}
           </BaseButton>
         </div>

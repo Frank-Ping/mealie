@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { Button, Tooltip } from "@mui/material";
+import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
 import { useUserSelfRatings } from "@/composables/use-users";
 import { useUserApi } from "@/composables/api";
@@ -19,10 +20,10 @@ export default function RecipeFavoriteBadge({ recipeId = "", showAlways = false,
 
   const { userRatings, refreshUserRatings } = useUserSelfRatings();
 
-  const isFavorite = useMemo(() =>  {
-    const rating = userRatings.find(r => r.recipeId === recipeId, []); // WF4-REVIEW: dependency array
+  const isFavorite = useMemo(() => {
+    const rating = userRatings.find(r => r.recipeId === recipeId);
     return rating?.isFavorite || false;
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   async function toggleFavorite() {
     const api = useUserApi();
@@ -42,14 +43,15 @@ export default function RecipeFavoriteBadge({ recipeId = "", showAlways = false,
     <>
   {/* WF4-REVIEW: activator slot variants [J] */}
   <Tooltip location="bottom" nudge-right="50" color={buttonStyle ? 'info' : 'secondary'}>
-    <template>
+    {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+    <>
       {(isFavorite || showAlways) ? (
         <Button icon variant={buttonStyle ? 'flat' : undefined} rounded={buttonStyle ? 'circle' : undefined} size="small" color={buttonStyle ? 'info' : 'secondary'} fab={buttonStyle} {...({ ...tooltipProps, ...$attrs })} onClick={(e) => { e.preventDefault(); toggleFavorite; }}>
           {/* WF4-REVIEW: icon name resolves via lib/icons */}
-          <MdiIcon name={isFavorite ? $globals.icons.heart : $globals.icons.heartOutline} size={!buttonStyle ? undefined : 'x-large'} color={buttonStyle ? 'white' : 'secondary'} />
+          <MdiIcon name={isFavorite ? icons.heart : icons.heartOutline} size={!buttonStyle ? undefined : 'x-large'} color={buttonStyle ? 'white' : 'secondary'} />
         </Button>
       ) : null}
-    </template>
+    </>
     <span>
       {isFavorite ? t("recipe.remove-from-favorites") : t("recipe.add-to-favorites")}
     </span>

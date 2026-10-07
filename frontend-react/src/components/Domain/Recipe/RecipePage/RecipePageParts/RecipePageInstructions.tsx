@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Box, Button, Card, CardContent, CardHeader, Checkbox, Collapse, Divider, Drawer, Fade, Grid, LinearProgress, Paper, TextField, Tooltip, Typography } from "@mui/material";
+import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
 import { VueDraggable } from "vue-draggable-plus";
 import type { RecipeStep, RecipeNote, RecipeIngredient, RecipeAsset, Recipe } from "@/lib/api/types/recipe";
@@ -39,7 +40,7 @@ export default function RecipePageInstructions({ recipe, scale = 1, ingredientSt
 
   const emit = /* emits → props: onClickInstructionField, onUpdate:assets */
 
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
   const { isCookMode, toggleCookMode, isEditForm } = usePageState(recipe.slug);
   const { extractIngredientReferences } = useExtractIngredientReferences();
 
@@ -150,9 +151,9 @@ export default function RecipePageInstructions({ recipe, scale = 1, ingredientSt
 
   const availableDialogNextStep = useMemo(() => activeLinkerIndex < instructionList.length - 1, []); // WF4-REVIEW: dependency array
   const activeDialogStepText = activeText; // was computed — plain read stays reactive
-  const linkableNotes = useMemo(() =>  {
-    return (recipe.notes ?? [], []); // WF4-REVIEW: dependency array.filter((note): note is RecipeNote & { referenceId: string } => note.referenceId != null);
-  });
+  const linkableNotes = useMemo(() => {
+    return (recipe.notes ?? []).filter((note): note is RecipeNote & { referenceId: string } => note.referenceId != null);
+  }, []); // WF4-REVIEW: dependency array
 
   function openReferenceDialog(idx: number) {
     setActiveLinkerIndex(idx);
@@ -242,7 +243,7 @@ export default function RecipePageInstructions({ recipe, scale = 1, ingredientSt
     ).forEach(ingredient => activeRefs.push(ingredient));
   }
 
-  const noteLookup = computed(() => {
+  const noteLookup = useMemo(() => {
     const results: { [key: string]: string } = {};
     return (recipe.notes ?? []).reduce((prev, note) => {
       if (note.referenceId != null) {
@@ -250,9 +251,9 @@ export default function RecipePageInstructions({ recipe, scale = 1, ingredientSt
       }
       return prev;
     }, results);
-  });
+  }, []); // WF4-REVIEW: dependency array
 
-  const notesByReferenceId = computed(() => {
+  const notesByReferenceId = useMemo(() => {
     const results: { [key: string]: RecipeNote } = {};
     return (recipe.notes ?? []).reduce((prev, note) => {
       if (note.referenceId != null) {
@@ -260,7 +261,7 @@ export default function RecipePageInstructions({ recipe, scale = 1, ingredientSt
       }
       return prev;
     }, results);
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   function linkedNotesForStep(step: RecipeStep): RecipeNote[] {
     return (step.noteReferences ?? [])
@@ -285,7 +286,7 @@ export default function RecipePageInstructions({ recipe, scale = 1, ingredientSt
     return hasLinkedIngredients(step) || hasLinkedNotes(step);
   }
 
-  const ingredientLookup = computed(() => {
+  const ingredientLookup = useMemo(() => {
     const results: { [key: string]: RecipeIngredient } = {};
     return recipe.recipeIngredient.reduce((prev, ing) => {
       if (ing.referenceId === undefined) {
@@ -294,10 +295,10 @@ export default function RecipePageInstructions({ recipe, scale = 1, ingredientSt
       prev[ing.referenceId] = ing;
       return prev;
     }, results);
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   // Map each ingredient's referenceId to its section title
-  const ingredientSectionTitles = computed(() => {
+  const ingredientSectionTitles = useMemo(() => {
     const titleMap: { [key: string]: string } = {};
     let currentTitle = "";
 
@@ -317,9 +318,9 @@ export default function RecipePageInstructions({ recipe, scale = 1, ingredientSt
     });
 
     return titleMap;
-  });
+  }, []); // WF4-REVIEW: dependency array
 
-  const groupedUnusedIngredients = computed((): Record<string, RecipeIngredient[]> => {
+  const groupedUnusedIngredients = useMemo(() => (): Record<string, RecipeIngredient[]> => {
     const groups: Record<string, RecipeIngredient[]> = {};
 
     // Group ingredients by section title
@@ -334,9 +335,9 @@ export default function RecipePageInstructions({ recipe, scale = 1, ingredientSt
     });
 
     return groups;
-  });
+  }, []); // WF4-REVIEW: dependency array
 
-  const groupedUsedIngredients = computed((): Record<string, RecipeIngredient[]> => {
+  const groupedUsedIngredients = useMemo(() => (): Record<string, RecipeIngredient[]> => {
     const groups: Record<string, RecipeIngredient[]> = {};
     usedIngredients.forEach((ingredient) => {
       if (ingredient.referenceId === undefined) {
@@ -349,7 +350,7 @@ export default function RecipePageInstructions({ recipe, scale = 1, ingredientSt
     });
 
     return groups;
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   // ===============================================================
   // Instruction Merger
@@ -524,7 +525,7 @@ export default function RecipePageInstructions({ recipe, scale = 1, ingredientSt
   return (
     <>
   <section onKeyUp={undoMerge}>
-    <BaseDialog value={dialog} onChange={setDialog} title={t('recipe.link-references')} icon={$globals.icons.link} width="100%" max-width="600px" max-height="60%">
+    <BaseDialog value={dialog} onChange={setDialog} title={t('recipe.link-references')} icon={icons.link} width="100%" max-width="600px" max-height="60%">
       <div className="grid">
         <div className="sticky">
           <Card flat style="max-height: 40dvh; overflow-y: auto;">
@@ -543,12 +544,12 @@ export default function RecipePageInstructions({ recipe, scale = 1, ingredientSt
         <Card flat>
           <CardContent>
             {(Object.keys(groupedUnusedIngredients).length > 0) ? (
-              <template>
+              <>
                 <h4 className="ml-1">
                   {t("recipe.unlinked")}
                 </h4>
                 {groupedUnusedIngredients.map((ingredients, title) => (
-                  <template key={title}>
+                  <>
                     {(title) ? (
                       <h4 className="py-3 ml-1 pl-4">
                         {title}
@@ -556,22 +557,23 @@ export default function RecipePageInstructions({ recipe, scale = 1, ingredientSt
                     ) : null}
                     {ingredients.map(ing => (
                       <Checkbox key={ing.referenceId} value={activeRefs} onChange={setActiveRefs} value={ing.referenceId} className="ml-4">
-                        <template>
+                        {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                        <>
                           <RecipeIngredientHtml ingredient={ing} scale={scale} />
-                        </template>
+                        </>
                       </Checkbox>
                     ))}
-                  </template>
+                  </>
                 ))}
-              </template>
+              </>
             ) : null}
             {(Object.keys(groupedUsedIngredients).length > 0) ? (
-              <template>
+              <>
                 <h4 className="py-3 ml-1">
                   {t("recipe.linked-to-other-step")}
                 </h4>
                 {groupedUsedIngredients.map((ingredients, title) => (
-                  <template key={title}>
+                  <>
                     {(title) ? (
                       <h4 className="py-3 ml-1 pl-4">
                         {title}
@@ -579,14 +581,15 @@ export default function RecipePageInstructions({ recipe, scale = 1, ingredientSt
                     ) : null}
                     {ingredients.map(ing => (
                       <Checkbox key={ing.referenceId} value={activeRefs} onChange={setActiveRefs} value={ing.referenceId} className="ml-4">
-                        <template>
+                        {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                        <>
                           <RecipeIngredientHtml ingredient={ing} scale={scale} />
-                        </template>
+                        </>
                       </Checkbox>
                     ))}
-                  </template>
+                  </>
                 ))}
-              </template>
+              </>
             ) : null}
             <Divider className="my-4" />
             <h4 className="ml-1 mb-2">
@@ -599,38 +602,42 @@ export default function RecipePageInstructions({ recipe, scale = 1, ingredientSt
             ) : null}
             {linkableNotes.map(note => (
               <Checkbox key={note.referenceId} value={activeNoteReferenceIds} onChange={setActiveNoteReferenceIds} value={note.referenceId} className="ml-4">
-                <template>
+                {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                <>
                   {note.title || t('recipe.note')}
-                </template>
+                </>
               </Checkbox>
             ))}
           </CardContent>
         </Card>
       </div>
       <Divider />
-      <template>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
         <div className="d-flex flex-grow-1">
           <BaseButton cancel onClick={closeDialog} />
-          <Box sx={ flexGrow: 1 } />
+          <Box sx={{ flexGrow: 1 }} />
           <div className="d-flex flex-wrap justify-end ga-2">
             <BaseButton color="info" onClick={autoSetReferences}>
-              <template>
-                {$globals.icons.robot}
-              </template>
+              {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+              <>
+                {icons.robot}
+              </>
               {t("recipe.auto")}
             </BaseButton>
             <BaseButton save onClick={saveDialogLinks} />
             {(availableDialogNextStep) ? (
               <BaseButton className="ml-2 my-1" onClick={saveAndOpenNextDialogLinks}>
-                <template>
-                  {$globals.icons.forward}
-                </template>
+                {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                <>
+                  {icons.forward}
+                </>
                 {t("recipe.nextStep")}
               </BaseButton>
             ) : null}
           </div>
         </div>
-      </template>
+      </>
     </BaseDialog>
     <div className="d-flex justify-space-between justify-start">
       {(!isCookMode) ? (
@@ -640,9 +647,10 @@ export default function RecipePageInstructions({ recipe, scale = 1, ingredientSt
       ) : null}
       {(!isEditForm && !isCookMode) ? (
         <BaseButton minor cancel color="primary" onClick={toggleCookMode()}>
-          <template>
-            {$globals.icons.primary}
-          </template>
+          {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+          <>
+            {icons.primary}
+          </>
           {t("recipe.cook-mode")}
         </BaseButton>
       ) : null}
@@ -653,18 +661,18 @@ export default function RecipePageInstructions({ recipe, scale = 1, ingredientSt
         {/* WF4-REVIEW: title text moves to the title prop */}
         <CardHeader className="d-flex align-center">
           {/* WF4-REVIEW: icon name resolves via lib/icons */}
-          <MdiIcon name={$globals.icons.noteTextOutline} size="20" className="mr-2" />
+          <MdiIcon name={icons.noteTextOutline} size="20" className="mr-2" />
           {t('recipe.linked-notes-with-count', { count: activeStepLinkedNotes.length })}
-          <Box sx={ flexGrow: 1 } />
-          <Button icon variant="text" density="comfortable" aria-label={t('general.close')} onClick={linkedNotesSheetOpen = false}>
+          <Box sx={{ flexGrow: 1 }} />
+          <Button icon variant="text" density="comfortable" aria-label={t('general.close')} onClick={() => setLinkedNotesSheetOpen(false)}>
             {/* WF4-REVIEW: icon name resolves via lib/icons */}
-            <MdiIcon name={$globals.icons.close} />
+            <MdiIcon name={icons.close} />
           </Button>
         </CardHeader>
         <Divider />
         <CardContent className="pt-4">
           {activeStepLinkedNotes.map((note, noteIndex) => (
-            <template key={note.referenceId ?? note.title}>
+            <>
               {(noteIndex > 0) ? (
                 <Divider className="my-3" />
               ) : null}
@@ -672,7 +680,7 @@ export default function RecipePageInstructions({ recipe, scale = 1, ingredientSt
                 {note.title || t('recipe.note')}
               </div>
               <SafeMarkdown source={note.text} />
-            </template>
+            </>
           ))}
         </CardContent>
       </Card>
@@ -681,23 +689,23 @@ export default function RecipePageInstructions({ recipe, scale = 1, ingredientSt
         animation: 200,
         group: 'recipe-instructions',
         ghostClass: 'ghost',
-      })} onStart={drag = true} onEnd={onDragEnd}>
+      })} onStart={() => setDrag(true)} onEnd={onDragEnd}>
       <TransitionGroup type="transition">
         {instructionList.map((step, index) => (
           <div key={step.id!} className="list-group-item">
             {(step.id && showTitleEditor[step.id]) ? (
               <Paper color="primary" className="mt-6 mb-2 d-flex align-center" className={isEditForm ? 'pa-2' : 'pa-3'} style="border-radius: 6px; cursor: pointer; width: 100%;" onClick={toggleCollapseSection(index)}>
                 {(isEditForm) ? (
-                  <template>
+                  <>
                     {/* WF4-REVIEW: rules/error-messages → error+helperText; v-model on complex expression "step.title" [J] */}
-                    <TextField {/* WF4-REVIEW: v-model step.title */} className="pa-0" density="compact" variant="solo" flat placeholder={t('recipe.section-title')} bg-color="primary" hide-details />
-                  </template>
+                    <TextField className="pa-0" density="compact" variant="solo" flat placeholder={t('recipe.section-title')} bg-color="primary" hide-details />
+                  </>
                 ) : (
-                  <template>
+                  <>
                     <Typography variant="h6" className="section-title-text">
                       {step.title}
                     </Typography>
-                  </template>
+                  </>
                 )}
               </Paper>
             ) : null}
@@ -709,38 +717,39 @@ export default function RecipePageInstructions({ recipe, scale = 1, ingredientSt
                   <div className="d-flex align-center w-100">
                     {(isEditForm) ? (
                       /* WF4-REVIEW: rules/error-messages → error+helperText; v-model on complex expression "step.summary" [J] */
-                      <TextField {/* WF4-REVIEW: v-model step.summary */} className="headline" hide-details density="compact" variant="solo" flat placeholder={t('recipe.step-index', { step: index + 1 })}>
-                        <template>
+                      <TextField className="headline" hide-details density="compact" variant="solo" flat placeholder={t('recipe.step-index', { step: index + 1 })}>
+                        {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                        <>
                           {/* WF4-REVIEW: icon name resolves via lib/icons */}
-                          <MdiIcon name={$globals.icons.arrowUpDown} size="26" className="handle" />
-                        </template>
+                          <MdiIcon name={icons.arrowUpDown} size="26" className="handle" />
+                        </>
                       </TextField>
                     ) : (
                       <div className="summary-wrapper">
                         {(step.summary) ? (
-                          <template>
+                          <>
                             <SafeMarkdown className="pr-2" source={step.summary} />
-                          </template>
+                          </>
                         ) : (
-                          <template>
+                          <>
                             <span>
                               {t('recipe.step-index', { step: index + 1 })}
                             </span>
-                          </template>
+                          </>
                         )}
                       </div>
                     )}
                     {(isEditForm) ? (
-                      <template>
+                      <>
                         <div className="ml-auto">
                           <BaseButtonGroup large={false} buttons={[
                           {
-                            icon: $globals.icons.delete,
+                            icon: icons.delete,
                             text: t('general.delete'),
                             event: 'delete',
                           },
                           {
-                            icon: $globals.icons.dotsVertical,
+                            icon: icons.dotsVertical,
                             text: '',
                             event: 'open',
                             children: [
@@ -757,7 +766,7 @@ export default function RecipePageInstructions({ recipe, scale = 1, ingredientSt
                                 event: 'upload-image',
                               },
                               {
-                                icon: previewStates[index] ? $globals.icons.edit : $globals.icons.eye,
+                                icon: previewStates[index] ? icons.edit : icons.eye,
                                 text: previewStates[index] ? t('recipe.edit-markdown') : t('markdown-editor.preview-markdown-button-label'),
                                 event: 'preview-step',
                                 divider: true,
@@ -786,14 +795,14 @@ export default function RecipePageInstructions({ recipe, scale = 1, ingredientSt
                           },
                         ]} onMergeAbove={mergeAbove(index - 1, index)} onMoveToTop={moveTo('top', index)} onMoveToBottom={moveTo('bottom', index)} onInsertAbove={insert(index)} onInsertBelow={insert(index + 1)} onToggleSection={toggleShowTitle(step.id!)} onLinkReferences={openReferenceDialog(index)} onPreviewStep={togglePreviewState(index)} onUploadImage={openImageUpload(index)} onDelete={instructionList.splice(index, 1)} />
                         </div>
-                      </template>
+                      </>
                     ) : null}
                     {(!isEditForm) ? (
                       <div className="ml-auto d-flex align-center gap-1">
                         {(hasLinkedNotes(step) && !isCookMode) ? (
                           <Button variant="text" icon density="comfortable" size="small" onClick={(e) => { e.stopPropagation(); openLinkedNotesSheet(step); }}>
                             {/* WF4-REVIEW: icon name resolves via lib/icons */}
-                            <MdiIcon name={$globals.icons.noteTextOutline} size="18" />
+                            <MdiIcon name={icons.noteTextOutline} size="18" />
                             {/* WF4-REVIEW: activator slot variants [J] */}
                             <Tooltip activator="parent" location="top">
                               {t('recipe.linked-notes-with-count', { count: linkedNotesForStep(step).length })}
@@ -803,7 +812,7 @@ export default function RecipePageInstructions({ recipe, scale = 1, ingredientSt
                         {/* WF4-REVIEW: transition semantics */}
                         <Fade in={true}>
                           {/* WF4-REVIEW: icon name resolves via lib/icons */}
-                          <MdiIcon name={$globals.icons.checkboxMarkedCircle} sx={{ display: (isChecked(index)) ? undefined : "none" }} size="24" color="success" />
+                          <MdiIcon name={icons.checkboxMarkedCircle} sx={{ display: (isChecked(index)) ? undefined : "none" }} size="24" color="success" />
                         </Fade>
                       </div>
                     ) : null}
@@ -816,7 +825,7 @@ export default function RecipePageInstructions({ recipe, scale = 1, ingredientSt
                   {(isEditForm) ? (
                     <CardContent onClick={onClickInstructionField?.(`${index}.text`)}>
                       {/* WF4-REVIEW: v-model on complex expression "instructionList[index]['text']" [J]; v-model on complex expression "previewStates[index]" [J] */}
-                      <MarkdownEditor {/* WF4-REVIEW: v-model instructionList[index]['text'] */} {/* WF4-REVIEW: v-model previewStates[index] */} className="mb-2" display-preview={false} textarea={{
+                      <MarkdownEditor className="mb-2" display-preview={false} textarea={{
                       hint: t('recipe.attach-images-hint'),
                       persistentHint: true,
                     }} />
@@ -836,7 +845,7 @@ export default function RecipePageInstructions({ recipe, scale = 1, ingredientSt
                           {step.noteReferences.map((noteRef, i) => (
                             <div key={noteRef.referenceId ?? i} className="mb-1 d-flex align-center text-body-2">
                               {/* WF4-REVIEW: icon name resolves via lib/icons */}
-                              <MdiIcon name={$globals.icons.noteTextOutline} size="14" className="mr-1" style="cursor: default;" />
+                              <MdiIcon name={icons.noteTextOutline} size="14" className="mr-1" style="cursor: default;" />
                               {noteRef.referenceId != null ? (noteLookup[noteRef.referenceId] || t('recipe.note')) : ''}
                             </div>
                           ))}
@@ -868,7 +877,7 @@ export default function RecipePageInstructions({ recipe, scale = 1, ingredientSt
                               {(hasLinkedNotes(step)) ? (
                                 <div>
                                   {linkedNotesForStep(step).map((note, noteIndex) => (
-                                    <template key={note.referenceId ?? note.title}>
+                                    <>
                                       {(noteIndex > 0) ? (
                                         <Divider className="my-3" />
                                       ) : null}
@@ -876,7 +885,7 @@ export default function RecipePageInstructions({ recipe, scale = 1, ingredientSt
                                         {note.title || t('recipe.note')}
                                       </div>
                                       <SafeMarkdown source={note.text} />
-                                    </template>
+                                    </>
                                   ))}
                                 </div>
                               ) : null}

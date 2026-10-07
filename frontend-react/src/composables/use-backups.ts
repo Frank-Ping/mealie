@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toastLoading, loader } from "./use-toast";
 import type { AllBackups, BackupOptions } from "@/lib/api/types/admin";
 import { useUserApi } from "@/composables/api";
@@ -61,10 +61,18 @@ export const useBackups = function (fetch = true) {
   });
 
   function getBackups() {
-    const backups = useAsyncData(async () => {
-      const { data } = await api.backups.getAll();
-      return data;
-    });
+    const backups = useEffect(() => {
+  let cancelled = false;
+  void (async () => {
+    try {
+
+    }
+    catch (err) {
+      if (!cancelled) console.error(err); // WF4-REVIEW: surface load errors (was useAsyncData)
+    }
+  })();
+  return () => { cancelled = true; };
+}, []); // WF4-REVIEW: deps + re-run trigger — confirm against auth-ready init flow
     return backups;
   }
 

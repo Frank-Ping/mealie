@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { Card, List, ListItem, ListItemText, Tooltip } from "@mui/material";
+import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
 import { canConvertIngredient, useUnitSystem } from "@/composables/recipes";
 import type { UnitSystem } from "@/composables/recipes/unit-systems";
@@ -12,7 +13,7 @@ export default function RecipeUnitSystemButton() {
 
   const props = defineProps<{ recipe: NoUndefinedField<Recipe> }>();
 
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
   const { unitSystem } = useUnitSystem();
 
   /**
@@ -21,13 +22,13 @@ export default function RecipeUnitSystemButton() {
    * imperial ladder ever be added.
    */
   const options = useMemo(() => [
-    { key: "as-written", value: null, text: i18n.t("recipe.unit-system.as-written", []); // WF4-REVIEW: dependency array },
+    { key: "as-written", value: null, text: i18n.t("recipe.unit-system.as-written") },
     { key: "metric", value: "metric", text: i18n.t("recipe.unit-system.metric-with-hint") },
     { key: "us", value: "us", text: i18n.t("recipe.unit-system.imperial-with-hint") },
-  ]);
+  ], []); // WF4-REVIEW: dependency array
 
-  const activeLabel = useMemo(() =>  {
-    switch (unitSystem, []); // WF4-REVIEW: dependency array {
+  const activeLabel = useMemo(() => {
+    switch (unitSystem) {
       case "metric":
         return i18n.t("recipe.unit-system.metric");
       case "us":
@@ -35,39 +36,40 @@ export default function RecipeUnitSystemButton() {
       default:
         return i18n.t("recipe.unit-system.as-written");
     }
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   // Disabled when nothing on the recipe carries the standardization data conversion needs, so the
   // control stays in place — the reader can see units are a thing here — but never does nothing
   // when used.
-  const hasConvertibleIngredients = useMemo(() => props.recipe.recipeIngredient.some(canConvertIngredient, []); // WF4-REVIEW: dependency array,
-  );
+  const hasConvertibleIngredients = useMemo(() => props.recipe.recipeIngredient.some(canConvertIngredient),, []); // WF4-REVIEW: dependency array
 
   return (
     <>
   {/* WF4-REVIEW: unmapped <v-menu> — judgement component, convert manually [J] */}
   <VMenu disabled={!hasConvertibleIngredients} offset-y top nudge-top="6">
-    <template>
+    {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+    <>
       {/* WF4-REVIEW: activator slot variants [J] */}
       <Tooltip size="small" location="top" color="secondary-darken-1">
-        <template>
+        {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+        <>
           {/* WF4-REVIEW: dropped Vuetify-only prop "dark" on <v-card> */}
           <Card className="pa-1 px-2" color="secondary-darken-1" size="small" disabled={!hasConvertibleIngredients} {...({ ...activatorProps, ...tooltipProps })}>
             {/* WF4-REVIEW: icon name resolves via lib/icons */}
-            <MdiIcon name={$globals.icons.units} size="small" className="mr-2" />
+            <MdiIcon name={icons.units} size="small" className="mr-2" />
             <span>
               {activeLabel}
             </span>
           </Card>
-        </template>
+        </>
         <span>
           {t("general.units")}
         </span>
       </Tooltip>
-    </template>
+    </>
     <List density="compact">
       {options.map(option => (
-        /* WF4-REVIEW: @click → ListItemButton */
+        /* WF4-REVIEW: @click → ListItemButton; assignment handler "unitSystem = option" — target not a tracked ref [J] */
         <ListItem key={option.key} active={option === unitSystem} onClick={unitSystem = option}>
           {/* WF4-REVIEW: content → primary prop */}
           <ListItemText>

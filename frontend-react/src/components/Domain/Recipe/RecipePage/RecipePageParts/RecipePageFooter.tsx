@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Button, Card, CardActions, CardContent, CardHeader, Divider, Grid, TextField } from "@mui/material";
+import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
 import { usePageState } from "@/composables/recipe-page/shared-state";
 import type { NoUndefinedField } from "@/lib/api/types/non-generated";
@@ -47,7 +48,7 @@ export default function RecipePageFooter() {
     <CardActions className="justify-end">
       {(isEditForm) ? (
         /* WF4-REVIEW: rules/error-messages → error+helperText; v-model on complex expression "recipe.orgURL" [J] */
-        <TextField {/* WF4-REVIEW: v-model recipe.orgURL */} className="mt-10" variant="underlined" label={t('recipe.original-url')} />
+        <TextField className="mt-10" variant="underlined" label={t('recipe.original-url')} />
       ) : (recipe.orgURL && !isCookMode) ? (
         <Button hover={false} ripple={false} variant="flat" to={recipe.orgURL} color="secondary-darken-1" target="_blank" className="mr-n2" size="small">
           {t("recipe.original-url")}
@@ -69,13 +70,14 @@ export default function RecipePageFooter() {
                 {/* WF4-REVIEW: cols/sm/md/lg → size={{ xs, sm, md }} */}
                 <Grid style="max-width: 400px;">
                   {/* WF4-REVIEW: rules/error-messages → error+helperText; v-model on complex expression "recipe.extras[key]" [J] */}
-                  <TextField {/* WF4-REVIEW: v-model recipe.extras[key] */} density="compact" variant="underlined" label={key}>
-                    <template>
+                  <TextField density="compact" variant="underlined" label={key}>
+                    {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                    <>
                       <Button color="error" icon className="mt-n4" onClick={removeApiExtra(key)}>
                         {/* WF4-REVIEW: icon name resolves via lib/icons */}
-                        <MdiIcon name={$globals.icons.delete} />
+                        <MdiIcon name={icons.delete} />
                       </Button>
-                    </template>
+                    </>
                   </TextField>
                 </Grid>
               </Grid>

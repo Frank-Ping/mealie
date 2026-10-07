@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
 import { useLoggedInState } from "@/composables/use-logged-in-state";
 import { useRecipeExplorerSearch } from "@/composables/use-recipe-explorer-search";
@@ -56,40 +57,40 @@ export default function RecipeExplorerPageSearchFilters() {
     <>
   {(categories) ? (
     /* WF4-REVIEW: v-model on complex expression "state.requireAllCategories" [J] */
-    <SearchFilter value={selectedCategories} onChange={/* WF4-REVIEW: setter */ setSelectedCategories} {/* WF4-REVIEW: v-model state.requireAllCategories */} items={categories}>
+    <SearchFilter value={selectedCategories} onChange={/* WF4-REVIEW: setter */ setSelectedCategories} items={categories}>
       {/* WF4-REVIEW: icon name resolves via lib/icons; dropped Vuetify-only prop "start" on <v-icon> */}
-      <MdiIcon name={$globals.icons.categories} />
+      <MdiIcon name={icons.categories} />
       {t("category.categories")}
     </SearchFilter>
   ) : null}
   {(tags) ? (
     /* WF4-REVIEW: v-model on complex expression "state.requireAllTags" [J] */
-    <SearchFilter value={selectedTags} onChange={/* WF4-REVIEW: setter */ setSelectedTags} {/* WF4-REVIEW: v-model state.requireAllTags */} items={tags}>
+    <SearchFilter value={selectedTags} onChange={/* WF4-REVIEW: setter */ setSelectedTags} items={tags}>
       {/* WF4-REVIEW: icon name resolves via lib/icons; dropped Vuetify-only prop "start" on <v-icon> */}
-      <MdiIcon name={$globals.icons.tags} />
+      <MdiIcon name={icons.tags} />
       {t("tag.tags")}
     </SearchFilter>
   ) : null}
   {(tools) ? (
     /* WF4-REVIEW: v-model on complex expression "state.requireAllTools" [J] */
-    <SearchFilter value={selectedTools} onChange={/* WF4-REVIEW: setter */ setSelectedTools} {/* WF4-REVIEW: v-model state.requireAllTools */} items={tools}>
+    <SearchFilter value={selectedTools} onChange={/* WF4-REVIEW: setter */ setSelectedTools} items={tools}>
       {/* WF4-REVIEW: icon name resolves via lib/icons; dropped Vuetify-only prop "start" on <v-icon> */}
-      <MdiIcon name={$globals.icons.potSteam} />
+      <MdiIcon name={icons.potSteam} />
       {t("tool.tools")}
     </SearchFilter>
   ) : null}
   {(foods) ? (
     /* WF4-REVIEW: v-model on complex expression "state.requireAllFoods" [J] */
-    <SearchFilter value={selectedFoods} onChange={/* WF4-REVIEW: setter */ setSelectedFoods} {/* WF4-REVIEW: v-model state.requireAllFoods */} items={foods}>
+    <SearchFilter value={selectedFoods} onChange={/* WF4-REVIEW: setter */ setSelectedFoods} items={foods}>
       {/* WF4-REVIEW: icon name resolves via lib/icons; dropped Vuetify-only prop "start" on <v-icon> */}
-      <MdiIcon name={$globals.icons.foods} />
+      <MdiIcon name={icons.foods} />
       {t("general.foods")}
     </SearchFilter>
   ) : null}
   {(households.length > 1) ? (
     <SearchFilter value={selectedHouseholds} onChange={/* WF4-REVIEW: setter */ setSelectedHouseholds} items={households} radio>
       {/* WF4-REVIEW: icon name resolves via lib/icons; dropped Vuetify-only prop "start" on <v-icon> */}
-      <MdiIcon name={$globals.icons.household} />
+      <MdiIcon name={icons.household} />
       {t("household.households")}
     </SearchFilter>
   ) : null}

@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Badge, Button, Divider, Drawer, List, ListItem, ListItemText } from "@mui/material";
+import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
 import { useLoggedInState } from "@/composables/use-logged-in-state";
 import type { SidebarLinks } from "@/types/application-types";
@@ -45,7 +46,7 @@ export default function AppSidebar({ user = null, topLink, secondaryLinks = null
     languageDialog: false as boolean,
   });
 
-  const allLinks = useMemo(() => [...topLink, ...(secondaryLinks || [], []); // WF4-REVIEW: dependency array]);
+  const allLinks = useMemo(() => [...topLink, ...(secondaryLinks || [])], []); // WF4-REVIEW: dependency array
   function initDropdowns() {
     allLinks.forEach((link) => {
       state.dropDowns[link.title] = link.childrenStartExpanded || false;
@@ -67,9 +68,9 @@ export default function AppSidebar({ user = null, topLink, secondaryLinks = null
   <Drawer value={modelValue} onChange={/* WF4-REVIEW: setter */ setModelValue} className="d-flex flex-column d-print-none position-fixed" touchless>
     <AnnouncementDialog value={showAnnouncementsDialog} onChange={setShowAnnouncementsDialog} />
     {/* WF4-REVIEW: v-model on complex expression "state.languageDialog" [J] */}
-    <LanguageDialog {/* WF4-REVIEW: v-model state.languageDialog */} />
+    <LanguageDialog />
     {(loggedIn && sessionUser) ? (
-      <template>
+      <>
         {/* WF4-REVIEW: @click → ListItemButton */}
         <ListItem lines="two" to={userProfileLink} exact>
           <div className="d-flex align-center ga-2">
@@ -84,7 +85,7 @@ export default function AppSidebar({ user = null, topLink, secondaryLinks = null
                 {(isOwnGroup) ? (
                   <Button className="px-2 pa-0" variant="text" component={Link} to={userFavoritesLink} size="small">
                     {/* WF4-REVIEW: icon name resolves via lib/icons; dropped Vuetify-only prop "start" on <v-icon> */}
-                    <MdiIcon name={$globals.icons.heart} size="small" />
+                    <MdiIcon name={icons.heart} size="small" />
                     {t("user.favorite-recipes")}
                   </Button>
                 ) : null}
@@ -93,57 +94,59 @@ export default function AppSidebar({ user = null, topLink, secondaryLinks = null
           </div>
         </ListItem>
         <Divider />
-      </template>
+      </>
     ) : null}
     <slot />
     {(topLink) ? (
-      <template>
+      <>
         {/* WF4-REVIEW: v-model on complex expression "state.secondarySelected" [J] */}
-        <List {/* WF4-REVIEW: v-model state.secondarySelected */} nav density="comfortable" color="primary">
+        <List nav density="comfortable" color="primary">
           {topLink.map(nav => (
-            <template>
+            <>
               {(!nav.restricted || isOwnGroup) ? (
                 <div key={nav.key || nav.title}>
                   {(nav.children) ? (
                     /* WF4-REVIEW: unmapped <v-list-group> — judgement component, convert manually [J]; v-model on complex expression "state.dropDowns[nav.title]" [J] */
-                    <VListGroup key={(nav.key || nav.title) + 'multi-item'} {/* WF4-REVIEW: v-model state.dropDowns[nav.title] */} color="primary" prepend-icon={nav.icon} fluid={true}>
-                      <template>
+                    <VListGroup key={(nav.key || nav.title) + 'multi-item'} color="primary" prepend-icon={nav.icon} fluid={true}>
+                      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                      <>
                         {/* WF4-REVIEW: @click → ListItemButton */}
                         <ListItem {...(hoverProps)} prepend-icon={nav.icon} title={nav.title} />
-                      </template>
+                      </>
                       {nav.children.map(child => (
                         /* WF4-REVIEW: @click → ListItemButton */
                         <ListItem key={child.key || child.title} exact to={child.to} prepend-icon={child.icon} title={child.title} className="ml-4" />
                       ))}
                     </VListGroup>
                   ) : null}
-                  <template>
+                  <>
                     {/* WF4-REVIEW: @click → ListItemButton */}
                     <ListItem key={(nav.key || nav.title) + 'single-item'} exact link to={nav.to} prepend-icon={nav.icon} title={nav.title} />
-                  </template>
+                  </>
                 </div>
               ) : null}
-            </template>
+            </>
           ))}
         </List>
-      </template>
+      </>
     ) : null}
     {(secondaryLinks.length > 0) ? (
-      <template>
+      <>
         <Divider className="mt-2" />
         {/* WF4-REVIEW: v-model on complex expression "state.secondarySelected" [J] */}
-        <List {/* WF4-REVIEW: v-model state.secondarySelected */} nav density="compact" exact>
+        <List nav density="compact" exact>
           {secondaryLinks.map(nav => (
-            <template>
+            <>
               {(!nav.restricted || isOwnGroup) ? (
                 <div key={nav.key || nav.title}>
                   {(nav.children) ? (
                     /* WF4-REVIEW: unmapped <v-list-group> — judgement component, convert manually [J]; v-model on complex expression "state.dropDowns[nav.title]" [J] */
-                    <VListGroup key={(nav.key || nav.title) + 'multi-item'} {/* WF4-REVIEW: v-model state.dropDowns[nav.title] */} color="primary" prepend-icon={nav.icon} fluid>
-                      <template>
+                    <VListGroup key={(nav.key || nav.title) + 'multi-item'} color="primary" prepend-icon={nav.icon} fluid>
+                      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                      <>
                         {/* WF4-REVIEW: @click → ListItemButton */}
                         <ListItem {...(hoverProps)} prepend-icon={nav.icon} title={nav.title} />
-                      </template>
+                      </>
                       {nav.children.map(child => (
                         /* WF4-REVIEW: @click → ListItemButton */
                         <ListItem key={child.key || child.title} exact to={child.to} className="ml-2" prepend-icon={child.icon} title={child.title} />
@@ -152,10 +155,11 @@ export default function AppSidebar({ user = null, topLink, secondaryLinks = null
                   ) : null}
                   {/* WF4-REVIEW: @click → ListItemButton */}
                   <ListItem key={(nav.key || nav.title) + 'single-item'} exact link to={nav.to}>
-                    <template>
+                    {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                    <>
                       {/* WF4-REVIEW: icon name resolves via lib/icons */}
                       <MdiIcon name={nav.icon} />
-                    </template>
+                    </>
                     {/* WF4-REVIEW: content → primary prop */}
                     <ListItemText>
                       {nav.title}
@@ -163,59 +167,62 @@ export default function AppSidebar({ user = null, topLink, secondaryLinks = null
                   </ListItem>
                 </div>
               ) : null}
-            </template>
+            </>
           ))}
         </List>
-      </template>
+      </>
     ) : null}
-    <template>
+    {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+    <>
       {/* WF4-REVIEW: v-model on complex expression "state.bottomSelected" [J] */}
-      <List {/* WF4-REVIEW: v-model state.bottomSelected */} nav density="comfortable">
+      <List nav density="comfortable">
         {(loggedIn && announcementsEnabled) ? (
           /* WF4-REVIEW: @click → ListItemButton */
           <ListItem title={t('announcements.announcements')} onClick={() => showAnnouncementsDialog = !showAnnouncementsDialog}>
-            <template>
+            {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+            <>
               {/* WF4-REVIEW: content → badgeContent */}
               <Badge model-value={!!newAnnouncements.length} color="accent" content={newAnnouncements.length || undefined} offset-x="-2">
                 {/* WF4-REVIEW: icon name resolves via lib/icons */}
-                <MdiIcon name={$globals.icons.bullhornVariant} />
+                <MdiIcon name={icons.bullhornVariant} />
               </Badge>
-            </template>
+            </>
           </ListItem>
         ) : null}
         {/* WF4-REVIEW: unmapped <v-menu> — judgement component, convert manually [J] */}
         <VMenu location="end bottom" offset={15}>
-          <template>
+          {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+          <>
             {/* WF4-REVIEW: @click → ListItemButton */}
-            <ListItem {...(hoverProps)} prepend-icon={$globals.icons.cog} title={t('general.settings')} />
-          </template>
+            <ListItem {...(hoverProps)} prepend-icon={icons.cog} title={t('general.settings')} />
+          </>
           <List density="comfortable" color="primary">
             {/* WF4-REVIEW: @click → ListItemButton */}
-            <ListItem prepend-icon={$globals.icons.translate} title={t('sidebar.language')} onClick={state.languageDialog=true} />
+            <ListItem prepend-icon={icons.translate} title={t('sidebar.language')} onClick={state.languageDialog=true} />
             {/* WF4-REVIEW: @click → ListItemButton */}
-            <ListItem prepend-icon={$vuetify.theme.current.dark ? $globals.icons.weatherSunny : $globals.icons.weatherNight} title={$vuetify.theme.current.dark ? t('settings.theme.light-mode') : t('settings.theme.dark-mode')} onClick={toggleDark} />
+            <ListItem prepend-icon={$vuetify.theme.current.dark ? icons.weatherSunny : icons.weatherNight} title={$vuetify.theme.current.dark ? t('settings.theme.light-mode') : t('settings.theme.dark-mode')} onClick={toggleDark} />
             {(loggedIn) ? (
               <Divider className="my-2" />
             ) : null}
             {(loggedIn) ? (
               /* WF4-REVIEW: @click → ListItemButton */
-              <ListItem prepend-icon={$globals.icons.cog} title={t('profile.user-settings')} to="/user/profile" />
+              <ListItem prepend-icon={icons.cog} title={t('profile.user-settings')} to="/user/profile" />
             ) : null}
             {(canManage) ? (
               /* WF4-REVIEW: @click → ListItemButton */
-              <ListItem prepend-icon={$globals.icons.manageData} title={t('data-pages.data-management')} to="/group/data" />
+              <ListItem prepend-icon={icons.manageData} title={t('data-pages.data-management')} to="/group/data" />
             ) : null}
             {(isAdmin) ? (
               <Divider className="my-2" />
             ) : null}
             {(isAdmin) ? (
               /* WF4-REVIEW: @click → ListItemButton */
-              <ListItem prepend-icon={$globals.icons.wrench} title={t('settings.admin-settings')} to="/admin/site-settings" />
+              <ListItem prepend-icon={icons.wrench} title={t('settings.admin-settings')} to="/admin/site-settings" />
             ) : null}
           </List>
         </VMenu>
       </List>
-    </template>
+    </>
   </Drawer>
     </>
   );

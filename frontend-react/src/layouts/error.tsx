@@ -111,14 +111,14 @@ export default function Error({ error = null }: Props) {
             4
           </p>
           {/* WF4-REVIEW: icon name resolves via lib/icons */}
-          <MdiIcon name={$globals.icons.primary} color="primary" className="mx-auto mb-0" size="200" />
+          <MdiIcon name={icons.primary} color="primary" className="mx-auto mb-0" size="200" />
           <p className="primary--text">
             4
           </p>
         </div>
       </div>
       <CardActions>
-        <Box sx={ flexGrow: 1 } />
+        <Box sx={{ flexGrow: 1 }} />
         <slot name="actions">
           {buttons.map((button, index) => (
             <Button key={index} nuxt component={Link} to={button.to} color="primary">
@@ -128,7 +128,7 @@ export default function Error({ error = null }: Props) {
             </Button>
           ))}
         </slot>
-        <Box sx={ flexGrow: 1 } />
+        <Box sx={{ flexGrow: 1 }} />
       </CardActions>
     </Box>
   ) : null}

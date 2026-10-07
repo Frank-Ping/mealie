@@ -117,15 +117,15 @@ export function useSearch<T extends ISearchableItem>(
   const debouncedSearch = shallowRef("");
 
   // Flatten item aliases to include as searchable text
-  const searchItems = useMemo(() =>  {
-    const itemsArray = Array.isArray(items, []); // WF4-REVIEW: dependency array ? items : items;
+  const searchItems = useMemo(() => {
+    const itemsArray = Array.isArray(items) ? items : items;
     return itemsArray.map((item) => {
       return {
         ...item,
         aliasesText: item.aliases ? item.aliases.map(a => a.name).join(" ") : "",
       } as ISearchItemInternal;
     });
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   // Fuse handles only the fuzzy tier — typos like "bannana" → "banana". The
   // deterministic tiers above already cover exact/prefix/substring matches,
@@ -152,9 +152,9 @@ export function useSearch<T extends ISearchableItem>(
   const fuseOptions = useMemo(() => ({
     ...defaultFuseOptions,
     ...customFuseOptions,
-  }, []); // WF4-REVIEW: dependency array);
+  }), []); // WF4-REVIEW: dependency array
 
-  const fuse = useMemo(() => new Fuse(searchItems, fuseOptions, []); // WF4-REVIEW: dependency array);
+  const fuse = useMemo(() => new Fuse(searchItems, fuseOptions), []); // WF4-REVIEW: dependency array
 
   // Debounce search input
   watchDebounced(
@@ -166,8 +166,8 @@ export function useSearch<T extends ISearchableItem>(
   );
 
   // Compute filtered results
-  const filtered = useMemo(() =>  {
-    const itemsArray = Array.isArray(items, []); // WF4-REVIEW: dependency array ? items : items;
+  const filtered = useMemo(() => {
+    const itemsArray = Array.isArray(items) ? items : items;
     const searchTerm = debouncedSearch.trim();
 
     // If no search query or less than minSearchLength characters, return all items
@@ -232,7 +232,7 @@ export function useSearch<T extends ISearchableItem>(
     });
 
     return ranked.map(r => r.item);
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   const reset = () => {
     setSearch("");

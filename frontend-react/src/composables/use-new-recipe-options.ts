@@ -23,7 +23,7 @@ export function useNewRecipeOptions(props: UseNewRecipeOptionsProps = {}) {
   const navigate = useNavigate();
   const recipeCreatePreferences = useRecipeCreatePreferences();
 
-  /* WF4-REVIEW [J]: writable computed — split into state + handlers */ const importKeywordsAsTags = computed({
+  /* WF4-REVIEW [J]: writable computed — split into state + handlers */ /* WF4-REVIEW [J]: writable computed — split into state + handlers */ const importKeywordsAsTags = computed({
     get() {
       if (!enableImportKeywords) return false;
       return recipeCreatePreferences.importKeywordsAsTags;
@@ -34,7 +34,7 @@ export function useNewRecipeOptions(props: UseNewRecipeOptionsProps = {}) {
     },
   });
 
-  /* WF4-REVIEW [J]: writable computed — split into state + handlers */ const importCategories = computed({
+  /* WF4-REVIEW [J]: writable computed — split into state + handlers */ /* WF4-REVIEW [J]: writable computed — split into state + handlers */ const importCategories = computed({
     get() {
       if (!enableImportCategories) return false;
       return recipeCreatePreferences.importCategories;
@@ -45,7 +45,7 @@ export function useNewRecipeOptions(props: UseNewRecipeOptionsProps = {}) {
     },
   });
 
-  /* WF4-REVIEW [J]: writable computed — split into state + handlers */ const stayInEditMode = computed({
+  /* WF4-REVIEW [J]: writable computed — split into state + handlers */ /* WF4-REVIEW [J]: writable computed — split into state + handlers */ const stayInEditMode = computed({
     get() {
       if (!enableStayInEditMode) return false;
       return recipeCreatePreferences.stayInEditMode;
@@ -56,7 +56,7 @@ export function useNewRecipeOptions(props: UseNewRecipeOptionsProps = {}) {
     },
   });
 
-  /* WF4-REVIEW [J]: writable computed — split into state + handlers */ const parseRecipe = computed({
+  /* WF4-REVIEW [J]: writable computed — split into state + handlers */ /* WF4-REVIEW [J]: writable computed — split into state + handlers */ const parseRecipe = computed({
     get() {
       if (!enableParseRecipe) return false;
       return recipeCreatePreferences.parseRecipe;
@@ -67,7 +67,7 @@ export function useNewRecipeOptions(props: UseNewRecipeOptionsProps = {}) {
     },
   });
 
-  /* WF4-REVIEW [J]: writable computed — split into state + handlers */ const translateRecipe = computed({
+  /* WF4-REVIEW [J]: writable computed — split into state + handlers */ /* WF4-REVIEW [J]: writable computed — split into state + handlers */ const translateRecipe = computed({
     get() {
       if (!enableTranslateRecipe) return false;
       return recipeCreatePreferences.translateRecipe;
@@ -78,7 +78,7 @@ export function useNewRecipeOptions(props: UseNewRecipeOptionsProps = {}) {
     },
   });
 
-  /* WF4-REVIEW [J]: writable computed — split into state + handlers */ const createNewOrganizers = computed({
+  /* WF4-REVIEW [J]: writable computed — split into state + handlers */ /* WF4-REVIEW [J]: writable computed — split into state + handlers */ const createNewOrganizers = computed({
     get() {
       if (!enableCreateNewOrganizers) return false;
       return recipeCreatePreferences.createNewOrganizers;

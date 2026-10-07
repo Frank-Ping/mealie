@@ -41,7 +41,7 @@ export default function RecipeActionMenu({ recipeScale = 1, loggedIn = false, ca
 
   const [deleteDialog, setDeleteDialog] = useState(false);
 
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
   // icons imported directly (was $globals)
 
   const editorButtons = [
@@ -94,12 +94,12 @@ export default function RecipeActionMenu({ recipeScale = 1, loggedIn = false, ca
   return (
     <>
   <Toolbar className="fixed-bar mt-0" style="z-index: 2; position: sticky; background: transparent; box-shadow: none;" density="compact" elevation="0">
-    <BaseDialog value={deleteDialog} onChange={setDeleteDialog} bottom-sheet title={t('recipe.delete-recipe')} color="error" icon={$globals.icons.alertCircle} can-confirm onConfirm={emitDelete()}>
+    <BaseDialog value={deleteDialog} onChange={setDeleteDialog} bottom-sheet title={t('recipe.delete-recipe')} color="error" icon={icons.alertCircle} can-confirm onConfirm={emitDelete()}>
       <CardContent>
         {t("recipe.delete-confirmation")}
       </CardContent>
     </BaseDialog>
-    <Box sx={ flexGrow: 1 } />
+    <Box sx={{ flexGrow: 1 }} />
     {(!open) ? (
       <div className="custom-btn-group ma-1">
         {(loggedIn) ? (
@@ -113,12 +113,13 @@ export default function RecipeActionMenu({ recipeScale = 1, loggedIn = false, ca
             {(canEdit) ? (
               /* WF4-REVIEW: activator slot variants [J] */
               <Tooltip location="bottom" color="info">
-                <template>
+                {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                <>
                   <Button icon variant="flat" rounded="circle" size="small" color="info" className="ml-1" {...(tooltipProps)} onClick={onEdit?.(true)}>
                     {/* WF4-REVIEW: icon name resolves via lib/icons */}
-                    <MdiIcon name={$globals.icons.edit} size="x-large" />
+                    <MdiIcon name={icons.edit} size="x-large" />
                   </Button>
-                </template>
+                </>
                 <span>
                   {t("general.edit")}
                 </span>
@@ -126,7 +127,7 @@ export default function RecipeActionMenu({ recipeScale = 1, loggedIn = false, ca
             ) : null}
           </div>
         ) : null}
-        <RecipeContextMenu show-print menu-top={false} name={recipe.name!} slug={recipe.slug!} menu-icon={$globals.icons.dotsVertical} fab color="info" card-menu={false} recipe={recipe} recipe-id={recipe.id!} recipe-scale={recipeScale} use-items={{
+        <RecipeContextMenu show-print menu-top={false} name={recipe.name!} slug={recipe.slug!} menu-icon={icons.dotsVertical} fab color="info" card-menu={false} recipe={recipe} recipe-id={recipe.id!} recipe-scale={recipeScale} use-items={{
           edit: false,
           download: loggedIn,
           duplicate: loggedIn,

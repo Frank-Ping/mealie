@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Accordion, AccordionDetails, AccordionSummary, Alert, Box, Button, Card, CardContent, Container, Divider, Grid, ListItemSecondaryAction, TextField } from "@mui/material";
+import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
 import { VueDraggable } from "vue-draggable-plus";
 import RecipeList from "@/components/Domain/Recipe/RecipeList";
@@ -22,7 +23,7 @@ export default function Id() {
   const { t } = useTranslation();
 
   const { smAndUp } = useDisplay();
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
 
   useSeoMeta({
     title: i18n.t("shopping-list.shopping-list"),
@@ -113,31 +114,31 @@ export default function Id() {
   {(shoppingList) ? (
     <Container className="md-container">
       {/* WF4-REVIEW: v-model on complex expression "state.checkAllDialog" [J] */}
-      <BaseDialog {/* WF4-REVIEW: v-model state.checkAllDialog */} bottom-sheet title={t('general.confirm')} icon={$globals.icons.checkboxMultipleMarkedOutline} can-confirm onConfirm={checkAll}>
+      <BaseDialog bottom-sheet title={t('general.confirm')} icon={icons.checkboxMultipleMarkedOutline} can-confirm onConfirm={checkAll}>
         <CardContent>
           {t('shopping-list.are-you-sure-you-want-to-check-all-items')}
         </CardContent>
       </BaseDialog>
       {/* WF4-REVIEW: v-model on complex expression "state.uncheckAllDialog" [J] */}
-      <BaseDialog {/* WF4-REVIEW: v-model state.uncheckAllDialog */} bottom-sheet title={t('general.confirm')} icon={$globals.icons.checkboxMultipleBlankOutline} can-confirm onConfirm={uncheckAll}>
+      <BaseDialog bottom-sheet title={t('general.confirm')} icon={icons.checkboxMultipleBlankOutline} can-confirm onConfirm={uncheckAll}>
         <CardContent>
           {t('shopping-list.are-you-sure-you-want-to-uncheck-all-items')}
         </CardContent>
       </BaseDialog>
       {/* WF4-REVIEW: v-model on complex expression "state.deleteCheckedDialog" [J] */}
-      <BaseDialog {/* WF4-REVIEW: v-model state.deleteCheckedDialog */} bottom-sheet title={t('general.confirm')} icon={$globals.icons.alertCircle} can-confirm onConfirm={deleteChecked}>
+      <BaseDialog bottom-sheet title={t('general.confirm')} icon={icons.alertCircle} can-confirm onConfirm={deleteChecked}>
         <CardContent>
           {t('shopping-list.are-you-sure-you-want-to-delete-checked-items')}
         </CardContent>
       </BaseDialog>
-      <BaseDialog value={reorderLabelsDialog} onChange={/* WF4-REVIEW: setter */ setReorderLabelsDialog} icon={$globals.icons.tagArrowUp} title={t('shopping-list.reorder-labels')} submit-icon={$globals.icons.save} submit-text={t('general.save')} can-submit onSubmit={saveLabelOrder} onClose={cancelLabelOrder}>
+      <BaseDialog value={reorderLabelsDialog} onChange={/* WF4-REVIEW: setter */ setReorderLabelsDialog} icon={icons.tagArrowUp} title={t('shopping-list.reorder-labels')} submit-icon={icons.save} submit-text={t('general.save')} can-submit onSubmit={saveLabelOrder} onClose={cancelLabelOrder}>
         <Card height="fit-content" max-height="70vh" style="overflow-y: auto;">
           {(localLabels) ? (
             <VueDraggable value={localLabels} onChange={/* WF4-REVIEW: setter */ setLocalLabels} handle=".handle" delay={250} delay-on-touch-only={true} className="my-2" onUpdateModelValue={updateLabelOrder}>
               {localLabels.map((labelSetting, index) => (
                 <div key={labelSetting.id}>
                   {/* WF4-REVIEW: v-model on complex expression "localLabels[index]" [J] */}
-                  <MultiPurposeLabelSection {/* WF4-REVIEW: v-model localLabels[index] */} use-color />
+                  <MultiPurposeLabelSection use-color />
                 </div>
               ))}
             </VueDraggable>
@@ -145,59 +146,61 @@ export default function Id() {
         </Card>
       </BaseDialog>
       <BasePageTitle divider className="shopping-list-title">
-        <template>
+        {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+        <>
           <Container className="px-0">
             <Grid container no-gutters>
-              <ButtonLink to={`/shopping-lists?disableRedirect=true`} text={t('shopping-list.all-lists')} icon={$globals.icons.backArrow} />
-              <Box sx={ flexGrow: 1 } />
+              <ButtonLink to={`/shopping-lists?disableRedirect=true`} text={t('shopping-list.all-lists')} icon={icons.backArrow} />
+              <Box sx={{ flexGrow: 1 }} />
               {(smAndUp) ? (
                 <h2 className="text-h5">
                   {shoppingList.name}
                 </h2>
               ) : null}
-              <Box sx={ flexGrow: 1 } />
+              <Box sx={{ flexGrow: 1 }} />
+              {/* WF4-REVIEW: assignment handler "edit = true" — target not a tracked ref [J]; assignment handler "threeDot = true" — target not a tracked ref [J] */}
               <BaseButtonGroup className="d-flex" buttons={[
                 ...(canSearch || isSearchOpen ? [{
-                  icon: $globals.icons.search,
+                  icon: icons.search,
                   text: t('search.search'),
                   event: 'search',
                   color: isSearchOpen ? 'primary' : undefined,
                 }] : []),
                 {
-                  icon: $globals.icons.contentCopy,
+                  icon: icons.contentCopy,
                   text: '',
                   event: 'edit',
                   children: [
                     {
-                      icon: $globals.icons.contentCopy,
+                      icon: icons.contentCopy,
                       text: t('shopping-list.copy-as-text'),
                       event: 'copy-plain',
                     },
                     {
-                      icon: $globals.icons.contentCopy,
+                      icon: icons.contentCopy,
                       text: t('shopping-list.copy-as-markdown'),
                       event: 'copy-markdown',
                     },
                   ],
                 },
                 {
-                  icon: $globals.icons.checkboxMultipleMarkedOutline,
+                  icon: icons.checkboxMultipleMarkedOutline,
                   text: t('shopping-list.check-all-items'),
                   event: 'check',
                   disabled: isSearching,
                 },
                 {
-                  icon: $globals.icons.dotsVertical,
+                  icon: icons.dotsVertical,
                   text: '',
                   event: 'three-dot',
                   children: [
                     {
-                      icon: $globals.icons.tags,
+                      icon: icons.tags,
                       text: t('shopping-list.reorder-labels'),
                       event: 'reorder-labels',
                     },
                     {
-                      icon: $globals.icons.tags,
+                      icon: icons.tags,
                       text: t('shopping-list.manage-labels'),
                       event: 'manage-labels',
                     },
@@ -206,10 +209,11 @@ export default function Id() {
               ]} onSearch={toggleSearch} onEdit={edit = true} onThreeDot={threeDot = true} onCheck={openCheckAll} onCopyPlain={copyListItems('plain')} onCopyMarkdown={copyListItems('markdown')} onReorderLabels={toggleReorderLabelsDialog()} onManageLabels={$router.push(`/group/data/labels`)} />
             </Grid>
           </Container>
-        </template>
-        <template>
+        </>
+        {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+        <>
           {smAndUp ? "" : shoppingList.name}
-        </template>
+        </>
       </BasePageTitle>
       {(isOffline) ? (
         <BannerWarning title={t('shopping-list.you-are-offline')} description={t('shopping-list.you-are-offline-description')} />
@@ -217,23 +221,26 @@ export default function Id() {
       {(!edit) ? (
         <section className="py-2 d-flex flex-column ga-1 shopping-list-view">
           {(isSearchOpen) ? (
-            /* WF4-REVIEW: rules/error-messages → error+helperText */
-            <TextField model-value={search} label={t('search.search')} prepend-inner-icon={$globals.icons.search} autofocus clearable hide-details density="compact" variant="solo" flat single-line onUpdateModelValue={value => search = value ?? ''} onClickClear={clearSearch} />
+            /* WF4-REVIEW: rules/error-messages → error+helperText; assignment handler "value => search = value ?? ''" — target not a tracked ref [J] */
+            <TextField model-value={search} label={t('search.search')} prepend-inner-icon={icons.search} autofocus clearable hide-details density="compact" variant="solo" flat single-line onUpdateModelValue={value => search = value ?? ''} onClickClear={clearSearch} />
           ) : null}
           {($vuetify.display.smAndDown) ? (
+            /* WF4-REVIEW: assignment handler "createEditorOpen = false" — target not a tracked ref [J] */
             <ShoppingListAddItemForm value={createListItemData} onChange={/* WF4-REVIEW: setter */ setCreateListItemData} className="my-4" labels={allLabels || []} units={allUnits || []} foods={allFoods || []} onCancel={createEditorOpen = false} onSave={createListItem} />
           ) : (
             <div className="mb-3">
               {(createEditorOpen) ? (
+                /* WF4-REVIEW: assignment handler "createEditorOpen = false" — target not a tracked ref [J]; assignment handler "createEditorOpen = false" — target not a tracked ref [J] */
                 <ShoppingListItemEditor value={createListItemData} onChange={/* WF4-REVIEW: setter */ setCreateListItemData} className="my-4" labels={allLabels || []} units={allUnits || []} foods={allFoods || []} allow-delete={false} onDelete={createEditorOpen = false} onCancel={createEditorOpen = false} onSave={createListItem} />
               ) : (
-                <InputLabelType items={allFoods} label={t('shopping-list.add-item')} icon={$globals.icons.foods} search onFocus={createEditorOpen = true} />
+                /* WF4-REVIEW: assignment handler "createEditorOpen = true" — target not a tracked ref [J] */
+                <InputLabelType items={allFoods} label={t('shopping-list.add-item')} icon={icons.foods} search onFocus={createEditorOpen = true} />
               )}
             </div>
           )}
           <TransitionGroup name="scroll-x-transition">
             {itemsByLabel.map((value, key) => (
-              <template key={key}>
+              <>
                 {(hasMatches(value)) ? (
                   <BaseExpansionPanels v-model={0} start-open>
                     <Accordion className="shopping-list-section">
@@ -244,18 +251,18 @@ export default function Id() {
                         <VueDraggable model-value={value} handle=".handle" delay={250} delay-on-touch-only={true} disabled={isSearching} onStart={loadingCounter += 1} onEnd={loadingCounter -= 1} onUpdateModelValue={updateIndexUncheckedByLabel(key.toString(), $event)}>
                           <TransitionGroup name="scroll-x-transition">
                             {value.map((item, index) => (
-                              <template key={item.id}>
+                              <>
                                 {(matchesSearch(item)) ? (
                                   /* WF4-REVIEW: v-model on complex expression "value[index]" [J] */
-                                  <ShoppingListItem {/* WF4-REVIEW: v-model value[index] */} className="my-2 w-auto shopping-list-item-row" edit={editingItem === item.id} labels={allLabels || []} units={allUnits || []} foods={allFoods || []} recipes={recipeMap} onChecked={(item) => {
+                                  <ShoppingListItem className="my-2 w-auto shopping-list-item-row" edit={editingItem === item.id} labels={allLabels || []} units={allUnits || []} foods={allFoods || []} recipes={recipeMap} onChecked={(item) => {
                           saveListItem(item);
                           itemCheckedToast(item);
                         }} onSave={(item) => {
                           editingItem = undefined;
                           saveListItem(item);
-                        }} onDelete={deleteListItem(item)} onView={editingItem = undefined} onEdit={editingItem = item.id} />
+                        }} onDelete={deleteListItem(item)} onView={() => setEditingItem(undefined)} onEdit={() => setEditingItem(item.id)} />
                                 ) : null}
-                              </template>
+                              </>
                             ))}
                           </TransitionGroup>
                         </VueDraggable>
@@ -263,7 +270,7 @@ export default function Id() {
                     </Accordion>
                   </BaseExpansionPanels>
                 ) : null}
-              </template>
+              </>
             ))}
           </TransitionGroup>
           {/* WF4-REVIEW: wrapper — accordion group semantics */}
@@ -278,13 +285,13 @@ export default function Id() {
                     <div className="justify-end">
                       <BaseButtonGroup buttons={[
                     {
-                      icon: $globals.icons.checkboxMultipleBlankOutline,
+                      icon: icons.checkboxMultipleBlankOutline,
                       text: t('shopping-list.uncheck-all-items'),
                       event: 'uncheck',
                       disabled: isSearching,
                     },
                     {
-                      icon: $globals.icons.delete,
+                      icon: icons.delete,
                       text: t('shopping-list.delete-checked'),
                       event: 'delete',
                       disabled: isSearching,
@@ -298,7 +305,7 @@ export default function Id() {
                     {listItems.checked.map((item, idx) => (
                       <div sx={{ display: (matchesSearch(item)) ? undefined : "none" }} key={item.id}>
                         {/* WF4-REVIEW: v-model on complex expression "listItems.checked[idx]" [J] */}
-                        <ShoppingListItem {/* WF4-REVIEW: v-model listItems.checked[idx] */} className="strike-through-note shopping-list-item-row" labels={allLabels || []} units={allUnits || []} foods={allFoods || []} onChecked={saveListItem} onSave={saveListItem} onDelete={deleteListItem(item)} />
+                        <ShoppingListItem className="strike-through-note shopping-list-item-row" labels={allLabels || []} units={allUnits || []} foods={allFoods || []} onChecked={saveListItem} onSave={saveListItem} onDelete={deleteListItem(item)} />
                       </div>
                     ))}
                   </TransitionGroup>
@@ -320,7 +327,7 @@ export default function Id() {
             <div>
               <span>
                 {/* WF4-REVIEW: icon name resolves via lib/icons; dropped Vuetify-only prop "start" on <v-icon> */}
-                <MdiIcon name={$globals.icons.silverwareForkKnife} className="mb-1" />
+                <MdiIcon name={icons.silverwareForkKnife} className="mb-1" />
               </span>
               {t('shopping-list.linked-recipes-count', shoppingList.recipeReferences
             ? shoppingList.recipeReferences.length
@@ -329,12 +336,13 @@ export default function Id() {
             <Divider />
             <RecipeList recipes={recipeList} show-description disabled={isOffline}>
               {recipeList.map((recipe, index) => (
-                <template key={'item-actions-decrease' + recipe.id}>
+                /* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */
+                <>
                   <ListItemSecondaryAction>
                     {(recipe) ? (
                       <Button icon flat className="bg-transparent" disabled={isOffline} onClick={(e) => { e.preventDefault(); removeRecipeReferenceToList(recipe.id!); }}>
                         {/* WF4-REVIEW: icon name resolves via lib/icons */}
-                        <MdiIcon name={$globals.icons.minus} color="grey-lighten-1" />
+                        <MdiIcon name={icons.minus} color="grey-lighten-1" />
                       </Button>
                     ) : null}
                   </ListItemSecondaryAction>
@@ -344,10 +352,10 @@ export default function Id() {
                   <ListItemSecondaryAction>
                     <Button icon disabled={isOffline} flat className="bg-transparent" onClick={(e) => { e.preventDefault(); addRecipeReferenceToList(recipe.id!); }}>
                       {/* WF4-REVIEW: icon name resolves via lib/icons */}
-                      <MdiIcon name={$globals.icons.createAlt} color="grey-lighten-1" />
+                      <MdiIcon name={icons.createAlt} color="grey-lighten-1" />
                     </Button>
                   </ListItemSecondaryAction>
-                </template>
+                </>
               ))}
             </RecipeList>
           </section>

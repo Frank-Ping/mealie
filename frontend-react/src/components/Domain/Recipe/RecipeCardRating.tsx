@@ -13,17 +13,16 @@ export default function RecipeCardRating({ modelValue = 0, recipeId = "" }: Prop
 
   const { userRatings } = useUserSelfRatings();
 
-  const userRating = useMemo(() =>  {
-    return userRatings.find(r => r.recipeId === recipeId, []); // WF4-REVIEW: dependency array?.rating ?? null;
-  });
+  const userRating = useMemo(() => {
+    return userRatings.find(r => r.recipeId === recipeId)?.rating ?? null;
+  }, []); // WF4-REVIEW: dependency array
 
   // this display is always readonly, so we show the user's own rating if they have one,
   // and otherwise fall back to the group average (in grey), if there is one.
   // An unset rating may be null or 0
   const showGroupAverage = useMemo(() => !userRating && !!modelValue, []); // WF4-REVIEW: dependency array
-  const ratingValue = useMemo(() => (showGroupAverage ? modelValue : userRating, []); // WF4-REVIEW: dependency array || 0);
-  const ratingDisplay = computed<Star[]>(
-    () => {
+  const ratingValue = useMemo(() => (showGroupAverage ? modelValue : userRating) || 0, []); // WF4-REVIEW: dependency array
+  const ratingDisplay = useMemo(() => {
       const stars: Star[] = [];
 
       for (let i = 0; i < 5; i++) {
@@ -40,8 +39,7 @@ export default function RecipeCardRating({ modelValue = 0, recipeId = "" }: Prop
       }
 
       return stars;
-    },
-  );
+    },, []); // WF4-REVIEW: dependency array
 
   return (
     <>

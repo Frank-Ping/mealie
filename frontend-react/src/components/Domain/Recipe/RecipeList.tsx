@@ -22,11 +22,11 @@ export default function RecipeList({ listItem = undefined, tile = false, showDes
   const display = useDisplay();
 
   // Determine if we should show tiles based on screen size and number of recipes
-  const shouldShowTiles = computed(() => {
+  const shouldShowTiles = useMemo(() => {
     return tile && display.smAndUp;
-  });
+  }, []); // WF4-REVIEW: dependency array
 
-  const attrs = computed(() => {
+  const attrs = useMemo(() => {
     const tileClasses = shouldShowTiles ? "d-flex flex-wrap" : "bg-transparent";
     const sheetClasses = shouldShowTiles
       ? "flex-grow-0 flex-shrink-0 mb-2 me-3"
@@ -45,7 +45,7 @@ export default function RecipeList({ listItem = undefined, tile = false, showDes
         sheet: sheetStyle,
       },
     };
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   function sanitizeHTML(rawHtml: string) {
     return DOMPurify.sanitize(rawHtml, {
@@ -54,12 +54,12 @@ export default function RecipeList({ listItem = undefined, tile = false, showDes
     });
   }
 
-  const listItemDescriptions = useMemo(() =>  {
+  const listItemDescriptions = useMemo(() => {
     if (
       recipes.length === 1 // we don't need to specify details if there's only one recipe ref
       || !listItem?.recipeReferences
       || listItem.recipeReferences.length !== recipes.length
-    , []); // WF4-REVIEW: dependency array {
+    ) {
       return recipes.map(_ => "");
     }
 
@@ -106,7 +106,7 @@ export default function RecipeList({ listItem = undefined, tile = false, showDes
     }
 
     return listItemDescriptions;
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   return (
     <>
@@ -115,22 +115,24 @@ export default function RecipeList({ listItem = undefined, tile = false, showDes
       <Paper key={recipe.id || recipe.slug} elevation={2} className={attrs.class.sheet} style={attrs.style.sheet}>
         <RecipeCardLineItem recipe={recipe} disable-link={disabled} className={attrs.class.listItem}>
           {(showDescription || (listItem && listItemDescriptions[index])) ? (
-            <template>
+            /* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */
+            <>
               {(showDescription) ? (
                 <div>
                   {recipe.description}
                 </div>
               ) : null}
               {(listItem && listItemDescriptions[index]) ? (
-                <template>
+                <>
                   <SafeHtml html={listItemDescriptions[index]} />
-                </template>
+                </>
               ) : null}
-            </template>
+            </>
           ) : null}
-          <template>
+          {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+          <>
             <slot name={'actions-' + recipe.id} v-bind={{ item: recipe }} />
-          </template>
+          </>
         </RecipeCardLineItem>
       </Paper>
   </List>

@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Container, Divider } from "@mui/material";
+import { icons } from "@/lib/icons";
 import RecipeExplorerPageSearch from "./RecipeExplorerPageParts/RecipeExplorerPageSearch";
 import { useLoggedInState } from "@/composables/use-logged-in-state";
 import RecipeCardSection from "@/components/Domain/Recipe/RecipeCardSection";
@@ -20,11 +21,11 @@ export default function RecipeExplorerPage() {
   const { recipes, appendRecipes, replaceRecipes } = useLazyRecipes(isOwnGroup ? null : groupSlug);
 
   const [ready, setReady] = useState(false);
-  const searchComponent = ref<InstanceType<typeof RecipeExplorerPageSearch>>();
+  const [searchComponent, setSearchComponent] = useState(undefined);
 
-  const searchQuery = computed(() => {
+  const searchQuery = useMemo(() => {
     return searchComponent?.passedQueryWithSeed || {};
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   function onSearchReady() {
     setReady(true);
@@ -41,7 +42,7 @@ export default function RecipeExplorerPage() {
     <Divider />
     <Container className="mt-6 px-md-6 pb-16">
       {(ready) ? (
-        <RecipeCardSection className="mt-n5" icon={$globals.icons.silverwareForkKnife} title={t('general.recipes')} recipes={recipes} query={searchQuery} disable-sort onItemSelected={onItemSelected} onReplaceRecipes={replaceRecipes} onAppendRecipes={appendRecipes} />
+        <RecipeCardSection className="mt-n5" icon={icons.silverwareForkKnife} title={t('general.recipes')} recipes={recipes} query={searchQuery} disable-sort onItemSelected={onItemSelected} onReplaceRecipes={replaceRecipes} onAppendRecipes={appendRecipes} />
       ) : null}
     </Container>
   </Container>

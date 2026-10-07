@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Button, Card, CardContent, Container, Grid } from "@mui/material";
+import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
 import { addDays, differenceInCalendarDays, format, isSameDay, isValid, parseISO } from "date-fns";
 import RecipeDialogAddToShoppingList from "@/components/Domain/Recipe/RecipeDialogAddToShoppingList";
@@ -24,7 +25,7 @@ export default function Planner() {
 
   const route = useLocation(); // WF4-REVIEW: .query → useSearchParams [J]
   const navigate = useNavigate();
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
   const { household, actions: householdActions } = useHouseholdSelf();
   const { shoppingLists, open: shoppingListDialog, addAllToList } = useAddToShoppingListDialog();
 
@@ -58,9 +59,9 @@ export default function Planner() {
     });
   }
 
-  const edit = useMemo(() =>  {
-    return route.path.startsWith("/household/mealplan/planner/edit", []); // WF4-REVIEW: dependency array
-  });
+  const edit = useMemo(() => {
+    return route.path.startsWith("/household/mealplan/planner/edit");
+  }, []); // WF4-REVIEW: dependency array
 
   function safeParseISO(date: string, fallback: Date | undefined = undefined) {
     try {
@@ -83,9 +84,9 @@ export default function Planner() {
     end: initialEndDate,
   });
 
-  const firstDayOfWeek = computed(() => {
+  const firstDayOfWeek = useMemo(() => {
     return household?.preferences?.firstDayOfWeek || 0;
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   function changeWeek(step: number) {
     const { start, end } = weekRange;
@@ -96,8 +97,8 @@ export default function Planner() {
     ];
   }
 
-  const weekRange = useMemo(() =>  {
-    const sorted = [...state.range].sort((a, b, []); // WF4-REVIEW: dependency array => a.getTime() - b.getTime());
+  const weekRange = useMemo(() => {
+    const sorted = [...state.range].sort((a, b) => a.getTime() - b.getTime());
 
     const start = sorted[0];
     const end = sorted[sorted.length - 1];
@@ -109,7 +110,7 @@ export default function Planner() {
       start: addDays(new Date(), adjustForToday(-numberOfDaysPast)),
       end: addDays(new Date(), adjustForToday(numberOfDays)),
     };
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   // Update query parameters when date range changes
   /* WF4-REVIEW [J] */ watch(weekRange, (newRange) => {
@@ -141,9 +142,9 @@ export default function Planner() {
     return days > 0 ? days - 1 : days;
   }
 
-  const days = useMemo(() =>  {
+  const days = useMemo(() => {
     const numDays
-      = Math.floor((weekRange.end.getTime(, []); // WF4-REVIEW: dependency array - weekRange.start.getTime()) / (1000 * 60 * 60 * 24)) + 1;
+      = Math.floor((weekRange.end.getTime() - weekRange.start.getTime()) / (1000 * 60 * 60 * 24)) + 1;
 
     // Calculate absolute value
     if (numDays < 0) return [];
@@ -155,25 +156,25 @@ export default function Planner() {
         return date;
       },
     );
-  });
+  }, []); // WF4-REVIEW: dependency array
 
-  const mealsByDate = useMemo(() =>  {
-    return days.map((day, []); // WF4-REVIEW: dependency array => {
+  const mealsByDate = useMemo(() => {
+    return days.map((day) => {
       return { date: day, meals: filterMealByDate(day) };
     });
-  });
+  }, []); // WF4-REVIEW: dependency array
 
-  const hasRecipes = useMemo(() =>  {
-    return mealsByDate.some(day => day.meals.some(meal => meal.recipe, []); // WF4-REVIEW: dependency array);
-  });
+  const hasRecipes = useMemo(() => {
+    return mealsByDate.some(day => day.meals.some(meal => meal.recipe));
+  }, []); // WF4-REVIEW: dependency array
 
-  const weekRecipesWithScales = useMemo(() =>  {
+  const weekRecipesWithScales = useMemo(() => {
     return mealsByDate
-      .flatMap(({ meals }, []); // WF4-REVIEW: dependency array => meals)
+      .flatMap(({ meals }) => meals)
       .map(({ recipe }) => recipe)
       .filter(recipe => recipe)
       .map(recipe => ({ scale: 1, ...recipe }));
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   return (
     <>
@@ -182,21 +183,22 @@ export default function Planner() {
       <RecipeDialogAddToShoppingList value={shoppingListDialog} onChange={/* WF4-REVIEW: setter */ setShoppingListDialog} recipes={weekRecipesWithScales} shopping-lists={shoppingLists} />
     ) : null}
     <div className={`d-flex ga-2 ${$vuetify.display.xs ? 'justify-center' : 'justify-start'}`}>
-      <Button icon={$globals.icons.chevronLeft} flat rounded="md" density="comfortable" onClick={() => changeWeek(-1)} />
+      <Button icon={icons.chevronLeft} flat rounded="md" density="comfortable" onClick={() => changeWeek(-1)} />
       {/* WF4-REVIEW: unmapped <v-menu> — judgement component, convert manually [J]; v-model on complex expression "state.picker" [J] */}
-      <VMenu {/* WF4-REVIEW: v-model state.picker */} close-on-content-click={false} transition="scale-transition" offset-y min-width="auto">
-        <template>
+      <VMenu close-on-content-click={false} transition="scale-transition" offset-y min-width="auto">
+        {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+        <>
           <Button color="primary" className="mb-2" {...(props)}>
             {/* WF4-REVIEW: icon name resolves via lib/icons; dropped Vuetify-only prop "start" on <v-icon> */}
-            <MdiIcon name={$globals.icons.calendar} />
+            <MdiIcon name={icons.calendar} />
             {$d(weekRange.start, "short")}
             -
             {$d(weekRange.end, "short")}
           </Button>
-        </template>
+        </>
         <Card>
           {/* WF4-REVIEW: v-model on complex expression "state.range" [J] */}
-          <MealPlanDatePicker {/* WF4-REVIEW: v-model state.range */} hide-header multiple={'range'} first-day-of-week={firstDayOfWeek} local={$i18n.locale} />
+          <MealPlanDatePicker hide-header multiple={'range'} first-day-of-week={firstDayOfWeek} local={$i18n.locale} />
           <CardContent>
             {/* WF4-REVIEW: unmapped <v-number-input> — judgement component, convert manually [J] */}
             <VNumberInput value={numberOfDaysPast} onChange={setNumberOfDaysPast} min={0} inset label={t('meal-plan.numberOfDaysPast-label')} hint={t('meal-plan.numberOfDaysPast-hint')} persistent-hint />
@@ -207,32 +209,32 @@ export default function Planner() {
           </CardContent>
         </Card>
       </VMenu>
-      <Button icon={$globals.icons.chevronRight} flat rounded="md" density="comfortable" onClick={() => changeWeek(1)} />
+      <Button icon={icons.chevronRight} flat rounded="md" density="comfortable" onClick={() => changeWeek(1)} />
     </div>
     <div className="d-flex justify-end">
       <BaseButtonGroup className="d-flex" buttons={[
           edit ? {
-            icon: $globals.icons.calendar,
+            icon: icons.calendar,
             text: t('general.view'),
             event: 'view',
           } : {
-            icon: $globals.icons.edit,
+            icon: icons.edit,
             text: t('general.edit'),
             event: 'edit',
           },
           {
-            icon: $globals.icons.dotsVertical,
+            icon: icons.dotsVertical,
             text: '',
             event: 'three-dot',
             children: [
               {
-                icon: $globals.icons.cartCheck,
+                icon: icons.cartCheck,
                 text: t('meal-plan.add-all-to-list'),
                 event: 'add-to-list',
                 disabled: !hasRecipes,
               },
               {
-                icon: $globals.icons.cog,
+                icon: icons.cog,
                 text: t('general.settings'),
                 event: 'settings',
               },

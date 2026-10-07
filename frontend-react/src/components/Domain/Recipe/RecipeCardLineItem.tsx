@@ -18,23 +18,24 @@ export default function RecipeCardLineItem({ active = false, disableLink = false
   const route = useLocation(); // WF4-REVIEW: .query → useSearchParams [J]
 
   const groupSlug = useMemo(() => route.params.groupSlug as string || auth.user?.groupSlug || "", []); // WF4-REVIEW: dependency array
-  const recipeRoute = useMemo(() =>  {
-    if (disableLink || !recipe.slug, []); // WF4-REVIEW: dependency array {
+  const recipeRoute = useMemo(() => {
+    if (disableLink || !recipe.slug) {
       return undefined;
     }
 
     return `/g/${groupSlug}/r/${recipe.slug}`;
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   return (
     <>
   {/* WF4-REVIEW: @click → ListItemButton */}
   <ListItem active={active} to={recipeRoute} className={{ 'cursor-pointer': !recipeRoute }}>
-    <template>
+    {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+    <>
       <Avatar className="recipe-thumbnail" rounded="lg" width="56" height="40">
         <RecipeCardImage tiny recipe-id={recipe.id!} slug={recipe.slug} image-version={recipe.image} height="40" min-height="0" icon-size={24} />
       </Avatar>
-    </template>
+    </>
     {/* WF4-REVIEW: content → primary prop */}
     <ListItemText className="text-truncate">
       {recipe.name}
@@ -46,9 +47,10 @@ export default function RecipeCardLineItem({ active = false, disableLink = false
       </ListItemText>
     ) : null}
     {($slots.append) ? (
-      <template>
+      /* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */
+      <>
         <slot name="append" />
-      </template>
+      </>
     ) : null}
   </ListItem>
     </>

@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
+import { icons } from "@/lib/icons";
 import { validators } from "@/composables/use-validators";
 import { useGroupRecipeActions } from "@/composables/use-group-recipe-actions";
 import type { GroupRecipeActionOut } from "@/lib/api/types/household";
@@ -10,7 +11,7 @@ import { fieldTypes } from "@/composables/forms";
 export default function RecipeActions() {
   const { t } = useTranslation();
 
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
 
   const tableConfig: TableConfig = {
     hideColumns: true,
@@ -47,7 +48,7 @@ export default function RecipeActions() {
   // Form items (shared)
   const formItems = useMemo(() => [
     {
-      label: i18n.t("general.title", []); // WF4-REVIEW: dependency array,
+      label: i18n.t("general.title"),
       varName: "title",
       type: fieldTypes.TEXT,
       rules: [validators.required],
@@ -69,7 +70,7 @@ export default function RecipeActions() {
       selectReturnValue: "value",
       rules: [validators.required],
     },
-  ]);
+  ], []); // WF4-REVIEW: dependency array
 
   // ============================================================
   // Create
@@ -110,7 +111,7 @@ export default function RecipeActions() {
   return (
     <>
   <div>
-    <GroupDataPage icon={$globals.icons.link} title={t('data-pages.recipe-actions.recipe-actions-data')} create-title={t('data-pages.recipe-actions.new-recipe-action')} edit-title={t('data-pages.recipe-actions.edit-recipe-action')} table-headers={tableHeaders} table-config={tableConfig} data={actionStore.recipeActions || []} bulk-actions={[{ icon: $globals.icons.delete, text: t('general.delete'), event: 'delete-selected' }]} create-form={createForm} edit-form={editForm} initial-sort="title" onCreateOne={handleCreate} onEditOne={handleEdit} onDeleteOne={actionStore.actions.deleteOne} onBulkAction={handleBulkAction} />
+    <GroupDataPage icon={icons.link} title={t('data-pages.recipe-actions.recipe-actions-data')} create-title={t('data-pages.recipe-actions.new-recipe-action')} edit-title={t('data-pages.recipe-actions.edit-recipe-action')} table-headers={tableHeaders} table-config={tableConfig} data={actionStore.recipeActions || []} bulk-actions={[{ icon: icons.delete, text: t('general.delete'), event: 'delete-selected' }]} create-form={createForm} edit-form={editForm} initial-sort="title" onCreateOne={handleCreate} onEditOne={handleEdit} onDeleteOne={actionStore.actions.deleteOne} onBulkAction={handleBulkAction} />
   </div>
     </>
   );

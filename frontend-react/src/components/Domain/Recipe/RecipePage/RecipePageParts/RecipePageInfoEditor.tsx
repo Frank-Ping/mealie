@@ -14,7 +14,7 @@ export default function RecipePageInfoEditor() {
     <>
   <div>
     {/* WF4-REVIEW: rules/error-messages → error+helperText; v-model on complex expression "recipe.name" [J] */}
-    <TextField {/* WF4-REVIEW: v-model recipe.name */} className="my-3" label={t('recipe.recipe-name')} rules={[validators.required]} density="compact" variant="underlined" />
+    <TextField className="my-3" label={t('recipe.recipe-name')} rules={[validators.required]} density="compact" variant="underlined" />
     <Container className="ma-0 pa-0">
       <Grid container>
         {/* WF4-REVIEW: cols/sm/md/lg → size={{ xs, sm, md }} */}
@@ -30,18 +30,18 @@ export default function RecipePageInfoEditor() {
         {/* WF4-REVIEW: cols/sm/md/lg → size={{ xs, sm, md }} */}
         <Grid cols="6">
           {/* WF4-REVIEW: rules/error-messages → error+helperText; v-model on complex expression "recipe.recipeYield" [J] */}
-          <TextField {/* WF4-REVIEW: v-model recipe.recipeYield */} density="compact" label={t('recipe.yield-text')} variant="underlined" />
+          <TextField density="compact" label={t('recipe.yield-text')} variant="underlined" />
         </Grid>
       </Grid>
     </Container>
     {/* WF4-REVIEW: v-model on complex expression "recipe.totalTimeSeconds" [J]; v-model on complex expression "recipe.totalTime" [J] */}
-    <RecipeTimeInput {/* WF4-REVIEW: v-model recipe.totalTimeSeconds */} {/* WF4-REVIEW: v-model recipe.totalTime */} label={t('recipe.total-time')} />
+    <RecipeTimeInput label={t('recipe.total-time')} />
     {/* WF4-REVIEW: v-model on complex expression "recipe.prepTimeSeconds" [J]; v-model on complex expression "recipe.prepTime" [J] */}
-    <RecipeTimeInput {/* WF4-REVIEW: v-model recipe.prepTimeSeconds */} {/* WF4-REVIEW: v-model recipe.prepTime */} label={t('recipe.prep-time')} />
+    <RecipeTimeInput label={t('recipe.prep-time')} />
     {/* WF4-REVIEW: v-model on complex expression "recipe.performTimeSeconds" [J]; v-model on complex expression "recipe.performTime" [J] */}
-    <RecipeTimeInput {/* WF4-REVIEW: v-model recipe.performTimeSeconds */} {/* WF4-REVIEW: v-model recipe.performTime */} label={t('recipe.perform-time')} />
+    <RecipeTimeInput label={t('recipe.perform-time')} />
     {/* WF4-REVIEW: v-model on complex expression "recipe.description" [J] */}
-    <TextField multiline {/* WF4-REVIEW: v-model recipe.description */} auto-grow min-height="100" label={t('recipe.description')} density="compact" variant="underlined" />
+    <TextField multiline auto-grow min-height="100" label={t('recipe.description')} density="compact" variant="underlined" />
   </div>
     </>
   );

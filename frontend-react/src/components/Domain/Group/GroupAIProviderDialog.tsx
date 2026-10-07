@@ -6,14 +6,10 @@ import { useAIProviders } from "@/composables/use-ai-providers";
 import { validators } from "@/composables/use-validators";
 import type { AIProviderCreate, AIProviderTestResult, AIProviderUpdate } from "@/lib/api/types/group";
 
-export default function GroupAIProviderDialog() {
+export default function GroupAIProviderDialog({ providerId = undefined }: Props) {
   const { t } = useTranslation();
 
-  const props = withDefaults(defineProps<{
-    providerId?: string;
-  }>(), {
-    providerId: undefined,
-  });
+  /* props via destructured signature (was withDefaults(defineProps<?>) */
 
   const emit = defineEmits<{
     (e: "create", data: AIProviderCreate): void;
@@ -23,14 +19,14 @@ export default function GroupAIProviderDialog() {
   const dialog = defineModel<boolean>({ default: false });
 
   // icons imported directly (was $globals)
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
   const { loading, getOne, testOne, testSavedOne } = useAIProviders();
   const [init, setInit] = useState(false);
 
   const [form, setForm] = useState(undefined);
   const [advancedPanel, setAdvancedPanel] = useState(undefined);
 
-  const isEdit = useMemo(() => !!props.providerId, []); // WF4-REVIEW: dependency array
+  const isEdit = useMemo(() => !!providerId, []); // WF4-REVIEW: dependency array
 
   const defaultForm = () => ({
     name: "",
@@ -47,32 +43,32 @@ export default function GroupAIProviderDialog() {
   const [testing, setTesting] = useState(false);
   const [testResult, setTestResult] = useState(null);
 
-  const submitDisabled = useMemo(() =>  {
-    return !formData.name?.trim(, []); // WF4-REVIEW: dependency array || !formData.model?.trim() || (!isEdit && !formData.apiKey?.trim());
-  });
+  const submitDisabled = useMemo(() => {
+    return !formData.name?.trim() || !formData.model?.trim() || (!isEdit && !formData.apiKey?.trim());
+  }, []); // WF4-REVIEW: dependency array
 
-  const connectionMessage = computed(() => {
+  const connectionMessage = useMemo(() => {
     const result = testResult;
     if (!result) return "";
     if (result.success) return i18n.t("group.ai-provider-settings.test-connection-succeeded");
     return result.message || i18n.t("group.ai-provider-settings.test-connection-failed");
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   // Capability info rather than a second pass/fail check - a text-only provider is a valid setup,
   // it just can't be used as the image provider. Appended to the connection message above.
-  const imageSupportMessage = computed(() => {
+  const imageSupportMessage = useMemo(() => {
     const result = testResult;
     if (!result?.success) return "";
     return result.supportsImages
       ? ` — ${i18n.t("group.ai-provider-settings.supports-images")}`
       : ` — ${i18n.t("group.ai-provider-settings.text-only-provider")}`;
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   // Fetch existing provider when editing; reset form for create mode
   let requestToken = 0;
 
   /* WF4-REVIEW [J] */ watch(
-    () => [dialog, props.providerId] as const,
+    () => [dialog, providerId] as const,
     async ([open, id]) => {
       // Bump the token even when bailing out below, so a fetch still in flight from a
       // previous provider/dialog state can never apply its (now stale) result afterward.
@@ -107,7 +103,7 @@ export default function GroupAIProviderDialog() {
     if (!formData.name?.trim() || !formData.model?.trim()) return;
     if (!isEdit && !formData.apiKey?.trim()) return;
 
-    if (isEdit && props.providerId) {
+    if (isEdit && providerId) {
       const payload: AIProviderUpdate & { apiKey?: string } = {
         name: formData.name,
         model: formData.model,
@@ -119,7 +115,7 @@ export default function GroupAIProviderDialog() {
       if (formData.apiKey) {
         payload.apiKey = formData.apiKey;
       }
-      emit("update", props.providerId, payload);
+      emit("update", providerId, payload);
     }
     else {
       const createPayload = {
@@ -147,7 +143,7 @@ export default function GroupAIProviderDialog() {
     setTestResult(null);
     try {
       let data: AIProviderTestResult | null;
-      if (isEdit && props.providerId) {
+      if (isEdit && providerId) {
         // Test the form's CURRENT values, not what's saved in the DB — the user may have just
         // changed the model/base_url. If they left the API key blank (meaning "keep the existing
         // one"), the backend falls back to the saved key since we don't have that value here.
@@ -162,7 +158,7 @@ export default function GroupAIProviderDialog() {
         if (formData.apiKey) {
           overrides.apiKey = formData.apiKey;
         }
-        ({ data } = await testSavedOne(props.providerId, overrides));
+        ({ data } = await testSavedOne(providerId, overrides));
       }
       else {
         ({ data } = await testOne({
@@ -185,25 +181,25 @@ export default function GroupAIProviderDialog() {
 
   return (
     <>
-  <BaseDialog value={dialog} onChange={/* WF4-REVIEW: setter */ setDialog} title={isEdit ? t('group.ai-provider-settings.edit-provider') : t('group.ai-provider-settings.create-provider')} icon={$globals.icons.robot} loading={loading} can-submit submit-icon={isEdit ? $globals.icons.save : $globals.icons.createAlt} submit-text={isEdit ? t('general.update') : t('general.create')} submit-disabled={submitDisabled} onSubmit={handleSubmit} onClose={resetForm}>
+  <BaseDialog value={dialog} onChange={/* WF4-REVIEW: setter */ setDialog} title={isEdit ? t('group.ai-provider-settings.edit-provider') : t('group.ai-provider-settings.create-provider')} icon={icons.robot} loading={loading} can-submit submit-icon={isEdit ? icons.save : icons.createAlt} submit-text={isEdit ? t('general.update') : t('general.create')} submit-disabled={submitDisabled} onSubmit={handleSubmit} onClose={resetForm}>
     {(init) ? (
       <CardContent style="max-height: 70vh; overflow-y: auto;">
         {/* WF4-REVIEW: validation semantics [J] */}
         <form ref="form">
           {/* WF4-REVIEW: rules/error-messages → error+helperText; v-model on complex expression "formData.name" [J] */}
-          <TextField {/* WF4-REVIEW: v-model formData.name */} label={t('group.ai-provider-settings.provider-name')} rules={[validators.required]} density="compact" variant="outlined" className="mb-4" />
+          <TextField label={t('group.ai-provider-settings.provider-name')} rules={[validators.required]} density="compact" variant="outlined" className="mb-4" />
           {/* WF4-REVIEW: rules/error-messages → error+helperText; v-model on complex expression "formData.model" [J] */}
-          <TextField {/* WF4-REVIEW: v-model formData.model */} label={t('group.ai-provider-settings.model')} hint={t('group.ai-provider-settings.model-description')} rules={[validators.required]} density="compact" variant="outlined" className="mb-4" />
+          <TextField label={t('group.ai-provider-settings.model')} hint={t('group.ai-provider-settings.model-description')} rules={[validators.required]} density="compact" variant="outlined" className="mb-4" />
           {/* WF4-REVIEW: rules/error-messages → error+helperText; v-model on complex expression "formData.apiKey" [J] */}
-          <TextField {/* WF4-REVIEW: v-model formData.apiKey */} label={t('group.ai-provider-settings.api-key')} hint={t(
+          <TextField label={t('group.ai-provider-settings.api-key')} hint={t(
             isEdit
               ? 'group.ai-provider-settings.api-key-description-edit'
               : 'group.ai-provider-settings.api-key-description-create',
           )} persistent-hint={isEdit} rules={isEdit ? [] : [validators.required]} density="compact" variant="outlined" type="password" className="mb-4" />
           {/* WF4-REVIEW: rules/error-messages → error+helperText; v-model on complex expression "formData.baseUrl" [J] */}
-          <TextField {/* WF4-REVIEW: v-model formData.baseUrl */} label={t('group.ai-provider-settings.base-url')} hint={t('group.ai-provider-settings.base-url-description')} density="compact" variant="outlined" className="mb-4" />
+          <TextField label={t('group.ai-provider-settings.base-url')} hint={t('group.ai-provider-settings.base-url-description')} density="compact" variant="outlined" className="mb-4" />
           {/* WF4-REVIEW: unmapped <v-number-input> — judgement component, convert manually [J]; v-model on complex expression "formData.timeout" [J] */}
-          <VNumberInput {/* WF4-REVIEW: v-model formData.timeout */} label={t('group.ai-provider-settings.request-timeout-seconds')} type="number" min={0} hide-details density="compact" variant="outlined" className="mb-4" />
+          <VNumberInput label={t('group.ai-provider-settings.request-timeout-seconds')} type="number" min={0} hide-details density="compact" variant="outlined" className="mb-4" />
           {/* WF4-REVIEW: wrapper — accordion group semantics */}
           <Box value={advancedPanel} onChange={setAdvancedPanel} variant="accordion">
             <Accordion>
@@ -215,13 +211,13 @@ export default function GroupAIProviderDialog() {
                   {t('group.ai-provider-settings.request-headers')}
                 </div>
                 {/* WF4-REVIEW: v-model on complex expression "formData.requestHeaders" [J] */}
-                <BaseKeyValueEditor {/* WF4-REVIEW: v-model formData.requestHeaders */} className="mb-4" />
+                <BaseKeyValueEditor className="mb-4" />
                 <Divider className="mb-4" />
                 <div className="mb-2 text-subtitle-2">
                   {t('group.ai-provider-settings.request-params')}
                 </div>
                 {/* WF4-REVIEW: v-model on complex expression "formData.requestParams" [J] */}
-                <BaseKeyValueEditor {/* WF4-REVIEW: v-model formData.requestParams */} />
+                <BaseKeyValueEditor />
               </AccordionDetails>
             </Accordion>
           </Box>
@@ -236,11 +232,12 @@ export default function GroupAIProviderDialog() {
     ) : (
       <AppLoader />
     )}
-    <template>
+    {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+    <>
       <Button variant="text" loading={testing} disabled={submitDisabled || testing} onClick={handleTest}>
         {t('group.ai-provider-settings.test-connection')}
       </Button>
-    </template>
+    </>
   </BaseDialog>
     </>
   );

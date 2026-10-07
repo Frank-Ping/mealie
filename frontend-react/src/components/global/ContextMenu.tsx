@@ -1,4 +1,5 @@
 import { Button, List, ListItem, ListItemText } from "@mui/material";
+import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
 import type { ContextMenuItem } from "@/composables/use-context-presents";
 
@@ -14,18 +15,20 @@ export default function ContextMenu({ items, menuTop = true }: Props) {
     <>
   {/* WF4-REVIEW: unmapped <v-menu> — judgement component, convert manually [J] */}
   <VMenu offset-y start bottom={!menuTop} nudge-bottom={!menuTop ? '5' : '0'} top={menuTop} nudge-top={menuTop ? '5' : '0'} allow-overflow close-delay="125" content-class="d-print-none">
-    <template>
+    {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+    <>
       {/* WF4-REVIEW: dropped Vuetify-only prop "dark" on <v-btn> */}
-      <Button size="small" icon={$globals.icons.dotsVertical} variant="text" {...(props)} onClick={(e) => { e.preventDefault(); ; }} />
-    </template>
+      <Button size="small" icon={icons.dotsVertical} variant="text" {...(props)} onClick={(e) => { e.preventDefault(); ; }} />
+    </>
     <List density="compact">
       {items.map((item, index) => (
         /* WF4-REVIEW: @click → ListItemButton */
         <ListItem key={index} onClick={$emit(item.event)}>
-          <template>
+          {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+          <>
             {/* WF4-REVIEW: icon name resolves via lib/icons */}
             <MdiIcon name={item.icon} color={item.color ? item.color : undefined} />
-          </template>
+          </>
           {/* WF4-REVIEW: content → primary prop */}
           <ListItemText>
             {item.title}

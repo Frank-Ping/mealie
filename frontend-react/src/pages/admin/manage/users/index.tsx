@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Alert, Button, CardContent, Container, Divider, Toolbar } from "@mui/material";
@@ -18,7 +18,7 @@ export const handle = {
 export default function UsersPage() {
   const { t } = useTranslation();
 
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
 
   useHead({
     title: i18n.t("sidebar.manage-users"),
@@ -34,9 +34,9 @@ export default function UsersPage() {
 
   const navigate = useNavigate();
 
-  const isUserOwnAccount = computed(() => {
+  const isUserOwnAccount = useMemo(() => {
     return state.deleteTargetId === user?.id;
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   const ACTIONS_OPTIONS = [
     {
@@ -109,8 +109,11 @@ export default function UsersPage() {
   <Container fluid>
     <UserInviteDialog value={inviteDialog} onChange={setInviteDialog} />
     {/* WF4-REVIEW: v-model on complex expression "state.deleteDialog" [J] */}
-    <BaseDialog {/* WF4-REVIEW: v-model state.deleteDialog */} bottom-sheet title={t('general.confirm')} icon={$globals.icons.alertCircle} color="error" can-confirm onConfirm={deleteUser(state.deleteTargetId)}>
-      <template />
+    <BaseDialog bottom-sheet title={t('general.confirm')} icon={icons.alertCircle} color="error" can-confirm onConfirm={deleteUser(state.deleteTargetId)}>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
+
+      </>
       <CardContent>
         {(isUserOwnAccount) ? (
           <Alert type="warning" text={t('general.confirm-delete-own-admin-account')} variant="outlined" />
@@ -125,7 +128,7 @@ export default function UsersPage() {
           {t("general.create")}
         </BaseButton>
         {($appInfo.allowPasswordLogin) ? (
-          <BaseButton className="mr-2" color="info" icon={$globals.icons.link} onClick={inviteDialog = true}>
+          <BaseButton className="mr-2" color="info" icon={icons.link} onClick={() => setInviteDialog(true)}>
             {t("group.invite")}
           </BaseButton>
         ) : null}
@@ -133,17 +136,19 @@ export default function UsersPage() {
       </Toolbar>
       {/* WF4-REVIEW: unmapped <v-data-table> — judgement component, convert manually [J] */}
       <VDataTable headers={headers} items={users || []} item-key="id" className="elevation-0" elevation="0" items-per-page={-1} hide-default-footer disable-pagination search={state.search} onClickRow={($event, { item }) => handleRowClick(item)}>
-        <template>
+        {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+        <>
           {/* WF4-REVIEW: icon name resolves via lib/icons; dropped Vuetify-only prop "end" on <v-icon> */}
-          <MdiIcon name={item.admin ? $globals.icons.checkboxMarkedCircle : $globals.icons.windowClose} color={item.admin ? 'success' : undefined} />
-        </template>
-        <template>
+          <MdiIcon name={item.admin ? icons.checkboxMarkedCircle : icons.windowClose} color={item.admin ? 'success' : undefined} />
+        </>
+        {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+        <>
           <Button icon disabled={+item.id == 1} color="error" variant="text" onClick={(e) => { e.stopPropagation(); state.deleteDialog = true;
               state.deleteTargetId = item.id;; }}>
             {/* WF4-REVIEW: icon name resolves via lib/icons */}
-            <MdiIcon name={$globals.icons.delete} />
+            <MdiIcon name={icons.delete} />
           </Button>
-        </template>
+        </>
       </VDataTable>
       <Divider />
     </section>

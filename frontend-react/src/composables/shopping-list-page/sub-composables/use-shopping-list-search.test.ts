@@ -151,7 +151,7 @@ describe("useShoppingListSearch toggle", () => {
   const items = (count: number) => Array.from({ length: count }, (_, i) => listItem(`${i}`, { note: `Item ${i}` }));
 
   test(`is only offered once the list has more than ${SEARCH_MIN_LIST_SIZE} items`, () => {
-    const [list, setList] = useState(items(SEARCH_MIN_LIST_SIZE););
+    const [list, setList] = useState(items(SEARCH_MIN_LIST_SIZE));
     const { canSearch } = useShoppingListSearch(list);
     expect(canSearch).toBe(false);
 

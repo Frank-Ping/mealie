@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Box, Card, CardActions, CardContent, Container, Grid, Paper, TextField, form } from "@mui/material";
+import { icons } from "@/lib/icons";
 import { useAdminApi, useUserApi } from "@/composables/api";
 import { useGroups } from "@/composables/use-groups";
 import { useAdminHouseholds } from "@/composables/use-households";
@@ -20,7 +21,7 @@ export default function Id() {
   const { userForm } = useUserForm();
   const { groups } = useGroups();
   const { useHouseholdsInGroup } = useAdminHouseholds();
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
   const route = useLocation(); // WF4-REVIEW: .query → useSearchParams [J]
 
   const userId = route.params.id as string;
@@ -35,9 +36,9 @@ export default function Id() {
   const [user, setUser] = useState(null);
   const households = useHouseholdsInGroup(computed(() => user?.groupId || ""));
 
-  const disabledFields = computed(() => {
+  const disabledFields = useMemo(() => {
     return user?.authMethod !== "Mealie" ? ["admin"] : [];
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   const [userError, setUserError] = useState(false);
 
@@ -98,13 +99,15 @@ export default function Id() {
   {(user) ? (
     <Container className="narrow-container">
       <BasePageTitle>
-        <template>
+        {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+        <>
           {/* WF4-REVIEW: cover → objectFit */}
           <Box component="img" width="100%" max-height="125" max-width="125" src="/svgs/manage-profile.svg" />
-        </template>
-        <template>
+        </>
+        {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+        <>
           {t("user.admin-user-management")}
-        </template>
+        </>
         {t("user.changes-reflected-immediately")}
       </BasePageTitle>
       <AppToolbar back />
@@ -124,14 +127,14 @@ export default function Id() {
                   <Grid cols="6">
                     {(groups) ? (
                       /* WF4-REVIEW: items/item-title/item-value → MenuItem children; v-model on complex expression "user.group" [J] */
-                      <TextField select {/* WF4-REVIEW: v-model user.group */} disabled items={groups} variant="solo-filled" flat item-title="name" item-value="name" return-object={false} label={t('group.user-group')} rules={[validators.required]} />
+                      <TextField select disabled items={groups} variant="solo-filled" flat item-title="name" item-value="name" return-object={false} label={t('group.user-group')} rules={[validators.required]} />
                     ) : null}
                   </Grid>
                   {/* WF4-REVIEW: cols/sm/md/lg → size={{ xs, sm, md }} */}
                   <Grid cols="6">
                     {(households) ? (
                       /* WF4-REVIEW: items/item-title/item-value → MenuItem children; v-model on complex expression "user.household" [J] */
-                      <TextField select {/* WF4-REVIEW: v-model user.household */} items={households} variant="solo-filled" flat item-title="name" item-value="name" return-object={false} label={t('household.user-household')} rules={[validators.required]} />
+                      <TextField select items={households} variant="solo-filled" flat item-title="name" item-value="name" return-object={false} label={t('household.user-household')} rules={[validators.required]} />
                     ) : null}
                   </Grid>
                 </Grid>
@@ -148,15 +151,16 @@ export default function Id() {
                       </p>
                     </CardContent>
                     <CardActions className="align-center pt-0" style="gap: 4px">
-                      <BaseButton cancel onClick={resetUrl = ''}>
+                      <BaseButton cancel onClick={() => setResetUrl('')}>
                         {t("general.close")}
                       </BaseButton>
-                      <Box sx={ flexGrow: 1 } />
+                      <Box sx={{ flexGrow: 1 }} />
                       {(user.email) ? (
                         <BaseButton color="info" className="mr-1" onClick={sendResetEmail}>
-                          <template>
-                            {$globals.icons.email}
-                          </template>
+                          {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                          <>
+                            {icons.email}
+                          </>
                           {t("user.email")}
                         </BaseButton>
                       ) : null}

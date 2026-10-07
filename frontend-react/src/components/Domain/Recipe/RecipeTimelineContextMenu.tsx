@@ -40,7 +40,7 @@ export default function RecipeTimelineContextMenu({ onDelete, onUpdate }: Props)
   const [recipeEventDeleteDialog, setRecipeEventDeleteDialog] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
   // icons imported directly (was $globals)
 
   const defaultItems: { [key: string]: ContextMenuItem } = {
@@ -58,7 +58,7 @@ export default function RecipeTimelineContextMenu({ onDelete, onUpdate }: Props)
     },
   };
 
-  const menuItems = computed(() => {
+  const menuItems = useMemo(() => {
     const items: ContextMenuItem[] = [];
     const useItems = props.useItems ?? { edit: true, delete: true };
     for (const [key, value] of Object.entries(useItems)) {
@@ -72,7 +72,7 @@ export default function RecipeTimelineContextMenu({ onDelete, onUpdate }: Props)
       ...(props.leadingItems ?? []),
       ...(props.appendItems ?? []),
     ];
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   const icon = useMemo(() => props.menuIcon || icons.dotsVertical, []); // WF4-REVIEW: dependency array
 
@@ -110,38 +110,40 @@ export default function RecipeTimelineContextMenu({ onDelete, onUpdate }: Props)
   return (
     <>
   <div className="text-center">
-    <BaseDialog value={recipeEventEditDialog} onChange={setRecipeEventEditDialog} title={t('recipe.edit-timeline-event')} icon={$globals.icons.edit} can-submit disable-submit-on-enter submit-text={t('general.save')} onSubmit={submitEdit}>
+    <BaseDialog value={recipeEventEditDialog} onChange={setRecipeEventEditDialog} title={t('recipe.edit-timeline-event')} icon={icons.edit} can-submit disable-submit-on-enter submit-text={t('general.save')} onSubmit={submitEdit}>
       <CardContent>
         {/* WF4-REVIEW: validation semantics [J] */}
         <form ref="domEditEventForm" onSubmit={(e) => { e.preventDefault(); ; }}>
           {/* WF4-REVIEW: rules/error-messages → error+helperText; v-model on complex expression "localEvent.subject" [J] */}
-          <TextField {/* WF4-REVIEW: v-model localEvent.subject */} label={t('general.subject')} />
+          <TextField label={t('general.subject')} />
           {/* WF4-REVIEW: v-model on complex expression "localEvent.eventMessage" [J] */}
-          <TextField multiline {/* WF4-REVIEW: v-model localEvent.eventMessage */} label={t('general.message')} rows="4" />
+          <TextField multiline label={t('general.message')} rows="4" />
         </form>
       </CardContent>
     </BaseDialog>
-    <BaseDialog value={recipeEventDeleteDialog} onChange={setRecipeEventDeleteDialog} bottom-sheet title={t('events.delete-event')} color="error" icon={$globals.icons.alertCircle} can-confirm onConfirm={onDelete?.()}>
+    <BaseDialog value={recipeEventDeleteDialog} onChange={setRecipeEventDeleteDialog} bottom-sheet title={t('events.delete-event')} color="error" icon={icons.alertCircle} can-confirm onConfirm={onDelete?.()}>
       <CardContent>
         {t('events.event-delete-confirmation')}
       </CardContent>
     </BaseDialog>
     {/* WF4-REVIEW: unmapped <v-menu> — judgement component, convert manually [J] */}
     <VMenu offset-y start bottom={!props.menuTop} nudge-bottom={!props.menuTop ? '5' : '0'} top={props.menuTop} nudge-top={props.menuTop ? '5' : '0'} allow-overflow close-delay="125" content-class="d-print-none">
-      <template>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
         <Button className={{ 'rounded-circle': props.fab }} x-small={props.fab} elevation={props.elevation ?? undefined} color={props.color} icon={!props.fab} {...(btnProps)} onClick={(e) => { e.preventDefault(); ; }}>
           {/* WF4-REVIEW: icon name resolves via lib/icons */}
           <MdiIcon name={icon} />
         </Button>
-      </template>
+      </>
       <List density="compact">
         {menuItems.map((item, index) => (
           /* WF4-REVIEW: @click → ListItemButton */
           <ListItem key={index} onClick={contextMenuEventHandler(item.event)}>
-            <template>
+            {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+            <>
               {/* WF4-REVIEW: icon name resolves via lib/icons */}
               <MdiIcon name={item.icon} color={item.color} />
-            </template>
+            </>
             {/* WF4-REVIEW: content → primary prop */}
             <ListItemText>
               {item.title}

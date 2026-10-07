@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Button, Card, CardActions, CardContent, CardHeader, Container, Divider, FormControlLabel, List, ListItem, ListItemText, TextField, Toolbar, Typography, form } from "@mui/material";
+import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
 import { useDark } from "@vueuse/core";
 import { States, RegistrationType, useRegistration } from "./states";
@@ -28,7 +29,7 @@ export default function RegisterPage() {
     validateOnBlur: true,
   };
 
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
   const isDark = useDark();
 
   // Registration Context
@@ -70,7 +71,7 @@ export default function RegisterPage() {
   function validateToken() {
     return Boolean(token && token.trim());
   }
-  const isTokenValid = useMemo(() => validateToken(, []); // WF4-REVIEW: dependency array);
+  const isTokenValid = useMemo(() => validateToken(), []); // WF4-REVIEW: dependency array
   const provideToken = {
     next: async () => {
       if (!await safeValidate(domTokenForm as Ref<VForm>)) {
@@ -140,11 +141,11 @@ export default function RegisterPage() {
   const [langDialog, setLangDialog] = useState(false);
 
   // Confirmation
-  const confirmationData = useMemo(() =>  {
+  const confirmationData = useMemo(() => {
     return [
       {
         display: state.ctx.type === RegistrationType.CreateGroup,
-        text: i18n.t("group.group", []); // WF4-REVIEW: dependency array,
+        text: i18n.t("group.group"),
         value: groupName,
       },
       {
@@ -178,7 +179,7 @@ export default function RegisterPage() {
         value: accountDetails.advancedOptions ? i18n.t("general.yes") : i18n.t("general.no"),
       },
     ];
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   const api = useUserApi();
   const navigate = useNavigate();
@@ -230,7 +231,7 @@ export default function RegisterPage() {
       </div>
       <div className="d-flex justify-center grow items-center my-4">
         {(state.ctx.state === States.Initial) ? (
-          <template>
+          <>
             <Container>
               {/* WF4-REVIEW: title text moves to the title prop */}
               <CardHeader className="text-h5 my-4 mb-5 pb-0 text-center">
@@ -242,7 +243,7 @@ export default function RegisterPage() {
                   {/* WF4-REVIEW: title text moves to the title prop */}
                   <CardHeader className="d-flex align-center justify-center py-3">
                     {/* WF4-REVIEW: icon name resolves via lib/icons; dropped Vuetify-only prop "start" on <v-icon> */}
-                    <MdiIcon name={$globals.icons.group} size="large" />
+                    <MdiIcon name={icons.group} size="large" />
                     {t("user-registration.join-a-group")}
                   </CardHeader>
                 </Card>
@@ -251,20 +252,20 @@ export default function RegisterPage() {
                   {/* WF4-REVIEW: title text moves to the title prop */}
                   <CardHeader className="d-flex align-center justify-center py-3">
                     {/* WF4-REVIEW: icon name resolves via lib/icons; dropped Vuetify-only prop "start" on <v-icon> */}
-                    <MdiIcon name={$globals.icons.user} size="large" />
+                    <MdiIcon name={icons.user} size="large" />
                     {t("user-registration.create-a-new-group")}
                   </CardHeader>
                 </Card>
               </div>
             </Container>
-          </template>
+          </>
         ) : (state.ctx.state === States.ProvideToken) ? (
-          <template>
+          <>
             <div>
               {/* WF4-REVIEW: title text moves to the title prop */}
               <CardHeader>
                 {/* WF4-REVIEW: icon name resolves via lib/icons */}
-                <MdiIcon name={$globals.icons.group} size="large" className="mr-3" />
+                <MdiIcon name={icons.group} size="large" className="mr-3" />
                 <span>
                   {t("user-registration.join-a-group")}
                 </span>
@@ -281,27 +282,29 @@ export default function RegisterPage() {
               <Divider />
               <CardActions className="mt-auto justify-space-between">
                 <BaseButton cancel onClick={state.back}>
-                  <template>
-                    {$globals.icons.back}
-                  </template>
+                  {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                  <>
+                    {icons.back}
+                  </>
                   {t("general.back")}
                 </BaseButton>
                 <BaseButton icon-right disabled={!isTokenValid} onClick={provideToken.next}>
-                  <template>
-                    {$globals.icons.forward}
-                  </template>
+                  {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                  <>
+                    {icons.forward}
+                  </>
                   {t("general.next")}
                 </BaseButton>
               </CardActions>
             </div>
-          </template>
+          </>
         ) : (state.ctx.state === States.ProvideGroupDetails) ? (
-          <template>
+          <>
             <div className="preferred-width">
               {/* WF4-REVIEW: title text moves to the title prop */}
               <CardHeader>
                 {/* WF4-REVIEW: icon name resolves via lib/icons */}
-                <MdiIcon name={$globals.icons.group} size="large" className="mr-3" />
+                <MdiIcon name={icons.group} size="large" className="mr-3" />
                 <span>
                   {t("user-registration.group-details")}
                 </span>
@@ -314,15 +317,15 @@ export default function RegisterPage() {
                 {/* WF4-REVIEW: validation semantics [J] */}
                 <form ref="domGroupForm" value={isGroupFormValid} onChange={setIsGroupFormValid} onSubmit={(e) => { e.preventDefault(); ; }}>
                   {/* WF4-REVIEW: rules/error-messages → error+helperText; v-model on complex expression "groupDetails.groupName" [J] */}
-                  <TextField {/* WF4-REVIEW: v-model groupDetails.groupName */} {...(inputAttrs)} label={t('group.group-name')} rules={[validators.required]} error-messages={groupErrorMessages} onBlur={validGroupName} />
+                  <TextField {...(inputAttrs)} label={t('group.group-name')} rules={[validators.required]} error-messages={groupErrorMessages} onBlur={validGroupName} />
                   <div className="mt-n4 px-2">
                     {/* WF4-REVIEW: control={<Checkbox/>} + label prop; v-model on complex expression "groupDetails.groupPrivate" [J] */}
-                    <FormControlLabel {/* WF4-REVIEW: v-model groupDetails.groupPrivate */} hide-details label={t('group.settings.keep-my-recipes-private')} />
+                    <FormControlLabel hide-details label={t('group.settings.keep-my-recipes-private')} />
                     <p className="text-caption mt-1">
                       {t("group.settings.keep-my-recipes-private-description")}
                     </p>
                     {/* WF4-REVIEW: control={<Checkbox/>} + label prop; v-model on complex expression "groupDetails.groupSeed" [J] */}
-                    <FormControlLabel {/* WF4-REVIEW: v-model groupDetails.groupSeed */} hide-details label={t('data-pages.seed-data')} />
+                    <FormControlLabel hide-details label={t('data-pages.seed-data')} />
                     <p className="text-caption mt-1">
                       {t("user-registration.use-seed-data-description")}
                     </p>
@@ -332,55 +335,59 @@ export default function RegisterPage() {
               <Divider />
               <CardActions className="justify-space-between">
                 <BaseButton cancel onClick={state.back}>
-                  <template>
-                    {$globals.icons.back}
-                  </template>
+                  {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                  <>
+                    {icons.back}
+                  </>
                   {t("general.back")}
                 </BaseButton>
                 <BaseButton icon-right disabled={!isGroupFormValid || !groupNameValid} onClick={groupDetails.next}>
-                  <template>
-                    {$globals.icons.forward}
-                  </template>
+                  {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                  <>
+                    {icons.forward}
+                  </>
                   {t("general.next")}
                 </BaseButton>
               </CardActions>
             </div>
-          </template>
+          </>
         ) : (state.ctx.state === States.ProvideAccountDetails) ? (
-          <template>
+          <>
             <div>
               <UserRegistrationForm value={isAccountFormValid} onChange={setIsAccountFormValid} />
               <Divider />
               <CardActions className="justify-space-between">
                 <BaseButton cancel onClick={state.back}>
-                  <template>
-                    {$globals.icons.back}
-                  </template>
+                  {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                  <>
+                    {icons.back}
+                  </>
                   {t("general.back")}
                 </BaseButton>
                 <BaseButton icon-right disabled={!isAccountFormValid} onClick={accountDetailsNext}>
-                  <template>
-                    {$globals.icons.forward}
-                  </template>
+                  {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                  <>
+                    {icons.forward}
+                  </>
                   {t("general.next")}
                 </BaseButton>
               </CardActions>
             </div>
-          </template>
+          </>
         ) : (state.ctx.state === States.Confirmation) ? (
-          <template>
+          <>
             <div className="preferred-width">
               {/* WF4-REVIEW: title text moves to the title prop */}
               <CardHeader className="mb-0 pb-0">
                 {/* WF4-REVIEW: icon name resolves via lib/icons */}
-                <MdiIcon name={$globals.icons.user} size="large" className="mr-3" />
+                <MdiIcon name={icons.user} size="large" className="mr-3" />
                 <span>
                   {t("general.confirm")}
                 </span>
               </CardHeader>
               <List>
                 {confirmationData.map((item, idx) => (
-                  <template>
+                  <>
                     {(item.display) ? (
                       /* WF4-REVIEW: @click → ListItemButton */
                       <ListItem key={idx}>
@@ -397,33 +404,35 @@ export default function RegisterPage() {
                     {(idx !== confirmationData.length - 1) ? (
                       <Divider key={`divider-${idx}`} />
                     ) : null}
-                  </template>
+                  </>
                 ))}
               </List>
               <Divider />
               <CardActions className="justify-space-between">
                 <BaseButton cancel onClick={state.back}>
-                  <template>
-                    {$globals.icons.back}
-                  </template>
+                  {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                  <>
+                    {icons.back}
+                  </>
                   {t("general.back")}
                 </BaseButton>
                 <BaseButton onClick={submitRegistration}>
-                  <template>
-                    {$globals.icons.check}
-                  </template>
+                  {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                  <>
+                    {icons.check}
+                  </>
                   {t("general.submit")}
                 </BaseButton>
               </CardActions>
             </div>
-          </template>
+          </>
         ) : null}
       </div>
       <CardActions className="justify-center flex-column py-8">
         <Button variant="text" className="mb-2" to="/login">
           {t("user.login")}
         </Button>
-        <BaseButton size="large" color="primary" icon={$globals.icons.translate} onClick={langDialog = true}>
+        <BaseButton size="large" color="primary" icon={icons.translate} onClick={() => setLangDialog(true)}>
           {t("language-dialog.choose-language")}
         </BaseButton>
       </CardActions>

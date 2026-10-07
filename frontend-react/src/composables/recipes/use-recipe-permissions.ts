@@ -8,9 +8,9 @@ export function useRecipePermissions(
   recipeHousehold: HouseholdSummary | undefined /* WF4-REVIEW: was Ref */,
   user: UserOut | null,
 ) {
-  const canEditRecipe = useMemo(() =>  {
+  const canEditRecipe = useMemo(() => {
     // Check recipe owner
-    if (!user?.id, []); // WF4-REVIEW: dependency array {
+    if (!user?.id) {
       return false;
     }
     if (user.id === recipe.userId) {
@@ -39,7 +39,7 @@ export function useRecipePermissions(
     }
 
     return true;
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   return {
     canEditRecipe,

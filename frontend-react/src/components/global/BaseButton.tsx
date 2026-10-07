@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { Button } from "@mui/material";
 import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
@@ -28,9 +29,11 @@ interface Props {
 }
 
 export default function BaseButton({ cancel = false, create = false, update = false, edit = false, save = false, delete = false, download = false, downloadUrl = "", loading = false, disabled = false, small = false, xSmall = false, secondary = false, minor = false, to = null, color = null, text = null, icon = null, iconRight = false }: Props) {
+  const { t } = useTranslation();
+
   const props = /* props via generated interface + destructured signature */
 
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
   // icons imported directly (was $globals)
 
   const buttonOptions = {
@@ -71,8 +74,8 @@ export default function BaseButton({ cancel = false, create = false, update = fa
     },
   };
 
-  const btnAttrs = useMemo(() =>  {
-    if (delete, []); // WF4-REVIEW: dependency array {
+  const btnAttrs = useMemo(() => {
+    if (delete) {
       return buttonOptions.delete;
     }
     if (update) {
@@ -91,7 +94,7 @@ export default function BaseButton({ cancel = false, create = false, update = fa
       return buttonOptions.download;
     }
     return buttonOptions.create;
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   const buttonStyles = {
     defaults: { text: false, outlined: false },
@@ -99,15 +102,15 @@ export default function BaseButton({ cancel = false, create = false, update = fa
     minor: { text: true, outlined: false },
   };
 
-  const btnStyle = useMemo(() =>  {
-    if (secondary, []); // WF4-REVIEW: dependency array {
+  const btnStyle = useMemo(() => {
+    if (secondary) {
       return buttonStyles.secondary;
     }
     if (minor || cancel) {
       return buttonStyles.minor;
     }
     return buttonStyles.defaults;
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   const api = useUserApi();
   function downloadFile() {

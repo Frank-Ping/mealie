@@ -77,10 +77,17 @@ Each hypothesis is scored from `metrics.csv` + the logs kept under `runs/` (see 
 
 ### Phase C — Full mechanical pass
 
-- [ ] Run all codemods over 229 `.vue` + 124 composables in one batch.
-- [ ] **One purely mechanical commit** (`[WF4] apply codemods (mechanical, no manual edits)`)
+- [x] Run all codemods over 229 `.vue` + 124 composables in one batch.
+  → 324 files (the 29-file gap = `__tests__`, the test-conversion workstream);
+  324/324 converted, 0 codemod errors, 0 options-API files
+- [x] **One purely mechanical commit** (`[WF4] apply codemods (mechanical, no manual edits)`)
   — never mixed with hand fixes, so `git bisect` and diff review stay meaningful.
-- [ ] Record: rule coverage report (how many sites each rule rewrote vs. skipped).
+  → two mechanical commits: initial + regenerated after TS1xxx codemod-defect fixes
+  (1169 → 274 tsc errors; see session log `runs/sessions/2026-10-07-wf4-phase-c.md`)
+- [x] Record: rule coverage report (how many sites each rule rewrote vs. skipped).
+  → `runs/2026-10-07T13-11-40Z-wf4-phase-c-full-run/COVERAGE.md` +
+  `codemod-coverage.json`; [J] placeholder histogram (v-menu 32, v-number-input 11,
+  v-data-table 10, …); 2405 WF4-REVIEW markers (1087 [J])
 
 ### Phase D — Residual fix loop (compiler as task queue)
 

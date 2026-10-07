@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import type { ShoppingListItemOut } from "@/lib/api/types/household";
 import { useCopyList } from "@/composables/use-copy";
 
@@ -8,7 +9,7 @@ type CopyTypes = "plain" | "markdown";
  */
 export function useShoppingListCopy() {
   const copy = useCopyList();
-  const { t } = useI18n();
+  const { t } = useTranslation(); // WF4-REVIEW: d/n/locale mapping [S]
 
   function copyListItems(itemsByLabel: { [key: string]: ShoppingListItemOut[] }, copyType: CopyTypes) {
     const text: string[] = [];

@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Box, Card, CardActions, CardContent, CardHeader, FormControlLabel, Grid, TextField, Typography } from "@mui/material";
+import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
 import Fuse from "fuse.js";
 import { useContextPresets } from "@/composables/use-context-presents";
@@ -49,7 +50,7 @@ export default function RecipeOrganizerPage() {
 
   const auth = useMealieAuth();
   const route = useLocation(); // WF4-REVIEW: .query → useSearchParams [J]
-  const groupSlug = useMemo(() => route.params.groupSlug as string || auth.user??.groupSlug || "", []); // WF4-REVIEW: dependency array
+  const groupSlug = useMemo(() => route.params.groupSlug as string || auth.user?.groupSlug || "", []); // WF4-REVIEW: dependency array
 
   // =================================================================
   // Context Menu
@@ -62,7 +63,7 @@ export default function RecipeOrganizerPage() {
 
   const presets = useContextPresets();
 
-  const translationKey = computed<string>(() => {
+  const translationKey = useMemo(() => {
     const typeMap = {
       categories: "category.category",
       tags: "tag.tag",
@@ -71,7 +72,7 @@ export default function RecipeOrganizerPage() {
       households: "household.household",
     };
     return typeMap[props.itemType] || "";
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   const [deleteTarget, setDeleteTarget] = useState(null);
   const [updateTarget, setUpdateTarget] = useState(null);
@@ -107,22 +108,22 @@ export default function RecipeOrganizerPage() {
 
   const searchString = useRouteQuery("q", "");
 
-  const fuse = useMemo(() =>  {
-    return new Fuse(props.items, state.options, []); // WF4-REVIEW: dependency array
-  });
+  const fuse = useMemo(() => {
+    return new Fuse(props.items, state.options);
+  }, []); // WF4-REVIEW: dependency array
 
-  const fuzzyItems = useMemo(() =>  {
-    if (searchString.trim(, []); // WF4-REVIEW: dependency array === "") {
+  const fuzzyItems = useMemo(() => {
+    if (searchString.trim() === "") {
       return props.items;
     }
     const result = fuse.search(searchString.trim() as string);
     return result.map(x => x.item);
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   // =================================================================
   // Sorted Items
 
-  const itemsSorted = computed(() => {
+  const itemsSorted = useMemo(() => {
     const byLetter: { [key: string]: Array<GenericItem> } = {};
 
     if (!fuzzyItems) {
@@ -140,7 +141,7 @@ export default function RecipeOrganizerPage() {
       });
 
     return byLetter;
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   function isTitle(str: number | string) {
     return typeof str === "string" && str.length === 1;
@@ -151,10 +152,10 @@ export default function RecipeOrganizerPage() {
   {(items) ? (
     <div>
       {/* WF4-REVIEW: v-model on complex expression "dialogs.organizer" [J] */}
-      <RecipeOrganizerDialog {/* WF4-REVIEW: v-model dialogs.organizer */} item-type={itemType} />
+      <RecipeOrganizerDialog item-type={itemType} />
       {(deleteTarget) ? (
         /* WF4-REVIEW: v-model on complex expression "dialogs.delete" [J] */
-        <BaseDialog {/* WF4-REVIEW: v-model dialogs.delete */} bottom-sheet title={t('general.delete-with-name', { name: t(translationKey) })} color="error" icon={$globals.icons.alertCircle} can-confirm onConfirm={deleteOne()}>
+        <BaseDialog bottom-sheet title={t('general.delete-with-name', { name: t(translationKey) })} color="error" icon={icons.alertCircle} can-confirm onConfirm={deleteOne()}>
           <CardContent>
             <p>
               {t("general.confirm-delete-generic-with-name", { name: t(translationKey) })}
@@ -167,13 +168,13 @@ export default function RecipeOrganizerPage() {
       ) : null}
       {(updateTarget) ? (
         /* WF4-REVIEW: v-model on complex expression "dialogs.update" [J] */
-        <BaseDialog {/* WF4-REVIEW: v-model dialogs.update */} title={t('general.update')} icon={$globals.icons.edit} can-confirm onConfirm={updateOne()}>
+        <BaseDialog title={t('general.update')} icon={icons.edit} can-confirm onConfirm={updateOne()}>
           <CardContent>
             {/* WF4-REVIEW: rules/error-messages → error+helperText; v-model on complex expression "updateTarget.name" [J] */}
-            <TextField {/* WF4-REVIEW: v-model updateTarget.name */} label={t('general.name')} />
+            <TextField label={t('general.name')} />
             {(itemType === Organizer.Tool) ? (
               /* WF4-REVIEW: control={<Checkbox/>} + label prop; v-model on complex expression "updateTarget.onHand" [J] */
-              <FormControlLabel {/* WF4-REVIEW: v-model updateTarget.onHand */} label={t('tool.on-hand')} />
+              <FormControlLabel label={t('tool.on-hand')} />
             ) : null}
           </CardContent>
         </BaseDialog>
@@ -182,7 +183,7 @@ export default function RecipeOrganizerPage() {
         {/* WF4-REVIEW: cols/sm/md/lg → size={{ xs, sm, md }} */}
         <Grid>
           {/* WF4-REVIEW: rules/error-messages → error+helperText */}
-          <TextField value={searchString} onChange={/* WF4-REVIEW: setter */ setSearchString} variant="outlined" autofocus color="primary accent-3" placeholder={t('search.search-placeholder')} prepend-inner-icon={$globals.icons.search} clearable />
+          <TextField value={searchString} onChange={/* WF4-REVIEW: setter */ setSearchString} variant="outlined" autofocus color="primary accent-3" placeholder={t('search.search-placeholder')} prepend-inner-icon={icons.search} clearable />
         </Grid>
       </Grid>
       <Grid container color="transparent" flat className="mt-n1 rounded align-center position-relative w-100 left-0 top-0">
@@ -191,7 +192,7 @@ export default function RecipeOrganizerPage() {
         <Typography variant="h6" className="headline">
           <slot name="title" />
         </Typography>
-        <Box sx={ flexGrow: 1 } />
+        <Box sx={{ flexGrow: 1 }} />
         <BaseButton create onClick={dialogs.organizer = true} />
       </Grid>
       {itemsSorted.map((itms, key, idx) => (

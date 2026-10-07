@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Button, Card, CardActions, CardHeader, Container, Divider, LinearProgress, List, ListItem, ListItemText, Toolbar, Typography } from "@mui/material";
+import { icons } from "@/lib/icons";
 import { useDark } from "@vueuse/core";
 import { useAdminApi, useUserApi } from "@/composables/api";
 import { useLocales } from "@/composables/use-locales";
@@ -25,7 +26,7 @@ export default function Setup() {
 
   // ================================================================
   // Setup
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
   const auth = useMealieAuth();
   const userApi = useUserApi();
   const adminApi = useAdminApi();
@@ -105,11 +106,11 @@ export default function Setup() {
     useSeedData: true,
   });
 
-  const confirmationData = useMemo(() =>  {
+  const confirmationData = useMemo(() => {
     return [
       {
         display: true,
-        text: i18n.t("user.email", []); // WF4-REVIEW: dependency array,
+        text: i18n.t("user.email"),
         value: accountDetails.email,
       },
       {
@@ -138,7 +139,7 @@ export default function Setup() {
         value: commonSettings.useSeedData ? i18n.t("general.yes") : i18n.t("general.no"),
       },
     ];
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   // ================================================================
   // Page Navigation
@@ -362,22 +363,22 @@ export default function Setup() {
         {/* WF4-REVIEW: unmapped <v-stepper-header> — judgement component, convert manually [J] */}
         <VStepperHeader>
           {/* WF4-REVIEW: unmapped <v-stepper-item> — judgement component, convert manually [J] */}
-          <VStepperItem value={Pages.LANDING} icon={$globals.icons.wave} complete={currentPage > Pages.LANDING} color={getStepperColor(currentPage, Pages.LANDING)} title={t('general.start')} />
+          <VStepperItem value={Pages.LANDING} icon={icons.wave} complete={currentPage > Pages.LANDING} color={getStepperColor(currentPage, Pages.LANDING)} title={t('general.start')} />
           <Divider />
           {/* WF4-REVIEW: unmapped <v-stepper-item> — judgement component, convert manually [J] */}
-          <VStepperItem value={Pages.USER_INFO} icon={$globals.icons.user} complete={currentPage > Pages.USER_INFO} color={getStepperColor(currentPage, Pages.USER_INFO)} title={t('user-registration.account-details')} />
+          <VStepperItem value={Pages.USER_INFO} icon={icons.user} complete={currentPage > Pages.USER_INFO} color={getStepperColor(currentPage, Pages.USER_INFO)} title={t('user-registration.account-details')} />
           <Divider />
           {/* WF4-REVIEW: unmapped <v-stepper-item> — judgement component, convert manually [J] */}
-          <VStepperItem value={Pages.PAGE_2} icon={$globals.icons.cog} complete={currentPage > Pages.PAGE_2} color={getStepperColor(currentPage, Pages.PAGE_2)} title={t('settings.site-settings')} />
+          <VStepperItem value={Pages.PAGE_2} icon={icons.cog} complete={currentPage > Pages.PAGE_2} color={getStepperColor(currentPage, Pages.PAGE_2)} title={t('settings.site-settings')} />
           <Divider />
           {/* WF4-REVIEW: unmapped <v-stepper-item> — judgement component, convert manually [J] */}
-          <VStepperItem value={Pages.AI_PROVIDERS} icon={$globals.icons.robot} complete={currentPage > Pages.AI_PROVIDERS} color={getStepperColor(currentPage, Pages.AI_PROVIDERS)} title={t('group.ai-provider-settings.ai-providers')} />
+          <VStepperItem value={Pages.AI_PROVIDERS} icon={icons.robot} complete={currentPage > Pages.AI_PROVIDERS} color={getStepperColor(currentPage, Pages.AI_PROVIDERS)} title={t('group.ai-provider-settings.ai-providers')} />
           <Divider />
           {/* WF4-REVIEW: unmapped <v-stepper-item> — judgement component, convert manually [J] */}
-          <VStepperItem value={Pages.CONFIRM} icon={$globals.icons.chefHat} complete={currentPage > Pages.CONFIRM} color={getStepperColor(currentPage, Pages.CONFIRM)} title={t('admin.maintenance.summary-title')} />
+          <VStepperItem value={Pages.CONFIRM} icon={icons.chefHat} complete={currentPage > Pages.CONFIRM} color={getStepperColor(currentPage, Pages.CONFIRM)} title={t('admin.maintenance.summary-title')} />
           <Divider />
           {/* WF4-REVIEW: unmapped <v-stepper-item> — judgement component, convert manually [J] */}
-          <VStepperItem value={Pages.END} icon={$globals.icons.check} complete={currentPage > Pages.END} color={getStepperColor(currentPage, Pages.END)} title={t('admin.setup.setup-complete')} />
+          <VStepperItem value={Pages.END} icon={icons.check} complete={currentPage > Pages.END} color={getStepperColor(currentPage, Pages.END)} title={t('admin.setup.setup-complete')} />
         </VStepperHeader>
         {(isSubmitting && currentPage === Pages.CONFIRM) ? (
           <LinearProgress color="primary" indeterminate className="mb-2" />
@@ -403,16 +404,20 @@ export default function Setup() {
               </Button>
             </Container>
             <CardActions className="justify-center flex-column py-8">
-              <BaseButton size="large" color="primary" className="px-10" rounded icon={$globals.icons.translate} onClick={langDialog = true}>
+              <BaseButton size="large" color="primary" className="px-10" rounded icon={icons.translate} onClick={() => setLangDialog(true)}>
                 {t('language-dialog.choose-language')}
               </BaseButton>
             </CardActions>
             {/* WF4-REVIEW: unmapped <v-stepper-actions> — judgement component, convert manually [J] */}
             <VStepperActions className="justify-end" disabled={isSubmitting} next-text="general.next" onClickNext={onNext}>
-              <template>
+              {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+              <>
                 <Button variant="flat" color="success" disabled={isSubmitting} loading={isSubmitting} text={t('general.next')} onClick={onNext} />
-              </template>
-              <template />
+              </>
+              {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+              <>
+
+              </>
             </VStepperActions>
           </VStepperWindowItem>
           {/* WF4-REVIEW: unmapped <v-stepper-window-item> — judgement component, convert manually [J] */}
@@ -422,9 +427,10 @@ export default function Setup() {
             </Container>
             {/* WF4-REVIEW: unmapped <v-stepper-actions> — judgement component, convert manually [J] */}
             <VStepperActions disabled={isSubmitting} prev-text="general.back" onClickPrev={onPrev}>
-              <template>
+              {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+              <>
                 <Button variant="flat" color="success" disabled={isSubmitting} loading={isSubmitting} text={t('general.next')} onClick={onNext} />
-              </template>
+              </>
             </VStepperActions>
           </VStepperWindowItem>
           {/* WF4-REVIEW: unmapped <v-stepper-window-item> — judgement component, convert manually [J] */}
@@ -438,9 +444,10 @@ export default function Setup() {
             </Container>
             {/* WF4-REVIEW: unmapped <v-stepper-actions> — judgement component, convert manually [J] */}
             <VStepperActions disabled={isSubmitting} prev-text="general.back" onClickPrev={onPrev}>
-              <template>
+              {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+              <>
                 <Button variant="flat" color="success" disabled={isSubmitting} loading={isSubmitting} text={t('general.next')} onClick={onNext} />
-              </template>
+              </>
             </VStepperActions>
           </VStepperWindowItem>
           {/* WF4-REVIEW: unmapped <v-stepper-window-item> — judgement component, convert manually [J] */}
@@ -456,14 +463,15 @@ export default function Setup() {
               </Typography>
               {(group?.aiProviderSettings) ? (
                 /* WF4-REVIEW: v-model on complex expression "group.aiProviderSettings" [J] */
-                <GroupAIProviderSettingsEditor {/* WF4-REVIEW: v-model group.aiProviderSettings */} hide-header className="mt-4" onCreate={handleCreateProvider} onUpdate={handleUpdateProvider} onDelete={handleDeleteProvider} />
+                <GroupAIProviderSettingsEditor hide-header className="mt-4" onCreate={handleCreateProvider} onUpdate={handleUpdateProvider} onDelete={handleDeleteProvider} />
               ) : null}
             </Container>
             {/* WF4-REVIEW: unmapped <v-stepper-actions> — judgement component, convert manually [J] */}
             <VStepperActions disabled={isSubmitting} prev-text="general.back" onClickPrev={onPrev}>
-              <template>
+              {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+              <>
                 <Button variant="flat" color="success" disabled={isSubmitting} loading={isSubmitting} text={t('general.next')} onClick={onNext} />
-              </template>
+              </>
             </VStepperActions>
           </VStepperWindowItem>
           {/* WF4-REVIEW: unmapped <v-stepper-window-item> — judgement component, convert manually [J] */}
@@ -475,7 +483,7 @@ export default function Setup() {
               </CardHeader>
               <List>
                 {confirmationData.map((item, idx) => (
-                  <template>
+                  <>
                     {(item.display) ? (
                       /* WF4-REVIEW: @click → ListItemButton */
                       <ListItem key={idx} className="px-0">
@@ -492,15 +500,16 @@ export default function Setup() {
                     {(idx !== confirmationData.length - 1) ? (
                       <Divider key={`divider-${idx}`} />
                     ) : null}
-                  </template>
+                  </>
                 ))}
               </List>
             </Container>
             {/* WF4-REVIEW: unmapped <v-stepper-actions> — judgement component, convert manually [J] */}
             <VStepperActions disabled={isSubmitting} prev-text="general.back" onClickPrev={onPrev}>
-              <template>
-                <BaseButton create flat disabled={isSubmitting} loading={isSubmitting} icon={$globals.icons.check} text={t('general.submit')} onClick={onNext} />
-              </template>
+              {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+              <>
+                <BaseButton create flat disabled={isSubmitting} loading={isSubmitting} icon={icons.check} text={t('general.submit')} onClick={onNext} />
+              </>
             </VStepperActions>
           </VStepperWindowItem>
           {/* WF4-REVIEW: unmapped <v-stepper-window-item> — judgement component, convert manually [J] */}
@@ -508,9 +517,10 @@ export default function Setup() {
             <EndPageContent />
             {/* WF4-REVIEW: unmapped <v-stepper-actions> — judgement component, convert manually [J] */}
             <VStepperActions disabled={isSubmitting} prev-text="general.back" onClickPrev={onPrev}>
-              <template>
-                <BaseButton flat color="primary" disabled={isSubmitting} loading={isSubmitting} icon={$globals.icons.home} text={t('general.home')} onClick={onFinish} />
-              </template>
+              {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+              <>
+                <BaseButton flat color="primary" disabled={isSubmitting} loading={isSubmitting} icon={icons.home} text={t('general.home')} onClick={onFinish} />
+              </>
             </VStepperActions>
           </VStepperWindowItem>
         </VStepperWindow>

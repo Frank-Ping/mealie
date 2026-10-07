@@ -8,14 +8,14 @@ import { useMealieAuth } from "@/composables/use-mealie-auth";
 export default function EndPageContent() {
   const { t } = useTranslation();
 
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
   const auth = useMealieAuth();
   const groupSlug = auth.user?.groupSlug; // was computed — plain read stays reactive
   // icons imported directly (was $globals)
 
   const [sections, setSections] = useState([
     {
-      title: i18n.t("profile.data-migrations");,
+      title: i18n.t("profile.data-migrations"),
       color: "info",
       links: [
         {
@@ -92,10 +92,11 @@ export default function EndPageContent() {
           </CardHeader>
           <div className="sections d-flex flex-column ga-2">
             {/* WF4-REVIEW: unparseable v-for "link, linkIdx in section.links" */}
-              <Card key={linkIdx} clas="link-card" to={link.to} title={link.text} subtitle={link.description} append-icon={$globals.icons.chevronRight}>
-                <template>
+              <Card key={linkIdx} clas="link-card" to={link.to} title={link.text} subtitle={link.description} append-icon={icons.chevronRight}>
+                {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                <>
                   <Avatar icon={link.icon || undefined} variant="tonal" color={section.color} />
-                </template>
+                </>
               </Card>
           </div>
         </div>

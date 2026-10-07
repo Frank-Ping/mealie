@@ -35,7 +35,7 @@ export default function Recipes() {
 
 
 
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
   const auth = useMealieAuth();
   // icons imported directly (was $globals)
 
@@ -281,8 +281,8 @@ export default function Recipes() {
   const { store: allUsers } = useUserStore();
   const { store: households } = useHouseholdStore();
   const [selectedOwner, setSelectedOwner] = useState("");
-  const selectedOwnerHousehold = useMemo(() =>  {
-    if (!selectedOwner, []); // WF4-REVIEW: dependency array {
+  const selectedOwnerHousehold = useMemo(() => {
+    if (!selectedOwner) {
       return null;
     }
 
@@ -292,18 +292,18 @@ export default function Recipes() {
     };
 
     return households.find(h => h.id === owner.householdId);
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   return (
     <>
   <Container fluid>
-    <BaseDialog value={purgeExportsDialog} onChange={setPurgeExportsDialog} bottom-sheet title={t('data-pages.recipes.purge-exports')} color="error" icon={$globals.icons.alertCircle} can-confirm onConfirm={purgeExports()}>
+    <BaseDialog value={purgeExportsDialog} onChange={setPurgeExportsDialog} bottom-sheet title={t('data-pages.recipes.purge-exports')} color="error" icon={icons.alertCircle} can-confirm onConfirm={purgeExports()}>
       <CardContent>
         {t('data-pages.recipes.are-you-sure-you-want-to-delete-all-export-data')}
       </CardContent>
     </BaseDialog>
     {/* WF4-REVIEW: v-model on complex expression "dialog.state" [J] */}
-    <BaseDialog ref="domDialog" {/* WF4-REVIEW: v-model dialog.state */} bottom-sheet width="650px" color={dialog.mode == MODES.delete ? 'error' : undefined} icon={dialog.icon} title={dialog.title} submit-text={t('general.submit')} can-submit={dialog.mode != MODES.delete} can-delete={dialog.mode == MODES.delete} onSubmit={dialog.callback} onDelete={dialog.callback}>
+    <BaseDialog ref="domDialog" bottom-sheet width="650px" color={dialog.mode == MODES.delete ? 'error' : undefined} icon={dialog.icon} title={dialog.title} submit-text={t('general.submit')} can-submit={dialog.mode != MODES.delete} can-delete={dialog.mode == MODES.delete} onSubmit={dialog.callback} onDelete={dialog.callback}>
       {(dialog.mode == MODES.tag) ? (
         <CardContent>
           <RecipeOrganizerSelector value={toSetTags} onChange={setToSetTags} selector-type="tags" />
@@ -320,7 +320,8 @@ export default function Recipes() {
           <Card variant="outlined">
             {/* WF4-REVIEW: unmapped <v-virtual-scroll> — judgement component, convert manually [J] */}
             <VVirtualScroll height="400" item-height="25" items={selected}>
-              <template>
+              {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+              <>
                 {/* WF4-REVIEW: @click → ListItemButton */}
                 <ListItem className="pb-2">
                   {/* WF4-REVIEW: content → primary prop */}
@@ -328,7 +329,7 @@ export default function Recipes() {
                     {item.name}
                   </ListItemText>
                 </ListItem>
-              </template>
+              </>
             </VVirtualScroll>
           </Card>
         </CardContent>
@@ -341,7 +342,8 @@ export default function Recipes() {
           <Card variant="outlined">
             {/* WF4-REVIEW: unmapped <v-virtual-scroll> — judgement component, convert manually [J] */}
             <VVirtualScroll height="400" item-height="25" items={selected}>
-              <template>
+              {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+              <>
                 {/* WF4-REVIEW: @click → ListItemButton */}
                 <ListItem className="pb-2">
                   {/* WF4-REVIEW: content → primary prop */}
@@ -349,7 +351,7 @@ export default function Recipes() {
                     {item.name}
                   </ListItemText>
                 </ListItem>
-              </template>
+              </>
             </VVirtualScroll>
           </Card>
         </CardContent>
@@ -371,14 +373,15 @@ export default function Recipes() {
         <CardContent>
           {/* WF4-REVIEW: items/item-title/item-value → MenuItem children */}
           <TextField select value={selectedOwner} onChange={setSelectedOwner} items={allUsers} item-title="fullName" item-value="id" label={t('general.owner')} hide-details>
-            <template>
+            {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+            <>
               <UserAvatar user-id={selectedOwner} tooltip={false} />
-            </template>
+            </>
           </TextField>
           {(selectedOwnerHousehold) ? (
             <CardContent className="d-flex" style="align-items: flex-end;">
               {/* WF4-REVIEW: icon name resolves via lib/icons */}
-              <MdiIcon name={$globals.icons.household} />
+              <MdiIcon name={icons.household} />
               <span className="pl-1">
                 {selectedOwnerHousehold.name}
               </span>
@@ -388,20 +391,21 @@ export default function Recipes() {
       ) : null}
     </BaseDialog>
     <section>
-      <BaseCardSectionTitle icon={$globals.icons.primary} title={t('data-pages.recipes.recipe-data')}>
+      <BaseCardSectionTitle icon={icons.primary} title={t('data-pages.recipes.recipe-data')}>
         {t('data-pages.recipes.recipe-data-description')}
       </BaseCardSectionTitle>
       <CardActions className="mt-n5 mb-1">
         {/* WF4-REVIEW: unmapped <v-menu> — judgement component, convert manually [J] */}
         <VMenu offset-y bottom nudge-bottom="6" close-on-content-click={false}>
-          <template>
+          {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+          <>
             {/* WF4-REVIEW: dropped Vuetify-only prop "dark" on <v-btn> */}
             <Button color="accent" className="mr-2" variant="elevated" {...(props)}>
               {/* WF4-REVIEW: icon name resolves via lib/icons; dropped Vuetify-only prop "start" on <v-icon> */}
-              <MdiIcon name={$globals.icons.cog} />
+              <MdiIcon name={icons.cog} />
               {t('data-pages.columns')}
             </Button>
-          </template>
+          </>
           <Card>
             {/* WF4-REVIEW: title text moves to the title prop */}
             <CardHeader className="py-2">
@@ -413,7 +417,7 @@ export default function Recipes() {
             <CardContent className="mt-n5">
               {headers.map((_, key) => (
                 /* WF4-REVIEW: control={<Checkbox/>} + label prop; v-model on complex expression "headers[key]" [J] */
-                <FormControlLabel key={key} {/* WF4-REVIEW: v-model headers[key] */} density="compact" flat inset label={headerLabels[key]} hide-details />
+                <FormControlLabel key={key} density="compact" flat inset label={headerLabels[key]} hide-details />
               ))}
             </CardContent>
           </Card>
@@ -434,20 +438,21 @@ export default function Recipes() {
         <CardActions className="justify-end">
           <BaseButton color="info" onClick={selectAll();
               openDialog(MODES.export);}>
-            <template>
-              {$globals.icons.database}
-            </template>
+            {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+            <>
+              {icons.database}
+            </>
             {t('general.export-all')}
           </BaseButton>
         </CardActions>
       </Card>
     </section>
     <section className="mt-10">
-      <BaseCardSectionTitle icon={$globals.icons.database} section title={t('data-pages.recipes.data-exports')}>
+      <BaseCardSectionTitle icon={icons.database} section title={t('data-pages.recipes.data-exports')}>
         {t('data-pages.recipes.data-exports-description')}
       </BaseCardSectionTitle>
       <CardActions className="mt-n5 mb-1">
-        <BaseButton delete onClick={purgeExportsDialog = true} />
+        <BaseButton delete onClick={() => setPurgeExportsDialog(true)} />
       </CardActions>
       <Card>
         <GroupExportData exports={groupExports} />

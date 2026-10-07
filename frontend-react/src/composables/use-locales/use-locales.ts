@@ -6,7 +6,7 @@ export const useLocales = () => {
   const i18n = useGlobalI18n();
   const { current: vuetifyLocale } = useLocale();
 
-  /* WF4-REVIEW [J]: writable computed — split into state + handlers */ const locale = computed<LocaleObject["code"]>({
+  /* WF4-REVIEW [J]: writable computed — split into state + handlers */ /* WF4-REVIEW [J]: writable computed — split into state + handlers */ const locale = computed({
     get: () => i18n.locale,
     set(value) {
       i18n.setLocale(value);

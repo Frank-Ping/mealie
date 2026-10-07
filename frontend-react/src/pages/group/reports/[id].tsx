@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Box, CardContent, Container } from "@mui/material";
+import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
 import { useUserApi } from "@/composables/api";
 import type { ReportOut } from "@/lib/api/types/reports";
@@ -39,13 +40,15 @@ export default function Id() {
     <>
   <Container>
     <BasePageTitle divider>
-      <template>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
         {/* WF4-REVIEW: cover → objectFit */}
         <Box component="img" width="100%" max-height="200" max-width="200" className="mb-2" src="/svgs/data-reports.svg" />
-      </template>
-      <template>
+      </>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
         {t('group.report')}
-      </template>
+      </>
     </BasePageTitle>
     {(report) ? (
       <Container>
@@ -55,20 +58,23 @@ export default function Id() {
         </CardContent>
         {/* WF4-REVIEW: unmapped <v-data-table> — judgement component, convert manually [J] */}
         <VDataTable headers={itemHeaders} items={report.entries} items-per-page={50} show-expand>
-          <template>
+          {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+          <>
             {/* WF4-REVIEW: icon name resolves via lib/icons */}
-            <MdiIcon name={item.success ? $globals.icons.checkboxMarkedCircle : $globals.icons.close} color={item.success ? 'success' : 'error'} />
-          </template>
-          <template>
+            <MdiIcon name={item.success ? icons.checkboxMarkedCircle : icons.close} color={item.success ? 'success' : 'error'} />
+          </>
+          {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+          <>
             {$d(Date.parse(item.timestamp!), "short")}
-          </template>
-          <template>
+          </>
+          {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+          <>
             {(item.exception) ? (
               <td className="pa-6" colspan={headers.length}>
                 {item.exception}
               </td>
             ) : null}
-          </template>
+          </>
         </VDataTable>
       </Container>
     ) : null}

@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Container, Grid, TextField, form } from "@mui/material";
+import { icons } from "@/lib/icons";
 import { useUserApi } from "@/composables/api";
 import BaseDialog from "@/components/global/BaseDialog";
 import AppButtonCopy from "@/components/global/AppButtonCopy";
@@ -18,7 +19,7 @@ export default function UserInviteDialog() {
 
   const inviteDialog = defineModel<boolean>("modelValue", { type: Boolean, default: false });
 
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
   const auth = useMealieAuth();
 
   const isAdmin = auth.user?.admin; // was computed — plain read stays reactive
@@ -48,16 +49,16 @@ export default function UserInviteDialog() {
     }
   }
 
-  const filteredHouseholds = useMemo(() =>  {
-    if (!selectedGroup, []); // WF4-REVIEW: dependency array return [];
+  const filteredHouseholds = useMemo(() => {
+    if (!selectedGroup) return [];
     return households?.filter(household => household.groupId === selectedGroup);
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   function constructLink(tokenVal: string) {
     return tokenVal ? `${window.location.origin}/register?token=${tokenVal}` : "";
   }
 
-  const generatedSignupLink = useMemo(() => constructLink(token, []); // WF4-REVIEW: dependency array);
+  const generatedSignupLink = useMemo(() => constructLink(token), []); // WF4-REVIEW: dependency array
 
   // Email Invitation
   const state = /* WF4-REVIEW [J] */ reactive({
@@ -86,11 +87,11 @@ export default function UserInviteDialog() {
     inviteDialog = false;
   }
 
-  const validEmail = useMemo(() =>  {
-    if (sendTo === "", []); // WF4-REVIEW: dependency array return false;
+  const validEmail = useMemo(() => {
+    if (sendTo === "") return false;
     const valid = validators.email(sendTo);
     return valid === true;
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   // Watchers (replacing options API watchers)
   /* WF4-REVIEW [J] */ watch(inviteDialog, (val) => {
@@ -110,7 +111,7 @@ export default function UserInviteDialog() {
 
   return (
     <>
-  <BaseDialog value={inviteDialog} onChange={/* WF4-REVIEW: setter */ setInviteDialog} title={t('profile.get-invite-link')} icon={$globals.icons.accountPlusOutline} color="primary">
+  <BaseDialog value={inviteDialog} onChange={/* WF4-REVIEW: setter */ setInviteDialog} title={t('profile.get-invite-link')} icon={icons.accountPlusOutline} color="primary">
     <Container>
       {/* WF4-REVIEW: validation semantics [J] */}
       <form className="mt-5">
@@ -137,11 +138,12 @@ export default function UserInviteDialog() {
         <TextField value={sendTo} onChange={/* WF4-REVIEW: setter */ setSendTo} label={t('user.email')} rules={[validators.email]} variant="outlined" onKeyDown={sendInvite} />
       </form>
     </Container>
-    <template>
-      <BaseButton disabled={!validEmail} loading={loading} icon={$globals.icons.email} onClick={sendInvite}>
+    {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+    <>
+      <BaseButton disabled={!validEmail} loading={loading} icon={icons.email} onClick={sendInvite}>
         {t("group.invite")}
       </BaseButton>
-    </template>
+    </>
   </BaseDialog>
     </>
   );

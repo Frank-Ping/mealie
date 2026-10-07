@@ -1,5 +1,7 @@
 import { useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import { CircularProgress } from "@mui/material";
+import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
 
 interface Props {
@@ -12,10 +14,12 @@ interface Props {
 }
 
 export default function AppLoader({ loading = true, tiny = false, small = false, medium = true, large = false, waitingText = undefined }: Props) {
+  const { t } = useTranslation();
+
   const props = /* props via generated interface + destructured signature */
 
-  const size = useMemo(() =>  {
-    if (tiny, []); // WF4-REVIEW: dependency array {
+  const size = useMemo(() => {
+    if (tiny) {
       return {
         width: 2,
         icon: 0,
@@ -41,9 +45,9 @@ export default function AppLoader({ loading = true, tiny = false, small = false,
       icon: 75,
       size: 125,
     };
-  });
+  }, []); // WF4-REVIEW: dependency array
 
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
   const waitingTextCalculated = waitingText == null ? i18n.t("general.loading") : waitingText;
 
   return (
@@ -52,7 +56,7 @@ export default function AppLoader({ loading = true, tiny = false, small = false,
     <div className="text-center">
       <CircularProgress width={size.width} size={size.size} color="primary-lighten-2" indeterminate>
         {/* WF4-REVIEW: icon name resolves via lib/icons */}
-        <MdiIcon name={$globals.icons.primary} size={size.icon} color="primary-lighten-2" />
+        <MdiIcon name={icons.primary} size={size.icon} color="primary-lighten-2" />
       </CircularProgress>
       <div className={large ? 'text-title-large mt-5' : 'text-body-large mt-3'}>
         <slot>

@@ -24,9 +24,9 @@ export default function RecipeRating({ readonly = false, recipeId = "", slug = "
   // rendering the stuck hover value instead of the model value
   const canHover = useMediaQuery("(hover: hover) and (pointer: fine)");
 
-  const userRating = useMemo(() =>  {
-    return userRatings.find(r => r.recipeId === recipeId, []); // WF4-REVIEW: dependency array?.rating ?? null;
-  });
+  const userRating = useMemo(() => {
+    return userRatings.find(r => r.recipeId === recipeId)?.rating ?? null;
+  }, []); // WF4-REVIEW: dependency array
 
   const [localUserRating, setLocalUserRating] = useState(userRating);
 
@@ -40,13 +40,13 @@ export default function RecipeRating({ readonly = false, recipeId = "", slug = "
 
   // only fall back to the group average when we can't offer the user their own rating,
   // and only when there's actually a group average to show. An unset rating may be null or 0
-  const showGroupAverage = computed(() => {
+  const showGroupAverage = useMemo(() => {
     return isReadonly && !localUserRating && !!groupRating;
-  });
+  }, []); // WF4-REVIEW: dependency array
 
-  const displayRating = useMemo(() =>  {
-    return showGroupAverage ? groupRating : (localUserRating || 0, []); // WF4-REVIEW: dependency array
-  });
+  const displayRating = useMemo(() => {
+    return showGroupAverage ? groupRating : (localUserRating || 0);
+  }, []); // WF4-REVIEW: dependency array
 
   async function updateRating(val?: number) {
     if (isReadonly) {

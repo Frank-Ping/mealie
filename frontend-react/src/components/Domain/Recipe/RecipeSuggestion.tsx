@@ -50,7 +50,7 @@ export default function RecipeSuggestion({ missingFoods = null, missingTools = n
       show: missingFoods?.length,
       icon: icons.foods,
       items: missingFoods
-        ? missingFoods.map((food, []); // WF4-REVIEW: dependency array => {
+        ? missingFoods.map((food) => {
             return /* WF4-REVIEW [J] */ reactive({ type: "food", item: food, selected: false } as Organizer);
           })
         : [],
@@ -67,7 +67,7 @@ export default function RecipeSuggestion({ missingFoods = null, missingTools = n
         : [],
       getLabel: (item: RecipeTool) => item.name,
     },
-  ]);
+  ], []); // WF4-REVIEW: dependency array
 
   function handleCheckbox(organizer: Organizer) {
     if (disableCheckbox) {
@@ -117,9 +117,10 @@ export default function RecipeSuggestion({ missingFoods = null, missingTools = n
                   <Chip key={item.item.id} label color="secondary custom-transparent" className="mr-2 my-1 pl-1" variant="flat">
                     {/* WF4-REVIEW: control={<Checkbox/>} + label prop; dropped Vuetify-only prop "dark" on <v-checkbox> */}
                     <FormControlLabel ripple={false} hide-details onClick={handleCheckbox(item)}>
-                      <template>
+                      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                      <>
                         {organizer.getLabel(item.item)}
-                      </template>
+                      </>
                     </FormControlLabel>
                   </Chip>
                 ))}
@@ -139,7 +140,7 @@ export default function RecipeSuggestion({ missingFoods = null, missingTools = n
               :
             </CardContent>
             {substitutedFoods.map((substituted, idx) => (
-              <Chip key={idx} label color="info custom-transparent" className="mr-2 my-1" variant="flat" prepend-icon={$globals.icons.swapHorizontal}>
+              <Chip key={idx} label color="info custom-transparent" className="mr-2 my-1" variant="flat" prepend-icon={icons.swapHorizontal}>
                 {t("recipe-finder.substitute-for-food", {
               substitute: foodLabel(substituted.substituteFood),
               food: foodLabel(substituted.food),

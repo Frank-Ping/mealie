@@ -1,4 +1,5 @@
 import { Box, Button, Grid } from "@mui/material";
+import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
 
 export default function AppFooter() {
@@ -10,7 +11,7 @@ export default function AppFooter() {
       <Grid className="py-2 text-center white--text" cols="12">
         <Button color="white" icon href="https://github.com/mealie-recipes/mealie" target="_blank">
           {/* WF4-REVIEW: icon name resolves via lib/icons */}
-          <MdiIcon name={$globals.icons.github} />
+          <MdiIcon name={icons.github} />
         </Button>
         {new Date().getFullYear()}
         —

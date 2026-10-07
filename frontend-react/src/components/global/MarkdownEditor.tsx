@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { TextField } from "@mui/material";
+import { icons } from "@/lib/icons";
 
 interface Props {
   label?: string;
@@ -22,7 +23,7 @@ export default function MarkdownEditor({ label = "", preview = undefined, displa
   const modelValue = defineModel<string>("modelValue");
 
   const [fallbackPreview, setFallbackPreview] = useState(false);
-  /* WF4-REVIEW [J]: writable computed — split into state + handlers */ const previewState = computed({
+  /* WF4-REVIEW [J]: writable computed — split into state + handlers */ /* WF4-REVIEW [J]: writable computed — split into state + handlers */ const previewState = computed({
     get: () => preview ?? fallbackPreview,
     set: (val: boolean) => {
       if (preview) {
@@ -39,9 +40,10 @@ export default function MarkdownEditor({ label = "", preview = undefined, displa
   <div>
     {(displayPreview) ? (
       <div className="d-flex justify-end">
+        {/* WF4-REVIEW: assignment handler "previewState = !previewState" — target not a tracked ref [J] */}
         <BaseButtonGroup buttons={[
           {
-            icon: previewState ? $globals.icons.edit : $globals.icons.eye,
+            icon: previewState ? icons.edit : icons.eye,
             text: previewState ? t('general.edit') : t('markdown-editor.preview-markdown-button-label'),
             event: 'toggle',
           },

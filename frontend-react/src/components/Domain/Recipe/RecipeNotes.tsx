@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { Button, Card, CardContent, CardHeader, TextField } from "@mui/material";
+import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
 import { uuid4 } from "@/composables/use-utils";
 import type { RecipeNote } from "@/lib/api/types/recipe";
@@ -39,14 +40,14 @@ export default function RecipeNotes({ edit = true }: Props) {
               <CardContent>
                 <div className="d-flex align-center">
                   {/* WF4-REVIEW: rules/error-messages → error+helperText; v-model on complex expression "model[index]['title']" [J] */}
-                  <TextField {/* WF4-REVIEW: v-model model[index]['title'] */} variant="underlined" label={t('recipe.title')} />
+                  <TextField variant="underlined" label={t('recipe.title')} />
                   <Button icon className="mr-2" elevation="0" onClick={removeByIndex(index)}>
                     {/* WF4-REVIEW: icon name resolves via lib/icons */}
-                    <MdiIcon name={$globals.icons.delete} />
+                    <MdiIcon name={icons.delete} />
                   </Button>
                 </div>
                 {/* WF4-REVIEW: v-model on complex expression "model[index]['text']" [J] */}
-                <TextField multiline {/* WF4-REVIEW: v-model model[index]['text'] */} variant="underlined" auto-grow placeholder={t('recipe.note')} />
+                <TextField multiline variant="underlined" auto-grow placeholder={t('recipe.note')} />
               </CardContent>
             </Card>
           ) : (

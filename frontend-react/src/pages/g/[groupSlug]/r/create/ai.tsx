@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Alert, CardActions, CardContent, CardHeader, Collapse, Divider, FormControlLabel, TextField, Tooltip, form } from "@mui/material";
+import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
 import { useUserApi } from "@/composables/api";
 import { useGroupSelf } from "@/composables/use-groups";
@@ -25,7 +26,7 @@ export default function Ai() {
     isEditJSON: false,
   });
 
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
   const api = useUserApi();
   const auth = useMealieAuth();
   const route = useLocation(); // WF4-REVIEW: .query → useSearchParams [J]
@@ -58,16 +59,16 @@ export default function Ai() {
     enableCreateNewOrganizers: true,
   });
 
-  const contentAsString = computed(() => {
+  const contentAsString = useMemo(() => {
     const data = newRecipeData;
     if (!data) {
       return null;
     }
 
     return typeof data === "string" ? data : JSON.stringify(data);
-  });
+  }, []); // WF4-REVIEW: dependency array
 
-  const hasSource = useMemo(() => !!(recipeUrl || contentAsString || uploadedImages.length, []); // WF4-REVIEW: dependency array);
+  const hasSource = useMemo(() => !!(recipeUrl || contentAsString || uploadedImages.length), []); // WF4-REVIEW: dependency array
 
   function handleIsEditJson() {
     if (state.isEditJSON) {
@@ -174,13 +175,13 @@ export default function Ai() {
             .
           </p>
           {/* WF4-REVIEW: rules/error-messages → error+helperText */}
-          <TextField value={recipeUrl} onChange={setRecipeUrl} label={t('new-recipe.recipe-url')} prepend-inner-icon={$globals.icons.link} validate-on="blur" variant="solo-filled" clearable rounded rules={[validators.urlOptional]} hint={t('recipe.import-with-ai-url-hint')} persistent-hint className="mt-8 mb-4" disabled={state.loading} />
+          <TextField value={recipeUrl} onChange={setRecipeUrl} label={t('new-recipe.recipe-url')} prepend-inner-icon={icons.link} validate-on="blur" variant="solo-filled" clearable rounded rules={[validators.urlOptional]} hint={t('recipe.import-with-ai-url-hint')} persistent-hint className="mt-8 mb-4" disabled={state.loading} />
           {/* WF4-REVIEW: control={<Switch/>} + label prop; v-model on complex expression "state.isEditJSON" [J] */}
-          <FormControlLabel {/* WF4-REVIEW: v-model state.isEditJSON */} label={t('recipe.json-editor')} color="primary" className="mt-2" disabled={state.loading} onChange={handleIsEditJson} />
+          <FormControlLabel label={t('recipe.json-editor')} color="primary" className="mt-2" disabled={state.loading} onChange={handleIsEditJson} />
           {(state.isEditJSON) ? (
             <RecipeJsonEditor value={newRecipeData} onChange={setNewRecipeData} height="250px" mode="code" main-menu-bar={false} />
           ) : (
-            <TextField multiline value={newRecipeData} onChange={setNewRecipeData} label={t('recipe.import-with-ai-content')} prepend-inner-icon={$globals.icons.textBox} validate-on="blur" variant="solo-filled" clearable rounded hint={t('recipe.import-with-ai-content-hint')} persistent-hint disabled={state.loading} />
+            <TextField multiline value={newRecipeData} onChange={setNewRecipeData} label={t('recipe.import-with-ai-content')} prepend-inner-icon={icons.textBox} validate-on="blur" variant="solo-filled" clearable rounded hint={t('recipe.import-with-ai-content-hint')} persistent-hint disabled={state.loading} />
           )}
           {(imagesEnabled) ? (
             <div className="mt-6">
@@ -198,10 +199,11 @@ export default function Ai() {
             <FormControlLabel value={createNewOrganizers} onChange={/* WF4-REVIEW: setter */ setCreateNewOrganizers} color="primary" hide-details label={t('recipe.create-new-organizers')} disabled={state.loading} />
             {/* WF4-REVIEW: activator slot variants [J] */}
             <Tooltip location="bottom" max-width="300">
-              <template>
+              {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+              <>
                 {/* WF4-REVIEW: icon name resolves via lib/icons */}
-                <MdiIcon name={$globals.icons.help} {...(tooltipProps)} size="small" className="ms-2" />
-              </template>
+                <MdiIcon name={icons.help} {...(tooltipProps)} size="small" className="ms-2" />
+              </>
               <span>
                 {t('recipe.create-new-organizers-hint')}
               </span>
@@ -232,7 +234,7 @@ export default function Ai() {
             {/* WF4-REVIEW: title text moves to the title prop */}
             <CardHeader className="ma-0 pa-0">
               {/* WF4-REVIEW: icon name resolves via lib/icons; dropped Vuetify-only prop "start" on <v-icon> */}
-              <MdiIcon name={$globals.icons.robot} color="white" size="x-large" />
+              <MdiIcon name={icons.robot} color="white" size="x-large" />
               {t("new-recipe.error-title")}
             </CardHeader>
             <Divider className="my-3 mx-2" />

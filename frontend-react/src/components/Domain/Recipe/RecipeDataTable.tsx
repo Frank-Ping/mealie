@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import UserAvatar from "../User/UserAvatar";
 import RecipeChip from "./RecipeChips";
 import type { Recipe, RecipeCategory, RecipeTool } from "@/lib/api/types/recipe";
@@ -36,9 +37,11 @@ export default function RecipeDataTable({ loading = false, recipes = [], showHea
     recipeServings: true,
     recipeYieldQuantity: true,
     recipeYield: true,
-    dateAdded: true, }: Props) {
-  /* props via destructured signature (was withDefaults(defineProps<Props>) */,
-  });
+    dateAdded: true,
+  }) }: Props) {
+  const { t } = useTranslation();
+
+  /* props via destructured signature (was withDefaults(defineProps<Props>) */
 
   defineEmits<{
     click: [];
@@ -46,7 +49,7 @@ export default function RecipeDataTable({ loading = false, recipes = [], showHea
 
   const selected = defineModel<Recipe[]>({ default: () => [] });
 
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
   const auth = useMealieAuth();
   const groupSlug = auth.user?.groupSlug;
   const navigate = useNavigate();
@@ -54,7 +57,7 @@ export default function RecipeDataTable({ loading = false, recipes = [], showHea
   // Initialize sort state with default sorting by dateAdded descending
   const [sortBy, setSortBy] = useState([{ key: "dateAdded", order: "desc" as const }]);
 
-  const headers = computed(() => {
+  const headers = useMemo(() => {
     const hdrs: Array<{ title: string; value: string; align?: "center" | "start" | "end"; sortable?: boolean }> = [];
 
     if (showHeaders.id) {
@@ -88,7 +91,7 @@ export default function RecipeDataTable({ loading = false, recipes = [], showHea
     }
 
     return hdrs;
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   // ============
   // Group Members
@@ -125,21 +128,26 @@ export default function RecipeDataTable({ loading = false, recipes = [], showHea
     <>
   {/* WF4-REVIEW: unmapped <v-data-table> — judgement component, convert manually [J] */}
   <VDataTable value={selected} onChange={/* WF4-REVIEW: setter */ setSelected} item-key="id" show-select sort-by={sortBy} headers={headers} items={recipes} items-per-page={15} className="elevation-0" loading={loading} search={search} return-object>
-    <template>
+    {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+    <>
       <a to={`/g/${groupSlug}/r/${item.slug}`} style="color: inherit; text-decoration: inherit; " onClick={onClick?.()}>
         {item.name}
       </a>
-    </template>
-    <template>
+    </>
+    {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+    <>
       <RecipeChip small items={item.tags!} is-category={false} url-prefix="tags" onItemSelected={filterItems} />
-    </template>
-    <template>
+    </>
+    {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+    <>
       <RecipeChip small items={item.recipeCategory!} onItemSelected={filterItems} />
-    </template>
-    <template>
+    </>
+    {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+    <>
       <RecipeChip small items={item.tools} url-prefix="tools" onItemSelected={filterItems} />
-    </template>
-    <template>
+    </>
+    {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+    <>
       <div className="d-flex align-center">
         <UserAvatar user-id={item.userId!} tooltip={false} size="40" />
         <div className="pl-2">
@@ -148,10 +156,11 @@ export default function RecipeDataTable({ loading = false, recipes = [], showHea
           </span>
         </div>
       </div>
-    </template>
-    <template>
+    </>
+    {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+    <>
       {item.dateAdded ? $d(new Date(item.dateAdded)) : ''}
-    </template>
+    </>
   </VDataTable>
     </>
   );

@@ -28,7 +28,7 @@ export default function RecipeOrganizerDialog({ color = null, tagDialog = true, 
 
   const dialog = defineModel<boolean>({ default: false });
 
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
 
   const [name, setName] = useState("");
   const [onHand, setOnHand] = useState(false);
@@ -53,8 +53,8 @@ export default function RecipeOrganizerDialog({ color = null, tagDialog = true, 
     }
   })();
 
-  const properties = useMemo(() =>  {
-    switch (itemType, []); // WF4-REVIEW: dependency array {
+  const properties = useMemo(() => {
+    switch (itemType) {
       case Organizer.Tag:
         return {
           title: i18n.t("tag.create-a-tag"),
@@ -77,7 +77,7 @@ export default function RecipeOrganizerDialog({ color = null, tagDialog = true, 
           api: userApi.categories,
         };
     }
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   const rules = {
     required: (val: string) => !!val || (i18n.t("general.a-name-is-required") as string),

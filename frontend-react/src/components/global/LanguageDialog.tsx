@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Autocomplete, CardContent, ListItemText } from "@mui/material";
+import { icons } from "@/lib/icons";
 import { useLocales } from "@/composables/use-locales";
 import { normalizeFilter } from "@/composables/use-utils";
 
@@ -28,12 +29,13 @@ export default function LanguageDialog() {
 
   return (
     <>
-  <BaseDialog value={modelValue} onChange={/* WF4-REVIEW: setter */ setModelValue} bottom-sheet icon={$globals.icons.translate} title={t('language-dialog.choose-language')}>
+  <BaseDialog value={modelValue} onChange={/* WF4-REVIEW: setter */ setModelValue} bottom-sheet icon={icons.translate} title={t('language-dialog.choose-language')}>
     <CardContent>
       {t("language-dialog.select-description")}
       {/* WF4-REVIEW: items → options/getOptionLabel; value wiring [S] */}
       <Autocomplete value={selectedLocale} onChange={setSelectedLocale} items={locales} custom-filter={normalizeFilter} item-title="name" item-value="value" className="my-3" hide-details variant="outlined" onUpdateModelValue={onLocaleSelect}>
-        <template>
+        {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+        <>
           <div {...(props)} className="px-2 py-2">
             {/* WF4-REVIEW: content → primary prop */}
             <ListItemText>
@@ -46,14 +48,15 @@ export default function LanguageDialog() {
               {t("language-dialog.translated")}
             </ListItemText>
           </div>
-        </template>
+        </>
       </Autocomplete>
       <i18n-t keypath="language-dialog.how-to-contribute-description">
-        <template>
+        {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+        <>
           <a href="https://docs.mealie.io/contributors/translating/" target="_blank" className="text-primary">
             {t("language-dialog.read-the-docs")}
           </a>
-        </template>
+        </>
       </i18n-t>
     </CardContent>
   </BaseDialog>

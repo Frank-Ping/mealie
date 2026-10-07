@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useAsyncValidator } from "@/composables/use-validators";
 import type { VForm } from "@/types/auto-forms";
 import { usePublicApi } from "@/composables/api/api-client";
@@ -22,7 +23,7 @@ export function resetUserRegistrationForm() {
 }
 
 export const useUserRegistrationForm = () => {
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
 
   async function safeValidate(form: VForm | null /* WF4-REVIEW: was Ref */) {
     if (!form) {

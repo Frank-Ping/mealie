@@ -26,11 +26,14 @@ export function stripValueReads(code, ctx) {
   }
   // generic member chains like auth.user.value?.x (refs leaked from composables)
   out = out.replace(/\.value(?=\?|\.|,|\)|\]|}|\s|$|;)/g, "");
+  // `?.value` loses `.value` → `??.` artifact
+  out = out.replace(/\?\?\./g, "?.");
   return out;
 }
 
 export function transformExpr(code, ctx = {}) {
   let out = code;
+  if (out.includes("$globals.icons")) { ctx.needsIcons = true; out = out.replace(/\$globals\.icons/g, "icons"); }
   if (out.includes("$t(")) ctx.needsTranslation = true;
   out = out.replace(/\$t\(/g, "t(");
   // $emit('x', a) → onX?.(a): emit props are optional, and Vue's $emit is a no-op

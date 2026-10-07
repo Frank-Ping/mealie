@@ -19,7 +19,7 @@ export function useUnitSystem() {
     { mergeDefaults: true },
   );
 
-  /* WF4-REVIEW [J]: writable computed — split into state + handlers */ const unitSystem = computed<UnitSystem | null>({
+  /* WF4-REVIEW [J]: writable computed — split into state + handlers */ /* WF4-REVIEW [J]: writable computed — split into state + handlers */ const unitSystem = computed({
     get: () => preference.unitSystem,
     set: (value) => {
       preference.unitSystem = value;

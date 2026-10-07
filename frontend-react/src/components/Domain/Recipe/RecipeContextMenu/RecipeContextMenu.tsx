@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Button } from "@mui/material";
 import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
@@ -38,17 +38,9 @@ export default function RecipeContextMenu({ useItems = ({
     print: true,
     printPreferences: true,
     share: true,
-    recipeActions: true, }: Props) {
-  /* props via destructured signature (was withDefaults(defineProps<Props>) */,
-    appendItems: () => [],
-    leadingItems: () => [],
-    menuTop: true,
-    fab: false,
-    color: "primary",
-    menuIcon: null,
-    recipe: undefined,
-    recipeScale: 1,
-  });
+    recipeActions: true,
+  }), appendItems = [], leadingItems = [], menuTop = true, fab = false, color = "primary", menuIcon = null, recipe = undefined, recipeScale = 1 }: Props) {
+  /* props via destructured signature (was withDefaults(defineProps<Props>) */
 
   defineEmits<{
     [key: string]: any;
@@ -62,15 +54,15 @@ export default function RecipeContextMenu({ useItems = ({
 
   const [isMenuContentLoaded, setIsMenuContentLoaded] = useState(false);
 
-  const icon = computed(() => {
+  const icon = useMemo(() => {
     return menuIcon || icons.dotsVertical;
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   // Props to pass to the content component (excluding internal wrapper props)
-  const contentProps = computed(() => {
+  const contentProps = useMemo(() => {
     const { ...rest } = props;
     return rest;
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   function onMenuToggle(isOpen: boolean) {
     if (isOpen && !isMenuContentLoaded) {
@@ -87,12 +79,13 @@ export default function RecipeContextMenu({ useItems = ({
   <div className="text-center">
     {/* WF4-REVIEW: unmapped <v-menu> — judgement component, convert manually [J] */}
     <VMenu offset-y start eager={isMenuContentLoaded} bottom={!menuTop} nudge-bottom={!menuTop ? '5' : '0'} top={menuTop} nudge-top={menuTop ? '5' : '0'} allow-overflow close-delay="125" content-class="d-print-none" onUpdateModelValue={onMenuToggle}>
-      <template>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
         <Button icon variant={fab ? 'flat' : undefined} rounded={fab ? 'circle' : undefined} size={fab ? 'small' : undefined} color={fab ? 'info' : 'secondary'} fab={fab} {...(activatorProps)} onClick={(e) => { e.preventDefault(); ; }}>
           {/* WF4-REVIEW: icon name resolves via lib/icons */}
           <MdiIcon name={icon} size={!fab ? undefined : 'x-large'} color={fab ? 'white' : 'secondary'} />
         </Button>
-      </template>
+      </>
       {(isMenuContentLoaded) ? (
         <RecipeContextMenuContent {...(contentProps)} onPrint={onPrint?.()} onDeleted={onDeleted?.($event)} onMealplanEdit={onMealplanEdit?.()} onMealplanRemove={onMealplanRemove?.()} />
       ) : null}

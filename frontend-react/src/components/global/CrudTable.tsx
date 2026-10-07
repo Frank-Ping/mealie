@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Button, Card, CardActions, CardContent, FormControlLabel, TextField } from "@mui/material";
+import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
 import { downloadAsJson } from "@/composables/use-utils";
 
@@ -75,17 +76,16 @@ export default function CrudTable() {
     setLocalHeaders([...newHeaders]);
   }, { deep: true });
 
-  const filteredHeaders = useMemo(() =>  {
-    return localHeaders.filter(header => header.show, []); // WF4-REVIEW: dependency array.map(header => header);
-  });
+  const filteredHeaders = useMemo(() => {
+    return localHeaders.filter(header => header.show).map(header => header);
+  }, []); // WF4-REVIEW: dependency array
 
   const headersWithoutActions = useMemo(() => localHeaders
-      .filter(header => filteredHeaders.includes(header, []); // WF4-REVIEW: dependency array)
+      .filter(header => filteredHeaders.includes(header))
       .map(header => ({
         ...header,
         title: header.text,
-      })),
-  );
+      })),, []); // WF4-REVIEW: dependency array
 
   const activeHeaders = useMemo(() => [
     ...headersWithoutActions,
@@ -97,8 +97,8 @@ export default function CrudTable() {
   // ===========================================================
   // Bulk Action Event Handler
 
-  const bulkActionListener = useMemo(() =>  {
-    const handlers: { [key: string]: (, []); // WF4-REVIEW: dependency array => void } = {};
+  const bulkActionListener = useMemo(() => {
+    const handlers: { [key: string]: () => void } = {};
 
     bulkActions.forEach((action) => {
       handlers[action.event] = () => {
@@ -109,7 +109,7 @@ export default function CrudTable() {
     });
 
     return handlers;
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   const [search, setSearch] = useState("");
 
@@ -120,17 +120,18 @@ export default function CrudTable() {
       {(tableConfig.hideColumns) ? (
         /* WF4-REVIEW: unmapped <v-menu> — judgement component, convert manually [J] */
         <VMenu offset-y bottom nudge-bottom="6" close-on-content-click={false}>
-          <template>
+          {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+          <>
             <Button color="accent" variant="elevated" {...(activatorProps)}>
               {/* WF4-REVIEW: icon name resolves via lib/icons */}
-              <MdiIcon name={$globals.icons.cog} />
+              <MdiIcon name={icons.cog} />
             </Button>
-          </template>
+          </>
           <Card>
             <CardContent>
               {localHeaders.map(itemValue => (
                 /* WF4-REVIEW: control={<Checkbox/>} + label prop; v-model on complex expression "itemValue.show" [J] */
-                <FormControlLabel key={itemValue.text + itemValue.show} {/* WF4-REVIEW: v-model itemValue.show */} density="compact" flat inset label={itemValue.text} hide-details />
+                <FormControlLabel key={itemValue.text + itemValue.show} density="compact" flat inset label={itemValue.text} hide-details />
               ))}
             </CardContent>
           </Card>
@@ -148,33 +149,36 @@ export default function CrudTable() {
     {/* WF4-REVIEW: unmapped <v-data-table> — judgement component, convert manually [J] */}
     <VDataTable value={selected} onChange={setSelected} return-object headers={activeHeaders} show-select={bulkActions.length > 0} sort-by={sortBy} items={data || []} items-per-page={15} search={search} className="elevation-2">
       {headersWithoutActions.map(header => (
-        <template>
+        /* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */
+        <>
           <slot name={'item.' + header} {...({ item })}>
             {item[header]}
           </slot>
-        </template>
+        </>
       ))}
-      <template>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
         <BaseButtonGroup buttons={[
             {
-              icon: $globals.icons.edit,
+              icon: icons.edit,
               text: t('general.edit'),
               event: 'edit',
             },
             {
-              icon: $globals.icons.delete,
+              icon: icons.delete,
               text: t('general.delete'),
               event: 'delete',
             },
           ]} onDelete={onDeleteOne?.(item)} onEdit={onEditOne?.(item)} />
-      </template>
+      </>
     </VDataTable>
     <CardActions className="justify-end">
       <slot name="button-bottom" />
       <BaseButton color="info" onClick={downloadAsJson(data, 'export.json')}>
-        <template>
-          {$globals.icons.download}
-        </template>
+        {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+        <>
+          {icons.download}
+        </>
         {t("general.download")}
       </BaseButton>
     </CardActions>

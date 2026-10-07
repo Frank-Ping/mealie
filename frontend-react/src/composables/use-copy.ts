@@ -1,9 +1,10 @@
+import { useTranslation } from "react-i18next";
 import { useClipboard } from "@vueuse/core";
 import { alert } from "./use-toast";
 
 export function useCopy() {
   const { copy, copied, isSupported } = useClipboard({ legacy: true });
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
 
   function copyText(text: string) {
     if (!isSupported) {
@@ -26,7 +27,7 @@ export function useCopy() {
 
 export function useCopyList() {
   const { copy, isSupported, copied } = useClipboard({ legacy: true });
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
 
   function checkClipboard() {
     if (!isSupported) {

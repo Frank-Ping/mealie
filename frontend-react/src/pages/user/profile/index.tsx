@@ -21,7 +21,7 @@ export const handle = {
 export default function ProfilePage() {
   const { t } = useTranslation();
 
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
   const auth = useMealieAuth();
   const { $appInfo } = useNuxtApp();
   const route = useLocation(); // WF4-REVIEW: .query → useSearchParams [J]
@@ -31,7 +31,7 @@ export default function ProfilePage() {
     title: i18n.t("settings.profile"),
   });
 
-  const user = computed<UserOut | null>(() => {
+  const user = useMemo(() => {
     const authUser = auth.user;
     if (!authUser) return null;
 
@@ -42,7 +42,7 @@ export default function ProfilePage() {
       ...authUser,
       canInvite,
     };
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   const [inviteDialog, setInviteDialog] = useState(false);
   const api = useUserApi();
@@ -65,7 +65,7 @@ export default function ProfilePage() {
     return () => { cancelled = true; };
   }, []); // WF4-REVIEW: deps + re-run trigger — confirm against auth-ready init flow
 
-  const filteredStats = computed(() => {
+  const filteredStats = useMemo(() => {
     const statsData = stats;
     if (!statsData) return {};
     if (!user?.canManage) {
@@ -73,7 +73,7 @@ export default function ProfilePage() {
       return rest;
     }
     return statsData;
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   const statsText: { [key: string]: string } = {
     totalRecipes: i18n.t("general.recipes"),
@@ -100,7 +100,7 @@ export default function ProfilePage() {
     return iconText[key] ?? icons.primary;
   }
 
-  const statsTo = computed<{ [key: string]: string }>(() => {
+  const statsTo = useMemo(() => {
     return {
       totalRecipes: `/g/${groupSlug}/`,
       totalUsers: "/household/members",
@@ -108,7 +108,7 @@ export default function ProfilePage() {
       totalTags: `/g/${groupSlug}/recipes/tags`,
       totalTools: `/g/${groupSlug}/recipes/tools`,
     };
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   function getStatsTo(key: string) {
     return statsTo.value[key] ?? "unknown";
@@ -129,7 +129,7 @@ export default function ProfilePage() {
         <Card flat color="transparent" width="100%" max-width="600px">
           <CardActions className="d-flex justify-center my-4">
             {(user.canInvite) ? (
-              <Button variant="outlined" rounded prepend-icon={$globals.icons.createAlt} text={t('profile.get-invite-link')} onClick={inviteDialog = true} />
+              <Button variant="outlined" rounded prepend-icon={icons.createAlt} text={t('profile.get-invite-link')} onClick={() => setInviteDialog(true)} />
             ) : null}
           </CardActions>
           <UserInviteDialog value={inviteDialog} onChange={setInviteDialog} />
@@ -158,12 +158,14 @@ export default function ProfilePage() {
               <CardContent className="d-flex flex-wrap justify-center align-center" style="gap: 0.8rem">
                 {filteredStats.map((value, key) => (
                   <StatsCards key={`${key}-${value}`} min-width={$vuetify.display.xs ? '100%' : '158'} icon={getStatsIcon(key)} to={getStatsTo(key)}>
-                    <template>
+                    {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                    <>
                       {getStatsTitle(key)}
-                    </template>
-                    <template>
+                    </>
+                    {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                    <>
                       {value}
-                    </template>
+                    </>
                   </StatsCards>
                 ))}
               </CardContent>
@@ -185,9 +187,10 @@ export default function ProfilePage() {
           {/* WF4-REVIEW: cols/sm/md/lg → size={{ xs, sm, md }} */}
           <Grid cols="12" sm="12" md="6">
             <UserProfileLinkCard link={{ text: t('profile.manage-user-profile'), to: `/user/profile/edit` }} image="/svgs/manage-profile.svg">
-              <template>
+              {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+              <>
                 {t('profile.user-settings')}
-              </template>
+              </>
               {t('profile.user-settings-description')}
             </UserProfileLinkCard>
           </Grid>
@@ -195,9 +198,10 @@ export default function ProfilePage() {
             {/* WF4-REVIEW: cols/sm/md/lg → size={{ xs, sm, md }} */}
             <Grid cols="12" sm="12" md="6">
               <UserProfileLinkCard link={{ text: t('profile.manage-your-api-tokens'), to: `/user/profile/api-tokens` }} image="/svgs/manage-api-tokens.svg">
-                <template>
+                {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                <>
                   {t('settings.token.api-tokens')}
-                </template>
+                </>
                 {t('profile.api-tokens-description')}
               </UserProfileLinkCard>
             </Grid>
@@ -219,9 +223,10 @@ export default function ProfilePage() {
             /* WF4-REVIEW: cols/sm/md/lg → size={{ xs, sm, md }} */
             <Grid cols="12" sm="12" md="6">
               <UserProfileLinkCard link={{ text: t('profile.household-settings'), to: `/household` }} image="/svgs/manage-group-settings.svg">
-                <template>
+                {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                <>
                   {t('profile.household-settings')}
-                </template>
+                </>
                 {t('profile.household-settings-description')}
               </UserProfileLinkCard>
             </Grid>
@@ -229,9 +234,10 @@ export default function ProfilePage() {
           {/* WF4-REVIEW: cols/sm/md/lg → size={{ xs, sm, md }} */}
           <Grid cols="12" sm="12" md="6">
             <UserProfileLinkCard link={{ text: t('profile.manage-cookbooks'), to: `/g/${groupSlug}/cookbooks` }} image="/svgs/manage-cookbooks.svg">
-              <template>
+              {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+              <>
                 {t('sidebar.cookbooks')}
-              </template>
+              </>
               {t('profile.cookbooks-description')}
             </UserProfileLinkCard>
           </Grid>
@@ -239,9 +245,10 @@ export default function ProfilePage() {
             /* WF4-REVIEW: cols/sm/md/lg → size={{ xs, sm, md }} */
             <Grid cols="12" sm="12" md="6">
               <UserProfileLinkCard link={{ text: t('profile.manage-members'), to: `/household/members` }} image="/svgs/manage-members.svg">
-                <template>
+                {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                <>
                   {t('profile.members')}
-                </template>
+                </>
                 {t('profile.members-description')}
               </UserProfileLinkCard>
             </Grid>
@@ -251,9 +258,10 @@ export default function ProfilePage() {
               /* WF4-REVIEW: cols/sm/md/lg → size={{ xs, sm, md }} */
               <Grid cols="12" sm="12" md="6">
                 <UserProfileLinkCard link={{ text: t('profile.manage-webhooks'), to: `/household/webhooks` }} image="/svgs/manage-webhooks.svg">
-                  <template>
+                  {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                  <>
                     {t('settings.webhooks.webhooks')}
-                  </template>
+                  </>
                   {t('profile.webhooks-description')}
                 </UserProfileLinkCard>
               </Grid>
@@ -263,9 +271,10 @@ export default function ProfilePage() {
             {/* WF4-REVIEW: cols/sm/md/lg → size={{ xs, sm, md }} */}
             <Grid cols="12" sm="12" md="6">
               <UserProfileLinkCard link={{ text: t('profile.manage-notifiers'), to: `/household/notifiers` }} image="/svgs/manage-notifiers.svg">
-                <template>
+                {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                <>
                   {t('profile.notifiers')}
-                </template>
+                </>
                 {t('profile.notifiers-description')}
               </UserProfileLinkCard>
             </Grid>
@@ -288,9 +297,10 @@ export default function ProfilePage() {
               /* WF4-REVIEW: cols/sm/md/lg → size={{ xs, sm, md }} */
               <Grid cols="12" sm="12" md="6">
                 <UserProfileLinkCard link={{ text: t('profile.group-settings'), to: `/group` }} image="/svgs/manage-group-settings.svg">
-                  <template>
+                  {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                  <>
                     {t('profile.group-settings')}
-                  </template>
+                  </>
                   {t('profile.group-settings-description')}
                 </UserProfileLinkCard>
               </Grid>
@@ -299,9 +309,10 @@ export default function ProfilePage() {
               /* WF4-REVIEW: cols/sm/md/lg → size={{ xs, sm, md }} */
               <Grid cols="12" sm="12" md="6">
                 <UserProfileLinkCard link={{ text: t('profile.manage-data'), to: `/group/data/foods` }} image="/svgs/manage-recipes.svg">
-                  <template>
+                  {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                  <>
                     {t('profile.manage-data')}
-                  </template>
+                  </>
                   {t('profile.manage-data-description')}
                 </UserProfileLinkCard>
               </Grid>
@@ -310,9 +321,10 @@ export default function ProfilePage() {
               {/* WF4-REVIEW: cols/sm/md/lg → size={{ xs, sm, md }} */}
               <Grid cols="12" sm="12" md="6">
                 <UserProfileLinkCard link={{ text: t('profile.manage-data-migrations'), to: `/group/migrations` }} image="/svgs/manage-data-migrations.svg">
-                  <template>
+                  {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                  <>
                     {t('profile.data-migrations')}
-                  </template>
+                  </>
                   {t('profile.data-migrations-description')}
                 </UserProfileLinkCard>
               </Grid>

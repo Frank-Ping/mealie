@@ -43,7 +43,7 @@ export default function ParseDialogReview() {
     <>
   <div className="d-flex flex-column ga-4">
     {/* WF4-REVIEW: v-model on complex expression "state.parser" [J] */}
-    <ParseDialogChangeParser {/* WF4-REVIEW: v-model state.parser */} available-parsers={availableParsers} show-nlp-language-hint={showNlpLanguageHint} onUpdateModelValue={onChangeParser?.($event)} onParse={onParse?.()} />
+    <ParseDialogChangeParser available-parsers={availableParsers} show-nlp-language-hint={showNlpLanguageHint} onUpdateModelValue={onChangeParser?.($event)} onParse={onParse?.()} />
     <div>
       {/* WF4-REVIEW: title text moves to the title prop */}
       <CardHeader className="text-center pt-0 pb-8">
@@ -55,20 +55,21 @@ export default function ParseDialogReview() {
             group: 'recipe-ingredients',
             disabled: false,
             ghostClass: 'ghost',
-          })} onStart={drag = true} onEnd={drag = false}>
+          })} onStart={() => setDrag(true)} onEnd={() => setDrag(false)}>
           <TransitionGroup type="transition">
             {parsedIngs.map((ingredient, index) => (
               /* WF4-REVIEW: unmapped <v-lazy> — judgement component, convert manually [J] */
               <VLazy key={index}>
                 {/* WF4-REVIEW: v-model on complex expression "ingredient.ingredient" [J] */}
-                <RecipeIngredientEditor {/* WF4-REVIEW: v-model ingredient.ingredient */} enable-drag-handle enable-context-menu delete-disabled={parsedIngs.length <= 1} className="mb-5" onDelete={parsedIngs.splice(index, 1)} onInsertAbove={insertNewIngredient(index)} onInsertBelow={insertNewIngredient(index + 1)}>
-                  <template>
+                <RecipeIngredientEditor enable-drag-handle enable-context-menu delete-disabled={parsedIngs.length <= 1} className="mb-5" onDelete={parsedIngs.splice(index, 1)} onInsertAbove={insertNewIngredient(index)} onInsertBelow={insertNewIngredient(index + 1)}>
+                  {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                  <>
                     {(ingredient.input) ? (
                       <p className="py-0 my-0 text-caption">
                         {t("recipe.original-text-with-value", { originalText: ingredient.input })}
                       </p>
                     ) : null}
-                  </template>
+                  </>
                 </RecipeIngredientEditor>
               </VLazy>
             ))}

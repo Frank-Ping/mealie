@@ -43,7 +43,7 @@ export default function UserProfileLinkCard({ link, image = "" }: Props) {
         </div>
       ) : null}
     </div>
-    <Box sx={ flexGrow: 1 } />
+    <Box sx={{ flexGrow: 1 }} />
     <Divider />
     <CardActions>
       <Button variant="text" color="info" component={Link} to={link.to}>

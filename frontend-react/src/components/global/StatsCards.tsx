@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { Link } from "react-router-dom";
 import { Avatar, Card, CardHeader, Typography } from "@mui/material";
 import { icons } from "@/lib/icons";
@@ -14,9 +15,9 @@ export default function StatsCards({ icon = null, minWidth = "", to = null }: Pr
 
   // icons imported directly (was $globals)
 
-  const activeIcon = computed(() => {
+  const activeIcon = useMemo(() => {
     return icon ?? icons.primary;
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   return (
     <>

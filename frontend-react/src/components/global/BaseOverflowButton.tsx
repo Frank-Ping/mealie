@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { Button, Divider, List, ListItem, ListItemText } from "@mui/material";
+import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
 
 interface Props {
@@ -43,11 +44,10 @@ export default function BaseOverflowButton({ mode = "model", items, disabled = f
     default: "",
   });
 
-  const activeObj = useMemo(() => items.find(item => item === modelValue, []); // WF4-REVIEW: dependency array ?? {
+  const activeObj = useMemo(() => items.find(item => item === modelValue) ?? {
       text: "DEFAULT",
       value: "",
-    },
-  );
+    },, []); // WF4-REVIEW: dependency array
 
   let startIndex = 0;
   items.forEach((item, index) => {
@@ -65,7 +65,8 @@ export default function BaseOverflowButton({ mode = "model", items, disabled = f
     <>
   {/* WF4-REVIEW: unmapped <v-menu> — judgement component, convert manually [J] */}
   <VMenu offset-y>
-    <template>
+    {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+    <>
       <Button color="primary" {...({ ...hoverProps, ...$attrs })} className={btnClass} disabled={disabled}>
         {(activeObj.icon) ? (
           /* WF4-REVIEW: icon name resolves via lib/icons; dropped Vuetify-only prop "start" on <v-icon> */
@@ -73,22 +74,23 @@ export default function BaseOverflowButton({ mode = "model", items, disabled = f
         ) : null}
         {mode === MODES.model ? activeObj.text : btnText}
         {/* WF4-REVIEW: icon name resolves via lib/icons; dropped Vuetify-only prop "end" on <v-icon> */}
-        <MdiIcon name={$globals.icons.chevronDown} />
+        <MdiIcon name={icons.chevronDown} />
       </Button>
-    </template>
+    </>
     {(mode === MODES.model) ? (
       <List value={itemGroup} onChange={setItemGroup} density="compact">
         {items.map((item, index) => (
-          <template>
+          <>
             {(!item.hide) ? (
               <div key={index}>
                 {/* WF4-REVIEW: @click → ListItemButton */}
                 <ListItem onClick={setValue(item)}>
                   {(item.icon) ? (
-                    <template>
+                    /* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */
+                    <>
                       {/* WF4-REVIEW: icon name resolves via lib/icons */}
                       <MdiIcon name={item.icon} />
-                    </template>
+                    </>
                   ) : null}
                   {/* WF4-REVIEW: content → primary prop */}
                   <ListItemText>
@@ -100,22 +102,23 @@ export default function BaseOverflowButton({ mode = "model", items, disabled = f
                 ) : null}
               </div>
             ) : null}
-          </template>
+          </>
         ))}
       </List>
     ) : null}
     <List value={itemGroup} onChange={setItemGroup} density="compact">
       {items.map((item, index) => (
-        <template>
+        <>
           {(!item.hide) ? (
             <div key={index}>
               {/* WF4-REVIEW: @click → ListItemButton */}
               <ListItem to={item.to}>
                 {(item.icon) ? (
-                  <template>
+                  /* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */
+                  <>
                     {/* WF4-REVIEW: icon name resolves via lib/icons */}
                     <MdiIcon name={item.icon} />
-                  </template>
+                  </>
                 ) : null}
                 {/* WF4-REVIEW: content → primary prop */}
                 <ListItemText>
@@ -127,21 +130,22 @@ export default function BaseOverflowButton({ mode = "model", items, disabled = f
               ) : null}
             </div>
           ) : null}
-        </template>
+        </>
       ))}
     </List>
     <List density="compact">
       {items.map((item, index) => (
-        <template>
+        <>
           {(!item.hide) ? (
             <div key={index}>
               {/* WF4-REVIEW: @click → ListItemButton */}
               <ListItem onClick={$emit(item.event)}>
                 {(item.icon) ? (
-                  <template>
+                  /* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */
+                  <>
                     {/* WF4-REVIEW: icon name resolves via lib/icons */}
                     <MdiIcon name={item.icon} />
-                  </template>
+                  </>
                 ) : null}
                 {/* WF4-REVIEW: content → primary prop */}
                 <ListItemText>
@@ -153,7 +157,7 @@ export default function BaseOverflowButton({ mode = "model", items, disabled = f
               ) : null}
             </div>
           ) : null}
-        </template>
+        </>
       ))}
     </List>
   </VMenu>

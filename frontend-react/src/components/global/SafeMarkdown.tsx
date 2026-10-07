@@ -12,10 +12,10 @@ export default function SafeMarkdown({ source = "" }: Props) {
 
   const { $appInfo } = useNuxtApp();
 
-  const value = useMemo(() =>  {
-    const rawHtml = marked.parse(source || "", { async: false, breaks: true }, []); // WF4-REVIEW: dependency array
+  const value = useMemo(() => {
+    const rawHtml = marked.parse(source || "", { async: false, breaks: true });
     return sanitizeMarkdownHtml(rawHtml, $appInfo?.allowedIframeHosts ?? []);
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   return (
     <>

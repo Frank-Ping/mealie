@@ -1,5 +1,7 @@
+import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { Grid } from "@mui/material";
+import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
 import SafeHtml from "@/components/SafeHtml";
 import DOMPurify from "dompurify";
@@ -24,7 +26,7 @@ export default function RecipeYield({ yieldQuantity = 0, yieldText = "", scale =
     });
   }
 
-  const yieldDisplay = computed<string>(() => {
+  const yieldDisplay = useMemo(() => {
     const components: string[] = [];
 
     const { scaledAmountDisplay } = useScaledAmount(yieldQuantity, scale);
@@ -38,7 +40,7 @@ export default function RecipeYield({ yieldQuantity = 0, yieldText = "", scale =
     }
 
     return sanitizeHTML(components.join(" "));
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   return (
     <>
@@ -46,7 +48,7 @@ export default function RecipeYield({ yieldQuantity = 0, yieldText = "", scale =
     <div className="d-flex align-center">
       <Grid container no-gutters className="d-flex flex-wrap align-center" style="font-size: larger;">
         {/* WF4-REVIEW: icon name resolves via lib/icons; dropped Vuetify-only prop "start" on <v-icon> */}
-        <MdiIcon name={$globals.icons.bread} size="large" color="primary" />
+        <MdiIcon name={icons.bread} size="large" color="primary" />
         <p className="my-0 opacity-80">
           <span className="font-weight-bold">
             {t("recipe.yield")}

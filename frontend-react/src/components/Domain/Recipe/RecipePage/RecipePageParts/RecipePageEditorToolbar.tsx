@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { Box, TextField } from "@mui/material";
 import { usePageState, usePageUser } from "@/composables/recipe-page/shared-state";
@@ -18,12 +19,12 @@ export default function RecipePageEditorToolbar() {
 
   const { user } = usePageUser();
   const api = useUserApi();
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
   const { imageKey } = usePageState(recipe.slug);
 
-  const canEditOwner = computed(() => {
+  const canEditOwner = useMemo(() => {
     return user.id === recipe.userId || user.admin;
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   const { store: allUsers } = useUserStore();
   const { store: households } = useHouseholdStore();
@@ -71,13 +72,14 @@ export default function RecipePageEditorToolbar() {
   <div className="d-flex justify-start align-top flex-wrap">
     <RecipeImageUploadBtn className="my-2" slug={recipe.slug} onUpload={uploadImage} onRefresh={refreshImage} onDelete={deleteImage} />
     {/* WF4-REVIEW: v-model on complex expression "recipe.settings" [J] */}
-    <RecipeSettingsMenu {/* WF4-REVIEW: v-model recipe.settings */} className="my-2 mx-1" is-owner={recipe.userId == user.id} onUpload={uploadImage} />
-    <Box sx={ flexGrow: 1 } />
+    <RecipeSettingsMenu className="my-2 mx-1" is-owner={recipe.userId == user.id} onUpload={uploadImage} />
+    <Box sx={{ flexGrow: 1 }} />
     {/* WF4-REVIEW: items/item-title/item-value → MenuItem children; v-model on complex expression "recipe.userId" [J] */}
-    <TextField select {/* WF4-REVIEW: v-model recipe.userId */} className="my-2" max-width="300" items={allUsers} item-props={itemsProps} label={t('general.owner')} disabled={!canEditOwner} variant="outlined" density="compact">
-      <template>
+    <TextField select className="my-2" max-width="300" items={allUsers} item-props={itemsProps} label={t('general.owner')} disabled={!canEditOwner} variant="outlined" density="compact">
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
         <UserAvatar user-id={recipe.userId} tooltip={false} />
-      </template>
+      </>
     </TextField>
   </div>
     </>

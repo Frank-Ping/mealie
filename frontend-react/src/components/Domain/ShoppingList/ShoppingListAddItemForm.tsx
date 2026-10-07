@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { CardActions, Drawer } from "@mui/material";
+import { icons } from "@/lib/icons";
 import { useShoppingListItemEditor } from "@/composables/shopping-list-page/use-shopping-list-item-editor";
 import type { ShoppingListItemOut } from "@/lib/api/types/household";
 import type { MultiPurposeLabelOut } from "@/lib/api/types/labels";
@@ -72,7 +73,7 @@ export default function ShoppingListAddItemForm({ labels, units, foods }: Props)
       <CardActions className="pa-0">
         <div className="position-relative" style="flex: 1;">
           {/* WF4-REVIEW: v-model on complex expression "listItem.food" [J]; v-model on complex expression "listItem.foodId!" [J] */}
-          <InputLabelType ref="foodInputRef" {/* WF4-REVIEW: v-model listItem.food */} {/* WF4-REVIEW: v-model listItem.foodId! */} items={foods} label={rail ? t('shopping-list.add-item') : t('shopping-list.food')} icon={$globals.icons.foods} style={rail ? 'margin-inline: 3px;' : undefined} search={rail} menu-props={{ location: menuDirection }} create onCreate={createAssignFood} />
+          <InputLabelType ref="foodInputRef" items={foods} label={rail ? t('shopping-list.add-item') : t('shopping-list.food')} icon={icons.foods} style={rail ? 'margin-inline: 3px;' : undefined} search={rail} menu-props={{ location: menuDirection }} create onCreate={createAssignFood} />
           {(rail) ? (
             <div className="position-absolute" style="inset: 0; cursor: text;" onClick={expandAndFocus} />
           ) : null}
@@ -80,16 +81,16 @@ export default function ShoppingListAddItemForm({ labels, units, foods }: Props)
         {(!rail) ? (
           <BaseButtonGroup buttons={[
             {
-              icon: $globals.icons.close,
+              icon: icons.close,
               text: t('general.cancel'),
               event: 'cancel',
             },
             {
-              icon: $globals.icons.save,
+              icon: icons.save,
               text: t('general.save'),
               event: 'save',
             },
-          ]} onSave={onSave?.()} onCancel={rail = true; onCancel?.()} />
+          ]} onSave={onSave?.()} onCancel={() => setRail(true; onCancel?.())} />
         ) : null}
       </CardActions>
       {(!rail) ? (

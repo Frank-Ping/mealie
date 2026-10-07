@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Box, Button, CardActions, CardContent, CardHeader, Container, Divider, Grid, TextField, form } from "@mui/material";
+import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
 import { useAdminApi } from "@/composables/api";
 import { useGroups } from "@/composables/use-groups";
@@ -15,7 +16,7 @@ export default function Openai() {
   const { t } = useTranslation();
 
   const api = useAdminApi();
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
 
   // Set page title
   useSeoMeta({
@@ -113,28 +114,28 @@ export default function Openai() {
                 {(!!uploadedImage) ? (
                   <Button color="error" onClick={clearImage}>
                     {/* WF4-REVIEW: icon name resolves via lib/icons; dropped Vuetify-only prop "start" on <v-icon> */}
-                    <MdiIcon name={$globals.icons.close} />
+                    <MdiIcon name={icons.close} />
                     {t("recipe.remove-image")}
                   </Button>
                 ) : null}
               </Grid>
-              <Box sx={ flexGrow: 1 } />
+              <Box sx={{ flexGrow: 1 }} />
             </Grid>
             {(uploadedImage && uploadedImagePreviewUrl) ? (
               <Grid container style="max-width: 25%;">
-                <Box sx={ flexGrow: 1 } />
+                <Box sx={{ flexGrow: 1 }} />
                 {/* WF4-REVIEW: cols/sm/md/lg → size={{ xs, sm, md }} */}
                 <Grid cols="12">
                   {/* WF4-REVIEW: cover → objectFit */}
                   <Box component="img" src={uploadedImagePreviewUrl} />
                 </Grid>
-                <Box sx={ flexGrow: 1 } />
+                <Box sx={{ flexGrow: 1 }} />
               </Grid>
             ) : null}
           </Container>
         </CardContent>
         <CardActions>
-          <BaseButton type="submit" disabled={!selectedProviderId} text={t('admin.run-test')} icon={$globals.icons.check} loading={loading} className="ml-auto" />
+          <BaseButton type="submit" disabled={!selectedProviderId} text={t('admin.run-test')} icon={icons.check} loading={loading} className="ml-auto" />
         </CardActions>
       </div>
     </form>

@@ -51,7 +51,7 @@ export default function SiteSettings() {
   });
 
   // icons imported directly (was $globals)
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
 
   const state = /* WF4-REVIEW [J] */ reactive({
     loading: false,
@@ -116,13 +116,13 @@ export default function SiteSettings() {
     return adminStatsIcon[key] ?? icons.primary;
   }
 
-  const adminStatsTo = computed<{ [key: string]: string }>(() => {
+  const adminStatsTo = useMemo(() => {
     return {
       totalUsers: "/admin/manage/users",
       totalHouseholds: "/admin/manage/households",
       totalGroups: "/admin/manage/groups",
     };
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   function getAdminStatsTo(key: string) {
     return adminStatsTo.value[key] ?? undefined;
@@ -191,11 +191,11 @@ export default function SiteSettings() {
     };
   }
 
-  const simpleChecks = useMemo(() =>  {
+  const simpleChecks = useMemo(() => {
     const data: SimpleCheck[] = [
       {
         id: "application-version",
-        text: i18n.t("settings.application-version", []); // WF4-REVIEW: dependency array,
+        text: i18n.t("settings.application-version"),
         status: appConfig.isUpToDate,
         errorText: i18n.t("settings.application-version-error-text", [rawAppInfo.version, rawAppInfo.versionLatest]),
         successText: i18n.t("settings.mealie-is-up-to-date"),
@@ -236,7 +236,7 @@ export default function SiteSettings() {
       }),
     ];
     return data;
-  });
+  }, []); // WF4-REVIEW: dependency array
   async function testEmail() {
     state.loading = true;
     state.tested = false;
@@ -253,8 +253,8 @@ export default function SiteSettings() {
     state.loading = false;
     state.tested = true;
   }
-  const validEmail = useMemo(() =>  {
-    if (state.address === "", []); // WF4-REVIEW: dependency array {
+  const validEmail = useMemo(() => {
+    if (state.address === "") {
       return false;
     }
     const valid = validators.email(state.address);
@@ -263,7 +263,7 @@ export default function SiteSettings() {
       return true;
     }
     return false;
-  });
+  }, []); // WF4-REVIEW: dependency array
   // ============================================================
   // General About Info
   const [rawAppInfo, setRawAppInfo] = useState({
@@ -354,9 +354,9 @@ export default function SiteSettings() {
   }
   const appInfo = getAppInfo();
   const [bugReportDialog, setBugReportDialog] = useState(false);
-  const bugReportText = useMemo(() =>  {
+  const bugReportText = useMemo(() => {
     const ignore = {
-      [i18n.t("about.database-url", []); // WF4-REVIEW: dependency array]: true,
+      [i18n.t("about.database-url")]: true,
       [i18n.t("about.default-group")]: true,
     };
     let text = "**Details**\n";
@@ -381,21 +381,23 @@ export default function SiteSettings() {
     });
     text += `${i18n.t("settings.email-configured")}: ${appConfig.emailReady ? i18n.t("general.yes") : i18n.t("general.no")}\n`;
     return text;
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   return (
     <>
   <Container fluid className="narrow-container">
     <BasePageTitle divider>
-      <template>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
         {/* WF4-REVIEW: cover → objectFit */}
         <Box component="img" width="100%" max-height="200" max-width="150" src="/svgs/admin-site-settings.svg" />
-      </template>
-      <template>
+      </>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
         {t("settings.site-settings")}
-      </template>
+      </>
     </BasePageTitle>
-    <BaseDialog value={bugReportDialog} onChange={setBugReportDialog} bottom-sheet title={t('settings.bug-report')} width={800} icon={$globals.icons.github}>
+    <BaseDialog value={bugReportDialog} onChange={setBugReportDialog} bottom-sheet title={t('settings.bug-report')} width={800} icon={icons.github}>
       <CardContent>
         <div className="pb-4">
           {t('settings.bug-report-information')}
@@ -403,9 +405,10 @@ export default function SiteSettings() {
         <TextField multiline value={bugReportText} onChange={/* WF4-REVIEW: setter */ setBugReportText} variant="outlined" rows="18" readonly />
         <div className="d-flex justify-end" style="gap: 5px">
           <BaseButton color="gray" secondary target="_blank" href="https://github.com/mealie-recipes/mealie/issues/new/choose">
-            <template>
-              {$globals.icons.github}
-            </template>
+            {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+            <>
+              {icons.github}
+            </>
             {t('settings.tracker')}
           </BaseButton>
           <AppButtonCopy copy-text={bugReportText} color="info" icon={false} />
@@ -413,41 +416,44 @@ export default function SiteSettings() {
       </CardContent>
     </BaseDialog>
     <div className="d-flex justify-end">
-      <BaseButton color="info" onClick={bugReportDialog = true;}>
-        <template>
-          {$globals.icons.github}
-        </template>
+      <BaseButton color="info" onClick={() => setBugReportDialog(true;)}>
+        {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+        <>
+          {icons.github}
+        </>
         {t('settings.bug-report')}
       </BaseButton>
     </div>
     <section>
-      <BaseCardSectionTitle className="pb-0" icon={$globals.icons.cog} title={t('settings.configuration')} />
+      <BaseCardSectionTitle className="pb-0" icon={icons.cog} title={t('settings.configuration')} />
       <Card className="mb-4">
         {simpleChecks.map((check, idx) => (
-          <template key={`list-item-${idx}`}>
+          <>
             {/* WF4-REVIEW: @click → ListItemButton */}
             <ListItem title={check.text}>
-              <template>
+              {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+              <>
                 {/* WF4-REVIEW: icon name resolves via lib/icons */}
                 <MdiIcon name={check.icon} color={check.color} className="opacity-100" />
-              </template>
+              </>
               {/* WF4-REVIEW: content → secondary prop */}
               <ListItemText className="wrap-word">
                 {check.status ? check.successText : check.errorText}
               </ListItemText>
             </ListItem>
             <Divider />
-          </template>
+          </>
         ))}
       </Card>
     </section>
     <section>
-      <BaseCardSectionTitle className="pt-2" icon={$globals.icons.email} title={t('user.email')} />
+      <BaseCardSectionTitle className="pt-2" icon={icons.email} title={t('user.email')} />
       <Alert border="start" border-color={appConfig.emailReady ? 'success' : 'error'} variant="text" elevation="2">
-        <template>
+        {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+        <>
           {/* WF4-REVIEW: icon name resolves via lib/icons */}
-          <MdiIcon name={appConfig.emailReady ? $globals.icons.checkboxMarkedCircle : $globals.icons.alertCircle} color={appConfig.emailReady ? 'success' : 'warning'} />
-        </template>
+          <MdiIcon name={appConfig.emailReady ? icons.checkboxMarkedCircle : icons.alertCircle} color={appConfig.emailReady ? 'success' : 'warning'} />
+        </>
         <div className="font-weight-medium">
           {t('settings.email-configuration-status')}
         </div>
@@ -456,15 +462,16 @@ export default function SiteSettings() {
         </div>
         <div>
           {/* WF4-REVIEW: rules/error-messages → error+helperText; v-model on complex expression "state.address" [J] */}
-          <TextField {/* WF4-REVIEW: v-model state.address */} className="mr-4" label={t('user.email')} rules={[validators.email]} />
+          <TextField className="mr-4" label={t('user.email')} rules={[validators.email]} />
           <BaseButton color="info" variant="elevated" disabled={!appConfig.emailReady || !validEmail} loading={state.loading} className="opacity-100" onClick={testEmail}>
-            <template>
-              {$globals.icons.email}
-            </template>
+            {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+            <>
+              {icons.email}
+            </>
             {t("general.test")}
           </BaseButton>
           {(state.tested) ? (
-            <template>
+            <>
               <Divider className="my-x mt-6" />
               <CardContent className="px-0">
                 <h4>
@@ -474,81 +481,83 @@ export default function SiteSettings() {
                   {state.success ? t('settings.succeeded') : t('settings.failed')}
                 </span>
               </CardContent>
-            </template>
+            </>
           ) : null}
         </div>
       </Alert>
     </section>
     <section>
-      <BaseCardSectionTitle className="pt-2" icon={$globals.icons.chart} title={t('settings.site-statistics')} />
+      <BaseCardSectionTitle className="pt-2" icon={icons.chart} title={t('settings.site-statistics')} />
       <div className="d-flex flex-wrap justify-center align-center" style="gap: 0.8rem">
         {adminStats.map((value, key) => (
           <StatsCards key={`${key}-${value}`} min-width={$vuetify.display.xs ? '100%' : '158'} icon={getAdminStatsIcon(key)} to={getAdminStatsTo(key)}>
-            <template>
+            {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+            <>
               {getAdminStatsTitle(key)}
-            </template>
-            <template>
+            </>
+            {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+            <>
               {value}
-            </template>
+            </>
           </StatsCards>
         ))}
       </div>
     </section>
     <section className="mt-4">
-      <BaseCardSectionTitle className="pb-0" icon={$globals.icons.cog} title={t('settings.general-about')} />
+      <BaseCardSectionTitle className="pb-0" icon={icons.cog} title={t('settings.general-about')} />
       <Card className="mb-4">
         {(appInfo && appInfo.length) ? (
-          <template>
+          <>
             {appInfo.map((property, idx) => (
-              <template key={property.name}>
+              <>
                 {/* WF4-REVIEW: @click → ListItemButton */}
-                <ListItem title={property.name} prepend-icon={property.icon || $globals.icons.user}>
+                <ListItem title={property.name} prepend-icon={property.icon || icons.user}>
                   {(property.slot === 'recipe-scraper') ? (
-                    <template>
+                    <>
                       {/* WF4-REVIEW: content → secondary prop */}
                       <ListItemText>
                         <a className="text-primary" target="_blank" to={`https://github.com/hhursev/recipe-scrapers/releases/tag/${property}`}>
                           {property}
                         </a>
                       </ListItemText>
-                    </template>
+                    </>
                   ) : (property.slot === 'build') ? (
-                    <template>
+                    <>
                       {/* WF4-REVIEW: content → secondary prop */}
                       <ListItemText>
                         <a className="text-primary" target="_blank" to={`https://github.com/mealie-recipes/mealie/commit/${property}`}>
                           {property}
                         </a>
                       </ListItemText>
-                    </template>
+                    </>
                   ) : (property.slot === 'version' && property !== 'develop' && property !== 'nightly') ? (
-                    <template>
+                    <>
                       {/* WF4-REVIEW: content → secondary prop */}
                       <ListItemText>
                         <a className="text-primary" target="_blank" to={`https://github.com/mealie-recipes/mealie/releases/tag/${property}`}>
                           {property}
                         </a>
                       </ListItemText>
-                    </template>
+                    </>
                   ) : (
-                    <template>
+                    <>
                       {/* WF4-REVIEW: content → secondary prop */}
                       <ListItemText>
                         {property}
                       </ListItemText>
-                    </template>
+                    </>
                   )}
                 </ListItem>
                 {(appInfo && idx !== appInfo.length - 1) ? (
                   <Divider key={`divider-${property.name}`} />
                 ) : null}
-              </template>
+              </>
             ))}
-          </template>
+          </>
         ) : (
-          <template>
+          <>
             <AppLoader />
-          </template>
+          </>
         )}
       </Card>
     </section>

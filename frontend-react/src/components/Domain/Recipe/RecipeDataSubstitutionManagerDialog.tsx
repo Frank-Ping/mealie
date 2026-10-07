@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { CardContent, FormControlLabel } from "@mui/material";
+import { icons } from "@/lib/icons";
 import { whenever } from "@vueuse/core";
 import { useI18n } from "vue-i18n";
 import RecipeIngredientSubstitutionEditor from "@/components/Domain/Recipe/RecipeIngredientSubstitutionEditor";
@@ -37,10 +38,10 @@ export default function RecipeDataSubstitutionManagerDialog({ data }: Props) {
   // V-Model Support
   const dialog = defineModel<boolean>({ default: false });
 
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
   const foodStore = useFoodStore();
   // a food cannot substitute for itself, so it is never offered
-  const foodOptions = useMemo(() => foodStore.store.filter(food => food.id !== data.id, []); // WF4-REVIEW: dependency array);
+  const foodOptions = useMemo(() => foodStore.store.filter(food => food.id !== data.id), []); // WF4-REVIEW: dependency array
 
   const [substitutions, setSubstitutions] = useState([]);
 
@@ -152,18 +153,19 @@ export default function RecipeDataSubstitutionManagerDialog({ data }: Props) {
   return (
     <>
   <div>
-    <BaseDialog value={dialog} onChange={/* WF4-REVIEW: setter */ setDialog} title={t('data-pages.foods.manage-substitutions')} icon={$globals.icons.swapHorizontal} submit-icon={$globals.icons.check} submit-text={t('general.confirm')} can-submit onSubmit={saveSubstitutions} onCancel={onCancel?.()}>
+    <BaseDialog value={dialog} onChange={/* WF4-REVIEW: setter */ setDialog} title={t('data-pages.foods.manage-substitutions')} icon={icons.swapHorizontal} submit-icon={icons.check} submit-text={t('general.confirm')} can-submit onSubmit={saveSubstitutions} onCancel={onCancel?.()}>
       <CardContent>
         <p className="text-body-2 pb-3">
           {t("data-pages.foods.substitution-dialog-text", { food: data.name })}
         </p>
         <RecipeIngredientSubstitutionEditor substitutions={substitutions} foods={foodOptions} onAdd={createSubstitution} onDelete={deleteSubstitution} onFoodChanged={resetReverse}>
-          <template>
+          {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+          <>
             {(substitutions[index]?.substituteFoodId) ? (
               /* WF4-REVIEW: control={<Checkbox/>} + label prop */
               <FormControlLabel model-value={reverseChecked(index)} label={reverseLabel(index)} density="compact" hide-details className="ml-2" onUpdateModelValue={setReverse(index, !!$event)} />
             ) : null}
-          </template>
+          </>
         </RecipeIngredientSubstitutionEditor>
       </CardContent>
     </BaseDialog>

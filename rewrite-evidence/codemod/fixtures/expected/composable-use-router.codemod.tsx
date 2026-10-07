@@ -4,7 +4,7 @@ export function useRouterQuery(query: string) {
   const router = useLocation(); // WF4-REVIEW: .query → useSearchParams [J]
   // TODO FUTURE: Remove when migrating to Vue 3
 
-  const param: string /* WF4-REVIEW: was WritableComputedRef */ = computed({
+  /* WF4-REVIEW [J]: writable computed — split into state + handlers */ const param: string /* WF4-REVIEW: was WritableComputedRef */ = computed({
     get(): string {
       console.log("Get Query Change");
       return router?.query[query] as string || "";

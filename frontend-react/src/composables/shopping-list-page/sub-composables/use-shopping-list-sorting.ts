@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import type { ShoppingListOut, ShoppingListItemOut } from "@/lib/api/types/household";
 
 interface ListItemGroup {
@@ -10,7 +11,7 @@ interface ListItemGroup {
  * Composable for managing shopping list item sorting and organization
  */
 export function useShoppingListSorting() {
-  const { t } = useI18n();
+  const { t } = useTranslation(); // WF4-REVIEW: d/n/locale mapping [S]
 
   function sortItems(a: ShoppingListItemOut | ListItemGroup, b: ShoppingListItemOut | ListItemGroup) {
     // Sort by position ASC, then by createdAt ASC

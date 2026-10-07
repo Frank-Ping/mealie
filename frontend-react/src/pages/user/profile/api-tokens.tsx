@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Box, Card, CardActions, CardContent, CardHeader, Container, Divider, List, ListItem, ListItemText, TextField, form } from "@mui/material";
 import { useUserApi } from "@/composables/api";
@@ -12,16 +12,16 @@ export const handle = {
 export default function ApiTokens() {
   const { t } = useTranslation();
 
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
   const auth = useMealieAuth();
 
   useSeoMeta({
     title: i18n.t("settings.token.api-tokens"),
   });
 
-  const user = computed(() => {
+  const user = useMemo(() => {
     return auth.user;
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   const api = useUserApi();
 
@@ -46,7 +46,7 @@ export default function ApiTokens() {
 
     setLoading(true);
 
-    if (!domNewTokenForm??.validate()) {
+    if (!domNewTokenForm?.validate()) {
       return;
     }
 
@@ -67,13 +67,15 @@ export default function ApiTokens() {
     <>
   <Container className="narrow-container">
     <BasePageTitle divider>
-      <template>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
         {/* WF4-REVIEW: cover → objectFit */}
         <Box component="img" width="100%" max-height="200px" max-width="200px" src="/svgs/manage-api-tokens.svg" />
-      </template>
-      <template>
+      </>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
         {t("settings.token.api-tokens")}
-      </template>
+      </>
       {t('settings.token.you-have-token-count', user.tokens!.length)}
     </BasePageTitle>
     <section className="d-flex justify-center">
@@ -89,14 +91,14 @@ export default function ApiTokens() {
             <TextField value={name} onChange={setName} label={t('settings.token.token-name')} />
           </form>
           {(createdToken != '') ? (
-            <template>
+            <>
               <TextField multiline value={createdToken} onChange={setCreatedToken} className="mb-0 pb-0" label={t('settings.token.api-token')} readonly rows="3" />
               <p>
                 {t(
                   "settings.token.copy-this-token-for-use-with-an-external-application-this-token-will-not-be-viewable-again",
                 )}
               </p>
-            </template>
+            </>
           ) : null}
         </CardContent>
         <CardActions className="px-0">
@@ -105,7 +107,7 @@ export default function ApiTokens() {
               {t('general.close')}
             </BaseButton>
           ) : null}
-          <Box sx={ flexGrow: 1 } />
+          <Box sx={{ flexGrow: 1 }} />
           {(createdToken) ? (
             <AppButtonCopy icon={false} color="info" copy-text={createdToken} />
           ) : (
@@ -131,9 +133,10 @@ export default function ApiTokens() {
               <ListItemText>
                 {t('general.created-on-date', [$d(new Date(token.createdAt!))])}
               </ListItemText>
-              <template>
+              {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+              <>
                 <BaseButton delete small onClick={deleteToken(token.id)} />
-              </template>
+              </>
             </ListItem>
             <Divider className="mx-2 my-2" />
           </div>

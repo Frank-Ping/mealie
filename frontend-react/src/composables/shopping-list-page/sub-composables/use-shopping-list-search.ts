@@ -37,15 +37,14 @@ export function useShoppingListSearch(
       pluralName: item.food?.pluralName ?? null,
       abbreviation: item.unit?.abbreviation ?? null,
       aliases: [
-        ...(item.food?.aliases ?? [], []); // WF4-REVIEW: dependency array,
+        ...(item.food?.aliases ?? []),
         // A food-backed item can still carry a note ("ripe ones"), which the
         // name above does not cover.
         ...(item.food && item.note ? [{ name: item.note }] : []),
         ...(item.unit?.name ? [{ name: item.unit.name }] : []),
         ...(item.label?.name ? [{ name: item.label.name }] : []),
       ],
-    })),
-  );
+    })),, []); // WF4-REVIEW: dependency array
 
   // `useSearch` ranks results and falls back to a fuzzy tier for typos, which is
   // right for a dropdown where the best match sorts to the top and stray matches
@@ -62,7 +61,7 @@ export function useShoppingListSearch(
     { fuseOptions: { threshold: 0 } },
   );
 
-  const isSearching = useMemo(() => debouncedSearch.trim(, []); // WF4-REVIEW: dependency array.length > 0);
+  const isSearching = useMemo(() => debouncedSearch.trim().length > 0, []); // WF4-REVIEW: dependency array
 
   // The search field sits behind a toggle so it takes no room until it is
   // wanted, and is only offered once the list is long enough to need it.
@@ -80,7 +79,7 @@ export function useShoppingListSearch(
 
   // `filtered` returns every item while the query is empty, so this holds the
   // full set in that case and every item matches.
-  const matchedIds = useMemo(() => new Set(filtered.map(item => item.id, []); // WF4-REVIEW: dependency array));
+  const matchedIds = useMemo(() => new Set(filtered.map(item => item.id)), []); // WF4-REVIEW: dependency array
 
   function matchesSearch(item: ShoppingListItemOut): boolean {
     return !isSearching || matchedIds.has(item.id);

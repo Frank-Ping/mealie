@@ -9,7 +9,7 @@ export default function CookbookEditor() {
   const { t } = useTranslation();
 
   const modelValue = defineModel<ReadCookBook>({ required: true });
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
   const cookbook = toRef(modelValue);
   function handleInput(value: string | undefined) {
     cookbook.queryFilterString = value || "";
@@ -79,18 +79,19 @@ export default function CookbookEditor() {
     {(cookbook) ? (
       <CardContent className="px-1">
         {/* WF4-REVIEW: rules/error-messages → error+helperText; v-model on complex expression "cookbook.name" [J] */}
-        <TextField {/* WF4-REVIEW: v-model cookbook.name */} label={t('cookbook.cookbook-name')} variant="underlined" color="primary" />
+        <TextField label={t('cookbook.cookbook-name')} variant="underlined" color="primary" />
         {/* WF4-REVIEW: v-model on complex expression "cookbook.description" [J] */}
-        <TextField multiline {/* WF4-REVIEW: v-model cookbook.description */} auto-grow rows={2} label={t('recipe.description')} variant="underlined" color="primary" />
+        <TextField multiline auto-grow rows={2} label={t('recipe.description')} variant="underlined" color="primary" />
         <QueryFilterBuilder field-defs={fieldDefs} initial-query-filter={cookbook.queryFilter} onInput={handleInput} />
         {/* WF4-REVIEW: control={<Switch/>} + label prop; v-model on complex expression "cookbook.public" [J] */}
-        <FormControlLabel {/* WF4-REVIEW: v-model cookbook.public */} hide-details single-line color="primary">
-          <template>
+        <FormControlLabel hide-details single-line color="primary">
+          {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+          <>
             {t('cookbook.public-cookbook')}
             <HelpIcon size="small" right className="ml-2">
               {t('cookbook.public-cookbook-description')}
             </HelpIcon>
-          </template>
+          </>
         </FormControlLabel>
       </CardContent>
     ) : null}

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Button, Card, CardActions, CardContent, CardHeader, Container, TextField, form } from "@mui/material";
+import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
 import { useUserApi } from "@/composables/api";
 import { alert } from "@/composables/use-toast";
@@ -22,7 +23,7 @@ export default function ForgotPassword() {
     error: false,
   });
 
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
 
   // Set page title
   useSeoMeta({
@@ -71,7 +72,7 @@ export default function ForgotPassword() {
         {/* WF4-REVIEW: validation semantics [J] */}
         <form ref="form" onSubmit={(e) => { e.preventDefault(); requestLink(); }}>
           {/* WF4-REVIEW: rules/error-messages → error+helperText; v-model on complex expression "state.email" [J] */}
-          <TextField {/* WF4-REVIEW: v-model state.email */} prepend-inner-icon={$globals.icons.email} variant="solo-filled" flat autofocus name="login" label={t('user.email')} type="text" rules={[validators.email]} />
+          <TextField prepend-inner-icon={icons.email} variant="solo-filled" flat autofocus name="login" label={t('user.email')} type="text" rules={[validators.email]} />
           <p className="text-center">
             {t('user.forgot-password-text')}
           </p>
@@ -79,7 +80,7 @@ export default function ForgotPassword() {
             <div className="max-button">
               <Button loading={state.loading} color="primary" type="submit" size="large" rounded className="rounded-xl" block>
                 {/* WF4-REVIEW: icon name resolves via lib/icons; dropped Vuetify-only prop "start" on <v-icon> */}
-                <MdiIcon name={$globals.icons.email} />
+                <MdiIcon name={icons.email} />
                 {t("user.reset-password")}
               </Button>
             </div>

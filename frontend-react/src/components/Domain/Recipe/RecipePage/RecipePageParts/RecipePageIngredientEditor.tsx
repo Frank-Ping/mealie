@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Alert, Button, List, ListItem, Skeleton } from "@mui/material";
+import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
 import { VueDraggable } from "vue-draggable-plus";
 import type { NoUndefinedField } from "@/lib/api/types/non-generated";
@@ -17,11 +18,11 @@ export default function RecipePageIngredientEditor() {
   const ingredientsWithRecipe = new Map<string, boolean>();
 
   const [drag, setDrag] = useState(false);
-  const domBulkAddDialog = ref<InstanceType<typeof RecipeDialogBulkAdd> | null>(null);
+  const [domBulkAddDialog, setDomBulkAddDialog] = useState(null);
   const { toggleIsParsing } = usePageState(recipe.slug);
 
-  const hasFoodOrUnit = useMemo(() =>  {
-    if (!recipe, []); // WF4-REVIEW: dependency array {
+  const hasFoodOrUnit = useMemo(() => {
+    if (!recipe) {
       return false;
     }
     if (recipe.recipeIngredient) {
@@ -32,7 +33,7 @@ export default function RecipePageIngredientEditor() {
       }
     }
     return false;
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   function showBulkAdd() {
     domBulkAddDialog?.open();
@@ -138,15 +139,16 @@ export default function RecipePageIngredientEditor() {
         {t("recipe.ingredients")}
       </h2>
       {(!hasFoodOrUnit) ? (
-        <Alert border="start" color="info" icon={$globals.icons.information} variant="tonal">
+        <Alert border="start" color="info" icon={icons.information} variant="tonal">
           <div>
             {t('recipe.ingredients-not-parsed-description', { parse: t('recipe.parse') })}
           </div>
           <div className="d-flex flex-wrap justify-end mt-3">
             <BaseButton className="mb-1" color="info" onClick={toggleIsParsing(true)}>
-              <template>
-                {$globals.icons.foods}
-              </template>
+              {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+              <>
+                {icons.foods}
+              </>
               {t('recipe.parse')}
             </BaseButton>
           </div>
@@ -155,15 +157,15 @@ export default function RecipePageIngredientEditor() {
     </div>
     {(recipe.recipeIngredient.length > 0) ? (
       /* WF4-REVIEW: v-model on complex expression "recipe.recipeIngredient" [J] */
-      <VueDraggable {/* WF4-REVIEW: v-model recipe.recipeIngredient */} handle=".handle" delay={250} delay-on-touch-only={true} {...({
+      <VueDraggable handle=".handle" delay={250} delay-on-touch-only={true} {...({
         animation: 200,
         group: 'recipe-ingredients',
         disabled: false,
         ghostClass: 'ghost',
-      })} onStart={drag = true} onEnd={drag = false}>
+      })} onStart={() => setDrag(true)} onEnd={() => setDrag(false)}>
         {recipe.recipeIngredient.map((ingredient, index) => (
           /* WF4-REVIEW: v-model on complex expression "recipe.recipeIngredient[index]" [J] */
-          <RecipeIngredientEditor key={ingredient.referenceId} {/* WF4-REVIEW: v-model recipe.recipeIngredient[index] */} is-recipe={ingredientIsRecipe(ingredient)} enable-drag-handle enable-context-menu onDelete={recipe.recipeIngredient.splice(index, 1)} onInsertAbove={insertNewIngredient(index)} onInsertBelow={insertNewIngredient(index + 1)} />
+          <RecipeIngredientEditor key={ingredient.referenceId} is-recipe={ingredientIsRecipe(ingredient)} enable-drag-handle enable-context-menu onDelete={recipe.recipeIngredient.splice(index, 1)} onInsertAbove={insertNewIngredient(index)} onInsertBelow={insertNewIngredient(index + 1)} />
         ))}
       </VueDraggable>
     ) : (
@@ -174,24 +176,25 @@ export default function RecipePageIngredientEditor() {
       <div className="d-inline-flex">
         <Button color="success" className="split-main ml-2" onClick={addIngredient}>
           {/* WF4-REVIEW: icon name resolves via lib/icons; dropped Vuetify-only prop "start" on <v-icon> */}
-          <MdiIcon name={$globals.icons.createAlt} />
+          <MdiIcon name={icons.createAlt} />
           {t('general.add') || 'Add Food'}
         </Button>
         {/* WF4-REVIEW: unmapped <v-menu> — judgement component, convert manually [J] */}
         <VMenu>
-          <template>
+          {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+          <>
             <Button color="success" className="split-dropdown" {...(props)}>
               {/* WF4-REVIEW: icon name resolves via lib/icons */}
-              <MdiIcon name={$globals.icons.chevronDown} />
+              <MdiIcon name={icons.chevronDown} />
             </Button>
-          </template>
+          </>
           <List>
             {/* WF4-REVIEW: @click → ListItemButton */}
-            <ListItem slim density="comfortable" prepend-icon={$globals.icons.foods} title={t('new-recipe.add-food')} onClick={addIngredient} />
+            <ListItem slim density="comfortable" prepend-icon={icons.foods} title={t('new-recipe.add-food')} onClick={addIngredient} />
             {/* WF4-REVIEW: @click → ListItemButton */}
-            <ListItem slim density="comfortable" prepend-icon={$globals.icons.silverwareForkKnife} title={t('new-recipe.add-recipe')} onClick={addRecipe} />
+            <ListItem slim density="comfortable" prepend-icon={icons.silverwareForkKnife} title={t('new-recipe.add-recipe')} onClick={addRecipe} />
             {/* WF4-REVIEW: @click → ListItemButton */}
-            <ListItem slim density="comfortable" prepend-icon={$globals.icons.create} title={t('new-recipe.bulk-add')} onClick={showBulkAdd} />
+            <ListItem slim density="comfortable" prepend-icon={icons.create} title={t('new-recipe.bulk-add')} onClick={showBulkAdd} />
           </List>
         </VMenu>
       </div>

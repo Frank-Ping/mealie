@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Card, CardContent, ListItem, ListItemText } from "@mui/material";
+import { icons } from "@/lib/icons";
 import type { TableHeaders, TableConfig, BulkAction } from "@/components/global/CrudTable";
 import type { AutoFormItems } from "@/types/auto-forms";
 
@@ -64,7 +65,7 @@ export default function GroupDataPage({ icon, title, createTitle, editTitle }: P
   // Create & Edit
   const [createFormValid, setCreateFormValid] = useState(false);
   const [editFormValid, setEditFormValid] = useState(false);
-  const itemSlotNames = useMemo(() => Object.keys(slots, []); // WF4-REVIEW: dependency array.filter(slotName => slotName.startsWith("item.")));
+  const itemSlotNames = useMemo(() => Object.keys(slots).filter(slotName => slotName.startsWith("item.")), []); // WF4-REVIEW: dependency array
   const editEventHandler = (item: any) => {
     editForm.data = { ...item };
     editDialog = true;
@@ -85,11 +86,11 @@ export default function GroupDataPage({ icon, title, createTitle, editTitle }: P
 
   // ============================================================
   // Bulk Delete Logic
-  const bulkDeleteTarget = ref<Array<any>>([]);
+  const [bulkDeleteTarget, setBulkDeleteTarget] = useState([]);
   const [bulkDeleteDialog, setBulkDeleteDialog] = useState(false);
 
   async function bulkDeleteEventHandler(items: Array<any>) {
-    bulkDeleteTarget = items;
+    setBulkDeleteTarget(items);
     if (onDeleteDialogOpen) {
       await onDeleteDialogOpen(items);
     }
@@ -103,20 +104,21 @@ export default function GroupDataPage({ icon, title, createTitle, editTitle }: P
     <div className="mx-2 mt-2">
       <slot name="create-dialog-top" />
       {/* WF4-REVIEW: v-model on complex expression "createForm.data" [J] */}
-      <AutoForm {/* WF4-REVIEW: v-model createForm.data */} value={createFormValid} onChange={setCreateFormValid} items={createForm.items} className="py-2" />
+      <AutoForm value={createFormValid} onChange={setCreateFormValid} items={createForm.items} className="py-2" />
     </div>
   </BaseDialog>
   <BaseDialog value={editDialog} onChange={/* WF4-REVIEW: setter */ setEditDialog} title={editTitle || t('general.edit')} icon={icon} color="primary" max-width="600px" width="100%" submit-disabled={!editFormValid} can-confirm onConfirm={emit('edit-one', editForm.data)}>
     <div className="mx-2 mt-2">
       <slot name="edit-dialog-top" />
       {/* WF4-REVIEW: v-model on complex expression "editForm.data" [J] */}
-      <AutoForm {/* WF4-REVIEW: v-model editForm.data */} value={editFormValid} onChange={setEditFormValid} items={editForm.items} className="py-2" />
+      <AutoForm value={editFormValid} onChange={setEditFormValid} items={editForm.items} className="py-2" />
     </div>
-    <template>
+    {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+    <>
       <slot name="edit-dialog-custom-action" />
-    </template>
+    </>
   </BaseDialog>
-  <BaseDialog value={deleteDialog} onChange={setDeleteDialog} bottom-sheet title={t('general.confirm')} icon={$globals.icons.alertCircle} color="error" can-confirm onConfirm={onDeleteOne?.(deleteTarget.id)}>
+  <BaseDialog value={deleteDialog} onChange={setDeleteDialog} bottom-sheet title={t('general.confirm')} icon={icons.alertCircle} color="error" can-confirm onConfirm={onDeleteOne?.(deleteTarget.id)}>
     <CardContent>
       {t("general.confirm-delete-generic")}
       {(deleteTarget) ? (
@@ -127,7 +129,7 @@ export default function GroupDataPage({ icon, title, createTitle, editTitle }: P
       <slot name="delete-dialog-bottom" />
     </CardContent>
   </BaseDialog>
-  <BaseDialog value={bulkDeleteDialog} onChange={setBulkDeleteDialog} bottom-sheet width="650px" title={t('general.confirm')} icon={$globals.icons.alertCircle} color="error" can-confirm onConfirm={onBulkAction?.('delete-selected', bulkDeleteTarget)}>
+  <BaseDialog value={bulkDeleteDialog} onChange={setBulkDeleteDialog} bottom-sheet width="650px" title={t('general.confirm')} icon={icons.alertCircle} color="error" can-confirm onConfirm={onBulkAction?.('delete-selected', bulkDeleteTarget)}>
     <CardContent>
       <p className="h4">
         {t('general.confirm-delete-generic-items')}
@@ -135,7 +137,8 @@ export default function GroupDataPage({ icon, title, createTitle, editTitle }: P
       <Card variant="outlined">
         {/* WF4-REVIEW: unmapped <v-virtual-scroll> — judgement component, convert manually [J] */}
         <VVirtualScroll height="400" item-height="25" items={bulkDeleteTarget}>
-          <template>
+          {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+          <>
             {/* WF4-REVIEW: @click → ListItemButton */}
             <ListItem className="pb-2">
               {/* WF4-REVIEW: content → primary prop */}
@@ -143,7 +146,7 @@ export default function GroupDataPage({ icon, title, createTitle, editTitle }: P
                 {item.name || item.title || item.id}
               </ListItemText>
             </ListItem>
-          </template>
+          </>
         </VVirtualScroll>
       </Card>
       <slot name="delete-dialog-bottom" />
@@ -152,19 +155,23 @@ export default function GroupDataPage({ icon, title, createTitle, editTitle }: P
   <BaseCardSectionTitle icon={icon} section title={title} />
   <CrudTable headers={tableHeaders} table-config={tableConfig} data={data || []} bulk-actions={bulkActions} initial-sort={initialSort} onEditOne={editEventHandler} onDeleteOne={deleteEventHandler} onBulkAction={handleBulkAction}>
     {itemSlotNames.map(slotName => (
-      <template>
+      /* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */
+      <>
         <slot name={slotName} {...(slotProps)} />
-      </template>
+      </>
     ))}
-    <template>
+    {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+    <>
+      {/* WF4-REVIEW: assignment handler "createDialog = true" — target not a tracked ref [J] */}
       <BaseButton create onClick={createDialog = true}>
         {t("general.create")}
       </BaseButton>
       <slot name="table-button-row" />
-    </template>
-    <template>
+    </>
+    {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+    <>
       <slot name="table-button-bottom" />
-    </template>
+    </>
   </CrudTable>
     </>
   );

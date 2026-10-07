@@ -1,7 +1,7 @@
 import { Avatar, Divider } from "@mui/material";
 
-export default function AppLogo() {
-  withDefaults(defineProps<{ size?: number }>(), { size: 75 });
+export default function AppLogo({ size = 75 }: Props) {
+  /* props via destructured signature (was withDefaults(defineProps<?>) */
 
   return (
     <>

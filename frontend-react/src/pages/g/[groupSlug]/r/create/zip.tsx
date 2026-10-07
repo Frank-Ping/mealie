@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { CardActions, CardContent, CardHeader, form } from "@mui/material";
+import { icons } from "@/lib/icons";
 import { useUserApi } from "@/composables/api";
 import { useGlobalI18n } from "@/composables/use-global-i18n";
 import { alert } from "@/composables/use-toast";
@@ -59,7 +60,7 @@ export default function Zip() {
       <CardContent>
         {t('recipe.import-from-zip-description')}
         {/* WF4-REVIEW: unmapped <v-file-input> — judgement component, convert manually [J] */}
-        <VFileInput value={newRecipeZip} onChange={setNewRecipeZip} accept=".zip" label=".zip" variant="solo-filled" clearable className="rounded-lg mt-2" rounded truncate-length="100" hint={t('recipe.zip-files-must-have-been-exported-from-mealie')} persistent-hint prepend-icon="" prepend-inner-icon={$globals.icons.zip} />
+        <VFileInput value={newRecipeZip} onChange={setNewRecipeZip} accept=".zip" label=".zip" variant="solo-filled" clearable className="rounded-lg mt-2" rounded truncate-length="100" hint={t('recipe.zip-files-must-have-been-exported-from-mealie')} persistent-hint prepend-icon="" prepend-inner-icon={icons.zip} />
       </CardContent>
       <CardActions className="justify-center">
         <div style="width: 250px">

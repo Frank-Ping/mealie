@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Box, Button, Card, CardContent, CardHeader, Container, FormControlLabel, TextField, form } from "@mui/material";
+import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
 import type { ShoppingListOut } from "@/lib/api/types/household";
 import { useUserApi } from "@/composables/api";
@@ -18,7 +19,7 @@ export default function ShoppingListsPage() {
   const { t } = useTranslation();
 
   const auth = useMealieAuth();
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
   const [ready, setReady] = useState(false);
   const userApi = useUserApi();
   const route = useLocation(); // WF4-REVIEW: .query → useSearchParams [J]
@@ -39,7 +40,7 @@ export default function ShoppingListsPage() {
     ownerDialog: false,
     ownerTarget: ref<ShoppingListOut | null>(null),
   });
-  const isCreateNameValid = useMemo(() => state.createName.trim(, []); // WF4-REVIEW: dependency array.length > 0);
+  const isCreateNameValid = useMemo(() => state.createName.trim().length > 0, []); // WF4-REVIEW: dependency array
 
   const { data: shoppingLists } = useEffect(() => {
     let cancelled = false;
@@ -55,13 +56,13 @@ export default function ShoppingListsPage() {
     return () => { cancelled = true; };
   }, []); // WF4-REVIEW: deps + re-run trigger — confirm against auth-ready init flow
 
-  const shoppingListChoices = useMemo(() =>  {
-    if (!shoppingLists, []); // WF4-REVIEW: dependency array {
+  const shoppingListChoices = useMemo(() => {
+    if (!shoppingLists) {
       return [];
     }
 
     return shoppingLists.filter(list => preferences.viewAllLists || list.userId === auth.user?.id);
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   // This has to appear before the shoppingListChoices watcher, otherwise that runs first and the redirect is not disabled
   /* WF4-REVIEW [J] */ watch(
@@ -174,48 +175,51 @@ export default function ShoppingListsPage() {
   {(shoppingListChoices && ready) ? (
     <Container className="narrow-container">
       {/* WF4-REVIEW: v-model on complex expression "state.createDialog" [J] */}
-      <BaseDialog {/* WF4-REVIEW: v-model state.createDialog */} bottom-sheet title={t('shopping-list.create-shopping-list')} icon={$globals.icons.formatListCheck} can-submit submit-disabled={!isCreateNameValid} onSubmit={createOne}>
+      <BaseDialog bottom-sheet title={t('shopping-list.create-shopping-list')} icon={icons.formatListCheck} can-submit submit-disabled={!isCreateNameValid} onSubmit={createOne}>
         <CardContent>
           {/* WF4-REVIEW: rules/error-messages → error+helperText; v-model on complex expression "state.createName" [J] */}
-          <TextField {/* WF4-REVIEW: v-model state.createName */} autofocus label={t('shopping-list.new-list')} />
+          <TextField autofocus label={t('shopping-list.new-list')} />
         </CardContent>
       </BaseDialog>
       {/* WF4-REVIEW: v-model on complex expression "state.ownerDialog" [J] */}
-      <BaseDialog {/* WF4-REVIEW: v-model state.ownerDialog */} bottom-sheet icon={$globals.icons.admin} title={t('user.edit-user')} can-confirm onConfirm={updateOwner}>
+      <BaseDialog bottom-sheet icon={icons.admin} title={t('user.edit-user')} can-confirm onConfirm={updateOwner}>
         <Container>
           {/* WF4-REVIEW: validation semantics [J] */}
           <form>
             {/* WF4-REVIEW: items/item-title/item-value → MenuItem children */}
-            <TextField select value={updateUserId} onChange={setUpdateUserId} items={allUsers} item-title="fullName" item-value="id" label={t('general.owner')} prepend-icon={$globals.icons.user} />
+            <TextField select value={updateUserId} onChange={setUpdateUserId} items={allUsers} item-title="fullName" item-value="id" label={t('general.owner')} prepend-icon={icons.user} />
           </form>
         </Container>
       </BaseDialog>
       {/* WF4-REVIEW: v-model on complex expression "state.deleteDialog" [J] */}
-      <BaseDialog {/* WF4-REVIEW: v-model state.deleteDialog */} bottom-sheet title={t('general.confirm')} icon={$globals.icons.alertCircle} color="error" can-confirm onConfirm={deleteOne}>
+      <BaseDialog bottom-sheet title={t('general.confirm')} icon={icons.alertCircle} color="error" can-confirm onConfirm={deleteOne}>
         <CardContent>
           {t('shopping-list.are-you-sure-you-want-to-delete-this-item')}
         </CardContent>
       </BaseDialog>
       <BasePageTitle divider>
-        <template>
+        {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+        <>
           {/* WF4-REVIEW: cover → objectFit */}
           <Box component="img" width="100%" max-height="100" max-width="100" src="/svgs/shopping-cart.svg" />
-        </template>
-        <template>
+        </>
+        {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+        <>
           {t('shopping-list.shopping-lists')}
-        </template>
+        </>
       </BasePageTitle>
       <Container className="d-flex align-center justify-end px-0 pt-0 pb-4">
         {/* WF4-REVIEW: control={<Checkbox/>} + label prop; v-model on complex expression "preferences.viewAllLists" [J] */}
-        <FormControlLabel {/* WF4-REVIEW: v-model preferences.viewAllLists */} hide-details label={t('general.show-all')} className="my-0 mr-4" />
+        <FormControlLabel hide-details label={t('general.show-all')} className="my-0 mr-4" />
         <BaseButton create className="my-0" onClick={state.createDialog = true} />
       </Container>
       {(!shoppingListChoices.length) ? (
         <Container>
           <BasePageTitle>
-            <template>
+            {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+            <>
               {t('shopping-list.no-shopping-lists-found')}
-            </template>
+            </>
           </BasePageTitle>
         </Container>
       ) : null}
@@ -225,17 +229,17 @@ export default function ShoppingListsPage() {
             {/* WF4-REVIEW: title text moves to the title prop */}
             <CardHeader className="d-flex align-center">
               {/* WF4-REVIEW: icon name resolves via lib/icons */}
-              <MdiIcon name={$globals.icons.cartCheck} className="mr-2" />
+              <MdiIcon name={icons.cartCheck} className="mr-2" />
               <span className="flex-grow-1">
                 {list.name}
               </span>
               <Button icon variant="plain" onClick={(e) => { e.preventDefault(); toggleOwnerDialog(list); }}>
                 {/* WF4-REVIEW: icon name resolves via lib/icons */}
-                <MdiIcon name={$globals.icons.user} />
+                <MdiIcon name={icons.user} />
               </Button>
               <Button icon variant="plain" onClick={(e) => { e.preventDefault(); openDelete(list.id); }}>
                 {/* WF4-REVIEW: icon name resolves via lib/icons */}
-                <MdiIcon name={$globals.icons.delete} />
+                <MdiIcon name={icons.delete} />
               </Button>
             </CardHeader>
           </Card>

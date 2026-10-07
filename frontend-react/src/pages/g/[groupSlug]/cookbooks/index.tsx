@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Accordion, AccordionDetails, AccordionSummary, Box, Button, CardActions, CardContent, Container, FormControlLabel } from "@mui/material";
+import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
 import { VueDraggable } from "vue-draggable-plus";
 import { useCookbookStore } from "@/composables/store/use-cookbook-store";
@@ -22,7 +23,7 @@ export default function CookbooksPage() {
     delete: false,
   });
 
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
 
   // Set page title
   useSeoMeta({
@@ -113,14 +114,14 @@ export default function CookbooksPage() {
   <div>
     {(createTarget) ? (
       /* WF4-REVIEW: v-model on complex expression "dialogStates.create" [J] */
-      <BaseDialog {/* WF4-REVIEW: v-model dialogStates.create */} width="100%" max-width="1100px" icon={$globals.icons.pages} title={t('cookbook.create-a-cookbook')} submit-icon={$globals.icons.save} submit-text={t('general.save')} submit-disabled={!createTarget.queryFilterString} can-submit onSubmit={actions.updateOne(createTarget)} onCancel={deleteCreateTarget()}>
+      <BaseDialog width="100%" max-width="1100px" icon={icons.pages} title={t('cookbook.create-a-cookbook')} submit-icon={icons.save} submit-text={t('general.save')} submit-disabled={!createTarget.queryFilterString} can-submit onSubmit={actions.updateOne(createTarget)} onCancel={deleteCreateTarget()}>
         <CardContent>
           <CookbookEditor key={createTargetKey} value={createTarget} onChange={setCreateTarget} />
         </CardContent>
       </BaseDialog>
     ) : null}
     {/* WF4-REVIEW: v-model on complex expression "dialogStates.delete" [J] */}
-    <BaseDialog {/* WF4-REVIEW: v-model dialogStates.delete */} bottom-sheet title={t('general.delete-with-name', { name: t('cookbook.cookbook') })} icon={$globals.icons.alertCircle} color="error" can-confirm onConfirm={deleteCookbook()}>
+    <BaseDialog bottom-sheet title={t('general.delete-with-name', { name: t('cookbook.cookbook') })} icon={icons.alertCircle} color="error" can-confirm onConfirm={deleteCookbook()}>
       <CardContent>
         <p>
           {t("general.confirm-delete-generic-with-name", { name: t("cookbook.cookbook") })}
@@ -134,18 +135,20 @@ export default function CookbooksPage() {
     </BaseDialog>
     <Container className="lg-container">
       <BasePageTitle divider>
-        <template>
+        {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+        <>
           {/* WF4-REVIEW: cover → objectFit */}
           <Box component="img" width="100%" max-height="100" max-width="100" src="/svgs/manage-cookbooks.svg" />
-        </template>
-        <template>
+        </>
+        {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+        <>
           {t("cookbook.cookbooks")}
-        </template>
+        </>
         {t("cookbook.description")}
       </BasePageTitle>
       <div className="my-6">
         {/* WF4-REVIEW: control={<Checkbox/>} + label prop; v-model on complex expression "cookbookPreferences.hideOtherHouseholds" [J] */}
-        <FormControlLabel {/* WF4-REVIEW: v-model cookbookPreferences.hideOtherHouseholds */} label={t('cookbook.hide-cookbooks-from-other-households')} hide-details color="primary" />
+        <FormControlLabel label={t('cookbook.hide-cookbooks-from-other-households')} hide-details color="primary" />
         <div className="ml-10 mt-n3">
           <p className="text-subtitle-2 my-0 py-0">
             {t("cookbook.hide-cookbooks-from-other-households-description")}
@@ -161,33 +164,34 @@ export default function CookbooksPage() {
               <AccordionSummary disable-icon-rotate className="text-h6 opacity-80">
                 <div className="d-flex align-center">
                   {/* WF4-REVIEW: icon name resolves via lib/icons; dropped Vuetify-only prop "start" on <v-icon> */}
-                  <MdiIcon name={$globals.icons.pages} size="large" />
+                  <MdiIcon name={icons.pages} size="large" />
                   {cookbook.name}
                 </div>
-                <template>
+                {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                <>
                   <div className="d-flex align-center">
                     <Button icon variant="text" className="ml-2">
                       {/* WF4-REVIEW: icon name resolves via lib/icons */}
-                      <MdiIcon name={$globals.icons.edit} />
+                      <MdiIcon name={icons.edit} />
                     </Button>
                     {/* WF4-REVIEW: icon name resolves via lib/icons */}
-                    <MdiIcon name={$globals.icons.arrowUpDown} className="handle" size={40} />
+                    <MdiIcon name={icons.arrowUpDown} className="handle" size={40} />
                   </div>
-                </template>
+                </>
               </AccordionSummary>
               <AccordionDetails>
                 {/* WF4-REVIEW: v-model on complex expression "myCookbooks[index]" [J] */}
-                <CookbookEditor {/* WF4-REVIEW: v-model myCookbooks[index] */} collapsable={false} />
+                <CookbookEditor collapsable={false} />
                 <CardActions>
-                  <Box sx={ flexGrow: 1 } />
+                  <Box sx={{ flexGrow: 1 }} />
                   <BaseButtonGroup buttons={[
                     {
-                      icon: $globals.icons.delete,
+                      icon: icons.delete,
                       text: t('general.delete'),
                       event: 'delete',
                     },
                     {
-                      icon: $globals.icons.save,
+                      icon: icons.save,
                       text: t('general.save'),
                       event: 'save',
                       disabled: !cookbook.queryFilterString,

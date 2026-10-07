@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Button, Card, CardActions, Dialog, TextField, Toolbar } from "@mui/material";
+import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
 import RecipeCardMobile from "./RecipeCardMobile";
 import { useLoggedInState } from "@/composables/use-logged-in-state";
@@ -158,11 +159,11 @@ export default function RecipeDialogSearch() {
         {/* WF4-REVIEW: dropped Vuetify-only prop "dark" on <v-toolbar> */}
         <Toolbar color="primary-lighten-1">
           {/* WF4-REVIEW: rules/error-messages → error+helperText; v-model on complex expression "search.query" [J] */}
-          <TextField id="arrow-search" {/* WF4-REVIEW: v-model search.query */} autofocus variant="solo" flat autocomplete="off" bg-color="primary-lighten-1" color="white" density="compact" className="mx-2 arrow-search" hide-details single-line placeholder={t('search.search')} prepend-inner-icon={$globals.icons.search} />
+          <TextField id="arrow-search" autofocus variant="solo" flat autocomplete="off" bg-color="primary-lighten-1" color="white" density="compact" className="mx-2 arrow-search" hide-details single-line placeholder={t('search.search')} prepend-inner-icon={icons.search} />
           {($vuetify.display.xs) ? (
-            <Button icon size="x-small" onClick={dialog = false}>
+            <Button icon size="x-small" onClick={() => setDialog(false)}>
               {/* WF4-REVIEW: icon name resolves via lib/icons */}
-              <MdiIcon name={$globals.icons.close} />
+              <MdiIcon name={icons.close} />
             </Button>
           ) : null}
         </Toolbar>

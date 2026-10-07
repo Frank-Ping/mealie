@@ -17,7 +17,7 @@ export function useShoppingListCrud(
 ) {
   const userApi = useUserApi();
 
-  const [createListItemData, setCreateListItemData] = useState(listItemFactory(););
+  const [createListItemData, setCreateListItemData] = useState(listItemFactory());
   const [localLabels, setLocalLabels] = useState(undefined);
 
   function listItemFactory(): ShoppingListItemOut {

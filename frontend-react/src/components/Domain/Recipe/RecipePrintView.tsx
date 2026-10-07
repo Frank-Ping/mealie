@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { CardContent, CardHeader, Container, Divider, Grid } from "@mui/material";
+import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
 import SafeHtml from "@/components/SafeHtml";
 import DOMPurify from "dompurify";
@@ -21,25 +22,21 @@ interface Props {
 
 type IngredientSection = {
   sectionName: string;
+  ingredients: RecipeIngredient[];
+};
 
 type InstructionSection = {
   sectionName: string;
+  stepOffset: number;
+  instructions: RecipeStep[];
+};
 
 export default function RecipePrintView({ scale = 1, dense = false }: Props) {
   const { t } = useTranslation();
 
-  ingredients: RecipeIngredient[];
-  };
-
-
-    stepOffset: number;
-    instructions: RecipeStep[];
-  };
-
-
   /* props via destructured signature (was withDefaults(defineProps<Props>) */
 
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
   const preferences = useUserPrintPreferences();
   const { recipeImage } = useStaticRoutes();
   const { imageKey } = usePageState(recipe.slug);
@@ -51,37 +48,37 @@ export default function RecipePrintView({ scale = 1, dense = false }: Props) {
       ALLOWED_TAGS: ["strong", "sup"],
     });
   }
-  const servingsDisplay = useMemo(() =>  {
-    const { scaledAmountDisplay } = useScaledAmount(recipe.recipeYieldQuantity, scale, []); // WF4-REVIEW: dependency array
+  const servingsDisplay = useMemo(() => {
+    const { scaledAmountDisplay } = useScaledAmount(recipe.recipeYieldQuantity, scale);
     return scaledAmountDisplay || recipe.recipeYield
       ? i18n.t("recipe.yields-amount-with-text", {
         amount: scaledAmountDisplay,
         text: recipe.recipeYield,
       }) as string
       : "";
-  });
+  }, []); // WF4-REVIEW: dependency array
 
-  const yieldDisplay = useMemo(() =>  {
-    const { scaledAmountDisplay } = useScaledAmount(recipe.recipeServings, scale, []); // WF4-REVIEW: dependency array
+  const yieldDisplay = useMemo(() => {
+    const { scaledAmountDisplay } = useScaledAmount(recipe.recipeServings, scale);
     return scaledAmountDisplay ? i18n.t("recipe.serves-amount", { amount: scaledAmountDisplay }) as string : "";
-  });
+  }, []); // WF4-REVIEW: dependency array
 
-  const recipeYield = useMemo(() =>  {
-    if (servingsDisplay && yieldDisplay, []); // WF4-REVIEW: dependency array {
+  const recipeYield = useMemo(() => {
+    if (servingsDisplay && yieldDisplay) {
       return sanitizeHTML(`${yieldDisplay}; ${servingsDisplay}`);
     }
     else {
       return sanitizeHTML(yieldDisplay || servingsDisplay);
     }
-  });
+  }, []); // WF4-REVIEW: dependency array
 
-  const recipeImageUrl = useMemo(() =>  {
-    return recipeImage(recipe.id, recipe.image, imageKey, []); // WF4-REVIEW: dependency array
-  });
+  const recipeImageUrl = useMemo(() => {
+    return recipeImage(recipe.id, recipe.image, imageKey);
+  }, []); // WF4-REVIEW: dependency array
 
   // Group ingredients by section so we can style them independently
-  const ingredientSections = useMemo(() =>  {
-    if (!recipe.recipeIngredient, []); // WF4-REVIEW: dependency array {
+  const ingredientSections = useMemo(() => {
+    if (!recipe.recipeIngredient) {
       return [];
     }
     const addIngredientsToSections = (ingredients: RecipeIngredient[], sections: IngredientSection[], title: string | null) => {
@@ -133,11 +130,11 @@ export default function RecipePrintView({ scale = 1, dense = false }: Props) {
     const sections: IngredientSection[] = [];
     addIngredientsToSections(recipe.recipeIngredient, sections, null);
     return sections;
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   // Group instructions by section so we can style them independently
-  const instructionSections = useMemo(() =>  {
-    if (!recipe.recipeInstructions, []); // WF4-REVIEW: dependency array {
+  const instructionSections = useMemo(() => {
+    if (!recipe.recipeInstructions) {
       return [];
     }
 
@@ -178,15 +175,15 @@ export default function RecipePrintView({ scale = 1, dense = false }: Props) {
       sections[sections.length - 1].instructions.push(step);
       return sections;
     }, [] as InstructionSection[]);
-  });
+  }, []); // WF4-REVIEW: dependency array
 
-  const hasNotes = computed(() => {
+  const hasNotes = useMemo(() => {
     return recipe.notes && recipe.notes.length > 0;
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   // Precompute each step's linked ingredients so the template doesn't re-filter recipeIngredient on every render
-  const stepLinkedIngredients = useMemo(() =>  {
-    const map = new Map<string, RecipeIngredient[]>(, []); // WF4-REVIEW: dependency array
+  const stepLinkedIngredients = useMemo(() => {
+    const map = new Map<string, RecipeIngredient[]>();
 
     instructionSections.forEach((section, sectionIndex) => {
       section.instructions.forEach((step, stepIndex) => {
@@ -203,7 +200,7 @@ export default function RecipePrintView({ scale = 1, dense = false }: Props) {
     });
 
     return map;
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   const { parseIngredientText } = useIngredientTextParser();
 
@@ -235,14 +232,14 @@ export default function RecipePrintView({ scale = 1, dense = false }: Props) {
             {/* WF4-REVIEW: title text moves to the title prop */}
             <CardHeader className="headline pl-0">
               {/* WF4-REVIEW: icon name resolves via lib/icons; dropped Vuetify-only prop "start" on <v-icon> */}
-              <MdiIcon name={$globals.icons.primary} color="primary" />
+              <MdiIcon name={icons.primary} color="primary" />
               {recipe.name}
             </CardHeader>
             {(recipeYield) ? (
               <div className="d-flex justify-space-between align-center pb-6">
                 <div>
                   {/* WF4-REVIEW: icon name resolves via lib/icons; dropped Vuetify-only prop "start" on <v-icon> */}
-                  <MdiIcon name={$globals.icons.potSteam} />
+                  <MdiIcon name={icons.potSteam} />
                   <SafeHtml html={recipeYield} />
                 </div>
               </div>
@@ -316,9 +313,9 @@ export default function RecipePrintView({ scale = 1, dense = false }: Props) {
                     </h6>
                     <div className="step-ingredient-grid" style={{ gridTemplateRows: `repeat(${Math.ceil(step.ingredientReferences.length / 2)}, min-content)` }}>
                       {stepLinkedIngredients.get(`${sectionIndex}-${stepIndex}`) ?? [].map((ingredient, ingredientIndex) => (
-                        <template key={`ingredient-${ingredientIndex}`}>
+                        <>
                           <SafeHtml html={parseText(ingredient)} />
-                        </template>
+                        </>
                       ))}
                     </div>
                   </div>
@@ -361,14 +358,14 @@ export default function RecipePrintView({ scale = 1, dense = false }: Props) {
                 {recipe.nutrition.map((value, key) => (
                   <tr key={key}>
                     {(value) ? (
-                      <template>
+                      <>
                         <td>
                           {labels[key].label}
                         </td>
                         <td>
                           {value ? (labels[key].suffix ? `${value} ${labels[key].suffix}` : value) : '-'}
                         </td>
-                      </template>
+                      </>
                     ) : null}
                   </tr>
                 ))}

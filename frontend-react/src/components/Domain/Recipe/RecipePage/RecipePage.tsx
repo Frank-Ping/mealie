@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Button, Card, CardContent, CardHeader, Container, Divider, Fab, Grid, Paper, Tooltip } from "@mui/material";
+import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
 import { invoke, until } from "@vueuse/core";
 import type { RouteLocationNormalized } from "vue-router";
@@ -51,10 +52,9 @@ export default function RecipePage() {
 
   const disableComments = useMemo(() => household?.preferences?.recipeDisableComments
     || recipe?.settings?.disableComments
-    || false,
-  , []); // WF4-REVIEW: dependency array
+    || false,, []); // WF4-REVIEW: dependency array
 
-  const groupSlug = useMemo(() => (route.params.groupSlug as string, []); // WF4-REVIEW: dependency array || auth.user??.groupSlug || "");
+  const groupSlug = useMemo(() => (route.params.groupSlug as string) || auth.user?.groupSlug || "", []); // WF4-REVIEW: dependency array
   const ingredientStorageKey = useMemo(() => `recipe-ingredients:${recipe.id || recipe.slug}:checked`, []); // WF4-REVIEW: dependency array
 
   const navigate = useNavigate();
@@ -76,7 +76,7 @@ export default function RecipePage() {
    * mutate in place, so handing them a derived copy would silently drop edits. Conversion is
    * display-only and never reaches anything that saves.
    */
-  const displayedRecipe = computed<NoUndefinedField<Recipe>>(() => {
+  const displayedRecipe = useMemo(() => {
     if (isEditMode || !unitSystem) {
       return recipe;
     }
@@ -87,15 +87,15 @@ export default function RecipePage() {
         ingredient => convertIngredient(ingredient, unitSystem.value!, scale),
       ),
     };
-  });
+  }, []); // WF4-REVIEW: dependency array
 
-  const notLinkedIngredients = useMemo(() =>  {
-    return displayedRecipe.recipeIngredient.filter((ingredient, []); // WF4-REVIEW: dependency array => {
+  const notLinkedIngredients = useMemo(() => {
+    return displayedRecipe.recipeIngredient.filter((ingredient) => {
       return !recipe.recipeInstructions.some(step =>
         step.ingredientReferences?.map(ref => ref.referenceId).includes(ingredient.referenceId),
       );
     });
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   /** =============================================================
    * Floating save button — track toolbar visibility
@@ -185,11 +185,11 @@ export default function RecipePage() {
     deactivateNavigationWarning();
     clearPageState(recipe.slug || "");
   });
-  const hasLinkedIngredients = useMemo(() =>  {
+  const hasLinkedIngredients = useMemo(() => {
     return recipe.recipeInstructions.some(
       step => step.ingredientReferences && step.ingredientReferences.length > 0,
-    , []); // WF4-REVIEW: dependency array
-  });
+    );
+  }, []); // WF4-REVIEW: dependency array
   /** =============================================================
    * Set State onMounted
    */
@@ -277,7 +277,7 @@ export default function RecipePage() {
   /** =============================================================
    * View Preferences
    */
-  const landscape = computed(() => {
+  const landscape = useMemo(() => {
     const preferLandscape = recipe.settings?.landscapeView;
     const smallScreen = !display.smAndUp;
 
@@ -289,7 +289,7 @@ export default function RecipePage() {
     }
 
     return false;
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   /** =============================================================
    * Bulk Step Editor
@@ -337,7 +337,7 @@ export default function RecipePage() {
   return (
     <>
   <div>
-    <BaseDialog value={discardDialog} onChange={setDiscardDialog} bottom-sheet title={t('general.discard-changes')} color="warning" icon={$globals.icons.alertCircle} can-confirm onConfirm={confirmDiscard} onCancel={cancelDiscard}>
+    <BaseDialog value={discardDialog} onChange={setDiscardDialog} bottom-sheet title={t('general.discard-changes')} color="warning" icon={icons.alertCircle} can-confirm onConfirm={confirmDiscard} onCancel={cancelDiscard}>
       <CardContent>
         {t("general.discard-changes-description")}
       </CardContent>
@@ -383,7 +383,7 @@ export default function RecipePage() {
               {/* WF4-REVIEW: cols/sm/md/lg → size={{ xs, sm, md }} */}
               <Grid cols="12" sm="12" md={8 + (isCookMode ? 1 : 0) * 4}>
                 {/* WF4-REVIEW: v-model on complex expression "recipe.recipeInstructions" [J]; v-model on complex expression "recipe.assets" [J] */}
-                <RecipePageInstructions {/* WF4-REVIEW: v-model recipe.recipeInstructions */} {/* WF4-REVIEW: v-model recipe.assets */} recipe={displayedRecipe} scale={scale} ingredient-storage-key={ingredientStorageKey} />
+                <RecipePageInstructions recipe={displayedRecipe} scale={scale} ingredient-storage-key={ingredientStorageKey} />
                 {(isEditForm) ? (
                   <div className="d-flex">
                     <RecipeDialogBulkAdd className="ml-auto my-2 mr-1" onBulkData={addStep} />
@@ -398,7 +398,7 @@ export default function RecipePage() {
                   </div>
                 ) : null}
                 {/* WF4-REVIEW: v-model on complex expression "recipe.notes" [J] */}
-                <RecipeNotes {/* WF4-REVIEW: v-model recipe.notes */} edit={isEditForm} />
+                <RecipeNotes edit={isEditForm} />
               </Grid>
             </Grid>
             <RecipePageFooter value={recipe} onChange={/* WF4-REVIEW: setter */ setRecipe} />
@@ -414,7 +414,7 @@ export default function RecipePage() {
     {(isEditMode && !toolbarVisible) ? (
       <Fab color="success" location="bottom end" size="large" app appear className="d-print-none" onClick={saveRecipe}>
         {/* WF4-REVIEW: icon name resolves via lib/icons */}
-        <MdiIcon name={$globals.icons.save} />
+        <MdiIcon name={icons.save} />
         {/* WF4-REVIEW: activator slot variants [J] */}
         <Tooltip activator="parent" location="left">
           {t("general.save")}
@@ -439,7 +439,7 @@ export default function RecipePage() {
             {t('recipe.instructions')}
           </h2>
           {/* WF4-REVIEW: v-model on complex expression "recipe.recipeInstructions" [J]; v-model on complex expression "recipe.assets" [J] */}
-          <RecipePageInstructions {/* WF4-REVIEW: v-model recipe.recipeInstructions */} {/* WF4-REVIEW: v-model recipe.assets */} className="overflow-y-hidden px-4" recipe={displayedRecipe} scale={scale} ingredient-storage-key={ingredientStorageKey} />
+          <RecipePageInstructions className="overflow-y-hidden px-4" recipe={displayedRecipe} scale={scale} ingredient-storage-key={ingredientStorageKey} />
         </Grid>
       </Grid>
     </Paper>
@@ -448,7 +448,7 @@ export default function RecipePage() {
         <RecipePageScale value={scale} onChange={setScale} recipe={recipe} />
       </div>
       {/* WF4-REVIEW: v-model on complex expression "recipe.recipeInstructions" [J]; v-model on complex expression "recipe.assets" [J] */}
-      <RecipePageInstructions {/* WF4-REVIEW: v-model recipe.recipeInstructions */} {/* WF4-REVIEW: v-model recipe.assets */} className="overflow-y-hidden mt-n5 px-2 px-md-4" recipe={displayedRecipe} scale={scale} ingredient-storage-key={ingredientStorageKey} />
+      <RecipePageInstructions className="overflow-y-hidden mt-n5 px-2 px-md-4" recipe={displayedRecipe} scale={scale} ingredient-storage-key={ingredientStorageKey} />
       {(notLinkedIngredients.length > 0) ? (
         <div className="px-2 px-md-4 pb-4">
           <Divider />
@@ -465,7 +465,7 @@ export default function RecipePage() {
     {(isCookMode) ? (
       <Button icon color="primary" style="position: fixed; right: 12px; top: 60px" onClick={toggleCookMode()}>
         {/* WF4-REVIEW: icon name resolves via lib/icons */}
-        <MdiIcon name={$globals.icons.close} />
+        <MdiIcon name={icons.close} />
       </Button>
     ) : null}
   </div>

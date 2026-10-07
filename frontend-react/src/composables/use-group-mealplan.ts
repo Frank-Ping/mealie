@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { format } from "date-fns";
 import { useAsyncKey } from "./use-utils";
 import { useUserApi } from "@/composables/api";
@@ -9,7 +10,7 @@ type PlanOption = {
   value: PlanEntryType;
 };
 export function usePlanTypeOptions() {
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
 
   return [
     { text: i18n.t("meal-plan.breakfast"), value: "breakfast" },
@@ -23,7 +24,7 @@ export function usePlanTypeOptions() {
 }
 
 export function getEntryTypeText(value: PlanEntryType) {
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
   return i18n.t("meal-plan." + value);
 }
 export interface DateRange {
@@ -75,7 +76,15 @@ export const useMealplans = function (range: DateRange /* WF4-REVIEW: was Ref */
                 start_date: format(range.start, "yyyy-MM-dd"),
                 end_date: format(range.end, "yyyy-MM-dd"),
               };
-              const { data } = await api.mealplans.getAll(1, -1, { start_date: query.start_date, end_date: query.end_date
+              const { data } = await api.mealplans.getAll(1, -1, { start_date: query.start_date, end_date: query.end_date });
+              if (cancelled) return;
+
+              if (data) {
+                return data.items;
+              }
+              else {
+                return null;
+              }
     }
     catch (err) {
       if (!cancelled) console.error(err); // WF4-REVIEW: surface load errors (was useAsyncData)
@@ -83,14 +92,6 @@ export const useMealplans = function (range: DateRange /* WF4-REVIEW: was Ref */
   })();
   return () => { cancelled = true; };
 }, []); // WF4-REVIEW: deps + re-run trigger — confirm against auth-ready init flow
-
-        if (data) {
-          return data.items;
-        }
-        else {
-          return null;
-        }
-      });
 
       setLoading(false);
       return units;

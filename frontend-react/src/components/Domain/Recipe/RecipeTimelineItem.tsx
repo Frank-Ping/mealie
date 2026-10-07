@@ -36,14 +36,14 @@ export default function RecipeTimelineItem({ recipe = undefined, showRecipeCards
   const { user: currentUser } = useMealieAuth();
 
   const route = useLocation(); // WF4-REVIEW: .query → useSearchParams [J]
-  const groupSlug = useMemo(() => (route.params.groupSlug as string, []); // WF4-REVIEW: dependency array || currentUser??.groupSlug || "");
+  const groupSlug = useMemo(() => (route.params.groupSlug as string) || currentUser?.groupSlug || "", []); // WF4-REVIEW: dependency array
 
-  const useMobileFormat = computed(() => {
+  const useMobileFormat = useMemo(() => {
     return display.smAndDown;
-  });
+  }, []); // WF4-REVIEW: dependency array
 
-  const attrs = useMemo(() =>  {
-    if (useMobileFormat, []); // WF4-REVIEW: dependency array {
+  const attrs = useMemo(() => {
+    if (useMobileFormat) {
       return {
         class: "px-0",
         small: false,
@@ -71,35 +71,36 @@ export default function RecipeTimelineItem({ recipe = undefined, showRecipeCards
         },
       };
     }
-  });
+  }, []); // WF4-REVIEW: dependency array
 
-  const icon = useMemo(() =>  {
-    const option = eventTypeOptions.find(option => option === event.eventType, []); // WF4-REVIEW: dependency array
+  const icon = useMemo(() => {
+    const option = eventTypeOptions.find(option => option === event.eventType);
     return option ? option.icon : icons.informationVariant;
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   const [hideImage, setHideImage] = useState(false);
-  const eventImageUrl = useMemo(() =>  {
-    if (event.image !== "has image", []); // WF4-REVIEW: dependency array {
+  const eventImageUrl = useMemo(() => {
+    if (event.image !== "has image") {
       return "";
     }
 
     return recipeTimelineEventSmallImage(event.recipeId, event.id);
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   return (
     <>
   <TimelineItem className={attrs.class} fill-dot small={attrs.small} icon={icon} dot-color="primary">
     {(!useMobileFormat) ? (
-      <template>
+      /* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */
+      <>
         {(event.timestamp) ? (
           <Chip label large>
             {/* WF4-REVIEW: icon name resolves via lib/icons */}
-            <MdiIcon name={$globals.icons.calendar} className="mr-1" />
+            <MdiIcon name={icons.calendar} className="mr-1" />
             {$d(new Date(event.timestamp))}
           </Chip>
         ) : null}
-      </template>
+      </>
     ) : null}
     <Card hover to={$attrs.selected || !recipe ? undefined : `/g/${groupSlug}/r/${recipe.slug}`} className="elevation-12" onClick={onSelected?.()}>
       {/* WF4-REVIEW: title text moves to the title prop */}
@@ -114,7 +115,7 @@ export default function RecipeTimelineItem({ recipe = undefined, showRecipeCards
             <Grid align-self="center" className="pr-0">
               <Chip label>
                 {/* WF4-REVIEW: icon name resolves via lib/icons */}
-                <MdiIcon name={$globals.icons.calendar} />
+                <MdiIcon name={icons.calendar} />
                 {$d(new Date(event.timestamp || ""))}
               </Chip>
             </Grid>
@@ -127,7 +128,7 @@ export default function RecipeTimelineItem({ recipe = undefined, showRecipeCards
           {/* WF4-REVIEW: cols/sm/md/lg → size={{ xs, sm, md }} */}
           <Grid cols={useMobileFormat ? 'auto' : '1'} className="px-0 pt-0">
             {(currentUser && currentUser.id == event.userId && event.eventType != 'system') ? (
-              <RecipeTimelineContextMenu menu-top={false} event={event} menu-icon={$globals.icons.dotsVertical} color="transparent" elevation={0} card-menu={false} use-items={{
+              <RecipeTimelineContextMenu menu-top={false} event={event} menu-icon={icons.dotsVertical} color="transparent" elevation={0} card-menu={false} use-items={{
                 edit: true,
                 delete: true,
               }} onUpdate={onUpdate?.($event)} onDelete={onDelete?.()} />
@@ -159,7 +160,7 @@ export default function RecipeTimelineItem({ recipe = undefined, showRecipeCards
             ) : null}
             {(eventImageUrl) ? (
               /* WF4-REVIEW: cover → objectFit */
-              <Box component="img" src={eventImageUrl} min-height="50" height={hideImage ? undefined : 'auto'} max-height={attrs.image.maxHeight} contain className={attrs.image.class} onError={hideImage = true} />
+              <Box component="img" src={eventImageUrl} min-height="50" height={hideImage ? undefined : 'auto'} max-height={attrs.image.maxHeight} contain className={attrs.image.class} onError={() => setHideImage(true)} />
             ) : null}
             {(event.eventMessage) ? (
               <div className="break-word" className={useMobileFormat ? 'text-caption' : ''}>

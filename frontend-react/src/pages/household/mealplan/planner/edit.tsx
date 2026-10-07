@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { Avatar, Button, Card, Chip, Divider, List, ListItem, ListItemText } from "@mui/material";
+import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
 import { format } from "date-fns";
 import type { SortableEvent } from "sortablejs";
@@ -93,12 +94,13 @@ export default function Edit() {
     <>
   <div>
     {/* WF4-REVIEW: v-model on complex expression "dialog.open" [J] */}
-    <GroupMealPlanEntryDialog {/* WF4-REVIEW: v-model dialog.open */} entry={dialog.entry} date={dialog.date} onCreate={actions.createOne($event)} onUpdate={actions.updateOne($event)} />
+    <GroupMealPlanEntryDialog entry={dialog.entry} date={dialog.date} onCreate={actions.createOne($event)} onUpdate={actions.updateOne($event)} />
     <MealPlanLayout mealplans={mealplans}>
-      <template>
+      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+      <>
         <MealPlanDay day={day.date} recipes={day.recipes} actions={actions} inline-actions>
           {/* WF4-REVIEW: v-model on complex expression "mealplansByDate[plan.date.toString()]!" [J] */}
-          <VueDraggable {/* WF4-REVIEW: v-model mealplansByDate[plan.date.toString()]! */} tag="div" handle=".handle" delay={250} delay-on-touch-only={true} group="meals" data-index={index} data-box={plan.date} style="min-height: 150px" onEnd={onMoveCallback}>
+          <VueDraggable tag="div" handle=".handle" delay={250} delay-on-touch-only={true} group="meals" data-index={index} data-box={plan.date} style="min-height: 150px" onEnd={onMoveCallback}>
             <SpinTransition>
               {mealplansByDate[plan.date.toString()].map(mealplan => (
                 <Card key={mealplan.id} className="my-2 ml-4 mr-1" className={{ handle: $vuetify.display.smAndUp }}>
@@ -107,12 +109,13 @@ export default function Edit() {
                   ) : (
                     /* WF4-REVIEW: @click → ListItemButton */
                     <ListItem className="py-2" onClick={editMeal(mealplan)}>
-                      <template>
+                      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                      <>
                         <Avatar>
                           {/* WF4-REVIEW: icon name resolves via lib/icons */}
-                          <MdiIcon name={$globals.icons.primary} />
+                          <MdiIcon name={icons.primary} />
                         </Avatar>
-                      </template>
+                      </>
                       {/* WF4-REVIEW: content → primary prop */}
                       <ListItemText>
                         {mealplan.title}
@@ -129,17 +132,18 @@ export default function Edit() {
                   <div className="py-2 px-2 d-flex" style="align-items: center">
                     <Button size="small" icon variant="text" className={{ handle: !$vuetify.display.smAndUp }}>
                       {/* WF4-REVIEW: icon name resolves via lib/icons */}
-                      <MdiIcon name={$globals.icons.arrowUpDown} />
+                      <MdiIcon name={icons.arrowUpDown} />
                     </Button>
                     {/* WF4-REVIEW: unmapped <v-menu> — judgement component, convert manually [J] */}
                     <VMenu offset-y>
-                      <template>
+                      {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                      <>
                         <Chip {...(menuProps)} label variant="elevated" size="small" color="accent" onClick={(e) => { e.preventDefault(); ; }}>
                           {/* WF4-REVIEW: icon name resolves via lib/icons; dropped Vuetify-only prop "start" on <v-icon> */}
-                          <MdiIcon name={$globals.icons.tags} />
+                          <MdiIcon name={icons.tags} />
                           {getEntryTypeText(mealplan.entryType!)}
                         </Chip>
-                      </template>
+                      </>
                       <List>
                         {planTypeOptions.map(mealType => (
                           /* WF4-REVIEW: @click → ListItemButton */
@@ -155,12 +159,12 @@ export default function Edit() {
                     {(mealplan.recipe && mealplan.entryType) ? (
                       <Button className="ml-auto" size="small" variant="text" icon title={t('meal-plan.randomize-recipe')} onClick={randomizeMeal(mealplan)}>
                         {/* WF4-REVIEW: icon name resolves via lib/icons */}
-                        <MdiIcon name={$globals.icons.diceMultiple} />
+                        <MdiIcon name={icons.diceMultiple} />
                       </Button>
                     ) : null}
                     <Button className={{ 'ml-auto': !mealplan.recipe || !mealplan.entryType }} size="small" variant="text" icon onClick={actions.deleteOne(mealplan.id)}>
                       {/* WF4-REVIEW: icon name resolves via lib/icons */}
-                      <MdiIcon name={$globals.icons.delete} />
+                      <MdiIcon name={icons.delete} />
                     </Button>
                   </div>
                 </Card>
@@ -168,7 +172,7 @@ export default function Edit() {
             </SpinTransition>
           </VueDraggable>
         </MealPlanDay>
-      </template>
+      </>
     </MealPlanLayout>
   </div>
     </>

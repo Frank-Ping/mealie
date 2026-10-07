@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Button, Container, FormControlLabel, Grid, List, ListItem, ListItemText, Tooltip } from "@mui/material";
+import { icons } from "@/lib/icons";
 import MdiIcon from "@/components/MdiIcon";
 import { useOnline } from "@vueuse/core";
 import RecipeIngredientListItem from "../Recipe/RecipeIngredientListItem";
@@ -18,7 +19,7 @@ interface Props {
   edit?: boolean;
 }
 
-type actions = { text: string; event: string };
+type actions = { text: string;
 
 type SwipeGesture = null | "scroll" | "swipe";
 
@@ -37,7 +38,7 @@ export default function ShoppingListItem({ labels, units, foods, recipes = undef
   const SWIPE_THRESHOLD = 50;
 
   const { isRtl } = useRtl();
-  const swipeRowRef = ref<InstanceType<typeof import("vuetify/components").VRow> | null>(null);
+  const [swipeRowRef, setSwipeRowRef] = useState(null);
 
   /* WF4-REVIEW [J] */ onMounted(() => {
     const el = swipeRowRef?.$el as HTMLElement | undefined;
@@ -52,21 +53,21 @@ export default function ShoppingListItem({ labels, units, foods, recipes = undef
       { passive: false },
     );
   });
-  const i18n = useI18n();
+  const { i18n } = useTranslation();
   const [displayRecipeRefs, setDisplayRecipeRefs] = useState(false);
   const online = useOnline();
   const isOffline = useMemo(() => online === false, []); // WF4-REVIEW: dependency array
 
-
+   event: string };
   const [contextMenu, setContextMenu] = useState([
-    { text: i18n.t("general.edit"); as string, event: "edit" },
+    { text: i18n.t("general.edit") as string, event: "edit" },
     { text: i18n.t("general.delete") as string, event: "delete" },
   ]);
 
   // copy prop value so a refresh doesn't interrupt the user
-  const [localListItem, setLocalListItem] = useState(Object.assign({}, model););
+  const [localListItem, setLocalListItem] = useState(Object.assign({}, model));
 
-  /* WF4-REVIEW [J]: writable computed — split into state + handlers */ const listItem = computed<ShoppingListItemOut>({
+  /* WF4-REVIEW [J]: writable computed — split into state + handlers */ /* WF4-REVIEW [J]: writable computed — split into state + handlers */ const listItem = computed({
     get: () => model,
     set: (val: ShoppingListItemOut) => {
       setLocalListItem(val);
@@ -136,17 +137,17 @@ export default function ShoppingListItem({ labels, units, foods, recipes = undef
     resetSwipe();
   }
 
-  const swiping = useMemo(() =>  {
-    if (swipeInfo.gesture !== "swipe", []); // WF4-REVIEW: dependency array {
+  const swiping = useMemo(() => {
+    if (swipeInfo.gesture !== "swipe") {
       return 0;
     }
     const deltaX = isRtl
       ? swipeInfo.touchstartX - swipeInfo.touchendX
       : swipeInfo.touchendX - swipeInfo.touchstartX;
     return Math.max(0, Math.min(deltaX, 100));
-  });
+  }, []); // WF4-REVIEW: dependency array
 
-  const recipeList = computed<RecipeSummary[]>(() => {
+  const recipeList = useMemo(() => {
     const ret: RecipeSummary[] = [];
     if (!listItem.recipeReferences) return ret;
     listItem.recipeReferences.forEach((ref) => {
@@ -154,7 +155,7 @@ export default function ShoppingListItem({ labels, units, foods, recipes = undef
       if (recipe) ret.push(recipe);
     });
     return ret;
-  });
+  }, []); // WF4-REVIEW: dependency array
 
   return (
     <>
@@ -182,16 +183,18 @@ export default function ShoppingListItem({ labels, units, foods, recipes = undef
               <div style="min-width: 72px">
                 {/* WF4-REVIEW: unmapped <v-menu> — judgement component, convert manually [J] */}
                 <VMenu offset-x start min-width="125px">
-                  <template>
+                  {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                  <>
                     {(recipeList && recipeList.length) ? (
                       /* WF4-REVIEW: activator slot variants [J] */
                       <Tooltip open-delay="200" transition="slide-x-reverse-transition" density="compact" location="end" content-class="text-caption">
-                        <template>
-                          <Button size="small" variant="text" className="ml-2" icon {...(tooltipProps)} onClick={displayRecipeRefs = !displayRecipeRefs}>
+                        {/* WF4-REVIEW: <template> slot — convert to render props/children manually [J] */}
+                        <>
+                          <Button size="small" variant="text" className="ml-2" icon {...(tooltipProps)} onClick={() => setDisplayRecipeRefs(!displayRecipeRefs)}>
                             {/* WF4-REVIEW: icon name resolves via lib/icons */}
-                            <MdiIcon name={$globals.icons.silverwareForkKnife} />
+                            <MdiIcon name={icons.silverwareForkKnife} />
                           </Button>
-                        </template>
+                        </>
                         <span>
                           Toggle Recipes
                         </span>
@@ -199,13 +202,13 @@ export default function ShoppingListItem({ labels, units, foods, recipes = undef
                     ) : null}
                     <Button size="small" variant="text" className="ml-2" icon onClick={onEdit?.()}>
                       {/* WF4-REVIEW: icon name resolves via lib/icons */}
-                      <MdiIcon name={$globals.icons.edit} />
+                      <MdiIcon name={icons.edit} />
                     </Button>
                     <Button size="small" variant="text" className="handle" icon {...(hoverProps)}>
                       {/* WF4-REVIEW: icon name resolves via lib/icons */}
-                      <MdiIcon name={$globals.icons.arrowUpDown} />
+                      <MdiIcon name={icons.arrowUpDown} />
                     </Button>
-                  </template>
+                  </>
                   <List density="compact">
                     {contextMenu.map(action => (
                       /* WF4-REVIEW: @click → ListItemButton */

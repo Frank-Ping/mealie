@@ -94,10 +94,10 @@ export const componentMap = {
   "v-pagination": { name: "Pagination", model: { prop: "page", handler: "onChange" } },
 
   // --- transitions (MUI needs explicit `in`) ---
-  "v-expand-transition": { name: "Collapse", staticProps: { in: "{{true}}" }, note: "transition semantics" },
-  "v-fade-transition": { name: "Fade", staticProps: { in: "{{true}}" }, note: "transition semantics" },
-  "v-slide-x-transition": { name: "Slide", staticProps: { in: "{{true}}" }, note: "transition semantics" },
-  "v-scroll-x-transition": { name: "Slide", staticProps: { in: "{{true}}" }, note: "transition direction/appear semantics — MUI Slide needs explicit in" },
+  "v-expand-transition": { name: "Collapse", staticProps: { in: "{true}" }, note: "transition semantics" },
+  "v-fade-transition": { name: "Fade", staticProps: { in: "{true}" }, note: "transition semantics" },
+  "v-slide-x-transition": { name: "Slide", staticProps: { in: "{true}" }, note: "transition semantics" },
+  "v-scroll-x-transition": { name: "Slide", staticProps: { in: "{true}" }, note: "transition direction/appear semantics — MUI Slide needs explicit in" },
 
   // --- menus stay placeholder [J] on purpose: v-menu, v-data-table, v-stepper family,
   // --- v-virtual-scroll, v-hover, v-lazy, v-list-group, v-list-item-group, v-item-group,
