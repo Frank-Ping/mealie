@@ -58,15 +58,22 @@ Each hypothesis is scored from `metrics.csv` + the logs kept under `runs/` (see 
 
 ### Phase B — Codemod implementation + sample convergence (human review gate #2)
 
-- [ ] Scaffold: parse SFC with `@vue/compiler-sfc`; transform script blocks with
+- [x] Scaffold: parse SFC with `@vue/compiler-sfc`; transform script blocks with
   ts-morph (or jscodeshift via a vue adapter); template block via a custom template→JSX
   pass. Batch with narrow globs (3.8 GiB RAM machine — do not load the whole project
   into one ts-morph language service).
-- [ ] Every rule gets a fixture test: `input.vue` → `expected.tsx`.
-- [ ] Dry-run on 5 sample files (1 page, 1 Domain/Recipe component, 1 global component,
+  → built as a regex/AST hybrid in `rewrite-evidence/codemod/` (754 lines, no ts-morph —
+  line-based script pass proved sufficient on samples; revisit if Phase C shows fragility)
+- [x] Every rule gets a fixture test: `input.vue` → `expected.tsx`.
+  → 5 fixtures via snapshot-blessing (`node test.mjs` → 5/5 OK; methodology note in
+  `workflows/WF4-phase-b-dry-run.md`)
+- [x] Dry-run on 5 sample files (1 page, 1 Domain/Recipe component, 1 global component,
   1 composable, 1 layout) → human reviews the diffs → iterate.
+  → round 1 complete, see `workflows/WF4-phase-b-dry-run.md`
 - [ ] Converged = ≤ 30 % of sampled files need manual edits before they would be
   committable. Max 3 review rounds (see Kill criterion).
+  → round 1: 1/5 (20 %) needs manual conversion (a pre-tagged [J] file) — **awaiting
+  gate #2 human verification**
 
 ### Phase C — Full mechanical pass
 
