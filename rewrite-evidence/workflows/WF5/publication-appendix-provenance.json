@@ -1,0 +1,16 @@
+{
+  "source_evidence_commit": "27c181dcba779f4dfbb00ac77a91117a8128d326",
+  "purpose": "English reporting appendix with immutable GitHub citations; no experiment tests rerun.",
+  "files": {
+    "WF5_Evidence_Appendix_EN.pdf": "20f3835c1b17fb1cd3ee9a922a51ff29b852f9cdbc01e5e36fdb8aa6657206c1",
+    "WF5_English_Evidence_Appendix.md": "6e8e36d251af0d49238b645b055e90a832ffa2d97c5e96061da5f5529afb45a0"
+  },
+  "language": "English",
+  "historical_endpoint": "8b0fae128ea823ebee4a6507d274df1f8987e8d1",
+  "pdf_visual_review": {
+    "pages": 4,
+    "all_pages_inspected": true,
+    "clipping_overlap_missing_glyphs": false
+  },
+  "pdf_sha256": "20f3835c1b17fb1cd3ee9a922a51ff29b852f9cdbc01e5e36fdb8aa6657206c1"
+}

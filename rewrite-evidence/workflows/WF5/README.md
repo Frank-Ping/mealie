@@ -6,6 +6,8 @@ The naming and evidence publication took place on 14 October 2026. Original comm
 
 ## Evidence index
 
+For reporting, use the [English PDF appendix with fixed GitHub citations](WF5_Evidence_Appendix_EN.pdf), its [editable English text](WF5_English_Evidence_Appendix.md), or the [machine-readable link index](GitHub_Evidence_Links.json). All citations are pinned to the evidence publication commit, preserving their meaning if the branch changes.
+
 | ID | Evidence | What it supports |
 | --- | --- | --- |
 | E1 | [Frozen source](https://github.com/Frank-Ping/mealie/commit/4b9ca06b6581f7152e164ea0fd9d4da366975a79), [baseline summary](evidence/baseline/BASELINE.md), [saved reports](evidence/baseline/raw-reports/) | Original Vue builds; 517 unit tests pass, 66/66 routes and 15/15 flows pass; 314 existing type diagnostics |

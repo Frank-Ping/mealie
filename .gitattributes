@@ -9,3 +9,4 @@ rewrite-evidence/workflows/WF5-B/** -text
 rewrite-evidence/workflows/WF5-*.md -text
 frontend-react/src/generated/** -text
 frontend-react/pnpm-lock.yaml -text
+rewrite-evidence/workflows/WF5/*.pdf binary
