@@ -1,0 +1,1 @@
+<template><button @click="(event) => handle(event)">Click</button></template><script setup lang="ts">interface Props {} const props=defineProps<Props>(); function handle(event: MouseEvent) { return event.type; }</script>

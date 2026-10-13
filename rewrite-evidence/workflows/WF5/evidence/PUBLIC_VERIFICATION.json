@@ -1,0 +1,25 @@
+{
+  "scope": "Publication preparation verification; historical tests not rerun",
+  "status": "pass",
+  "manifest_files_verified": 105,
+  "structured_records_checked": 432,
+  "visible_records": {
+    "A": 42,
+    "B": 101
+  },
+  "saved_evidence_invariants": {
+    "formal_phase_sum": true,
+    "formal_sealed_total": true,
+    "tracked_setup_plus_formal": true,
+    "audit_total": true,
+    "audit_bookkeeping_separate": true,
+    "original_chat_post_stop_separate": true,
+    "six_final_commands_pass": true,
+    "target_36_units_pass": true,
+    "target_20_rule_checks": true,
+    "audit_19_fault_controls": true,
+    "audit_16_probes_14_pass_2_fail": true
+  },
+  "distributed_checksums_verified": null,
+  "issues": []
+}

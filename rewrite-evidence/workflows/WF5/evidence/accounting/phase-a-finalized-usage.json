@@ -1,0 +1,66 @@
+{
+  "phase": "A",
+  "usage": {
+    "input_tokens": 2332216,
+    "cached_input_tokens": 1987328,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 29302,
+    "reasoning_output_tokens": 7401,
+    "total_tokens": 2361518
+  },
+  "raw_start": {
+    "timestamp": "2026-10-13T09:35:47.694Z",
+    "ordinal": 870,
+    "type": "event_msg",
+    "payload": {
+      "type": "token_count",
+      "info": {
+        "total_token_usage": {
+          "input_tokens": 12612999,
+          "cached_input_tokens": 12176384,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 85907,
+          "reasoning_output_tokens": 47117,
+          "total_tokens": 12698906
+        },
+        "last_token_usage": {
+          "input_tokens": 262118,
+          "cached_input_tokens": 260096,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 280,
+          "reasoning_output_tokens": 0,
+          "total_tokens": 262398
+        },
+        "model_context_window": 475000
+      }
+    }
+  },
+  "raw_end": {
+    "timestamp": "2026-10-13T09:59:36.355Z",
+    "ordinal": 1055,
+    "type": "event_msg",
+    "payload": {
+      "type": "token_count",
+      "info": {
+        "total_token_usage": {
+          "input_tokens": 14945215,
+          "cached_input_tokens": 14163712,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 115209,
+          "reasoning_output_tokens": 54518,
+          "total_tokens": 15060424
+        },
+        "last_token_usage": {
+          "input_tokens": 78554,
+          "cached_input_tokens": 77056,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 663,
+          "reasoning_output_tokens": 132,
+          "total_tokens": 79217
+        },
+        "model_context_window": 475000
+      }
+    }
+  },
+  "note": "Replaces provisional snapshot for Phase A only; do not add both."
+}

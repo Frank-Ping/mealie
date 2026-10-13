@@ -1,0 +1,18 @@
+{
+  "command": [
+    "<RUNTIME>/node\\bin\\node.exe",
+    "node_modules/vitest/vitest.mjs",
+    "run",
+    "tests/review-infra.test.tsx",
+    "tests/review-samples.test.tsx",
+    "--reporter=verbose",
+    "--reporter=json",
+    "--outputFile.json=<WORKSPACE>/wf4-r2-evidence\\gate2-independent-review\\20261013T111104Z\\probe-results.json"
+  ],
+  "cwd": "<EXECUTION_COPY>/frontend-react",
+  "startUtc": "2026-10-13T11:21:14.417Z",
+  "endUtc": "2026-10-13T11:21:17.353Z",
+  "seconds": 2.936,
+  "exitCode": 1,
+  "log": "probes.log"
+}

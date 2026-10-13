@@ -1,0 +1,4 @@
+<send_user_message_question_reply>
+[{"questionItemId":"[\"request_user_input_async\",\"call_eb69e3a6222547e48aa28bc38a6df44f\",0]","question":"总 token 上限应填写多少？请给出整数，并说明它是 WF4-R2 全流程累计上限（包含已完成的 Phase A），还是从 Phase B 开始的新增预算。统计口径为 input + output，缓存输入已包含在 input 中。","answer":"无上限，只需要记录使用量"}]
+</send_user_message_question_reply>
+

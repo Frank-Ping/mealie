@@ -7,7 +7,7 @@ import { sampleTheme } from "./infra/ui";
 import "./infra/utilities.css";
 
 function Samples() {
-  return <main><h1>WF4-R2 sample harness</h1><p>This checks generated components, not a migrated Mealie application.</p>
+  return <main><h1>WF5 sample harness</h1><p>This checks generated components, not a migrated Mealie application.</p>
     <RecipeChips items={[{ name: "Recipes", id: "sample-category", slug: "recipes" }]} />
     <Link to="/checks">Checks</Link></main>;
 }

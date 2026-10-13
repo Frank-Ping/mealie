@@ -1,0 +1,901 @@
+{
+  "generatedAtUtc": "2026-10-13T11:19:27.470Z",
+  "scriptSha256": "e880aa6fe4c6ac6927c7d7b76923994b6e1956a04e511d6a6054c048eab158c6",
+  "node": "v24.19.0",
+  "scope": "Independent read-only Git, file-byte, archive, manifest and existing-record inspection. No test run, regeneration, source edit, historical record edit or migration implementation.",
+  "methods": {
+    "file": "SHA256 of exact bytes via Node crypto/fs.readFileSync; no line-ending normalization.",
+    "gitBlob": "SHA1 of ASCII blob <byte length> NUL followed by content bytes; actual symlinks use readlink target bytes; Windows regular-file representation of mode 120000 uses its stored link-target bytes.",
+    "tar": "Read 512-byte TAR headers without extraction; respect PAX path/linkpath, SHA256 regular-file content, separately record symlink target metadata.",
+    "expectInventory": "Read-only TypeScript 5.9.3 AST traversal counts direct expect(...) calls; no tests executed.",
+    "preservation": "All paths from root canonical-before.json are SHA256-compared after this review; output writes remain in the independent-review directory."
+  },
+  "paths": {
+    "canonical": "<WORKSPACE>/mealie-wf4-rerun",
+    "evaluator": "<WORKSPACE>/mealie-wf4-evaluator",
+    "historical": "<WORKSPACE>/wf4-r2-evidence\\workflow-sessions\\phase-b",
+    "audit": "<WORKSPACE>/wf4-r2-evidence\\gate2-independent-review\\20261013T111104Z"
+  },
+  "canonical": {
+    "head": "8b0fae128ea823ebee4a6507d274df1f8987e8d1",
+    "status": "",
+    "trackedCount": 1805,
+    "treeCount": 1805,
+    "blobCheck": {
+      "checked": 1805,
+      "mismatches": [],
+      "symlinks": [
+        {
+          "mode": "120000",
+          "type": "blob",
+          "oid": "47dc3e3d863cfb5727b87d785d09abf9743c0a72",
+          "path": "CLAUDE.md",
+          "checkoutKind": "regular-file",
+          "sha256": "a54ff182c7e8acf56acfd6e4b9c3ff41e2c41a31c9b211b2deb9df75d9a478f9",
+          "byteLength": 9
+        }
+      ]
+    },
+    "originalSourceCommit": "4b9ca06b6581f7152e164ea0fd9d4da366975a79",
+    "originalFrontendBackendDiff": []
+  },
+  "evaluator": {
+    "head": "758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d",
+    "expectedHead": "758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d",
+    "headMatches": true,
+    "status": "",
+    "trackedCount": 1789,
+    "blobCheck": {
+      "checked": 1789,
+      "mismatches": [],
+      "symlinks": [
+        {
+          "mode": "120000",
+          "type": "blob",
+          "oid": "47dc3e3d863cfb5727b87d785d09abf9743c0a72",
+          "path": "CLAUDE.md",
+          "checkoutKind": "symbolic-link",
+          "sha256": "a54ff182c7e8acf56acfd6e4b9c3ff41e2c41a31c9b211b2deb9df75d9a478f9",
+          "byteLength": 9
+        }
+      ]
+    }
+  },
+  "checkpoint": {
+    "commit": "b57453838ef770a32188159350d5f9971f8b94e1",
+    "recordedRegularCount": 1804,
+    "indexTrackedCount": 1805,
+    "omittedTrackedPaths": [
+      "CLAUDE.md"
+    ],
+    "allRecordedPathsAreTracked": true,
+    "archiveSha256": "1fb0c42e0e12fe191be19ab4bec6489787d48e03feb7e625393ab4d4f4dd1ef5",
+    "archiveExpectedSha256": "1fb0c42e0e12fe191be19ab4bec6489787d48e03feb7e625393ab4d4f4dd1ef5",
+    "archiveShaMatches": true,
+    "archiveRegularCount": 1804,
+    "archiveSymlinks": [
+      {
+        "path": "CLAUDE.md",
+        "target": "AGENTS.md"
+      }
+    ],
+    "archiveOtherTypes": [],
+    "archiveContentMismatches": [],
+    "archiveUnrecordedRegular": [],
+    "currentFileMismatches": [
+      {
+        "path": "rewrite-evidence/workflows/WF4-R2-B/gate-2-verdict.json",
+        "expected": "11fdad2d3406d5f3407ef00c5389e21991da38c0f69570e483598eaa8580a06c",
+        "actual": "479ae52a74829b8daaa847997977cfe697cf5a08f71b3cb8bf2efa8381d67106",
+        "matches": false
+      },
+      {
+        "path": "rewrite-evidence/workflows/WF4-R2-Gate-2-review.md",
+        "expected": "ce7e1561db82119ecc072491d410d57e5885c70873ef07c7fd3158a1143f8dd2",
+        "actual": "f46562f5b7ec139c9893b8bbedf995d385e60cef1009214219a309d9c92b0f37",
+        "matches": false
+      },
+      {
+        "path": "rewrite-evidence/workflows/WF4-R2-state.md",
+        "expected": "ee41a83f67961280bee710bd9fb2a7b5cbdad57f4c253ad5e80fddacf594c820",
+        "actual": "a90a39f16d6f85a9968b4c712228ccae26628e2f0f152eb0fb313ec32ad145d9",
+        "matches": false
+      }
+    ],
+    "checkpointToHeadPaths": [
+      "rewrite-evidence/workflows/WF4-R2-B/gate-2-verdict.json",
+      "rewrite-evidence/workflows/WF4-R2-Gate-2-review.md",
+      "rewrite-evidence/workflows/WF4-R2-state.md"
+    ],
+    "scopeCorrection": "The historical trackedHashes map covers 1804 ordinary archive files, not all 1805 Git tracked entries. save_checkpoint.py filters member.isfile(), omitting the CLAUDE.md mode-120000 symlink. check_snapshot.sh only verifies the stored map. This independent review separately verifies CLAUDE.md Git blob/link-target preservation."
+  },
+  "selectedArtifact": {
+    "id": "round-3/revision-4",
+    "manifestSha256": "d04ba9ff1a7f4879cbbb550ea23aea1fc6e36a8126f5bc298e6e565243a38c4c",
+    "sourceCommit": "4b9ca06b6581f7152e164ea0fd9d4da366975a79",
+    "canonicalParent": "63e239bb35fab4b53fc8d913b284dfa43edec5a9",
+    "toolChecks": [
+      {
+        "path": "convert.mjs",
+        "expected": "e5ceea5b107cfe90024376325226385a55b8232020837ad779cfbe29ab7b1419",
+        "actual": "e5ceea5b107cfe90024376325226385a55b8232020837ad779cfbe29ab7b1419",
+        "matches": true
+      },
+      {
+        "path": "run.mjs",
+        "expected": "6556b36f42699c894a3bb6a255ab862c6a0f3264bb85aaf27399e55577876ee2",
+        "actual": "6556b36f42699c894a3bb6a255ab862c6a0f3264bb85aaf27399e55577876ee2",
+        "matches": true
+      },
+      {
+        "path": "manifest.json",
+        "expected": "870ee7f7d22f855210f12807874a93b3006c87d465aaaef9f4281f3aef96700a",
+        "actual": "870ee7f7d22f855210f12807874a93b3006c87d465aaaef9f4281f3aef96700a",
+        "matches": true
+      },
+      {
+        "path": "test.mjs",
+        "expected": "bd7f7f1733094ba841cfccfceb114d92084f6551cab8c0adfef1d983cb0fccdc",
+        "actual": "bd7f7f1733094ba841cfccfceb114d92084f6551cab8c0adfef1d983cb0fccdc",
+        "matches": true
+      },
+      {
+        "path": "fixtures/cases.json",
+        "expected": "19e39c4e68d411d4648d04da75222eecdd977660927f743f6dc1c98c10d58f5a",
+        "actual": "19e39c4e68d411d4648d04da75222eecdd977660927f743f6dc1c98c10d58f5a",
+        "matches": true
+      }
+    ],
+    "infraChecks": [
+      {
+        "path": "frontend-react/src/infra/guards.tsx",
+        "expected": "7eff972e1069c2bc084d0fcbe1dfddf0bb36591d0de1ab589a1368c5b66fc839",
+        "actual": "7eff972e1069c2bc084d0fcbe1dfddf0bb36591d0de1ab589a1368c5b66fc839",
+        "matches": true
+      },
+      {
+        "path": "frontend-react/src/infra/i18n.ts",
+        "expected": "27f88e68ab815d97a628f40db208f53b002afdab063b07e666810ce4060dd5cf",
+        "actual": "27f88e68ab815d97a628f40db208f53b002afdab063b07e666810ce4060dd5cf",
+        "matches": true
+      },
+      {
+        "path": "frontend-react/src/infra/props.ts",
+        "expected": "d32291c1d73c0ac84c3b1ce48cdfa6d0fdb272446b8aea1ff5331727ccd0f9ea",
+        "actual": "d32291c1d73c0ac84c3b1ce48cdfa6d0fdb272446b8aea1ff5331727ccd0f9ea",
+        "matches": true
+      },
+      {
+        "path": "frontend-react/src/infra/services.tsx",
+        "expected": "8e9706e19148ed586a03398885b35ecd6d152e2117181409f14f87c0ed414ebe",
+        "actual": "8e9706e19148ed586a03398885b35ecd6d152e2117181409f14f87c0ed414ebe",
+        "matches": true
+      },
+      {
+        "path": "frontend-react/src/infra/store.ts",
+        "expected": "d35c6cf43d28e025633ab781dd78a841ec6d2cba6f3db6cfde70fb50eb516cb0",
+        "actual": "d35c6cf43d28e025633ab781dd78a841ec6d2cba6f3db6cfde70fb50eb516cb0",
+        "matches": true
+      },
+      {
+        "path": "frontend-react/src/infra/ui.tsx",
+        "expected": "bc6c12798ea83040f8f95b7b1fba63fa906c7e6cbf462f561ceb43fb5685cd00",
+        "actual": "bc6c12798ea83040f8f95b7b1fba63fa906c7e6cbf462f561ceb43fb5685cd00",
+        "matches": true
+      },
+      {
+        "path": "frontend-react/src/infra/utilities.css",
+        "expected": "759edd788596f8c9381438d9e1e347ae04ad3293c770840bf6cabdec1c459737",
+        "actual": "759edd788596f8c9381438d9e1e347ae04ad3293c770840bf6cabdec1c459737",
+        "matches": true
+      }
+    ],
+    "sourceChecks": [
+      {
+        "path": "frontend/app/pages/index.vue",
+        "expected": "606ca6c768505191538eb7216aeddb17578ab042778a26e0382ecf66a8227383",
+        "actual": "606ca6c768505191538eb7216aeddb17578ab042778a26e0382ecf66a8227383",
+        "matches": true
+      },
+      {
+        "path": "frontend/app/components/Domain/Recipe/RecipeChips.vue",
+        "expected": "e676cdb35c7ba9c4ffbb59f221c6ba1a58c9b3212e14f3927dfb56502bf2ab59",
+        "actual": "e676cdb35c7ba9c4ffbb59f221c6ba1a58c9b3212e14f3927dfb56502bf2ab59",
+        "matches": true
+      },
+      {
+        "path": "frontend/app/components/global/BaseButton.vue",
+        "expected": "45ee16a430b73399ec6c3633729341502acaddbc89be9ef1a0f375f8fa6bc4c4",
+        "actual": "45ee16a430b73399ec6c3633729341502acaddbc89be9ef1a0f375f8fa6bc4c4",
+        "matches": true
+      },
+      {
+        "path": "frontend/app/composables/store/use-food-store.ts",
+        "expected": "fbeeab94dfa015807fab444a81844ef5843ae86937be26e7502f2479ecf099ed",
+        "actual": "fbeeab94dfa015807fab444a81844ef5843ae86937be26e7502f2479ecf099ed",
+        "matches": true
+      },
+      {
+        "path": "frontend/app/layouts/default.vue",
+        "expected": "836323b0b26df562d9f119132d66b6c09baa3156681bcb122be655efca5560cf",
+        "actual": "836323b0b26df562d9f119132d66b6c09baa3156681bcb122be655efca5560cf",
+        "matches": true
+      }
+    ],
+    "artifactChecks": [
+      {
+        "label": "pure",
+        "file": "RecipeChips.tsx",
+        "expected": "ddb7bf9de84cf7905ce283c522760172d53671c2cdbbba2109ee299504fa617c",
+        "actual": "ddb7bf9de84cf7905ce283c522760172d53671c2cdbbba2109ee299504fa617c",
+        "matches": true
+      },
+      {
+        "label": "refined",
+        "file": "RecipeChips.tsx",
+        "expected": "ddb7bf9de84cf7905ce283c522760172d53671c2cdbbba2109ee299504fa617c",
+        "actual": "ddb7bf9de84cf7905ce283c522760172d53671c2cdbbba2109ee299504fa617c",
+        "matches": true
+      },
+      {
+        "label": "published",
+        "file": "RecipeChips.tsx",
+        "expected": "ddb7bf9de84cf7905ce283c522760172d53671c2cdbbba2109ee299504fa617c",
+        "actual": "ddb7bf9de84cf7905ce283c522760172d53671c2cdbbba2109ee299504fa617c",
+        "matches": true
+      },
+      {
+        "label": "pure",
+        "file": "BaseButton.tsx",
+        "expected": "3b551ab7ccb18dcc7e79e06de4c977c7eb6573dc67e9920a2e0866f30b1dbe71",
+        "actual": "3b551ab7ccb18dcc7e79e06de4c977c7eb6573dc67e9920a2e0866f30b1dbe71",
+        "matches": true
+      },
+      {
+        "label": "refined",
+        "file": "BaseButton.tsx",
+        "expected": "3b551ab7ccb18dcc7e79e06de4c977c7eb6573dc67e9920a2e0866f30b1dbe71",
+        "actual": "3b551ab7ccb18dcc7e79e06de4c977c7eb6573dc67e9920a2e0866f30b1dbe71",
+        "matches": true
+      },
+      {
+        "label": "published",
+        "file": "BaseButton.tsx",
+        "expected": "3b551ab7ccb18dcc7e79e06de4c977c7eb6573dc67e9920a2e0866f30b1dbe71",
+        "actual": "3b551ab7ccb18dcc7e79e06de4c977c7eb6573dc67e9920a2e0866f30b1dbe71",
+        "matches": true
+      }
+    ],
+    "lock": {
+      "expected": "d25172f55cf0726ed8d5c4c998f1eba11698e6d1b0519f264df0a36e70ce3e38",
+      "actual": "d25172f55cf0726ed8d5c4c998f1eba11698e6d1b0519f264df0a36e70ce3e38",
+      "matches": true
+    },
+    "refinementManifest": {
+      "operations": [],
+      "note": "No semantic refinements applied; blocked samples absent, not fabricated. Same generated bytes as pure."
+    },
+    "samples": [
+      {
+        "id": "page",
+        "syntax": "not generated",
+        "semantic": "pending review",
+        "dependencyClosure": "blocked"
+      },
+      {
+        "id": "domain",
+        "syntax": "pass",
+        "semantic": "pending review",
+        "dependencyClosure": "local helper closure only"
+      },
+      {
+        "id": "common",
+        "syntax": "pass",
+        "semantic": "pending review",
+        "dependencyClosure": "blocked: UserApi transport and theme equivalence pending"
+      },
+      {
+        "id": "composable",
+        "syntax": "not generated",
+        "semantic": "pending review",
+        "dependencyClosure": "blocked"
+      },
+      {
+        "id": "layout",
+        "syntax": "not generated",
+        "semantic": "pending review",
+        "dependencyClosure": "blocked"
+      }
+    ]
+  },
+  "historicalOutputs": [
+    {
+      "path": "rewrite-evidence\\workflows\\WF4-R2-artifacts\\round-1\\pure",
+      "sourceCommit": "4b9ca06b6581f7152e164ea0fd9d4da366975a79",
+      "canonicalHead": null,
+      "hasToolHashes": false,
+      "hasInfraHashes": false,
+      "sampleCount": 5,
+      "checks": [
+        {
+          "path": "RecipeChips.tsx",
+          "expected": "ae7a3292228ae5710b2e2cd74d30742d7df13ce6c64fdd83effc9b63ac92eeae",
+          "actual": "ae7a3292228ae5710b2e2cd74d30742d7df13ce6c64fdd83effc9b63ac92eeae",
+          "matches": true
+        },
+        {
+          "path": "BaseButton.tsx",
+          "expected": "676826a9a9deec4eedadf6a58f51edab7a6c5547b9db0a92ba7900269d155580",
+          "actual": "676826a9a9deec4eedadf6a58f51edab7a6c5547b9db0a92ba7900269d155580",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "path": "rewrite-evidence\\workflows\\WF4-R2-artifacts\\round-2\\pure",
+      "sourceCommit": "4b9ca06b6581f7152e164ea0fd9d4da366975a79",
+      "canonicalHead": null,
+      "hasToolHashes": false,
+      "hasInfraHashes": false,
+      "sampleCount": 5,
+      "checks": [
+        {
+          "path": "RecipeChips.tsx",
+          "expected": "e165e5284e099e2eba84eb2437607728ee9ebcee9f38aae47a9b3e75d77e9e0b",
+          "actual": "e165e5284e099e2eba84eb2437607728ee9ebcee9f38aae47a9b3e75d77e9e0b",
+          "matches": true
+        },
+        {
+          "path": "BaseButton.tsx",
+          "expected": "676826a9a9deec4eedadf6a58f51edab7a6c5547b9db0a92ba7900269d155580",
+          "actual": "676826a9a9deec4eedadf6a58f51edab7a6c5547b9db0a92ba7900269d155580",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "path": "rewrite-evidence\\workflows\\WF4-R2-artifacts\\round-3\\pure",
+      "sourceCommit": "4b9ca06b6581f7152e164ea0fd9d4da366975a79",
+      "canonicalHead": "2176881a9810633a8de7753456dbd63ee44b27c6",
+      "hasToolHashes": true,
+      "hasInfraHashes": true,
+      "sampleCount": 5,
+      "checks": [
+        {
+          "path": "RecipeChips.tsx",
+          "expected": "cc2787de7de015cdc0cb9830dd4d980411b76eea75c7dcda45c5760439146e84",
+          "actual": "cc2787de7de015cdc0cb9830dd4d980411b76eea75c7dcda45c5760439146e84",
+          "matches": true
+        },
+        {
+          "path": "BaseButton.tsx",
+          "expected": "ec794f0ba05ef80c0507bc6219117a04fd7d94befd74ed1f987c1c66f4721688",
+          "actual": "ec794f0ba05ef80c0507bc6219117a04fd7d94befd74ed1f987c1c66f4721688",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "path": "rewrite-evidence\\workflows\\WF4-R2-artifacts\\round-3\\revision-2\\pure",
+      "sourceCommit": "4b9ca06b6581f7152e164ea0fd9d4da366975a79",
+      "canonicalHead": "2176881a9810633a8de7753456dbd63ee44b27c6",
+      "hasToolHashes": true,
+      "hasInfraHashes": true,
+      "sampleCount": 5,
+      "checks": [
+        {
+          "path": "RecipeChips.tsx",
+          "expected": "ddb7bf9de84cf7905ce283c522760172d53671c2cdbbba2109ee299504fa617c",
+          "actual": "ddb7bf9de84cf7905ce283c522760172d53671c2cdbbba2109ee299504fa617c",
+          "matches": true
+        },
+        {
+          "path": "BaseButton.tsx",
+          "expected": "3b551ab7ccb18dcc7e79e06de4c977c7eb6573dc67e9920a2e0866f30b1dbe71",
+          "actual": "3b551ab7ccb18dcc7e79e06de4c977c7eb6573dc67e9920a2e0866f30b1dbe71",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "path": "rewrite-evidence\\workflows\\WF4-R2-artifacts\\round-3\\revision-3\\pure",
+      "sourceCommit": "4b9ca06b6581f7152e164ea0fd9d4da366975a79",
+      "canonicalHead": "2176881a9810633a8de7753456dbd63ee44b27c6",
+      "hasToolHashes": true,
+      "hasInfraHashes": true,
+      "sampleCount": 5,
+      "checks": [
+        {
+          "path": "RecipeChips.tsx",
+          "expected": "ddb7bf9de84cf7905ce283c522760172d53671c2cdbbba2109ee299504fa617c",
+          "actual": "ddb7bf9de84cf7905ce283c522760172d53671c2cdbbba2109ee299504fa617c",
+          "matches": true
+        },
+        {
+          "path": "BaseButton.tsx",
+          "expected": "cf60dc80c536069157040789754be2b77b9218c929068675698c8c3e3ff9e388",
+          "actual": "cf60dc80c536069157040789754be2b77b9218c929068675698c8c3e3ff9e388",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "path": "rewrite-evidence\\workflows\\WF4-R2-artifacts\\round-3\\revision-4\\pure",
+      "sourceCommit": "4b9ca06b6581f7152e164ea0fd9d4da366975a79",
+      "canonicalHead": "63e239bb35fab4b53fc8d913b284dfa43edec5a9",
+      "hasToolHashes": true,
+      "hasInfraHashes": true,
+      "sampleCount": 5,
+      "checks": [
+        {
+          "path": "RecipeChips.tsx",
+          "expected": "ddb7bf9de84cf7905ce283c522760172d53671c2cdbbba2109ee299504fa617c",
+          "actual": "ddb7bf9de84cf7905ce283c522760172d53671c2cdbbba2109ee299504fa617c",
+          "matches": true
+        },
+        {
+          "path": "BaseButton.tsx",
+          "expected": "3b551ab7ccb18dcc7e79e06de4c977c7eb6573dc67e9920a2e0866f30b1dbe71",
+          "actual": "3b551ab7ccb18dcc7e79e06de4c977c7eb6573dc67e9920a2e0866f30b1dbe71",
+          "matches": true
+        }
+      ]
+    }
+  ],
+  "reuse": {
+    "count": 16,
+    "mismatches": []
+  },
+  "sourceAssertions": {
+    "inventoryFiles": 48,
+    "actualTestFiles": 48,
+    "inventoryMissingSourcePaths": [],
+    "recordedExpectSubjects": 817,
+    "actualAstExpectCalls": 817,
+    "astMismatches": [],
+    "fileHashMismatches": []
+  },
+  "rounds": [
+    {
+      "file": "round-1-results.json",
+      "samples": [
+        {
+          "id": "page",
+          "syntax": "not generated",
+          "semantic": "pending review",
+          "dependencyClosure": "blocked",
+          "diagnosticCount": 1
+        },
+        {
+          "id": "domain",
+          "syntax": "pass",
+          "semantic": "pending review",
+          "dependencyClosure": "local helper closure only",
+          "diagnosticCount": 0
+        },
+        {
+          "id": "common",
+          "syntax": "pass",
+          "semantic": "pending review",
+          "dependencyClosure": "blocked: UserApi transport and theme equivalence pending",
+          "diagnosticCount": 0
+        },
+        {
+          "id": "composable",
+          "syntax": "not generated",
+          "semantic": "pending review",
+          "dependencyClosure": "blocked",
+          "diagnosticCount": 1
+        },
+        {
+          "id": "layout",
+          "syntax": "not generated",
+          "semantic": "pending review",
+          "dependencyClosure": "blocked",
+          "diagnosticCount": 1
+        }
+      ]
+    },
+    {
+      "file": "round-2-results.json",
+      "samples": [
+        {
+          "id": "page",
+          "syntax": "not generated",
+          "semantic": "pending review",
+          "dependencyClosure": "blocked",
+          "diagnosticCount": 1
+        },
+        {
+          "id": "domain",
+          "syntax": "pass",
+          "semantic": "pending review",
+          "dependencyClosure": "local helper closure only",
+          "diagnosticCount": 0
+        },
+        {
+          "id": "common",
+          "syntax": "pass",
+          "semantic": "pending review",
+          "dependencyClosure": "blocked: UserApi transport and theme equivalence pending",
+          "diagnosticCount": 0
+        },
+        {
+          "id": "composable",
+          "syntax": "not generated",
+          "semantic": "pending review",
+          "dependencyClosure": "blocked",
+          "diagnosticCount": 1
+        },
+        {
+          "id": "layout",
+          "syntax": "not generated",
+          "semantic": "pending review",
+          "dependencyClosure": "blocked",
+          "diagnosticCount": 1
+        }
+      ]
+    },
+    {
+      "file": "round-3-results.json",
+      "samples": [
+        {
+          "id": "page",
+          "syntax": "not generated",
+          "semantic": "pending review",
+          "dependencyClosure": "blocked",
+          "diagnosticCount": 1
+        },
+        {
+          "id": "domain",
+          "syntax": "pass",
+          "semantic": "pending review",
+          "dependencyClosure": "local helper closure only",
+          "diagnosticCount": 0
+        },
+        {
+          "id": "common",
+          "syntax": "pass",
+          "semantic": "pending review",
+          "dependencyClosure": "blocked: UserApi transport and theme equivalence pending",
+          "diagnosticCount": 0
+        },
+        {
+          "id": "composable",
+          "syntax": "not generated",
+          "semantic": "pending review",
+          "dependencyClosure": "blocked",
+          "diagnosticCount": 1
+        },
+        {
+          "id": "layout",
+          "syntax": "not generated",
+          "semantic": "pending review",
+          "dependencyClosure": "blocked",
+          "diagnosticCount": 1
+        }
+      ]
+    },
+    {
+      "file": "round-3-revision-2-results.json",
+      "samples": [
+        {
+          "id": "page",
+          "syntax": "not generated",
+          "semantic": "pending review",
+          "dependencyClosure": "blocked",
+          "diagnosticCount": 1
+        },
+        {
+          "id": "domain",
+          "syntax": "pass",
+          "semantic": "pending review",
+          "dependencyClosure": "local helper closure only",
+          "diagnosticCount": 0
+        },
+        {
+          "id": "common",
+          "syntax": "pass",
+          "semantic": "pending review",
+          "dependencyClosure": "blocked: UserApi transport and theme equivalence pending",
+          "diagnosticCount": 0
+        },
+        {
+          "id": "composable",
+          "syntax": "not generated",
+          "semantic": "pending review",
+          "dependencyClosure": "blocked",
+          "diagnosticCount": 1
+        },
+        {
+          "id": "layout",
+          "syntax": "not generated",
+          "semantic": "pending review",
+          "dependencyClosure": "blocked",
+          "diagnosticCount": 1
+        }
+      ]
+    },
+    {
+      "file": "round-3-revision-3-results.json",
+      "samples": [
+        {
+          "id": "page",
+          "syntax": "not generated",
+          "semantic": "pending review",
+          "dependencyClosure": "blocked",
+          "diagnosticCount": 1
+        },
+        {
+          "id": "domain",
+          "syntax": "pass",
+          "semantic": "pending review",
+          "dependencyClosure": "local helper closure only",
+          "diagnosticCount": 0
+        },
+        {
+          "id": "common",
+          "syntax": "pass",
+          "semantic": "pending review",
+          "dependencyClosure": "blocked: UserApi transport and theme equivalence pending",
+          "diagnosticCount": 0
+        },
+        {
+          "id": "composable",
+          "syntax": "not generated",
+          "semantic": "pending review",
+          "dependencyClosure": "blocked",
+          "diagnosticCount": 1
+        },
+        {
+          "id": "layout",
+          "syntax": "not generated",
+          "semantic": "pending review",
+          "dependencyClosure": "blocked",
+          "diagnosticCount": 1
+        }
+      ]
+    },
+    {
+      "file": "round-3-revision-4-results.json",
+      "samples": [
+        {
+          "id": "page",
+          "syntax": "not generated",
+          "semantic": "pending review",
+          "dependencyClosure": "blocked",
+          "diagnosticCount": 1
+        },
+        {
+          "id": "domain",
+          "syntax": "pass",
+          "semantic": "pending review",
+          "dependencyClosure": "local helper closure only",
+          "diagnosticCount": 0
+        },
+        {
+          "id": "common",
+          "syntax": "pass",
+          "semantic": "pending review",
+          "dependencyClosure": "blocked: UserApi transport and theme equivalence pending",
+          "diagnosticCount": 0
+        },
+        {
+          "id": "composable",
+          "syntax": "not generated",
+          "semantic": "pending review",
+          "dependencyClosure": "blocked",
+          "diagnosticCount": 1
+        },
+        {
+          "id": "layout",
+          "syntax": "not generated",
+          "semantic": "pending review",
+          "dependencyClosure": "blocked",
+          "diagnosticCount": 1
+        }
+      ]
+    }
+  ],
+  "ruleStatusCounts": {
+    "partial supported subset / primitive": 20,
+    "not implemented; blocking": 15
+  },
+  "gate2": {
+    "verdict": "NOT READY / batch conversion stopped",
+    "reviewRounds": 3,
+    "unsupportedSamples": 3,
+    "denominator": 5,
+    "recordedResidualRate": 0.6,
+    "riskProbeVerdicts": [
+      {
+        "source": "RecipeCard.vue",
+        "status": "blocked: link/nested click/hover/internal CSS not converted"
+      },
+      {
+        "source": "BaseDialog.vue",
+        "status": "blocked: scoped activator, model, focus/async-close contract not implemented"
+      },
+      {
+        "source": "DefaultLayout.vue",
+        "status": "blocked: conditional cookbook stores and shell/breakpoints not converted"
+      },
+      {
+        "source": "login.vue / auth backend / axios / token cookie",
+        "status": "guard snapshots tested; real auth/session/refresh and full login flow not integrated"
+      },
+      {
+        "source": "shopping-lists/[id].vue",
+        "status": "blocked: nested mutations, timer/undo and asynchronous persistence not converted"
+      },
+      {
+        "source": "SafeMarkdown.vue",
+        "status": "blocked: no converted Markdown component; original sanitizer tests not migrated"
+      },
+      {
+        "source": "locale syntax",
+        "status": "basic named/positional tests pass; plurals/linked syntax explicitly unsupported"
+      }
+    ]
+  },
+  "usage": {
+    "arithmeticMismatches": [],
+    "rawEventCount": 46,
+    "rawFirstUtc": "2026-10-13T10:06:23.762Z",
+    "rawLastUtc": "2026-10-13T10:56:47.746Z",
+    "latestRawMatchesBoundary": true,
+    "phaseBRecordedTotal": 6227467,
+    "exportedAtUtc": "2026-10-13T10:58:03.879520+00:00",
+    "status": "Phase B final-response usage pending; exporter snapshot. Parent recorder continues; report totals are not billed costs.",
+    "humanReviewMinutes": "待人工填写",
+    "monetaryCost": "未提供"
+  },
+  "canonicalPreservationSinceRootSetup": {
+    "beforeHead": "8b0fae128ea823ebee4a6507d274df1f8987e8d1",
+    "checked": 1805,
+    "mismatches": [],
+    "currentStatus": ""
+  },
+  "limitations": [
+    "Historical execution logs were inspected; this script does not rerun or authenticate old executions.",
+    "No visual, live auth/transport, tenant lifecycle or full-app E2E equivalence is claimed.",
+    "Round result semantic fields remain pending review; explicit per-round semantic reviewer verdicts are not reconstructed from snapshots.",
+    "Earlier output hashes verify stored artifacts but do not supply missing historical tool/infra implementations for replay."
+  ],
+  "commands": [
+    {
+      "executable": "C:/Program Files/Git/cmd/git.exe",
+      "args": [
+        "-c",
+        "safe.directory=<WORKSPACE>/mealie-wf4-rerun",
+        "-C",
+        "<WORKSPACE>/mealie-wf4-rerun",
+        "rev-parse",
+        "HEAD"
+      ],
+      "exitCode": 0,
+      "stdoutSha256": "89e49baae9932d4f860347c4278c59b6bbc2cd50eefa9d545969f07e5123e53d",
+      "stderr": ""
+    },
+    {
+      "executable": "C:/Program Files/Git/cmd/git.exe",
+      "args": [
+        "-c",
+        "safe.directory=<WORKSPACE>/mealie-wf4-rerun",
+        "-C",
+        "<WORKSPACE>/mealie-wf4-rerun",
+        "status",
+        "--porcelain=v1"
+      ],
+      "exitCode": 0,
+      "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": ""
+    },
+    {
+      "executable": "C:/Program Files/Git/cmd/git.exe",
+      "args": [
+        "-c",
+        "safe.directory=<WORKSPACE>/mealie-wf4-rerun",
+        "-C",
+        "<WORKSPACE>/mealie-wf4-rerun",
+        "ls-files",
+        "-z"
+      ],
+      "exitCode": 0,
+      "stdoutSha256": "8e302b1eeeb64a679d5ce4fabf34fd560a098102f208c5c3bbd4f263ba83f9b6",
+      "stderr": ""
+    },
+    {
+      "executable": "C:/Program Files/Git/cmd/git.exe",
+      "args": [
+        "-c",
+        "safe.directory=<WORKSPACE>/mealie-wf4-rerun",
+        "-C",
+        "<WORKSPACE>/mealie-wf4-rerun",
+        "ls-tree",
+        "-rz",
+        "HEAD"
+      ],
+      "exitCode": 0,
+      "stdoutSha256": "980610ae51c7c81d8d9e266bc1fc8fd45f78091f5e75c9c926645b71e5961a0b",
+      "stderr": ""
+    },
+    {
+      "executable": "C:/Program Files/Git/cmd/git.exe",
+      "args": [
+        "-c",
+        "safe.directory=<WORKSPACE>/mealie-wf4-rerun",
+        "-C",
+        "<WORKSPACE>/mealie-wf4-rerun",
+        "diff",
+        "--name-only",
+        "4b9ca06b6581f7152e164ea0fd9d4da366975a79",
+        "--",
+        "frontend/",
+        "mealie/"
+      ],
+      "exitCode": 0,
+      "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": ""
+    },
+    {
+      "executable": "C:/Program Files/Git/cmd/git.exe",
+      "args": [
+        "-c",
+        "safe.directory=<WORKSPACE>/mealie-wf4-evaluator",
+        "-C",
+        "<WORKSPACE>/mealie-wf4-evaluator",
+        "rev-parse",
+        "HEAD"
+      ],
+      "exitCode": 0,
+      "stdoutSha256": "69b85ed5250f186a35702f0b9b4ebccdb1a8fc0ba149ef4073e50dc7bbc7cf8b",
+      "stderr": ""
+    },
+    {
+      "executable": "C:/Program Files/Git/cmd/git.exe",
+      "args": [
+        "-c",
+        "safe.directory=<WORKSPACE>/mealie-wf4-evaluator",
+        "-C",
+        "<WORKSPACE>/mealie-wf4-evaluator",
+        "status",
+        "--porcelain=v1"
+      ],
+      "exitCode": 0,
+      "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": ""
+    },
+    {
+      "executable": "C:/Program Files/Git/cmd/git.exe",
+      "args": [
+        "-c",
+        "safe.directory=<WORKSPACE>/mealie-wf4-evaluator",
+        "-C",
+        "<WORKSPACE>/mealie-wf4-evaluator",
+        "ls-tree",
+        "-rz",
+        "HEAD"
+      ],
+      "exitCode": 0,
+      "stdoutSha256": "1bbd2434cea5d1f8776ff8c1656caa7d0e1bf3c4962b39cf2a3fa96dbaf0bb58",
+      "stderr": ""
+    },
+    {
+      "executable": "C:/Program Files/Git/cmd/git.exe",
+      "args": [
+        "-c",
+        "safe.directory=<WORKSPACE>/mealie-wf4-rerun",
+        "-C",
+        "<WORKSPACE>/mealie-wf4-rerun",
+        "diff",
+        "--name-only",
+        "b57453838ef770a32188159350d5f9971f8b94e1",
+        "HEAD"
+      ],
+      "exitCode": 0,
+      "stdoutSha256": "18e69c9d17bfa40c10d06659401881e614a89f768da41652ae783e0535ae6cfb",
+      "stderr": ""
+    }
+  ]
+}

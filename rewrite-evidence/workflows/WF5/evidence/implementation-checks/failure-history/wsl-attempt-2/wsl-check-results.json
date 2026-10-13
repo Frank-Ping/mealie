@@ -1,0 +1,96 @@
+{
+  "results": [
+    {
+      "check": "rules",
+      "command": [
+        "node",
+        "--test",
+        "../rewrite-tools/wf4-r2/test.mjs"
+      ],
+      "cwd": "<EXECUTION_COPY>/source/frontend-react",
+      "exit_code": 0,
+      "seconds": 0.334985,
+      "start_utc": "2026-10-13T10:48:47.186569+00:00",
+      "end_utc": "2026-10-13T10:48:47.521554+00:00"
+    },
+    {
+      "check": "types",
+      "command": [
+        "node",
+        "node_modules/typescript/bin/tsc",
+        "--noEmit"
+      ],
+      "cwd": "<EXECUTION_COPY>/source/frontend-react",
+      "exit_code": 2,
+      "seconds": 3.885574,
+      "start_utc": "2026-10-13T10:48:47.523774+00:00",
+      "end_utc": "2026-10-13T10:48:51.409348+00:00"
+    },
+    {
+      "check": "lint",
+      "command": [
+        "node",
+        "node_modules/eslint/bin/eslint.js",
+        "src",
+        "tests",
+        "vite.config.ts",
+        "vite.component.config.ts",
+        "--max-warnings=0"
+      ],
+      "cwd": "<EXECUTION_COPY>/source/frontend-react",
+      "exit_code": 0,
+      "seconds": 1.061018,
+      "start_utc": "2026-10-13T10:48:51.411771+00:00",
+      "end_utc": "2026-10-13T10:48:52.472789+00:00"
+    },
+    {
+      "check": "unit",
+      "command": [
+        "node",
+        "node_modules/vitest/vitest.mjs",
+        "run",
+        "--reporter=verbose",
+        "--reporter=json",
+        "--outputFile.json=<WORKSPACE>/wf4-r2-evidence/workflow-sessions/phase-b/wsl-unit-results.json"
+      ],
+      "cwd": "<EXECUTION_COPY>/source/frontend-react",
+      "exit_code": 1,
+      "seconds": 1.86213,
+      "start_utc": "2026-10-13T10:48:52.475026+00:00",
+      "end_utc": "2026-10-13T10:48:54.337156+00:00"
+    },
+    {
+      "check": "build",
+      "command": [
+        "node",
+        "node_modules/vite/bin/vite.js",
+        "build"
+      ],
+      "cwd": "<EXECUTION_COPY>/source/frontend-react",
+      "exit_code": 0,
+      "seconds": 0.326671,
+      "start_utc": "2026-10-13T10:48:54.340247+00:00",
+      "end_utc": "2026-10-13T10:48:54.666918+00:00"
+    },
+    {
+      "check": "build-components",
+      "command": [
+        "node",
+        "node_modules/vite/bin/vite.js",
+        "build",
+        "--config",
+        "vite.component.config.ts"
+      ],
+      "cwd": "<EXECUTION_COPY>/source/frontend-react",
+      "exit_code": 1,
+      "seconds": 0.137875,
+      "start_utc": "2026-10-13T10:48:54.668649+00:00",
+      "end_utc": "2026-10-13T10:48:54.806524+00:00"
+    }
+  ],
+  "snapshot": "<EXECUTION_COPY>",
+  "canonicalCommit": "63e239bb35fab4b53fc8d913b284dfa43edec5a9",
+  "tracked_files": 1796,
+  "changedTrackedFiles": [],
+  "note": "Fresh committed Windows snapshot; only execution dependencies/results produced in WSL; no source copied back. Sample checks, not full frozen Mealie yardstick."
+}

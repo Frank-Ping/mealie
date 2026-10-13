@@ -1,0 +1,71 @@
+{
+  "experiment": "WF4-R2",
+  "session_id": "01a13444-0c1c-7e81-b13f-8a41c4be747d",
+  "start_user_timestamp_utc": "2026-10-13T09:26:12.566Z",
+  "start_counter_snapshot": {
+    "timestamp_utc": "2026-10-13T09:23:53.697Z",
+    "usage": {
+      "input_tokens": 10357630,
+      "cached_input_tokens": 9946752,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 69326,
+      "reasoning_output_tokens": 37012,
+      "total_tokens": 10426956
+    }
+  },
+  "latest_counter_snapshot": {
+    "timestamp_utc": "2026-10-13T10:58:34.904Z",
+    "usage": {
+      "input_tokens": 21496994,
+      "cached_input_tokens": 20554112,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 194803,
+      "reasoning_output_tokens": 87395,
+      "total_tokens": 21691797
+    }
+  },
+  "scope": "Only this conversation from the designated user message onward. Earlier chat usage is excluded from this tracking window and is not zero.",
+  "counting_rule": "Differences between provider cumulative snapshots. Cached input is a subset of input; reasoning output is a subset of output. Total equals input plus output.",
+  "status": "exact reported deltas",
+  "total_usage": {
+    "input_tokens": 11139364,
+    "cached_input_tokens": 10607360,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 125477,
+    "reasoning_output_tokens": 50383,
+    "total_tokens": 11264841
+  },
+  "uncached_input_tokens": 532004,
+  "phases": {
+    "S0-recording-setup": {
+      "input_tokens": 2255369,
+      "cached_input_tokens": 2229632,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 16581,
+      "reasoning_output_tokens": 10105,
+      "total_tokens": 2271950
+    },
+    "Phase-A": {
+      "input_tokens": 2332216,
+      "cached_input_tokens": 1987328,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 29302,
+      "reasoning_output_tokens": 7401,
+      "total_tokens": 2361518
+    },
+    "Phase-B": {
+      "input_tokens": 6551779,
+      "cached_input_tokens": 6390400,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 79594,
+      "reasoning_output_tokens": 32877,
+      "total_tokens": 6631373
+    }
+  },
+  "current_phase": "Phase-B",
+  "reported_events": 75,
+  "issues": [],
+  "monetary_cost": null,
+  "cost_note": "Unavailable: the log reports tokens, not billed monetary cost.",
+  "phase_note": "Phase labels follow explicit user prompts; check labels at stage boundaries. Stage S0 is recording setup, not rewrite execution."
+}

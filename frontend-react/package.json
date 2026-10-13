@@ -1,12 +1,12 @@
 {
-  "name": "mealie-wf4-r2-samples",
+  "name": "mealie-wf5-samples",
   "version": "0.0.0",
   "private": true,
   "type": "module",
   "packageManager": "pnpm@11.23.0",
   "scripts": {
-    "generate:samples": "node ../rewrite-tools/wf4-r2/run.mjs",
-    "test:rules": "node --test ../rewrite-tools/wf4-r2/test.mjs",
+    "generate:samples": "node ../rewrite-tools/wf5/run.mjs",
+    "test:rules": "node --test ../rewrite-tools/wf5/test.mjs",
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
     "lint": "eslint src tests vite.config.ts vite.component.config.ts --max-warnings=0",

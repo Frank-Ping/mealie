@@ -1,0 +1,12 @@
+{
+  "prepared_utc": "2026-10-13T21:04:38.954870+00:00",
+  "source_log": "<PRIVATE_SESSION_LOG>",
+  "source_sha256": "914dc3720baf93d69f1845185660ad8e5203f32cb3d23571f62859b3ef2a1b28",
+  "range_utc": [
+    "2026-10-13T10:06:11.148Z",
+    "2026-10-13T10:58:34.922Z"
+  ],
+  "records": 101,
+  "source_rows_are_1_based": true,
+  "scope": "Retrospective projection of visible user/assistant messages and tool call/results, including final R2 response. No hidden reasoning or system/developer messages."
+}

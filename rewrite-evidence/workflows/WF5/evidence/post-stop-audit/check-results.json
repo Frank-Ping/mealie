@@ -1,0 +1,105 @@
+{
+  "node": "v24.19.0",
+  "sourceHead": "8b0fae128ea823ebee4a6507d274df1f8987e8d1",
+  "results": [
+    {
+      "check": "rules",
+      "command": [
+        "<RUNTIME>/node\\bin\\node.exe",
+        "--test",
+        "../rewrite-tools/wf4-r2/test.mjs"
+      ],
+      "cwd": "<EXECUTION_COPY>/frontend-react",
+      "startUtc": "2026-10-13T11:15:22.103Z",
+      "endUtc": "2026-10-13T11:15:22.761Z",
+      "seconds": 0.658,
+      "exitCode": 0,
+      "signal": null,
+      "log": "rules.log"
+    },
+    {
+      "check": "types",
+      "command": [
+        "<RUNTIME>/node\\bin\\node.exe",
+        "node_modules/typescript/bin/tsc",
+        "--noEmit"
+      ],
+      "cwd": "<EXECUTION_COPY>/frontend-react",
+      "startUtc": "2026-10-13T11:15:22.762Z",
+      "endUtc": "2026-10-13T11:15:26.676Z",
+      "seconds": 3.914,
+      "exitCode": 0,
+      "signal": null,
+      "log": "types.log"
+    },
+    {
+      "check": "lint",
+      "command": [
+        "<RUNTIME>/node\\bin\\node.exe",
+        "node_modules/eslint/bin/eslint.js",
+        "src",
+        "tests",
+        "vite.config.ts",
+        "vite.component.config.ts",
+        "--max-warnings=0"
+      ],
+      "cwd": "<EXECUTION_COPY>/frontend-react",
+      "startUtc": "2026-10-13T11:15:26.677Z",
+      "endUtc": "2026-10-13T11:15:28.857Z",
+      "seconds": 2.18,
+      "exitCode": 0,
+      "signal": null,
+      "log": "lint.log"
+    },
+    {
+      "check": "unit",
+      "command": [
+        "<RUNTIME>/node\\bin\\node.exe",
+        "node_modules/vitest/vitest.mjs",
+        "run",
+        "--reporter=verbose",
+        "--reporter=json",
+        "--outputFile.json=<WORKSPACE>/wf4-r2-evidence\\gate2-independent-review\\20261013T111104Z\\unit-results.json"
+      ],
+      "cwd": "<EXECUTION_COPY>/frontend-react",
+      "startUtc": "2026-10-13T11:15:28.859Z",
+      "endUtc": "2026-10-13T11:15:32.340Z",
+      "seconds": 3.481,
+      "exitCode": 0,
+      "signal": null,
+      "log": "unit.log"
+    },
+    {
+      "check": "build",
+      "command": [
+        "<RUNTIME>/node\\bin\\node.exe",
+        "node_modules/vite/bin/vite.js",
+        "build"
+      ],
+      "cwd": "<EXECUTION_COPY>/frontend-react",
+      "startUtc": "2026-10-13T11:15:32.343Z",
+      "endUtc": "2026-10-13T11:15:32.919Z",
+      "seconds": 0.576,
+      "exitCode": 0,
+      "signal": null,
+      "log": "build.log"
+    },
+    {
+      "check": "build-components",
+      "command": [
+        "<RUNTIME>/node\\bin\\node.exe",
+        "node_modules/vite/bin/vite.js",
+        "build",
+        "--config",
+        "vite.component.config.ts"
+      ],
+      "cwd": "<EXECUTION_COPY>/frontend-react",
+      "startUtc": "2026-10-13T11:15:32.920Z",
+      "endUtc": "2026-10-13T11:15:33.266Z",
+      "seconds": 0.346,
+      "exitCode": 0,
+      "signal": null,
+      "log": "build-components.log"
+    }
+  ]
+}

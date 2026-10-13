@@ -1,0 +1,23 @@
+{
+  "artifact": "Original Chinese post-R2 independent-audit prompt; extracted verbatim",
+  "prepared_on_local_date": "2026-10-14",
+  "prepared_timezone": "Pacific/Auckland",
+  "historical_workflow_id": "WF4-R2",
+  "report_workflow_id": "WF5",
+  "scope": "Post-stop independent Gate 2 audit; separate from formal Phase A/B. WF4-R3 excluded.",
+  "source_session_id": "01a134b4-e957-7781-8829-8a299d591188",
+  "source_log_absolute_path": "<PRIVATE_SESSION_LOG>",
+  "source_jsonl_row_1_based": 141,
+  "source_export_row": null,
+  "source_event_ordinal": 140,
+  "ordinal_note": "No ordinal field or separate visible export was found for this event; use raw JSONL row 141.",
+  "source_timestamp_utc": "2026-10-13T11:08:48.341Z",
+  "event_type": "response_item",
+  "payload_type": "message",
+  "role": "user",
+  "message_id": "msg_01a134f3-6355-7891-ad06-ff50e5a65726",
+  "turn_id": "01a134f3-632c-7290-8413-2aca3753c33d",
+  "original_text_sha256_utf8": "e6116177e4e3c496f813b6a40a453466cd8c0a803643a6bcc56fa95228b68102",
+  "source_log_sha256_at_extraction": "f2825e1e5f3d79c376a34ac86adea6e69be68618d29b5f5547e1b08fa95e5419",
+  "preservation_note": "Only the user prompt text and provenance fields were exported. The source log and all original evidence remain unchanged; hidden/system fields were not exported."
+}

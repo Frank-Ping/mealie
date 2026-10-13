@@ -1,0 +1,362 @@
+{
+  "experiment": "WF4-R2",
+  "stage": "Gate2-independent-review",
+  "generatedUtc": "2026-10-13T11:42:58.007Z",
+  "rootSessionId": "01a134b4-e957-7781-8829-8a299d591188",
+  "auditPrompt": {
+    "timestampUtc": "2026-10-13T11:08:48.341Z",
+    "sourceLine": 141,
+    "turnId": "01a134f3-632c-7290-8413-2aca3753c33d"
+  },
+  "auditCompleted": {
+    "timestampUtc": "2026-10-13T11:29:39.359Z",
+    "sourceLine": 476,
+    "turnId": "01a134f3-632c-7290-8413-2aca3753c33d"
+  },
+  "boundaryRule": "Freeze completed audit at task_complete; subtract each independent session cumulative baseline; prior Gate 1/material recommendation and current bookkeeping excluded.",
+  "countingRule": "total = input + output; cached input is included in input; reasoning output is included in output; duplicate snapshots contribute zero.",
+  "sessions": [
+    {
+      "sessionId": "01a134b4-e957-7781-8829-8a299d591188",
+      "actor": "/root",
+      "threadSource": "user",
+      "sourceLog": "<PRIVATE_SESSION_LOG>",
+      "sourceLogSha256": "34eeb1d70e2fbdfedc50a8f3bb4c682b58db8ed3f2e4054fc29972841b84dbaa",
+      "windowStartUtc": "2026-10-13T11:08:48.341Z",
+      "windowEndUtc": "2026-10-13T11:29:39.359Z",
+      "baseline": {
+        "sourceLine": 136,
+        "timestampUtc": "2026-10-13T11:07:36.075Z",
+        "reason": "last provider cumulative event before the audit prompt",
+        "usage": {
+          "input_tokens": 779715,
+          "cached_input_tokens": 705792,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 5742,
+          "reasoning_output_tokens": 1312,
+          "total_tokens": 785457
+        }
+      },
+      "lastCounter": {
+        "sourceLine": 475,
+        "timestampUtc": "2026-10-13T11:29:39.338Z",
+        "usage": {
+          "input_tokens": 5262601,
+          "cached_input_tokens": 5097472,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 33387,
+          "reasoning_output_tokens": 9036,
+          "total_tokens": 5295988
+        }
+      },
+      "lastTaskComplete": {
+        "sourceLine": 476,
+        "timestampUtc": "2026-10-13T11:29:39.359Z",
+        "turnId": "01a134f3-632c-7290-8413-2aca3753c33d"
+      },
+      "status": "completed-window provider delta",
+      "nonzeroEvents": 33,
+      "usage": {
+        "input_tokens": 4482886,
+        "cached_input_tokens": 4391680,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 27645,
+        "reasoning_output_tokens": 7724,
+        "total_tokens": 4510531
+      },
+      "uncachedInputTokens": 91206,
+      "issues": []
+    },
+    {
+      "sessionId": "01a134b5-5b74-7aa2-86e0-539536ece70e",
+      "actor": "/root/gate_contracts",
+      "threadSource": "subagent",
+      "sourceLog": "<PRIVATE_SESSION_LOG>",
+      "sourceLogSha256": "77d7076a6a73cfe47e8347f1071b3246be023da27883ebdd946b7b48f4526cfb",
+      "windowStartUtc": "2026-10-13T11:08:48.341Z",
+      "windowEndUtc": "2026-10-13T11:29:39.359Z",
+      "baseline": {
+        "sourceLine": 114,
+        "timestampUtc": "2026-10-13T11:07:09.816Z",
+        "reason": "last provider cumulative event before the audit prompt",
+        "usage": {
+          "input_tokens": 792080,
+          "cached_input_tokens": 721536,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 3379,
+          "reasoning_output_tokens": 81,
+          "total_tokens": 795459
+        }
+      },
+      "lastCounter": {
+        "sourceLine": 304,
+        "timestampUtc": "2026-10-13T11:21:27.633Z",
+        "usage": {
+          "input_tokens": 4143973,
+          "cached_input_tokens": 3983872,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 26025,
+          "reasoning_output_tokens": 5464,
+          "total_tokens": 4169998
+        }
+      },
+      "lastTaskComplete": {
+        "sourceLine": 305,
+        "timestampUtc": "2026-10-13T11:21:27.647Z",
+        "turnId": "01a134f9-bda1-7080-981f-38350cb4c862"
+      },
+      "status": "completed-window provider delta",
+      "nonzeroEvents": 23,
+      "usage": {
+        "input_tokens": 3351893,
+        "cached_input_tokens": 3262336,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 22646,
+        "reasoning_output_tokens": 5383,
+        "total_tokens": 3374539
+      },
+      "uncachedInputTokens": 89557,
+      "issues": []
+    },
+    {
+      "sessionId": "01a134f4-229a-7432-88d3-db52fed75be5",
+      "actor": "/root/sample_semantics",
+      "threadSource": "subagent",
+      "sourceLog": "<PRIVATE_SESSION_LOG>",
+      "sourceLogSha256": "8dcab817e194b558e163b9ee94a32c8ba07e3a7ec385e4d00f4232bb0d30636a",
+      "windowStartUtc": "2026-10-13T11:08:48.341Z",
+      "windowEndUtc": "2026-10-13T11:29:39.359Z",
+      "baseline": {
+        "sourceLine": null,
+        "timestampUtc": null,
+        "reason": "new independent session created after window start; no prior provider usage",
+        "usage": {
+          "input_tokens": 0,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 0,
+          "reasoning_output_tokens": 0,
+          "total_tokens": 0
+        }
+      },
+      "lastCounter": {
+        "sourceLine": 252,
+        "timestampUtc": "2026-10-13T11:18:42.887Z",
+        "usage": {
+          "input_tokens": 2598324,
+          "cached_input_tokens": 2523776,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 13067,
+          "reasoning_output_tokens": 4445,
+          "total_tokens": 2611391
+        }
+      },
+      "lastTaskComplete": {
+        "sourceLine": 253,
+        "timestampUtc": "2026-10-13T11:18:42.900Z",
+        "turnId": "01a134fa-25e1-76b3-809c-431b09ab139d"
+      },
+      "status": "completed-window provider delta",
+      "nonzeroEvents": 32,
+      "usage": {
+        "input_tokens": 2598324,
+        "cached_input_tokens": 2523776,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 13067,
+        "reasoning_output_tokens": 4445,
+        "total_tokens": 2611391
+      },
+      "uncachedInputTokens": 74548,
+      "issues": []
+    },
+    {
+      "sessionId": "01a134f4-4167-7460-a95f-2de85d763a42",
+      "actor": "/root/infra_semantics",
+      "threadSource": "subagent",
+      "sourceLog": "<PRIVATE_SESSION_LOG>",
+      "sourceLogSha256": "112d0a4899b2900ea66140cc16337d996a1112ac537c3506f3a7a4f72a3df0d9",
+      "windowStartUtc": "2026-10-13T11:08:48.341Z",
+      "windowEndUtc": "2026-10-13T11:29:39.359Z",
+      "baseline": {
+        "sourceLine": null,
+        "timestampUtc": null,
+        "reason": "new independent session created after window start; no prior provider usage",
+        "usage": {
+          "input_tokens": 0,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 0,
+          "reasoning_output_tokens": 0,
+          "total_tokens": 0
+        }
+      },
+      "lastCounter": {
+        "sourceLine": 211,
+        "timestampUtc": "2026-10-13T11:17:51.720Z",
+        "usage": {
+          "input_tokens": 2360163,
+          "cached_input_tokens": 2281728,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 9155,
+          "reasoning_output_tokens": 2335,
+          "total_tokens": 2369318
+        }
+      },
+      "lastTaskComplete": {
+        "sourceLine": 212,
+        "timestampUtc": "2026-10-13T11:17:51.758Z",
+        "turnId": "01a134f9-fe88-73d1-b382-dabebb8b9aa0"
+      },
+      "status": "completed-window provider delta",
+      "nonzeroEvents": 26,
+      "usage": {
+        "input_tokens": 2360163,
+        "cached_input_tokens": 2281728,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 9155,
+        "reasoning_output_tokens": 2335,
+        "total_tokens": 2369318
+      },
+      "uncachedInputTokens": 78435,
+      "issues": []
+    },
+    {
+      "sessionId": "01a134f8-838b-7773-9923-b842e583f3ed",
+      "actor": "automatic-approval-review",
+      "threadSource": "guardian_review",
+      "sourceLog": "<PRIVATE_SESSION_LOG>",
+      "sourceLogSha256": "de3b8b8b7a0ec3c3bcf1fbdd1694e157dffbded2c51462ecef42b917ad7d3a94",
+      "windowStartUtc": "2026-10-13T11:08:48.341Z",
+      "windowEndUtc": "2026-10-13T11:29:39.359Z",
+      "baseline": {
+        "sourceLine": null,
+        "timestampUtc": null,
+        "reason": "new independent session created after window start; no prior provider usage",
+        "usage": {
+          "input_tokens": 0,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 0,
+          "reasoning_output_tokens": 0,
+          "total_tokens": 0
+        }
+      },
+      "lastCounter": {
+        "sourceLine": 101,
+        "timestampUtc": "2026-10-13T11:23:39.546Z",
+        "usage": {
+          "input_tokens": 219951,
+          "cached_input_tokens": 175616,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 903,
+          "reasoning_output_tokens": 517,
+          "total_tokens": 220854
+        }
+      },
+      "lastTaskComplete": {
+        "sourceLine": 102,
+        "timestampUtc": "2026-10-13T11:23:39.550Z",
+        "turnId": "01a13500-f442-7930-a952-de45b576b854"
+      },
+      "status": "completed-window provider delta",
+      "nonzeroEvents": 6,
+      "usage": {
+        "input_tokens": 219951,
+        "cached_input_tokens": 175616,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 903,
+        "reasoning_output_tokens": 517,
+        "total_tokens": 220854
+      },
+      "uncachedInputTokens": 44335,
+      "issues": []
+    }
+  ],
+  "taskAgentUsage": {
+    "input_tokens": 12793266,
+    "cached_input_tokens": 12459520,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 72513,
+    "reasoning_output_tokens": 19887,
+    "total_tokens": 12865779
+  },
+  "automaticApprovalReviewUsage": {
+    "input_tokens": 219951,
+    "cached_input_tokens": 175616,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 903,
+    "reasoning_output_tokens": 517,
+    "total_tokens": 220854
+  },
+  "allObservedUsage": {
+    "input_tokens": 13013217,
+    "cached_input_tokens": 12635136,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 73416,
+    "reasoning_output_tokens": 20404,
+    "total_tokens": 13086633
+  },
+  "scopeComplete": true,
+  "monetaryCost": null,
+  "costNote": "Provider token counts are not a billed invoice; fees unavailable.",
+  "humanReviewMinutes": null,
+  "accountingFollowup": {
+    "sessionId": "01a134b4-e957-7781-8829-8a299d591188",
+    "actor": "/root",
+    "threadSource": "user",
+    "sourceLog": "<PRIVATE_SESSION_LOG>",
+    "sourceLogSha256": "34eeb1d70e2fbdfedc50a8f3bb4c682b58db8ed3f2e4054fc29972841b84dbaa",
+    "windowStartUtc": "2026-10-13T11:29:39.402Z",
+    "windowEndUtc": "2026-10-13T11:36:42.492Z",
+    "baseline": {
+      "sourceLine": 475,
+      "timestampUtc": "2026-10-13T11:29:39.338Z",
+      "reason": "last provider cumulative event before the audit prompt",
+      "usage": {
+        "input_tokens": 5262601,
+        "cached_input_tokens": 5097472,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 33387,
+        "reasoning_output_tokens": 9036,
+        "total_tokens": 5295988
+      }
+    },
+    "lastCounter": {
+      "sourceLine": 563,
+      "timestampUtc": "2026-10-13T11:36:42.474Z",
+      "usage": {
+        "input_tokens": 7157486,
+        "cached_input_tokens": 6944768,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 45238,
+        "reasoning_output_tokens": 15315,
+        "total_tokens": 7202724
+      }
+    },
+    "lastTaskComplete": {
+      "sourceLine": 564,
+      "timestampUtc": "2026-10-13T11:36:42.492Z",
+      "turnId": "01a13506-7a21-7742-84a3-ee6a69f557fc"
+    },
+    "status": "completed-window provider delta",
+    "nonzeroEvents": 9,
+    "usage": {
+      "input_tokens": 1894885,
+      "cached_input_tokens": 1847296,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 11851,
+      "reasoning_output_tokens": 6279,
+      "total_tokens": 1906736
+    },
+    "uncachedInputTokens": 47589,
+    "issues": []
+  },
+  "officialCountingReference": "https://developers.openai.com/api/docs/guides/agents-api/observability",
+  "notes": [
+    "Do not add session cumulative totals from parent and children; only the deltas listed here are aggregated.",
+    "Task-agent and automatic-approval subtotals are already included in allObservedUsage; do not sum them again.",
+    "No Phase A/B or historical usage files were edited.",
+    "This export contains only token counts and source locations, not hidden reasoning or system instructions.",
+    "Any later questions or usage-scope checks are outside both frozen completed windows."
+  ]
+}

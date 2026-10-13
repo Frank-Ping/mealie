@@ -1,0 +1,400 @@
+{
+  "sourceHead": "8b0fae128ea823ebee4a6507d274df1f8987e8d1",
+  "snapshot": "<EXECUTION_COPY>",
+  "results": [
+    {
+      "id": "missing-required-input",
+      "safetyPassed": true,
+      "command": [
+        "<RUNTIME>/node\\bin\\node.exe",
+        "--test",
+        "../rewrite-tools/wf4-r2/test.mjs"
+      ],
+      "cwd": "<EXECUTION_COPY>/frontend-react",
+      "exitCode": 1,
+      "seconds": 0.579,
+      "log": "faults/missing-required-input.log",
+      "expectedFailure": true
+    },
+    {
+      "id": "missing-fixture-source",
+      "safetyPassed": true,
+      "command": [
+        "<RUNTIME>/node\\bin\\node.exe",
+        "--test",
+        "../rewrite-tools/wf4-r2/test.mjs"
+      ],
+      "cwd": "<EXECUTION_COPY>/frontend-react",
+      "exitCode": 1,
+      "seconds": 0.578,
+      "log": "faults/missing-fixture-source.log",
+      "beforeSha256": "19e39c4e68d411d4648d04da75222eecdd977660927f743f6dc1c98c10d58f5a",
+      "injectedSha256": "f7966b6dbc88d4ee3d72dff465bb4a15121b489e7de844a71fcba5182547a7ca",
+      "expectedFailure": true
+    },
+    {
+      "id": "missing-fixture-expected",
+      "safetyPassed": true,
+      "command": [
+        "<RUNTIME>/node\\bin\\node.exe",
+        "--test",
+        "../rewrite-tools/wf4-r2/test.mjs"
+      ],
+      "cwd": "<EXECUTION_COPY>/frontend-react",
+      "exitCode": 1,
+      "seconds": 0.606,
+      "log": "faults/missing-fixture-expected.log",
+      "beforeSha256": "19e39c4e68d411d4648d04da75222eecdd977660927f743f6dc1c98c10d58f5a",
+      "injectedSha256": "27f86761235a88d670b62f481da89321375db2e61ed42ff981ee7fb07cf76a33",
+      "expectedFailure": true
+    },
+    {
+      "id": "incorrect-fixture-expected",
+      "safetyPassed": true,
+      "command": [
+        "<RUNTIME>/node\\bin\\node.exe",
+        "--test",
+        "../rewrite-tools/wf4-r2/test.mjs"
+      ],
+      "cwd": "<EXECUTION_COPY>/frontend-react",
+      "exitCode": 1,
+      "seconds": 0.666,
+      "log": "faults/incorrect-fixture-expected.log",
+      "beforeSha256": "19e39c4e68d411d4648d04da75222eecdd977660927f743f6dc1c98c10d58f5a",
+      "injectedSha256": "ac71b4e0d33e3e5c3ec7d2308907d4b20aa27df8c4adfb80fbbe27b5ba2e79b7",
+      "expectedFailure": true
+    },
+    {
+      "id": "missing-selected-pure-expected",
+      "safetyPassed": false,
+      "command": [
+        "<RUNTIME>/node\\bin\\node.exe",
+        "--test",
+        "../rewrite-tools/wf4-r2/test.mjs"
+      ],
+      "cwd": "<EXECUTION_COPY>/frontend-react",
+      "exitCode": 0,
+      "seconds": 0.669,
+      "log": "faults/missing-selected-pure-expected.log",
+      "expectedFailure": true,
+      "removed": "round-3/revision-4/pure/BaseButton.tsx"
+    },
+    {
+      "id": "corrupt-selected-pure-expected",
+      "safetyPassed": false,
+      "command": [
+        "<RUNTIME>/node\\bin\\node.exe",
+        "--test",
+        "../rewrite-tools/wf4-r2/test.mjs"
+      ],
+      "cwd": "<EXECUTION_COPY>/frontend-react",
+      "exitCode": 0,
+      "seconds": 0.658,
+      "log": "faults/corrupt-selected-pure-expected.log",
+      "beforeSha256": "3b551ab7ccb18dcc7e79e06de4c977c7eb6573dc67e9920a2e0866f30b1dbe71",
+      "injectedSha256": "3d50a85e92a975af3209bc10767edf34f9df0a35924b35bf740f2aa6408cf352",
+      "expectedFailure": true
+    },
+    {
+      "id": "substitute-fixed-page-sample",
+      "safetyPassed": false,
+      "command": [
+        "<RUNTIME>/node\\bin\\node.exe",
+        "--test",
+        "../rewrite-tools/wf4-r2/test.mjs"
+      ],
+      "cwd": "<EXECUTION_COPY>/frontend-react",
+      "exitCode": 0,
+      "seconds": 0.659,
+      "log": "faults/substitute-fixed-page-sample.log",
+      "beforeSha256": "870ee7f7d22f855210f12807874a93b3006c87d465aaaef9f4281f3aef96700a",
+      "injectedSha256": "ac5993a2b3fa66e32bb158da5d2d71da4598bf6075faeacf7dca83b60877a795",
+      "expectedFailure": true
+    },
+    {
+      "id": "wrong-actual-component-payload",
+      "safetyPassed": false,
+      "command": [
+        "<RUNTIME>/node\\bin\\node.exe",
+        "--test",
+        "../rewrite-tools/wf4-r2/test.mjs"
+      ],
+      "cwd": "<EXECUTION_COPY>/frontend-react",
+      "exitCode": 0,
+      "seconds": 0.667,
+      "log": "faults/wrong-actual-component-payload.log",
+      "beforeSha256": "e5ceea5b107cfe90024376325226385a55b8232020837ad779cfbe29ab7b1419",
+      "injectedSha256": "168dc0986581a6aac19eb6dda3922a85981c34b0a4f5ae495daa332affad7423",
+      "expectedFailure": true
+    },
+    {
+      "id": "repeat-generation-and-selected-snapshot",
+      "safetyPassed": true,
+      "sameOutcomes": true,
+      "samples": [
+        {
+          "id": "page",
+          "path": "frontend/app/pages/index.vue",
+          "component": "HomePage",
+          "sourceSha256": "606ca6c768505191538eb7216aeddb17578ab042778a26e0382ecf66a8227383",
+          "diagnostics": [
+            {
+              "rule": "R35",
+              "message": "Unconverted framework dependency: ~/composables/use-default-activity",
+              "path": "frontend/app/pages/index.vue",
+              "line": 5,
+              "offset": 58,
+              "blocking": true
+            }
+          ],
+          "rules": [],
+          "imports": [
+            {
+              "module": "~/composables/use-default-activity",
+              "typeOnly": false
+            }
+          ],
+          "syntax": "not generated",
+          "semantic": "pending review",
+          "dependencyClosure": "blocked",
+          "outputSha256": null
+        },
+        {
+          "id": "domain",
+          "path": "frontend/app/components/Domain/Recipe/RecipeChips.vue",
+          "component": "RecipeChips",
+          "sourceSha256": "e676cdb35c7ba9c4ffbb59f221c6ba1a58c9b3212e14f3927dfb56502bf2ab59",
+          "diagnostics": [],
+          "rules": [
+            "R01",
+            "R02",
+            "R03",
+            "R04",
+            "R05",
+            "R06",
+            "R07"
+          ],
+          "imports": [
+            {
+              "module": "~/lib/api/types/recipe",
+              "typeOnly": true
+            },
+            {
+              "module": "~/lib/sanitize/text",
+              "typeOnly": false
+            }
+          ],
+          "syntax": "pass",
+          "semantic": "pending review",
+          "dependencyClosure": "local helper closure only",
+          "outputSha256": "ddb7bf9de84cf7905ce283c522760172d53671c2cdbbba2109ee299504fa617c"
+        },
+        {
+          "id": "common",
+          "path": "frontend/app/components/global/BaseButton.vue",
+          "component": "BaseButton",
+          "sourceSha256": "45ee16a430b73399ec6c3633729341502acaddbc89be9ef1a0f375f8fa6bc4c4",
+          "diagnostics": [],
+          "rules": [
+            "R01",
+            "R02",
+            "R04",
+            "R06",
+            "R07",
+            "R08",
+            "R09",
+            "R11",
+            "R18",
+            "R30"
+          ],
+          "imports": [
+            {
+              "module": "~/composables/api",
+              "typeOnly": false
+            }
+          ],
+          "syntax": "pass",
+          "semantic": "pending review",
+          "dependencyClosure": "blocked: UserApi transport and theme equivalence pending",
+          "outputSha256": "3b551ab7ccb18dcc7e79e06de4c977c7eb6573dc67e9920a2e0866f30b1dbe71"
+        },
+        {
+          "id": "composable",
+          "path": "frontend/app/composables/store/use-food-store.ts",
+          "component": "useFoodStore",
+          "sourceSha256": "fbeeab94dfa015807fab444a81844ef5843ae86937be26e7502f2479ecf099ed",
+          "diagnostics": [
+            {
+              "rule": "R25",
+              "message": "Module singleton/store factory requires reviewed lifetime and tenant contract",
+              "path": "frontend/app/composables/store/use-food-store.ts",
+              "line": 1,
+              "offset": 0,
+              "blocking": true
+            }
+          ],
+          "rules": [],
+          "imports": [],
+          "syntax": "not generated",
+          "semantic": "pending review",
+          "dependencyClosure": "blocked",
+          "outputSha256": null
+        },
+        {
+          "id": "layout",
+          "path": "frontend/app/layouts/default.vue",
+          "component": "DefaultLayoutFacade",
+          "sourceSha256": "836323b0b26df562d9f119132d66b6c09baa3156681bcb122be655efca5560cf",
+          "diagnostics": [
+            {
+              "rule": "R22",
+              "message": "Unconverted module dependency: @/components/Layout/DefaultLayout.vue",
+              "path": "frontend/app/layouts/default.vue",
+              "line": 5,
+              "offset": 68,
+              "blocking": true
+            }
+          ],
+          "rules": [],
+          "imports": [
+            {
+              "module": "@/components/Layout/DefaultLayout.vue",
+              "typeOnly": false
+            }
+          ],
+          "syntax": "not generated",
+          "semantic": "pending review",
+          "dependencyClosure": "blocked",
+          "outputSha256": null
+        }
+      ],
+      "exact": [
+        {
+          "id": "domain",
+          "regenerated": true,
+          "sha256": "ddb7bf9de84cf7905ce283c522760172d53671c2cdbbba2109ee299504fa617c"
+        },
+        {
+          "id": "common",
+          "regenerated": true,
+          "sha256": "3b551ab7ccb18dcc7e79e06de4c977c7eb6573dc67e9920a2e0866f30b1dbe71"
+        }
+      ]
+    },
+    {
+      "id": "unsupported-syntax-rejected",
+      "safetyPassed": true,
+      "diagnostics": [
+        {
+          "rule": "R22",
+          "message": "Unconverted component dependency: v-unknown",
+          "path": "input.vue",
+          "line": 1,
+          "offset": 10,
+          "blocking": true
+        }
+      ]
+    },
+    {
+      "id": "missing-refinement-anchor",
+      "safetyPassed": true,
+      "error": "Refinement precondition failed: b.tsx",
+      "originalUnchanged": true,
+      "beforeSha256": "3337a775cf29361e02e1bf3e68cbfcd7cdcd729d9181a73b9e17a8178bdeb2e2",
+      "afterSha256": "3337a775cf29361e02e1bf3e68cbfcd7cdcd729d9181a73b9e17a8178bdeb2e2"
+    },
+    {
+      "id": "duplicate-refinement-anchor",
+      "safetyPassed": true,
+      "error": "Refinement precondition failed: a.tsx",
+      "originalUnchanged": true,
+      "beforeSha256": "07e1d170230cb648b2e5db665dfe4119d061d2a4e3df0e0fc641a2d6b63a2206",
+      "afterSha256": "07e1d170230cb648b2e5db665dfe4119d061d2a4e3df0e0fc641a2d6b63a2206"
+    },
+    {
+      "id": "existing-publication-protected",
+      "safetyPassed": true,
+      "error": "Artifact directory already exists"
+    },
+    {
+      "id": "single-directory-publication-atomic",
+      "safetyPassed": true,
+      "error": "Unsafe artifact path",
+      "publishedExists": false,
+      "retainedStaging": [
+        "later-file-failure.staging-acb337e3-0f4f-4830-af13-0b4c6dc3bf2f"
+      ]
+    },
+    {
+      "id": "late-reuse-failure-cli",
+      "safetyPassed": false,
+      "command": [
+        "<RUNTIME>/node\\bin\\node.exe",
+        "../rewrite-tools/wf4-r2/run.mjs"
+      ],
+      "cwd": "<EXECUTION_COPY>/frontend-react",
+      "exitCode": 1,
+      "seconds": 1.07,
+      "log": "faults/late-reuse-failure-cli.log",
+      "expectedFailure": true,
+      "beforeGeneratedSha256": "8f71479571688dfbdbeab5056f3082c76dafa4e4ffcac9b0f0894b1dab0d6644",
+      "afterGeneratedSha256": "3b551ab7ccb18dcc7e79e06de4c977c7eb6573dc67e9920a2e0866f30b1dbe71",
+      "originalGeneratedUnchanged": false,
+      "purePublished": true,
+      "refinedPublished": true,
+      "fault": "reuse target is an empty directory; preceding output must not change"
+    },
+    {
+      "id": "event-method-reference",
+      "safetyPassed": false,
+      "diagnostics": [],
+      "rules": [
+        "R01",
+        "R02",
+        "R06"
+      ],
+      "emitted": true,
+      "calls": [],
+      "error": null,
+      "input": "faults/event-method-reference.input.vue",
+      "output": "faults/event-method-reference.output.tsx"
+    },
+    {
+      "id": "event-arrow-event",
+      "safetyPassed": false,
+      "diagnostics": [],
+      "rules": [
+        "R01",
+        "R02",
+        "R06"
+      ],
+      "emitted": true,
+      "calls": [
+        null
+      ],
+      "error": null,
+      "input": "faults/event-arrow-event.input.vue",
+      "output": "faults/event-arrow-event.output.tsx"
+    },
+    {
+      "id": "event-dollar-event",
+      "safetyPassed": false,
+      "diagnostics": [],
+      "rules": [
+        "R01",
+        "R02",
+        "R06"
+      ],
+      "emitted": true,
+      "calls": [],
+      "error": "$event is not defined",
+      "input": "faults/event-dollar-event.input.vue",
+      "output": "faults/event-dollar-event.output.tsx"
+    },
+    {
+      "id": "temporary-tracked-files-restored",
+      "safetyPassed": true,
+      "trackedDrift": []
+    }
+  ]
+}

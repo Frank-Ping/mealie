@@ -1,0 +1,17 @@
+{
+  "phase": "A",
+  "formal_start_utc": "2026-10-13T09:39:59.423Z",
+  "snapshot_at_utc": "2026-10-13T09:59:04.217801+00:00",
+  "wall_elapsed_seconds": 1144.795,
+  "wall_time_note": "Elapsed prompt-to-snapshot time; not active compute time or human review time. Final reply occurs after cutoff.",
+  "human_review": "待人工填写",
+  "active_execution_time": "未提供",
+  "full_unfiltered_transcript": "待补; visible export excludes internal reasoning and system/developer/turn context",
+  "visible_records": 34,
+  "prompt_sha256": "e2e2882ef3cea648f2c3735dccf188771c259621902db505710935268ac0e0e0",
+  "canonical_branch": "rewrite/wf4-codemod-rerun",
+  "canonical_head_at_export": "2176881a9810633a8de7753456dbd63ee44b27c6",
+  "git_status_at_export": "",
+  "source_input_commit": "4b9ca06b6581f7152e164ea0fd9d4da366975a79",
+  "gate": "Gate 1 waiting; no conversion"
+}

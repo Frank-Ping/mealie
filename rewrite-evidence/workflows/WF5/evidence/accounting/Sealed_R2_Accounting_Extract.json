@@ -1,0 +1,62 @@
+{
+  "document": "R2-only accounting extract from a later sealed boundary record",
+  "source_path": "<WORKSPACE>/wf4-r3-evidence\\R2-boundary-at-R3-start.json",
+  "source_sha256": "c8f50a419de306c11282c23346de03bcdfd5bee091245a7116cd674aee65715f",
+  "scope": "Only completed WF4-R2 formal execution and original-conversation post-stop/pre-extension counters. No subsequent rewrite use or results.",
+  "source_session_id": "01a13444-0c1c-7e81-b13f-8a41c4be747d",
+  "R2Gate2": "NOT PASSED; at least 3/5 blocked; independent review F1-F6 preserved",
+  "R2FormalStart": "2026-10-13T09:39:59.423Z",
+  "R2FinalReply": "2026-10-13T10:58:34.735Z",
+  "R2FinalReplyCounterTimestamp": "2026-10-13T10:58:34.904Z",
+  "R2FinalReplyCumulativeCounter": {
+    "input_tokens": 21496994,
+    "cached_input_tokens": 20554112,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 194803,
+    "reasoning_output_tokens": 87395,
+    "total_tokens": 21691797
+  },
+  "R2PhaseA": {
+    "input_tokens": 2332216,
+    "cached_input_tokens": 1987328,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 29302,
+    "reasoning_output_tokens": 7401,
+    "total_tokens": 2361518
+  },
+  "R2PhaseBThroughFinalReply": {
+    "input_tokens": 6551779,
+    "cached_input_tokens": 6390400,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 79594,
+    "reasoning_output_tokens": 32877,
+    "total_tokens": 6631373
+  },
+  "R2FormalThroughFinalReply": {
+    "input_tokens": 8883995,
+    "cached_input_tokens": 8377728,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 108896,
+    "reasoning_output_tokens": 40278,
+    "total_tokens": 8992891
+  },
+  "originalConversationPostStopPreExtensionUsage": {
+    "input_tokens": 685384,
+    "cached_input_tokens": 558720,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 1207,
+    "reasoning_output_tokens": 0,
+    "total_tokens": 686591
+  },
+  "originalFieldName": "postR2DiscussionAndIndependentReviewBeforeR3",
+  "lastAvailablePreExtensionCounterTimestamp": "2026-10-13T11:34:19.893Z",
+  "lastAvailablePreExtensionCumulativeCounter": {
+    "input_tokens": 22182378,
+    "cached_input_tokens": 21112832,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 196010,
+    "reasoning_output_tokens": 87395,
+    "total_tokens": 22378388
+  },
+  "note": "The 686591-token record measures only the original conversation. Keep it separate from the multi-session audit and its accounting followup; wall windows overlap. Cached input is a subset of input; reasoning output is a subset of output. No dollar cost or human review time inferred."
+}

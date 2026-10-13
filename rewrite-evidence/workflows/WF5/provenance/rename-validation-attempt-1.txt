@@ -1,0 +1,12 @@
+Publication validation attempt 1, 14 October 2026.
+The renamed rule suite recorded 19 passes and 1 failure. The failure was EPERM
+while renaming a newly created staging directory under the Windows sandbox's
+default temporary directory in the publication safety test. No historical
+artifact or original experiment code was changed. The second attempt sets
+TEMP and TMP to a dedicated workspace test directory; neither test assertions
+nor converter behavior is modified to obtain the result.
+
+Error operation: fs.renameSync(<SANDBOX_TEMP>/wf5-test-*/pure.staging-* -> pure)
+Failing case: publication refuses overwrite and invalid paths without publishing partial tree
+Original console output remains in this chat tool record. This file is an
+English summary of that attempt, with private machine paths normalized.

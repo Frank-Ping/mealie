@@ -1,0 +1,24 @@
+请独立审核 WF4-R2 Gate 2。
+
+源码目录：
+<WORKSPACE>/mealie-wf5
+
+证据目录：
+<WORKSPACE>/wf4-r2-evidence
+
+先读取 AGENTS.md、Gate 2 提交说明、plan、decisions、conversion-rules 和 state，然后核对：
+
+1. 五个固定样本的原始源码、最终结果、阻塞诊断及规则实现状态。
+2. round-3/revision-4 的 pure、refined 和 frontend-react/src/generated 是否一致，基础设施是否单独记录。
+3. 在独立临时副本中运行规则测试、严格类型检查、lint、单元测试及两种 build，保存命令和退出码。
+4. 故障注入：缺失必需 input/expected、错误转换、refinement anchor 缺失或重复、后续操作失败时，都必须正确失败且不留下部分写入；重复生成须一致。
+5. 检查链接语义、事件参数、props/slots、hooks、异步失效、store 范围及 i18n。
+6. 区分新增样本测试与原测试迁移；样本测试通过不能证明完整 Mealie 应用通过。
+7. 核实三轮、3/5＝60%及停止决定是否符合已批准条件；检查失败历史和风险探针。
+8. 分别报告已验证、仍阻塞、未验证事项，并给出文件行号和证据。
+
+正式源码及现有记录保持只读，不修复实现、不增加样本轮次、不开始批量转换。
+将独立审核结果写入：
+rewrite-evidence/workflows/WF4-R2-Gate-2-independent-review.md
+
+完成后停止，由我决定后续行动。

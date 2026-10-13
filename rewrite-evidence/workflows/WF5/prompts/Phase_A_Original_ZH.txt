@@ -1,0 +1,28 @@
+Prompt 1 Rules design and experiment records
+
+```text
+开始 WF4-R2 的 Phase A：规则设计。本次正式 workflow 用量记录从这条 prompt 开始。
+
+源码主目录：
+<WORKSPACE>/mealie-wf5
+证据目录：
+<WORKSPACE>/wf4-r2-evidence
+
+先读取源码主目录的 AGENTS.md，以及证据目录的 SETUP.md、BASELINE.md、environment.json 和 runtime-env.sh。确认当前分支为 rewrite/wf4-codemod-rerun，起始 commit 为 4b9ca06b6581f7152e164ea0fd9d4da366975a79。
+
+目标栈：Vite + React 19 + TypeScript strict + React Router SPA + MUI + react-i18next。原 frontend/、mealie/、既有 baseline 和固定评价标准保持不变。以 Windows 源码主目录为唯一编辑来源；WSL 临时目录只是执行快照。
+
+本阶段分析源码并创建文档，不开始转换。请在源码主目录的 rewrite-evidence/workflows/ 中创建：
+- WF4-R2-plan.md：流程、基础设施方案、输出文件归属、验证方法、预算和停止条件。
+- WF4-R2-conversion-rules.md：规则目录。
+- WF4-R2-state.md：已完成事项、决定、风险和下一步。
+
+每条规则包含 ID、真实源码路径、Vue/React 前后例子、适用条件、Mechanical/Semi-mechanical/Judgement 分类、不支持时的处理和验证方法。覆盖 Vuetify、模板指令、slots、路由/guards、i18n、响应式状态、共享 stores、异步生命周期和 CSS。判断性规则不能自动猜测；导航必须保留真实链接语义。
+
+提出五个代表性样本：页面、业务组件、公共组件、composable、layout。区分纯转换产物、手写基础设施和语义 refinement。测试与 assertions 的保留不能只靠数量证明。
+
+停止条件沿用原设计：最多三轮样本审查；仍超过 30% 的样本需要逐文件语义修补，则停止批量转换并记录失败。时间/token 预算作为待确认项提交 Gate 1。
+
+在证据目录的 workflow-sessions/ 中保存本阶段 prompt、可获取的会话记录、时间和原始 usage。此前专属于 WF4-R2 的 prompt 模板准备成本若可获取则单列，共享 baseline 准备成本另列。工具不提供的 token/费用写“未提供”；cache 是否包含在 input、usage 是否累计要注明，避免重复相加。人工审查时间单独记录，完整 transcript 无法导出时标为待补。
+
+仅提交本阶段相关文档，使用 [WF4-R2-A] commit 前缀，并更新 state。提交规则摘要、未决问题和审核材料后停止，等待我确认 Gate 1。

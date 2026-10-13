@@ -1,0 +1,14 @@
+{
+  "status": "pass",
+  "artifact": "round-3/revision-4",
+  "checks": [
+    "5-file manifest including 3 explicit blocks",
+    "pure/refined/published file hashes equal",
+    "tool and infrastructure provenance matches",
+    "6 WSL checks pass",
+    "36 target units/20 rule checks",
+    "1804 committed hashes unchanged",
+    "original frontend/backend and evaluator unchanged"
+  ],
+  "gate2": "NOT READY; full migration failed stop condition, no batch rewrite"
+}

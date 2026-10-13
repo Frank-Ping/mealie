@@ -1,0 +1,60 @@
+{
+  "experiment": "WF4-R2",
+  "scope_completed": "steps 1 and 2 completed; no rewrite started",
+  "captured_at_utc": "2026-10-13T22:06:05.665655+13:00",
+  "source": {
+    "path": "<WORKSPACE>/mealie-wf4-rerun",
+    "commit": "4b9ca06b6581f7152e164ea0fd9d4da366975a79",
+    "branch": "rewrite/wf4-codemod-rerun",
+    "shallow": "true",
+    "remotes": "",
+    "status": "",
+    "frontend_lock_sha256": "e773fc2cc3219d2f735a96b8e20b5b7a51f3feeae0b218f3a6e011b81f481cd4"
+  },
+  "evaluator": {
+    "path": "<WORKSPACE>/mealie-wf4-evaluator",
+    "commit": "758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d",
+    "measure_script_sha256": "891f6af7fca54c2cd68d16e9aa8745d21a26c06838f021fa12cfec6e3eae6062",
+    "playwright_config_sha256": "275d1c83c6d35c131ffae934cdd2257103957a2ac349d0a12ff4bd8bfd6f1ed9",
+    "e2e_lock_sha256": "af39db4f1e40760e120287096865b1d1af9389c616f954a27d6bdc07d7009bca",
+    "backend_lock_sha256": "74f4f6a70e1ccd8f8d3d8fa69585597755ecd9fd2c8eba0fc5d3b8a7d925fda0"
+  },
+  "environment": {
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+    "python": "3.14.4",
+    "node": "v24.19.0",
+    "pnpm": "11.23.0",
+    "uv": "uv 0.11.26 (x86_64-unknown-linux-gnu)",
+    "pnpm_store": "<PRIVATE_HOME>/.local/share/pnpm/store/v11",
+    "wsl_memory": "total        used        free      shared  buff/cache   available\nMem:            15Gi       750Mi        14Gi       5.7Mi       582Mi        14Gi\nSwap:          4.0Gi          0B       4.0Gi",
+    "runtime_path": "<EXECUTION_COPY>/runtime",
+    "execution_source_path": "<EXECUTION_COPY>/source",
+    "execution_source_commit": "4b9ca06b6581f7152e164ea0fd9d4da366975a79",
+    "execution_evaluator_path": "<EXECUTION_COPY>/evaluator",
+    "execution_evaluator_commit": "758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d"
+  },
+  "target_stack": [
+    "Vite",
+    "React 19",
+    "TypeScript strict",
+    "React Router SPA",
+    "MUI",
+    "react-i18next"
+  ],
+  "measurement": {
+    "route_scope": "all",
+    "route_check": "strict",
+    "e2e_workers": 2,
+    "port": 9091,
+    "retries": 0
+  },
+  "model_token_usage": "Provider-reported local session counters are available. Authorized tracking from 2026-10-13T09:26:12.566Z is recorded in workflow-sessions/usage-summary.json. Earlier usage is outside this window, not zero.",
+  "notes": [
+    "Public fixed commits fetched without credential helpers. Neither checkout has a remote.",
+    "Canonical checkouts are in the workspace; temporary execution copies and runtime are in WSL /var/tmp to avoid OneDrive I/O overhead.",
+    "Ubuntu build dependencies were installed to satisfy the frozen python-ldap dependency.",
+    "The evaluator is newer than the original WF4 branch point; its version is fixed for the baseline and rerun.",
+    "Fresh disposable SQLite test data is used; no existing Mealie data is reused."
+  ],
+  "baseline_record": "wf4-r2-evidence/baseline.json"
+}

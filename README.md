@@ -1,3 +1,7 @@
+## WF5 coursework experiment
+
+This branch publishes the failed rule-driven rewrite experiment as **WF5**. Start with [WF5 overview and Git evidence](WF5.md) or the [English evidence index](rewrite-evidence/workflows/WF5/README.md). Historical commits and raw records retain the identifier WF4-R2.
+
 [![Latest Release][latest-release-shield]][latest-release-url]
 [![Contributors][contributors-shield]][contributors-url]
 [![Stargazers][stars-shield]][stars-url]

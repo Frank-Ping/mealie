@@ -1,0 +1,1099 @@
+{
+  "publication_label": "WF5",
+  "historical_label": "WF4-R2",
+  "historical_endpoint": "8b0fae128ea823ebee4a6507d274df1f8987e8d1",
+  "scope": "Retrospective public projections of historical results; no experiments rerun; subsequent rewrite results excluded",
+  "original_source_ids_are_private_package_relative": true,
+  "source_metadata_removed": [
+    "_meta",
+    "annotations",
+    "balance",
+    "client_authored",
+    "connector_id",
+    "credits",
+    "has_credits",
+    "individual_limit",
+    "internal_chat_message_metadata_passthrough",
+    "mcp_attribution",
+    "metadata",
+    "plan_type",
+    "plugin_id",
+    "rate_limit_reached_type",
+    "rate_limits",
+    "resets_at",
+    "retained_source",
+    "spend_control_reached",
+    "unlimited",
+    "used_percent",
+    "user_input_order"
+  ],
+  "path_placeholders": [
+    "<WORKSPACE>",
+    "<EXECUTION_COPY>",
+    "<PRIVATE_SESSION_LOG>",
+    "<PRIVATE_HOME>",
+    "<RUNTIME>"
+  ],
+  "files": [
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/BASELINE.md",
+      "original_sha256": "bbf4676ee575b676fe7fdac192e3f4df3c977ad2e6ed44f20829f9bf1fa34bdd",
+      "public_path": "baseline/BASELINE.md",
+      "public_sha256": "bbf4676ee575b676fe7fdac192e3f4df3c977ad2e6ed44f20829f9bf1fa34bdd",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/SETUP.md",
+      "original_sha256": "590108661aac73bb532ffeb993191de11c02f3cf0b4bb1192b5972d841d722c0",
+      "public_path": "baseline/SETUP.md",
+      "public_sha256": "1cfc07d9b4de75d3f25867cddfe159e70c37b65ee4ba0197a64563783eac8ff1",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/baseline.json",
+      "original_sha256": "da55317cedcc93f5b696a17d9b5b403fca633bc44b76ef007cec843742700517",
+      "public_path": "baseline/baseline.json",
+      "public_sha256": "18dae87eb330b13b92d806dac412e391680c725bae0b9245fedb6d6175f8787a",
+      "transforms": [
+        "Structured projection removes account/connector/internal metadata recursively",
+        "Private workstation, execution-copy and raw-session paths normalized; counters/results retained"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/environment.json",
+      "original_sha256": "9c043a0a2912b00483f0a858575175c71b915991fbc71f0037dbff0af98089d5",
+      "public_path": "baseline/environment.json",
+      "public_sha256": "ccd4d2eb468581e3922d9281672c992bece0f3a181fb7bf6c80d9980d684cf06",
+      "transforms": [
+        "Structured projection removes account/connector/internal metadata recursively",
+        "Private workstation, execution-copy and raw-session paths normalized; counters/results retained"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/metrics.csv",
+      "original_sha256": "e697981df067142ac0acdba0dfd660183cfeb716f2ca8ea1bf38761ab4c96b22",
+      "public_path": "baseline/metrics.csv",
+      "public_sha256": "e697981df067142ac0acdba0dfd660183cfeb716f2ca8ea1bf38761ab4c96b22",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/measurement.log",
+      "original_sha256": "576a77ba2e07d3be2994f65e5894087a989520dc0c1d8a099f56292aa9185842",
+      "public_path": "baseline/measurement.log",
+      "public_sha256": "3b2a83144fde4a9b88734077d740c05fb2b40845e438ab4d3b082f61a1289c58",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/input-verification.log",
+      "original_sha256": "4c546c1373ef45982a72660f0fa97aaea87fe194c054f8a626f4211b9bed856b",
+      "public_path": "baseline/input-verification.log",
+      "public_sha256": "4c546c1373ef45982a72660f0fa97aaea87fe194c054f8a626f4211b9bed856b",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/coverage.log",
+      "original_sha256": "ee89a257a7b3b8eaf7a1e0d393bdf8851131ce8a947e8519609ab7cde3e3e02d",
+      "public_path": "baseline/coverage.log",
+      "public_sha256": "37d61295a08860091eea484f8c924da1c64e45359e846978408462a6ae91dfc6",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/run-baseline.sh",
+      "original_sha256": "f6ec1201ae919c893b98968908dd2cd38801a1fd15393c6b6bc35bd48fee9f99",
+      "public_path": "baseline/run-baseline.sh",
+      "public_sha256": "f6ec1201ae919c893b98968908dd2cd38801a1fd15393c6b6bc35bd48fee9f99",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/run-coverage.sh",
+      "original_sha256": "031c5f404c2ffbb12eb977fe15c541bcc213108af780ceb6f3974dea7e5acd55",
+      "public_path": "baseline/run-coverage.sh",
+      "public_sha256": "031c5f404c2ffbb12eb977fe15c541bcc213108af780ceb6f3974dea7e5acd55",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/verify-frozen-inputs.sh",
+      "original_sha256": "fc9576c74d35c9ccfc62509ba2fe3e5d7a8024eb46405a0f4b04300069bd5889",
+      "public_path": "baseline/verify-frozen-inputs.sh",
+      "public_sha256": "fc9576c74d35c9ccfc62509ba2fe3e5d7a8024eb46405a0f4b04300069bd5889",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/runs/20261013T085845Z-source_frontend-WF4-R2-Vue-baseline/build.log",
+      "original_sha256": "cdceb2172eafd97d139557266e5cdc98ce90644408e18c0582c0fb988b76acf8",
+      "public_path": "baseline/raw-reports/build.log",
+      "public_sha256": "e9142308c59637a86e9915ea1b27238312efae2a86959c63268f462ddb7dbb45",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/runs/20261013T085845Z-source_frontend-WF4-R2-Vue-baseline/e2e-install.log",
+      "original_sha256": "e57fe52f0a048e41ec77a42bd27beb004485a34908c5ae235b16a0280da8d669",
+      "public_path": "baseline/raw-reports/e2e-install.log",
+      "public_sha256": "e57fe52f0a048e41ec77a42bd27beb004485a34908c5ae235b16a0280da8d669",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/runs/20261013T085845Z-source_frontend-WF4-R2-Vue-baseline/e2e-results.json.gz",
+      "original_sha256": "ce92b21157d379eb12e5d2838d2c06cbcd0d819505dda3286ed20d900ee6644a",
+      "public_path": "baseline/raw-reports/e2e-results.json.gz",
+      "public_sha256": "0010d7b1add2e767bc1393e3eac9b5043f5ec07d83c9886972e748a56a2c8590",
+      "transforms": [
+        "Compressed report parsed and scanned; structured metadata/private-path sanitization when present",
+        "Historical assertions, counts and results retained; no rerun"
+      ],
+      "original_uncompressed_sha256": "0a3ba264ca51f7ad6f71d87a265aa87b25d67d80e7c979837d135b006844bbb9",
+      "public_uncompressed_sha256": "b34078d614fc5f60276e11327efa2e2cad6cfd8594c0d3a2b0c78a36edc2a344"
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/runs/20261013T085845Z-source_frontend-WF4-R2-Vue-baseline/e2e.log",
+      "original_sha256": "008c68e1a006d8cbb77522e26e144bb6c3e2f8cc489cefe5538f813f80ac51f6",
+      "public_path": "baseline/raw-reports/e2e.log",
+      "public_sha256": "008c68e1a006d8cbb77522e26e144bb6c3e2f8cc489cefe5538f813f80ac51f6",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/runs/20261013T085845Z-source_frontend-WF4-R2-Vue-baseline/eslint.json.gz",
+      "original_sha256": "cb60aaa3e0a18db8dba4fd2c712d8c9c1b480185f7e771d587b681a0b4c36882",
+      "public_path": "baseline/raw-reports/eslint.json.gz",
+      "public_sha256": "3a11125155f030de5673cfe2ff04266fbda7bb379a06dce0345edeeaf0d28cee",
+      "transforms": [
+        "Compressed report parsed and scanned; structured metadata/private-path sanitization when present",
+        "Historical assertions, counts and results retained; no rerun"
+      ],
+      "original_uncompressed_sha256": "a68af97f8686178875e2a9010e395643da70bea7481c41e87cbc0878e05b1c1d",
+      "public_uncompressed_sha256": "9283ecc1be389b9115f8a08565a880fb89200421b8fc050d4e8568b11885bfcf"
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/runs/20261013T085845Z-source_frontend-WF4-R2-Vue-baseline/install.log",
+      "original_sha256": "bf524884b3bf7ad3b83ac26aff8ffc0ed7817aa844a72bd970808163a688dcbe",
+      "public_path": "baseline/raw-reports/install.log",
+      "public_sha256": "c62960d03b50b99b9f43afaa189425579cebf2f3a9d062628ea411fabe1c5f13",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/runs/20261013T085845Z-source_frontend-WF4-R2-Vue-baseline/lint.log",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "public_path": "baseline/raw-reports/lint.log",
+      "public_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/runs/20261013T085845Z-source_frontend-WF4-R2-Vue-baseline/types-install.log",
+      "original_sha256": "e0a87ef9362693d88cf668b596bacad506b66340d8d64918450759815ee85c74",
+      "public_path": "baseline/raw-reports/types-install.log",
+      "public_sha256": "e0a87ef9362693d88cf668b596bacad506b66340d8d64918450759815ee85c74",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/runs/20261013T085845Z-source_frontend-WF4-R2-Vue-baseline/types.log",
+      "original_sha256": "bdf4fc775f833ec22b9c615bce8c99e817f8cf21721d86e2c7dd4eee3631457c",
+      "public_path": "baseline/raw-reports/types.log",
+      "public_sha256": "08ddd682abdb8f77fb46315171fdf8a722443bddd7a25a4877693f2fc5a35fe9",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/runs/20261013T085845Z-source_frontend-WF4-R2-Vue-baseline/unit.log",
+      "original_sha256": "2f3b7337871cc08753f57e68d984501c3d58dccc6e341d0a27d0bec82a1bb30f",
+      "public_path": "baseline/raw-reports/unit.log",
+      "public_sha256": "fd9a5dadcc86a6770033490387df737a2100f7b54b37457017ed24088ae1beb8",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/runs/20261013T085845Z-source_frontend-WF4-R2-Vue-baseline/vitest.json.gz",
+      "original_sha256": "4848c593d299179d7fe5af969a209a38a4ff428c3799c0a8023072afeafc272c",
+      "public_path": "baseline/raw-reports/vitest.json.gz",
+      "public_sha256": "5fa63b97593251244310bd640429315ca34bf95b77d1cbb3a8937afcd374e8ba",
+      "transforms": [
+        "Compressed report parsed and scanned; structured metadata/private-path sanitization when present",
+        "Historical assertions, counts and results retained; no rerun"
+      ],
+      "original_uncompressed_sha256": "0ad60eadfd8b668b2901d94da2407b9e01fdaf16f2ce876074ad3f542b400318",
+      "public_uncompressed_sha256": "fc3806a495460263f7fe119f4b85e2c60971d3cf6c9bb5e4e0a53843ce3e5a8b"
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/workflow-sessions/phase-b/wsl-check-results.json",
+      "original_sha256": "c3f2894f94bbd09613078a5cd97a8620b739cdcc3a83da4a2490400e810563bd",
+      "public_path": "implementation-checks/final-wsl/check-results.json",
+      "public_sha256": "ee4a1cd6812657c300c53ed13156d1bbb504773f6dfaf965c29b8667cab4f815",
+      "transforms": [
+        "Structured projection removes account/connector/internal metadata recursively",
+        "Private workstation, execution-copy and raw-session paths normalized; counters/results retained"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/workflow-sessions/phase-b/wsl-rules.log",
+      "original_sha256": "5b79999b2fb85679cc53bbb60d62dcd19da995f9b38aa5a7bd97eb55009134ef",
+      "public_path": "implementation-checks/final-wsl/rules.log",
+      "public_sha256": "5b79999b2fb85679cc53bbb60d62dcd19da995f9b38aa5a7bd97eb55009134ef",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/workflow-sessions/phase-b/wsl-types.log",
+      "original_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "public_path": "implementation-checks/final-wsl/types.log",
+      "public_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/workflow-sessions/phase-b/wsl-lint.log",
+      "original_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "public_path": "implementation-checks/final-wsl/lint.log",
+      "public_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/workflow-sessions/phase-b/wsl-unit.log",
+      "original_sha256": "09a27a178a484003f0ccc7dcff62e5a0d40aacb182fcb4eb80cbb28f5fa1031c",
+      "public_path": "implementation-checks/final-wsl/unit.log",
+      "public_sha256": "03f5dbe267c36a1d8d89db399ce4a93ac9dcfc324a33f715b7a23ccc21c14b13",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/workflow-sessions/phase-b/wsl-build.log",
+      "original_sha256": "e34c7315a05ab959cad55a40c354bbf9fc97dcb3d50db61d3d43067a84ac6874",
+      "public_path": "implementation-checks/final-wsl/build.log",
+      "public_sha256": "e34c7315a05ab959cad55a40c354bbf9fc97dcb3d50db61d3d43067a84ac6874",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/workflow-sessions/phase-b/wsl-build-components.log",
+      "original_sha256": "879a938eaeb2d556e05645d0bc427a8c68b226e909456a40eb712e7ae39e0435",
+      "public_path": "implementation-checks/final-wsl/build-components.log",
+      "public_sha256": "879a938eaeb2d556e05645d0bc427a8c68b226e909456a40eb712e7ae39e0435",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/workflow-sessions/phase-b/wsl-install.log",
+      "original_sha256": "26a2e0ec48701fcf31e7fd5554ba8c32f9842b995b216fe05fbaaad7bb451aec",
+      "public_path": "implementation-checks/final-wsl/install.log",
+      "public_sha256": "c264023f4e65e5c35c5c5e45f9b2f5e0278222de83bb2e8d9d8f3f7b961d0c19",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/workflow-sessions/phase-b/wsl-environment.txt",
+      "original_sha256": "b64304034e6a6cf5dad091b0fcc28aa44d219f0a862ceb97729203117b56b756",
+      "public_path": "implementation-checks/final-wsl/environment.txt",
+      "public_sha256": "b64304034e6a6cf5dad091b0fcc28aa44d219f0a862ceb97729203117b56b756",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/workflow-sessions/phase-b/wsl-unit-results.json",
+      "original_sha256": "13e71c7d28e53874022b4fc9f1b291eca680744cda440e0e3429fecb10db18bd",
+      "public_path": "implementation-checks/final-wsl/unit-results.json",
+      "public_sha256": "5061f8891ac5bffafbe61958506d7044c926b7efb3864223607597d7ddbc7799",
+      "transforms": [
+        "Structured projection removes account/connector/internal metadata recursively",
+        "Private workstation, execution-copy and raw-session paths normalized; counters/results retained"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/workflow-sessions/phase-b/wsl-lock-before.txt",
+      "original_sha256": "d01b1b73aef635d7ccbfd19f7d33b671d85f3a7239807070269c7bf1958f81a4",
+      "public_path": "implementation-checks/final-wsl/wsl-lock-before.txt",
+      "public_sha256": "d01b1b73aef635d7ccbfd19f7d33b671d85f3a7239807070269c7bf1958f81a4",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/workflow-sessions/phase-b/wsl-lock-after.txt",
+      "original_sha256": "d01b1b73aef635d7ccbfd19f7d33b671d85f3a7239807070269c7bf1958f81a4",
+      "public_path": "implementation-checks/final-wsl/wsl-lock-after.txt",
+      "public_sha256": "d01b1b73aef635d7ccbfd19f7d33b671d85f3a7239807070269c7bf1958f81a4",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/workflow-sessions/phase-b/final-validation.json",
+      "original_sha256": "12b8032e8ace9771be3354f87992970aa7118933e1e9a2ee06c8f67f7774350c",
+      "public_path": "implementation-checks/final-wsl/final-validation.json",
+      "public_sha256": "e51d0ce02d83c90f133281564207b621bbd380152a742d12dc66dcbd642e3791",
+      "transforms": [
+        "Structured projection removes account/connector/internal metadata recursively",
+        "Private workstation, execution-copy and raw-session paths normalized; counters/results retained"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/workflow-sessions/phase-b/checks/20261013T103538001026Z/check-results.json",
+      "original_sha256": "2263f30be412ebc3ac29ff70c1db1a8c221a5f210516e251ec249d497543d6dd",
+      "public_path": "implementation-checks/failure-history/windows-lint/check-results.json",
+      "public_sha256": "4500a1a1d21377842566be6d9244919a4e59d06ab4822a4753852435f746b681",
+      "transforms": [
+        "Structured projection removes account/connector/internal metadata recursively",
+        "Private workstation, execution-copy and raw-session paths normalized; counters/results retained"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/workflow-sessions/phase-b/checks/20261013T103538001026Z/lint.log",
+      "original_sha256": "ab715e453481eb79a9a979bb5b04cf8e8778885e704f8eb15f34cdc84e904e8b",
+      "public_path": "implementation-checks/failure-history/windows-lint/lint.log",
+      "public_sha256": "61ef1e0dd5f643b0e4a11dc8a0432bb527ad3a853bd81cc2449bbf7e0a64782b",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/workflow-sessions/phase-b/wsl-attempt-2/wsl-check-results.json",
+      "original_sha256": "826bf3735bb4cc96783e677b830b743e0ec63d05b787d919daf3732d9ef32c04",
+      "public_path": "implementation-checks/failure-history/wsl-attempt-2/wsl-check-results.json",
+      "public_sha256": "94d6b71507b4d32592c81df34819a389cd8dfb51c38399c1e01028c16b0311bf",
+      "transforms": [
+        "Structured projection removes account/connector/internal metadata recursively",
+        "Private workstation, execution-copy and raw-session paths normalized; counters/results retained"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/workflow-sessions/phase-b/wsl-attempt-2/wsl-types.log",
+      "original_sha256": "6b0bccc9d1a7134145f5b0419fd60fbcb642a16e20e7ea421940f2cf9f0b1e56",
+      "public_path": "implementation-checks/failure-history/wsl-attempt-2/wsl-types.log",
+      "public_sha256": "6b0bccc9d1a7134145f5b0419fd60fbcb642a16e20e7ea421940f2cf9f0b1e56",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/workflow-sessions/phase-b/wsl-attempt-2/wsl-unit.log",
+      "original_sha256": "d4385100388c5bea4fbd204a82ec9f67de627ab153d458428c16a445399f7ed1",
+      "public_path": "implementation-checks/failure-history/wsl-attempt-2/wsl-unit.log",
+      "public_sha256": "5d0b121acbbbe57ecaf999b8dd794d384c094d4e04406da4e6024dae8fbbd945",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/workflow-sessions/phase-b/wsl-attempt-2/wsl-build-components.log",
+      "original_sha256": "76c16d3f92c5705edab9d8bc0d92b8c4eaa1fa679492709dc9bcbf0b074df1e6",
+      "public_path": "implementation-checks/failure-history/wsl-attempt-2/wsl-build-components.log",
+      "public_sha256": "7faea21c369c515b3d048618248633e9b6b9402aad73c90b29e0011f9bb7b1d3",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/workflow-sessions/phase-b/wsl-attempt-2/wsl-environment.txt",
+      "original_sha256": "b64304034e6a6cf5dad091b0fcc28aa44d219f0a862ceb97729203117b56b756",
+      "public_path": "implementation-checks/failure-history/wsl-attempt-2/wsl-environment.txt",
+      "public_sha256": "b64304034e6a6cf5dad091b0fcc28aa44d219f0a862ceb97729203117b56b756",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "historical-canonical-repository/rewrite-evidence/workflows/WF4-R2-Gate-2-review.md",
+      "original_sha256": "f46562f5b7ec139c9893b8bbedf995d385e60cef1009214219a309d9c92b0f37",
+      "public_path": "implementation-checks/Review_Historical_EN.md",
+      "public_sha256": "fd47ce4acae2a4cdab182b9de73e6178fcb4bbbc1b64d616ecf7594c6fde9376",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/workflow-sessions/USAGE.md",
+      "original_sha256": "3e1e7cadf874ccb45d4534ecf0a4783cbf03e3db62a3718b020ecb42cd79a1c5",
+      "public_path": "accounting/Main_Usage_Historical.md",
+      "public_sha256": "3e1e7cadf874ccb45d4534ecf0a4783cbf03e3db62a3718b020ecb42cd79a1c5",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/workflow-sessions/usage-summary.json",
+      "original_sha256": "003b69ccf128a46efb14076f5e7884493482face3b7476cb7abbc0465bfba76b",
+      "public_path": "accounting/main-completed-usage-summary.json",
+      "public_sha256": "ebe0de65b04b4e0846d2c1c667c740f1db44a0b86c5a6ff59544e3c1bb3708e0",
+      "transforms": [
+        "Structured projection removes account/connector/internal metadata recursively",
+        "Private workstation, execution-copy and raw-session paths normalized; counters/results retained"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/workflow-sessions/token-events.jsonl",
+      "original_sha256": "ec1086ed4bc31443917903496a6c80f9cf281ef7667710ca779934a6eca3f898",
+      "public_path": "accounting/main-token-events.jsonl",
+      "public_sha256": "b9f89cb049b7067ab7c16de0bcb808924be0869e215136e21a3d907daf70f772",
+      "transforms": [
+        "Structured projection removes account/connector/internal metadata recursively",
+        "Private workstation, execution-copy and raw-session paths normalized; counters/results retained"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/workflow-sessions/usage-events.csv",
+      "original_sha256": "3c68221c9a77e73368ec3bc5f04adb52bd57b7448a33a0e147685256f061a297",
+      "public_path": "accounting/main-usage-events.csv",
+      "public_sha256": "3c68221c9a77e73368ec3bc5f04adb52bd57b7448a33a0e147685256f061a297",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/workflow-sessions/phase-a/finalized-usage.json",
+      "original_sha256": "32fb8de584e7dd80804ec9063a00205da9fb775045618ebf770464ae74921270",
+      "public_path": "accounting/phase-a-finalized-usage.json",
+      "public_sha256": "0820cc1626f8f62d9d2f0857999de225bb54c2aa9419f04bcac6368e36fb454f",
+      "transforms": [
+        "Structured projection removes account/connector/internal metadata recursively",
+        "Private workstation, execution-copy and raw-session paths normalized; counters/results retained"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/workflow-sessions/phase-a/usage-windows.json",
+      "original_sha256": "f07f85a0d7de1c5893de9f8901aef9c100583beb8e9224afc3733d4895499fd3",
+      "public_path": "accounting/preparation-and-phase-a-snapshots.json",
+      "public_sha256": "1c111c31f84fcd9491121373983d66e544b45eca7c21b6e31d1a29e7924c981a",
+      "transforms": [
+        "Structured projection removes account/connector/internal metadata recursively",
+        "Private workstation, execution-copy and raw-session paths normalized; counters/results retained"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/workflow-sessions/phase-a/phase-record.json",
+      "original_sha256": "269d6d91ea688a7dc4e14f6d4917020a3e3b8fa5525851650e3ccdea648a54c9",
+      "public_path": "accounting/phase-a-record.json",
+      "public_sha256": "8bd7766ef4f573be97610268df70d94c59d5d9084846aadcb03050cb7b951f9a",
+      "transforms": [
+        "Structured projection removes account/connector/internal metadata recursively",
+        "Private workstation, execution-copy and raw-session paths normalized; counters/results retained"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/workflow-sessions/phase-a/README.md",
+      "original_sha256": "dd4ef20edba0a4f2a952af6b020b407302d387679c978610cd2b10b3958a0ad2",
+      "public_path": "accounting/Phase_A_Snapshot_Historical.md",
+      "public_sha256": "dd4ef20edba0a4f2a952af6b020b407302d387679c978610cd2b10b3958a0ad2",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/workflow-sessions/phase-b/usage-boundaries.json",
+      "original_sha256": "1a297583c7070b1985b018790765c988bee9e6c33e9e763358153e8e24b0d7b9",
+      "public_path": "accounting/phase-b-provisional-boundaries.json",
+      "public_sha256": "2dd42126ff0135550184c891c0a4064dc9d44758c7b24e413f8cc228ffc5056c",
+      "transforms": [
+        "Structured projection removes account/connector/internal metadata recursively",
+        "Private workstation, execution-copy and raw-session paths normalized; counters/results retained"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/workflow-sessions/phase-b/raw-token-events.jsonl",
+      "original_sha256": "3222448e3fc734f434f8539d018676935bab6682a0030615cb102eb46edf7a8e",
+      "public_path": "accounting/phase-b-token-count-projection.jsonl",
+      "public_sha256": "55cafe66a861469c56d525a17df6a250b2c4bf67b06acaf329c51db2919a26dd",
+      "transforms": [
+        "Structured projection removes account/connector/internal metadata recursively",
+        "Private workstation, execution-copy and raw-session paths normalized; counters/results retained"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/workflow-sessions/phase-b/README.md",
+      "original_sha256": "c37618eed39ddbb8cabe065213161c366a4c575e62dffaeb18a072bedc5165d5",
+      "public_path": "accounting/Phase_B_Snapshot_Historical.md",
+      "public_sha256": "c37618eed39ddbb8cabe065213161c366a4c575e62dffaeb18a072bedc5165d5",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/04-accounting/Accounting_EN.md",
+      "original_sha256": "d7b8b2c468d11221314847e0ed1cd9253bd658c50f77e2141002432151fa100a",
+      "public_path": "accounting/Accounting_EN.md",
+      "public_sha256": "d54690daafe7664fd6b1c8fadfb85045c376936c8dbe8775453e24702de411bb",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/04-accounting/Sealed_R2_Accounting_Extract.json",
+      "original_sha256": "ed53b0a9fc8ee12fee952b7546c2fd682e0dacd50e5c9212e37d5bcfc2d3d396",
+      "public_path": "accounting/Sealed_R2_Accounting_Extract.json",
+      "public_sha256": "45ad6c67f5492f7bbba7e158cc9f7e8203763408f17b8144aba2d5b405381a94",
+      "transforms": [
+        "Structured projection removes account/connector/internal metadata recursively",
+        "Private workstation, execution-copy and raw-session paths normalized; counters/results retained"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/workflow-sessions/phase-a/prompt-1.txt",
+      "original_sha256": "5d1769f49dda48e4d17e37aa2340922c695e88bb836ec04378be4ab83e8adec4",
+      "public_path": "prompts/Phase_A_Original_ZH.txt",
+      "public_sha256": "2de4f3d25d4ea4d4eea8f79ec6b3c434fd1af939ccc6d19374d367bac4f6af43",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/workflow-sessions/phase-b/gate-1-prompt.txt",
+      "original_sha256": "f820fa8a854d956d4bc092b76985fc1e6efdf44c311db96327a90e7d7b39d1b0",
+      "public_path": "prompts/Phase_B_Original_ZH.txt",
+      "public_sha256": "f820fa8a854d956d4bc092b76985fc1e6efdf44c311db96327a90e7d7b39d1b0",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/workflow-sessions/phase-b/token-policy-confirmation.txt",
+      "original_sha256": "879399c65c9b5f4850cea40ea1ee5b18fd226caf7de8a224ee84b6291f92124c",
+      "public_path": "prompts/Token_Policy_Original_ZH.txt",
+      "public_sha256": "879399c65c9b5f4850cea40ea1ee5b18fd226caf7de8a224ee84b6291f92124c",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/01-prompts/Audit_Prompt_Original_ZH.txt",
+      "original_sha256": "e6116177e4e3c496f813b6a40a453466cd8c0a803643a6bcc56fa95228b68102",
+      "public_path": "prompts/Audit_Original_ZH.txt",
+      "public_sha256": "8c2301c81e8a2fc63d505da76171a0eb0f89f75601ce3cd74fddffd79b747433",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/01-prompts/Prompts_EN.md",
+      "original_sha256": "db050b03e0a3f47bf5ac0c38a17604ebb37baf245ff9add73d637baf40bdda76",
+      "public_path": "prompts/Retrospective_Translations_EN.md",
+      "public_sha256": "66df66ce671d6d66b94cb6421c5769ccefb0c3f24328ed1f141530b4f837e5ec",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/workflow-sessions/phase-a/visible-transcript-finalized.jsonl",
+      "original_sha256": "be6c48d8b158aa8f45ccf913c30ec2f2c41377a8f68da2a6a15b3cd1f71d0402",
+      "public_path": "transcripts/Phase_A_Visible_Through_Final.jsonl",
+      "public_sha256": "00ebfae9f5fc1c114eb0843b936bd4350feab59bc63a333176112abd2dcd9273",
+      "transforms": [
+        "Visible-record allowlist; text/content/tool payload projection; timestamps and original one-based source rows retained",
+        "All internal/connector/account metadata removed recursively; private paths normalized"
+      ],
+      "original_records": 42,
+      "public_records": 42
+    },
+    {
+      "original_source_id": "private-evidence-package/01-prompts/Phase_B_Visible_Through_Final.jsonl",
+      "original_sha256": "bf1e0e958ee34ddeaa0817594c2b390f097a3f3c143c8cbf3bc720ea1363df94",
+      "public_path": "transcripts/Phase_B_Visible_Through_Final.jsonl",
+      "public_sha256": "a26ce9644b2eb2e493159e2ca7e3cd5a813aa9c5542d35726fe76509e126772d",
+      "transforms": [
+        "Visible-record allowlist; text/content/tool payload projection; timestamps and original one-based source rows retained",
+        "All internal/connector/account metadata removed recursively; private paths normalized"
+      ],
+      "original_records": 101,
+      "public_records": 101
+    },
+    {
+      "original_source_id": "private-evidence-package/01-prompts/Phase_B_Projection_Source.json",
+      "original_sha256": "9c2dd90ed16a20bfbc2e30b06cbfb69e2c52baa09b6e78f9c6ea041ec168fd78",
+      "public_path": "transcripts/Phase_B_Projection_Provenance.json",
+      "public_sha256": "57375eb2057980ff3ece9db985aae538478eafb8e78f83da795c434ce674b707",
+      "transforms": [
+        "Structured projection removes account/connector/internal metadata recursively",
+        "Private workstation, execution-copy and raw-session paths normalized; counters/results retained"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/01-prompts/Audit_Prompt_Source.json",
+      "original_sha256": "8b1653889fbc72a36b12038cf7a3af542303a4d0069b0a543e6f98db00decb88",
+      "public_path": "prompts/Audit_Prompt_Provenance.json",
+      "public_sha256": "728f79bdde3d9fb819bb25f5940fae920481427da823f2354eab6b6688739512",
+      "transforms": [
+        "Structured projection removes account/connector/internal metadata recursively",
+        "Private workstation, execution-copy and raw-session paths normalized; counters/results retained"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/gate2-independent-review/20261013T111104Z/check-results.json",
+      "original_sha256": "f73853e8f2ea93c93cd8a01b20934212d68ab2b01fce89fd9cfff8c8c83c0c36",
+      "public_path": "post-stop-audit/check-results.json",
+      "public_sha256": "1e035a6d9a21fd3fe5567edbaf5a484bf1a8a7a5d017bff808552a8b8e213a7f",
+      "transforms": [
+        "Structured projection removes account/connector/internal metadata recursively",
+        "Private workstation, execution-copy and raw-session paths normalized; counters/results retained"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/gate2-independent-review/20261013T111104Z/fault-results.json",
+      "original_sha256": "42a8b5a93d408f45f30b8cd06d2350298cbb3aa79b53c8d05e9c151e572f6cfd",
+      "public_path": "post-stop-audit/fault-results.json",
+      "public_sha256": "074133e2671e4488c86509aa54e0663621af7bf5bfc20c75cdc4d6d2fdc92c5a",
+      "transforms": [
+        "Structured projection removes account/connector/internal metadata recursively",
+        "Private workstation, execution-copy and raw-session paths normalized; counters/results retained"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/gate2-independent-review/20261013T111104Z/probe-results.json",
+      "original_sha256": "4bde774375a8767957f2a772f49b85f447f2744fb089ded219edd766fa462679",
+      "public_path": "post-stop-audit/probe-results.json",
+      "public_sha256": "f34dbf8b07673ed317bfe737911dbdce6ab67f8a50029426c8cc0d71fc0bb9b0",
+      "transforms": [
+        "Structured projection removes account/connector/internal metadata recursively",
+        "Private workstation, execution-copy and raw-session paths normalized; counters/results retained"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/gate2-independent-review/20261013T111104Z/probe-command.json",
+      "original_sha256": "6b790cbe4ae0656b79643e8c0eb40b005e7687196f71e4e51e249496d5084bb0",
+      "public_path": "post-stop-audit/probe-command.json",
+      "public_sha256": "f19623cf3538289d282be026f26279f64adabc9addaad0a958094e666e2b196e",
+      "transforms": [
+        "Structured projection removes account/connector/internal metadata recursively",
+        "Private workstation, execution-copy and raw-session paths normalized; counters/results retained"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/gate2-independent-review/20261013T111104Z/unit-results.json",
+      "original_sha256": "974fbdd21fedf69a7b1e44164034454150e8c726812b50759ecfae979e9432b0",
+      "public_path": "post-stop-audit/unit-results.json",
+      "public_sha256": "90d91e4f6b1a2523c65e6e21c106edecc76d63e25f8ab63123c11f1e21d31bfc",
+      "transforms": [
+        "Structured projection removes account/connector/internal metadata recursively",
+        "Private workstation, execution-copy and raw-session paths normalized; counters/results retained"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/gate2-independent-review/20261013T111104Z/final-preservation.json",
+      "original_sha256": "774659c3cc254d3cda63a9c63d2e73a6304eea08b269dcad837fa6d4c7f912c8",
+      "public_path": "post-stop-audit/final-preservation.json",
+      "public_sha256": "80ff3a16408552fe3f3bbc0119b409985df20f187b80aa9053a275ee97ca00d9",
+      "transforms": [
+        "Structured projection removes account/connector/internal metadata recursively",
+        "Private workstation, execution-copy and raw-session paths normalized; counters/results retained"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/gate2-independent-review/20261013T111104Z/provenance.json",
+      "original_sha256": "0e2b9cc3828e40e6aac75caf287f9ec0a913b7bc2e263079f93cb89e83d59e79",
+      "public_path": "post-stop-audit/provenance.json",
+      "public_sha256": "394ccccf0e460ccf94be1cb8c5844fa8ad183d8eea05aedc3fefdf47d4615344",
+      "transforms": [
+        "Structured projection removes account/connector/internal metadata recursively",
+        "Private workstation, execution-copy and raw-session paths normalized; counters/results retained"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/gate2-independent-review/20261013T111104Z/event-reference.json",
+      "original_sha256": "bc8530e4d094fd18b42e85ac8cfd10af8ca665a893247f2d4c54631e5767dbf4",
+      "public_path": "post-stop-audit/event-reference.json",
+      "public_sha256": "3a223d244530bb1719efbfa4cfc54d60034b31882303c6db5513f34e4cd75e4b",
+      "transforms": [
+        "Structured projection removes account/connector/internal metadata recursively",
+        "Private workstation, execution-copy and raw-session paths normalized; counters/results retained"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/gate2-independent-review/20261013T111104Z/review-infra.test.tsx",
+      "original_sha256": "3df84bf868fae607c6420ef456f43e12590ccde77f9b360932278bd14bff7d3d",
+      "public_path": "post-stop-audit/review-infra.test.tsx",
+      "public_sha256": "3df84bf868fae607c6420ef456f43e12590ccde77f9b360932278bd14bff7d3d",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/gate2-independent-review/20261013T111104Z/review-samples.test.tsx",
+      "original_sha256": "6e69aea2a4016d27ac454645b95c7cc29057d519f2f0d677ac208374e70dae1f",
+      "public_path": "post-stop-audit/review-samples.test.tsx",
+      "public_sha256": "6e69aea2a4016d27ac454645b95c7cc29057d519f2f0d677ac208374e70dae1f",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/gate2-independent-review/20261013T111104Z/rules.log",
+      "original_sha256": "d2f37d82f6686089ea5edf9da0e8e594f4e8d1cfd52b0083ed492d8cc7f350b2",
+      "public_path": "post-stop-audit/logs/rules.log",
+      "public_sha256": "d2f37d82f6686089ea5edf9da0e8e594f4e8d1cfd52b0083ed492d8cc7f350b2",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/gate2-independent-review/20261013T111104Z/types.log",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "public_path": "post-stop-audit/logs/types.log",
+      "public_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/gate2-independent-review/20261013T111104Z/lint.log",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "public_path": "post-stop-audit/logs/lint.log",
+      "public_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/gate2-independent-review/20261013T111104Z/unit.log",
+      "original_sha256": "155eb64f059eac522506945603f6439ef20b7b85efee35d757436d6ac98bfac2",
+      "public_path": "post-stop-audit/logs/unit.log",
+      "public_sha256": "817de8e275650b3c58c2a799ba4a7dd57f79cad2a2a343d1cf568d60fa5a77f1",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/gate2-independent-review/20261013T111104Z/build.log",
+      "original_sha256": "94df9a5a7bc8f35393e101521a08e72b2615e0ab4388fe7c02af856eb13fc803",
+      "public_path": "post-stop-audit/logs/build.log",
+      "public_sha256": "94df9a5a7bc8f35393e101521a08e72b2615e0ab4388fe7c02af856eb13fc803",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/gate2-independent-review/20261013T111104Z/build-components.log",
+      "original_sha256": "8e0bb702eee7b7341c69741edaccb5c4ae8f8863fd2f64519b57fa39d0ec875e",
+      "public_path": "post-stop-audit/logs/build-components.log",
+      "public_sha256": "8e0bb702eee7b7341c69741edaccb5c4ae8f8863fd2f64519b57fa39d0ec875e",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/gate2-independent-review/20261013T111104Z/probes.log",
+      "original_sha256": "8f00b85d7cd0e40f813360b014fd3a96a36cada40bd3c9953fc36908ab4dcd97",
+      "public_path": "post-stop-audit/logs/probes.log",
+      "public_sha256": "08ffb90086a0a3d8283dd77c22789bf402dcabfad14b1baec3087825cdf08cc3",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/gate2-independent-review/20261013T111104Z/faults/corrupt-selected-pure-expected.log",
+      "original_sha256": "acdbe517ebd9b8dc822380d726d6629c9e93fa872ff1fdc777e4f5cab4d39b35",
+      "public_path": "post-stop-audit/faults/corrupt-selected-pure-expected.log",
+      "public_sha256": "acdbe517ebd9b8dc822380d726d6629c9e93fa872ff1fdc777e4f5cab4d39b35",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/gate2-independent-review/20261013T111104Z/faults/event-arrow-event.input.vue",
+      "original_sha256": "6e98c67f05a899bbbf943be18e0c78557a3468acdff426ef5af8283d68084e77",
+      "public_path": "post-stop-audit/faults/event-arrow-event.input.vue",
+      "public_sha256": "6e98c67f05a899bbbf943be18e0c78557a3468acdff426ef5af8283d68084e77",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/gate2-independent-review/20261013T111104Z/faults/event-arrow-event.output.tsx",
+      "original_sha256": "a11735be310c82cc052295e7be2fde1142eab791d08f4bf11f18387b91ad36d3",
+      "public_path": "post-stop-audit/faults/event-arrow-event.output.tsx",
+      "public_sha256": "a11735be310c82cc052295e7be2fde1142eab791d08f4bf11f18387b91ad36d3",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/gate2-independent-review/20261013T111104Z/faults/event-dollar-event.input.vue",
+      "original_sha256": "5248a6683dcc96a1b0eb0b8e5f4f07df54e89959d2bc67fbc483ed41011359a8",
+      "public_path": "post-stop-audit/faults/event-dollar-event.input.vue",
+      "public_sha256": "5248a6683dcc96a1b0eb0b8e5f4f07df54e89959d2bc67fbc483ed41011359a8",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/gate2-independent-review/20261013T111104Z/faults/event-dollar-event.output.tsx",
+      "original_sha256": "41afdcf4f0658e6d950aebc942551a4f78c2195b35965fa6c95a998cd2f79710",
+      "public_path": "post-stop-audit/faults/event-dollar-event.output.tsx",
+      "public_sha256": "41afdcf4f0658e6d950aebc942551a4f78c2195b35965fa6c95a998cd2f79710",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/gate2-independent-review/20261013T111104Z/faults/event-method-reference.input.vue",
+      "original_sha256": "0c92c7b180c9830868231f73f124bf7bc69a731484e0d04f2256a9dabdd7c8c9",
+      "public_path": "post-stop-audit/faults/event-method-reference.input.vue",
+      "public_sha256": "0c92c7b180c9830868231f73f124bf7bc69a731484e0d04f2256a9dabdd7c8c9",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/gate2-independent-review/20261013T111104Z/faults/event-method-reference.output.tsx",
+      "original_sha256": "9c5d8812164fd09a478ac54a7e4e669cbfca0cf1b906cd35f7eb82c528a2e593",
+      "public_path": "post-stop-audit/faults/event-method-reference.output.tsx",
+      "public_sha256": "9c5d8812164fd09a478ac54a7e4e669cbfca0cf1b906cd35f7eb82c528a2e593",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/gate2-independent-review/20261013T111104Z/faults/incorrect-fixture-expected.log",
+      "original_sha256": "14c5ad64e9de05e03d2380e46c239fce33956b5dfceca20eee664b102e717b21",
+      "public_path": "post-stop-audit/faults/incorrect-fixture-expected.log",
+      "public_sha256": "306d6155c524187f83eeabb24e8b5e3d8f4f291f9ef256ff9e1bc04303eb59af",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/gate2-independent-review/20261013T111104Z/faults/late-reuse-failure-cli.log",
+      "original_sha256": "427da807d1bb1b8003a0ffbf44f60707470167ab6ab3469ead3d3eb699e20284",
+      "public_path": "post-stop-audit/faults/late-reuse-failure-cli.log",
+      "public_sha256": "d01d49552b8d32c4a10b60a38f247683bbe882f268ba697071740227084a33b0",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/gate2-independent-review/20261013T111104Z/faults/missing-fixture-expected.log",
+      "original_sha256": "c141c059ae9e18586df1aa8ef2fce77f7130765cd7c629cc8ac9019387011608",
+      "public_path": "post-stop-audit/faults/missing-fixture-expected.log",
+      "public_sha256": "24d897451c0aa2b687aa61b063c2b03448075f91dd162bac55887ebb468528a4",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/gate2-independent-review/20261013T111104Z/faults/missing-fixture-source.log",
+      "original_sha256": "73deb023dea8f730ce42385606943e71399b06fcfd261e15f431b837c7b02bff",
+      "public_path": "post-stop-audit/faults/missing-fixture-source.log",
+      "public_sha256": "b1ad090807321dc339a77095feba04b2a67360534d0fd018f02ec51af00a33e4",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/gate2-independent-review/20261013T111104Z/faults/missing-required-input.log",
+      "original_sha256": "b97f4150077a333c114193d245c58eec500bed80cf1b75d62ea9160d5e48690b",
+      "public_path": "post-stop-audit/faults/missing-required-input.log",
+      "public_sha256": "6cf96d398f7d533e1ddcedece5c303fd9e452c2ed64db6506344190bad8bc74e",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/gate2-independent-review/20261013T111104Z/faults/missing-selected-pure-expected.log",
+      "original_sha256": "55eae1eaeef91b9ee03cb09d45613ce51baebb4ada7021ab9982aef5f88bdc70",
+      "public_path": "post-stop-audit/faults/missing-selected-pure-expected.log",
+      "public_sha256": "55eae1eaeef91b9ee03cb09d45613ce51baebb4ada7021ab9982aef5f88bdc70",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/gate2-independent-review/20261013T111104Z/faults/substitute-fixed-page-sample.log",
+      "original_sha256": "de995c4955e20b95f9e49a594ac9d9013e4f5060662e69d53f2348515045325b",
+      "public_path": "post-stop-audit/faults/substitute-fixed-page-sample.log",
+      "public_sha256": "de995c4955e20b95f9e49a594ac9d9013e4f5060662e69d53f2348515045325b",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/gate2-independent-review/20261013T111104Z/faults/wrong-actual-component-payload.log",
+      "original_sha256": "e50559e1ff406c2ed6f1b8e5b8339921227b37e29a231eee3f5c781719e1459e",
+      "public_path": "post-stop-audit/faults/wrong-actual-component-payload.log",
+      "public_sha256": "e50559e1ff406c2ed6f1b8e5b8339921227b37e29a231eee3f5c781719e1459e",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/gate2-independent-review/20261013T111104Z/faults/wrong-component-observed.log",
+      "original_sha256": "05d37bd35ae92dcf19cade419e37c7354481d1e303f3745aa0d33f2b781ca14b",
+      "public_path": "post-stop-audit/faults/wrong-component-observed.log",
+      "public_sha256": "c8da85368904ee17015a48d07b960791910466c28cf22178f5763c92fc4fb793",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/gate2-independent-review/20261013T111104Z/provenance-notes.md",
+      "original_sha256": "55abb25eea247b35915c421cb773bc38a8db6397c6d1f1aa16f68d8344399908",
+      "public_path": "post-stop-audit/Provenance_Notes_Historical.md",
+      "public_sha256": "cef8b3aa6b2ca06d53408dbb78d7e8412759323aa78f87950f9ded24ddb16cb1",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/gate2-independent-review/20261013T111104Z/USAGE.md",
+      "original_sha256": "3403c0382789a1bef7205deb6bd58954cb823291d3f12da4c3055fd0c6a4e80b",
+      "public_path": "accounting/Audit_Usage_Historical.md",
+      "public_sha256": "3403c0382789a1bef7205deb6bd58954cb823291d3f12da4c3055fd0c6a4e80b",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/gate2-independent-review/20261013T111104Z/review-usage-summary.json",
+      "original_sha256": "d609a19a4b4b4387803ff4bf8359b2fcdca0bd481e775d5da74f7b3047809100",
+      "public_path": "accounting/audit-usage-summary.json",
+      "public_sha256": "bb0c892c57f5191c13af5c87c253c43048e4e4f422396711946f8e8c7ff6bba4",
+      "transforms": [
+        "Structured projection removes account/connector/internal metadata recursively",
+        "Private workstation, execution-copy and raw-session paths normalized; counters/results retained"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/03-original-evidence/wf4-r2-evidence/gate2-independent-review/20261013T111104Z/review-token-events.jsonl",
+      "original_sha256": "833f3a8f01cb3e99471a6be0ca63a07a6e0cdf5fc2d6b93671091083c3111136",
+      "public_path": "accounting/audit-token-events.jsonl",
+      "public_sha256": "f72a91db22c002559543b4ce0a7adc14696290c56ae15ef5cdbce60823ff274c",
+      "transforms": [
+        "Structured projection removes account/connector/internal metadata recursively",
+        "Private workstation, execution-copy and raw-session paths normalized; counters/results retained"
+      ]
+    },
+    {
+      "original_source_id": "historical-canonical-repository/rewrite-evidence/workflows/WF4-R2-Gate-2-independent-review.md",
+      "original_sha256": "ce855f555abe3e23dfcb57a31dd1da1f43170d446963d39bd2bfd16f62c2c1b6",
+      "public_path": "post-stop-audit/Original_Report_ZH.md",
+      "public_sha256": "7706e466cebb3a40d847cd66921fea20d9c0e0d2f439af7eae378ecd59021513",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/05-post-stop-audit/Post_Stop_Audit_Summary_EN.md",
+      "original_sha256": "2d1ba0ad72e90447ab17d19bcee7b7422a994727585a2b74a2baf55b633a3509",
+      "public_path": "post-stop-audit/Summary_EN.md",
+      "public_sha256": "869d13e82e84b1884a94c12d595665bd5ec453bf4e2e3406cdf78fd3e9845941",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    },
+    {
+      "original_source_id": "private-evidence-package/WF5_R2_Evidence_Appendix_EN.md",
+      "original_sha256": "bc73abdff32052d5510157b469a69c6afda96b4d1af174798ecd72aeedfa1ed3",
+      "public_path": "Appendix_EN.md",
+      "public_sha256": "470581f067aa24c7688d044a89b59d33c0ee5dc897f0cc0e54a4ceeac5774c6b",
+      "transforms": [
+        "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
+        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+      ]
+    }
+  ]
+}

@@ -6,7 +6,7 @@ import os from 'node:os';
 import { convert, refineInMemory } from './convert.mjs';
 import { loadManifest, snapshotSamples, publishArtifacts, repo } from './run.mjs';
 
-const manifest=loadManifest(path.join(repo,'rewrite-tools/wf4-r2/manifest.json'));
+const manifest=loadManifest(path.join(repo,'rewrite-tools/wf5/manifest.json'));
 export function validateFixtures(cases) {
   assert.deepEqual(cases.map(c=>c.id).sort(),[...manifest.requiredFixtureIds].sort(),'Required fixture inventory changed/missing');
   for(const item of cases) { assert.ok(typeof item.source==='string'&&item.source.length); assert.ok(item.blocked || Array.isArray(item.expected)&&item.expected.length,'Missing expected verdict'); }
@@ -42,7 +42,7 @@ test('refinement failure cannot mutate original or return partially patched file
   assert.throws(()=>refineInMemory({'a':'repeat repeat'},[{file:'a',anchor:'repeat',replacement:'changed'}]));
 });
 test('publication refuses overwrite and invalid paths without publishing partial tree',()=>{
-  const root=fs.mkdtempSync(path.join(os.tmpdir(),'wf4-r2-test-'));
+  const root=fs.mkdtempSync(path.join(os.tmpdir(),'wf5-test-'));
   const output=path.join(root,'pure');
   publishArtifacts(output,{'a.tsx':'good'});
   assert.throws(()=>publishArtifacts(output,{'a.tsx':'bad'}));

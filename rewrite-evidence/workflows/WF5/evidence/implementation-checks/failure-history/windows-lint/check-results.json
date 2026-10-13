@@ -1,0 +1,82 @@
+{
+  "node": "v24.19.0",
+  "platform": "Windows; isolated sample validation, not frozen WSL yardstick",
+  "results": [
+    {
+      "check": "rules",
+      "command": [
+        "<RUNTIME>/node\\bin\\node.exe",
+        "--test",
+        "<WORKSPACE>/mealie-wf4-rerun\\rewrite-tools\\wf4-r2\\test.mjs"
+      ],
+      "cwd": "<WORKSPACE>/mealie-wf4-rerun\\frontend-react",
+      "start_utc": "2026-10-13T10:35:38.006024+00:00",
+      "end_utc": "2026-10-13T10:35:38.688600+00:00",
+      "seconds": 0.682576,
+      "exit_code": 0,
+      "log": "rules.log"
+    },
+    {
+      "check": "types",
+      "command": [
+        "<RUNTIME>/node\\bin\\node.exe",
+        "<WORKSPACE>/mealie-wf4-rerun\\frontend-react\\node_modules\\typescript\\bin\\tsc",
+        "--noEmit"
+      ],
+      "cwd": "<WORKSPACE>/mealie-wf4-rerun\\frontend-react",
+      "start_utc": "2026-10-13T10:35:38.689604+00:00",
+      "end_utc": "2026-10-13T10:35:42.389231+00:00",
+      "seconds": 3.699627,
+      "exit_code": 0,
+      "log": "types.log"
+    },
+    {
+      "check": "lint",
+      "command": [
+        "<RUNTIME>/node\\bin\\node.exe",
+        "<WORKSPACE>/mealie-wf4-rerun\\frontend-react\\node_modules\\eslint\\bin\\eslint.js",
+        "src",
+        "tests",
+        "vite.config.ts",
+        "--max-warnings=0"
+      ],
+      "cwd": "<WORKSPACE>/mealie-wf4-rerun\\frontend-react",
+      "start_utc": "2026-10-13T10:35:42.390841+00:00",
+      "end_utc": "2026-10-13T10:35:44.628060+00:00",
+      "seconds": 2.237219,
+      "exit_code": 1,
+      "log": "lint.log"
+    },
+    {
+      "check": "unit",
+      "command": [
+        "<RUNTIME>/node\\bin\\node.exe",
+        "<WORKSPACE>/mealie-wf4-rerun\\frontend-react\\node_modules\\vitest\\vitest.mjs",
+        "run",
+        "--reporter=verbose",
+        "--reporter=json",
+        "--outputFile.json=<WORKSPACE>/wf4-r2-evidence\\workflow-sessions\\phase-b\\checks\\20261013T103538001026Z\\unit-results.json"
+      ],
+      "cwd": "<WORKSPACE>/mealie-wf4-rerun\\frontend-react",
+      "start_utc": "2026-10-13T10:35:44.631057+00:00",
+      "end_utc": "2026-10-13T10:35:47.940203+00:00",
+      "seconds": 3.309146,
+      "exit_code": 0,
+      "log": "unit.log"
+    },
+    {
+      "check": "build",
+      "command": [
+        "<RUNTIME>/node\\bin\\node.exe",
+        "<WORKSPACE>/mealie-wf4-rerun\\frontend-react\\node_modules\\vite\\bin\\vite.js",
+        "build"
+      ],
+      "cwd": "<WORKSPACE>/mealie-wf4-rerun\\frontend-react",
+      "start_utc": "2026-10-13T10:35:47.941191+00:00",
+      "end_utc": "2026-10-13T10:35:48.431966+00:00",
+      "seconds": 0.490775,
+      "exit_code": 0,
+      "log": "build.log"
+    }
+  ]
+}

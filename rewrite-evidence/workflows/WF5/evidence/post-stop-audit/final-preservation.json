@@ -1,0 +1,22 @@
+{
+  "verifiedUtc": "2026-10-13T11:29:13.263Z",
+  "sourceHead": "8b0fae128ea823ebee4a6507d274df1f8987e8d1",
+  "trackedCount": 1805,
+  "canonicalDrift": [],
+  "temporaryDrift": [],
+  "report": {
+    "path": "rewrite-evidence/workflows/WF4-R2-Gate-2-independent-review.md",
+    "sha256": "ce855f555abe3e23dfcb57a31dd1da1f43170d446963d39bd2bfd16f62c2c1b6"
+  },
+  "gitCommand": [
+    "C:/Program Files/Git/cmd/git.exe",
+    "-c",
+    "safe.directory=<WORKSPACE>/mealie-wf4-rerun",
+    "-C",
+    "<WORKSPACE>/mealie-wf4-rerun",
+    "status",
+    "--porcelain"
+  ],
+  "gitExitCode": 0,
+  "gitStatus": "?? rewrite-evidence/workflows/WF4-R2-Gate-2-independent-review.md\n"
+}

@@ -1,0 +1,483 @@
+{
+  "publication_label": "WF5",
+  "historical_label": "WF4-R2",
+  "prepared_utc": "2026-10-13T21:16:06.600578+00:00",
+  "repository": "https://github.com/Frank-Ping/mealie",
+  "branch": "rewrite/wf5-rule-driven",
+  "frozen_source": "4b9ca06b6581f7152e164ea0fd9d4da366975a79",
+  "historical_r2_endpoint": "8b0fae128ea823ebee4a6507d274df1f8987e8d1",
+  "original_commits_preserved": [
+    "2176881a9810633a8de7753456dbd63ee44b27c6",
+    "63e239bb35fab4b53fc8d913b284dfa43edec5a9",
+    "b57453838ef770a32188159350d5f9971f8b94e1",
+    "8b0fae128ea823ebee4a6507d274df1f8987e8d1"
+  ],
+  "original_commit_subjects_not_rewritten": true,
+  "R3_implementation_included": false,
+  "renamed_historical_artifact_and_result_files_preserved": 54,
+  "path_mapping": [
+    {
+      "historical_path": "rewrite-tools/wf4-r2/convert.mjs",
+      "wf5_path": "rewrite-tools/wf5/convert.mjs",
+      "historical_sha256": "e5ceea5b107cfe90024376325226385a55b8232020837ad779cfbe29ab7b1419",
+      "publication_sha256": "02ffedfaf33829b1dfbe221696eee165c94ddd61a8bdf65d9c0c9017d0d430ca",
+      "bytes_preserved": false
+    },
+    {
+      "historical_path": "rewrite-tools/wf4-r2/fixtures/cases.json",
+      "wf5_path": "rewrite-tools/wf5/fixtures/cases.json",
+      "historical_sha256": "19e39c4e68d411d4648d04da75222eecdd977660927f743f6dc1c98c10d58f5a",
+      "publication_sha256": "19e39c4e68d411d4648d04da75222eecdd977660927f743f6dc1c98c10d58f5a",
+      "bytes_preserved": true
+    },
+    {
+      "historical_path": "rewrite-tools/wf4-r2/manifest.json",
+      "wf5_path": "rewrite-tools/wf5/manifest.json",
+      "historical_sha256": "870ee7f7d22f855210f12807874a93b3006c87d465aaaef9f4281f3aef96700a",
+      "publication_sha256": "870ee7f7d22f855210f12807874a93b3006c87d465aaaef9f4281f3aef96700a",
+      "bytes_preserved": true
+    },
+    {
+      "historical_path": "rewrite-tools/wf4-r2/run.mjs",
+      "wf5_path": "rewrite-tools/wf5/run.mjs",
+      "historical_sha256": "6556b36f42699c894a3bb6a255ab862c6a0f3264bb85aaf27399e55577876ee2",
+      "publication_sha256": "915b72ed4fa378b3f1f3403f99a9937281a70936773f42c8e3ee3355a047bb2d",
+      "bytes_preserved": false
+    },
+    {
+      "historical_path": "rewrite-tools/wf4-r2/test.mjs",
+      "wf5_path": "rewrite-tools/wf5/test.mjs",
+      "historical_sha256": "bd7f7f1733094ba841cfccfceb114d92084f6551cab8c0adfef1d983cb0fccdc",
+      "publication_sha256": "fc0f327d889fc728922975e2fc76e66d339a86102cf5c46bbdf4564ccaad3c09",
+      "bytes_preserved": false
+    },
+    {
+      "historical_path": "rewrite-evidence/workflows/WF4-R2-B/assertion-correspondence.json",
+      "wf5_path": "rewrite-evidence/workflows/WF5-B/assertion-correspondence.json",
+      "historical_sha256": "331c48ef3b216c1631ebd19bc59141f7874c0a9eb8c74a816c69317db37e9670",
+      "publication_sha256": "331c48ef3b216c1631ebd19bc59141f7874c0a9eb8c74a816c69317db37e9670",
+      "bytes_preserved": true
+    },
+    {
+      "historical_path": "rewrite-evidence/workflows/WF4-R2-B/gate-2-verdict.json",
+      "wf5_path": "rewrite-evidence/workflows/WF5-B/gate-2-verdict.json",
+      "historical_sha256": "479ae52a74829b8daaa847997977cfe697cf5a08f71b3cb8bf2efa8381d67106",
+      "publication_sha256": "479ae52a74829b8daaa847997977cfe697cf5a08f71b3cb8bf2efa8381d67106",
+      "bytes_preserved": true
+    },
+    {
+      "historical_path": "rewrite-evidence/workflows/WF4-R2-B/reuse-manifest.json",
+      "wf5_path": "rewrite-evidence/workflows/WF5-B/reuse-manifest.json",
+      "historical_sha256": "76aaf0e9035dbfae3ca6f1e5e8c7129a199d3e393675c9768eff8e0a1083ed65",
+      "publication_sha256": "76aaf0e9035dbfae3ca6f1e5e8c7129a199d3e393675c9768eff8e0a1083ed65",
+      "bytes_preserved": true
+    },
+    {
+      "historical_path": "rewrite-evidence/workflows/WF4-R2-B/round-1-results.json",
+      "wf5_path": "rewrite-evidence/workflows/WF5-B/round-1-results.json",
+      "historical_sha256": "338876e32cd956c6d73598afe7c07fb8c7addf3e93a1aa71357945e270eda386",
+      "publication_sha256": "338876e32cd956c6d73598afe7c07fb8c7addf3e93a1aa71357945e270eda386",
+      "bytes_preserved": true
+    },
+    {
+      "historical_path": "rewrite-evidence/workflows/WF4-R2-B/round-2-results.json",
+      "wf5_path": "rewrite-evidence/workflows/WF5-B/round-2-results.json",
+      "historical_sha256": "dffd366b4f59f58f1d9a7e00005733cc3baca73d14a2494b13ba1ee489cee501",
+      "publication_sha256": "dffd366b4f59f58f1d9a7e00005733cc3baca73d14a2494b13ba1ee489cee501",
+      "bytes_preserved": true
+    },
+    {
+      "historical_path": "rewrite-evidence/workflows/WF4-R2-B/round-3-results.json",
+      "wf5_path": "rewrite-evidence/workflows/WF5-B/round-3-results.json",
+      "historical_sha256": "dffd366b4f59f58f1d9a7e00005733cc3baca73d14a2494b13ba1ee489cee501",
+      "publication_sha256": "dffd366b4f59f58f1d9a7e00005733cc3baca73d14a2494b13ba1ee489cee501",
+      "bytes_preserved": true
+    },
+    {
+      "historical_path": "rewrite-evidence/workflows/WF4-R2-B/round-3-revision-2-results.json",
+      "wf5_path": "rewrite-evidence/workflows/WF5-B/round-3-revision-2-results.json",
+      "historical_sha256": "dffd366b4f59f58f1d9a7e00005733cc3baca73d14a2494b13ba1ee489cee501",
+      "publication_sha256": "dffd366b4f59f58f1d9a7e00005733cc3baca73d14a2494b13ba1ee489cee501",
+      "bytes_preserved": true
+    },
+    {
+      "historical_path": "rewrite-evidence/workflows/WF4-R2-B/round-3-revision-3-results.json",
+      "wf5_path": "rewrite-evidence/workflows/WF5-B/round-3-revision-3-results.json",
+      "historical_sha256": "dffd366b4f59f58f1d9a7e00005733cc3baca73d14a2494b13ba1ee489cee501",
+      "publication_sha256": "dffd366b4f59f58f1d9a7e00005733cc3baca73d14a2494b13ba1ee489cee501",
+      "bytes_preserved": true
+    },
+    {
+      "historical_path": "rewrite-evidence/workflows/WF4-R2-B/round-3-revision-4-results.json",
+      "wf5_path": "rewrite-evidence/workflows/WF5-B/round-3-revision-4-results.json",
+      "historical_sha256": "dffd366b4f59f58f1d9a7e00005733cc3baca73d14a2494b13ba1ee489cee501",
+      "publication_sha256": "dffd366b4f59f58f1d9a7e00005733cc3baca73d14a2494b13ba1ee489cee501",
+      "bytes_preserved": true
+    },
+    {
+      "historical_path": "rewrite-evidence/workflows/WF4-R2-B/route-inventory.json",
+      "wf5_path": "rewrite-evidence/workflows/WF5-B/route-inventory.json",
+      "historical_sha256": "a3826614c4b5dbacaffd1f14ab411725c57f6499a472a4359a78550fc13ec32a",
+      "publication_sha256": "a3826614c4b5dbacaffd1f14ab411725c57f6499a472a4359a78550fc13ec32a",
+      "bytes_preserved": true
+    },
+    {
+      "historical_path": "rewrite-evidence/workflows/WF4-R2-B/rule-implementation-status.json",
+      "wf5_path": "rewrite-evidence/workflows/WF5-B/rule-implementation-status.json",
+      "historical_sha256": "929235aabaaf7f3deaf0b0d02249e751d4b5a41bb8bbb2e67c9ec7ceac758b81",
+      "publication_sha256": "929235aabaaf7f3deaf0b0d02249e751d4b5a41bb8bbb2e67c9ec7ceac758b81",
+      "bytes_preserved": true
+    },
+    {
+      "historical_path": "rewrite-evidence/workflows/WF4-R2-B/source-test-inventory.json",
+      "wf5_path": "rewrite-evidence/workflows/WF5-B/source-test-inventory.json",
+      "historical_sha256": "9a58d8c0736de382bf89b63f8717399292ef8c209d6561e0300dd8b0435e504d",
+      "publication_sha256": "9a58d8c0736de382bf89b63f8717399292ef8c209d6561e0300dd8b0435e504d",
+      "bytes_preserved": true
+    },
+    {
+      "historical_path": "rewrite-evidence/workflows/WF4-R2-Gate-2-review.md",
+      "wf5_path": "rewrite-evidence/workflows/WF5-Gate-2-review.md",
+      "historical_sha256": "f46562f5b7ec139c9893b8bbedf995d385e60cef1009214219a309d9c92b0f37",
+      "publication_sha256": "00a050d07813e87568e4d4ada8d7749a30d563789a6da926ff09776269fa63e8",
+      "bytes_preserved": false
+    },
+    {
+      "historical_path": "rewrite-evidence/workflows/WF4-R2-artifacts/round-1/pure/BaseButton.tsx",
+      "wf5_path": "rewrite-evidence/workflows/WF5-artifacts/round-1/pure/BaseButton.tsx",
+      "historical_sha256": "676826a9a9deec4eedadf6a58f51edab7a6c5547b9db0a92ba7900269d155580",
+      "publication_sha256": "676826a9a9deec4eedadf6a58f51edab7a6c5547b9db0a92ba7900269d155580",
+      "bytes_preserved": true
+    },
+    {
+      "historical_path": "rewrite-evidence/workflows/WF4-R2-artifacts/round-1/pure/RecipeChips.tsx",
+      "wf5_path": "rewrite-evidence/workflows/WF5-artifacts/round-1/pure/RecipeChips.tsx",
+      "historical_sha256": "ae7a3292228ae5710b2e2cd74d30742d7df13ce6c64fdd83effc9b63ac92eeae",
+      "publication_sha256": "ae7a3292228ae5710b2e2cd74d30742d7df13ce6c64fdd83effc9b63ac92eeae",
+      "bytes_preserved": true
+    },
+    {
+      "historical_path": "rewrite-evidence/workflows/WF4-R2-artifacts/round-1/pure/manifest.json",
+      "wf5_path": "rewrite-evidence/workflows/WF5-artifacts/round-1/pure/manifest.json",
+      "historical_sha256": "cf4db85e1469c5b1d957ab73f633a0b1034a08d2c4a6bb8b151fab57f96a597b",
+      "publication_sha256": "cf4db85e1469c5b1d957ab73f633a0b1034a08d2c4a6bb8b151fab57f96a597b",
+      "bytes_preserved": true
+    },
+    {
+      "historical_path": "rewrite-evidence/workflows/WF4-R2-artifacts/round-1/refined/BaseButton.tsx",
+      "wf5_path": "rewrite-evidence/workflows/WF5-artifacts/round-1/refined/BaseButton.tsx",
+      "historical_sha256": "676826a9a9deec4eedadf6a58f51edab7a6c5547b9db0a92ba7900269d155580",
+      "publication_sha256": "676826a9a9deec4eedadf6a58f51edab7a6c5547b9db0a92ba7900269d155580",
+      "bytes_preserved": true
+    },
+    {
+      "historical_path": "rewrite-evidence/workflows/WF4-R2-artifacts/round-1/refined/RecipeChips.tsx",
+      "wf5_path": "rewrite-evidence/workflows/WF5-artifacts/round-1/refined/RecipeChips.tsx",
+      "historical_sha256": "ae7a3292228ae5710b2e2cd74d30742d7df13ce6c64fdd83effc9b63ac92eeae",
+      "publication_sha256": "ae7a3292228ae5710b2e2cd74d30742d7df13ce6c64fdd83effc9b63ac92eeae",
+      "bytes_preserved": true
+    },
+    {
+      "historical_path": "rewrite-evidence/workflows/WF4-R2-artifacts/round-1/refined/manifest.json",
+      "wf5_path": "rewrite-evidence/workflows/WF5-artifacts/round-1/refined/manifest.json",
+      "historical_sha256": "cf4db85e1469c5b1d957ab73f633a0b1034a08d2c4a6bb8b151fab57f96a597b",
+      "publication_sha256": "cf4db85e1469c5b1d957ab73f633a0b1034a08d2c4a6bb8b151fab57f96a597b",
+      "bytes_preserved": true
+    },
+    {
+      "historical_path": "rewrite-evidence/workflows/WF4-R2-artifacts/round-1/refined/refinement-manifest.json",
+      "wf5_path": "rewrite-evidence/workflows/WF5-artifacts/round-1/refined/refinement-manifest.json",
+      "historical_sha256": "34e7fd03ddd19f1ad5055bd1a649eb13cef3346def44079552cdcd3dd0755976",
+      "publication_sha256": "34e7fd03ddd19f1ad5055bd1a649eb13cef3346def44079552cdcd3dd0755976",
+      "bytes_preserved": true
+    },
+    {
+      "historical_path": "rewrite-evidence/workflows/WF4-R2-artifacts/round-2/pure/BaseButton.tsx",
+      "wf5_path": "rewrite-evidence/workflows/WF5-artifacts/round-2/pure/BaseButton.tsx",
+      "historical_sha256": "676826a9a9deec4eedadf6a58f51edab7a6c5547b9db0a92ba7900269d155580",
+      "publication_sha256": "676826a9a9deec4eedadf6a58f51edab7a6c5547b9db0a92ba7900269d155580",
+      "bytes_preserved": true
+    },
+    {
+      "historical_path": "rewrite-evidence/workflows/WF4-R2-artifacts/round-2/pure/RecipeChips.tsx",
+      "wf5_path": "rewrite-evidence/workflows/WF5-artifacts/round-2/pure/RecipeChips.tsx",
+      "historical_sha256": "e165e5284e099e2eba84eb2437607728ee9ebcee9f38aae47a9b3e75d77e9e0b",
+      "publication_sha256": "e165e5284e099e2eba84eb2437607728ee9ebcee9f38aae47a9b3e75d77e9e0b",
+      "bytes_preserved": true
+    },
+    {
+      "historical_path": "rewrite-evidence/workflows/WF4-R2-artifacts/round-2/pure/manifest.json",
+      "wf5_path": "rewrite-evidence/workflows/WF5-artifacts/round-2/pure/manifest.json",
+      "historical_sha256": "c237164a9505b0b9a3c74ec022c43e6d190c275db46b81c9ec0467d97185d904",
+      "publication_sha256": "c237164a9505b0b9a3c74ec022c43e6d190c275db46b81c9ec0467d97185d904",
+      "bytes_preserved": true
+    },
+    {
+      "historical_path": "rewrite-evidence/workflows/WF4-R2-artifacts/round-2/refined/BaseButton.tsx",
+      "wf5_path": "rewrite-evidence/workflows/WF5-artifacts/round-2/refined/BaseButton.tsx",
+      "historical_sha256": "676826a9a9deec4eedadf6a58f51edab7a6c5547b9db0a92ba7900269d155580",
+      "publication_sha256": "676826a9a9deec4eedadf6a58f51edab7a6c5547b9db0a92ba7900269d155580",
+      "bytes_preserved": true
+    },
+    {
+      "historical_path": "rewrite-evidence/workflows/WF4-R2-artifacts/round-2/refined/RecipeChips.tsx",
+      "wf5_path": "rewrite-evidence/workflows/WF5-artifacts/round-2/refined/RecipeChips.tsx",
+      "historical_sha256": "e165e5284e099e2eba84eb2437607728ee9ebcee9f38aae47a9b3e75d77e9e0b",
+      "publication_sha256": "e165e5284e099e2eba84eb2437607728ee9ebcee9f38aae47a9b3e75d77e9e0b",
+      "bytes_preserved": true
+    },
+    {
+      "historical_path": "rewrite-evidence/workflows/WF4-R2-artifacts/round-2/refined/manifest.json",
+      "wf5_path": "rewrite-evidence/workflows/WF5-artifacts/round-2/refined/manifest.json",
+      "historical_sha256": "c237164a9505b0b9a3c74ec022c43e6d190c275db46b81c9ec0467d97185d904",
+      "publication_sha256": "c237164a9505b0b9a3c74ec022c43e6d190c275db46b81c9ec0467d97185d904",
+      "bytes_preserved": true
+    },
+    {
+      "historical_path": "rewrite-evidence/workflows/WF4-R2-artifacts/round-2/refined/refinement-manifest.json",
+      "wf5_path": "rewrite-evidence/workflows/WF5-artifacts/round-2/refined/refinement-manifest.json",
+      "historical_sha256": "34e7fd03ddd19f1ad5055bd1a649eb13cef3346def44079552cdcd3dd0755976",
+      "publication_sha256": "34e7fd03ddd19f1ad5055bd1a649eb13cef3346def44079552cdcd3dd0755976",
+      "bytes_preserved": true
+    },
+    {
+      "historical_path": "rewrite-evidence/workflows/WF4-R2-artifacts/round-3/pure/BaseButton.tsx",
+      "wf5_path": "rewrite-evidence/workflows/WF5-artifacts/round-3/pure/BaseButton.tsx",
+      "historical_sha256": "ec794f0ba05ef80c0507bc6219117a04fd7d94befd74ed1f987c1c66f4721688",
+      "publication_sha256": "ec794f0ba05ef80c0507bc6219117a04fd7d94befd74ed1f987c1c66f4721688",
+      "bytes_preserved": true
+    },
+    {
+      "historical_path": "rewrite-evidence/workflows/WF4-R2-artifacts/round-3/pure/RecipeChips.tsx",
+      "wf5_path": "rewrite-evidence/workflows/WF5-artifacts/round-3/pure/RecipeChips.tsx",
+      "historical_sha256": "cc2787de7de015cdc0cb9830dd4d980411b76eea75c7dcda45c5760439146e84",
+      "publication_sha256": "cc2787de7de015cdc0cb9830dd4d980411b76eea75c7dcda45c5760439146e84",
+      "bytes_preserved": true
+    },
+    {
+      "historical_path": "rewrite-evidence/workflows/WF4-R2-artifacts/round-3/pure/manifest.json",
+      "wf5_path": "rewrite-evidence/workflows/WF5-artifacts/round-3/pure/manifest.json",
+      "historical_sha256": "3f97c9d6f5c98a83ad111192d32d567ef8bba718b0385fc8db9084028087ad0d",
+      "publication_sha256": "3f97c9d6f5c98a83ad111192d32d567ef8bba718b0385fc8db9084028087ad0d",
+      "bytes_preserved": true
+    },
+    {
+      "historical_path": "rewrite-evidence/workflows/WF4-R2-artifacts/round-3/refined/BaseButton.tsx",
+      "wf5_path": "rewrite-evidence/workflows/WF5-artifacts/round-3/refined/BaseButton.tsx",
+      "historical_sha256": "ec794f0ba05ef80c0507bc6219117a04fd7d94befd74ed1f987c1c66f4721688",
+      "publication_sha256": "ec794f0ba05ef80c0507bc6219117a04fd7d94befd74ed1f987c1c66f4721688",
+      "bytes_preserved": true
+    },
+    {
+      "historical_path": "rewrite-evidence/workflows/WF4-R2-artifacts/round-3/refined/RecipeChips.tsx",
+      "wf5_path": "rewrite-evidence/workflows/WF5-artifacts/round-3/refined/RecipeChips.tsx",
+      "historical_sha256": "cc2787de7de015cdc0cb9830dd4d980411b76eea75c7dcda45c5760439146e84",
+      "publication_sha256": "cc2787de7de015cdc0cb9830dd4d980411b76eea75c7dcda45c5760439146e84",
+      "bytes_preserved": true
+    },
+    {
+      "historical_path": "rewrite-evidence/workflows/WF4-R2-artifacts/round-3/refined/manifest.json",
+      "wf5_path": "rewrite-evidence/workflows/WF5-artifacts/round-3/refined/manifest.json",
+      "historical_sha256": "3f97c9d6f5c98a83ad111192d32d567ef8bba718b0385fc8db9084028087ad0d",
+      "publication_sha256": "3f97c9d6f5c98a83ad111192d32d567ef8bba718b0385fc8db9084028087ad0d",
+      "bytes_preserved": true
+    },
+    {
+      "historical_path": "rewrite-evidence/workflows/WF4-R2-artifacts/round-3/refined/refinement-manifest.json",
+      "wf5_path": "rewrite-evidence/workflows/WF5-artifacts/round-3/refined/refinement-manifest.json",
+      "historical_sha256": "34e7fd03ddd19f1ad5055bd1a649eb13cef3346def44079552cdcd3dd0755976",
+      "publication_sha256": "34e7fd03ddd19f1ad5055bd1a649eb13cef3346def44079552cdcd3dd0755976",
+      "bytes_preserved": true
+    },
+    {
+      "historical_path": "rewrite-evidence/workflows/WF4-R2-artifacts/round-3/revision-2/pure/BaseButton.tsx",
+      "wf5_path": "rewrite-evidence/workflows/WF5-artifacts/round-3/revision-2/pure/BaseButton.tsx",
+      "historical_sha256": "3b551ab7ccb18dcc7e79e06de4c977c7eb6573dc67e9920a2e0866f30b1dbe71",
+      "publication_sha256": "3b551ab7ccb18dcc7e79e06de4c977c7eb6573dc67e9920a2e0866f30b1dbe71",
+      "bytes_preserved": true
+    },
+    {
+      "historical_path": "rewrite-evidence/workflows/WF4-R2-artifacts/round-3/revision-2/pure/RecipeChips.tsx",
+      "wf5_path": "rewrite-evidence/workflows/WF5-artifacts/round-3/revision-2/pure/RecipeChips.tsx",
+      "historical_sha256": "ddb7bf9de84cf7905ce283c522760172d53671c2cdbbba2109ee299504fa617c",
+      "publication_sha256": "ddb7bf9de84cf7905ce283c522760172d53671c2cdbbba2109ee299504fa617c",
+      "bytes_preserved": true
+    },
+    {
+      "historical_path": "rewrite-evidence/workflows/WF4-R2-artifacts/round-3/revision-2/pure/manifest.json",
+      "wf5_path": "rewrite-evidence/workflows/WF5-artifacts/round-3/revision-2/pure/manifest.json",
+      "historical_sha256": "5181a731ec44ba25651ad72f500a2ede651c3419ede0ed018142eda89ace3f99",
+      "publication_sha256": "5181a731ec44ba25651ad72f500a2ede651c3419ede0ed018142eda89ace3f99",
+      "bytes_preserved": true
+    },
+    {
+      "historical_path": "rewrite-evidence/workflows/WF4-R2-artifacts/round-3/revision-2/refined/BaseButton.tsx",
+      "wf5_path": "rewrite-evidence/workflows/WF5-artifacts/round-3/revision-2/refined/BaseButton.tsx",
+      "historical_sha256": "3b551ab7ccb18dcc7e79e06de4c977c7eb6573dc67e9920a2e0866f30b1dbe71",
+      "publication_sha256": "3b551ab7ccb18dcc7e79e06de4c977c7eb6573dc67e9920a2e0866f30b1dbe71",
+      "bytes_preserved": true
+    },
+    {
+      "historical_path": "rewrite-evidence/workflows/WF4-R2-artifacts/round-3/revision-2/refined/RecipeChips.tsx",
+      "wf5_path": "rewrite-evidence/workflows/WF5-artifacts/round-3/revision-2/refined/RecipeChips.tsx",
+      "historical_sha256": "ddb7bf9de84cf7905ce283c522760172d53671c2cdbbba2109ee299504fa617c",
+      "publication_sha256": "ddb7bf9de84cf7905ce283c522760172d53671c2cdbbba2109ee299504fa617c",
+      "bytes_preserved": true
+    },
+    {
+      "historical_path": "rewrite-evidence/workflows/WF4-R2-artifacts/round-3/revision-2/refined/manifest.json",
+      "wf5_path": "rewrite-evidence/workflows/WF5-artifacts/round-3/revision-2/refined/manifest.json",
+      "historical_sha256": "5181a731ec44ba25651ad72f500a2ede651c3419ede0ed018142eda89ace3f99",
+      "publication_sha256": "5181a731ec44ba25651ad72f500a2ede651c3419ede0ed018142eda89ace3f99",
+      "bytes_preserved": true
+    },
+    {
+      "historical_path": "rewrite-evidence/workflows/WF4-R2-artifacts/round-3/revision-2/refined/refinement-manifest.json",
+      "wf5_path": "rewrite-evidence/workflows/WF5-artifacts/round-3/revision-2/refined/refinement-manifest.json",
+      "historical_sha256": "34e7fd03ddd19f1ad5055bd1a649eb13cef3346def44079552cdcd3dd0755976",
+      "publication_sha256": "34e7fd03ddd19f1ad5055bd1a649eb13cef3346def44079552cdcd3dd0755976",
+      "bytes_preserved": true
+    },
+    {
+      "historical_path": "rewrite-evidence/workflows/WF4-R2-artifacts/round-3/revision-3/pure/BaseButton.tsx",
+      "wf5_path": "rewrite-evidence/workflows/WF5-artifacts/round-3/revision-3/pure/BaseButton.tsx",
+      "historical_sha256": "cf60dc80c536069157040789754be2b77b9218c929068675698c8c3e3ff9e388",
+      "publication_sha256": "cf60dc80c536069157040789754be2b77b9218c929068675698c8c3e3ff9e388",
+      "bytes_preserved": true
+    },
+    {
+      "historical_path": "rewrite-evidence/workflows/WF4-R2-artifacts/round-3/revision-3/pure/RecipeChips.tsx",
+      "wf5_path": "rewrite-evidence/workflows/WF5-artifacts/round-3/revision-3/pure/RecipeChips.tsx",
+      "historical_sha256": "ddb7bf9de84cf7905ce283c522760172d53671c2cdbbba2109ee299504fa617c",
+      "publication_sha256": "ddb7bf9de84cf7905ce283c522760172d53671c2cdbbba2109ee299504fa617c",
+      "bytes_preserved": true
+    },
+    {
+      "historical_path": "rewrite-evidence/workflows/WF4-R2-artifacts/round-3/revision-3/pure/manifest.json",
+      "wf5_path": "rewrite-evidence/workflows/WF5-artifacts/round-3/revision-3/pure/manifest.json",
+      "historical_sha256": "4c800fe6cd3f41beeb4ffd5c2656f7bcf213ddd674924e815bcd6c0994c5bf27",
+      "publication_sha256": "4c800fe6cd3f41beeb4ffd5c2656f7bcf213ddd674924e815bcd6c0994c5bf27",
+      "bytes_preserved": true
+    },
+    {
+      "historical_path": "rewrite-evidence/workflows/WF4-R2-artifacts/round-3/revision-3/refined/BaseButton.tsx",
+      "wf5_path": "rewrite-evidence/workflows/WF5-artifacts/round-3/revision-3/refined/BaseButton.tsx",
+      "historical_sha256": "cf60dc80c536069157040789754be2b77b9218c929068675698c8c3e3ff9e388",
+      "publication_sha256": "cf60dc80c536069157040789754be2b77b9218c929068675698c8c3e3ff9e388",
+      "bytes_preserved": true
+    },
+    {
+      "historical_path": "rewrite-evidence/workflows/WF4-R2-artifacts/round-3/revision-3/refined/RecipeChips.tsx",
+      "wf5_path": "rewrite-evidence/workflows/WF5-artifacts/round-3/revision-3/refined/RecipeChips.tsx",
+      "historical_sha256": "ddb7bf9de84cf7905ce283c522760172d53671c2cdbbba2109ee299504fa617c",
+      "publication_sha256": "ddb7bf9de84cf7905ce283c522760172d53671c2cdbbba2109ee299504fa617c",
+      "bytes_preserved": true
+    },
+    {
+      "historical_path": "rewrite-evidence/workflows/WF4-R2-artifacts/round-3/revision-3/refined/manifest.json",
+      "wf5_path": "rewrite-evidence/workflows/WF5-artifacts/round-3/revision-3/refined/manifest.json",
+      "historical_sha256": "4c800fe6cd3f41beeb4ffd5c2656f7bcf213ddd674924e815bcd6c0994c5bf27",
+      "publication_sha256": "4c800fe6cd3f41beeb4ffd5c2656f7bcf213ddd674924e815bcd6c0994c5bf27",
+      "bytes_preserved": true
+    },
+    {
+      "historical_path": "rewrite-evidence/workflows/WF4-R2-artifacts/round-3/revision-3/refined/refinement-manifest.json",
+      "wf5_path": "rewrite-evidence/workflows/WF5-artifacts/round-3/revision-3/refined/refinement-manifest.json",
+      "historical_sha256": "34e7fd03ddd19f1ad5055bd1a649eb13cef3346def44079552cdcd3dd0755976",
+      "publication_sha256": "34e7fd03ddd19f1ad5055bd1a649eb13cef3346def44079552cdcd3dd0755976",
+      "bytes_preserved": true
+    },
+    {
+      "historical_path": "rewrite-evidence/workflows/WF4-R2-artifacts/round-3/revision-4/pure/BaseButton.tsx",
+      "wf5_path": "rewrite-evidence/workflows/WF5-artifacts/round-3/revision-4/pure/BaseButton.tsx",
+      "historical_sha256": "3b551ab7ccb18dcc7e79e06de4c977c7eb6573dc67e9920a2e0866f30b1dbe71",
+      "publication_sha256": "3b551ab7ccb18dcc7e79e06de4c977c7eb6573dc67e9920a2e0866f30b1dbe71",
+      "bytes_preserved": true
+    },
+    {
+      "historical_path": "rewrite-evidence/workflows/WF4-R2-artifacts/round-3/revision-4/pure/RecipeChips.tsx",
+      "wf5_path": "rewrite-evidence/workflows/WF5-artifacts/round-3/revision-4/pure/RecipeChips.tsx",
+      "historical_sha256": "ddb7bf9de84cf7905ce283c522760172d53671c2cdbbba2109ee299504fa617c",
+      "publication_sha256": "ddb7bf9de84cf7905ce283c522760172d53671c2cdbbba2109ee299504fa617c",
+      "bytes_preserved": true
+    },
+    {
+      "historical_path": "rewrite-evidence/workflows/WF4-R2-artifacts/round-3/revision-4/pure/manifest.json",
+      "wf5_path": "rewrite-evidence/workflows/WF5-artifacts/round-3/revision-4/pure/manifest.json",
+      "historical_sha256": "d04ba9ff1a7f4879cbbb550ea23aea1fc6e36a8126f5bc298e6e565243a38c4c",
+      "publication_sha256": "d04ba9ff1a7f4879cbbb550ea23aea1fc6e36a8126f5bc298e6e565243a38c4c",
+      "bytes_preserved": true
+    },
+    {
+      "historical_path": "rewrite-evidence/workflows/WF4-R2-artifacts/round-3/revision-4/refined/BaseButton.tsx",
+      "wf5_path": "rewrite-evidence/workflows/WF5-artifacts/round-3/revision-4/refined/BaseButton.tsx",
+      "historical_sha256": "3b551ab7ccb18dcc7e79e06de4c977c7eb6573dc67e9920a2e0866f30b1dbe71",
+      "publication_sha256": "3b551ab7ccb18dcc7e79e06de4c977c7eb6573dc67e9920a2e0866f30b1dbe71",
+      "bytes_preserved": true
+    },
+    {
+      "historical_path": "rewrite-evidence/workflows/WF4-R2-artifacts/round-3/revision-4/refined/RecipeChips.tsx",
+      "wf5_path": "rewrite-evidence/workflows/WF5-artifacts/round-3/revision-4/refined/RecipeChips.tsx",
+      "historical_sha256": "ddb7bf9de84cf7905ce283c522760172d53671c2cdbbba2109ee299504fa617c",
+      "publication_sha256": "ddb7bf9de84cf7905ce283c522760172d53671c2cdbbba2109ee299504fa617c",
+      "bytes_preserved": true
+    },
+    {
+      "historical_path": "rewrite-evidence/workflows/WF4-R2-artifacts/round-3/revision-4/refined/manifest.json",
+      "wf5_path": "rewrite-evidence/workflows/WF5-artifacts/round-3/revision-4/refined/manifest.json",
+      "historical_sha256": "d04ba9ff1a7f4879cbbb550ea23aea1fc6e36a8126f5bc298e6e565243a38c4c",
+      "publication_sha256": "d04ba9ff1a7f4879cbbb550ea23aea1fc6e36a8126f5bc298e6e565243a38c4c",
+      "bytes_preserved": true
+    },
+    {
+      "historical_path": "rewrite-evidence/workflows/WF4-R2-artifacts/round-3/revision-4/refined/refinement-manifest.json",
+      "wf5_path": "rewrite-evidence/workflows/WF5-artifacts/round-3/revision-4/refined/refinement-manifest.json",
+      "historical_sha256": "34e7fd03ddd19f1ad5055bd1a649eb13cef3346def44079552cdcd3dd0755976",
+      "publication_sha256": "34e7fd03ddd19f1ad5055bd1a649eb13cef3346def44079552cdcd3dd0755976",
+      "bytes_preserved": true
+    },
+    {
+      "historical_path": "rewrite-evidence/workflows/WF4-R2-conversion-rules.md",
+      "wf5_path": "rewrite-evidence/workflows/WF5-conversion-rules.md",
+      "historical_sha256": "8fddc288579ab2fcf92f6372f050068e851c68474a4cb54b2297b188f15eac34",
+      "publication_sha256": "6caa16271042ef0aa1f9e1ed4ad841cc92de84dbfd7422d4ed5abae6ea9f27f3",
+      "bytes_preserved": false
+    },
+    {
+      "historical_path": "rewrite-evidence/workflows/WF4-R2-decisions.md",
+      "wf5_path": "rewrite-evidence/workflows/WF5-decisions.md",
+      "historical_sha256": "eb883ccfa1d651294bf5a987cefb1034d8cf38ba1886361a29c2687a6f27f0c8",
+      "publication_sha256": "714aac9cd88091ea31259f78a1a6e62d3345caf6577b7f255600976906069d00",
+      "bytes_preserved": false
+    },
+    {
+      "historical_path": "rewrite-evidence/workflows/WF4-R2-plan.md",
+      "wf5_path": "rewrite-evidence/workflows/WF5-plan.md",
+      "historical_sha256": "cdabfd786db038603ae380b469418607b5540705764d0200f3e1b232daa0d698",
+      "publication_sha256": "347a3f636656024c55c3774ad34424956f03ddf7257832a1b1a0ef10428564e2",
+      "bytes_preserved": false
+    },
+    {
+      "historical_path": "rewrite-evidence/workflows/WF4-R2-state.md",
+      "wf5_path": "rewrite-evidence/workflows/WF5-state.md",
+      "historical_sha256": "a90a39f16d6f85a9968b4c712228ccae26628e2f0f152eb0fb313ec32ad145d9",
+      "publication_sha256": "4ff586431b053a5fbda9c0fc50b4a4014e58a25d345d40eea50e779a14da76bd",
+      "bytes_preserved": false
+    }
+  ],
+  "dependency_lock_unchanged": true,
+  "original_frontend_backend_unchanged": true,
+  "generated_bytes_unchanged": [
+    "frontend-react/src/generated/BaseButton.tsx",
+    "frontend-react/src/generated/RecipeChips.tsx"
+  ],
+  "prospective_environment_variables": [
+    "WF5_ROUND",
+    "WF5_REVISION"
+  ],
+  "legacy_environment_variables_still_supported": [
+    "WF4_ROUND",
+    "WF4_REVISION"
+  ],
+  "validation_scope": "Naming, module paths, preservation and selected rule checks. New checks are publication validation, not a new formal sample round or application acceptance."
+}

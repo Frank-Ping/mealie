@@ -1,2 +1,11 @@
 *.css linguist-detectable=false
 *.html linguist-detectable=false
+
+# Preserve WF5 evidence/checksum bytes across Git checkout line-ending settings.
+rewrite-tools/wf5/** -text
+rewrite-evidence/workflows/WF5/** -text
+rewrite-evidence/workflows/WF5-artifacts/** -text
+rewrite-evidence/workflows/WF5-B/** -text
+rewrite-evidence/workflows/WF5-*.md -text
+frontend-react/src/generated/** -text
+frontend-react/pnpm-lock.yaml -text

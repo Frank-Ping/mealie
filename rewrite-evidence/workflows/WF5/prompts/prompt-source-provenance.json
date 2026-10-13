@@ -1,0 +1,86 @@
+{
+  "publication_workflow": "WF5",
+  "actual_historical_workflow": "WF4-R2",
+  "translation_prepared_on": "2026-10-14",
+  "timezone": "Pacific/Auckland",
+  "publication_repository": "https://github.com/Frank-Ping/mealie",
+  "publication_branch": "rewrite/wf5-rule-driven",
+  "scope": "Formal R2 prompts plus separately identified post-stop audit; no R3.",
+  "path_normalization": {
+    "canonical_source": "<WORKSPACE>/mealie-wf5",
+    "historical_evidence": "<WORKSPACE>/wf4-r2-evidence",
+    "private_session_log": "<PRIVATE_SESSION_LOG>"
+  },
+  "source_preservation": "Private original evidence and actual historical commit objects remain unchanged. Public copies have the changes listed per prompt.",
+  "translation_file": "Prompts_EN.md",
+  "translation_sha256_utf8": "aff7c9fa83df56e3d0e9f2a2bb969de17500302f58dbd551248f5720b85e3e6f",
+  "records": [
+    {
+      "id": "phase-a",
+      "public_original_counterpart": "Phase_A_Original_ZH.txt",
+      "source_timestamp_utc": "2026-10-13T09:39:59.423Z",
+      "private_source_log": "<PRIVATE_SESSION_LOG>",
+      "private_jsonl_row_1_based": 879,
+      "export_ordinal": 878,
+      "original_message_text_sha256_utf8": "e2e2882ef3cea648f2c3735dccf188771c259621902db505710935268ac0e0e0",
+      "public_text_sha256_utf8": "4ff967b1953ec5644fccfa0556114aef064c09823dcee66efcc8bfb7bb659937",
+      "extracted_text_sha256_utf8_before_path_normalization": "e2e2882ef3cea648f2c3735dccf188771c259621902db505710935268ac0e0e0",
+      "changes": [
+        "Canonical source absolute path replaced by <WORKSPACE>/mealie-wf5; historical evidence absolute path replaced by <WORKSPACE>/wf4-r2-evidence. Actual historical message used mealie-wf4-rerun."
+      ],
+      "original_saved_prompt_workspace_relative": "wf4-r2-evidence/workflow-sessions/phase-a/prompt-1.txt",
+      "original_saved_prompt_sha256": "5d1769f49dda48e4d17e37aa2340922c695e88bb836ec04378be4ab83e8adec4",
+      "original_visible_export_workspace_relative": "wf4-r2-evidence/workflow-sessions/phase-a/visible-transcript-finalized.jsonl",
+      "original_export_row_1_based": 1
+    },
+    {
+      "id": "gate-1",
+      "public_original_counterpart": "Gate_1_Original_ZH.txt",
+      "source_timestamp_utc": "2026-10-13T10:06:11.148Z",
+      "private_source_log": "<PRIVATE_SESSION_LOG>",
+      "private_jsonl_row_1_based": 1061,
+      "export_ordinal": 1060,
+      "original_message_text_sha256_utf8": "bcff5b58d2b00e90d3519b584eecc3029dbfd136f58916c177e06b8389d0fd26",
+      "public_text_sha256_utf8": "bcff5b58d2b00e90d3519b584eecc3029dbfd136f58916c177e06b8389d0fd26",
+      "extracted_text_sha256_utf8_before_path_normalization": "bcff5b58d2b00e90d3519b584eecc3029dbfd136f58916c177e06b8389d0fd26",
+      "changes": [],
+      "original_saved_prompt_workspace_relative": "wf4-r2-evidence/workflow-sessions/phase-b/gate-1-prompt.txt",
+      "original_saved_prompt_sha256": "f820fa8a854d956d4bc092b76985fc1e6efdf44c311db96327a90e7d7b39d1b0",
+      "original_visible_export_workspace_relative": "wf4-r2-evidence/workflow-sessions/phase-b/visible-transcript.jsonl",
+      "original_export_row_1_based": 1
+    },
+    {
+      "id": "token-clarification",
+      "public_original_counterpart": "Token_Clarification_Original_ZH.txt",
+      "source_timestamp_utc": "2026-10-13T10:06:38.887Z",
+      "private_source_log": "<PRIVATE_SESSION_LOG>",
+      "private_jsonl_row_1_based": 1079,
+      "export_ordinal": 1078,
+      "original_message_text_sha256_utf8": "0414fe1b1507e8599128930aaa7334f12c54df6f794286ec18ce7f500113e33c",
+      "public_text_sha256_utf8": "5a1d4dd1edf15ac24f16afd40a403491cfadd8311e860fcddfb5f131eec205ef",
+      "extracted_text_sha256_utf8_before_path_normalization": "5a1d4dd1edf15ac24f16afd40a403491cfadd8311e860fcddfb5f131eec205ef",
+      "changes": [
+        "Structured tool wrapper and questionItemId omitted; original Chinese question and answer preserved verbatim."
+      ],
+      "original_saved_prompt_workspace_relative": "wf4-r2-evidence/workflow-sessions/phase-b/token-policy-confirmation.txt",
+      "original_saved_prompt_sha256": "879399c65c9b5f4850cea40ea1ee5b18fd226caf7de8a224ee84b6291f92124c",
+      "original_visible_export_workspace_relative": "wf4-r2-evidence/workflow-sessions/phase-b/visible-transcript.jsonl",
+      "original_export_row_1_based": 7
+    },
+    {
+      "id": "post-stop-audit",
+      "public_original_counterpart": "Post_Stop_Audit_Original_ZH.txt",
+      "source_timestamp_utc": "2026-10-13T11:08:48.341Z",
+      "private_source_log": "<PRIVATE_SESSION_LOG>",
+      "private_jsonl_row_1_based": 141,
+      "export_ordinal": null,
+      "original_message_text_sha256_utf8": "e6116177e4e3c496f813b6a40a453466cd8c0a803643a6bcc56fa95228b68102",
+      "public_text_sha256_utf8": "a029b2d53034f432caf124c120d8389a7d9630ebd9883b126444b2e201d79b39",
+      "extracted_text_sha256_utf8_before_path_normalization": "e6116177e4e3c496f813b6a40a453466cd8c0a803643a6bcc56fa95228b68102",
+      "changes": [
+        "Canonical source absolute path replaced by <WORKSPACE>/mealie-wf5; historical evidence absolute path replaced by <WORKSPACE>/wf4-r2-evidence. Actual historical message used mealie-wf4-rerun."
+      ],
+      "source_note": "Extracted from the actual user event. No separate visible export or ordinal field was found."
+    }
+  ]
+}

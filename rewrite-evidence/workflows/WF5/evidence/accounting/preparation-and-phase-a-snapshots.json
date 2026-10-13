@@ -1,0 +1,139 @@
+{
+  "exported_at_utc": "2026-10-13T09:59:04.217801+00:00",
+  "session_id": "01a13444-0c1c-7e81-b13f-8a41c4be747d",
+  "formal_start_utc": "2026-10-13T09:39:59.423Z",
+  "counting": "cumulative snapshot differences; cached input subset of input; reasoning output subset of output; total=input+output",
+  "monetary_cost": "未提供",
+  "human_review_minutes": "未提供 / 待人工填写",
+  "windows": [
+    {
+      "category": "shared-baseline-and-related-preparation-discussion",
+      "start_prompt_utc": "2026-10-13T08:37:11.721Z",
+      "end_exclusive_prompt_utc": "2026-10-13T09:16:01.703Z",
+      "baseline_counter_utc": "2026-10-13T08:26:58.263Z",
+      "last_counter_utc": "2026-10-13T09:11:59.838Z",
+      "baseline_raw": {
+        "input_tokens": 2377788,
+        "cached_input_tokens": 2288256,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 13407,
+        "reasoning_output_tokens": 4267,
+        "total_tokens": 2391195
+      },
+      "last_raw": {
+        "input_tokens": 9437306,
+        "cached_input_tokens": 9044864,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 55462,
+        "reasoning_output_tokens": 27756,
+        "total_tokens": 9492768
+      },
+      "delta": {
+        "input_tokens": 7059518,
+        "cached_input_tokens": 6756608,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 42055,
+        "reasoning_output_tokens": 23489,
+        "total_tokens": 7101573
+      },
+      "status": "reported conversation-window delta, not a precise activity split"
+    },
+    {
+      "category": "WF4-R2-prompt-template-preparation",
+      "start_prompt_utc": "2026-10-13T09:16:01.703Z",
+      "end_exclusive_prompt_utc": "2026-10-13T09:26:12.566Z",
+      "baseline_counter_utc": "2026-10-13T09:11:59.838Z",
+      "last_counter_utc": "2026-10-13T09:23:53.697Z",
+      "baseline_raw": {
+        "input_tokens": 9437306,
+        "cached_input_tokens": 9044864,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 55462,
+        "reasoning_output_tokens": 27756,
+        "total_tokens": 9492768
+      },
+      "last_raw": {
+        "input_tokens": 10357630,
+        "cached_input_tokens": 9946752,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 69326,
+        "reasoning_output_tokens": 37012,
+        "total_tokens": 10426956
+      },
+      "delta": {
+        "input_tokens": 920324,
+        "cached_input_tokens": 901888,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 13864,
+        "reasoning_output_tokens": 9256,
+        "total_tokens": 934188
+      },
+      "status": "reported conversation-window delta, not a precise activity split"
+    },
+    {
+      "category": "S0-usage-recorder-setup",
+      "start_prompt_utc": "2026-10-13T09:26:12.566Z",
+      "end_exclusive_prompt_utc": "2026-10-13T09:39:59.423Z",
+      "baseline_counter_utc": "2026-10-13T09:23:53.697Z",
+      "last_counter_utc": "2026-10-13T09:35:47.694Z",
+      "baseline_raw": {
+        "input_tokens": 10357630,
+        "cached_input_tokens": 9946752,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 69326,
+        "reasoning_output_tokens": 37012,
+        "total_tokens": 10426956
+      },
+      "last_raw": {
+        "input_tokens": 12612999,
+        "cached_input_tokens": 12176384,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 85907,
+        "reasoning_output_tokens": 47117,
+        "total_tokens": 12698906
+      },
+      "delta": {
+        "input_tokens": 2255369,
+        "cached_input_tokens": 2229632,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 16581,
+        "reasoning_output_tokens": 10105,
+        "total_tokens": 2271950
+      },
+      "status": "reported conversation-window delta, not a precise activity split"
+    },
+    {
+      "category": "Phase-A-formal-workflow",
+      "start_prompt_utc": "2026-10-13T09:39:59.423Z",
+      "end_exclusive_prompt_utc": null,
+      "baseline_counter_utc": "2026-10-13T09:35:47.694Z",
+      "last_counter_utc": "2026-10-13T09:58:53.973Z",
+      "baseline_raw": {
+        "input_tokens": 12612999,
+        "cached_input_tokens": 12176384,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 85907,
+        "reasoning_output_tokens": 47117,
+        "total_tokens": 12698906
+      },
+      "last_raw": {
+        "input_tokens": 14712763,
+        "cached_input_tokens": 13934592,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 114091,
+        "reasoning_output_tokens": 54234,
+        "total_tokens": 14826854
+      },
+      "delta": {
+        "input_tokens": 2099764,
+        "cached_input_tokens": 1758208,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 28184,
+        "reasoning_output_tokens": 7117,
+        "total_tokens": 2127948
+      },
+      "status": "provisional; final response event pending"
+    }
+  ],
+  "scope_note": "Earlier windows include all conversation work between named prompts, potentially questions and bookkeeping. They are separate overhead estimates from reported counters, not shell-only or task-only precise splits. Earlier other chats/subagents are 未提供. Do not add these overlapping records to global recorder totals again."
+}

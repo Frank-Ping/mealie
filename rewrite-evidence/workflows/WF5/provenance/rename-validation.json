@@ -1,0 +1,77 @@
+{
+  "scope": "WF5 publication rename validation only; no new formal generation/review round or whole-app result.",
+  "historical_r2_endpoint": "8b0fae128ea823ebee4a6507d274df1f8987e8d1",
+  "active_package": "mealie-wf5-samples",
+  "source_frontend_backend_unchanged": true,
+  "five_source_identities_and_fixture_inventory_unchanged": true,
+  "historical_artifact_result_files_preserved": 54,
+  "dependencies": "Read-only cached exact R2 TypeScript/Vue compiler packages via process-scoped NODE_PATH; no dependency installation, copy or link.",
+  "attempt1": {
+    "pass": 19,
+    "fail": 1,
+    "category": "Windows sandbox default temporary directory rename permission failure",
+    "summary": "rename-validation-attempt-1.txt"
+  },
+  "attempt2": [
+    {
+      "check": "syntax-converter",
+      "command": [
+        "<BUNDLED_NODE>",
+        "--check",
+        "rewrite-tools/wf5/convert.mjs"
+      ],
+      "exit_code": 0,
+      "start_utc": "2026-10-13T21:17:40.599581+00:00",
+      "end_utc": "2026-10-13T21:17:40.776432+00:00",
+      "seconds": 0.176851
+    },
+    {
+      "check": "syntax-runner",
+      "command": [
+        "<BUNDLED_NODE>",
+        "--check",
+        "rewrite-tools/wf5/run.mjs"
+      ],
+      "exit_code": 0,
+      "start_utc": "2026-10-13T21:17:40.778436+00:00",
+      "end_utc": "2026-10-13T21:17:40.972155+00:00",
+      "seconds": 0.193719
+    },
+    {
+      "check": "syntax-tests",
+      "command": [
+        "<BUNDLED_NODE>",
+        "--check",
+        "rewrite-tools/wf5/test.mjs"
+      ],
+      "exit_code": 0,
+      "start_utc": "2026-10-13T21:17:40.973156+00:00",
+      "end_utc": "2026-10-13T21:17:41.156491+00:00",
+      "seconds": 0.183335
+    },
+    {
+      "check": "renamed-rule-checks",
+      "command": [
+        "<BUNDLED_NODE>",
+        "--test",
+        "rewrite-tools/wf5/test.mjs"
+      ],
+      "exit_code": 0,
+      "start_utc": "2026-10-13T21:17:41.157490+00:00",
+      "end_utc": "2026-10-13T21:17:41.888412+00:00",
+      "seconds": 0.730922
+    }
+  ],
+  "historical_checks_are_separate": {
+    "rule_checks": 20,
+    "unit_tests": 36,
+    "source": "WF5 historical evidence; not rerun as an application acceptance result here"
+  },
+  "tool_files_publication_sha256": {
+    "convert.mjs": "02ffedfaf33829b1dfbe221696eee165c94ddd61a8bdf65d9c0c9017d0d430ca",
+    "run.mjs": "915b72ed4fa378b3f1f3403f99a9937281a70936773f42c8e3ee3355a047bb2d",
+    "test.mjs": "fc0f327d889fc728922975e2fc76e66d339a86102cf5c46bbdf4564ccaad3c09",
+    "manifest.json": "870ee7f7d22f855210f12807874a93b3006c87d465aaaef9f4281f3aef96700a",
+    "fixtures/cases.json": "19e39c4e68d411d4648d04da75222eecdd977660927f743f6dc1c98c10d58f5a"
+  }
+}

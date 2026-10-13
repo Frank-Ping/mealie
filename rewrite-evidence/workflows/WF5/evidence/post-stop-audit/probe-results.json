@@ -1,0 +1,251 @@
+{
+  "numTotalTestSuites": 3,
+  "numPassedTestSuites": 0,
+  "numFailedTestSuites": 3,
+  "numPendingTestSuites": 0,
+  "numTotalTests": 16,
+  "numPassedTests": 14,
+  "numFailedTests": 2,
+  "numPendingTests": 0,
+  "numTodoTests": 0,
+  "snapshot": {
+    "added": 0,
+    "failure": false,
+    "filesAdded": 0,
+    "filesRemoved": 0,
+    "filesRemovedList": [],
+    "filesUnmatched": 0,
+    "filesUpdated": 0,
+    "matched": 0,
+    "total": 0,
+    "unchecked": 0,
+    "uncheckedKeysByFile": [],
+    "unmatched": 0,
+    "updated": 0,
+    "didUpdate": false
+  },
+  "startTime": 1791890474771,
+  "success": false,
+  "testResults": [
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [],
+          "fullName": "audit: rejected non-plain loader data must release loading and report the failure",
+          "status": "failed",
+          "title": "audit: rejected non-plain loader data must release loading and report the failure",
+          "duration": 4.518699999999967,
+          "failureMessages": [
+            "AssertionError: expected true to be false // Object.is equality\n    at <EXECUTION_COPY>/frontend-react/tests/review-infra.test.tsx:14:39\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async file:///<EXECUTION_COPY>/frontend-react/node_modules/.pnpm/vitest@5.0.4_@types+node@26_9f005d068b423ef2459d1acffaf52f66/node_modules/vitest/dist/chunks/run.Cm2sd7-x.js:2794:20"
+          ],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "audit: reset preserves new flight when completions are old-first",
+          "status": "passed",
+          "title": "audit: reset preserves new flight when completions are old-first",
+          "duration": 1.1675000000000182,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "audit: reset preserves new flight when completions are new-first",
+          "status": "passed",
+          "title": "audit: reset preserves new flight when completions are new-first",
+          "duration": 0.31779999999992015,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "audit: anonymous redirect preserves encoded query and hash exactly",
+          "status": "passed",
+          "title": "audit: anonymous redirect preserves encoded query and hash exactly",
+          "duration": 26.8356,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [],
+          "fullName": "audit: missing second-language string falls back to English and mounted consumers react",
+          "status": "passed",
+          "title": "audit: missing second-language string falls back to English and mounted consumers react",
+          "duration": 4.858200000000011,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        }
+      ],
+      "startTime": 1791890475858,
+      "endTime": 1791890475895.8582,
+      "status": "failed",
+      "message": "",
+      "name": "<EXECUTION_COPY>/frontend-react/tests/review-infra.test.tsx"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": [
+            "independent generated-component semantics"
+          ],
+          "fullName": "independent generated-component semantics required block attr maps to fullWidth or fails with an explicit unsupported diagnostic",
+          "status": "failed",
+          "title": "required block attr maps to fullWidth or fails with an explicit unsupported diagnostic",
+          "duration": 94.9980999999998,
+          "failureMessages": [
+            "AssertionError: expected false to be true // Object.is equality\n    at <EXECUTION_COPY>/frontend-react/tests/review-samples.test.tsx:37:107\n    at file:///<EXECUTION_COPY>/frontend-react/node_modules/.pnpm/vitest@5.0.4_@types+node@26_9f005d068b423ef2459d1acffaf52f66/node_modules/vitest/dist/chunks/run.Cm2sd7-x.js:1632:35\n    at file:///<EXECUTION_COPY>/frontend-react/node_modules/.pnpm/vitest@5.0.4_@types+node@26_9f005d068b423ef2459d1acffaf52f66/node_modules/vitest/dist/chunks/run.Cm2sd7-x.js:2794:26\n    at file:///<EXECUTION_COPY>/frontend-react/node_modules/.pnpm/vitest@5.0.4_@types+node@26_9f005d068b423ef2459d1acffaf52f66/node_modules/vitest/dist/chunks/run.Cm2sd7-x.js:3334:20\n    at new Promise (<anonymous>)\n    at runWithCancel (file:///<EXECUTION_COPY>/frontend-react/node_modules/.pnpm/vitest@5.0.4_@types+node@26_9f005d068b423ef2459d1acffaf52f66/node_modules/vitest/dist/chunks/run.Cm2sd7-x.js:3329:10)\n    at file:///<EXECUTION_COPY>/frontend-react/node_modules/.pnpm/vitest@5.0.4_@types+node@26_9f005d068b423ef2459d1acffaf52f66/node_modules/vitest/dist/chunks/run.Cm2sd7-x.js:3314:20\n    at new Promise (<anonymous>)\n    at runWithTimeout (file:///<EXECUTION_COPY>/frontend-react/node_modules/.pnpm/vitest@5.0.4_@types+node@26_9f005d068b423ef2459d1acffaf52f66/node_modules/vitest/dist/chunks/run.Cm2sd7-x.js:3272:10)\n    at file:///<EXECUTION_COPY>/frontend-react/node_modules/.pnpm/vitest@5.0.4_@types+node@26_9f005d068b423ef2459d1acffaf52f66/node_modules/vitest/dist/chunks/run.Cm2sd7-x.js:3895:64"
+          ],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "independent generated-component semantics"
+          ],
+          "fullName": "independent generated-component semantics normal button fallthrough preserves attrs, submit type and the click event payload",
+          "status": "passed",
+          "title": "normal button fallthrough preserves attrs, submit type and the click event payload",
+          "duration": 13.247099999999591,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "independent generated-component semantics"
+          ],
+          "fullName": "independent generated-component semantics real link href keeps query/hash and a normal primary click updates Router location",
+          "status": "passed",
+          "title": "real link href keeps query/hash and a normal primary click updates Router location",
+          "duration": 17.07529999999997,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "independent generated-component semantics"
+          ],
+          "fullName": "independent generated-component semantics caller preventDefault receives the click and cancels Router navigation",
+          "status": "passed",
+          "title": "caller preventDefault receives the click and cancels Router navigation",
+          "duration": 8.207000000000335,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "independent generated-component semantics"
+          ],
+          "fullName": "independent generated-component semantics Ctrl link click is not intercepted by the SPA",
+          "status": "passed",
+          "title": "Ctrl link click is not intercepted by the SPA",
+          "duration": 8.600400000000263,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "independent generated-component semantics"
+          ],
+          "fullName": "independent generated-component semantics Meta link click is not intercepted by the SPA",
+          "status": "passed",
+          "title": "Meta link click is not intercepted by the SPA",
+          "duration": 7.385000000000218,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "independent generated-component semantics"
+          ],
+          "fullName": "independent generated-component semantics Alt link click is not intercepted by the SPA",
+          "status": "passed",
+          "title": "Alt link click is not intercepted by the SPA",
+          "duration": 7.2804000000001,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "independent generated-component semantics"
+          ],
+          "fullName": "independent generated-component semantics Shift link click is not intercepted by the SPA",
+          "status": "passed",
+          "title": "Shift link click is not intercepted by the SPA",
+          "duration": 6.355800000000272,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "independent generated-component semantics"
+          ],
+          "fullName": "independent generated-component semantics middle button link click is not intercepted by the SPA",
+          "status": "passed",
+          "title": "middle button link click is not intercepted by the SPA",
+          "duration": 6.61869999999999,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "independent generated-component semantics"
+          ],
+          "fullName": "independent generated-component semantics download uses the current URL after a prop update and exactly one caller callback per click",
+          "status": "passed",
+          "title": "download uses the current URL after a prop update and exactly one caller callback per click",
+          "duration": 12.799799999999777,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        },
+        {
+          "ancestorTitles": [
+            "independent generated-component semantics"
+          ],
+          "fullName": "independent generated-component semantics RecipeChips prevent modifier preserves payload identity and does not imply stopPropagation",
+          "status": "passed",
+          "title": "RecipeChips prevent modifier preserves payload identity and does not imply stopPropagation",
+          "duration": 11.399800000000141,
+          "failureMessages": [],
+          "meta": {},
+          "tags": [],
+          "benchmarks": []
+        }
+      ],
+      "startTime": 1791890476991,
+      "endTime": 1791890477185.4,
+      "status": "failed",
+      "message": "",
+      "name": "<EXECUTION_COPY>/frontend-react/tests/review-samples.test.tsx"
+    }
+  ]
+}

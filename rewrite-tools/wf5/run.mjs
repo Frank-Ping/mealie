@@ -96,18 +96,18 @@ export function publishArtifacts(directory, files) {
 }
 
 if(process.argv[1] && path.resolve(process.argv[1])===fileURLToPath(import.meta.url)) {
-  const manifest=loadManifest(path.join(repo,'rewrite-tools/wf4-r2/manifest.json'));
+  const manifest=loadManifest(path.join(repo,'rewrite-tools/wf5/manifest.json'));
   if(git('diff',manifest.sourceCommit,'--','frontend/','mealie/')) throw new Error('Frozen source/backend changed');
   const samples=snapshotSamples(manifest);
-  const round=process.env.WF4_ROUND||manifest.round;
+  const round=process.env.WF5_ROUND||process.env.WF4_ROUND||manifest.round;
   if(!/^round-[1-3]$/.test(round)) throw new Error('At most three declared rounds');
-  const revision=process.env.WF4_REVISION;
+  const revision=process.env.WF5_REVISION||process.env.WF4_REVISION;
   if(revision&&!/^[2-9]$/.test(revision)) throw new Error('Invalid within-round revision');
-  const artifacts=path.join(repo,'rewrite-evidence/workflows/WF4-R2-artifacts',round,...(revision?['revision-'+revision]:[]));
+  const artifacts=path.join(repo,'rewrite-evidence/workflows/WF5-artifacts',round,...(revision?['revision-'+revision]:[]));
   fs.mkdirSync(artifacts,{recursive:true});
   const pure={};
   for(const sample of samples) if(sample.output) pure[sample.component+'.tsx']=sample.output;
-  const toolHashes=Object.fromEntries(['convert.mjs','run.mjs','manifest.json','test.mjs','fixtures/cases.json'].map(name=>[name,hash(fs.readFileSync(path.join(repo,'rewrite-tools/wf4-r2',name)))]));
+  const toolHashes=Object.fromEntries(['convert.mjs','run.mjs','manifest.json','test.mjs','fixtures/cases.json'].map(name=>[name,hash(fs.readFileSync(path.join(repo,'rewrite-tools/wf5',name)))]));
   const infraHashes=Object.fromEntries(walk(path.join(repo,'frontend-react/src/infra')).map(file=>[relative(file),hash(fs.readFileSync(file))]));
   pure['manifest.json']=JSON.stringify({sourceCommit:manifest.sourceCommit,canonicalHead:git('rev-parse','HEAD'),toolHashes,infraHashes,lockSha256:hash(fs.readFileSync(path.join(repo,'frontend-react/pnpm-lock.yaml'))),samples:samples.map(({output,...rest})=>rest),fileHashes:Object.fromEntries(Object.entries(pure).map(([p,text])=>[p,hash(text)]))},null,2)+'\n';
   publishArtifacts(path.join(artifacts,'pure'),pure);
@@ -118,7 +118,7 @@ if(process.argv[1] && path.resolve(process.argv[1])===fileURLToPath(import.meta.
   const expected=new Set(Object.keys(pure).filter(name=>name.endsWith('.tsx')));
   for(const file of fs.readdirSync(generated)) if(file.endsWith('.tsx')&&!expected.has(file)) throw new Error('Unexpected prior generated file; publication needs reviewed removal');
   for(const name of expected) fs.writeFileSync(path.join(generated,name),pure[name]);
-  const evidence=path.join(repo,'rewrite-evidence/workflows/WF4-R2-B'); fs.mkdirSync(evidence,{recursive:true});
+  const evidence=path.join(repo,'rewrite-evidence/workflows/WF5-B'); fs.mkdirSync(evidence,{recursive:true});
   const write=(name,value)=>fs.writeFileSync(path.join(evidence,name),JSON.stringify(value,null,2)+'\n');
   write('source-test-inventory.json',testInventory());
   write('route-inventory.json',routeInventory());
