@@ -1,0 +1,157 @@
+{
+  "sourceCommit": "4b9ca06b6581f7152e164ea0fd9d4da366975a79",
+  "canonicalHead": "63e239bb35fab4b53fc8d913b284dfa43edec5a9",
+  "toolHashes": {
+    "convert.mjs": "e5ceea5b107cfe90024376325226385a55b8232020837ad779cfbe29ab7b1419",
+    "run.mjs": "6556b36f42699c894a3bb6a255ab862c6a0f3264bb85aaf27399e55577876ee2",
+    "manifest.json": "870ee7f7d22f855210f12807874a93b3006c87d465aaaef9f4281f3aef96700a",
+    "test.mjs": "bd7f7f1733094ba841cfccfceb114d92084f6551cab8c0adfef1d983cb0fccdc",
+    "fixtures/cases.json": "19e39c4e68d411d4648d04da75222eecdd977660927f743f6dc1c98c10d58f5a"
+  },
+  "infraHashes": {
+    "frontend-react/src/infra/guards.tsx": "7eff972e1069c2bc084d0fcbe1dfddf0bb36591d0de1ab589a1368c5b66fc839",
+    "frontend-react/src/infra/i18n.ts": "27f88e68ab815d97a628f40db208f53b002afdab063b07e666810ce4060dd5cf",
+    "frontend-react/src/infra/props.ts": "d32291c1d73c0ac84c3b1ce48cdfa6d0fdb272446b8aea1ff5331727ccd0f9ea",
+    "frontend-react/src/infra/services.tsx": "8e9706e19148ed586a03398885b35ecd6d152e2117181409f14f87c0ed414ebe",
+    "frontend-react/src/infra/store.ts": "d35c6cf43d28e025633ab781dd78a841ec6d2cba6f3db6cfde70fb50eb516cb0",
+    "frontend-react/src/infra/ui.tsx": "bc6c12798ea83040f8f95b7b1fba63fa906c7e6cbf462f561ceb43fb5685cd00",
+    "frontend-react/src/infra/utilities.css": "759edd788596f8c9381438d9e1e347ae04ad3293c770840bf6cabdec1c459737"
+  },
+  "lockSha256": "d25172f55cf0726ed8d5c4c998f1eba11698e6d1b0519f264df0a36e70ce3e38",
+  "samples": [
+    {
+      "id": "page",
+      "path": "frontend/app/pages/index.vue",
+      "component": "HomePage",
+      "sourceSha256": "606ca6c768505191538eb7216aeddb17578ab042778a26e0382ecf66a8227383",
+      "diagnostics": [
+        {
+          "rule": "R35",
+          "message": "Unconverted framework dependency: ~/composables/use-default-activity",
+          "path": "frontend/app/pages/index.vue",
+          "line": 5,
+          "offset": 58,
+          "blocking": true
+        }
+      ],
+      "rules": [],
+      "imports": [
+        {
+          "module": "~/composables/use-default-activity",
+          "typeOnly": false
+        }
+      ],
+      "syntax": "not generated",
+      "semantic": "pending review",
+      "dependencyClosure": "blocked"
+    },
+    {
+      "id": "domain",
+      "path": "frontend/app/components/Domain/Recipe/RecipeChips.vue",
+      "component": "RecipeChips",
+      "sourceSha256": "e676cdb35c7ba9c4ffbb59f221c6ba1a58c9b3212e14f3927dfb56502bf2ab59",
+      "diagnostics": [],
+      "rules": [
+        "R01",
+        "R02",
+        "R03",
+        "R04",
+        "R05",
+        "R06",
+        "R07"
+      ],
+      "imports": [
+        {
+          "module": "~/lib/api/types/recipe",
+          "typeOnly": true
+        },
+        {
+          "module": "~/lib/sanitize/text",
+          "typeOnly": false
+        }
+      ],
+      "syntax": "pass",
+      "semantic": "pending review",
+      "dependencyClosure": "local helper closure only"
+    },
+    {
+      "id": "common",
+      "path": "frontend/app/components/global/BaseButton.vue",
+      "component": "BaseButton",
+      "sourceSha256": "45ee16a430b73399ec6c3633729341502acaddbc89be9ef1a0f375f8fa6bc4c4",
+      "diagnostics": [],
+      "rules": [
+        "R01",
+        "R02",
+        "R04",
+        "R06",
+        "R07",
+        "R08",
+        "R09",
+        "R11",
+        "R18",
+        "R30"
+      ],
+      "imports": [
+        {
+          "module": "~/composables/api",
+          "typeOnly": false
+        }
+      ],
+      "syntax": "pass",
+      "semantic": "pending review",
+      "dependencyClosure": "blocked: UserApi transport and theme equivalence pending"
+    },
+    {
+      "id": "composable",
+      "path": "frontend/app/composables/store/use-food-store.ts",
+      "component": "useFoodStore",
+      "sourceSha256": "fbeeab94dfa015807fab444a81844ef5843ae86937be26e7502f2479ecf099ed",
+      "diagnostics": [
+        {
+          "rule": "R25",
+          "message": "Module singleton/store factory requires reviewed lifetime and tenant contract",
+          "path": "frontend/app/composables/store/use-food-store.ts",
+          "line": 1,
+          "offset": 0,
+          "blocking": true
+        }
+      ],
+      "rules": [],
+      "imports": [],
+      "syntax": "not generated",
+      "semantic": "pending review",
+      "dependencyClosure": "blocked"
+    },
+    {
+      "id": "layout",
+      "path": "frontend/app/layouts/default.vue",
+      "component": "DefaultLayoutFacade",
+      "sourceSha256": "836323b0b26df562d9f119132d66b6c09baa3156681bcb122be655efca5560cf",
+      "diagnostics": [
+        {
+          "rule": "R22",
+          "message": "Unconverted module dependency: @/components/Layout/DefaultLayout.vue",
+          "path": "frontend/app/layouts/default.vue",
+          "line": 5,
+          "offset": 68,
+          "blocking": true
+        }
+      ],
+      "rules": [],
+      "imports": [
+        {
+          "module": "@/components/Layout/DefaultLayout.vue",
+          "typeOnly": false
+        }
+      ],
+      "syntax": "not generated",
+      "semantic": "pending review",
+      "dependencyClosure": "blocked"
+    }
+  ],
+  "fileHashes": {
+    "RecipeChips.tsx": "ddb7bf9de84cf7905ce283c522760172d53671c2cdbbba2109ee299504fa617c",
+    "BaseButton.tsx": "3b551ab7ccb18dcc7e79e06de4c977c7eb6573dc67e9920a2e0866f30b1dbe71"
+  }
+}

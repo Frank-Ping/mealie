@@ -30,8 +30,8 @@
 - AST converter and strict fixture manifest; explicit unsupported diagnostics; complete five-file verdicts, 66-page candidate route inventory and 48-file/817-expect source assertion inventory.
 - Generated RecipeChips and BaseButton; original page, food composable and layout remain blocked. Required transport/context dependencies are explicit, never silently replaced with fake services.
 - Handwritten props/UI/i18n/guard/shared-store primitives have targeted tests. They do not claim complete Mealie auth, tenant, locale, layout or CSS equivalence.
-- Selected immutable artifact is round-3/revision-3, pure/refined identical TSX; no semantic refinements applied. Earlier failed/draft snapshots and failed check logs retained.
-- Windows Node 24.19.0: strict types, lint, sample SPA and two-component ES module builds pass; 35 target unit tests and 20 rule checks pass. Only two unchanged helper suites (10 cases) are reused; other 46 source suites remain unmigrated.
+- Selected immutable artifact is round-3/revision-4, pure/refined identical TSX; no semantic refinements applied. Earlier failed/draft snapshots and failed check logs retained. WSL first revealed a leftover original-Nuxt icon alias; the AST rule now imports the copied icon module, and fallback aliases into original Vue are removed. Grey/cancel and legacy x-small behavior remain explicit runtime blockers.
+- Windows Node 24.19.0: strict types, lint, sample SPA and two-component ES module builds pass; 36 target unit tests and 20 rule checks pass. Only two unchanged helper suites (10 cases) are reused; other 46 source suites remain unmigrated.
 - WSL snapshot validation is pending at the implementation checkpoint; final review will append its actual result. No full React Mealie route/flow/browser/coverage measurement was run because no full app exists.
 
 ## Remaining unimplemented / unresolved

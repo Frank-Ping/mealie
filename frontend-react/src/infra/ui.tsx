@@ -31,11 +31,12 @@ export type LegacyButtonProps = Omit<HTMLAttributes<HTMLElement>, "color" | "onC
   variant?: "tonal" | "outlined" | "text" | "elevated"; onClick?: Click;
 };
 export function LegacyButton({ to, color, size, xSmall, variant, ...rest }: LegacyButtonProps) {
+  if (xSmall) throw new Error("R08: legacy x-small behavior requires verification");
   if (size !== undefined && size !== "small" && size !== "default") throw new Error("R08: unsupported size");
-  const known = ["primary", "secondary", "success", "info", "warning", "error", "grey"];
+  const known = ["primary", "secondary", "success", "info", "warning", "error"];
   if (color && !known.includes(color)) throw new Error("R08: unresolved palette color");
-  const muiColor: NonNullable<ButtonProps["color"]> = !color || color === "grey" ? "inherit" : color as "primary" | "secondary" | "success" | "info" | "warning" | "error";
-  const common = { ...rest, color: muiColor, size: size === "small" || xSmall ? "small" as const : "medium" as const,
+  const muiColor: NonNullable<ButtonProps["color"]> = !color ? "inherit" : color as "primary" | "secondary" | "success" | "info" | "warning" | "error";
+  const common = { ...rest, color: muiColor, size: size === "small" ? "small" as const : "medium" as const,
     variant: variant === "outlined" || variant === "text" ? variant : "contained" as const };
   // Empty to is not an href; actual links use Router Link rather than imperative navigation.
   return to ? <Button {...common} component={Link} to={to} /> : <Button {...common} />;

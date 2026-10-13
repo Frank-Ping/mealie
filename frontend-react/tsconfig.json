@@ -5,7 +5,6 @@
     "strict": true, "noUncheckedIndexedAccess": true,
     "skipLibCheck": false, "noEmit": true, "esModuleInterop": true,
     "allowImportingTsExtensions": true, "resolveJsonModule": true,
-    "baseUrl": ".", "paths": { "~/*": ["../frontend/app/*"], "@/*": ["../frontend/app/*"] },
     "types": ["vite/client", "vitest/globals", "node"]
   },
   "include": ["src", "tests", "*.config.ts"]

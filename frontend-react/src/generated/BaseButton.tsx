@@ -3,7 +3,7 @@ import { useState, type ReactNode } from "react";
 import { withDefault, fallthrough } from "../infra/props";
 import { LegacyButton, LegacyIcon } from "../infra/ui";
 import { useLegacyI18n } from "../infra/i18n";
-import { icons } from "~/lib/icons";
+import { icons } from "../reused/lib/icons";
 import { useUserApi } from "../infra/services";
 interface Props {
     "cancel"?: boolean;

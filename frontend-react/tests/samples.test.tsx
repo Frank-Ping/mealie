@@ -114,6 +114,11 @@ describe("BaseButton local contracts (transport supplied explicitly)", () => {
     expect(container.querySelector("svg path")?.getAttribute("d")).toMatch(/^M/);
     expect(screen.getByRole("button").textContent).toBe("Create");
   });
+  test("unresolved grey/cancel and legacy x-small fail visibly instead of guessing", () => {
+    const api = { utils: { download: vi.fn() } };
+    expect(() => render(shell(<BaseButton cancel />, api))).toThrow(/unresolved palette color/);
+    expect(() => render(shell(<BaseButton xSmall />, api))).toThrow(/legacy x-small/);
+  });
 });
 
 describe("limited legacy i18n adapter", () => {
