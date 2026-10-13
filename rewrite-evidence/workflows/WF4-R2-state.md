@@ -32,7 +32,7 @@
 - Handwritten props/UI/i18n/guard/shared-store primitives have targeted tests. They do not claim complete Mealie auth, tenant, locale, layout or CSS equivalence.
 - Selected immutable artifact is round-3/revision-4, pure/refined identical TSX; no semantic refinements applied. Earlier failed/draft snapshots and failed check logs retained. WSL first revealed a leftover original-Nuxt icon alias; the AST rule now imports the copied icon module, and fallback aliases into original Vue are removed. Grey/cancel and legacy x-small behavior remain explicit runtime blockers.
 - Windows Node 24.19.0: strict types, lint, sample SPA and two-component ES module builds pass; 36 target unit tests and 20 rule checks pass. Only two unchanged helper suites (10 cases) are reused; other 46 source suites remain unmigrated.
-- WSL snapshot validation is pending at the implementation checkpoint; final review will append its actual result. No full React Mealie route/flow/browser/coverage measurement was run because no full app exists.
+- Fresh WSL snapshot of b574538 passes all six checks on Node 24.19.0/pnpm 11.23.0, including 36 unit tests and 20 rule checks; all 1,804 tracked-file hashes and lockfile hash remain unchanged. No full React Mealie route/flow/browser/coverage measurement was run because no full app exists.
 
 ## Remaining unimplemented / unresolved
 
@@ -53,4 +53,4 @@
 
 ## Next action
 
-Finish WSL snapshot verification and evidence export, then await user Gate 2 review. Do not begin a fourth sample review or batch conversion. Any new scope/rounds/semantic policy requires an explicit new decision, and must not be reported as success under the original stop condition.
+WSL verification and evidence export are complete through the recorded cutoff; await user Gate 2 review. Do not begin a fourth sample review or batch conversion. Any new scope/rounds/semantic policy requires an explicit new decision, and must not be reported as success under the original stop condition.
