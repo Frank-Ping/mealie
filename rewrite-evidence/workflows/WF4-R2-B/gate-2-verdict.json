@@ -1,0 +1,285 @@
+{
+  "gate": "2",
+  "verdict": "NOT READY / batch conversion stopped",
+  "reviewRounds": 3,
+  "finalRevision": "round-3/revision-3",
+  "sampleDenominator": 5,
+  "unsupportedSamples": 3,
+  "residualRate": 0.6,
+  "note": "Unsupported files count as requiring repair under the approved plan. BaseButton also has unresolved integration/visual semantics; 60% is a lower bound, not 2/5 fully verified successes.",
+  "windowsChecks": {
+    "node": "v24.19.0",
+    "platform": "Windows; isolated sample validation, not frozen WSL yardstick",
+    "results": [
+      {
+        "check": "rules",
+        "command": [
+          "C:\\Users\\auyhp\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+          "--test",
+          "C:\\Users\\auyhp\\OneDrive\\Desktop\\574-agentic development\\574-week12\\mealie-wf4-rerun\\rewrite-tools\\wf4-r2\\test.mjs"
+        ],
+        "cwd": "C:\\Users\\auyhp\\OneDrive\\Desktop\\574-agentic development\\574-week12\\mealie-wf4-rerun\\frontend-react",
+        "start_utc": "2026-10-13T10:39:02.598027+00:00",
+        "end_utc": "2026-10-13T10:39:03.237305+00:00",
+        "seconds": 0.639278,
+        "exit_code": 0,
+        "log": "rules.log"
+      },
+      {
+        "check": "types",
+        "command": [
+          "C:\\Users\\auyhp\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+          "C:\\Users\\auyhp\\OneDrive\\Desktop\\574-agentic development\\574-week12\\mealie-wf4-rerun\\frontend-react\\node_modules\\typescript\\bin\\tsc",
+          "--noEmit"
+        ],
+        "cwd": "C:\\Users\\auyhp\\OneDrive\\Desktop\\574-agentic development\\574-week12\\mealie-wf4-rerun\\frontend-react",
+        "start_utc": "2026-10-13T10:39:03.239305+00:00",
+        "end_utc": "2026-10-13T10:39:06.859858+00:00",
+        "seconds": 3.620553,
+        "exit_code": 0,
+        "log": "types.log"
+      },
+      {
+        "check": "lint",
+        "command": [
+          "C:\\Users\\auyhp\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+          "C:\\Users\\auyhp\\OneDrive\\Desktop\\574-agentic development\\574-week12\\mealie-wf4-rerun\\frontend-react\\node_modules\\eslint\\bin\\eslint.js",
+          "src",
+          "tests",
+          "vite.config.ts",
+          "vite.component.config.ts",
+          "--max-warnings=0"
+        ],
+        "cwd": "C:\\Users\\auyhp\\OneDrive\\Desktop\\574-agentic development\\574-week12\\mealie-wf4-rerun\\frontend-react",
+        "start_utc": "2026-10-13T10:39:06.862854+00:00",
+        "end_utc": "2026-10-13T10:39:08.024258+00:00",
+        "seconds": 1.161404,
+        "exit_code": 0,
+        "log": "lint.log"
+      },
+      {
+        "check": "unit",
+        "command": [
+          "C:\\Users\\auyhp\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+          "C:\\Users\\auyhp\\OneDrive\\Desktop\\574-agentic development\\574-week12\\mealie-wf4-rerun\\frontend-react\\node_modules\\vitest\\vitest.mjs",
+          "run",
+          "--reporter=verbose",
+          "--reporter=json",
+          "--outputFile.json=C:\\Users\\auyhp\\OneDrive\\Desktop\\574-agentic development\\574-week12\\wf4-r2-evidence\\workflow-sessions\\phase-b\\checks\\20261013T103902590019Z\\unit-results.json"
+        ],
+        "cwd": "C:\\Users\\auyhp\\OneDrive\\Desktop\\574-agentic development\\574-week12\\mealie-wf4-rerun\\frontend-react",
+        "start_utc": "2026-10-13T10:39:08.026266+00:00",
+        "end_utc": "2026-10-13T10:39:11.323347+00:00",
+        "seconds": 3.297081,
+        "exit_code": 0,
+        "log": "unit.log"
+      },
+      {
+        "check": "build",
+        "command": [
+          "C:\\Users\\auyhp\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+          "C:\\Users\\auyhp\\OneDrive\\Desktop\\574-agentic development\\574-week12\\mealie-wf4-rerun\\frontend-react\\node_modules\\vite\\bin\\vite.js",
+          "build"
+        ],
+        "cwd": "C:\\Users\\auyhp\\OneDrive\\Desktop\\574-agentic development\\574-week12\\mealie-wf4-rerun\\frontend-react",
+        "start_utc": "2026-10-13T10:39:11.325347+00:00",
+        "end_utc": "2026-10-13T10:39:11.837408+00:00",
+        "seconds": 0.512061,
+        "exit_code": 0,
+        "log": "build.log"
+      },
+      {
+        "check": "build-components",
+        "command": [
+          "C:\\Users\\auyhp\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\node\\bin\\node.exe",
+          "C:\\Users\\auyhp\\OneDrive\\Desktop\\574-agentic development\\574-week12\\mealie-wf4-rerun\\frontend-react\\node_modules\\vite\\bin\\vite.js",
+          "build",
+          "--config",
+          "vite.component.config.ts"
+        ],
+        "cwd": "C:\\Users\\auyhp\\OneDrive\\Desktop\\574-agentic development\\574-week12\\mealie-wf4-rerun\\frontend-react",
+        "start_utc": "2026-10-13T10:39:11.840408+00:00",
+        "end_utc": "2026-10-13T10:39:12.169018+00:00",
+        "seconds": 0.32861,
+        "exit_code": 0,
+        "log": "build-components.log"
+      }
+    ]
+  },
+  "targetUnitPassed": 35,
+  "targetUnitSkipped": 0,
+  "sourceParity": [
+    {
+      "source": "frontend/app/lib/sanitize/text.test.ts",
+      "target": "frontend-react/src/reused/lib/sanitize/text.test.ts",
+      "sha256": "09f742f0b307c94a0615434255a45bdb1f3038c2842ba2360f63f540fa2d86a5",
+      "cases": [
+        {
+          "line": 5,
+          "name": "\"returns short text unchanged\"",
+          "callee": "test"
+        },
+        {
+          "line": 9,
+          "name": "\"truncates long text with clamp\"",
+          "callee": "test"
+        },
+        {
+          "line": 13,
+          "name": "\"respects custom length and clamp\"",
+          "callee": "test"
+        },
+        {
+          "line": 17,
+          "name": "\"does not clamp text exactly at the length boundary\"",
+          "callee": "test"
+        },
+        {
+          "line": 23,
+          "name": "\"does not parse or execute HTML payloads\"",
+          "callee": "test"
+        }
+      ],
+      "assertions": [
+        {
+          "line": 6,
+          "subject": "truncateText(\"Dinner\")"
+        },
+        {
+          "line": 10,
+          "subject": "truncateText(\"a\".repeat(25))"
+        },
+        {
+          "line": 14,
+          "subject": "truncateText(\"abcdef\", 3, \"~\")"
+        },
+        {
+          "line": 18,
+          "subject": "truncateText(\"abcde\", 5)"
+        },
+        {
+          "line": 19,
+          "subject": "truncateText(\"abcdef\", 5)"
+        },
+        {
+          "line": 30,
+          "subject": "result"
+        },
+        {
+          "line": 32,
+          "subject": "createElement"
+        }
+      ],
+      "correspondence": "byte-identical entire file, same local helper import and behavior expectations; executed in React sample Vitest/jsdom harness"
+    },
+    {
+      "source": "frontend/app/lib/validators/redirect.test.ts",
+      "target": "frontend-react/src/reused/lib/validators/redirect.test.ts",
+      "sha256": "9ad689dfb43e78041a096498c06f77083225ca6a6ecda2aef9402f44799beda0",
+      "cases": [
+        {
+          "line": 5,
+          "name": "\"accepts an internal path\"",
+          "callee": "test"
+        },
+        {
+          "line": 9,
+          "name": "\"rejects protocol-relative URLs\"",
+          "callee": "test"
+        },
+        {
+          "line": 13,
+          "name": "\"rejects backslash variants used to bypass same-origin checks\"",
+          "callee": "test"
+        },
+        {
+          "line": 18,
+          "name": "\"rejects absolute URLs\"",
+          "callee": "test"
+        },
+        {
+          "line": 22,
+          "name": "\"rejects empty or missing values\"",
+          "callee": "test"
+        }
+      ],
+      "assertions": [
+        {
+          "line": 6,
+          "subject": "isSafeRedirectTarget(\"/g/home/r/some-recipe\")"
+        },
+        {
+          "line": 10,
+          "subject": "isSafeRedirectTarget(\"//evil.com\")"
+        },
+        {
+          "line": 14,
+          "subject": "isSafeRedirectTarget(\"/\\\\evil.com\")"
+        },
+        {
+          "line": 15,
+          "subject": "isSafeRedirectTarget(\"\\\\\\\\evil.com\")"
+        },
+        {
+          "line": 19,
+          "subject": "isSafeRedirectTarget(\"https://evil.com\")"
+        },
+        {
+          "line": 23,
+          "subject": "isSafeRedirectTarget(\"\")"
+        },
+        {
+          "line": 24,
+          "subject": "isSafeRedirectTarget(null)"
+        },
+        {
+          "line": 25,
+          "subject": "isSafeRedirectTarget(undefined)"
+        }
+      ],
+      "correspondence": "byte-identical entire file, same local helper import and behavior expectations; executed in React sample Vitest/jsdom harness"
+    },
+    {
+      "source": "frontend/app/middleware/__tests__/auth.test.ts",
+      "target": "frontend-react/tests/guards.test.tsx",
+      "status": "additional behavior correspondence probes; original Vue test not migrated",
+      "correspondence": [
+        "anonymous original /shopping-lists/abc?foo=bar redirect is decoded from target URL and checked",
+        "authenticated /shopping-lists/abc allowed; target protected content assertion supplements original no-navigate expectation"
+      ],
+      "limitations": "Different guard harness/return API. Original Vue source test remains unchanged but is not claimed to run in target."
+    }
+  ],
+  "wslChecks": "pending snapshot validation",
+  "wholeMealieE2E": "not run: samples do not implement full app; frozen standards unchanged",
+  "riskProbeVerdicts": [
+    {
+      "source": "RecipeCard.vue",
+      "status": "blocked: link/nested click/hover/internal CSS not converted"
+    },
+    {
+      "source": "BaseDialog.vue",
+      "status": "blocked: scoped activator, model, focus/async-close contract not implemented"
+    },
+    {
+      "source": "DefaultLayout.vue",
+      "status": "blocked: conditional cookbook stores and shell/breakpoints not converted"
+    },
+    {
+      "source": "login.vue / auth backend / axios / token cookie",
+      "status": "guard snapshots tested; real auth/session/refresh and full login flow not integrated"
+    },
+    {
+      "source": "shopping-lists/[id].vue",
+      "status": "blocked: nested mutations, timer/undo and asynchronous persistence not converted"
+    },
+    {
+      "source": "SafeMarkdown.vue",
+      "status": "blocked: no converted Markdown component; original sanitizer tests not migrated"
+    },
+    {
+      "source": "locale syntax",
+      "status": "basic named/positional tests pass; plurals/linked syntax explicitly unsupported"
+    }
+  ]
+}

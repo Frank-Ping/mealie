@@ -1,0 +1,317 @@
+[
+  {
+    "id": "R01",
+    "title": "SFC parsing and explicit imports",
+    "classification": "Mechanical",
+    "status": "partial supported subset / primitive",
+    "scope": "Vue SFC/template and TypeScript AST subset; unsupported nodes block. Import relocation is AST-scoped.",
+    "source": "frontend/app/components/Domain/Recipe/RecipeChips.vue",
+    "line": 26
+  },
+  {
+    "id": "R02",
+    "title": "Typed props and defaults",
+    "classification": "Semi-mechanical",
+    "status": "partial supported subset / primitive",
+    "scope": "declared Props + literal defaults; Boolean/String runtime constructors only",
+    "source": "frontend/app/components/Domain/Recipe/RecipeChips.vue",
+    "line": 41
+  },
+  {
+    "id": "R03",
+    "title": "Event payload contracts",
+    "classification": "Semi-mechanical",
+    "status": "partial supported subset / primitive",
+    "scope": "literal event names; payload types from declared props/single-identifier loops",
+    "source": "frontend/app/components/Domain/Recipe/RecipeChips.vue",
+    "line": 51
+  },
+  {
+    "id": "R04",
+    "title": "Conditional rendering",
+    "classification": "Mechanical",
+    "status": "partial supported subset / primitive",
+    "scope": "v-if only; Boolean condition prevents accidental numeric text; v-else/v-show unsupported",
+    "source": "frontend/app/components/Domain/Recipe/RecipeChips.vue",
+    "line": 2
+  },
+  {
+    "id": "R05",
+    "title": "Lists and identity",
+    "classification": "Semi-mechanical",
+    "status": "partial supported subset / primitive",
+    "scope": "single-identifier array iteration and source key only; uniqueness still requires domain review",
+    "source": "frontend/app/components/Domain/Recipe/RecipeChips.vue",
+    "line": 10
+  },
+  {
+    "id": "R06",
+    "title": "DOM event modifiers",
+    "classification": "Semi-mechanical",
+    "status": "partial supported subset / primitive",
+    "scope": "click prevent/stop/self and scoped expression rewrites; other event/modifier types blocked",
+    "source": "frontend/app/components/Domain/Recipe/RecipeChips.vue",
+    "line": 19
+  },
+  {
+    "id": "R07",
+    "title": "Vuetify leaf and presentation props",
+    "classification": "Semi-mechanical",
+    "status": "partial supported subset / primitive",
+    "scope": "v-chip/v-icon subset only; not all 84 tags; visual parity unverified",
+    "source": "frontend/app/components/Domain/Recipe/RecipeChips.vue",
+    "line": 9
+  },
+  {
+    "id": "R08",
+    "title": "Button variants, attributes and slots",
+    "classification": "Semi-mechanical",
+    "status": "partial supported subset / primitive",
+    "scope": "v-btn/local BaseButton contracts; actual auth transport/theme/full legacy size/tonal semantics incomplete",
+    "source": "frontend/app/components/global/BaseButton.vue",
+    "line": 2
+  },
+  {
+    "id": "R09",
+    "title": "Real link navigation",
+    "classification": "Semi-mechanical",
+    "status": "partial supported subset / primitive",
+    "scope": "Button RouterLink href semantics; routed RecipeCard unsupported",
+    "source": "frontend/app/components/Domain/Recipe/RecipeCard.vue",
+    "line": 13
+  },
+  {
+    "id": "R10",
+    "title": "Hover scoped slot",
+    "classification": "Semi-mechanical",
+    "status": "not implemented; blocking",
+    "scope": "No safe automatic mapping implemented; retain explicit unsupported handling.",
+    "source": "frontend/app/components/Domain/Recipe/RecipeCard.vue",
+    "line": 2
+  },
+  {
+    "id": "R11",
+    "title": "Default and named slots",
+    "classification": "Semi-mechanical",
+    "status": "partial supported subset / primitive",
+    "scope": "default/static named slots and fallbacks; scoped/dynamic slots unsupported",
+    "source": "frontend/app/components/global/BaseDialog.vue",
+    "line": 3
+  },
+  {
+    "id": "R12",
+    "title": "Two-way component models",
+    "classification": "Semi-mechanical",
+    "status": "not implemented; blocking",
+    "scope": "No safe automatic mapping implemented; retain explicit unsupported handling.",
+    "source": "frontend/app/components/global/BaseDialog.vue",
+    "line": 63
+  },
+  {
+    "id": "R13",
+    "title": "Dialogs and responsive bottom sheets",
+    "classification": "Judgement",
+    "status": "not implemented; blocking",
+    "scope": "No safe automatic mapping implemented; retain explicit unsupported handling.",
+    "source": "frontend/app/components/global/BaseDialog.vue",
+    "line": 7
+  },
+  {
+    "id": "R14",
+    "title": "Native text and password forms",
+    "classification": "Semi-mechanical",
+    "status": "not implemented; blocking",
+    "scope": "No safe automatic mapping implemented; retain explicit unsupported handling.",
+    "source": "frontend/app/pages/login.vue",
+    "line": 60
+  },
+  {
+    "id": "R15",
+    "title": "Checkbox/select/autocomplete values",
+    "classification": "Semi-mechanical",
+    "status": "not implemented; blocking",
+    "scope": "No safe automatic mapping implemented; retain explicit unsupported handling.",
+    "source": "frontend/app/pages/login.vue",
+    "line": 89
+  },
+  {
+    "id": "R16",
+    "title": "Nested mutations and numeric input",
+    "classification": "Judgement",
+    "status": "not implemented; blocking",
+    "scope": "No safe automatic mapping implemented; retain explicit unsupported handling.",
+    "source": "frontend/app/pages/shopping-lists/[id].vue",
+    "line": 7
+  },
+  {
+    "id": "R17",
+    "title": "Local refs",
+    "classification": "Semi-mechanical",
+    "status": "not implemented; blocking",
+    "scope": "No safe automatic mapping implemented; retain explicit unsupported handling.",
+    "source": "frontend/app/pages/shopping-lists/[id].vue",
+    "line": 424
+  },
+  {
+    "id": "R18",
+    "title": "Computed derived values",
+    "classification": "Semi-mechanical",
+    "status": "partial supported subset / primitive",
+    "scope": "pure computed arrow expression becomes a render-time derivation",
+    "source": "frontend/app/components/Domain/Recipe/RecipeCard.vue",
+    "line": 142
+  },
+  {
+    "id": "R19",
+    "title": "Watchers and async effects",
+    "classification": "Semi-mechanical",
+    "status": "not implemented; blocking",
+    "scope": "No safe automatic mapping implemented; retain explicit unsupported handling.",
+    "source": "frontend/app/pages/shopping-lists/[id].vue",
+    "line": 497
+  },
+  {
+    "id": "R20",
+    "title": "Timers and stale callbacks",
+    "classification": "Judgement",
+    "status": "not implemented; blocking",
+    "scope": "No safe automatic mapping implemented; retain explicit unsupported handling.",
+    "source": "frontend/app/pages/shopping-lists/[id].vue",
+    "line": 431
+  },
+  {
+    "id": "R21",
+    "title": "Initial asynchronous redirect",
+    "classification": "Judgement",
+    "status": "not implemented; blocking",
+    "scope": "No safe automatic mapping implemented; retain explicit unsupported handling.",
+    "source": "frontend/app/pages/index.vue",
+    "line": 32
+  },
+  {
+    "id": "R22",
+    "title": "Route table and layout nesting",
+    "classification": "Semi-mechanical",
+    "status": "not implemented; blocking",
+    "scope": "No safe automatic mapping implemented; retain explicit unsupported handling.",
+    "source": "frontend/app/layouts/default.vue",
+    "line": 2
+  },
+  {
+    "id": "R23",
+    "title": "Authentication and permission guards",
+    "classification": "Judgement",
+    "status": "partial supported subset / primitive",
+    "scope": "injected auth snapshot guard and admin/group condition primitives tested; real session service and full routes incomplete",
+    "source": "frontend/app/middleware/auth.ts",
+    "line": 5
+  },
+  {
+    "id": "R24",
+    "title": "Redirect safety and deployment base",
+    "classification": "Semi-mechanical",
+    "status": "partial supported subset / primitive",
+    "scope": "source redirect validator and tests reused unchanged; production basename undecided",
+    "source": "frontend/app/lib/validators/redirect.ts",
+    "line": 3
+  },
+  {
+    "id": "R25",
+    "title": "Singleton shared food state",
+    "classification": "Judgement",
+    "status": "partial supported subset / primitive",
+    "scope": "shared-store primitive tested; actual food-store scope/factory mapping remains blocked",
+    "source": "frontend/app/composables/store/use-food-store.ts",
+    "line": 6
+  },
+  {
+    "id": "R26",
+    "title": "Store factories and refresh side effects",
+    "classification": "Judgement",
+    "status": "not implemented; blocking",
+    "scope": "No safe automatic mapping implemented; retain explicit unsupported handling.",
+    "source": "frontend/app/composables/partials/use-store-factory.ts",
+    "line": 37
+  },
+  {
+    "id": "R27",
+    "title": "Conditional store selection in layout",
+    "classification": "Judgement",
+    "status": "not implemented; blocking",
+    "scope": "No safe automatic mapping implemented; retain explicit unsupported handling.",
+    "source": "frontend/app/components/Layout/DefaultLayout.vue",
+    "line": 115
+  },
+  {
+    "id": "R28",
+    "title": "Auth initialization and cookie/session lifecycle",
+    "classification": "Judgement",
+    "status": "not implemented; blocking",
+    "scope": "No safe automatic mapping implemented; retain explicit unsupported handling.",
+    "source": "frontend/app/plugins/init-auth.client.ts",
+    "line": 8
+  },
+  {
+    "id": "R29",
+    "title": "Injected transport and APIs",
+    "classification": "Judgement",
+    "status": "partial supported subset / primitive",
+    "scope": "typed required UserApi port; concrete interceptor/session adapter not implemented",
+    "source": "frontend/app/plugins/axios.ts",
+    "line": 52
+  },
+  {
+    "id": "R30",
+    "title": "Global i18n and component translation hook",
+    "classification": "Semi-mechanical",
+    "status": "partial supported subset / primitive",
+    "scope": "react-i18next initialization and component hook bridge; English sample resource only",
+    "source": "frontend/app/composables/use-global-i18n.ts",
+    "line": 7
+  },
+  {
+    "id": "R31",
+    "title": "Interpolation, plurals and formatting",
+    "classification": "Judgement",
+    "status": "partial supported subset / primitive",
+    "scope": "named/positional subset; pipe plurals/linked/literal syntax fails explicitly",
+    "source": "frontend/app/lang/messages/en-US.json",
+    "line": 161
+  },
+  {
+    "id": "R32",
+    "title": "Layout shell and breakpoints",
+    "classification": "Judgement",
+    "status": "partial supported subset / primitive",
+    "scope": "source fallback colors for sample harness; runtime theme/dark/breakpoints not equivalent",
+    "source": "frontend/app/components/Layout/DefaultLayout.vue",
+    "line": 2
+  },
+  {
+    "id": "R33",
+    "title": "Scoped and Vuetify-internal CSS",
+    "classification": "Judgement",
+    "status": "partial supported subset / primitive",
+    "scope": "three owned spacing utility classes; nonempty SFC CSS blocks generation",
+    "source": "frontend/app/components/Domain/Recipe/RecipeCard.vue",
+    "line": 150
+  },
+  {
+    "id": "R34",
+    "title": "Sanitized HTML and markdown",
+    "classification": "Semi-mechanical",
+    "status": "not implemented; blocking",
+    "scope": "No safe automatic mapping implemented; retain explicit unsupported handling.",
+    "source": "frontend/app/components/global/SafeMarkdown.vue",
+    "line": 8
+  },
+  {
+    "id": "R35",
+    "title": "Pure utility reuse and hook names",
+    "classification": "Mechanical",
+    "status": "partial supported subset / primitive",
+    "scope": "byte-identical truncateText/types/icons/redirect reuse only; other dependency closure blocks",
+    "source": "frontend/app/composables/use-utils.ts",
+    "line": 11
+  }
+]

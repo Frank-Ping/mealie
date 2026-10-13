@@ -1,0 +1,530 @@
+[
+  {
+    "source": "frontend/app/pages/admin.vue",
+    "sourceSha256": "8ca15539ff508dcb28def6d464cf1f78eed2e0c67d40654142ae4d15e9eedd83",
+    "candidatePath": "/admin",
+    "metadata": "{\n  middleware: [\"auth\", \"admin-only\"],\n}",
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/admin/backups.vue",
+    "sourceSha256": "c95bdf2db79a3a8335dcfef42ad32d925919c40aa16b8e555cfd2def84146b59",
+    "candidatePath": "/admin/backups",
+    "metadata": "{\n  layout: \"admin\",\n}",
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/admin/debug/openai.vue",
+    "sourceSha256": "e2a42d92c6bbdab8f152541cc156335b60df09da625fcec39bb86ad70121dcc1",
+    "candidatePath": "/admin/debug/openai",
+    "metadata": "{\n  layout: \"admin\",\n}",
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/admin/debug/parser.vue",
+    "sourceSha256": "a5daf5debe0c272400b5fe4483ad5dd54727d003ddf877a79b8193d613b23faf",
+    "candidatePath": "/admin/debug/parser",
+    "metadata": "{\n  layout: \"admin\",\n}",
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/admin/maintenance/index.vue",
+    "sourceSha256": "873dade09bf026f12b26f11b187dde27113e621a2c83a9bda4a51c7a0aba7d9c",
+    "candidatePath": "/admin/maintenance",
+    "metadata": "{\n  layout: \"admin\",\n}",
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/admin/manage/groups/[id].vue",
+    "sourceSha256": "5bba78295cf462eaef07bea468c0adb1c46887db95c456ad8e26462385e508ba",
+    "candidatePath": "/admin/manage/groups/:id",
+    "metadata": "{\n  layout: \"admin\",\n}",
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/admin/manage/groups/index.vue",
+    "sourceSha256": "67b71edfe399a8fb8ef0d72f8ebe0536372888ef335fedbc0cbf9e4c5ab38a0c",
+    "candidatePath": "/admin/manage/groups",
+    "metadata": "{\n  layout: \"admin\",\n}",
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/admin/manage/households/[id].vue",
+    "sourceSha256": "c17ab02dfae5ff3e1c69556b1537c818e0978e7c6e0a02f5e4c82a299d2aa006",
+    "candidatePath": "/admin/manage/households/:id",
+    "metadata": "{\n  layout: \"admin\",\n}",
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/admin/manage/households/index.vue",
+    "sourceSha256": "f7678da9cd277f3ec620233f4120f6c06118c687f1d19e1a6484f6868f4ddedc",
+    "candidatePath": "/admin/manage/households",
+    "metadata": "{\n  layout: \"admin\",\n}",
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/admin/manage/users/[id].vue",
+    "sourceSha256": "d84c720b4bd65a031b787bd0574604bde3cf9bc7a79d08954d98b5c81d9915db",
+    "candidatePath": "/admin/manage/users/:id",
+    "metadata": "{\n  layout: \"admin\",\n}",
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/admin/manage/users/create.vue",
+    "sourceSha256": "4624aee6b83a8a79abc444390966ab57fefb2f151e65df377bf9ed01e910273f",
+    "candidatePath": "/admin/manage/users/create",
+    "metadata": "{\n  layout: \"admin\",\n}",
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/admin/manage/users/index.vue",
+    "sourceSha256": "1d7306775852f4b18fed3ff923ff195995ac933f55f533cdbd0b0a152719e362",
+    "candidatePath": "/admin/manage/users",
+    "metadata": "{\n  layout: \"admin\",\n}",
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/admin/setup.vue",
+    "sourceSha256": "78d2dce4c422a0fddcccaaeed6518ed4354cb067f26602c45809055d5b9af53e",
+    "candidatePath": "/admin/setup",
+    "metadata": "{\n  layout: \"blank\",\n  middleware: [\"admin-only\"],\n}",
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/admin/site-settings.vue",
+    "sourceSha256": "cf8ca6bd30305df53832899611765daed3636cdca8763a2baa5928514e3e3c84",
+    "candidatePath": "/admin/site-settings",
+    "metadata": "{\n  layout: \"admin\",\n}",
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/forgot-password.vue",
+    "sourceSha256": "2e88a4a8906f675c4f8cbb70848a81e7cb1e11cbde997f6c793311956f200b97",
+    "candidatePath": "/forgot-password",
+    "metadata": "{\n  layout: \"basic\",\n}",
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/g/[groupSlug]/cookbooks/[slug].vue",
+    "sourceSha256": "e6bc16cd892754015c5ebff0ef5318b7d08020f03fe2d3a56bda5c66796239f6",
+    "candidatePath": "/g/:groupSlug/cookbooks/:slug",
+    "metadata": null,
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/g/[groupSlug]/cookbooks/index.vue",
+    "sourceSha256": "1f98f16b756f1e374aa0f9e6f1dbf30a73f8d803b3121a0f73e66447f25e44ac",
+    "candidatePath": "/g/:groupSlug/cookbooks",
+    "metadata": "{\n  middleware: [\"auth\", \"group-only\"],\n}",
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/g/[groupSlug]/index.vue",
+    "sourceSha256": "06d916c64ab1ec1b69c5ed80814e82ffddf7d4c09f8f291c37151ee9c962fa37",
+    "candidatePath": "/g/:groupSlug",
+    "metadata": null,
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/g/[groupSlug]/r/[slug]/index.vue",
+    "sourceSha256": "a316d229eb43d56804c396ecb13b9e6fe3de1dd59e6d6f93d6bd7b81b4022461",
+    "candidatePath": "/g/:groupSlug/r/:slug",
+    "metadata": null,
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/g/[groupSlug]/r/create.vue",
+    "sourceSha256": "858ed1f8246387275e1016d6358add67c6e8ca0d3ec5dddf429504a4cca0e98b",
+    "candidatePath": "/g/:groupSlug/r/create",
+    "metadata": "{\n  middleware: [\"auth\", \"group-only\"],\n}",
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/g/[groupSlug]/r/create/ai.vue",
+    "sourceSha256": "a5017ec188a516280f3003d8ad715412bfde22918b130bc62b67e6b579192272",
+    "candidatePath": "/g/:groupSlug/r/create/ai",
+    "metadata": "{\n  key: route => route.path,\n}",
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/g/[groupSlug]/r/create/bulk.vue",
+    "sourceSha256": "91e726730e98307258e54dc4240355bd75674136a06dce431d1efe97348e39b1",
+    "candidatePath": "/g/:groupSlug/r/create/bulk",
+    "metadata": null,
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/g/[groupSlug]/r/create/debug.vue",
+    "sourceSha256": "75b46df49db3bc9e1e4a6f39991b04c4c4f8b716efde1c1fedecb47fc142b1f5",
+    "candidatePath": "/g/:groupSlug/r/create/debug",
+    "metadata": null,
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/g/[groupSlug]/r/create/html.vue",
+    "sourceSha256": "e84d765f5bf4fff1c29c1adab0a9d5eb1b9512ff6737c4c652e0a7ad1760bae0",
+    "candidatePath": "/g/:groupSlug/r/create/html",
+    "metadata": null,
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/g/[groupSlug]/r/create/image.vue",
+    "sourceSha256": "5fb55fbd5a378937604d563105987c90bd7dfc03f91eb651934c16fb3ca1c35b",
+    "candidatePath": "/g/:groupSlug/r/create/image",
+    "metadata": null,
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/g/[groupSlug]/r/create/index.vue",
+    "sourceSha256": "e2802062dd1049f290233078698b8346c21c1fed3a6dc0bb556e5e28900b85b4",
+    "candidatePath": "/g/:groupSlug/r/create",
+    "metadata": null,
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/g/[groupSlug]/r/create/new.vue",
+    "sourceSha256": "3e9777ca0c496e9e2f30c68a315f281e4557c26b78eea42757326fc2f4efd19a",
+    "candidatePath": "/g/:groupSlug/r/create/new",
+    "metadata": null,
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/g/[groupSlug]/r/create/url.vue",
+    "sourceSha256": "6fa1a4d22713e2b9b12ec065861bc794587563c46308f1a86d96054470c373ba",
+    "candidatePath": "/g/:groupSlug/r/create/url",
+    "metadata": "{\n  key: route => route.path,\n}",
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/g/[groupSlug]/r/create/zip.vue",
+    "sourceSha256": "367637abd2dbe9936e5161cf18d6e188b8dff7bb3f03de667b15f768eaa5917d",
+    "candidatePath": "/g/:groupSlug/r/create/zip",
+    "metadata": null,
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/g/[groupSlug]/recipes/categories/index.vue",
+    "sourceSha256": "e7a13228544de994150dc457e8c2cb9c722415abde9dc08409d753de8e57dd48",
+    "candidatePath": "/g/:groupSlug/recipes/categories",
+    "metadata": "{\n  middleware: [\"auth\", \"group-only\"],\n}",
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/g/[groupSlug]/recipes/finder/index.vue",
+    "sourceSha256": "b52f56a2448eee149eadec5da1df40ab879fc61bab443254787f294e9429ee05",
+    "candidatePath": "/g/:groupSlug/recipes/finder",
+    "metadata": null,
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/g/[groupSlug]/recipes/tags/index.vue",
+    "sourceSha256": "0284c151bde9e86786efdcbea8cae315e27cac233554720ef6613e8696e5d798",
+    "candidatePath": "/g/:groupSlug/recipes/tags",
+    "metadata": "{\n  middleware: [\"auth\", \"group-only\"],\n}",
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/g/[groupSlug]/recipes/timeline.vue",
+    "sourceSha256": "9a19b2392b50f0a6b2a2d6f05ff40a7b6a732131efa2e1b8e7e8e8f127a7a591",
+    "candidatePath": "/g/:groupSlug/recipes/timeline",
+    "metadata": "{\n  middleware: [\"auth\", \"group-only\"],\n}",
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/g/[groupSlug]/recipes/tools/index.vue",
+    "sourceSha256": "ba7760445ed1a19f60145392fff652d13c6e3d9a6e2d375ed1da35cf36d46efa",
+    "candidatePath": "/g/:groupSlug/recipes/tools",
+    "metadata": "{\n  middleware: [\"auth\", \"group-only\"],\n}",
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/g/[groupSlug]/shared/r/[id].vue",
+    "sourceSha256": "74b64724882963d638cd63c4c6308154ef06be9b224e8f2c669b8d2d61b974d2",
+    "candidatePath": "/g/:groupSlug/shared/r/:id",
+    "metadata": "{\n  layout: \"basic\",\n}",
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/group/data.vue",
+    "sourceSha256": "e238f423fe3eb5ca6cfd7730d0972160f68dbffce8478ae224460afed08c75e4",
+    "candidatePath": "/group/data",
+    "metadata": "{\n  middleware: [\"auth\", \"can-organize-only\"],\n}",
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/group/data/categories.vue",
+    "sourceSha256": "f88f106ecf1ff8fe3619d34fa67aabf1372215a8fcba227e48636551d283e52e",
+    "candidatePath": "/group/data/categories",
+    "metadata": null,
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/group/data/foods.vue",
+    "sourceSha256": "e925af298308c92a7bc6ba6472657e7d66757c4c4316af9251a6bc8160cc3828",
+    "candidatePath": "/group/data/foods",
+    "metadata": null,
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/group/data/index.vue",
+    "sourceSha256": "39b719dfbd39591fd204f5b19cbd750d80e7eb39fd94d59c957c65e41a8ceb14",
+    "candidatePath": "/group/data",
+    "metadata": null,
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/group/data/labels.vue",
+    "sourceSha256": "1a1f9b37c725f723a61285a44d5807752d0986c5b0aff1b7d403fc738f4c9759",
+    "candidatePath": "/group/data/labels",
+    "metadata": null,
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/group/data/recipe-actions.vue",
+    "sourceSha256": "07f2300b2f808a40bcf82cc7e967ef639a834d4a86630ca16f05f855f45d6046",
+    "candidatePath": "/group/data/recipe-actions",
+    "metadata": null,
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/group/data/recipes.vue",
+    "sourceSha256": "20e2cd56678e2d12440ed7fca1a82f9b5c52bfc8e3230dcc4ed1eba99a1d3294",
+    "candidatePath": "/group/data/recipes",
+    "metadata": "{\n  scrollToTop: true,\n}",
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/group/data/tags.vue",
+    "sourceSha256": "c941dfa9c697c273c3db53f9684921e349ac61237757507ad40acc1ebb0e40a2",
+    "candidatePath": "/group/data/tags",
+    "metadata": null,
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/group/data/tools.vue",
+    "sourceSha256": "ad7c3a88c968e938c3aaa5de8368d2ddc944d23f390bc3122652b2d4368aaa3d",
+    "candidatePath": "/group/data/tools",
+    "metadata": null,
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/group/data/units.vue",
+    "sourceSha256": "2292500ee816495a28adae92ff41497f7201fbda94aeada08290f010613bf9e9",
+    "candidatePath": "/group/data/units",
+    "metadata": null,
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/group/index.vue",
+    "sourceSha256": "e4c53a7c3d979cd46ca4caed172167e61869d6c0568713646c2b348f87e88604",
+    "candidatePath": "/group",
+    "metadata": "{\n  middleware: [\"auth\", \"can-manage-only\"],\n}",
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/group/migrations.vue",
+    "sourceSha256": "43d913c3ecb6da6f6ffec3a0e1edeed512fd7d0995a6157d8e93d3515648fd47",
+    "candidatePath": "/group/migrations",
+    "metadata": "{\n  middleware: [\"auth\", \"advanced-only\"],\n}",
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/group/reports/[id].vue",
+    "sourceSha256": "bf24e35e84b6c2bc99ac518d20cebc70a9a87d3fdf558f4b0b7ba0fd39cf0e52",
+    "candidatePath": "/group/reports/:id",
+    "metadata": "{\n  middleware: [\"auth\"],\n}",
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/household/index.vue",
+    "sourceSha256": "89a77affa427f83d93745258d22baf37bed57b7e8cdcc4bcde761e90c0a8e5f5",
+    "candidatePath": "/household",
+    "metadata": "{\n  middleware: [\"auth\", \"can-manage-household-only\"],\n}",
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/household/mealplan/planner.vue",
+    "sourceSha256": "67fdfdfc6f7b63b34c81c49e818e5d168cd3ef2a0c73b3556c34bcb102c8a2a8",
+    "candidatePath": "/household/mealplan/planner",
+    "metadata": "{\n  middleware: [\"auth\"],\n}",
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/household/mealplan/planner/edit.vue",
+    "sourceSha256": "c8967fcb3732f762ea60c4ec4d78276719ba9276b413c8710f2ac7a6c6d4a3dc",
+    "candidatePath": "/household/mealplan/planner/edit",
+    "metadata": null,
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/household/mealplan/planner/view.vue",
+    "sourceSha256": "352f2f6a0a3d46a072663d4d3d13259feb02df45a73e7869cb5c6e52d2b3e5bc",
+    "candidatePath": "/household/mealplan/planner/view",
+    "metadata": null,
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/household/mealplan/settings.vue",
+    "sourceSha256": "2fe14562d9cebac5ea525ad90082fc89a6510bab5ace1606a9ff6a9179f576d3",
+    "candidatePath": "/household/mealplan/settings",
+    "metadata": "{\n  middleware: [\"auth\"],\n}",
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/household/members.vue",
+    "sourceSha256": "c093028b1556aca8575b74bc73702edb6609dc5e490158792fbff8ee79e565bd",
+    "candidatePath": "/household/members",
+    "metadata": "{\n  middleware: [\"auth\"],\n}",
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/household/notifiers.vue",
+    "sourceSha256": "a558da9172d00861ea8ab2b973dac4972076f2616548d92daebe684ed1a32a71",
+    "candidatePath": "/household/notifiers",
+    "metadata": "{\n  middleware: [\"auth\", \"advanced-only\"],\n}",
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/household/webhooks.vue",
+    "sourceSha256": "1874984635afb9c6244a56fa19f3d2d05d1c33ab53542e34baecd7fe0c597fd7",
+    "candidatePath": "/household/webhooks",
+    "metadata": "{\n  middleware: [\"auth\", \"advanced-only\"],\n}",
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/index.vue",
+    "sourceSha256": "606ca6c768505191538eb7216aeddb17578ab042778a26e0382ecf66a8227383",
+    "candidatePath": "/",
+    "metadata": "{\n  layout: \"blank\",\n}",
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/login.vue",
+    "sourceSha256": "c911d88f17b543fcc7a88d0507bd1d5338b6ac60d32f225deb9568586520342b",
+    "candidatePath": "/login",
+    "metadata": "{\n  layout: \"blank\",\n}",
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/register/index.vue",
+    "sourceSha256": "0ed0433a0ec65cafa206620977abed1e60fdde1b0706656ce742654d44a8c61c",
+    "candidatePath": "/register",
+    "metadata": "{\n  layout: \"blank\",\n}",
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/reset-password.vue",
+    "sourceSha256": "2ac02058ffa722f38fc7e09cb9f92979812c9e4671e1a93fa9941ced4e37574b",
+    "candidatePath": "/reset-password",
+    "metadata": "{\n  layout: \"basic\",\n}",
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/shopping-lists/[id].vue",
+    "sourceSha256": "8e3ab27656d8017d549e1bfaf45ae1da4affca8944c56909ea428285596fc234",
+    "candidatePath": "/shopping-lists/:id",
+    "metadata": "{\n  middleware: [\"auth\"],\n}",
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/shopping-lists/index.vue",
+    "sourceSha256": "05bd3de504048fe9c6af8f588321f8ad8505aabb9b031ec91678f7e62ebfcf00",
+    "candidatePath": "/shopping-lists",
+    "metadata": "{\n  middleware: [\"auth\"],\n}",
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/user/[id]/favorites.vue",
+    "sourceSha256": "82a1f3380a2fab38202c2868a6ab5670b58296f2eaf81d513647608eabe0bbc6",
+    "candidatePath": "/user/:id/favorites",
+    "metadata": "{\n  middleware: [\"auth\"],\n}",
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/user/profile/api-tokens.vue",
+    "sourceSha256": "241f1f1c0c2596404019c4b247e49efe9887d63f9ad5630094a53c2f6e0e01d4",
+    "candidatePath": "/user/profile/api-tokens",
+    "metadata": "{\n  middleware: [\"auth\", \"advanced-only\"],\n}",
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/user/profile/edit.vue",
+    "sourceSha256": "2a37c23a3f394358155ef1fc7777b1340c52b87c005bfa7d821537b40826711d",
+    "candidatePath": "/user/profile/edit",
+    "metadata": "{\n  middleware: [\"auth\"],\n}",
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  },
+  {
+    "source": "frontend/app/pages/user/profile/index.vue",
+    "sourceSha256": "da67b05866bcb881bfd55dbef7c092240ae492e9629dabb07f20c054db4417f3",
+    "candidatePath": "/user/profile",
+    "metadata": "{\n  name: \"UserProfile\",\n  middleware: [\"auth\"],\n  scrollToTop: true,\n}",
+    "compiled": false,
+    "status": "inventory only; compare to frozen yardstick before route publication"
+  }
+]

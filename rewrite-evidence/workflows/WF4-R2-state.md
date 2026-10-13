@@ -2,7 +2,7 @@
 
 ## Current stage
 
-**Phase A design completed; Gate 1 awaiting human review. No conversion started.** This state accompanies the `[WF4-R2-A]` documentation commit; its parent/input source is `4b9ca06b6581f7152e164ea0fd9d4da366975a79`. The new commit ID is recorded externally after committing to avoid a self-referential hash.
+**Gate 1 approved; Phase B sample implementation/checks completed to the stop condition. Gate 2 NOT READY; user review pending.** The complete catalogue/full application is not implemented. Three of five fixed samples remain blocked after three internal reviews (60%); batch conversion is stopped. Phase A commit is `2176881a9810633a8de7753456dbd63ee44b27c6`; original frozen source is `4b9ca06b6581f7152e164ea0fd9d4da366975a79`. Token policy: no upper limit, record actual usage. See `WF4-R2-decisions.md` and `WF4-R2-Gate-2-review.md`.
 
 ## Completed in Phase A
 
@@ -24,12 +24,21 @@
 - Tests/assertions require behavior correspondence; matching counts alone are insufficient.
 - Formal workflow accounting starts at Phase A prompt `2026-10-13T09:39:59.423Z`; prompt-pack/baseline/S0 overhead is separate.
 
-## Proposed, not yet approved
+## Phase B evidence
 
-- Plan infrastructure and output paths, source-backed rule contracts and five-file sample manifest.
-- Exact target versions, optional MUI X/Lab/other adapter dependencies and licensed alternatives.
-- Auth readiness/async redirect handling, public/private store scope/reset, legacy i18n syntax adapter, theme/breakpoints and deployment basename.
-- Proposed active-time limits in plan; numeric token and monetary limits remain unconfirmed.
+- Independent React 19/Vite/MUI/Router/react-i18next package and exact lockfile; strict TypeScript remains enabled. The extra exactOptionalPropertyTypes option was removed after actual incompatible MUI declarations; strict compiler flags were not disabled and skipLibCheck remains false.
+- AST converter and strict fixture manifest; explicit unsupported diagnostics; complete five-file verdicts, 66-page candidate route inventory and 48-file/817-expect source assertion inventory.
+- Generated RecipeChips and BaseButton; original page, food composable and layout remain blocked. Required transport/context dependencies are explicit, never silently replaced with fake services.
+- Handwritten props/UI/i18n/guard/shared-store primitives have targeted tests. They do not claim complete Mealie auth, tenant, locale, layout or CSS equivalence.
+- Selected immutable artifact is round-3/revision-3, pure/refined identical TSX; no semantic refinements applied. Earlier failed/draft snapshots and failed check logs retained.
+- Windows Node 24.19.0: strict types, lint, sample SPA and two-component ES module builds pass; 35 target unit tests and 20 rule checks pass. Only two unchanged helper suites (10 cases) are reused; other 46 source suites remain unmigrated.
+- WSL snapshot validation is pending at the implementation checkpoint; final review will append its actual result. No full React Mealie route/flow/browser/coverage measurement was run because no full app exists.
+
+## Remaining unimplemented / unresolved
+
+- Optional MUI X/Lab/other adapters have not been added; affected tags remain unsupported.
+- Real auth/session transport and async redirect dependency closure, food public/private scope and factories, full legacy i18n syntax/all locales, runtime theme/breakpoints, default shell, Markdown/CSS and production basename remain incomplete.
+- Time limits are approved; token budget is unlimited recording. Fees remain unavailable.
 - General Gate 1 approval does not resolve unspecified Judgement details; record specific decisions before implementing affected rules.
 
 ## Risks and evidence limits
@@ -44,4 +53,4 @@
 
 ## Next action
 
-User reviews `WF4-R2-plan.md` and `WF4-R2-conversion-rules.md`, then confirms or changes Gate 1 items and budgets. Save the decision and begin Phase B only after explicit authorization. No implementation, sample generation or batch rewrite is authorized by completion of this document.
+Finish WSL snapshot verification and evidence export, then await user Gate 2 review. Do not begin a fourth sample review or batch conversion. Any new scope/rounds/semantic policy requires an explicit new decision, and must not be reported as success under the original stop condition.

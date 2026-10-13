@@ -1,0 +1,6248 @@
+[
+  {
+    "path": "frontend/app/components/Domain/Announcement/Announcements/announcements.test.ts",
+    "sha256": "55b19c210e63eb726084afe0034c24f67473bd99cdbb18e4b208f6fe53a86a96",
+    "imports": [
+      "vitest"
+    ],
+    "cases": [
+      {
+        "line": 15,
+        "name": "\"directory is not empty\"",
+        "callee": "test"
+      },
+      {
+        "line": 19,
+        "name": "\"all filenames match YYYY-MM-DD_N_slug format\"",
+        "callee": "test"
+      },
+      {
+        "line": 25,
+        "name": "\"all date prefixes are valid dates\"",
+        "callee": "test"
+      },
+      {
+        "line": 33,
+        "name": "\"all filenames are unique\"",
+        "callee": "test"
+      }
+    ],
+    "assertions": [
+      {
+        "line": 16,
+        "subject": "filenames.length"
+      },
+      {
+        "line": 21,
+        "subject": "name"
+      },
+      {
+        "line": 29,
+        "subject": "isNaN(date.getTime())"
+      },
+      {
+        "line": 35,
+        "subject": "unique.size"
+      }
+    ],
+    "parity": "unmigrated; no preservation claim for React"
+  },
+  {
+    "path": "frontend/app/components/Domain/Group/GroupAIProviderDialog.test.ts",
+    "sha256": "62ce4c60d572eee0222b5ada07bc6ac8477ec29c032856a3e4d740e58d5abfef",
+    "imports": [
+      "@vue/test-utils",
+      "vitest",
+      "vue",
+      "./GroupAIProviderDialog.vue",
+      "~/lib/api/types/group"
+    ],
+    "cases": [
+      {
+        "line": 84,
+        "name": "\"a stale fetch for a previously-selected provider does not clobber the form after switching providers\"",
+        "callee": "test"
+      }
+    ],
+    "assertions": [
+      {
+        "line": 109,
+        "subject": "nameInput().element.value"
+      },
+      {
+        "line": 116,
+        "subject": "nameInput().element.value"
+      }
+    ],
+    "parity": "unmigrated; no preservation claim for React"
+  },
+  {
+    "path": "frontend/app/components/Domain/Recipe/RecipeDataAliasManagerDialog.test.ts",
+    "sha256": "ffc3b33b8bdea72b1cc91fe0a3f486589c16c1f78323b5bb9b077b04c56a0541",
+    "imports": [
+      "@vue/test-utils",
+      "vitest",
+      "vue",
+      "./RecipeDataAliasManagerDialog.vue",
+      "~/lib/api/types/recipe"
+    ],
+    "cases": [
+      {
+        "line": 74,
+        "name": "\"cancel discards alias edits\"",
+        "callee": "test"
+      },
+      {
+        "line": 91,
+        "name": "\"confirm emits the edited aliases\"",
+        "callee": "test"
+      }
+    ],
+    "assertions": [
+      {
+        "line": 86,
+        "subject": "wrapper.emitted(\"cancel\")"
+      },
+      {
+        "line": 87,
+        "subject": "wrapper.emitted(\"submit\")"
+      },
+      {
+        "line": 88,
+        "subject": "data.aliases"
+      },
+      {
+        "line": 103,
+        "subject": "wrapper.emitted(\"submit\")"
+      }
+    ],
+    "parity": "unmigrated; no preservation claim for React"
+  },
+  {
+    "path": "frontend/app/components/Domain/Recipe/RecipeDialogSearch.test.ts",
+    "sha256": "e9a83277d865d458080e746af41202a0fa5c5cad47e519a8742e80a21bd3c200",
+    "imports": [
+      "@vue/test-utils",
+      "vitest",
+      "vue",
+      "./RecipeDialogSearch.vue"
+    ],
+    "cases": [
+      {
+        "line": 135,
+        "name": "\"ArrowUp and ArrowDown clamp recipe selection\"",
+        "callee": "test"
+      },
+      {
+        "line": 161,
+        "name": "\"Enter navigates to the selected recipe\"",
+        "callee": "test"
+      },
+      {
+        "line": 173,
+        "name": "\"Enter selects the first recipe when no recipe is keyboard-selected\"",
+        "callee": "test"
+      },
+      {
+        "line": 181,
+        "name": "\"Enter emits selected instead of navigating when selected attr is provided\"",
+        "callee": "test"
+      },
+      {
+        "line": 190,
+        "name": "\"keyboard navigation is a no-op when there are no results\"",
+        "callee": "test"
+      }
+    ],
+    "assertions": [
+      {
+        "line": 140,
+        "subject": "wrapper.findAll(\".keyboard-selected\")"
+      },
+      {
+        "line": 141,
+        "subject": "wrapper.findAll(\".recipe-card\")[0].classes()"
+      },
+      {
+        "line": 147,
+        "subject": "wrapper.findAll(\".keyboard-selected\")"
+      },
+      {
+        "line": 148,
+        "subject": "wrapper.findAll(\".recipe-card\")[1].classes()"
+      },
+      {
+        "line": 152,
+        "subject": "wrapper.findAll(\".recipe-card\")[0].classes()"
+      },
+      {
+        "line": 158,
+        "subject": "wrapper.findAll(\".keyboard-selected\")"
+      },
+      {
+        "line": 170,
+        "subject": "routerPush"
+      },
+      {
+        "line": 178,
+        "subject": "routerPush"
+      },
+      {
+        "line": 186,
+        "subject": "wrapper.emitted(\"selected\")"
+      },
+      {
+        "line": 187,
+        "subject": "routerPush"
+      },
+      {
+        "line": 203,
+        "subject": "wrapper.findAll(\".keyboard-selected\")"
+      },
+      {
+        "line": 204,
+        "subject": "routerPush"
+      },
+      {
+        "line": 205,
+        "subject": "wrapper.emitted(\"selected\")"
+      }
+    ],
+    "parity": "unmigrated; no preservation claim for React"
+  },
+  {
+    "path": "frontend/app/components/Domain/Recipe/RecipeIngredients.test.ts",
+    "sha256": "a561f5be8a40703a813116fb9b973222effe76ecc048451ea127583c0081d41b",
+    "imports": [
+      "@vue/test-utils",
+      "vitest",
+      "vue",
+      "./RecipeIngredients.vue",
+      "~/lib/api/types/recipe",
+      "~/composables/use-locales"
+    ],
+    "cases": [
+      {
+        "line": 66,
+        "name": "\"restores checked ingredients from session storage by reference id\"",
+        "callee": "test"
+      }
+    ],
+    "assertions": [
+      {
+        "line": 71,
+        "subject": "firstWrapper.findAll(\".checkbox\")[0].attributes(\"aria-pressed\")"
+      },
+      {
+        "line": 76,
+        "subject": "secondWrapper.findAll(\".checkbox\")[0].attributes(\"aria-pressed\")"
+      },
+      {
+        "line": 77,
+        "subject": "secondWrapper.findAll(\".checkbox\")[1].attributes(\"aria-pressed\")"
+      }
+    ],
+    "parity": "unmigrated; no preservation claim for React"
+  },
+  {
+    "path": "frontend/app/components/global/DropZone.test.ts",
+    "sha256": "bd8a9b3230c97ca6d4c3582b53abae4e762529262fc6618f35fff0b23b0be736",
+    "imports": [
+      "@vue/test-utils",
+      "vitest",
+      "vue",
+      "./DropZone.vue"
+    ],
+    "cases": [
+      {
+        "line": 41,
+        "name": "\"emits the url of an image dragged out of another tab\"",
+        "callee": "test"
+      },
+      {
+        "line": 48,
+        "name": "\"prefers an attached file over the url\"",
+        "callee": "test"
+      },
+      {
+        "line": 56,
+        "name": "\"skips comment lines and takes the first usable url\"",
+        "callee": "test"
+      },
+      {
+        "line": 64,
+        "name": "\"accepts plain http\"",
+        "callee": "test"
+      },
+      {
+        "line": 70,
+        "name": "[\n    [\"javascript:alert(1)\"],\n    [\"file:///etc/passwd\"],\n    [\"not a url at all\"],\n  ]",
+        "callee": "test.each"
+      },
+      {
+        "line": 82,
+        "name": "\"takes the image from the markup, not the link wrapping it\"",
+        "callee": "test"
+      },
+      {
+        "line": 94,
+        "name": "\"unescapes entities in the markup's url\"",
+        "callee": "test"
+      },
+      {
+        "line": 102,
+        "name": "\"is not fooled by a data-src attribute\"",
+        "callee": "test"
+      },
+      {
+        "line": 110,
+        "name": "\"falls back to text/uri-list when the markup has no image\"",
+        "callee": "test"
+      },
+      {
+        "line": 119,
+        "name": "\"converts a data: url into a file for the normal upload path\"",
+        "callee": "test"
+      },
+      {
+        "line": 133,
+        "name": "\"reports a blob: url as unusable rather than doing nothing\"",
+        "callee": "test"
+      },
+      {
+        "line": 142,
+        "name": "\"stays quiet when the drop holds nothing image-like at all\"",
+        "callee": "test"
+      }
+    ],
+    "assertions": [
+      {
+        "line": 44,
+        "subject": "wrapper.emitted(\"drop-url\")"
+      },
+      {
+        "line": 45,
+        "subject": "wrapper.emitted(\"drop\")"
+      },
+      {
+        "line": 52,
+        "subject": "wrapper.emitted(\"drop\")"
+      },
+      {
+        "line": 53,
+        "subject": "wrapper.emitted(\"drop-url\")"
+      },
+      {
+        "line": 61,
+        "subject": "wrapper.emitted(\"drop-url\")"
+      },
+      {
+        "line": 67,
+        "subject": "wrapper.emitted(\"drop-url\")"
+      },
+      {
+        "line": 77,
+        "subject": "wrapper.emitted(\"drop-url\")"
+      },
+      {
+        "line": 78,
+        "subject": "wrapper.emitted(\"drop\")"
+      },
+      {
+        "line": 79,
+        "subject": "wrapper.emitted(\"drop-unsupported\")"
+      },
+      {
+        "line": 91,
+        "subject": "wrapper.emitted(\"drop-url\")"
+      },
+      {
+        "line": 99,
+        "subject": "wrapper.emitted(\"drop-url\")"
+      },
+      {
+        "line": 107,
+        "subject": "wrapper.emitted(\"drop-url\")"
+      },
+      {
+        "line": 116,
+        "subject": "wrapper.emitted(\"drop-url\")"
+      },
+      {
+        "line": 124,
+        "subject": "wrapper.emitted(\"drop-url\")"
+      },
+      {
+        "line": 127,
+        "subject": "dropped"
+      },
+      {
+        "line": 128,
+        "subject": "dropped[0].type"
+      },
+      {
+        "line": 129,
+        "subject": "dropped[0].name"
+      },
+      {
+        "line": 130,
+        "subject": "dropped[0].size"
+      },
+      {
+        "line": 137,
+        "subject": "wrapper.emitted(\"drop-unsupported\")"
+      },
+      {
+        "line": 138,
+        "subject": "wrapper.emitted(\"drop-url\")"
+      },
+      {
+        "line": 139,
+        "subject": "wrapper.emitted(\"drop\")"
+      },
+      {
+        "line": 145,
+        "subject": "wrapper.emitted(\"drop-unsupported\")"
+      }
+    ],
+    "parity": "unmigrated; no preservation claim for React"
+  },
+  {
+    "path": "frontend/app/composables/partials/__tests__/use-actions-factory.test.ts",
+    "sha256": "0b41cb3b051fd635a39d3bb85fb02e4bbbb1646868a4ef7e00ab3e39b0e072d9",
+    "imports": [
+      "vitest",
+      "vue",
+      "../use-actions-factory",
+      "~/lib/api/base/base-clients"
+    ],
+    "cases": [
+      {
+        "line": 18,
+        "name": "\"deleteMany calls deleteOne for each ID and refreshes once\"",
+        "callee": "test"
+      },
+      {
+        "line": 35,
+        "name": "\"deleteMany handles empty array\"",
+        "callee": "test"
+      },
+      {
+        "line": 47,
+        "name": "\"deleteMany sets loading state\"",
+        "callee": "test"
+      },
+      {
+        "line": 60,
+        "name": "\"refresh sets initialized to true even when store returns empty results\"",
+        "callee": "test"
+      },
+      {
+        "line": 71,
+        "name": "\"refresh sets initialized to true when store returns items\"",
+        "callee": "test"
+      }
+    ],
+    "assertions": [
+      {
+        "line": 27,
+        "subject": "mockApi.deleteOne"
+      },
+      {
+        "line": 28,
+        "subject": "mockApi.deleteOne"
+      },
+      {
+        "line": 29,
+        "subject": "mockApi.deleteOne"
+      },
+      {
+        "line": 30,
+        "subject": "mockApi.deleteOne"
+      },
+      {
+        "line": 32,
+        "subject": "mockApi.getAll"
+      },
+      {
+        "line": 43,
+        "subject": "mockApi.deleteOne"
+      },
+      {
+        "line": 44,
+        "subject": "mockApi.getAll"
+      },
+      {
+        "line": 54,
+        "subject": "mockLoading.value"
+      },
+      {
+        "line": 57,
+        "subject": "mockLoading.value"
+      },
+      {
+        "line": 66,
+        "subject": "localInitialized.value"
+      },
+      {
+        "line": 68,
+        "subject": "localInitialized.value"
+      },
+      {
+        "line": 78,
+        "subject": "localInitialized.value"
+      }
+    ],
+    "parity": "unmigrated; no preservation claim for React"
+  },
+  {
+    "path": "frontend/app/composables/recipe-page/use-cook-mode-query.test.ts",
+    "sha256": "f3fda83decb18115d40b612795f0db268231834e6b45c472ced7999785e609ae",
+    "imports": [
+      "vue",
+      "vitest",
+      "./shared-state",
+      "./use-cook-mode-query"
+    ],
+    "cases": [
+      {
+        "line": 65,
+        "name": "\"hydrates cook mode from the query\"",
+        "callee": "test"
+      },
+      {
+        "line": 74,
+        "name": "\"does not enter cook mode while edit mode is active\"",
+        "callee": "test"
+      },
+      {
+        "line": 84,
+        "name": "\"enters cook mode after leaving edit mode if the query is still set\"",
+        "callee": "test"
+      },
+      {
+        "line": 94,
+        "name": "\"writes cook=true when cook mode is entered from the UI\"",
+        "callee": "test"
+      },
+      {
+        "line": 104,
+        "name": "\"removes the query when cook mode is exited to view mode\"",
+        "callee": "test"
+      },
+      {
+        "line": 114,
+        "name": "\"reacts to route query changes after hydration\"",
+        "callee": "test"
+      },
+      {
+        "line": 129,
+        "name": "\"clears a pending cook query when cook mode is entered and exited in the same tick\"",
+        "callee": "test"
+      }
+    ],
+    "assertions": [
+      {
+        "line": 71,
+        "subject": "harness.pageMode.value"
+      },
+      {
+        "line": 80,
+        "subject": "harness.pageMode.value"
+      },
+      {
+        "line": 81,
+        "subject": "harness.cookQuery.value"
+      },
+      {
+        "line": 91,
+        "subject": "harness.pageMode.value"
+      },
+      {
+        "line": 101,
+        "subject": "harness.cookQuery.value"
+      },
+      {
+        "line": 111,
+        "subject": "harness.cookQuery.value"
+      },
+      {
+        "line": 121,
+        "subject": "harness.pageMode.value"
+      },
+      {
+        "line": 126,
+        "subject": "harness.pageMode.value"
+      },
+      {
+        "line": 138,
+        "subject": "harness.cookQuery.value"
+      },
+      {
+        "line": 139,
+        "subject": "harness.pageMode.value"
+      }
+    ],
+    "parity": "unmigrated; no preservation claim for React"
+  },
+  {
+    "path": "frontend/app/composables/recipe-page/__tests__/use-extract-ingredient-references.test.ts",
+    "sha256": "64ec266f0c064709eed24ded0ef6b41cb996ebbdb2dd8a0bc344a6bd93f0869c",
+    "imports": [
+      "vitest",
+      "../use-extract-ingredient-references",
+      "../../use-locales"
+    ],
+    "cases": [
+      {
+        "line": 18,
+        "name": "\"when text empty return empty\"",
+        "callee": "test"
+      },
+      {
+        "line": 24,
+        "name": "\"when and ingredient matches exactly and has a reference id, return the referenceId\"",
+        "callee": "test"
+      },
+      {
+        "line": 31,
+        "name": "punctuationMarks",
+        "callee": "test.each"
+      },
+      {
+        "line": 38,
+        "name": "punctuationMarks",
+        "callee": "test.each"
+      },
+      {
+        "line": 44,
+        "name": "\"when ingredient is first on a multiline, return the referenceId\"",
+        "callee": "test"
+      },
+      {
+        "line": 52,
+        "name": "\"when the ingredient matches partially exactly and has a reference id, return the referenceId\"",
+        "callee": "test"
+      },
+      {
+        "line": 58,
+        "name": "\"when the ingredient matches with different casing and has a reference id, return the referenceId\"",
+        "callee": "test"
+      },
+      {
+        "line": 64,
+        "name": "\"when no ingredients, return empty\"",
+        "callee": "test"
+      },
+      {
+        "line": 70,
+        "name": "\"when and ingredient matches but in the existing referenceIds, do not return the referenceId\"",
+        "callee": "test"
+      },
+      {
+        "line": 77,
+        "name": "\"when an word is 2 letter of shorter, it is ignored\"",
+        "callee": "test"
+      }
+    ],
+    "assertions": [
+      {
+        "line": 21,
+        "subject": "result"
+      },
+      {
+        "line": 28,
+        "subject": "result"
+      },
+      {
+        "line": 35,
+        "subject": "result"
+      },
+      {
+        "line": 41,
+        "subject": "result"
+      },
+      {
+        "line": 49,
+        "subject": "result"
+      },
+      {
+        "line": 55,
+        "subject": "result"
+      },
+      {
+        "line": 61,
+        "subject": "result"
+      },
+      {
+        "line": 67,
+        "subject": "result"
+      },
+      {
+        "line": 74,
+        "subject": "result"
+      },
+      {
+        "line": 81,
+        "subject": "result"
+      }
+    ],
+    "parity": "unmigrated; no preservation claim for React"
+  },
+  {
+    "path": "frontend/app/composables/recipes/__tests__/use-ingredient-substitutions.test.ts",
+    "sha256": "00bfeb2ac0e5b9b1bbc4b559e79c70f2fcb256ce833ce9d33aaf0330cf81f8eb",
+    "imports": [
+      "vue",
+      "vitest",
+      "../use-ingredient-substitutions",
+      "~/lib/api/types/recipe"
+    ],
+    "cases": [
+      {
+        "line": 20,
+        "name": "\"inflects with the line the substitute stands in for\"",
+        "callee": "test"
+      },
+      {
+        "line": 27,
+        "name": "\"falls back to the one name a food without a plural form has\"",
+        "callee": "test"
+      },
+      {
+        "line": 31,
+        "name": "\"is empty for a substitution that is only a note\"",
+        "callee": "test"
+      },
+      {
+        "line": 37,
+        "name": "\"keeps the two tiers apart\"",
+        "callee": "test"
+      },
+      {
+        "line": 52,
+        "name": "\"either tier alone still counts as having substitutions\"",
+        "callee": "test"
+      },
+      {
+        "line": 62,
+        "name": "\"an ingredient with no food and no substitutions has none\"",
+        "callee": "test"
+      },
+      {
+        "line": 70,
+        "name": "\"a food that carries no substitutions contributes none\"",
+        "callee": "test"
+      },
+      {
+        "line": 79,
+        "name": "\"tracks the ingredient it was given\"",
+        "callee": "test"
+      },
+      {
+        "line": 95,
+        "name": "\"renders each of the three forms a substitution can take\"",
+        "callee": "test"
+      },
+      {
+        "line": 107,
+        "name": "\"puts what the recipe says ahead of what the food suggests\"",
+        "callee": "test"
+      },
+      {
+        "line": 116,
+        "name": "\"is empty when there is nothing to show, which is also the don't-render signal\"",
+        "callee": "test"
+      },
+      {
+        "line": 121,
+        "name": "\"inflects the substitute foods when the line they replace is plural\"",
+        "callee": "test"
+      },
+      {
+        "line": 133,
+        "name": "\"skips a substitution carrying neither a food nor a note\"",
+        "callee": "test"
+      }
+    ],
+    "assertions": [
+      {
+        "line": 23,
+        "subject": "substitutionFoodName(substitution, true)"
+      },
+      {
+        "line": 24,
+        "subject": "substitutionFoodName(substitution, false)"
+      },
+      {
+        "line": 28,
+        "subject": "substitutionFoodName({ substituteFoodId: broth.id, substituteFood: broth }, true)"
+      },
+      {
+        "line": 32,
+        "subject": "substitutionFoodName({ note: \"pork works\" }, true)"
+      },
+      {
+        "line": 45,
+        "subject": "recipeSubstitutions.value"
+      },
+      {
+        "line": 46,
+        "subject": "recipeSubstitutions.value[0]?.substituteFood?.name"
+      },
+      {
+        "line": 47,
+        "subject": "foodSubstitutions.value"
+      },
+      {
+        "line": 48,
+        "subject": "foodSubstitutions.value[0]?.substituteFood?.name"
+      },
+      {
+        "line": 49,
+        "subject": "hasSubstitutions.value"
+      },
+      {
+        "line": 54,
+        "subject": "recipeOnly.hasSubstitutions.value"
+      },
+      {
+        "line": 55,
+        "subject": "recipeOnly.foodSubstitutions.value"
+      },
+      {
+        "line": 58,
+        "subject": "foodOnly.hasSubstitutions.value"
+      },
+      {
+        "line": 59,
+        "subject": "foodOnly.recipeSubstitutions.value"
+      },
+      {
+        "line": 65,
+        "subject": "recipeSubstitutions.value"
+      },
+      {
+        "line": 66,
+        "subject": "foodSubstitutions.value"
+      },
+      {
+        "line": 67,
+        "subject": "hasSubstitutions.value"
+      },
+      {
+        "line": 75,
+        "subject": "foodSubstitutions.value"
+      },
+      {
+        "line": 76,
+        "subject": "hasSubstitutions.value"
+      },
+      {
+        "line": 85,
+        "subject": "hasSubstitutions.value"
+      },
+      {
+        "line": 89,
+        "subject": "hasSubstitutions.value"
+      },
+      {
+        "line": 90,
+        "subject": "recipeSubstitutions.value[0]?.note"
+      },
+      {
+        "line": 104,
+        "subject": "summary"
+      },
+      {
+        "line": 113,
+        "subject": "summary"
+      },
+      {
+        "line": 117,
+        "subject": "ingredientSubstitutionSummary({})"
+      },
+      {
+        "line": 118,
+        "subject": "ingredientSubstitutionSummary({ food: { id: \"stock-id\", name: \"Chicken stock\" } })"
+      },
+      {
+        "line": 130,
+        "subject": "summary"
+      },
+      {
+        "line": 138,
+        "subject": "summary"
+      }
+    ],
+    "parity": "unmigrated; no preservation claim for React"
+  },
+  {
+    "path": "frontend/app/composables/recipes/__tests__/use-parse-ingredients-dialog.test.ts",
+    "sha256": "7e6bc190975d52f6b72a5abb8f50fdd1ea59b9fa54915a97f806af56f9bbe48d",
+    "imports": [
+      "@vue/test-utils",
+      "vitest",
+      "~/lib/api/types/non-generated",
+      "~/lib/api/types/recipe",
+      "../../use-utils",
+      "../use-parse-ingredients-dialog",
+      "~/lib/api/user/recipes/recipe",
+      "~/tests/setup"
+    ],
+    "cases": [
+      {
+        "line": 130,
+        "name": "\"steps through the ingredients\"",
+        "callee": "test"
+      },
+      {
+        "line": 174,
+        "name": "\"skips over ingredients that don't need to be reviewed\"",
+        "callee": "test"
+      },
+      {
+        "line": 207,
+        "name": "\"skips over deleted ingredients properly\"",
+        "callee": "test"
+      },
+      {
+        "line": 242,
+        "name": "\"pulls from cache when it can\"",
+        "callee": "test"
+      },
+      {
+        "line": 299,
+        "name": "\"walks through the workflow\"",
+        "callee": "test"
+      },
+      {
+        "line": 309,
+        "name": "\"skips the info page if already seen\"",
+        "callee": "test"
+      },
+      {
+        "line": 318,
+        "name": "\"skips the parse page if nothing to confirm\"",
+        "callee": "test"
+      },
+      {
+        "line": 327,
+        "name": "\"skips the info page if already seen\"",
+        "callee": "test"
+      },
+      {
+        "line": 336,
+        "name": "\"skips the info and parse pages if necessary\"",
+        "callee": "test"
+      },
+      {
+        "line": 346,
+        "name": "\"is true if either food or unit have an error\"",
+        "callee": "test"
+      },
+      {
+        "line": 364,
+        "name": "\"shows open ai parser when available\"",
+        "callee": "test"
+      },
+      {
+        "line": 368,
+        "name": "\"hides open ai parser when not available\"",
+        "callee": "test"
+      },
+      {
+        "line": 374,
+        "name": "\"saveIngs\"",
+        "callee": "test"
+      },
+      {
+        "line": 397,
+        "name": "\"parses ingredients\"",
+        "callee": "test"
+      },
+      {
+        "line": 409,
+        "name": "\"only makes one call at a time\"",
+        "callee": "test"
+      },
+      {
+        "line": 422,
+        "name": "\"doesn't parse from an empty list\"",
+        "callee": "test"
+      },
+      {
+        "line": 434,
+        "name": "\"handles errors gracefully\"",
+        "callee": "test"
+      },
+      {
+        "line": 447,
+        "name": "\"handles errors gracefully\"",
+        "callee": "test"
+      },
+      {
+        "line": 462,
+        "name": "\"createMissingUnit\"",
+        "callee": "test"
+      },
+      {
+        "line": 473,
+        "name": "\"createMissingUnit skips if not missing a unit\"",
+        "callee": "test"
+      },
+      {
+        "line": 486,
+        "name": "\"createMissingUnit pulls from cache\"",
+        "callee": "test"
+      },
+      {
+        "line": 500,
+        "name": "\"createMissingUnit handles undefined values\"",
+        "callee": "test"
+      },
+      {
+        "line": 511,
+        "name": "\"createMissingFood\"",
+        "callee": "test"
+      },
+      {
+        "line": 522,
+        "name": "\"createMissingFood skips if not missing a unit\"",
+        "callee": "test"
+      },
+      {
+        "line": 535,
+        "name": "\"createMissingFood pulls from cache\"",
+        "callee": "test"
+      },
+      {
+        "line": 549,
+        "name": "\"createMissingFood handles undefined values\"",
+        "callee": "test"
+      },
+      {
+        "line": 560,
+        "name": "\"addMissingUnitAsAlias\"",
+        "callee": "test"
+      },
+      {
+        "line": 573,
+        "name": "\"addMissingUnitAsAlias skips if there's no alias to add\"",
+        "callee": "test"
+      },
+      {
+        "line": 584,
+        "name": "\"addMissingUnitAsAlias skips if already includes the alias\"",
+        "callee": "test"
+      },
+      {
+        "line": 596,
+        "name": "\"addMissingUnitAsAlias fails gracefully\"",
+        "callee": "test"
+      },
+      {
+        "line": 610,
+        "name": "\"addMissingFoodAsAlias\"",
+        "callee": "test"
+      },
+      {
+        "line": 623,
+        "name": "\"addMissingFoodAsAlias skips if there's no alias to add\"",
+        "callee": "test"
+      },
+      {
+        "line": 634,
+        "name": "\"addMissingFoodAsAlias skips if already includes the alias\"",
+        "callee": "test"
+      },
+      {
+        "line": 646,
+        "name": "\"addMissingFoodAsAlias fails gracefully\"",
+        "callee": "test"
+      },
+      {
+        "line": 661,
+        "name": "\"parser preferences are stored automatically\"",
+        "callee": "test"
+      },
+      {
+        "line": 680,
+        "name": "\"an English locale with nothing stored keeps the natural language processor\"",
+        "callee": "test"
+      },
+      {
+        "line": 688,
+        "name": "\"another locale with nothing stored starts on the brute parser\"",
+        "callee": "test"
+      },
+      {
+        "line": 698,
+        "name": "\"a stored preference is never overridden\"",
+        "callee": "test"
+      },
+      {
+        "line": 705,
+        "name": "\"the hint appears for a stored nlp preference outside English\"",
+        "callee": "test"
+      },
+      {
+        "line": 711,
+        "name": "\"the hint stays away on an English locale\"",
+        "callee": "test"
+      },
+      {
+        "line": 716,
+        "name": "\"the hint goes away once another parser is picked\"",
+        "callee": "test"
+      }
+    ],
+    "assertions": [
+      {
+        "line": 156,
+        "subject": "state.currentParsedIndex"
+      },
+      {
+        "line": 157,
+        "subject": "state.allReviewed"
+      },
+      {
+        "line": 159,
+        "subject": "state.currentParsedIndex"
+      },
+      {
+        "line": 160,
+        "subject": "state.allReviewed"
+      },
+      {
+        "line": 162,
+        "subject": "state.currentParsedIndex"
+      },
+      {
+        "line": 163,
+        "subject": "state.allReviewed"
+      },
+      {
+        "line": 165,
+        "subject": "state.currentParsedIndex"
+      },
+      {
+        "line": 166,
+        "subject": "state.allReviewed"
+      },
+      {
+        "line": 168,
+        "subject": "state.currentParsedIndex"
+      },
+      {
+        "line": 169,
+        "subject": "state.allReviewed"
+      },
+      {
+        "line": 171,
+        "subject": "state.currentParsedIndex"
+      },
+      {
+        "line": 172,
+        "subject": "state.allReviewed"
+      },
+      {
+        "line": 193,
+        "subject": "wrapped.vm.ingredientsToReviewCount"
+      },
+      {
+        "line": 194,
+        "subject": "wrapped.vm.autoParsedIngredientsCount"
+      },
+      {
+        "line": 195,
+        "subject": "state.currentParsedIndex"
+      },
+      {
+        "line": 196,
+        "subject": "state.allReviewed"
+      },
+      {
+        "line": 198,
+        "subject": "state.currentParsedIndex"
+      },
+      {
+        "line": 199,
+        "subject": "state.allReviewed"
+      },
+      {
+        "line": 201,
+        "subject": "state.currentParsedIndex"
+      },
+      {
+        "line": 202,
+        "subject": "state.allReviewed"
+      },
+      {
+        "line": 204,
+        "subject": "state.currentParsedIndex"
+      },
+      {
+        "line": 205,
+        "subject": "state.allReviewed"
+      },
+      {
+        "line": 221,
+        "subject": "state.currentParsedIndex"
+      },
+      {
+        "line": 222,
+        "subject": "state.allReviewed"
+      },
+      {
+        "line": 223,
+        "subject": "wrapped.vm.currentIngShouldDelete"
+      },
+      {
+        "line": 225,
+        "subject": "state.currentParsedIndex"
+      },
+      {
+        "line": 226,
+        "subject": "state.allReviewed"
+      },
+      {
+        "line": 227,
+        "subject": "wrapped.vm.currentIngShouldDelete"
+      },
+      {
+        "line": 229,
+        "subject": "state.currentParsedIndex"
+      },
+      {
+        "line": 230,
+        "subject": "state.allReviewed"
+      },
+      {
+        "line": 231,
+        "subject": "wrapped.vm.currentIngShouldDelete"
+      },
+      {
+        "line": 234,
+        "subject": "state.currentParsedIndex"
+      },
+      {
+        "line": 235,
+        "subject": "state.allReviewed"
+      },
+      {
+        "line": 236,
+        "subject": "wrapped.vm.currentIngShouldDelete"
+      },
+      {
+        "line": 238,
+        "subject": "state.currentParsedIndex"
+      },
+      {
+        "line": 239,
+        "subject": "state.allReviewed"
+      },
+      {
+        "line": 240,
+        "subject": "wrapped.vm.currentIngShouldDelete"
+      },
+      {
+        "line": 277,
+        "subject": "state.currentParsedIndex"
+      },
+      {
+        "line": 278,
+        "subject": "state.allReviewed"
+      },
+      {
+        "line": 280,
+        "subject": "state.currentParsedIndex"
+      },
+      {
+        "line": 281,
+        "subject": "state.allReviewed"
+      },
+      {
+        "line": 283,
+        "subject": "state.currentParsedIndex"
+      },
+      {
+        "line": 284,
+        "subject": "state.allReviewed"
+      },
+      {
+        "line": 286,
+        "subject": "state.currentParsedIndex"
+      },
+      {
+        "line": 287,
+        "subject": "state.allReviewed"
+      },
+      {
+        "line": 289,
+        "subject": "state.currentParsedIndex"
+      },
+      {
+        "line": 290,
+        "subject": "state.allReviewed"
+      },
+      {
+        "line": 292,
+        "subject": "state.currentParsedIndex"
+      },
+      {
+        "line": 293,
+        "subject": "state.allReviewed"
+      },
+      {
+        "line": 294,
+        "subject": "createUnit"
+      },
+      {
+        "line": 295,
+        "subject": "createFood"
+      },
+      {
+        "line": 301,
+        "subject": "state.step"
+      },
+      {
+        "line": 303,
+        "subject": "state.step"
+      },
+      {
+        "line": 305,
+        "subject": "state.step"
+      },
+      {
+        "line": 307,
+        "subject": "state.step"
+      },
+      {
+        "line": 312,
+        "subject": "state.step"
+      },
+      {
+        "line": 314,
+        "subject": "state.step"
+      },
+      {
+        "line": 316,
+        "subject": "state.step"
+      },
+      {
+        "line": 321,
+        "subject": "state.step"
+      },
+      {
+        "line": 323,
+        "subject": "state.step"
+      },
+      {
+        "line": 325,
+        "subject": "state.step"
+      },
+      {
+        "line": 330,
+        "subject": "state.step"
+      },
+      {
+        "line": 332,
+        "subject": "state.step"
+      },
+      {
+        "line": 334,
+        "subject": "state.step"
+      },
+      {
+        "line": 340,
+        "subject": "state.step"
+      },
+      {
+        "line": 342,
+        "subject": "state.step"
+      },
+      {
+        "line": 351,
+        "subject": "wrapped.vm.currentIngHasError"
+      },
+      {
+        "line": 354,
+        "subject": "wrapped.vm.currentIngHasError"
+      },
+      {
+        "line": 357,
+        "subject": "wrapped.vm.currentIngHasError"
+      },
+      {
+        "line": 360,
+        "subject": "wrapped.vm.currentIngHasError"
+      },
+      {
+        "line": 366,
+        "subject": "availableParsers.find(({ value }) => value === \"openai\")?.hide"
+      },
+      {
+        "line": 371,
+        "subject": "availableParsers.find(({ value }) => value === \"openai\")?.hide"
+      },
+      {
+        "line": 393,
+        "subject": "state.saveLoading"
+      },
+      {
+        "line": 394,
+        "subject": "onSave"
+      },
+      {
+        "line": 401,
+        "subject": "state.step"
+      },
+      {
+        "line": 402,
+        "subject": "state.saveLoading"
+      },
+      {
+        "line": 403,
+        "subject": "state.loadingCount"
+      },
+      {
+        "line": 405,
+        "subject": "state.step"
+      },
+      {
+        "line": 406,
+        "subject": "state.loadingCount"
+      },
+      {
+        "line": 407,
+        "subject": "mockParseIngredients"
+      },
+      {
+        "line": 413,
+        "subject": "state.step"
+      },
+      {
+        "line": 414,
+        "subject": "state.saveLoading"
+      },
+      {
+        "line": 415,
+        "subject": "state.loadingCount"
+      },
+      {
+        "line": 418,
+        "subject": "state.step"
+      },
+      {
+        "line": 419,
+        "subject": "state.loadingCount"
+      },
+      {
+        "line": 420,
+        "subject": "mockParseIngredients"
+      },
+      {
+        "line": 426,
+        "subject": "state.step"
+      },
+      {
+        "line": 427,
+        "subject": "state.saveLoading"
+      },
+      {
+        "line": 428,
+        "subject": "state.loadingCount"
+      },
+      {
+        "line": 430,
+        "subject": "state.step"
+      },
+      {
+        "line": 431,
+        "subject": "state.loadingCount"
+      },
+      {
+        "line": 432,
+        "subject": "mockParseIngredients"
+      },
+      {
+        "line": 439,
+        "subject": "state.step"
+      },
+      {
+        "line": 440,
+        "subject": "state.saveLoading"
+      },
+      {
+        "line": 441,
+        "subject": "state.loadingCount"
+      },
+      {
+        "line": 443,
+        "subject": "state.step"
+      },
+      {
+        "line": 444,
+        "subject": "state.loadingCount"
+      },
+      {
+        "line": 445,
+        "subject": "mockError"
+      },
+      {
+        "line": 452,
+        "subject": "state.step"
+      },
+      {
+        "line": 453,
+        "subject": "state.saveLoading"
+      },
+      {
+        "line": 454,
+        "subject": "state.loadingCount"
+      },
+      {
+        "line": 456,
+        "subject": "state.step"
+      },
+      {
+        "line": 457,
+        "subject": "state.loadingCount"
+      },
+      {
+        "line": 458,
+        "subject": "mockError"
+      },
+      {
+        "line": 470,
+        "subject": "createUnit"
+      },
+      {
+        "line": 471,
+        "subject": "wrapped.vm.currentIng?.ingredient.unit?.name"
+      },
+      {
+        "line": 483,
+        "subject": "createUnit"
+      },
+      {
+        "line": 484,
+        "subject": "wrapped.vm.currentIng?.ingredient.unit?.name"
+      },
+      {
+        "line": 497,
+        "subject": "createUnit"
+      },
+      {
+        "line": 498,
+        "subject": "wrapped.vm.currentIng?.ingredient.unit?.name"
+      },
+      {
+        "line": 509,
+        "subject": "mockError"
+      },
+      {
+        "line": 519,
+        "subject": "createFood"
+      },
+      {
+        "line": 520,
+        "subject": "wrapped.vm.currentIng?.ingredient.food?.name"
+      },
+      {
+        "line": 532,
+        "subject": "createFood"
+      },
+      {
+        "line": 533,
+        "subject": "wrapped.vm.currentIng?.ingredient.food?.name"
+      },
+      {
+        "line": 546,
+        "subject": "createFood"
+      },
+      {
+        "line": 547,
+        "subject": "wrapped.vm.currentIng?.ingredient.food?.name"
+      },
+      {
+        "line": 558,
+        "subject": "mockError"
+      },
+      {
+        "line": 570,
+        "subject": "updateUnit"
+      },
+      {
+        "line": 571,
+        "subject": "wrapped.vm.currentIng?.ingredient.unit?.name"
+      },
+      {
+        "line": 582,
+        "subject": "updateUnit"
+      },
+      {
+        "line": 594,
+        "subject": "updateUnit"
+      },
+      {
+        "line": 607,
+        "subject": "updateUnit"
+      },
+      {
+        "line": 608,
+        "subject": "mockError"
+      },
+      {
+        "line": 620,
+        "subject": "updateFood"
+      },
+      {
+        "line": 621,
+        "subject": "wrapped.vm.currentIng?.ingredient.food?.name"
+      },
+      {
+        "line": 632,
+        "subject": "updateFood"
+      },
+      {
+        "line": 644,
+        "subject": "updateFood"
+      },
+      {
+        "line": 657,
+        "subject": "updateFood"
+      },
+      {
+        "line": 658,
+        "subject": "mockError"
+      },
+      {
+        "line": 665,
+        "subject": "parser"
+      },
+      {
+        "line": 666,
+        "subject": "parserPreferences.parser"
+      },
+      {
+        "line": 667,
+        "subject": "parserPreferences.dontShowInfoPage"
+      },
+      {
+        "line": 675,
+        "subject": "newPrefs.parser"
+      },
+      {
+        "line": 676,
+        "subject": "newPrefs.dontShowInfoPage"
+      },
+      {
+        "line": 683,
+        "subject": "lastDefaultParser"
+      },
+      {
+        "line": 684,
+        "subject": "parser"
+      },
+      {
+        "line": 685,
+        "subject": "showNlpLanguageHint"
+      },
+      {
+        "line": 692,
+        "subject": "lastDefaultParser"
+      },
+      {
+        "line": 693,
+        "subject": "parser"
+      },
+      {
+        "line": 695,
+        "subject": "showNlpLanguageHint"
+      },
+      {
+        "line": 702,
+        "subject": "parser"
+      },
+      {
+        "line": 708,
+        "subject": "wrapper().vm.showNlpLanguageHint"
+      },
+      {
+        "line": 713,
+        "subject": "wrapper().vm.showNlpLanguageHint"
+      },
+      {
+        "line": 720,
+        "subject": "wrapped.vm.showNlpLanguageHint"
+      },
+      {
+        "line": 725,
+        "subject": "wrapped.vm.showNlpLanguageHint"
+      }
+    ],
+    "parity": "unmigrated; no preservation claim for React"
+  },
+  {
+    "path": "frontend/app/composables/recipes/__tests__/use-recipe-ingredients.test.ts",
+    "sha256": "4e2be9999a12d85a9dc581310169318a97c57d6c3f559a510b07424daa7c3c2c",
+    "imports": [
+      "vitest",
+      "~/lib/api/types/recipe",
+      "../use-recipe-ingredients",
+      "~/composables/use-locales"
+    ],
+    "cases": [
+      {
+        "line": 34,
+        "name": "\"adds note section if note present\"",
+        "callee": "test"
+      },
+      {
+        "line": 40,
+        "name": "\"ingredient text with fraction\"",
+        "callee": "test"
+      },
+      {
+        "line": 46,
+        "name": "\"ingredient text with fraction when unit is null\"",
+        "callee": "test"
+      },
+      {
+        "line": 52,
+        "name": "\"ingredient text with fraction no formatting\"",
+        "callee": "test"
+      },
+      {
+        "line": 61,
+        "name": "\"sanitizes html\"",
+        "callee": "test"
+      },
+      {
+        "line": 67,
+        "name": "\"referenced recipe links navigate in the current page\"",
+        "callee": "test"
+      },
+      {
+        "line": 82,
+        "name": "\"plural test : plural qty : use abbreviation\"",
+        "callee": "test"
+      },
+      {
+        "line": 92,
+        "name": "\"plural test : plural qty : not abbreviation\"",
+        "callee": "test"
+      },
+      {
+        "line": 102,
+        "name": "\"plural test : single qty : use abbreviation\"",
+        "callee": "test"
+      },
+      {
+        "line": 112,
+        "name": "\"plural test : single qty : not abbreviation\"",
+        "callee": "test"
+      },
+      {
+        "line": 122,
+        "name": "\"plural test : small qty : use abbreviation\"",
+        "callee": "test"
+      },
+      {
+        "line": 132,
+        "name": "\"plural test : small qty : not abbreviation\"",
+        "callee": "test"
+      },
+      {
+        "line": 142,
+        "name": "\"plural test : zero qty\"",
+        "callee": "test"
+      },
+      {
+        "line": 152,
+        "name": "\"plural test : single qty, scaled\"",
+        "callee": "test"
+      },
+      {
+        "line": 162,
+        "name": "\"plural handling: 'always' strategy uses plural food with unit\"",
+        "callee": "test"
+      },
+      {
+        "line": 178,
+        "name": "\"plural handling: 'never' strategy never uses plural food\"",
+        "callee": "test"
+      },
+      {
+        "line": 194,
+        "name": "\"plural handling: 'without-unit' strategy uses plural food without unit\"",
+        "callee": "test"
+      },
+      {
+        "line": 210,
+        "name": "\"plural handling: 'without-unit' strategy uses singular food with unit\"",
+        "callee": "test"
+      },
+      {
+        "line": 226,
+        "name": "\"decimal below minimum precision shows < 0.001\"",
+        "callee": "test"
+      },
+      {
+        "line": 236,
+        "name": "\"fraction below minimum denominator shows < 1/10\"",
+        "callee": "test"
+      },
+      {
+        "line": 246,
+        "name": "\"fraction below minimum denominator without formatting shows < 1/10\"",
+        "callee": "test"
+      },
+      {
+        "line": 271,
+        "name": "\"unparsed ingredient with qty=1 and note containing fraction uses just the note\"",
+        "callee": "test"
+      },
+      {
+        "line": 282,
+        "name": "\"ingredient with originalText uses originalText\"",
+        "callee": "test"
+      },
+      {
+        "line": 294,
+        "name": "\"parsed ingredient with unit and food uses full reconstruction\"",
+        "callee": "test"
+      },
+      {
+        "line": 304,
+        "name": "\"ingredient with no data returns empty string\"",
+        "callee": "test"
+      },
+      {
+        "line": 315,
+        "name": "\"unparsed ingredient with note starting with an integer uses just the note\"",
+        "callee": "test"
+      },
+      {
+        "line": 326,
+        "name": "\"unparsed ingredient with purely descriptive note uses just the note\"",
+        "callee": "test"
+      },
+      {
+        "line": 337,
+        "name": "\"originalText wins even when ingredient is unparsed (no unit, no food)\"",
+        "callee": "test"
+      },
+      {
+        "line": 349,
+        "name": "\"ingredient with only food (no unit) uses full reconstruction\"",
+        "callee": "test"
+      },
+      {
+        "line": 359,
+        "name": "\"ingredient with only unit (no food) uses full reconstruction\"",
+        "callee": "test"
+      }
+    ],
+    "assertions": [
+      {
+        "line": 37,
+        "subject": "parseIngredientText(ingredient)"
+      },
+      {
+        "line": 43,
+        "subject": "parseIngredientText(ingredient, 1, true)"
+      },
+      {
+        "line": 49,
+        "subject": "parseIngredientText(ingredient, 1, true)"
+      },
+      {
+        "line": 56,
+        "subject": "result"
+      },
+      {
+        "line": 57,
+        "subject": "result"
+      },
+      {
+        "line": 58,
+        "subject": "result"
+      },
+      {
+        "line": 64,
+        "subject": "parseIngredientText(ingredient)"
+      },
+      {
+        "line": 78,
+        "subject": "result.recipeLink"
+      },
+      {
+        "line": 79,
+        "subject": "result.recipeLink"
+      },
+      {
+        "line": 89,
+        "subject": "parseIngredientText(ingredient)"
+      },
+      {
+        "line": 99,
+        "subject": "parseIngredientText(ingredient)"
+      },
+      {
+        "line": 109,
+        "subject": "parseIngredientText(ingredient)"
+      },
+      {
+        "line": 119,
+        "subject": "parseIngredientText(ingredient)"
+      },
+      {
+        "line": 129,
+        "subject": "parseIngredientText(ingredient)"
+      },
+      {
+        "line": 139,
+        "subject": "parseIngredientText(ingredient)"
+      },
+      {
+        "line": 149,
+        "subject": "parseIngredientText(ingredient)"
+      },
+      {
+        "line": 159,
+        "subject": "parseIngredientText(ingredient, 2)"
+      },
+      {
+        "line": 175,
+        "subject": "parseIngredientText(ingredient)"
+      },
+      {
+        "line": 191,
+        "subject": "parseIngredientText(ingredient)"
+      },
+      {
+        "line": 207,
+        "subject": "parseIngredientText(ingredient)"
+      },
+      {
+        "line": 223,
+        "subject": "parseIngredientText(ingredient)"
+      },
+      {
+        "line": 233,
+        "subject": "parseIngredientText(ingredient)"
+      },
+      {
+        "line": 243,
+        "subject": "parseIngredientText(ingredient)"
+      },
+      {
+        "line": 253,
+        "subject": "parseIngredientText(ingredient, 1, false)"
+      },
+      {
+        "line": 279,
+        "subject": "ingredientToParserString(ingredient)"
+      },
+      {
+        "line": 291,
+        "subject": "ingredientToParserString(ingredient)"
+      },
+      {
+        "line": 301,
+        "subject": "ingredientToParserString(ingredient)"
+      },
+      {
+        "line": 312,
+        "subject": "ingredientToParserString(ingredient)"
+      },
+      {
+        "line": 323,
+        "subject": "ingredientToParserString(ingredient)"
+      },
+      {
+        "line": 334,
+        "subject": "ingredientToParserString(ingredient)"
+      },
+      {
+        "line": 346,
+        "subject": "ingredientToParserString(ingredient)"
+      },
+      {
+        "line": 356,
+        "subject": "ingredientToParserString(ingredient)"
+      },
+      {
+        "line": 366,
+        "subject": "ingredientToParserString(ingredient)"
+      }
+    ],
+    "parity": "unmigrated; no preservation claim for React"
+  },
+  {
+    "path": "frontend/app/composables/recipes/__tests__/use-recipe-nutrition.test.ts",
+    "sha256": "0ecce1a51ea88c41a443909bd0ee9d712ad13033e590148dcfa065463df85392",
+    "imports": [
+      "vitest",
+      "../use-recipe-nutrition"
+    ],
+    "cases": [
+      {
+        "line": 5,
+        "name": "[\n    [\"18g\", 18],\n    [\"450 mg\", 450],\n    [\"320 calories\", 320],\n    [\"4.5 g\", 4.5],\n    [\"0\", 0],\n    [\"\", null],\n    [null, null],\n    [undefined, null],\n    [\"unknown\", null],\n    [\"Infinity\", null],\n  ]",
+        "callee": "test.each"
+      }
+    ],
+    "assertions": [
+      {
+        "line": 17,
+        "subject": "parseNutritionValue(value)"
+      }
+    ],
+    "parity": "unmigrated; no preservation claim for React"
+  },
+  {
+    "path": "frontend/app/composables/recipes/__tests__/use-recipe-permissions.test.ts",
+    "sha256": "fe8aac6682a47e251dec42d82ab7ee52d17fdcb46356481d987c834666b862b1",
+    "imports": [
+      "vitest",
+      "vue",
+      "../use-recipe-permissions",
+      "~/lib/api/types/household",
+      "~/lib/api/types/recipe",
+      "~/lib/api/types/user"
+    ],
+    "cases": [
+      {
+        "line": 51,
+        "name": "\"when user is null, cannot edit\"",
+        "callee": "test"
+      },
+      {
+        "line": 56,
+        "name": "\"when user is recipe owner, can edit\"",
+        "callee": "test"
+      },
+      {
+        "line": 61,
+        "name": "\"when user is not recipe owner, is correct group and household, recipe is unlocked, and household is unlocked, can edit\"",
+        "callee": "test"
+      },
+      {
+        "line": 73,
+        "name": "\"when user is not recipe owner, is correct group and household, recipe is unlocked, but household is locked, can edit\"",
+        "callee": "test"
+      },
+      {
+        "line": 85,
+        "name": "\"when user is not recipe owner, and user is other group, cannot edit\"",
+        "callee": "test"
+      },
+      {
+        "line": 94,
+        "name": "\"when user is not recipe owner, and user is other household, and household is unlocked, can edit\"",
+        "callee": "test"
+      },
+      {
+        "line": 103,
+        "name": "\"when user is not recipe owner, and user is other household, and household is locked, cannot edit\"",
+        "callee": "test"
+      },
+      {
+        "line": 112,
+        "name": "\"when user is not recipe owner, and recipe is locked, cannot edit\"",
+        "callee": "test"
+      },
+      {
+        "line": 121,
+        "name": "\"when user is recipe owner, and recipe is locked, and household is locked, can edit\"",
+        "callee": "test"
+      },
+      {
+        "line": 126,
+        "name": "\"when user is admin, and user is same group but other household, and household is locked, can edit\"",
+        "callee": "test"
+      },
+      {
+        "line": 135,
+        "name": "\"when user is admin, but user is other group, cannot edit\"",
+        "callee": "test"
+      }
+    ],
+    "assertions": [
+      {
+        "line": 53,
+        "subject": "result.canEditRecipe.value"
+      },
+      {
+        "line": 58,
+        "subject": "result.canEditRecipe.value"
+      },
+      {
+        "line": 69,
+        "subject": "result.canEditRecipe.value"
+      },
+      {
+        "line": 81,
+        "subject": "result.canEditRecipe.value"
+      },
+      {
+        "line": 91,
+        "subject": "result.canEditRecipe.value"
+      },
+      {
+        "line": 100,
+        "subject": "result.canEditRecipe.value"
+      },
+      {
+        "line": 109,
+        "subject": "result.canEditRecipe.value"
+      },
+      {
+        "line": 118,
+        "subject": "result.canEditRecipe.value"
+      },
+      {
+        "line": 123,
+        "subject": "result.canEditRecipe.value"
+      },
+      {
+        "line": 132,
+        "subject": "result.canEditRecipe.value"
+      },
+      {
+        "line": 141,
+        "subject": "result.canEditRecipe.value"
+      }
+    ],
+    "parity": "unmigrated; no preservation claim for React"
+  },
+  {
+    "path": "frontend/app/composables/recipes/__tests__/use-recipe-time.test.ts",
+    "sha256": "37b05c311ddde38a3b14257eb2bd81c7fc228233d1c2f819bb2e69c911417bcd",
+    "imports": [
+      "vitest",
+      "../use-recipe-time"
+    ],
+    "cases": [
+      {
+        "line": 5,
+        "name": "[\n    [60, \"1 minute\"],\n    [1800, \"30 minutes\"],\n    [3600, \"1 hour\"],\n    [5400, \"1 hour 30 minutes\"],\n    [90, \"1 minute 30 seconds\"],\n    [93600, \"1 day 2 hours\"],\n  ]",
+        "callee": "test.each"
+      },
+      {
+        "line": 16,
+        "name": "\"is localized\"",
+        "callee": "test"
+      },
+      {
+        "line": 25,
+        "name": "[\n    [\"hour\", \"hr\"],\n    [\"minute\", \"min\"],\n  ] as const",
+        "callee": "test.each"
+      },
+      {
+        "line": 34,
+        "name": "\"combines the structured time with the text\"",
+        "callee": "test"
+      },
+      {
+        "line": 38,
+        "name": "[\n    [5400, null, \"1 hour 30 minutes\"],\n    [5400, \" \", \"1 hour 30 minutes\"],\n    [null, \"overnight\", \"overnight\"],\n    [undefined, \"overnight\", \"overnight\"],\n    [0, \"overnight\", \"overnight\"],\n    [null, null, \"\"],\n    [null, \"\", \"\"],\n  ]",
+        "callee": "test.each"
+      }
+    ],
+    "assertions": [
+      {
+        "line": 13,
+        "subject": "formatDuration(seconds, \"en-US\")"
+      },
+      {
+        "line": 19,
+        "subject": "formatted"
+      },
+      {
+        "line": 20,
+        "subject": "formatted"
+      },
+      {
+        "line": 29,
+        "subject": "durationUnitLabel(unit, \"en-US\")"
+      },
+      {
+        "line": 35,
+        "subject": "recipeTimeDisplay(10800, \"plus overnight\", \"en-US\")"
+      },
+      {
+        "line": 47,
+        "subject": "recipeTimeDisplay(seconds, text, \"en-US\")"
+      }
+    ],
+    "parity": "unmigrated; no preservation claim for React"
+  },
+  {
+    "path": "frontend/app/composables/recipes/__tests__/use-scaled-amount.test.ts",
+    "sha256": "e0f359904ef6aa68a3fddcad0d9e9eb6ad9cf4d3db2cc502a5bd0e3da3b843a8",
+    "imports": [
+      "vitest",
+      "../use-scaled-amount"
+    ],
+    "cases": [
+      {
+        "line": 9,
+        "name": "\"base case\"",
+        "callee": "test"
+      },
+      {
+        "line": 15,
+        "name": "\"base case scaled\"",
+        "callee": "test"
+      },
+      {
+        "line": 21,
+        "name": "\"zero scale\"",
+        "callee": "test"
+      },
+      {
+        "line": 27,
+        "name": "\"zero quantity\"",
+        "callee": "test"
+      },
+      {
+        "line": 33,
+        "name": "\"basic fraction\"",
+        "callee": "test"
+      },
+      {
+        "line": 39,
+        "name": "\"mixed fraction\"",
+        "callee": "test"
+      },
+      {
+        "line": 45,
+        "name": "\"mixed fraction scaled\"",
+        "callee": "test"
+      },
+      {
+        "line": 51,
+        "name": "\"small scale\"",
+        "callee": "test"
+      },
+      {
+        "line": 57,
+        "name": "\"small qty\"",
+        "callee": "test"
+      },
+      {
+        "line": 63,
+        "name": "\"rounded decimal\"",
+        "callee": "test"
+      }
+    ],
+    "assertions": [
+      {
+        "line": 11,
+        "subject": "scaledAmount"
+      },
+      {
+        "line": 12,
+        "subject": "scaledAmountDisplay"
+      },
+      {
+        "line": 17,
+        "subject": "scaledAmount"
+      },
+      {
+        "line": 18,
+        "subject": "scaledAmountDisplay"
+      },
+      {
+        "line": 23,
+        "subject": "scaledAmount"
+      },
+      {
+        "line": 24,
+        "subject": "scaledAmountDisplay"
+      },
+      {
+        "line": 29,
+        "subject": "scaledAmount"
+      },
+      {
+        "line": 30,
+        "subject": "scaledAmountDisplay"
+      },
+      {
+        "line": 35,
+        "subject": "scaledAmount"
+      },
+      {
+        "line": 36,
+        "subject": "scaledAmountDisplay"
+      },
+      {
+        "line": 41,
+        "subject": "scaledAmount"
+      },
+      {
+        "line": 42,
+        "subject": "scaledAmountDisplay"
+      },
+      {
+        "line": 47,
+        "subject": "scaledAmount"
+      },
+      {
+        "line": 48,
+        "subject": "scaledAmountDisplay"
+      },
+      {
+        "line": 53,
+        "subject": "scaledAmount"
+      },
+      {
+        "line": 54,
+        "subject": "scaledAmountDisplay"
+      },
+      {
+        "line": 59,
+        "subject": "scaledAmount"
+      },
+      {
+        "line": 60,
+        "subject": "scaledAmountDisplay"
+      },
+      {
+        "line": 65,
+        "subject": "scaledAmount"
+      },
+      {
+        "line": 66,
+        "subject": "scaledAmountDisplay"
+      }
+    ],
+    "parity": "unmigrated; no preservation claim for React"
+  },
+  {
+    "path": "frontend/app/composables/recipes/__tests__/use-unit-conversion.test.ts",
+    "sha256": "408ea6f2474b57327ee3d2d002388202084bba7b7f3a0e30188d55c65b517635",
+    "imports": [
+      "vitest",
+      "~/tests/utils",
+      "~/lib/api/types/recipe",
+      "../use-unit-conversion"
+    ],
+    "cases": [
+      {
+        "line": 36,
+        "name": "cases",
+        "callee": "test.each"
+      },
+      {
+        "line": 43,
+        "name": "\"stays on the smaller unit below the takeover point\"",
+        "callee": "test"
+      },
+      {
+        "line": 51,
+        "name": "\"moves up once the takeover point is reached\"",
+        "callee": "test"
+      },
+      {
+        "line": 59,
+        "name": "\"cups take over at a quarter cup rather than a whole one\"",
+        "callee": "test"
+      },
+      {
+        "line": 65,
+        "name": "\"falls back to the smallest rung below the whole ladder\"",
+        "callee": "test"
+      },
+      {
+        "line": 89,
+        "name": "cases",
+        "callee": "test.each"
+      },
+      {
+        "line": 93,
+        "name": "\"snaps customary quantities to fractions a measuring cup has\"",
+        "callee": "test"
+      },
+      {
+        "line": 99,
+        "name": "\"keeps the rung when a whole unit of it is close enough\"",
+        "callee": "test"
+      },
+      {
+        "line": 107,
+        "name": "\"drops a rung when the chosen one has no fraction close enough\"",
+        "callee": "test"
+      },
+      {
+        "line": 115,
+        "name": "\"leaves a trace amount unrounded rather than rounding it to nothing\"",
+        "callee": "test"
+      },
+      {
+        "line": 128,
+        "name": "\"customary units are untouched when a customary system is chosen\"",
+        "callee": "test"
+      },
+      {
+        "line": 135,
+        "name": "\"metric units are untouched when metric is chosen\"",
+        "callee": "test"
+      },
+      {
+        "line": 141,
+        "name": "\"stays untouched when scaled, so the unit never changes under the reader\"",
+        "callee": "test"
+      },
+      {
+        "line": 147,
+        "name": "\"but foreign units still convert\"",
+        "callee": "test"
+      },
+      {
+        "line": 157,
+        "name": "\"picks the rung from the scaled magnitude\"",
+        "callee": "test"
+      },
+      {
+        "line": 162,
+        "name": "\"returns an unscaled quantity, so 4oz at 10x reads as 1.15kg\"",
+        "callee": "test"
+      },
+      {
+        "line": 169,
+        "name": "\"rounds the scaled quantity, not the unscaled one\"",
+        "callee": "test"
+      },
+      {
+        "line": 182,
+        "name": "\"a mass ounce converts to grams, not millilitres\"",
+        "callee": "test"
+      },
+      {
+        "line": 190,
+        "name": "\"a fluid ounce converts to millilitres\"",
+        "callee": "test"
+      },
+      {
+        "line": 200,
+        "name": "\"falls back to the singular abbreviation when the seed has no plural one\"",
+        "callee": "test"
+      },
+      {
+        "line": 212,
+        "name": "\"carries translated names and abbreviations\"",
+        "callee": "test"
+      },
+      {
+        "line": 223,
+        "name": "\"renders metric as decimals and customary as fractions\"",
+        "callee": "test"
+      },
+      {
+        "line": 228,
+        "name": "\"abbreviates whichever way the recipe's own unit was written\"",
+        "callee": "test"
+      },
+      {
+        "line": 242,
+        "name": "\"drops the source unit's identity and standardization data\"",
+        "callee": "test"
+      },
+      {
+        "line": 251,
+        "name": "\"leaves the rest of the ingredient alone\"",
+        "callee": "test"
+      }
+    ],
+    "assertions": [
+      {
+        "line": 37,
+        "subject": "canConvertIngredient(input)"
+      },
+      {
+        "line": 38,
+        "subject": "convertIngredient(input, \"metric\")"
+      },
+      {
+        "line": 47,
+        "subject": "converted.unit?.name"
+      },
+      {
+        "line": 48,
+        "subject": "converted.quantity"
+      },
+      {
+        "line": 55,
+        "subject": "converted.unit?.name"
+      },
+      {
+        "line": 56,
+        "subject": "converted.quantity"
+      },
+      {
+        "line": 61,
+        "subject": "convertIngredient(millilitres(59), \"us\").unit?.name"
+      },
+      {
+        "line": 62,
+        "subject": "convertIngredient(millilitres(60), \"us\").unit?.name"
+      },
+      {
+        "line": 68,
+        "subject": "converted.unit?.name"
+      },
+      {
+        "line": 69,
+        "subject": "converted.quantity"
+      },
+      {
+        "line": 90,
+        "subject": "convertIngredient(input, \"metric\").quantity"
+      },
+      {
+        "line": 95,
+        "subject": "convertIngredient(grams(100), \"us\").quantity"
+      },
+      {
+        "line": 96,
+        "subject": "convertIngredient(grams(1000), \"us\").quantity"
+      },
+      {
+        "line": 103,
+        "subject": "converted.unit?.name"
+      },
+      {
+        "line": 104,
+        "subject": "converted.quantity"
+      },
+      {
+        "line": 111,
+        "subject": "converted.unit?.name"
+      },
+      {
+        "line": 112,
+        "subject": "converted.quantity"
+      },
+      {
+        "line": 120,
+        "subject": "converted.quantity"
+      },
+      {
+        "line": 132,
+        "subject": "convertIngredient(input, \"us\")"
+      },
+      {
+        "line": 138,
+        "subject": "convertIngredient(input, \"metric\")"
+      },
+      {
+        "line": 144,
+        "subject": "convertIngredient(input, \"metric\", 10)"
+      },
+      {
+        "line": 148,
+        "subject": "convertIngredient(tablespoons(4), \"metric\").unit?.name"
+      },
+      {
+        "line": 149,
+        "subject": "convertIngredient(grams(1000), \"us\").unit?.name"
+      },
+      {
+        "line": 158,
+        "subject": "convertIngredient(ounces(4), \"metric\", 1).unit?.name"
+      },
+      {
+        "line": 159,
+        "subject": "convertIngredient(ounces(4), \"metric\", 10).unit?.name"
+      },
+      {
+        "line": 165,
+        "subject": "converted.quantity"
+      },
+      {
+        "line": 166,
+        "subject": "(converted.quantity as number) * 10"
+      },
+      {
+        "line": 174,
+        "subject": "(converted.quantity as number) * 3"
+      },
+      {
+        "line": 186,
+        "subject": "converted.unit?.name"
+      },
+      {
+        "line": 187,
+        "subject": "converted.quantity"
+      },
+      {
+        "line": 194,
+        "subject": "converted.unit?.name"
+      },
+      {
+        "line": 195,
+        "subject": "converted.quantity"
+      },
+      {
+        "line": 202,
+        "subject": "convertIngredient(grams(500), \"us\").unit"
+      },
+      {
+        "line": 206,
+        "subject": "convertIngredient(ounces(40), \"metric\").unit"
+      },
+      {
+        "line": 215,
+        "subject": "converted.unit"
+      },
+      {
+        "line": 224,
+        "subject": "convertIngredient(ounces(4), \"metric\").unit?.fraction"
+      },
+      {
+        "line": 225,
+        "subject": "convertIngredient(grams(100), \"us\").unit?.fraction"
+      },
+      {
+        "line": 238,
+        "subject": "convertIngredient(abbreviated, \"us\").unit?.useAbbreviation"
+      },
+      {
+        "line": 239,
+        "subject": "convertIngredient(grams(100), \"us\").unit?.useAbbreviation"
+      },
+      {
+        "line": 245,
+        "subject": "converted.unit?.id"
+      },
+      {
+        "line": 246,
+        "subject": "converted.unit?.standardUnit"
+      },
+      {
+        "line": 247,
+        "subject": "converted.unit?.standardQuantity"
+      },
+      {
+        "line": 255,
+        "subject": "converted.note"
+      },
+      {
+        "line": 256,
+        "subject": "converted.referenceId"
+      },
+      {
+        "line": 257,
+        "subject": "converted.food"
+      },
+      {
+        "line": 258,
+        "subject": "converted"
+      }
+    ],
+    "parity": "unmigrated; no preservation claim for React"
+  },
+  {
+    "path": "frontend/app/composables/recipes/__tests__/use-unit-system.test.ts",
+    "sha256": "30efcf6060e0295e6b21e7058a392315f7cac904ee8ad851dba69d71fc12da06",
+    "imports": [
+      "vitest",
+      "../use-unit-system"
+    ],
+    "cases": [
+      {
+        "line": 9,
+        "name": "\"shows recipes as written until the reader opts in\"",
+        "callee": "test"
+      },
+      {
+        "line": 16,
+        "name": "\"nothing is inferred from the locale\"",
+        "callee": "test"
+      },
+      {
+        "line": 21,
+        "name": "[\"metric\", \"us\"] as const",
+        "callee": "test.each"
+      },
+      {
+        "line": 29,
+        "name": "\"the choice survives a reload\"",
+        "callee": "test"
+      },
+      {
+        "line": 38,
+        "name": "\"showAsWritten goes back to the authored units\"",
+        "callee": "test"
+      }
+    ],
+    "assertions": [
+      {
+        "line": 12,
+        "subject": "unitSystem.value"
+      },
+      {
+        "line": 13,
+        "subject": "isConverting.value"
+      },
+      {
+        "line": 18,
+        "subject": "useUnitSystem().unitSystem.value"
+      },
+      {
+        "line": 25,
+        "subject": "unitSystem.value"
+      },
+      {
+        "line": 26,
+        "subject": "isConverting.value"
+      },
+      {
+        "line": 34,
+        "subject": "localStorage.getItem(\"recipe-unit-system-preferences\")"
+      },
+      {
+        "line": 35,
+        "subject": "useUnitSystem().unitSystem.value"
+      },
+      {
+        "line": 43,
+        "subject": "unitSystem.value"
+      },
+      {
+        "line": 44,
+        "subject": "isConverting.value"
+      }
+    ],
+    "parity": "unmigrated; no preservation claim for React"
+  },
+  {
+    "path": "frontend/app/composables/shopping-list-page/sub-composables/use-shopping-list-search.test.ts",
+    "sha256": "f0cd424767a3ed3c4918fe1d87559b53d36a4360ae5db0eda12c2ca06c0e538b",
+    "imports": [
+      "vue",
+      "vitest",
+      "./use-shopping-list-search",
+      "~/lib/api/types/household"
+    ],
+    "cases": [
+      {
+        "line": 28,
+        "name": "\"an empty query matches every item and is not 'searching'\"",
+        "callee": "test"
+      },
+      {
+        "line": 38,
+        "name": "\"matches a note-only item by its note text\"",
+        "callee": "test"
+      },
+      {
+        "line": 45,
+        "name": "\"matches a food-backed item by food name\"",
+        "callee": "test"
+      },
+      {
+        "line": 55,
+        "name": "\"matches a food-backed item by its note as well as its food\"",
+        "callee": "test"
+      },
+      {
+        "line": 65,
+        "name": "\"matches a food alias\"",
+        "callee": "test"
+      },
+      {
+        "line": 75,
+        "name": "\"matches on label name, so searching an aisle narrows the list to it\"",
+        "callee": "test"
+      },
+      {
+        "line": 87,
+        "name": "\"a query that matches nothing yields no matches\"",
+        "callee": "test"
+      },
+      {
+        "line": 96,
+        "name": "\"clearSearch restores every item\"",
+        "callee": "test"
+      },
+      {
+        "line": 108,
+        "name": "\"does not match items that merely look similar to the query\"",
+        "callee": "test"
+      },
+      {
+        "line": 123,
+        "name": "\"a query with no real match returns nothing rather than a near-miss\"",
+        "callee": "test"
+      },
+      {
+        "line": 134,
+        "name": "\"a multi-word query matches as a phrase, like every other search in the app\"",
+        "callee": "test"
+      },
+      {
+        "line": 153,
+        "name": "`is only offered once the list has more than ${SEARCH_MIN_LIST_SIZE} items`",
+        "callee": "test"
+      },
+      {
+        "line": 162,
+        "name": "\"starts closed and opens on toggle\"",
+        "callee": "test"
+      },
+      {
+        "line": 170,
+        "name": "\"closing the field clears the query, so nothing stays hidden\"",
+        "callee": "test"
+      }
+    ],
+    "assertions": [
+      {
+        "line": 32,
+        "subject": "isSearching.value"
+      },
+      {
+        "line": 33,
+        "subject": "items.every(matchesSearch)"
+      },
+      {
+        "line": 34,
+        "subject": "countMatches(items)"
+      },
+      {
+        "line": 35,
+        "subject": "hasMatches(items)"
+      },
+      {
+        "line": 42,
+        "subject": "items.filter(matchesSearch).map(i => i.id)"
+      },
+      {
+        "line": 52,
+        "subject": "items.filter(matchesSearch).map(i => i.id)"
+      },
+      {
+        "line": 62,
+        "subject": "items.filter(matchesSearch).map(i => i.id)"
+      },
+      {
+        "line": 72,
+        "subject": "items.filter(matchesSearch).map(i => i.id)"
+      },
+      {
+        "line": 83,
+        "subject": "items.filter(matchesSearch).map(i => i.id)"
+      },
+      {
+        "line": 84,
+        "subject": "countMatches(items)"
+      },
+      {
+        "line": 91,
+        "subject": "items.some(matchesSearch)"
+      },
+      {
+        "line": 92,
+        "subject": "countMatches(items)"
+      },
+      {
+        "line": 93,
+        "subject": "hasMatches(items)"
+      },
+      {
+        "line": 99,
+        "subject": "composable.countMatches(items)"
+      },
+      {
+        "line": 102,
+        "subject": "composable.isSearching.value"
+      },
+      {
+        "line": 103,
+        "subject": "composable.countMatches(items)"
+      },
+      {
+        "line": 120,
+        "subject": "items.filter(matchesSearch).map(i => i.id)"
+      },
+      {
+        "line": 130,
+        "subject": "items.some(matchesSearch)"
+      },
+      {
+        "line": 131,
+        "subject": "hasMatches(items)"
+      },
+      {
+        "line": 143,
+        "subject": "items.filter(searchFor(items, \"green bean\").matchesSearch).map(i => i.id)"
+      },
+      {
+        "line": 145,
+        "subject": "items.filter(searchFor(items, \"bean green\").matchesSearch)"
+      },
+      {
+        "line": 156,
+        "subject": "canSearch.value"
+      },
+      {
+        "line": 159,
+        "subject": "canSearch.value"
+      },
+      {
+        "line": 164,
+        "subject": "isSearchOpen.value"
+      },
+      {
+        "line": 167,
+        "subject": "isSearchOpen.value"
+      },
+      {
+        "line": 176,
+        "subject": "composable.isSearching.value"
+      },
+      {
+        "line": 179,
+        "subject": "composable.isSearchOpen.value"
+      },
+      {
+        "line": 180,
+        "subject": "composable.search.value"
+      },
+      {
+        "line": 181,
+        "subject": "composable.isSearching.value"
+      },
+      {
+        "line": 182,
+        "subject": "composable.countMatches(list)"
+      }
+    ],
+    "parity": "unmigrated; no preservation claim for React"
+  },
+  {
+    "path": "frontend/app/composables/shopping-list-page/sub-composables/__tests__/use-shopping-list-copy.test.ts",
+    "sha256": "e8daeb604ec7f780aa879dac7e766c90637538fa1fafa19bb9c48cf817b2cb67",
+    "imports": [
+      "@vueuse/core",
+      "vitest",
+      "~/lib/api/types/household",
+      "~/tests/utils",
+      "../use-shopping-list-copy",
+      "./mocks"
+    ],
+    "cases": [
+      {
+        "line": 37,
+        "name": "\"copies markdown lists correctly\"",
+        "callee": "test"
+      },
+      {
+        "line": 50,
+        "name": "\"copies plain text lists correctly\"",
+        "callee": "test"
+      },
+      {
+        "line": 63,
+        "name": "\"omits the heading when every item is unlabeled\"",
+        "callee": "test"
+      },
+      {
+        "line": 74,
+        "name": "\"keeps the no-label heading when other labels are also present\"",
+        "callee": "test"
+      },
+      {
+        "line": 95,
+        "name": "\"copies markdown headers correctly\"",
+        "callee": "test"
+      },
+      {
+        "line": 100,
+        "name": "\"copies plain text headers correctly\"",
+        "callee": "test"
+      },
+      {
+        "line": 108,
+        "name": "\"copies markdown items correctly\"",
+        "callee": "test"
+      },
+      {
+        "line": 113,
+        "name": "\"copies plain text items correctly\"",
+        "callee": "test"
+      },
+      {
+        "line": 118,
+        "name": "\"copies items without a display as empty\"",
+        "callee": "test"
+      }
+    ],
+    "assertions": [
+      {
+        "line": 48,
+        "subject": "mockCopy"
+      },
+      {
+        "line": 61,
+        "subject": "mockCopy"
+      },
+      {
+        "line": 68,
+        "subject": "mockCopy"
+      },
+      {
+        "line": 71,
+        "subject": "mockCopy"
+      },
+      {
+        "line": 90,
+        "subject": "mockCopy"
+      },
+      {
+        "line": 98,
+        "subject": "header"
+      },
+      {
+        "line": 103,
+        "subject": "header"
+      },
+      {
+        "line": 111,
+        "subject": "header"
+      },
+      {
+        "line": 116,
+        "subject": "header"
+      },
+      {
+        "line": 121,
+        "subject": "header"
+      }
+    ],
+    "parity": "unmigrated; no preservation claim for React"
+  },
+  {
+    "path": "frontend/app/composables/shopping-list-page/sub-composables/__tests__/use-shopping-list-crud.test.ts",
+    "sha256": "2e01556a00836aaac2cf2387f6fbf85ee03bcad76fadce3cbc4822f0db9590a3",
+    "imports": [
+      "vitest",
+      "../use-shopping-list-crud",
+      "../use-shopping-list-state",
+      "./mocks"
+    ],
+    "cases": [
+      {
+        "line": 90,
+        "name": "\"checks items\"",
+        "callee": "test"
+      },
+      {
+        "line": 101,
+        "name": "\"doesn't refresh if nothing changed\"",
+        "callee": "test"
+      },
+      {
+        "line": 112,
+        "name": "\"doesn't panic if shopping list is null\"",
+        "callee": "test"
+      },
+      {
+        "line": 119,
+        "name": "\"unchecks items\"",
+        "callee": "test"
+      },
+      {
+        "line": 130,
+        "name": "\"doesn't refresh if nothing changed\"",
+        "callee": "test"
+      },
+      {
+        "line": 141,
+        "name": "\"doesn't panic if shopping list is null\"",
+        "callee": "test"
+      },
+      {
+        "line": 148,
+        "name": "\"unchecks items\"",
+        "callee": "test"
+      },
+      {
+        "line": 159,
+        "name": "\"doesn't refresh if nothing changed\"",
+        "callee": "test"
+      },
+      {
+        "line": 170,
+        "name": "\"doesn't panic if shopping list is null\"",
+        "callee": "test"
+      },
+      {
+        "line": 177,
+        "name": "\"saves list item\"",
+        "callee": "test"
+      },
+      {
+        "line": 188,
+        "name": "\"doesn't panic if shopping list is null\"",
+        "callee": "test"
+      },
+      {
+        "line": 195,
+        "name": "\"deletes list item\"",
+        "callee": "test"
+      },
+      {
+        "line": 206,
+        "name": "\"doesn't panic if shopping list is null\"",
+        "callee": "test"
+      },
+      {
+        "line": 213,
+        "name": "\"creates list item\"",
+        "callee": "test"
+      },
+      {
+        "line": 225,
+        "name": "\"doesn't create empty items\"",
+        "callee": "test"
+      },
+      {
+        "line": 236,
+        "name": "\"doesn't panic if shopping list is null\"",
+        "callee": "test"
+      },
+      {
+        "line": 243,
+        "name": "\"updates label order\"",
+        "callee": "test"
+      },
+      {
+        "line": 255,
+        "name": "\"doesn't panic if shopping list is null\"",
+        "callee": "test"
+      },
+      {
+        "line": 263,
+        "name": "\"cancels label order\"",
+        "callee": "test"
+      },
+      {
+        "line": 275,
+        "name": "\"doesn't panic if shopping list is null\"",
+        "callee": "test"
+      },
+      {
+        "line": 283,
+        "name": "\"saves label order\"",
+        "callee": "test"
+      },
+      {
+        "line": 297,
+        "name": "\"doesn't panic if shopping list is null\"",
+        "callee": "test"
+      },
+      {
+        "line": 307,
+        "name": "\"toggles label order dialog\"",
+        "callee": "test"
+      }
+    ],
+    "assertions": [
+      {
+        "line": 99,
+        "subject": "mockRefresh"
+      },
+      {
+        "line": 110,
+        "subject": "mockRefresh"
+      },
+      {
+        "line": 115,
+        "subject": "mockRefresh"
+      },
+      {
+        "line": 128,
+        "subject": "mockRefresh"
+      },
+      {
+        "line": 139,
+        "subject": "mockRefresh"
+      },
+      {
+        "line": 144,
+        "subject": "mockRefresh"
+      },
+      {
+        "line": 157,
+        "subject": "mockRefresh"
+      },
+      {
+        "line": 168,
+        "subject": "mockRefresh"
+      },
+      {
+        "line": 173,
+        "subject": "mockRefresh"
+      },
+      {
+        "line": 186,
+        "subject": "shoppingListItemActions.updateItem"
+      },
+      {
+        "line": 191,
+        "subject": "shoppingListItemActions.updateItem"
+      },
+      {
+        "line": 204,
+        "subject": "shoppingListItemActions.deleteItem"
+      },
+      {
+        "line": 209,
+        "subject": "shoppingListItemActions.deleteItem"
+      },
+      {
+        "line": 223,
+        "subject": "shoppingListItemActions.createItem"
+      },
+      {
+        "line": 234,
+        "subject": "shoppingListItemActions.createItem"
+      },
+      {
+        "line": 239,
+        "subject": "shoppingListItemActions.createItem"
+      },
+      {
+        "line": 253,
+        "subject": "localLabels.value"
+      },
+      {
+        "line": 259,
+        "subject": "localLabels"
+      },
+      {
+        "line": 272,
+        "subject": "loadingCounter.value"
+      },
+      {
+        "line": 273,
+        "subject": "localLabels.value"
+      },
+      {
+        "line": 278,
+        "subject": "loadingCounter.value"
+      },
+      {
+        "line": 279,
+        "subject": "localLabels.value"
+      },
+      {
+        "line": 294,
+        "subject": "updateLabelSettings"
+      },
+      {
+        "line": 295,
+        "subject": "mockUpdate"
+      },
+      {
+        "line": 302,
+        "subject": "updateLabelSettings"
+      },
+      {
+        "line": 303,
+        "subject": "mockUpdate"
+      },
+      {
+        "line": 310,
+        "subject": "isOpen.value"
+      },
+      {
+        "line": 311,
+        "subject": "localLabels.value"
+      }
+    ],
+    "parity": "unmigrated; no preservation claim for React"
+  },
+  {
+    "path": "frontend/app/composables/shopping-list-page/sub-composables/__tests__/use-shopping-list-data.test.ts",
+    "sha256": "b04b625c68e154db9e60ec4a054b0b86e3d5fb7fca2c249d682a23c7d13eeea2",
+    "imports": [
+      "@vueuse/core",
+      "vitest",
+      "vue",
+      "~/lib/api/types/household",
+      "../use-shopping-list-data",
+      "./mocks"
+    ],
+    "cases": [
+      {
+        "line": 66,
+        "name": "\"can determine if the user is online\"",
+        "callee": "test"
+      },
+      {
+        "line": 72,
+        "name": "\"fetches shopping list\"",
+        "callee": "test"
+      },
+      {
+        "line": 78,
+        "name": "\"update when successful\"",
+        "callee": "test"
+      },
+      {
+        "line": 83,
+        "name": "\"update when offline\"",
+        "callee": "test"
+      },
+      {
+        "line": 89,
+        "name": "\"does not overwrite the list when there's an error\"",
+        "callee": "test"
+      },
+      {
+        "line": 96,
+        "name": "\"logs an error if processing fails\"",
+        "callee": "test"
+      },
+      {
+        "line": 104,
+        "name": "\"only update the list with the new value if we're not loading, to prevent UI jitter\"",
+        "callee": "test"
+      },
+      {
+        "line": 112,
+        "name": "\"starts and stops\"",
+        "callee": "test"
+      },
+      {
+        "line": 119,
+        "name": "\"doesn't poll if idle\"",
+        "callee": "test"
+      },
+      {
+        "line": 127,
+        "name": "\"doesn't poll if something else is loading\"",
+        "callee": "test"
+      },
+      {
+        "line": 135,
+        "name": "\"gives up after max attempts 1\"",
+        "callee": "test"
+      },
+      {
+        "line": 142,
+        "name": "\"gives up after max attempts 2\"",
+        "callee": "test"
+      },
+      {
+        "line": 149,
+        "name": "\"stopPolling doesn't explode if there isn't a timer running\"",
+        "callee": "test"
+      }
+    ],
+    "assertions": [
+      {
+        "line": 67,
+        "subject": "isOffline.value"
+      },
+      {
+        "line": 69,
+        "subject": "isOffline.value"
+      },
+      {
+        "line": 74,
+        "subject": "list"
+      },
+      {
+        "line": 80,
+        "subject": "mockUpdate"
+      },
+      {
+        "line": 81,
+        "subject": "shoppingList.value"
+      },
+      {
+        "line": 86,
+        "subject": "mockUpdate"
+      },
+      {
+        "line": 87,
+        "subject": "shoppingList.value"
+      },
+      {
+        "line": 92,
+        "subject": "mockUpdate"
+      },
+      {
+        "line": 93,
+        "subject": "shoppingList.value"
+      },
+      {
+        "line": 94,
+        "subject": "consoleError"
+      },
+      {
+        "line": 100,
+        "subject": "mockUpdate"
+      },
+      {
+        "line": 101,
+        "subject": "shoppingList.value"
+      },
+      {
+        "line": 102,
+        "subject": "consoleError"
+      },
+      {
+        "line": 108,
+        "subject": "mockUpdate"
+      },
+      {
+        "line": 115,
+        "subject": "mockUpdate"
+      },
+      {
+        "line": 117,
+        "subject": "mockClearInterval"
+      },
+      {
+        "line": 123,
+        "subject": "mockUpdate"
+      },
+      {
+        "line": 125,
+        "subject": "mockClearInterval"
+      },
+      {
+        "line": 131,
+        "subject": "mockUpdate"
+      },
+      {
+        "line": 133,
+        "subject": "mockClearInterval"
+      },
+      {
+        "line": 140,
+        "subject": "mockClearInterval"
+      },
+      {
+        "line": 147,
+        "subject": "mockClearInterval"
+      },
+      {
+        "line": 152,
+        "subject": "true"
+      }
+    ],
+    "parity": "unmigrated; no preservation claim for React"
+  },
+  {
+    "path": "frontend/app/composables/shopping-list-page/sub-composables/__tests__/use-shopping-list-item-actions.test.ts",
+    "sha256": "4a48317b77005e603f01f457897ac4b5fa7919ca7d58cba5cebb289d4b7c8ac7",
+    "imports": [
+      "@vueuse/core",
+      "vitest",
+      "../use-shopping-list-item-actions",
+      "../use-shopping-list-item-actions",
+      "./mocks"
+    ],
+    "cases": [
+      {
+        "line": 45,
+        "name": "\"getList returns a shopping list\"",
+        "callee": "test"
+      },
+      {
+        "line": 49,
+        "name": "\"create item creates an item\"",
+        "callee": "test"
+      },
+      {
+        "line": 54,
+        "name": "\"update item updates an item\"",
+        "callee": "test"
+      },
+      {
+        "line": 58,
+        "name": "\"ignores a newly created item\"",
+        "callee": "test"
+      },
+      {
+        "line": 68,
+        "name": "\"delete item deletes an item\"",
+        "callee": "test"
+      },
+      {
+        "line": 72,
+        "name": "\"undoes a newly created item\"",
+        "callee": "test"
+      },
+      {
+        "line": 80,
+        "name": "\"normally\"",
+        "callee": "test"
+      },
+      {
+        "line": 94,
+        "name": "\"clears the queue if there was an error merging\"",
+        "callee": "test"
+      },
+      {
+        "line": 112,
+        "name": "\"doesn't clear the queue if offline\"",
+        "callee": "test"
+      },
+      {
+        "line": 128,
+        "name": "\"doesn't do anything if the queue is empty\"",
+        "callee": "test"
+      },
+      {
+        "line": 134,
+        "name": "\"doesn't do anything if we can't find the list\"",
+        "callee": "test"
+      },
+      {
+        "line": 151,
+        "name": "\"fetches from local storage if available\"",
+        "callee": "test"
+      }
+    ],
+    "assertions": [
+      {
+        "line": 47,
+        "subject": "list"
+      },
+      {
+        "line": 51,
+        "subject": "queue.create.includes(MOCK_ITEM)"
+      },
+      {
+        "line": 56,
+        "subject": "queue.update"
+      },
+      {
+        "line": 62,
+        "subject": "queue.update"
+      },
+      {
+        "line": 63,
+        "subject": "queue.create"
+      },
+      {
+        "line": 64,
+        "subject": "queue.create"
+      },
+      {
+        "line": 70,
+        "subject": "queue.delete"
+      },
+      {
+        "line": 75,
+        "subject": "queue.delete"
+      },
+      {
+        "line": 76,
+        "subject": "queue.create"
+      },
+      {
+        "line": 90,
+        "subject": "queue.update"
+      },
+      {
+        "line": 91,
+        "subject": "queue.create"
+      },
+      {
+        "line": 92,
+        "subject": "queue.delete"
+      },
+      {
+        "line": 108,
+        "subject": "queue.update"
+      },
+      {
+        "line": 109,
+        "subject": "queue.create"
+      },
+      {
+        "line": 110,
+        "subject": "queue.delete"
+      },
+      {
+        "line": 124,
+        "subject": "queue.update"
+      },
+      {
+        "line": 125,
+        "subject": "queue.create"
+      },
+      {
+        "line": 126,
+        "subject": "queue.delete"
+      },
+      {
+        "line": 130,
+        "subject": "updateMany"
+      },
+      {
+        "line": 131,
+        "subject": "createMany"
+      },
+      {
+        "line": 132,
+        "subject": "deleteMany"
+      },
+      {
+        "line": 145,
+        "subject": "updateMany"
+      },
+      {
+        "line": 146,
+        "subject": "createMany"
+      },
+      {
+        "line": 147,
+        "subject": "deleteMany"
+      },
+      {
+        "line": 153,
+        "subject": "queue"
+      }
+    ],
+    "parity": "unmigrated; no preservation claim for React"
+  },
+  {
+    "path": "frontend/app/composables/shopping-list-page/sub-composables/__tests__/use-shopping-list-labels.test.ts",
+    "sha256": "ce7a9f7ed8aaf6c8b8edbb07ad72d57480eb9c6825b725fbd7202aef543200eb",
+    "imports": [
+      "vitest",
+      "~/lib/api/types/household",
+      "~/tests/utils",
+      "../use-shopping-list-labels",
+      "./mocks"
+    ],
+    "cases": [
+      {
+        "line": 29,
+        "name": "\"gets the correct color\"",
+        "callee": "test"
+      },
+      {
+        "line": 35,
+        "name": "\"handles undefined names\"",
+        "callee": "test"
+      },
+      {
+        "line": 39,
+        "name": "\"handles undefined items\"",
+        "callee": "test"
+      }
+    ],
+    "assertions": [
+      {
+        "line": 32,
+        "subject": "color1"
+      },
+      {
+        "line": 33,
+        "subject": "color2"
+      },
+      {
+        "line": 37,
+        "subject": "color1"
+      },
+      {
+        "line": 45,
+        "subject": "color1"
+      }
+    ],
+    "parity": "unmigrated; no preservation claim for React"
+  },
+  {
+    "path": "frontend/app/composables/shopping-list-page/sub-composables/__tests__/use-shopping-list-recipes.test.ts",
+    "sha256": "be37616737ea934fef3730658ba7d9fa84a211b520f38b928dde0d3ba95547cb",
+    "imports": [
+      "vitest",
+      "vue",
+      "~/lib/api/types/household",
+      "../use-shopping-list-recipes",
+      "./mocks"
+    ],
+    "cases": [
+      {
+        "line": 42,
+        "name": "\"updates tracking values\"",
+        "callee": "test"
+      },
+      {
+        "line": 53,
+        "name": "\"refreshes only on success\"",
+        "callee": "test"
+      },
+      {
+        "line": 61,
+        "name": "\"only updates if shopping list exists\"",
+        "callee": "test"
+      },
+      {
+        "line": 67,
+        "name": "\"doesn't update if something else is loading\"",
+        "callee": "test"
+      }
+    ],
+    "assertions": [
+      {
+        "line": 43,
+        "subject": "loadingCounter.value"
+      },
+      {
+        "line": 44,
+        "subject": "recipeReferenceLoading.value"
+      },
+      {
+        "line": 46,
+        "subject": "loadingCounter.value"
+      },
+      {
+        "line": 47,
+        "subject": "recipeReferenceLoading.value"
+      },
+      {
+        "line": 49,
+        "subject": "loadingCounter.value"
+      },
+      {
+        "line": 50,
+        "subject": "recipeReferenceLoading.value"
+      },
+      {
+        "line": 51,
+        "subject": "mock"
+      },
+      {
+        "line": 57,
+        "subject": "refresh"
+      },
+      {
+        "line": 59,
+        "subject": "refresh"
+      },
+      {
+        "line": 65,
+        "subject": "mock"
+      },
+      {
+        "line": 71,
+        "subject": "mock"
+      }
+    ],
+    "parity": "unmigrated; no preservation claim for React"
+  },
+  {
+    "path": "frontend/app/composables/shopping-list-page/sub-composables/__tests__/use-shopping-list-sorting.test.ts",
+    "sha256": "1a9bc524815e8e59d520eb67b74bbc3808c20bf67692f9ea9b215db407ae0ff3",
+    "imports": [
+      "vitest",
+      "~/lib/api/types/household",
+      "~/tests/utils",
+      "../use-shopping-list-sorting",
+      "./mocks"
+    ],
+    "cases": [
+      {
+        "line": 18,
+        "name": "\"sorts by position first\"",
+        "callee": "test"
+      },
+      {
+        "line": 24,
+        "name": "\"sorts by createdAt next\"",
+        "callee": "test"
+      },
+      {
+        "line": 30,
+        "name": "\"sorts similar items into the same spot\"",
+        "callee": "test"
+      },
+      {
+        "line": 34,
+        "name": "\"handles nulls\"",
+        "callee": "test"
+      },
+      {
+        "line": 40,
+        "name": "\"handles nulls\"",
+        "callee": "test"
+      },
+      {
+        "line": 49,
+        "name": "\"sorts by position first\"",
+        "callee": "test"
+      },
+      {
+        "line": 58,
+        "name": "\"handles nulls\"",
+        "callee": "test"
+      },
+      {
+        "line": 66,
+        "name": "\"sorts by group\"",
+        "callee": "test"
+      },
+      {
+        "line": 89,
+        "name": "\"ignores checked items\"",
+        "callee": "test"
+      },
+      {
+        "line": 111,
+        "name": "\"returns unordered labels if no ordering is specified\"",
+        "callee": "test"
+      },
+      {
+        "line": 138,
+        "name": "\"sorts by group\"",
+        "callee": "test"
+      },
+      {
+        "line": 143,
+        "name": "\"groups checked items together\"",
+        "callee": "test"
+      },
+      {
+        "line": 156,
+        "name": "\"populates position and created at if not present\"",
+        "callee": "test"
+      },
+      {
+        "line": 169,
+        "name": "\"handles nulls\"",
+        "callee": "test"
+      }
+    ],
+    "assertions": [
+      {
+        "line": 21,
+        "subject": "result"
+      },
+      {
+        "line": 22,
+        "subject": "result2"
+      },
+      {
+        "line": 27,
+        "subject": "result"
+      },
+      {
+        "line": 28,
+        "subject": "result2"
+      },
+      {
+        "line": 32,
+        "subject": "result"
+      },
+      {
+        "line": 37,
+        "subject": "result"
+      },
+      {
+        "line": 38,
+        "subject": "result2"
+      },
+      {
+        "line": 43,
+        "subject": "result"
+      },
+      {
+        "line": 44,
+        "subject": "result2"
+      },
+      {
+        "line": 52,
+        "subject": "sortedList.listItems"
+      },
+      {
+        "line": 61,
+        "subject": "sortedList.listItems"
+      },
+      {
+        "line": 76,
+        "subject": "result"
+      },
+      {
+        "line": 99,
+        "subject": "result"
+      },
+      {
+        "line": 123,
+        "subject": "result"
+      },
+      {
+        "line": 141,
+        "subject": "sortedList.listItems"
+      },
+      {
+        "line": 151,
+        "subject": "sortedList.listItems"
+      },
+      {
+        "line": 164,
+        "subject": "sortedList.listItems"
+      },
+      {
+        "line": 172,
+        "subject": "sortedList.listItems"
+      }
+    ],
+    "parity": "unmigrated; no preservation claim for React"
+  },
+  {
+    "path": "frontend/app/composables/shopping-list-page/sub-composables/__tests__/use-shopping-list-state.test.ts",
+    "sha256": "6708e18d9c5fd1793ae2cf0d9c6adba1e4915fc3c925114ee310a216f4931f69",
+    "imports": [
+      "vitest",
+      "~/lib/api/types/household",
+      "~/tests/utils",
+      "../use-shopping-list-state",
+      "./mocks"
+    ],
+    "cases": [
+      {
+        "line": 20,
+        "name": "\"by timestamp\"",
+        "callee": "test"
+      },
+      {
+        "line": 26,
+        "name": "\"by position if timestamps match\"",
+        "callee": "test"
+      },
+      {
+        "line": 37,
+        "name": "\"Updates to match shopping list recipe references\"",
+        "callee": "test"
+      },
+      {
+        "line": 44,
+        "name": "\"handles nulls\"",
+        "callee": "test"
+      },
+      {
+        "line": 51,
+        "name": "\"update appropriately\"",
+        "callee": "test"
+      },
+      {
+        "line": 65,
+        "name": "\"Updates to match shopping list recipe references\"",
+        "callee": "test"
+      }
+    ],
+    "assertions": [
+      {
+        "line": 23,
+        "subject": "sorted"
+      },
+      {
+        "line": 24,
+        "subject": "sorted2"
+      },
+      {
+        "line": 30,
+        "subject": "sorted"
+      },
+      {
+        "line": 31,
+        "subject": "sorted2"
+      },
+      {
+        "line": 32,
+        "subject": "sorted3"
+      },
+      {
+        "line": 39,
+        "subject": "recipeMap"
+      },
+      {
+        "line": 46,
+        "subject": "recipeMap"
+      },
+      {
+        "line": 59,
+        "subject": "unchecked[0]"
+      },
+      {
+        "line": 60,
+        "subject": "checked[0]"
+      },
+      {
+        "line": 67,
+        "subject": "recipeList"
+      }
+    ],
+    "parity": "unmigrated; no preservation claim for React"
+  },
+  {
+    "path": "frontend/app/composables/shopping-list-page/__tests__/use-shopping-list-item-editor.test.ts",
+    "sha256": "e7e0df6eac8f99f1ff7eca248a87ce682c664c0a55205c6157eb49289b22bb66",
+    "imports": [
+      "vitest",
+      "vue",
+      "~/lib/api/types/household",
+      "../sub-composables/__tests__/mocks",
+      "../use-shopping-list-item-editor"
+    ],
+    "cases": [
+      {
+        "line": 42,
+        "name": "\"creates food\"",
+        "callee": "test"
+      },
+      {
+        "line": 47,
+        "name": "\"creates unit when unit is undefined\"",
+        "callee": "test"
+      },
+      {
+        "line": 52,
+        "name": "\"does not overwrite unit when something goes wrong\"",
+        "callee": "test"
+      },
+      {
+        "line": 59,
+        "name": "\"creates unit\"",
+        "callee": "test"
+      },
+      {
+        "line": 64,
+        "name": "\"creates unit when unit is undefined\"",
+        "callee": "test"
+      },
+      {
+        "line": 69,
+        "name": "\"does not overwrite unit when something goes wrong\"",
+        "callee": "test"
+      },
+      {
+        "line": 81,
+        "name": "\"updates food with new label\"",
+        "callee": "test"
+      },
+      {
+        "line": 85,
+        "name": "\"doesn't update when there's no food\"",
+        "callee": "test"
+      },
+      {
+        "line": 90,
+        "name": "\"doesn't update when there's no food id\"",
+        "callee": "test"
+      },
+      {
+        "line": 95,
+        "name": "\"doesn't update when there's no label\"",
+        "callee": "test"
+      }
+    ],
+    "assertions": [
+      {
+        "line": 45,
+        "subject": "foodStore.actions.createOne"
+      },
+      {
+        "line": 50,
+        "subject": "foodStore.actions.createOne"
+      },
+      {
+        "line": 55,
+        "subject": "item.value.foodId"
+      },
+      {
+        "line": 62,
+        "subject": "unitStore.actions.createOne"
+      },
+      {
+        "line": 67,
+        "subject": "unitStore.actions.createOne"
+      },
+      {
+        "line": 72,
+        "subject": "item.value.unitId"
+      },
+      {
+        "line": 83,
+        "subject": "foodStore.actions.updateOne"
+      },
+      {
+        "line": 88,
+        "subject": "foodStore.actions.updateOne"
+      },
+      {
+        "line": 93,
+        "subject": "foodStore.actions.updateOne"
+      },
+      {
+        "line": 98,
+        "subject": "foodStore.actions.updateOne"
+      }
+    ],
+    "parity": "unmigrated; no preservation claim for React"
+  },
+  {
+    "path": "frontend/app/composables/shopping-list-page/__tests__/use-shopping-list-page.test.ts",
+    "sha256": "b3681e73163e09df230ce98d053f9fd144f148cf241e55043b6dac82fca82698",
+    "imports": [
+      "vitest",
+      "../sub-composables/__tests__/mocks",
+      "../use-shopping-list-page",
+      "vue"
+    ],
+    "cases": [
+      {
+        "line": 100,
+        "name": "\"opens the dialog\"",
+        "callee": "test"
+      },
+      {
+        "line": 104,
+        "name": "\"skips the dialog if there's nothing to check\"",
+        "callee": "test"
+      },
+      {
+        "line": 116,
+        "name": "\"opens the dialog\"",
+        "callee": "test"
+      },
+      {
+        "line": 120,
+        "name": "\"skips the dialog if there's nothing to uncheck\"",
+        "callee": "test"
+      },
+      {
+        "line": 132,
+        "name": "\"opens the dialog\"",
+        "callee": "test"
+      },
+      {
+        "line": 136,
+        "name": "\"skips the dialog if there's nothing to delete\"",
+        "callee": "test"
+      },
+      {
+        "line": 148,
+        "name": "\"closes the dialog\"",
+        "callee": "test"
+      },
+      {
+        "line": 153,
+        "name": "\"calls the crud action\"",
+        "callee": "test"
+      },
+      {
+        "line": 159,
+        "name": "\"closes the dialog\"",
+        "callee": "test"
+      },
+      {
+        "line": 164,
+        "name": "\"calls the crud action\"",
+        "callee": "test"
+      },
+      {
+        "line": 170,
+        "name": "\"closes the dialog\"",
+        "callee": "test"
+      },
+      {
+        "line": 175,
+        "name": "\"calls the crud action\"",
+        "callee": "test"
+      },
+      {
+        "line": 181,
+        "name": "\"copys list items\"",
+        "callee": "test"
+      },
+      {
+        "line": 187,
+        "name": "\"toggles the dialog\"",
+        "callee": "test"
+      },
+      {
+        "line": 193,
+        "name": "\"saves label order\"",
+        "callee": "test"
+      },
+      {
+        "line": 200,
+        "name": "\"doesn't delete label order if something goes wrong\"",
+        "callee": "test"
+      },
+      {
+        "line": 209,
+        "name": "\"updates list item order\"",
+        "callee": "test"
+      },
+      {
+        "line": 215,
+        "name": "\"preserves user item order\"",
+        "callee": "test"
+      },
+      {
+        "line": 222,
+        "name": "\"doesn't overwrite list items if something goes wrong\"",
+        "callee": "test"
+      },
+      {
+        "line": 228,
+        "name": "\"doesn't panic if shopping list doesn't exist\"",
+        "callee": "test"
+      },
+      {
+        "line": 237,
+        "name": "\"updates items\"",
+        "callee": "test"
+      },
+      {
+        "line": 241,
+        "name": "\"doesn't panic if key doesn't exist\"",
+        "callee": "test"
+      },
+      {
+        "line": 247,
+        "name": "\"starts polling on mount\"",
+        "callee": "test"
+      },
+      {
+        "line": 251,
+        "name": "\"stops polling on unmount\"",
+        "callee": "test"
+      }
+    ],
+    "assertions": [
+      {
+        "line": 102,
+        "subject": "state.checkAllDialog"
+      },
+      {
+        "line": 112,
+        "subject": "state.checkAllDialog"
+      },
+      {
+        "line": 118,
+        "subject": "state.uncheckAllDialog"
+      },
+      {
+        "line": 128,
+        "subject": "state.uncheckAllDialog"
+      },
+      {
+        "line": 134,
+        "subject": "state.deleteCheckedDialog"
+      },
+      {
+        "line": 144,
+        "subject": "state.deleteCheckedDialog"
+      },
+      {
+        "line": 151,
+        "subject": "state.checkAllDialog"
+      },
+      {
+        "line": 155,
+        "subject": "crud.checkAllItems"
+      },
+      {
+        "line": 162,
+        "subject": "state.uncheckAllDialog"
+      },
+      {
+        "line": 166,
+        "subject": "crud.uncheckAllItems"
+      },
+      {
+        "line": 173,
+        "subject": "state.deleteCheckedDialog"
+      },
+      {
+        "line": 177,
+        "subject": "crud.deleteCheckedItems"
+      },
+      {
+        "line": 183,
+        "subject": "mockCopyListItems"
+      },
+      {
+        "line": 189,
+        "subject": "crud.toggleReorderLabelsDialog"
+      },
+      {
+        "line": 197,
+        "subject": "crud.saveLabelOrder"
+      },
+      {
+        "line": 198,
+        "subject": "itemsByLabel.value"
+      },
+      {
+        "line": 204,
+        "subject": "crud.saveLabelOrder"
+      },
+      {
+        "line": 205,
+        "subject": "itemsByLabel.value"
+      },
+      {
+        "line": 212,
+        "subject": "sorting.groupAndSortListItemsByFood"
+      },
+      {
+        "line": 213,
+        "subject": "itemsByLabel.value"
+      },
+      {
+        "line": 219,
+        "subject": "sorting.sortListItems"
+      },
+      {
+        "line": 220,
+        "subject": "itemsByLabel.value"
+      },
+      {
+        "line": 225,
+        "subject": "sorting.groupAndSortListItemsByFood"
+      },
+      {
+        "line": 226,
+        "subject": "itemsByLabel.value"
+      },
+      {
+        "line": 232,
+        "subject": "sorting.groupAndSortListItemsByFood"
+      },
+      {
+        "line": 233,
+        "subject": "itemsByLabel.value"
+      },
+      {
+        "line": 239,
+        "subject": "crud.updateUncheckedListItems"
+      },
+      {
+        "line": 243,
+        "subject": "crud.updateUncheckedListItems"
+      },
+      {
+        "line": 249,
+        "subject": "data.startPolling"
+      },
+      {
+        "line": 253,
+        "subject": "data.stopPolling"
+      }
+    ],
+    "parity": "unmigrated; no preservation claim for React"
+  },
+  {
+    "path": "frontend/app/composables/use-search.test.ts",
+    "sha256": "25e5118c49fe1f5e1abbd3c087b2c68000d21101a7736ed4247420cda23e25a1",
+    "imports": [
+      "vue",
+      "vitest",
+      "./use-search",
+      "./use-search"
+    ],
+    "cases": [
+      {
+        "line": 21,
+        "name": "\"exact match outranks prefix, word-prefix, and substring\"",
+        "callee": "test"
+      },
+      {
+        "line": 32,
+        "name": "\"word-prefix match outranks a mid-word substring match\"",
+        "callee": "test"
+      },
+      {
+        "line": 41,
+        "name": "\"substring matches are still returned when nothing stronger matches\"",
+        "callee": "test"
+      },
+      {
+        "line": 50,
+        "name": "\"fuzzy tier tolerates typos and ranks below deterministic matches\"",
+        "callee": "test"
+      },
+      {
+        "line": 60,
+        "name": "\"fuzzy tier matches a typo'd query\"",
+        "callee": "test"
+      },
+      {
+        "line": 65,
+        "name": "\"items matching no tier are dropped\"",
+        "callee": "test"
+      },
+      {
+        "line": 70,
+        "name": "\"ties within a tier break on shortest match, then alphabetically\"",
+        "callee": "test"
+      },
+      {
+        "line": 88,
+        "name": "\"aliases, plurals, and abbreviations participate in ranking\"",
+        "callee": "test"
+      },
+      {
+        "line": 97,
+        "name": "\"matching is diacritic- and case-insensitive\"",
+        "callee": "test"
+      },
+      {
+        "line": 102,
+        "name": "\"empty or too-short queries return every item unchanged\"",
+        "callee": "test"
+      },
+      {
+        "line": 111,
+        "name": "\"regex metacharacters in the query are treated literally\"",
+        "callee": "test"
+      }
+    ],
+    "assertions": [
+      {
+        "line": 29,
+        "subject": "names"
+      },
+      {
+        "line": 38,
+        "subject": "names"
+      },
+      {
+        "line": 47,
+        "subject": "names"
+      },
+      {
+        "line": 56,
+        "subject": "names[0]"
+      },
+      {
+        "line": 57,
+        "subject": "names"
+      },
+      {
+        "line": 62,
+        "subject": "names"
+      },
+      {
+        "line": 67,
+        "subject": "names"
+      },
+      {
+        "line": 79,
+        "subject": "names"
+      },
+      {
+        "line": 94,
+        "subject": "names"
+      },
+      {
+        "line": 99,
+        "subject": "names"
+      },
+      {
+        "line": 106,
+        "subject": "filtered.value"
+      },
+      {
+        "line": 108,
+        "subject": "filtered.value"
+      },
+      {
+        "line": 113,
+        "subject": "names"
+      }
+    ],
+    "parity": "unmigrated; no preservation claim for React"
+  },
+  {
+    "path": "frontend/app/composables/__tests__/use-auth-backend.test.ts",
+    "sha256": "4f0fa30fae00b294d009496a21cd769e8e6e3653826f1030971b00a1828fa35b",
+    "imports": [
+      "vitest",
+      "../use-token-cookie"
+    ],
+    "cases": [
+      {
+        "line": 64,
+        "name": "\"shares one request between concurrent callers\"",
+        "callee": "test"
+      },
+      {
+        "line": 81,
+        "name": "\"allows a new request once the previous one settles\"",
+        "callee": "test"
+      },
+      {
+        "line": 92,
+        "name": "\"releases the lock after a failure, so the session can still recover\"",
+        "callee": "test"
+      },
+      {
+        "line": 104,
+        "name": "\"adopts the new token\"",
+        "callee": "test"
+      },
+      {
+        "line": 116,
+        "name": "\"does not reload the session, which would re-enter the interceptor\"",
+        "callee": "test"
+      },
+      {
+        "line": 129,
+        "name": "\"does nothing without a token\"",
+        "callee": "test"
+      },
+      {
+        "line": 137,
+        "name": "\"clears the session and redirects when the token is rejected\"",
+        "callee": "test"
+      },
+      {
+        "line": 148,
+        "name": "\"keeps the session on a network failure\"",
+        "callee": "test"
+      },
+      {
+        "line": 163,
+        "name": "\"stores the token and loads the session\"",
+        "callee": "test"
+      },
+      {
+        "line": 175,
+        "name": "\"leaves the session unauthenticated when credentials are rejected\"",
+        "callee": "test"
+      },
+      {
+        "line": 187,
+        "name": "\"clears the session even when the logout call fails\"",
+        "callee": "test"
+      },
+      {
+        "line": 203,
+        "name": "\"honors a callback url\"",
+        "callee": "test"
+      }
+    ],
+    "assertions": [
+      {
+        "line": 77,
+        "subject": "axiosMock.post"
+      },
+      {
+        "line": 78,
+        "subject": "axiosMock.post"
+      },
+      {
+        "line": 89,
+        "subject": "axiosMock.post"
+      },
+      {
+        "line": 97,
+        "subject": "auth.refresh()"
+      },
+      {
+        "line": 98,
+        "subject": "auth.refresh()"
+      },
+      {
+        "line": 101,
+        "subject": "axiosMock.post"
+      },
+      {
+        "line": 113,
+        "subject": "auth.token.value"
+      },
+      {
+        "line": 126,
+        "subject": "axiosMock.get"
+      },
+      {
+        "line": 134,
+        "subject": "axiosMock.post"
+      },
+      {
+        "line": 142,
+        "subject": "auth.refresh()"
+      },
+      {
+        "line": 144,
+        "subject": "auth.token.value"
+      },
+      {
+        "line": 145,
+        "subject": "routerMock.push"
+      },
+      {
+        "line": 154,
+        "subject": "auth.refresh()"
+      },
+      {
+        "line": 157,
+        "subject": "auth.token.value"
+      },
+      {
+        "line": 158,
+        "subject": "routerMock.push"
+      },
+      {
+        "line": 170,
+        "subject": "auth.token.value"
+      },
+      {
+        "line": 171,
+        "subject": "axiosMock.get"
+      },
+      {
+        "line": 172,
+        "subject": "auth.status.value"
+      },
+      {
+        "line": 179,
+        "subject": "auth.signIn(new FormData())"
+      },
+      {
+        "line": 181,
+        "subject": "auth.status.value"
+      },
+      {
+        "line": 182,
+        "subject": "axiosMock.get"
+      },
+      {
+        "line": 198,
+        "subject": "auth.token.value"
+      },
+      {
+        "line": 199,
+        "subject": "readTokenCookie(TOKEN_NAME)"
+      },
+      {
+        "line": 200,
+        "subject": "routerMock.push"
+      },
+      {
+        "line": 210,
+        "subject": "routerMock.push"
+      }
+    ],
+    "parity": "unmigrated; no preservation claim for React"
+  },
+  {
+    "path": "frontend/app/composables/__tests__/use-mealplan-rules.test.ts",
+    "sha256": "74840970640add9013878da5db5f548e1b1d62b1e539771caa4ffc5298504077",
+    "imports": [
+      "vitest",
+      "../use-mealplan-rules",
+      "~/lib/api/types/meal-plan"
+    ],
+    "cases": [
+      {
+        "line": 33,
+        "name": "[\n    [new Date(2026, 7, 16), \"sunday\"],\n    [new Date(2026, 7, 17), \"monday\"],\n    [new Date(2026, 7, 19), \"wednesday\"],\n    [new Date(2026, 7, 22), \"saturday\"],\n  ]",
+        "callee": "test.each"
+      },
+      {
+        "line": 44,
+        "name": "\"matches rules with the same day and entry type\"",
+        "callee": "test"
+      },
+      {
+        "line": 49,
+        "name": "\"matches rules with an unset day or entry type\"",
+        "callee": "test"
+      },
+      {
+        "line": 61,
+        "name": "\"excludes rules for another day or entry type\"",
+        "callee": "test"
+      },
+      {
+        "line": 70,
+        "name": "\"returns null when no rules apply\"",
+        "callee": "test"
+      },
+      {
+        "line": 75,
+        "name": "\"returns null when the applicable rules have no query filter\"",
+        "callee": "test"
+      },
+      {
+        "line": 80,
+        "name": "\"wraps a single query filter in parentheses\"",
+        "callee": "test"
+      },
+      {
+        "line": 85,
+        "name": "\"joins every applicable query filter with AND\"",
+        "callee": "test"
+      },
+      {
+        "line": 100,
+        "name": "\"hydrates the store on first use only\"",
+        "callee": "test"
+      }
+    ],
+    "assertions": [
+      {
+        "line": 39,
+        "subject": "getDayOfWeek(date)"
+      },
+      {
+        "line": 46,
+        "subject": "getApplicableRules([rule], wednesday, \"dinner\")"
+      },
+      {
+        "line": 54,
+        "subject": "getApplicableRules([anyDay, anyType, anything], wednesday, \"dinner\")"
+      },
+      {
+        "line": 65,
+        "subject": "getApplicableRules([otherDay, otherType], wednesday, \"dinner\")"
+      },
+      {
+        "line": 72,
+        "subject": "buildRuleQueryFilter(rules, wednesday, \"dinner\")"
+      },
+      {
+        "line": 77,
+        "subject": "buildRuleQueryFilter(rules, wednesday, \"dinner\")"
+      },
+      {
+        "line": 82,
+        "subject": "buildRuleQueryFilter(rules, wednesday, \"dinner\")"
+      },
+      {
+        "line": 93,
+        "subject": "buildRuleQueryFilter(rules, wednesday, \"dinner\")"
+      },
+      {
+        "line": 107,
+        "subject": "initialized.value"
+      },
+      {
+        "line": 109,
+        "subject": "rules.value"
+      },
+      {
+        "line": 110,
+        "subject": "getAll"
+      },
+      {
+        "line": 113,
+        "subject": "getAll"
+      }
+    ],
+    "parity": "unmigrated; no preservation claim for React"
+  },
+  {
+    "path": "frontend/app/composables/__tests__/use-passwords.test.ts",
+    "sha256": "370eaff08b4e49ebc24f967c944ea09887bf2390d17bf2b6f2c8a093d11572f4",
+    "imports": [
+      "vue",
+      "vitest",
+      "../use-passwords",
+      "~/tests/utils"
+    ],
+    "cases": [
+      {
+        "line": 7,
+        "name": "\"weak password\"",
+        "callee": "test"
+      },
+      {
+        "line": 19,
+        "name": "\"very strong password\"",
+        "callee": "test"
+      }
+    ],
+    "assertions": [
+      {
+        "line": 13,
+        "subject": "score.value"
+      },
+      {
+        "line": 14,
+        "subject": "score.value"
+      },
+      {
+        "line": 15,
+        "subject": "strength.value"
+      },
+      {
+        "line": 16,
+        "subject": "color.value"
+      },
+      {
+        "line": 22,
+        "subject": "score.value"
+      },
+      {
+        "line": 23,
+        "subject": "score.value"
+      },
+      {
+        "line": 24,
+        "subject": "strength.value"
+      },
+      {
+        "line": 25,
+        "subject": "color.value"
+      }
+    ],
+    "parity": "unmigrated; no preservation claim for React"
+  },
+  {
+    "path": "frontend/app/composables/__tests__/use-query-filter-builder.test.ts",
+    "sha256": "0a21acc5c510d5af18d604ced29ef2f8c0a5a5396dfa09c04e91af9793aa5e53",
+    "imports": [
+      "vitest",
+      "../use-query-filter-builder",
+      "~/lib/api/types/non-generated"
+    ],
+    "cases": [
+      {
+        "line": 23,
+        "name": "\"are handled as an organizer, so the shared picker and hydration apply\"",
+        "callee": "test"
+      },
+      {
+        "line": 29,
+        "name": "\"default to the IN operator\"",
+        "callee": "test"
+      },
+      {
+        "line": 42,
+        "name": "\"build a quoted list query filter string\"",
+        "callee": "test"
+      },
+      {
+        "line": 53,
+        "name": "\"can exclude a label\"",
+        "callee": "test"
+      },
+      {
+        "line": 65,
+        "name": "\"are invalid without a selected label\"",
+        "callee": "test"
+      },
+      {
+        "line": 81,
+        "name": "\"default to the <= operator and only offer comparisons\"",
+        "callee": "test"
+      },
+      {
+        "line": 90,
+        "name": "\"build an unquoted seconds query filter string\"",
+        "callee": "test"
+      },
+      {
+        "line": 99,
+        "name": "\"are invalid without a duration\"",
+        "callee": "test"
+      }
+    ],
+    "assertions": [
+      {
+        "line": 26,
+        "subject": "isOrganizerType(Organizer.Label)"
+      },
+      {
+        "line": 34,
+        "subject": "field.relationalOperatorValue.value"
+      },
+      {
+        "line": 35,
+        "subject": "field.relationalOperatorChoices.map(choice => choice.value)"
+      },
+      {
+        "line": 48,
+        "subject": "buildQueryFilterString([field], false)"
+      },
+      {
+        "line": 60,
+        "subject": "buildQueryFilterString([field], false)"
+      },
+      {
+        "line": 70,
+        "subject": "buildQueryFilterString([field], false)"
+      },
+      {
+        "line": 86,
+        "subject": "field.relationalOperatorValue.value"
+      },
+      {
+        "line": 87,
+        "subject": "field.relationalOperatorChoices.map(choice => choice.value)"
+      },
+      {
+        "line": 96,
+        "subject": "buildQueryFilterString([field], false)"
+      },
+      {
+        "line": 104,
+        "subject": "buildQueryFilterString([field], false)"
+      }
+    ],
+    "parity": "unmigrated; no preservation claim for React"
+  },
+  {
+    "path": "frontend/app/composables/__tests__/use-toast.test.ts",
+    "sha256": "7ba1508274801657fb628db3b6506aad53a0aa37e557679b10bb8cf7e3e4be2f",
+    "imports": [
+      "vitest",
+      "../use-toast"
+    ],
+    "cases": [
+      {
+        "line": 10,
+        "name": "\"stays quiet when the interceptor already reported a Mealie error\"",
+        "callee": "test"
+      },
+      {
+        "line": 19,
+        "name": "\"reports a failure that carries no Mealie error body\"",
+        "callee": "test"
+      },
+      {
+        "line": 27,
+        "name": "\"reports a failure with no response at all\"",
+        "callee": "test"
+      }
+    ],
+    "assertions": [
+      {
+        "line": 16,
+        "subject": "toastAlert.open"
+      },
+      {
+        "line": 23,
+        "subject": "toastAlert.open"
+      },
+      {
+        "line": 24,
+        "subject": "toastAlert.text"
+      },
+      {
+        "line": 31,
+        "subject": "toastAlert.open"
+      },
+      {
+        "line": 32,
+        "subject": "toastAlert.text"
+      }
+    ],
+    "parity": "unmigrated; no preservation claim for React"
+  },
+  {
+    "path": "frontend/app/composables/__tests__/use-token-cookie.test.ts",
+    "sha256": "d18539f5a2ff061a0a70322a858dfb977529e0c5823114614e1c397b52b51ecc",
+    "imports": [
+      "vitest",
+      "../use-token-cookie"
+    ],
+    "cases": [
+      {
+        "line": 34,
+        "name": "\"top-level https connection gets a lax, non-partitioned cookie\"",
+        "callee": "test"
+      },
+      {
+        "line": 46,
+        "name": "\"iframe-embedded https connection gets a none, partitioned cookie\"",
+        "callee": "test"
+      },
+      {
+        "line": 58,
+        "name": "\"insecure (http) connection stays lax and non-partitioned even when framed\"",
+        "callee": "test"
+      },
+      {
+        "line": 70,
+        "name": "\"non-production build stays lax and non-partitioned even when framed over https\"",
+        "callee": "test"
+      },
+      {
+        "line": 82,
+        "name": "\"carries no max-age, since the server owns the cookie's lifetime\"",
+        "callee": "test"
+      },
+      {
+        "line": 96,
+        "name": "\"reads exp as epoch milliseconds\"",
+        "callee": "test"
+      },
+      {
+        "line": 101,
+        "name": "\"handles payloads whose base64url length needs padding\"",
+        "callee": "test"
+      },
+      {
+        "line": 107,
+        "name": "\"returns null for a token with no exp\"",
+        "callee": "test"
+      },
+      {
+        "line": 111,
+        "name": "\"returns null for a malformed token rather than throwing\"",
+        "callee": "test"
+      },
+      {
+        "line": 124,
+        "name": "\"reads the named cookie\"",
+        "callee": "test"
+      },
+      {
+        "line": 129,
+        "name": "\"does not match a different cookie whose name merely ends the same way\"",
+        "callee": "test"
+      },
+      {
+        "line": 134,
+        "name": "\"url-decodes the value\"",
+        "callee": "test"
+      },
+      {
+        "line": 139,
+        "name": "\"returns null when the cookie is absent\"",
+        "callee": "test"
+      },
+      {
+        "line": 150,
+        "name": "\"waits 60% of the remaining life, so each refresh lands well before expiry\"",
+        "callee": "test"
+      },
+      {
+        "line": 154,
+        "name": "\"floors short delays, so a nearly-expired token can't spin the timer\"",
+        "callee": "test"
+      },
+      {
+        "line": 159,
+        "name": "\"adds jitter on top, to spread simultaneous refreshes across tabs\"",
+        "callee": "test"
+      },
+      {
+        "line": 166,
+        "name": "\"never exceeds the setTimeout ceiling, even at maximum jitter\"",
+        "callee": "test"
+      },
+      {
+        "line": 174,
+        "name": "\"still schedules something for a very long-lived token\"",
+        "callee": "test"
+      },
+      {
+        "line": 179,
+        "name": "\"returns null once the token has expired, since there is nothing left to refresh with\"",
+        "callee": "test"
+      }
+    ],
+    "assertions": [
+      {
+        "line": 41,
+        "subject": "options.secure"
+      },
+      {
+        "line": 42,
+        "subject": "options.sameSite"
+      },
+      {
+        "line": 43,
+        "subject": "options.partitioned"
+      },
+      {
+        "line": 53,
+        "subject": "options.secure"
+      },
+      {
+        "line": 54,
+        "subject": "options.sameSite"
+      },
+      {
+        "line": 55,
+        "subject": "options.partitioned"
+      },
+      {
+        "line": 65,
+        "subject": "options.secure"
+      },
+      {
+        "line": 66,
+        "subject": "options.sameSite"
+      },
+      {
+        "line": 67,
+        "subject": "options.partitioned"
+      },
+      {
+        "line": 77,
+        "subject": "options.secure"
+      },
+      {
+        "line": 78,
+        "subject": "options.sameSite"
+      },
+      {
+        "line": 79,
+        "subject": "options.partitioned"
+      },
+      {
+        "line": 86,
+        "subject": "getTokenCookieOptions()"
+      },
+      {
+        "line": 98,
+        "subject": "getTokenExpiry(encodeToken({ sub: \"abc\", exp }))"
+      },
+      {
+        "line": 103,
+        "subject": "getTokenExpiry(encodeToken({ exp: 1, rme: true }))"
+      },
+      {
+        "line": 104,
+        "subject": "getTokenExpiry(encodeToken({ exp: 12, rme: false }))"
+      },
+      {
+        "line": 108,
+        "subject": "getTokenExpiry(encodeToken({ sub: \"abc\" }))"
+      },
+      {
+        "line": 112,
+        "subject": "getTokenExpiry(\"not-a-jwt\")"
+      },
+      {
+        "line": 113,
+        "subject": "getTokenExpiry(\"header.@@@notbase64@@@.signature\")"
+      },
+      {
+        "line": 114,
+        "subject": "getTokenExpiry(\"\")"
+      },
+      {
+        "line": 126,
+        "subject": "readTokenCookie(\"mealie.access_token\")"
+      },
+      {
+        "line": 131,
+        "subject": "readTokenCookie(\"mealie.access_token\")"
+      },
+      {
+        "line": 136,
+        "subject": "readTokenCookie(\"mealie.access_token\")"
+      },
+      {
+        "line": 140,
+        "subject": "readTokenCookie(\"mealie.access_token\")"
+      },
+      {
+        "line": 151,
+        "subject": "nextRefreshDelay(10 * HOUR, 0)"
+      },
+      {
+        "line": 156,
+        "subject": "nextRefreshDelay(10_000, 0)"
+      },
+      {
+        "line": 162,
+        "subject": "nextRefreshDelay(10 * HOUR, 1)"
+      },
+      {
+        "line": 163,
+        "subject": "nextRefreshDelay(10 * HOUR, 0.5)"
+      },
+      {
+        "line": 170,
+        "subject": "nextRefreshDelay(remaining, 1)"
+      },
+      {
+        "line": 176,
+        "subject": "nextRefreshDelay(400 * DAY, 0)"
+      },
+      {
+        "line": 180,
+        "subject": "nextRefreshDelay(0, 0)"
+      },
+      {
+        "line": 181,
+        "subject": "nextRefreshDelay(-1 * HOUR, 0)"
+      }
+    ],
+    "parity": "unmigrated; no preservation claim for React"
+  },
+  {
+    "path": "frontend/app/composables/__tests__/use-utils.test.ts",
+    "sha256": "fcb604f1cf301ee387a0687b9fb580f93c3043cd282ecc37ce1024f6fdac85a6",
+    "imports": [
+      "vitest",
+      "../use-utils"
+    ],
+    "cases": [
+      {
+        "line": 5,
+        "name": "\"base case\"",
+        "callee": "test"
+      },
+      {
+        "line": 8,
+        "name": "\"diacritics\"",
+        "callee": "test"
+      },
+      {
+        "line": 11,
+        "name": "\"ligatures\"",
+        "callee": "test"
+      },
+      {
+        "line": 22,
+        "name": "\"base case\"",
+        "callee": "test"
+      },
+      {
+        "line": 29,
+        "name": "\"normalize\"",
+        "callee": "test"
+      }
+    ],
+    "assertions": [
+      {
+        "line": 6,
+        "subject": "normalize(\"banana\")"
+      },
+      {
+        "line": 9,
+        "subject": "normalize(\"Rátàtôuile\")"
+      },
+      {
+        "line": 12,
+        "subject": "normalize(\"Ĳ\")"
+      },
+      {
+        "line": 13,
+        "subject": "normalize(\"æ\")"
+      },
+      {
+        "line": 14,
+        "subject": "normalize(\"œ\")"
+      },
+      {
+        "line": 15,
+        "subject": "normalize(\"ﬀ\")"
+      },
+      {
+        "line": 16,
+        "subject": "normalize(\"ﬁ\")"
+      },
+      {
+        "line": 17,
+        "subject": "normalize(\"ﬆ\")"
+      },
+      {
+        "line": 26,
+        "subject": "normalizeFilter(patternA, patternB)"
+      },
+      {
+        "line": 27,
+        "subject": "normalizeFilter(patternB, patternA)"
+      },
+      {
+        "line": 32,
+        "subject": "normalizeFilter(value, query)"
+      }
+    ],
+    "parity": "unmigrated; no preservation claim for React"
+  },
+  {
+    "path": "frontend/app/lib/api/base/routes.test.ts",
+    "sha256": "22ab2e5eb7fe28525821ba5fb92bd972881b86485c5a95f6ecd1ef9c51a23e74",
+    "imports": [
+      "vitest",
+      "."
+    ],
+    "cases": [
+      {
+        "line": 5,
+        "name": "\"basic query parameter\"",
+        "callee": "it"
+      },
+      {
+        "line": 10,
+        "name": "\"multiple query parameters\"",
+        "callee": "it"
+      },
+      {
+        "line": 15,
+        "name": "\"no query parameters\"",
+        "callee": "it"
+      },
+      {
+        "line": 20,
+        "name": "\"list-like query parameters\"",
+        "callee": "it"
+      }
+    ],
+    "assertions": [
+      {
+        "line": 7,
+        "subject": "result"
+      },
+      {
+        "line": 12,
+        "subject": "result"
+      },
+      {
+        "line": 17,
+        "subject": "result"
+      },
+      {
+        "line": 22,
+        "subject": "result"
+      }
+    ],
+    "parity": "unmigrated; no preservation claim for React"
+  },
+  {
+    "path": "frontend/app/lib/recipe/recipe-finder.test.ts",
+    "sha256": "38f8fee78a20a80f31f0c1c67c050e7e5904fbb0594df278952bff3a34c21bdd",
+    "imports": [
+      "vitest",
+      "./recipe-finder"
+    ],
+    "cases": [
+      {
+        "line": 6,
+        "name": "\"preserves non-negative limits\"",
+        "callee": "it"
+      },
+      {
+        "line": 11,
+        "name": "\"clamps negative limits to zero\"",
+        "callee": "it"
+      },
+      {
+        "line": 15,
+        "name": "\"normalizes an empty input to zero\"",
+        "callee": "it"
+      }
+    ],
+    "assertions": [
+      {
+        "line": 7,
+        "subject": "normalizeMissingItemLimit(0)"
+      },
+      {
+        "line": 8,
+        "subject": "normalizeMissingItemLimit(20)"
+      },
+      {
+        "line": 12,
+        "subject": "normalizeMissingItemLimit(-1)"
+      },
+      {
+        "line": 16,
+        "subject": "normalizeMissingItemLimit(null)"
+      },
+      {
+        "line": 17,
+        "subject": "normalizeMissingItemLimit(undefined)"
+      }
+    ],
+    "parity": "unmigrated; no preservation claim for React"
+  },
+  {
+    "path": "frontend/app/lib/recipe/recipe-visibility.test.ts",
+    "sha256": "9d76b6236c5a057e2bd2f4aa9e5c4eb5f43a148c88784fdc4b6c4312d90fa0de",
+    "imports": [
+      "vitest",
+      "./recipe-visibility",
+      "~/lib/api/types/recipe",
+      "~/lib/api/types/household",
+      "~/lib/api/types/user"
+    ],
+    "cases": [
+      {
+        "line": 37,
+        "name": "\"public recipe in a public group and household\"",
+        "callee": "test"
+      },
+      {
+        "line": 41,
+        "name": "\"public recipe in another household of the same group\"",
+        "callee": "test"
+      },
+      {
+        "line": 47,
+        "name": "\"rejects when the recipe is not marked public\"",
+        "callee": "test"
+      },
+      {
+        "line": 52,
+        "name": "\"rejects when the group is private\"",
+        "callee": "test"
+      },
+      {
+        "line": 57,
+        "name": "\"rejects when the recipe's household is private\"",
+        "callee": "test"
+      },
+      {
+        "line": 62,
+        "name": "\"rejects a household that isn't the recipe's, even when it's public\"",
+        "callee": "test"
+      },
+      {
+        "line": 67,
+        "name": "\"rejects a group that isn't the recipe's, even when it's public\"",
+        "callee": "test"
+      },
+      {
+        "line": 72,
+        "name": "\"rejects when preferences are missing\"",
+        "callee": "test"
+      },
+      {
+        "line": 77,
+        "name": "\"defaults safe when group or household haven't loaded yet\"",
+        "callee": "test"
+      },
+      {
+        "line": 82,
+        "name": "\"rejects when the recipe is undefined\"",
+        "callee": "test"
+      }
+    ],
+    "assertions": [
+      {
+        "line": 38,
+        "subject": "isRecipeFullyPublic(fakeRecipe(), fakeGroup(), fakeHousehold())"
+      },
+      {
+        "line": 44,
+        "subject": "isRecipeFullyPublic(recipe, fakeGroup(), otherHousehold)"
+      },
+      {
+        "line": 49,
+        "subject": "isRecipeFullyPublic(recipe, fakeGroup(), fakeHousehold())"
+      },
+      {
+        "line": 54,
+        "subject": "isRecipeFullyPublic(fakeRecipe(), group, fakeHousehold())"
+      },
+      {
+        "line": 59,
+        "subject": "isRecipeFullyPublic(fakeRecipe(), fakeGroup(), household)"
+      },
+      {
+        "line": 64,
+        "subject": "isRecipeFullyPublic(recipe, fakeGroup(), fakeHousehold())"
+      },
+      {
+        "line": 69,
+        "subject": "isRecipeFullyPublic(recipe, fakeGroup(), fakeHousehold())"
+      },
+      {
+        "line": 73,
+        "subject": "isRecipeFullyPublic(fakeRecipe(), fakeGroup({ preferences: undefined }), fakeHousehold())"
+      },
+      {
+        "line": 74,
+        "subject": "isRecipeFullyPublic(fakeRecipe(), fakeGroup(), fakeHousehold({ preferences: undefined }))"
+      },
+      {
+        "line": 78,
+        "subject": "isRecipeFullyPublic(fakeRecipe(), undefined, fakeHousehold())"
+      },
+      {
+        "line": 79,
+        "subject": "isRecipeFullyPublic(fakeRecipe(), fakeGroup(), undefined)"
+      },
+      {
+        "line": 83,
+        "subject": "isRecipeFullyPublic(undefined, fakeGroup(), fakeHousehold())"
+      }
+    ],
+    "parity": "unmigrated; no preservation claim for React"
+  },
+  {
+    "path": "frontend/app/lib/sanitize/markdown.test.ts",
+    "sha256": "ee55bad9ca2bad18274efc848ab1c79045ff5a7f0979f48868a81ff8167d4175",
+    "imports": [
+      "vitest",
+      "./markdown"
+    ],
+    "cases": [
+      {
+        "line": 5,
+        "name": "\"returns empty string for nullish input\"",
+        "callee": "test"
+      },
+      {
+        "line": 11,
+        "name": "\"keeps allowed formatting tags\"",
+        "callee": "test"
+      },
+      {
+        "line": 17,
+        "name": "\"strips script tags and event handlers\"",
+        "callee": "test"
+      },
+      {
+        "line": 24,
+        "name": "\"strips img onerror payloads\"",
+        "callee": "test"
+      },
+      {
+        "line": 30,
+        "name": "\"strips form, input, and button elements\"",
+        "callee": "test"
+      },
+      {
+        "line": 37,
+        "name": "\"strips iframes when no allowed hosts are configured\"",
+        "callee": "test"
+      },
+      {
+        "line": 42,
+        "name": "\"strips iframes whose src host is not allowlisted\"",
+        "callee": "test"
+      },
+      {
+        "line": 50,
+        "name": "\"strips non-https iframes even for an allowlisted host\"",
+        "callee": "test"
+      },
+      {
+        "line": 58,
+        "name": "\"keeps iframes from an allowlisted host (incl. subdomains)\"",
+        "callee": "test"
+      },
+      {
+        "line": 67,
+        "name": "\"does not allow a lookalike host to pass the suffix check\"",
+        "callee": "test"
+      }
+    ],
+    "assertions": [
+      {
+        "line": 6,
+        "subject": "sanitizeMarkdownHtml(null)"
+      },
+      {
+        "line": 7,
+        "subject": "sanitizeMarkdownHtml(undefined)"
+      },
+      {
+        "line": 8,
+        "subject": "sanitizeMarkdownHtml(\"\")"
+      },
+      {
+        "line": 13,
+        "subject": "html"
+      },
+      {
+        "line": 14,
+        "subject": "html"
+      },
+      {
+        "line": 19,
+        "subject": "html"
+      },
+      {
+        "line": 20,
+        "subject": "html"
+      },
+      {
+        "line": 21,
+        "subject": "html"
+      },
+      {
+        "line": 26,
+        "subject": "html"
+      },
+      {
+        "line": 32,
+        "subject": "html"
+      },
+      {
+        "line": 33,
+        "subject": "html"
+      },
+      {
+        "line": 34,
+        "subject": "html"
+      },
+      {
+        "line": 39,
+        "subject": "html"
+      },
+      {
+        "line": 47,
+        "subject": "html"
+      },
+      {
+        "line": 55,
+        "subject": "html"
+      },
+      {
+        "line": 63,
+        "subject": "html"
+      },
+      {
+        "line": 64,
+        "subject": "html"
+      },
+      {
+        "line": 72,
+        "subject": "html"
+      }
+    ],
+    "parity": "unmigrated; no preservation claim for React"
+  },
+  {
+    "path": "frontend/app/lib/sanitize/text.test.ts",
+    "sha256": "09f742f0b307c94a0615434255a45bdb1f3038c2842ba2360f63f540fa2d86a5",
+    "imports": [
+      "vitest",
+      "./text"
+    ],
+    "cases": [
+      {
+        "line": 5,
+        "name": "\"returns short text unchanged\"",
+        "callee": "test"
+      },
+      {
+        "line": 9,
+        "name": "\"truncates long text with clamp\"",
+        "callee": "test"
+      },
+      {
+        "line": 13,
+        "name": "\"respects custom length and clamp\"",
+        "callee": "test"
+      },
+      {
+        "line": 17,
+        "name": "\"does not clamp text exactly at the length boundary\"",
+        "callee": "test"
+      },
+      {
+        "line": 23,
+        "name": "\"does not parse or execute HTML payloads\"",
+        "callee": "test"
+      }
+    ],
+    "assertions": [
+      {
+        "line": 6,
+        "subject": "truncateText(\"Dinner\")"
+      },
+      {
+        "line": 10,
+        "subject": "truncateText(\"a\".repeat(25))"
+      },
+      {
+        "line": 14,
+        "subject": "truncateText(\"abcdef\", 3, \"~\")"
+      },
+      {
+        "line": 18,
+        "subject": "truncateText(\"abcde\", 5)"
+      },
+      {
+        "line": 19,
+        "subject": "truncateText(\"abcdef\", 5)"
+      },
+      {
+        "line": 30,
+        "subject": "result"
+      },
+      {
+        "line": 32,
+        "subject": "createElement"
+      }
+    ],
+    "parity": "reused byte-identical, same subjects and matchers; runtime run required"
+  },
+  {
+    "path": "frontend/app/lib/validators/inputs.test.ts",
+    "sha256": "6f3e412c623a485c5486594eaf54058587e419315c2057aa8a8704639b3dac52",
+    "imports": [
+      "vitest",
+      "~/lang/messages/en-US.json",
+      "./inputs"
+    ],
+    "cases": [
+      {
+        "line": 29,
+        "name": "\"validator required\"",
+        "callee": "test"
+      },
+      {
+        "line": 39,
+        "name": "\"validator email\"",
+        "callee": "test"
+      },
+      {
+        "line": 49,
+        "name": "\"whitespace\"",
+        "callee": "test"
+      },
+      {
+        "line": 60,
+        "name": "\"url\"",
+        "callee": "test"
+      },
+      {
+        "line": 70,
+        "name": "\"minLength\"",
+        "callee": "test"
+      },
+      {
+        "line": 83,
+        "name": "\"maxLength\"",
+        "callee": "test"
+      }
+    ],
+    "assertions": [
+      {
+        "line": 31,
+        "subject": "required(\"123\")"
+      },
+      {
+        "line": 32,
+        "subject": "required(\"\")"
+      },
+      {
+        "line": 33,
+        "subject": "required(undefined)"
+      },
+      {
+        "line": 34,
+        "subject": "required(null)"
+      },
+      {
+        "line": 41,
+        "subject": "email(\"123\")"
+      },
+      {
+        "line": 42,
+        "subject": "email(\"email@example.com\")"
+      },
+      {
+        "line": 45,
+        "subject": "email(n)"
+      },
+      {
+        "line": 51,
+        "subject": "whitespace(\"123\")"
+      },
+      {
+        "line": 52,
+        "subject": "whitespace(\" \")"
+      },
+      {
+        "line": 53,
+        "subject": "whitespace(\"123 123\")"
+      },
+      {
+        "line": 56,
+        "subject": "whitespace(n)"
+      },
+      {
+        "line": 62,
+        "subject": "url(\"https://example.com\")"
+      },
+      {
+        "line": 63,
+        "subject": "url(\"\")"
+      },
+      {
+        "line": 66,
+        "subject": "url(n)"
+      },
+      {
+        "line": 74,
+        "subject": "fn(\"123\")"
+      },
+      {
+        "line": 75,
+        "subject": "fn(\"12\")"
+      },
+      {
+        "line": 76,
+        "subject": "fn(\"\")"
+      },
+      {
+        "line": 79,
+        "subject": "fn(n)"
+      },
+      {
+        "line": 87,
+        "subject": "fn(\"123\")"
+      },
+      {
+        "line": 88,
+        "subject": "fn(\"1234\")"
+      },
+      {
+        "line": 89,
+        "subject": "fn(\"\")"
+      },
+      {
+        "line": 92,
+        "subject": "fn(n)"
+      }
+    ],
+    "parity": "unmigrated; no preservation claim for React"
+  },
+  {
+    "path": "frontend/app/lib/validators/password.test.ts",
+    "sha256": "84b3b45d19bba380da747091dff737c2a3217dc0207fd80ab06f0b725ec5e7a2",
+    "imports": [
+      "vitest",
+      "./password"
+    ],
+    "cases": [
+      {
+        "line": 5,
+        "name": "\"flagged words should return negative number\"",
+        "callee": "test"
+      },
+      {
+        "line": 13,
+        "name": "\"should return 0 for empty string\"",
+        "callee": "test"
+      },
+      {
+        "line": 17,
+        "name": "\"should return 0 for strings less than 6\"",
+        "callee": "test"
+      },
+      {
+        "line": 21,
+        "name": "\"should return positive number for long string\"",
+        "callee": "test"
+      },
+      {
+        "line": 27,
+        "name": "\"should return max number for long string with all variations\"",
+        "callee": "test"
+      }
+    ],
+    "assertions": [
+      {
+        "line": 9,
+        "subject": "scorePassword(word)"
+      },
+      {
+        "line": 14,
+        "subject": "scorePassword(\"\")"
+      },
+      {
+        "line": 18,
+        "subject": "scorePassword(\"12345\")"
+      },
+      {
+        "line": 22,
+        "subject": "scorePassword(\"123456\")"
+      },
+      {
+        "line": 28,
+        "subject": "scorePassword(\"3bYWcfYOwqxljqeOmQXTLlBwkrH6HV\")"
+      }
+    ],
+    "parity": "unmigrated; no preservation claim for React"
+  },
+  {
+    "path": "frontend/app/lib/validators/redirect.test.ts",
+    "sha256": "9ad689dfb43e78041a096498c06f77083225ca6a6ecda2aef9402f44799beda0",
+    "imports": [
+      "vitest",
+      "./redirect"
+    ],
+    "cases": [
+      {
+        "line": 5,
+        "name": "\"accepts an internal path\"",
+        "callee": "test"
+      },
+      {
+        "line": 9,
+        "name": "\"rejects protocol-relative URLs\"",
+        "callee": "test"
+      },
+      {
+        "line": 13,
+        "name": "\"rejects backslash variants used to bypass same-origin checks\"",
+        "callee": "test"
+      },
+      {
+        "line": 18,
+        "name": "\"rejects absolute URLs\"",
+        "callee": "test"
+      },
+      {
+        "line": 22,
+        "name": "\"rejects empty or missing values\"",
+        "callee": "test"
+      }
+    ],
+    "assertions": [
+      {
+        "line": 6,
+        "subject": "isSafeRedirectTarget(\"/g/home/r/some-recipe\")"
+      },
+      {
+        "line": 10,
+        "subject": "isSafeRedirectTarget(\"//evil.com\")"
+      },
+      {
+        "line": 14,
+        "subject": "isSafeRedirectTarget(\"/\\\\evil.com\")"
+      },
+      {
+        "line": 15,
+        "subject": "isSafeRedirectTarget(\"\\\\\\\\evil.com\")"
+      },
+      {
+        "line": 19,
+        "subject": "isSafeRedirectTarget(\"https://evil.com\")"
+      },
+      {
+        "line": 23,
+        "subject": "isSafeRedirectTarget(\"\")"
+      },
+      {
+        "line": 24,
+        "subject": "isSafeRedirectTarget(null)"
+      },
+      {
+        "line": 25,
+        "subject": "isSafeRedirectTarget(undefined)"
+      }
+    ],
+    "parity": "reused byte-identical, same subjects and matchers; runtime run required"
+  },
+  {
+    "path": "frontend/app/middleware/__tests__/auth.test.ts",
+    "sha256": "de8cf6f3a64454925570307440ce0cede83073a70fb50adcbc2a43390672d0cb",
+    "imports": [
+      "vitest",
+      "vue"
+    ],
+    "cases": [
+      {
+        "line": 23,
+        "name": "\"sends a logged-out user to the login page and back afterwards\"",
+        "callee": "test"
+      },
+      {
+        "line": 31,
+        "name": "\"lets a logged-in user through\"",
+        "callee": "test"
+      }
+    ],
+    "assertions": [
+      {
+        "line": 28,
+        "subject": "result"
+      },
+      {
+        "line": 36,
+        "subject": "result"
+      },
+      {
+        "line": 37,
+        "subject": "navigateTo"
+      }
+    ],
+    "parity": "unmigrated; no preservation claim for React"
+  },
+  {
+    "path": "frontend/app/pages/register/index.test.ts",
+    "sha256": "491576e27d5de18e31fd500258b797117a66cd55daaa86961bc118f600728e19",
+    "imports": [
+      "@vue/test-utils",
+      "vue",
+      "vitest",
+      "./index.vue",
+      "~/tests/setup"
+    ],
+    "cases": [
+      {
+        "line": 69,
+        "name": "\"does not add a generic error when the interceptor handles detail.message\"",
+        "callee": "test"
+      },
+      {
+        "line": 80,
+        "name": "[\n    null,\n    { response: { data: { detail: \"Invalid group token\" } } },\n    { response: { data: { detail: { message: \"\" } } } },\n    { response: { data: { detail: [{ msg: \"Field required\" }] } } },\n  ]",
+        "callee": "test.each"
+      },
+      {
+        "line": 92,
+        "name": "\"resets the form and redirects after successful registration\"",
+        "callee": "test"
+      }
+    ],
+    "assertions": [
+      {
+        "line": 75,
+        "subject": "mocks.error"
+      },
+      {
+        "line": 76,
+        "subject": "mocks.push"
+      },
+      {
+        "line": 77,
+        "subject": "mocks.resetAccount"
+      },
+      {
+        "line": 88,
+        "subject": "mocks.error"
+      },
+      {
+        "line": 89,
+        "subject": "mocks.push"
+      },
+      {
+        "line": 95,
+        "subject": "mocks.resetAccount"
+      },
+      {
+        "line": 96,
+        "subject": "mocks.resetCredentials"
+      },
+      {
+        "line": 97,
+        "subject": "mocks.success"
+      },
+      {
+        "line": 98,
+        "subject": "mocks.push"
+      },
+      {
+        "line": 99,
+        "subject": "mocks.error"
+      }
+    ],
+    "parity": "unmigrated; no preservation claim for React"
+  },
+  {
+    "path": "frontend/app/plugins/__tests__/axios.test.ts",
+    "sha256": "d8e33a98474d045bc37efc6c46d7c7095e7d6dbe57efd415d713bf9b1468b244",
+    "imports": [
+      "axios",
+      "vitest"
+    ],
+    "cases": [
+      {
+        "line": 75,
+        "name": "\"refreshes and replays the original request\"",
+        "callee": "test"
+      },
+      {
+        "line": 91,
+        "name": "\"sends the replay with the refreshed token\"",
+        "callee": "test"
+      },
+      {
+        "line": 107,
+        "name": "\"gives up after one retry rather than looping\"",
+        "callee": "test"
+      },
+      {
+        "line": 115,
+        "name": "\"logs out when the refresh itself fails\"",
+        "callee": "test"
+      },
+      {
+        "line": 125,
+        "name": "[\n    [\"/api/auth/token\", \"a failed login\"],\n    [\"/api/auth/refresh\", \"the refresh endpoint itself\"],\n  ]",
+        "callee": "test.each"
+      },
+      {
+        "line": 136,
+        "name": "\"does not redirect when the logout call is the thing that 401s\"",
+        "callee": "test"
+      },
+      {
+        "line": 147,
+        "name": "\"leaves anonymous callers alone\"",
+        "callee": "test"
+      },
+      {
+        "line": 160,
+        "name": "\"attaches the token as a bearer header\"",
+        "callee": "test"
+      },
+      {
+        "line": 172,
+        "name": "\"flags embedded deployments, which the server cannot detect\"",
+        "callee": "test"
+      },
+      {
+        "line": 189,
+        "name": "[\n    [401, \"Could not validate credentials\"],\n    [404, \"recipe not found\"],\n    [422, \"Invalid recipe\"],\n  ]",
+        "callee": "test.each"
+      },
+      {
+        "line": 203,
+        "name": "\"shows validation messages returned as a detail array\"",
+        "callee": "test"
+      },
+      {
+        "line": 216,
+        "name": "[undefined, null, [], [\"body\"], \"body.name\"]",
+        "callee": "test.each"
+      },
+      {
+        "line": 228,
+        "name": "\"preserves structured API error messages\"",
+        "callee": "test"
+      }
+    ],
+    "assertions": [
+      {
+        "line": 85,
+        "subject": "refreshMock"
+      },
+      {
+        "line": 86,
+        "subject": "calls"
+      },
+      {
+        "line": 87,
+        "subject": "response.status"
+      },
+      {
+        "line": 88,
+        "subject": "window.location.href"
+      },
+      {
+        "line": 104,
+        "subject": "sent"
+      },
+      {
+        "line": 110,
+        "subject": "client.get(\"/api/recipes\")"
+      },
+      {
+        "line": 112,
+        "subject": "refreshMock"
+      },
+      {
+        "line": 119,
+        "subject": "client.get(\"/api/recipes\")"
+      },
+      {
+        "line": 121,
+        "subject": "setTokenMock"
+      },
+      {
+        "line": 122,
+        "subject": "window.location.href"
+      },
+      {
+        "line": 131,
+        "subject": "client.post(url)"
+      },
+      {
+        "line": 133,
+        "subject": "refreshMock"
+      },
+      {
+        "line": 139,
+        "subject": "client.post(\"/api/auth/logout\")"
+      },
+      {
+        "line": 143,
+        "subject": "window.location.href"
+      },
+      {
+        "line": 144,
+        "subject": "refreshMock"
+      },
+      {
+        "line": 151,
+        "subject": "client.get(\"/api/recipes\")"
+      },
+      {
+        "line": 154,
+        "subject": "refreshMock"
+      },
+      {
+        "line": 155,
+        "subject": "window.location.href"
+      },
+      {
+        "line": 169,
+        "subject": "seen"
+      },
+      {
+        "line": 184,
+        "subject": "seen"
+      },
+      {
+        "line": 198,
+        "subject": "client.get(\"/api/recipes/test-recipe\")"
+      },
+      {
+        "line": 200,
+        "subject": "toastMocks.error"
+      },
+      {
+        "line": 210,
+        "subject": "client.put(\"/api/recipes/test-recipe\", {})"
+      },
+      {
+        "line": 212,
+        "subject": "toastMocks.error"
+      },
+      {
+        "line": 213,
+        "subject": "toastMocks.error"
+      },
+      {
+        "line": 223,
+        "subject": "client.put(\"/api/recipes/test-recipe\", {})"
+      },
+      {
+        "line": 225,
+        "subject": "toastMocks.error"
+      },
+      {
+        "line": 231,
+        "subject": "client.put(\"/api/recipes/test-recipe\", {})"
+      },
+      {
+        "line": 233,
+        "subject": "toastMocks.error"
+      }
+    ],
+    "parity": "unmigrated; no preservation claim for React"
+  }
+]

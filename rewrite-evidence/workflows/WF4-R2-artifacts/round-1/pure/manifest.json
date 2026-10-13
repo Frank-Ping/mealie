@@ -1,0 +1,139 @@
+{
+  "sourceCommit": "4b9ca06b6581f7152e164ea0fd9d4da366975a79",
+  "samples": [
+    {
+      "id": "page",
+      "path": "frontend/app/pages/index.vue",
+      "component": "HomePage",
+      "sourceSha256": "606ca6c768505191538eb7216aeddb17578ab042778a26e0382ecf66a8227383",
+      "diagnostics": [
+        {
+          "rule": "R35",
+          "message": "Unconverted framework dependency: ~/composables/use-default-activity",
+          "path": "frontend/app/pages/index.vue",
+          "line": 1,
+          "offset": 0,
+          "blocking": true
+        }
+      ],
+      "rules": [],
+      "imports": [
+        {
+          "module": "~/composables/use-default-activity",
+          "typeOnly": false
+        }
+      ],
+      "syntax": "not generated",
+      "semantic": "pending review",
+      "dependencyClosure": "blocked"
+    },
+    {
+      "id": "domain",
+      "path": "frontend/app/components/Domain/Recipe/RecipeChips.vue",
+      "component": "RecipeChips",
+      "sourceSha256": "e676cdb35c7ba9c4ffbb59f221c6ba1a58c9b3212e14f3927dfb56502bf2ab59",
+      "diagnostics": [],
+      "rules": [
+        "R01",
+        "R02",
+        "R03",
+        "R04",
+        "R05",
+        "R06",
+        "R07"
+      ],
+      "imports": [
+        {
+          "module": "~/lib/api/types/recipe",
+          "typeOnly": true
+        },
+        {
+          "module": "~/lib/sanitize/text",
+          "typeOnly": false
+        }
+      ],
+      "syntax": "pass",
+      "semantic": "pending review",
+      "dependencyClosure": "local helper closure only"
+    },
+    {
+      "id": "common",
+      "path": "frontend/app/components/global/BaseButton.vue",
+      "component": "BaseButton",
+      "sourceSha256": "45ee16a430b73399ec6c3633729341502acaddbc89be9ef1a0f375f8fa6bc4c4",
+      "diagnostics": [],
+      "rules": [
+        "R01",
+        "R02",
+        "R04",
+        "R06",
+        "R07",
+        "R08",
+        "R09",
+        "R11",
+        "R18",
+        "R30"
+      ],
+      "imports": [
+        {
+          "module": "~/composables/api",
+          "typeOnly": false
+        }
+      ],
+      "syntax": "pass",
+      "semantic": "pending review",
+      "dependencyClosure": "blocked: UserApi transport and theme equivalence pending"
+    },
+    {
+      "id": "composable",
+      "path": "frontend/app/composables/store/use-food-store.ts",
+      "component": "useFoodStore",
+      "sourceSha256": "fbeeab94dfa015807fab444a81844ef5843ae86937be26e7502f2479ecf099ed",
+      "diagnostics": [
+        {
+          "rule": "R25",
+          "message": "Module singleton/store factory requires reviewed lifetime and tenant contract",
+          "path": "frontend/app/composables/store/use-food-store.ts",
+          "line": 1,
+          "offset": 0,
+          "blocking": true
+        }
+      ],
+      "rules": [],
+      "imports": [],
+      "syntax": "not generated",
+      "semantic": "pending review",
+      "dependencyClosure": "blocked"
+    },
+    {
+      "id": "layout",
+      "path": "frontend/app/layouts/default.vue",
+      "component": "DefaultLayoutFacade",
+      "sourceSha256": "836323b0b26df562d9f119132d66b6c09baa3156681bcb122be655efca5560cf",
+      "diagnostics": [
+        {
+          "rule": "R22",
+          "message": "Unconverted module dependency: @/components/Layout/DefaultLayout.vue",
+          "path": "frontend/app/layouts/default.vue",
+          "line": 1,
+          "offset": 0,
+          "blocking": true
+        }
+      ],
+      "rules": [],
+      "imports": [
+        {
+          "module": "@/components/Layout/DefaultLayout.vue",
+          "typeOnly": false
+        }
+      ],
+      "syntax": "not generated",
+      "semantic": "pending review",
+      "dependencyClosure": "blocked"
+    }
+  ],
+  "fileHashes": {
+    "RecipeChips.tsx": "ae7a3292228ae5710b2e2cd74d30742d7df13ce6c64fdd83effc9b63ac92eeae",
+    "BaseButton.tsx": "676826a9a9deec4eedadf6a58f51edab7a6c5547b9db0a92ba7900269d155580"
+  }
+}

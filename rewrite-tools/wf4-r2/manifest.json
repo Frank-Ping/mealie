@@ -1,0 +1,12 @@
+{
+  "sourceCommit": "4b9ca06b6581f7152e164ea0fd9d4da366975a79",
+  "round": "round-1",
+  "samples": [
+    {"id":"page","path":"frontend/app/pages/index.vue","component":"HomePage"},
+    {"id":"domain","path":"frontend/app/components/Domain/Recipe/RecipeChips.vue","component":"RecipeChips"},
+    {"id":"common","path":"frontend/app/components/global/BaseButton.vue","component":"BaseButton"},
+    {"id":"composable","path":"frontend/app/composables/store/use-food-store.ts","component":"useFoodStore"},
+    {"id":"layout","path":"frontend/app/layouts/default.vue","component":"DefaultLayoutFacade"}
+  ],
+  "requiredFixtureIds": ["leaf","conditional","list-event","defaults","runtime-props","computed","slots","link","unknown-directive","unknown-tag","async-page","singleton","dependency","css","unknown-script"]
+}

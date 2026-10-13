@@ -1,0 +1,17 @@
+[
+  {"id":"leaf","source":"<template><div>Hello</div></template><script setup lang=\"ts\">interface Props {} const props = defineProps<Props>();</script>","expected":["Hello","export default function Fixture"]},
+  {"id":"conditional","source":"<template><div v-if=\"visible\">Shown</div></template><script setup lang=\"ts\">interface Props {visible?: boolean} const props=withDefaults(defineProps<Props>(),{visible:false});</script>","expected":["Boolean(props.visible)","withDefault"]},
+  {"id":"list-event","source":"<template><v-chip v-for=\"item in items\" :key=\"item.id\" @click.prevent=\"() => $emit('chosen', item)\">{{item.name}}</v-chip></template><script setup lang=\"ts\">interface Props {items: {id:string,name:string}[]} const props=defineProps<Props>(); defineEmits(['chosen']);</script>","expected":[".map((item)","onChosen?.(item)","event.preventDefault()"]},
+  {"id":"defaults","source":"<template><div>{{title}}</div></template><script setup lang=\"ts\">interface Props {title?:boolean;items?:string[]} const props=withDefaults(defineProps<Props>(),{title:false,items:()=>[]});</script>","expected":["String(props.title)","withDefault(__input[\"items\"], [])"]},
+  {"id":"runtime-props","source":"<template><v-btn :disabled=\"disabled\" /></template><script setup lang=\"ts\">const props=defineProps({disabled:{type:Boolean,default:false}});</script>","expected":["\"disabled\"?: boolean","disabled={props.disabled}"]},
+  {"id":"computed","source":"<template><div>{{label}}</div></template><script setup lang=\"ts\">interface Props {active?:boolean} const props=withDefaults(defineProps<Props>(),{active:false}); const label=computed(()=>props.active?'yes':'no');</script>","expected":["const label = (() => props.active ? 'yes' : 'no')();","String(label)"]},
+  {"id":"slots","source":"<template><div><slot name=\"icon\">fallback</slot><slot /></div></template><script setup lang=\"ts\">interface Props {} const props=defineProps<Props>();</script>","expected":["__input.iconSlot ??","__input.children ??","fallback"]},
+  {"id":"link","source":"<template><v-btn :to=\"to\">Go</v-btn></template><script setup lang=\"ts\">const props=defineProps({to:{type:String,default:null}});</script>","expected":["to={props.to}","LegacyButton"]},
+  {"id":"unknown-directive","source":"<template><div v-show=\"true\" /></template><script setup lang=\"ts\">interface Props {} const props=defineProps<Props>();</script>","blocked":"R01"},
+  {"id":"unknown-tag","source":"<template><v-data-table /></template><script setup lang=\"ts\">interface Props {} const props=defineProps<Props>();</script>","blocked":"R22"},
+  {"id":"async-page","source":"<template><div /></template><script setup lang=\"ts\">definePageMeta({layout:'blank'});</script>","blocked":"R21"},
+  {"id":"singleton","path":"store.ts","source":"const store=ref([]);","blocked":"R25"},
+  {"id":"dependency","source":"<template><Shell /></template><script setup lang=\"ts\">import Shell from './Shell.vue';</script>","blocked":"R22"},
+  {"id":"css","source":"<template><div /></template><script setup lang=\"ts\">interface Props {} const props=defineProps<Props>();</script><style scoped>.a{color:red}</style>","blocked":"R33"},
+  {"id":"unknown-script","source":"<template><div /></template><script setup lang=\"ts\">const value=magic();</script>","blocked":"R01"}
+]

@@ -1,0 +1,50 @@
+[
+  {
+    "source": "frontend/app/lib/api/types/recipe.ts",
+    "target": "frontend-react/src/reused/lib/api/types/recipe.ts",
+    "sha256": "0c119c14d13eb11ba83da57785cf1ebca3d5cbcfc3c49f1280debe7ac39a904c",
+    "mode": "byte-identical reuse; no source edit"
+  },
+  {
+    "source": "frontend/app/lib/sanitize/text.ts",
+    "target": "frontend-react/src/reused/lib/sanitize/text.ts",
+    "sha256": "b728f80d1b9fd3ee70175d4440f2b335293d18bf1598be176ade441d963e316f",
+    "mode": "byte-identical reuse; no source edit"
+  },
+  {
+    "source": "frontend/app/lib/sanitize/text.test.ts",
+    "target": "frontend-react/src/reused/lib/sanitize/text.test.ts",
+    "sha256": "09f742f0b307c94a0615434255a45bdb1f3038c2842ba2360f63f540fa2d86a5",
+    "mode": "byte-identical reuse; no source edit"
+  },
+  {
+    "source": "frontend/app/lib/icons/index.ts",
+    "target": "frontend-react/src/reused/lib/icons/index.ts",
+    "sha256": "4090b5c027544ceeb128f0cc9f76b4cef1f4857715a631eb98ef74da70e65fe9",
+    "mode": "byte-identical reuse; no source edit"
+  },
+  {
+    "source": "frontend/app/lib/icons/icons.ts",
+    "target": "frontend-react/src/reused/lib/icons/icons.ts",
+    "sha256": "411067de4dd9cda117134735a222b30e3e7db5322cbd6f0c22090c76aff1dd05",
+    "mode": "byte-identical reuse; no source edit"
+  },
+  {
+    "source": "frontend/app/lib/icons/icon-type.ts",
+    "target": "frontend-react/src/reused/lib/icons/icon-type.ts",
+    "sha256": "7dff976ac55c18b05ae2b73efec00ac604b361c827af4af36a264249c886f522",
+    "mode": "byte-identical reuse; no source edit"
+  },
+  {
+    "source": "frontend/app/lib/validators/redirect.ts",
+    "target": "frontend-react/src/reused/lib/validators/redirect.ts",
+    "sha256": "38d8114c09282d6dfc4bcaef7e0d661826e6fca804eca9988a19b4efa5a9b76f",
+    "mode": "byte-identical reuse; no source edit"
+  },
+  {
+    "source": "frontend/app/lib/validators/redirect.test.ts",
+    "target": "frontend-react/src/reused/lib/validators/redirect.test.ts",
+    "sha256": "9ad689dfb43e78041a096498c06f77083225ca6a6ecda2aef9402f44799beda0",
+    "mode": "byte-identical reuse; no source edit"
+  }
+]

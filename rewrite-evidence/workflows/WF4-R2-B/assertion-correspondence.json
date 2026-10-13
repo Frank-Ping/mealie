@@ -1,0 +1,147 @@
+{
+  "sourceTestFiles": 48,
+  "capturedSourceExpectCalls": 817,
+  "parity": [
+    {
+      "source": "frontend/app/lib/sanitize/text.test.ts",
+      "target": "frontend-react/src/reused/lib/sanitize/text.test.ts",
+      "sha256": "09f742f0b307c94a0615434255a45bdb1f3038c2842ba2360f63f540fa2d86a5",
+      "cases": [
+        {
+          "line": 5,
+          "name": "\"returns short text unchanged\"",
+          "callee": "test"
+        },
+        {
+          "line": 9,
+          "name": "\"truncates long text with clamp\"",
+          "callee": "test"
+        },
+        {
+          "line": 13,
+          "name": "\"respects custom length and clamp\"",
+          "callee": "test"
+        },
+        {
+          "line": 17,
+          "name": "\"does not clamp text exactly at the length boundary\"",
+          "callee": "test"
+        },
+        {
+          "line": 23,
+          "name": "\"does not parse or execute HTML payloads\"",
+          "callee": "test"
+        }
+      ],
+      "assertions": [
+        {
+          "line": 6,
+          "subject": "truncateText(\"Dinner\")"
+        },
+        {
+          "line": 10,
+          "subject": "truncateText(\"a\".repeat(25))"
+        },
+        {
+          "line": 14,
+          "subject": "truncateText(\"abcdef\", 3, \"~\")"
+        },
+        {
+          "line": 18,
+          "subject": "truncateText(\"abcde\", 5)"
+        },
+        {
+          "line": 19,
+          "subject": "truncateText(\"abcdef\", 5)"
+        },
+        {
+          "line": 30,
+          "subject": "result"
+        },
+        {
+          "line": 32,
+          "subject": "createElement"
+        }
+      ],
+      "correspondence": "byte-identical entire file, same local helper import and behavior expectations; executed in React sample Vitest/jsdom harness"
+    },
+    {
+      "source": "frontend/app/lib/validators/redirect.test.ts",
+      "target": "frontend-react/src/reused/lib/validators/redirect.test.ts",
+      "sha256": "9ad689dfb43e78041a096498c06f77083225ca6a6ecda2aef9402f44799beda0",
+      "cases": [
+        {
+          "line": 5,
+          "name": "\"accepts an internal path\"",
+          "callee": "test"
+        },
+        {
+          "line": 9,
+          "name": "\"rejects protocol-relative URLs\"",
+          "callee": "test"
+        },
+        {
+          "line": 13,
+          "name": "\"rejects backslash variants used to bypass same-origin checks\"",
+          "callee": "test"
+        },
+        {
+          "line": 18,
+          "name": "\"rejects absolute URLs\"",
+          "callee": "test"
+        },
+        {
+          "line": 22,
+          "name": "\"rejects empty or missing values\"",
+          "callee": "test"
+        }
+      ],
+      "assertions": [
+        {
+          "line": 6,
+          "subject": "isSafeRedirectTarget(\"/g/home/r/some-recipe\")"
+        },
+        {
+          "line": 10,
+          "subject": "isSafeRedirectTarget(\"//evil.com\")"
+        },
+        {
+          "line": 14,
+          "subject": "isSafeRedirectTarget(\"/\\\\evil.com\")"
+        },
+        {
+          "line": 15,
+          "subject": "isSafeRedirectTarget(\"\\\\\\\\evil.com\")"
+        },
+        {
+          "line": 19,
+          "subject": "isSafeRedirectTarget(\"https://evil.com\")"
+        },
+        {
+          "line": 23,
+          "subject": "isSafeRedirectTarget(\"\")"
+        },
+        {
+          "line": 24,
+          "subject": "isSafeRedirectTarget(null)"
+        },
+        {
+          "line": 25,
+          "subject": "isSafeRedirectTarget(undefined)"
+        }
+      ],
+      "correspondence": "byte-identical entire file, same local helper import and behavior expectations; executed in React sample Vitest/jsdom harness"
+    },
+    {
+      "source": "frontend/app/middleware/__tests__/auth.test.ts",
+      "target": "frontend-react/tests/guards.test.tsx",
+      "status": "additional behavior correspondence probes; original Vue test not migrated",
+      "correspondence": [
+        "anonymous original /shopping-lists/abc?foo=bar redirect is decoded from target URL and checked",
+        "authenticated /shopping-lists/abc allowed; target protected content assertion supplements original no-navigate expectation"
+      ],
+      "limitations": "Different guard harness/return API. Original Vue source test remains unchanged but is not claimed to run in target."
+    }
+  ],
+  "others": "Remaining 46 source test files not migrated; original 517 passing baseline tests are not target results. Raw expect count is only inventory."
+}
