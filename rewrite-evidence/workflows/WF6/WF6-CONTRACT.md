@@ -254,3 +254,8 @@ Comments follow original Vue identity and recipe.settings.disableComments / curr
 
 Reason: the unchanged evaluator requires direct controls on pilot pages; continuation-01 proved the older explicit Vue recovery paths worked but did not satisfy those original flows. Authoritative actual Chinese prompt and boundary: external steps/S6/continuation-02/prompt.txt and request-boundary.json.
 原因：已有显式 Vue 功能可用但不满足原流程，本次用户明确批准有限直接实现；原 prompt 保留。
+
+## S6 CONTINUE 03 final single-round authorization / 单轮追加授权
+
+The actual user explicitly raises the S6 repair limit from 2 to 3, adding exactly one round for comment submission/persistence state separation. Prior exhausted 2/2 and FAIL records remain historical, and the three-hour budget is unchanged. Identity/group/disable checks stay intact. Draft is captured and hidden during submission, only real POST success renders published data, and failure restores the draft. No fourth repair, evaluator change, fixed wait or test identification is authorized. Actual prompt: steps/S6/continuation-03/prompt.txt.
+用户仅批准追加一轮评论修复，上限 2→3；旧 FAIL 保留，三小时预算不重置，禁止自动第四轮。
