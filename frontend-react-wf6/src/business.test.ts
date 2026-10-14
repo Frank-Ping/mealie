@@ -74,3 +74,9 @@ test('closing the session cancels pending requests and excludes late responses a
   const pending = api.list('', 1, signal()); api.cancel(); assert.equal(ownedSignal?.aborted, true); release(json(identity)); await assert.rejects(pending, { name: 'AbortError' });
   await assert.rejects(api.list('', 1, signal()), { name: 'AbortError' });
 });
+test('comment reading uses the slug endpoint, while returned comments retain the real recipe ID', async () => {
+  const who = { ...identity, householdId: 'household' }; const recipe = { id: 'uuid-recipe', slug: 'salt & pepper', groupId: 'group' }; const calls: string[] = [];
+  const api = createRecipeApi(who, () => null, async url => { calls.push(String(url)); return json(String(url) === '/api/users/self' ? who : String(url) === '/api/households/self' ? { id: 'household', groupId: 'group', preferences: {} } : [{ id: 'comment', recipeId: recipe.id, text: 'Persisted' }]); });
+  assert.equal((await api.comments(recipe, signal())).items[0]?.text, 'Persisted');
+  assert.equal(calls.at(-1), '/api/recipes/salt%20%26%20pepper/comments');
+});

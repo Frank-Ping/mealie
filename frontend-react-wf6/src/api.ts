@@ -61,7 +61,7 @@ export function createRecipeApi(identity: Identity, getToken: () => string | nul
     async comments(recipe: Recipe, signal: AbortSignal): Promise<{ enabled: boolean; items: RecipeCommentOut[] }> {
       await verify(signal); checkGroup(recipe);
       if (!commentsEnabled(recipe, await householdDisabled(signal))) return { enabled: false, items: [] };
-      const items = await request<RecipeCommentOut[]>('/api/recipes/' + encodeURIComponent(recipe.id ?? '') + '/comments', signal);
+      const items = await request<RecipeCommentOut[]>('/api/recipes/' + encodeURIComponent(recipe.slug ?? '') + '/comments', signal);
       if (!Array.isArray(items) || items.some(item => item.recipeId !== recipe.id)) throw new ApiError('Invalid recipe comment response', 502);
       return { enabled: true, items };
     },
