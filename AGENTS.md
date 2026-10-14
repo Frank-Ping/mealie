@@ -236,3 +236,8 @@ task docker:prod        # Build and run production Docker compose
 - [Documentation](https://docs.mealie.io/)
 - [Contributors Guide](https://nightly.mealie.io/contributors/developers-guide/code-contributions/)
 - [Discord](https://discord.gg/QuStdQGSGK)
+
+
+# WF6 rerun experimental overlay
+
+For WF6 only, read rewrite-evidence/workflows/WF6/WF6-CONTRACT.md and the parent workspace AGENTS.md. One implementation agent, S0-S7 serial steps, explicit authorization and isolated runtime/evidence. Preserve the original conventions above.
