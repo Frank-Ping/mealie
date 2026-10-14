@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "stage": "S2",
+  "takeoverEnabled": false,
+  "groupSlug": null,
+  "defaultFrontend": "vue",
+  "explicitVueQuery": { "name": "wf6", "value": "vue" },
+  "backendPrefixes": ["/api", "/media"],
+  "candidateReactRoutes": ["/g/<testGroupSlug>", "/g/<testGroupSlug>/r/<slug>"],
+  "vueOwnedExclusions": ["create and all descendants", "shared pages", "other groups", "edit/parse/cook modes", "all non-pilot routes"],
+  "activeReactRoutes": [],
+  "navigation": "All pages remain Vue-owned in S2. No client middleware or React build is installed."
+}
