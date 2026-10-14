@@ -48,3 +48,29 @@ test('401 is a session failure and 404 remains an explicit detail error', async 
   const missing = createRecipeApi(identity, () => 'unit-token', transport(url => url === '/api/users/self' ? json(identity) : json({}, 404)));
   await assert.rejects(missing.detail('missing', signal()), (error: unknown) => error instanceof ApiError && error.status === 404);
 });
+
+test('comment submission trims input, rechecks ownership/disable policy, and returns only server-saved content', async () => {
+  const who = { ...identity, householdId: 'household' }; const calls: { url: string; body?: string }[] = [];
+  const recipe = { id: 'recipe', slug: 'real', groupId: 'group', settings: { disableComments: false } };
+  const api = createRecipeApi(who, () => 'unit-token', async (url, init) => {
+    calls.push({ url: String(url), ...(typeof init?.body === 'string' ? { body: init.body } : {}) });
+    return json(String(url) === '/api/users/self' ? who : String(url) === '/api/households/self' ? { id: 'household', groupId: 'group', preferences: {} } : String(url) === '/api/comments' ? { id: 'comment', recipeId: 'recipe', userId: who.id, text: 'real text' } : recipe);
+  });
+  await assert.rejects(api.submitComment(recipe, '   ', signal()), ApiError); assert.equal(calls.length, 0);
+  assert.equal((await api.submitComment(recipe, '  real text  ', signal())).text, 'real text');
+  assert.equal(calls.at(-1)?.body, JSON.stringify({ recipeId: 'recipe', text: 'real text' }));
+});
+test('household or recipe comment-disable conditions refuse POST', async () => {
+  for (const disabledAt of ['household', 'recipe']) {
+    const who = { ...identity, householdId: 'household' }; const recipe = { id: 'recipe', slug: 'real', groupId: 'group', settings: { disableComments: disabledAt === 'recipe' } }; const calls: string[] = [];
+    const api = createRecipeApi(who, () => null, async url => { calls.push(String(url)); return json(String(url) === '/api/users/self' ? who : String(url) === '/api/households/self' ? { id: 'household', groupId: 'group', preferences: { recipeDisableComments: disabledAt === 'household' } } : recipe); });
+    assert.equal((await api.comments(recipe, signal())).enabled, false);
+    await assert.rejects(api.submitComment(recipe, 'comment', signal()), (e: unknown) => e instanceof ApiError && e.status === 403); assert.equal(calls.includes('/api/comments'), false);
+  }
+});
+test('closing the session cancels pending requests and excludes late responses and later writes', async () => {
+  let release: (value: Response) => void = () => { throw new Error('Request not started'); }; let ownedSignal: AbortSignal | undefined;
+  const api = createRecipeApi(identity, () => null, async (_url, init) => { ownedSignal = init?.signal ?? undefined; return await new Promise<Response>(resolve => { release = resolve; }); });
+  const pending = api.list('', 1, signal()); api.cancel(); assert.equal(ownedSignal?.aborted, true); release(json(identity)); await assert.rejects(pending, { name: 'AbortError' });
+  await assert.rejects(api.list('', 1, signal()), { name: 'AbortError' });
+});

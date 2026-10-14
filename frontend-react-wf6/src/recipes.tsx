@@ -4,10 +4,11 @@ import { Alert, Button, Card, CardActionArea, CardContent, Chip, Pagination, Sta
 import { useTranslation } from 'react-i18next';
 import type { Recipe, RecipeSummary } from '../../frontend/app/lib/api/types/recipe.ts';
 import { SessionError, type RecipeApi } from './api.ts';
+import { RecipeComments } from './comments.tsx';
 import { ingredientText, recipeLink } from './model.ts';
 
 type Load<T> = { kind: 'loading' } | { kind: 'ready'; value: T } | { kind: 'error'; message: string };
-interface Props { api: RecipeApi; group: string; onSessionFailure: (reason: string) => void }
+interface Props { api: RecipeApi; group: string; onSessionFailure: (error: SessionError) => void }
 
 function RecipeList({ api, group, onSessionFailure }: Props) {
   const { t } = useTranslation();
@@ -19,7 +20,7 @@ function RecipeList({ api, group, onSessionFailure }: Props) {
       setState({ kind: 'loading' });
       void api.list(search, page, abort.signal).then(value => { if (!abort.signal.aborted) setState({ kind: 'ready', value }); }).catch(error => {
         if (abort.signal.aborted) return;
-        if (error instanceof SessionError) onSessionFailure(error.message);
+        if (error instanceof SessionError) onSessionFailure(error);
         else setState({ kind: 'error', message: error instanceof Error ? error.message : 'Recipe request failed' });
       });
     }, 200);
@@ -48,7 +49,7 @@ function RecipeDetail({ api, group, onSessionFailure }: Props) {
     setState({ kind: 'loading' });
     void api.detail(slug ?? '', abort.signal).then(value => { if (!abort.signal.aborted) setState({ kind: 'ready', value }); }).catch(error => {
       if (abort.signal.aborted) return;
-      if (error instanceof SessionError) onSessionFailure(error.message);
+      if (error instanceof SessionError) onSessionFailure(error);
       else setState({ kind: 'error', message: error instanceof Error ? error.message : 'Recipe request failed' });
     });
     return () => abort.abort();
@@ -69,6 +70,7 @@ function RecipeDetail({ api, group, onSessionFailure }: Props) {
       {([['tools', state.value.tools], ['categories', state.value.recipeCategory], ['tags', state.value.tags]] as const).map(([label, values]) => <Stack key={label} spacing={1}>
         <Typography component="h2" variant="h5">{t(label)}</Typography><Stack direction="row" flexWrap="wrap" gap={1}>{values?.map(value => <Chip key={value.id} label={value.name} />)}</Stack>
       </Stack>)}
+      <RecipeComments api={api} recipe={state.value} onSessionFailure={onSessionFailure} />
     </>}
   </Stack>;
 }
