@@ -240,3 +240,17 @@ After S7, use finalize --all --wait-seconds 30 from this run root. No further mo
 turn is needed to include its own final reply. Only original verified events may
 justify exact_reported; pre-reply records stay provisional.
 最终回复结束后从终端收尾；S7 使用 --all；回复前保持 provisional。
+
+## S6 CONTINUE 02 explicit scope amendment / 明确范围调整
+
+The actual user CONTINUE request authorizes a limited extension to resolve the four frozen S6 FAIL: real React Logout through POST /api/auth/logout, role/permission-based Settings navigation to existing Vue household/admin pages, and real recipe comment read/create/persistence through existing API/types. This overrides the earlier read-only/no-comment/no-layout restriction only for these features. Source editing/creation, other domains and settings page implementation remain Vue-owned. No evaluator/backend/schema changes or test-specific routing are permitted.
+用户明确授权以上四项有限扩展，替代对应的只读限制；其他规则继续有效，设置页面仍由 Vue 提供，不计 React 设置页迁移。
+
+Authentication handoff amendment: anonymous/verified 401 on protected React pilot routes now clears local session state and deliberately document-navigates to Vue login (preserving the target). Logout cancels owned requests, clears local user data/cache and cookie, performs the real logout POST and enters Vue login. Resource/config/network errors and 5xx remain visible failures and never automatically fall back to Vue. Wrong-group identities keep an explicit Vue entry and cannot access pilot data.
+认证交接变更：保护路由真实匿名/401 进入 Vue 登录；资源/5xx 不自动回退，错误 group 不展示数据。
+
+Comments follow original Vue identity and recipe.settings.disableComments / current household.preferences.recipeDisableComments conditions. Blank input is rejected, submitting is disabled, server failures are visible, success requires the server response and reload reads server data. This does not authorize editing/deleting comments or recipe writes. S6 retains its two repair rounds and the existing three-hour budget; the four old FAIL and all original traces/commits remain historical.
+评论遵循原 Vue 权限和禁用条件，仅授权读取/提交/持久化；不授权编辑/删除或食谱写入，预算和两轮上限不重置。
+
+Reason: the unchanged evaluator requires direct controls on pilot pages; continuation-01 proved the older explicit Vue recovery paths worked but did not satisfy those original flows. Authoritative actual Chinese prompt and boundary: external steps/S6/continuation-02/prompt.txt and request-boundary.json.
+原因：已有显式 Vue 功能可用但不满足原流程，本次用户明确批准有限直接实现；原 prompt 保留。
