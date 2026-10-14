@@ -3,6 +3,7 @@ import { createReadStream } from 'node:fs';
 import { readFile, realpath, stat } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { ownsReact } from './route-policy.mjs';
 
 const hopHeaders = new Set(['connection', 'keep-alive', 'proxy-authenticate', 'proxy-authorization', 'te', 'trailer', 'transfer-encoding', 'upgrade']);
 const mime = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.mjs': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.json': 'application/json; charset=utf-8', '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.webp': 'image/webp', '.ico': 'image/x-icon', '.woff': 'font/woff', '.woff2': 'font/woff2', '.txt': 'text/plain; charset=utf-8', '.webmanifest': 'application/manifest+json' };
@@ -12,10 +13,13 @@ function cleanHeaders(headers) {
   return Object.fromEntries(Object.entries(headers).filter(([key]) => !excluded.has(key.toLowerCase())));
 }
 
-export async function createGateway({ vueDir, backendOrigin, routeMapPath = fileURLToPath(new URL('./route-map.json', import.meta.url)), buildHash }) {
+export async function createGateway({ vueDir, reactDir, reactBuildHash, backendOrigin, routeMapPath = fileURLToPath(new URL('./route-map.json', import.meta.url)), buildHash }) {
   const root = await realpath(vueDir);
   const map = JSON.parse(await readFile(routeMapPath, 'utf8'));
-  if (map.takeoverEnabled || map.defaultFrontend !== 'vue' || map.activeReactRoutes.length) throw new Error('S2 supports verified all-Vue mode only. React takeover must remain disabled.');
+  if (map.defaultFrontend !== 'vue') throw new Error('Unowned routes must remain Vue-owned.');
+  const reactRoot = reactDir ? await realpath(reactDir) : null;
+  if (map.takeoverEnabled && (!reactRoot || !reactBuildHash || !map.groupSlug)) throw new Error('Enabled takeover requires the verified React build and configured group.');
+  if (map.takeoverEnabled) await stat(path.join(reactRoot, 'index.html'));
   const backend = new URL(backendOrigin);
   if (backend.protocol !== 'http:' || !['127.0.0.1', 'localhost'].includes(backend.hostname)) throw new Error('Backend must be an isolated loopback HTTP origin.');
   if (!buildHash) throw new Error('A verified build hash is required.');
@@ -52,20 +56,26 @@ export async function createGateway({ vueDir, backendOrigin, routeMapPath = file
         return res.end(req.method === 'HEAD' ? undefined : JSON.stringify(map));
       }
       if (pathname.split('/').some(part => part.startsWith('.'))) return fail(404, 'Not found');
-      let file = path.resolve(root, '.' + pathname);
-      if (!file.startsWith(root + path.sep) && file !== root) return fail(400, 'Invalid path');
+      // Decide HTML ownership before any backend metadata handling. React failure
+      // remains visible; enabled takeover never falls through to a Vue build.
+      const reactAsset = pathname.startsWith('/_wf6/');
+      const reactDocument = ownsReact(req.url, map);
+      if ((reactAsset || reactDocument) && !reactRoot) return fail(503, 'Verified React build unavailable');
+      const selectedRoot = reactAsset || reactDocument ? reactRoot : root;
+      let file = reactDocument ? path.join(selectedRoot, 'index.html') : path.resolve(selectedRoot, '.' + (reactAsset ? pathname.slice('/_wf6'.length) : pathname));
+      if (!file.startsWith(selectedRoot + path.sep) && file !== selectedRoot) return fail(400, 'Invalid path');
       let info = await stat(file).catch(() => null);
       if (info?.isDirectory()) { file = path.join(file, 'index.html'); info = await stat(file).catch(() => null); }
       if (!info?.isFile()) {
         // Missing assets are real 404s. Only document requests use history fallback.
         const asset = pathname.startsWith('/_nuxt/') || pathname.startsWith('/_wf6/') || Boolean(path.extname(pathname));
         if (asset || !String(req.headers.accept ?? '').includes('text/html')) return fail(404, 'Not found');
-        file = path.join(root, 'index.html'); info = await stat(file);
+        file = path.join(selectedRoot, 'index.html'); info = await stat(file);
       }
       const resolved = await realpath(file);
-      if (!resolved.startsWith(root + path.sep)) return fail(404, 'Not found');
+      if (!resolved.startsWith(selectedRoot + path.sep)) return fail(404, 'Not found');
       const type = mime[path.extname(file)] ?? 'application/octet-stream';
-      res.writeHead(200, { 'content-type': type, 'content-length': info.size, 'x-wf6-frontend': 'vue', 'x-wf6-build': buildHash,
+      res.writeHead(200, { 'content-type': type, 'content-length': info.size, 'x-wf6-frontend': reactAsset || reactDocument ? 'react' : 'vue', 'x-wf6-build': reactAsset || reactDocument ? reactBuildHash : buildHash,
         'cache-control': type.startsWith('text/html') ? 'no-store' : pathname.startsWith('/_nuxt/') ? 'public, max-age=31536000, immutable' : 'no-cache' });
       if (req.method === 'HEAD') return res.end();
       createReadStream(file).on('error', () => res.destroy()).pipe(res);
@@ -76,7 +86,7 @@ export async function createGateway({ vueDir, backendOrigin, routeMapPath = file
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const server = await createGateway({ vueDir: process.env.WF6_VUE_DIR, backendOrigin: process.env.WF6_BACKEND_ORIGIN,
-    buildHash: process.env.WF6_BUILD_HASH, routeMapPath: process.env.WF6_ROUTE_MAP });
-  server.listen(Number(process.env.WF6_PORT ?? 9106), '127.0.0.1', () => console.log(JSON.stringify({ event: 'gateway_ready', port: server.address().port, takeoverEnabled: false, buildHash: process.env.WF6_BUILD_HASH })));
+    buildHash: process.env.WF6_BUILD_HASH, reactDir: process.env.WF6_REACT_DIR, reactBuildHash: process.env.WF6_REACT_BUILD_HASH, routeMapPath: process.env.WF6_ROUTE_MAP });
+  server.listen(Number(process.env.WF6_PORT ?? 9106), '127.0.0.1', () => console.log(JSON.stringify({ event: 'gateway_ready', port: server.address().port, vueBuildHash: process.env.WF6_BUILD_HASH, reactBuildHash: process.env.WF6_REACT_BUILD_HASH })));
   for (const signal of ['SIGTERM', 'SIGINT']) process.on(signal, () => server.close(() => process.exit(0)));
 }

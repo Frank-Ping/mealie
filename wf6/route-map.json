@@ -1,13 +1,40 @@
 {
   "version": 1,
-  "stage": "S2",
-  "takeoverEnabled": false,
-  "groupSlug": null,
+  "stage": "S3",
+  "takeoverEnabled": true,
+  "groupSlug": "home",
   "defaultFrontend": "vue",
-  "explicitVueQuery": { "name": "wf6", "value": "vue" },
-  "backendPrefixes": ["/api", "/media"],
-  "candidateReactRoutes": ["/g/<testGroupSlug>", "/g/<testGroupSlug>/r/<slug>"],
-  "vueOwnedExclusions": ["create and all descendants", "shared pages", "other groups", "edit/parse/cook modes", "all non-pilot routes"],
-  "activeReactRoutes": [],
-  "navigation": "All pages remain Vue-owned in S2. No client middleware or React build is installed."
+  "explicitVueQuery": {
+    "name": "wf6",
+    "value": "vue"
+  },
+  "backendPrefixes": [
+    "/api",
+    "/media"
+  ],
+  "candidateReactRoutes": [
+    "/g/<testGroupSlug>",
+    "/g/<testGroupSlug>/r/<slug>"
+  ],
+  "vueOwnedExclusions": [
+    "create and all descendants",
+    "shared pages",
+    "other groups",
+    "edit/parse/cook modes",
+    "all non-pilot routes"
+  ],
+  "activeReactRoutes": [
+    "/g/<testGroupSlug>",
+    "/g/<testGroupSlug>/r/<slug>"
+  ],
+  "navigation": "React skeleton only. Vue/React boundary uses shared route-policy.mjs and document navigation; explicit wf6=vue suppresses takeover.",
+  "vueModes": [
+    "edit",
+    "parse",
+    "cook"
+  ],
+  "excludedSlugs": [
+    "create",
+    "shared"
+  ]
 }

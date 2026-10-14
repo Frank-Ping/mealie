@@ -11,13 +11,15 @@ test('all-Vue transport preserves bodies/status/cookies and separates asset miss
   await writeFile(path.join(root, 'index.html'), '<html>Vue fixture</html>');
   await mkdir(path.join(root, '_nuxt'));
   await writeFile(path.join(root, '_nuxt/app.js'), 'window.fixture=true;');
+  const routeMapPath = path.join(root, 'map.json');
+  await writeFile(routeMapPath, JSON.stringify({ takeoverEnabled: false, groupSlug: null, defaultFrontend: 'vue', activeReactRoutes: [], explicitVueQuery: { name: 'wf6', value: 'vue' }, backendPrefixes: ['/api', '/media'] }));
   const backend = http.createServer(async (req, res) => {
     const chunks = []; for await (const chunk of req) chunks.push(chunk);
     res.writeHead(418, { 'content-type': 'application/json', 'set-cookie': ['a=fixture; HttpOnly; Path=/', 'b=fixture; SameSite=Lax; Path=/'] });
     res.end(JSON.stringify({ method: req.method, url: req.url, body: Buffer.concat(chunks).toString(), cookie: req.headers.cookie }));
   });
   await new Promise(resolve => backend.listen(0, '127.0.0.1', resolve));
-  const gateway = await createGateway({ vueDir: root, backendOrigin: `http://127.0.0.1:${backend.address().port}`, buildHash: 'fixture-only' });
+  const gateway = await createGateway({ vueDir: root, backendOrigin: `http://127.0.0.1:${backend.address().port}`, buildHash: 'fixture-only', routeMapPath });
   await new Promise(resolve => gateway.listen(0, '127.0.0.1', resolve));
   const origin = `http://127.0.0.1:${gateway.address().port}`;
   try {
