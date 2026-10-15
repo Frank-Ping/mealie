@@ -1,0 +1,42 @@
+[measure 21:58:45] install: pnpm install --frozen-lockfile
+[measure 21:59:57] install: exit=0 (72s)
+[measure 21:59:57] build: pnpm generate
+[measure 22:00:11] build: exit=0 (14s)
+[measure 22:00:11] unit: pnpm exec vitest run --maxWorkers=4 --reporter=json --outputFile=<EXECUTION_COPY>/evaluator/rewrite-evidence/runs/20261013T085845Z-source_frontend-WF4-R2-Vue-baseline/vitest.json
+[measure 22:00:19] unit: exit=0 (8s)
+[measure 22:00:19] lint: pnpm exec eslint . --format json --output-file <EXECUTION_COPY>/evaluator/rewrite-evidence/runs/20261013T085845Z-source_frontend-WF4-R2-Vue-baseline/eslint.json
+[measure 22:00:28] lint: exit=0 (9s)
+[measure 22:00:28] types: installing vue-tsc@2.2.0 + typescript@5.9.3 into <EXECUTION_COPY>/evaluator/rewrite-evidence/.tools/vuetsc
+[measure 22:00:31] types: <EXECUTION_COPY>/evaluator/rewrite-evidence/.tools/vuetsc/node_modules/.bin/vue-tsc --noEmit
+[measure 22:00:45] types: exit=2 (14s)
+[measure 22:00:46] e2e: playwright against <EXECUTION_COPY>/source/frontend/dist
+[measure 22:02:15] e2e: exit=0 (89s)
+
+  timestamp_utc = 2026-10-13T09:02:15Z
+  label = WF4-R2-Vue-baseline
+  app = source/frontend
+  branch = rewrite/wf4-codemod-rerun
+  commit = 4b9ca06
+  dirty = 0
+  route_scope = all
+  route_check = strict
+  routes_passed = 66
+  routes_total = 66
+  flows_passed = 15
+  flows_total = 15
+  tsc_errors = 314
+  lint_errors = 0
+  lint_warnings = 0
+  unit_passed = 517
+  unit_failed = 0
+  unit_skipped = 0
+  build_ok = 1
+  build_seconds = 14
+  any_count = 88
+  todo_count = 16
+  expect_count = 817
+  test_files = 48
+  duration_seconds = 210
+  run_id = 20261013T085845Z-source_frontend-WF4-R2-Vue-baseline
+  notes = 
+  -> appended to <EXECUTION_COPY>/evaluator/rewrite-evidence/metrics.csv

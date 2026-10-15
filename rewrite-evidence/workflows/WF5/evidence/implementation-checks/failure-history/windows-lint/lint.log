@@ -1,0 +1,7 @@
+
+<WORKSPACE>/mealie-wf4-rerun\frontend-react\src\generated\BaseButton.tsx
+  132:332  error  Expected an assignment or function call and instead saw an expression  @typescript-eslint/no-unused-expressions
+
+✖ 1 problem (1 error, 0 warnings)
+
+

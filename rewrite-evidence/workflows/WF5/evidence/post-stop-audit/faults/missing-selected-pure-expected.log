@@ -1,0 +1,28 @@
+✔ fixture: leaf (16.8808ms)
+✔ fixture: conditional (5.9473ms)
+✔ fixture: list-event (12.2767ms)
+✔ fixture: defaults (3.0085ms)
+✔ fixture: runtime-props (1.763ms)
+✔ fixture: computed (3.0582ms)
+✔ fixture: slots (2.3184ms)
+✔ fixture: link (1.2455ms)
+✔ fixture: unknown-directive (0.6181ms)
+✔ fixture: unknown-tag (0.4724ms)
+✔ fixture: async-page (0.3515ms)
+✔ fixture: singleton (0.1627ms)
+✔ fixture: dependency (0.272ms)
+✔ fixture: css (0.3262ms)
+✔ fixture: unknown-script (0.2766ms)
+✔ missing required fixture/expected verdict fails hard (0.9716ms)
+✔ import relocation is AST-scoped and does not rewrite business strings (1.0129ms)
+✔ all five actual source samples have verdicts and deterministic bytes (23.6452ms)
+✔ refinement failure cannot mutate original or return partially patched files (0.1907ms)
+✔ publication refuses overwrite and invalid paths without publishing partial tree (3.9791ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 473.5075

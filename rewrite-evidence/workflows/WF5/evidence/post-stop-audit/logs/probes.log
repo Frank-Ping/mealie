@@ -1,0 +1,79 @@
+
+ RUN  v5.0.4 <EXECUTION_COPY>/frontend-react
+
+ × tests/review-infra.test.tsx > audit: rejected non-plain loader data must release loading and report the failure 5ms
+   → expected true to be false // Object.is equality
+ ✓ tests/review-infra.test.tsx > audit: reset preserves new flight when completions are old-first 1ms
+ ✓ tests/review-infra.test.tsx > audit: reset preserves new flight when completions are new-first 0ms
+ ✓ tests/review-infra.test.tsx > audit: anonymous redirect preserves encoded query and hash exactly 27ms
+ ✓ tests/review-infra.test.tsx > audit: missing second-language string falls back to English and mounted consumers react 5ms
+ × tests/review-samples.test.tsx > independent generated-component semantics > required block attr maps to fullWidth or fails with an explicit unsupported diagnostic 95ms
+   → expected false to be true // Object.is equality
+ ✓ tests/review-samples.test.tsx > independent generated-component semantics > normal button fallthrough preserves attrs, submit type and the click event payload 13ms
+ ✓ tests/review-samples.test.tsx > independent generated-component semantics > real link href keeps query/hash and a normal primary click updates Router location 17ms
+ ✓ tests/review-samples.test.tsx > independent generated-component semantics > caller preventDefault receives the click and cancels Router navigation 8ms
+ ✓ tests/review-samples.test.tsx > independent generated-component semantics > Ctrl link click is not intercepted by the SPA 9ms
+ ✓ tests/review-samples.test.tsx > independent generated-component semantics > Meta link click is not intercepted by the SPA 7ms
+ ✓ tests/review-samples.test.tsx > independent generated-component semantics > Alt link click is not intercepted by the SPA 7ms
+ ✓ tests/review-samples.test.tsx > independent generated-component semantics > Shift link click is not intercepted by the SPA 6ms
+ ✓ tests/review-samples.test.tsx > independent generated-component semantics > middle button link click is not intercepted by the SPA 7ms
+ ✓ tests/review-samples.test.tsx > independent generated-component semantics > download uses the current URL after a prop update and exactly one caller callback per click 13ms
+ ✓ tests/review-samples.test.tsx > independent generated-component semantics > RecipeChips prevent modifier preserves payload identity and does not imply stopPropagation 11ms
+
+ Test Files  2 failed (2)
+      Tests  2 failed | 14 passed (16)
+   Start at  00:21:14
+   Duration  2.41s (import 41%, environment 40%, setup 8%, tests 7%, transform 3%)
+
+JSON report written to <WORKSPACE>/wf4-r2-evidence/gate2-independent-review/20261013T111104Z/probe-results.json
+stderr | tests/review-samples.test.tsx > independent generated-component semantics > required block attr maps to fullWidth or fails with an explicit unsupported diagnostic
+Received `true` for a non-boolean attribute `block`.
+
+If you want to write it to the DOM, pass a string instead: block="true" or block={value.toString()}.
+
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+Not implemented: navigation to another Document
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/review-infra.test.tsx > audit: rejected non-plain loader data must release loading and report the failure
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ tests/review-infra.test.tsx:14:39
+     12|   // Whether the primitive resolves or rejects is independent of clean…
+     13|   await store.ensureLoaded(async () => new Date("2026-01-01T00:00:00Z"…
+     14|   expect(store.getSnapshot().loading).toBe(false);
+       |                                       ^
+     15|   expect(store.getSnapshot().initialized).toBe(false);
+     16|   expect(store.getSnapshot().error).toBeTruthy();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  tests/review-samples.test.tsx > independent generated-component semantics > required block attr maps to fullWidth or fails with an explicit unsupported diagnostic
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ tests/review-samples.test.tsx:37:107
+     35|       return;
+     36|     }
+     37|     expect(screen.getByRole("button", { name: "Wide action" }).classLi…
+       |                                                                                                           ^
+     38|   });
+     39|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+

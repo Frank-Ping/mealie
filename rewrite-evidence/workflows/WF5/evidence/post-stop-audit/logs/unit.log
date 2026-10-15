@@ -1,0 +1,46 @@
+
+ RUN  v5.0.4 <EXECUTION_COPY>/frontend-react
+
+ ✓ src/reused/lib/sanitize/text.test.ts > truncateText > returns short text unchanged 1ms
+ ✓ src/reused/lib/sanitize/text.test.ts > truncateText > truncates long text with clamp 0ms
+ ✓ src/reused/lib/sanitize/text.test.ts > truncateText > respects custom length and clamp 0ms
+ ✓ src/reused/lib/sanitize/text.test.ts > truncateText > does not clamp text exactly at the length boundary 0ms
+ ✓ src/reused/lib/sanitize/text.test.ts > truncateText > does not parse or execute HTML payloads 1ms
+ ✓ src/reused/lib/validators/redirect.test.ts > isSafeRedirectTarget > accepts an internal path 1ms
+ ✓ src/reused/lib/validators/redirect.test.ts > isSafeRedirectTarget > rejects protocol-relative URLs 0ms
+ ✓ src/reused/lib/validators/redirect.test.ts > isSafeRedirectTarget > rejects backslash variants used to bypass same-origin checks 0ms
+ ✓ src/reused/lib/validators/redirect.test.ts > isSafeRedirectTarget > rejects absolute URLs 0ms
+ ✓ src/reused/lib/validators/redirect.test.ts > isSafeRedirectTarget > rejects empty or missing values 0ms
+ ✓ tests/store.test.tsx > two consumers share one stable immutable snapshot; reset updates both 16ms
+ ✓ tests/store.test.tsx > concurrent load deduplicates and reset prevents stale completion from repopulating store 1ms
+ ✓ tests/store.test.tsx > failed load releases loading state and can retry 0ms
+ ✓ tests/guards.test.tsx > source auth expectation: logged out deep link preserves fullPath 25ms
+ ✓ tests/guards.test.tsx > source auth expectation: logged in allowed 2ms
+ ✓ tests/guards.test.tsx > pending auth never renders protected content 53ms
+ ✓ tests/guards.test.tsx > admin and actual group membership conditions are not conflated 6ms
+ ✓ tests/guards.test.tsx > group-only rejects another group even for admin 16ms
+ ✓ tests/samples.test.tsx > RecipeChips source behavior > empty default mounts no list and no zero text 9ms
+ ✓ tests/samples.test.tsx > RecipeChips source behavior > list limit, truncation and emitted payload preserve actual source objects 79ms
+ ✓ tests/samples.test.tsx > RecipeChips source behavior > default urlPrefix and optional listener 8ms
+ ✓ tests/samples.test.tsx > RecipeChips source behavior > boolean title remains source interpolation, not an invented string prop 7ms
+ ✓ tests/samples.test.tsx > RecipeChips source behavior > undefined uses default; caller attrs reach root; updates change visible list 2ms
+ ✓ tests/samples.test.tsx > RecipeChips source behavior > markup remains escaped text 2ms
+ ✓ tests/samples.test.tsx > BaseButton local contracts (transport supplied explicitly) > action precedence and explicit text override 21ms
+ ✓ tests/samples.test.tsx > BaseButton local contracts (transport supplied explicitly) > default and named slots replace fallback and preserve ordering 9ms
+ ✓ tests/samples.test.tsx > BaseButton local contracts (transport supplied explicitly) > nonempty destination renders a real link with query/hash; empty remains button 14ms
+ ✓ tests/samples.test.tsx > BaseButton local contracts (transport supplied explicitly) > download port receives original URL exactly once and fallthrough callback runs 9ms
+ ✓ tests/samples.test.tsx > BaseButton local contracts (transport supplied explicitly) > disabled and loading block clicks 18ms
+ ✓ tests/samples.test.tsx > BaseButton local contracts (transport supplied explicitly) > missing transport throws rather than creating a fake client 3ms
+ ✓ tests/samples.test.tsx > BaseButton local contracts (transport supplied explicitly) > setup-created translated option preserves Vue instance lifetime 15ms
+ ✓ tests/samples.test.tsx > BaseButton local contracts (transport supplied explicitly) > default icon is an SVG path, not raw path text 5ms
+ ✓ tests/samples.test.tsx > BaseButton local contracts (transport supplied explicitly) > unresolved grey/cancel and legacy x-small fail visibly instead of guessing 3ms
+ ✓ tests/samples.test.tsx > limited legacy i18n adapter > named, positional and missing arguments 0ms
+ ✓ tests/samples.test.tsx > limited legacy i18n adapter > unsupported syntax blocks instead of silently mistranslating 0ms
+ ✓ tests/samples.test.tsx > limited legacy i18n adapter > existing resource key preserved through react-i18next initialization 0ms
+
+ Test Files  5 passed (5)
+      Tests  36 passed (36)
+   Start at  00:15:29
+   Duration  2.92s (environment 58%, import 19%, setup 13%, tests 5%, transform 5%)
+
+JSON report written to <WORKSPACE>/wf4-r2-evidence/gate2-independent-review/20261013T111104Z/unit-results.json

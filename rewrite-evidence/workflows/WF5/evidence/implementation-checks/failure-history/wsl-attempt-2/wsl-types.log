@@ -1,0 +1,2 @@
+../frontend/app/lib/icons/icons.ts(149,8): error TS2307: Cannot find module '@mdi/js' or its corresponding type declarations.
+

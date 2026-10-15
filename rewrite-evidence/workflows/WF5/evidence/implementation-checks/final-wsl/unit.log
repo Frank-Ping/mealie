@@ -1,0 +1,47 @@
+
+[1m[30m[46m RUN [49m[39m[22m [36mv5.0.4 [39m[90m<EXECUTION_COPY>/source/frontend-react[39m
+
+ [32m✓[39m src/reused/lib/sanitize/text.test.ts[2m > [22mtruncateText[2m > [22mreturns short text unchanged[32m 1[2mms[22m[39m
+ [32m✓[39m src/reused/lib/sanitize/text.test.ts[2m > [22mtruncateText[2m > [22mtruncates long text with clamp[32m 0[2mms[22m[39m
+ [32m✓[39m src/reused/lib/sanitize/text.test.ts[2m > [22mtruncateText[2m > [22mrespects custom length and clamp[32m 0[2mms[22m[39m
+ [32m✓[39m src/reused/lib/sanitize/text.test.ts[2m > [22mtruncateText[2m > [22mdoes not clamp text exactly at the length boundary[32m 0[2mms[22m[39m
+ [32m✓[39m src/reused/lib/sanitize/text.test.ts[2m > [22mtruncateText[2m > [22mdoes not parse or execute HTML payloads[32m 1[2mms[22m[39m
+ [32m✓[39m src/reused/lib/validators/redirect.test.ts[2m > [22misSafeRedirectTarget[2m > [22maccepts an internal path[32m 1[2mms[22m[39m
+ [32m✓[39m src/reused/lib/validators/redirect.test.ts[2m > [22misSafeRedirectTarget[2m > [22mrejects protocol-relative URLs[32m 0[2mms[22m[39m
+ [32m✓[39m src/reused/lib/validators/redirect.test.ts[2m > [22misSafeRedirectTarget[2m > [22mrejects backslash variants used to bypass same-origin checks[32m 0[2mms[22m[39m
+ [32m✓[39m src/reused/lib/validators/redirect.test.ts[2m > [22misSafeRedirectTarget[2m > [22mrejects absolute URLs[32m 0[2mms[22m[39m
+ [32m✓[39m src/reused/lib/validators/redirect.test.ts[2m > [22misSafeRedirectTarget[2m > [22mrejects empty or missing values[32m 0[2mms[22m[39m
+ [32m✓[39m tests/store.test.tsx[2m > [22mtwo consumers share one stable immutable snapshot; reset updates both[32m 16[2mms[22m[39m
+ [32m✓[39m tests/store.test.tsx[2m > [22mconcurrent load deduplicates and reset prevents stale completion from repopulating store[32m 1[2mms[22m[39m
+ [32m✓[39m tests/store.test.tsx[2m > [22mfailed load releases loading state and can retry[32m 0[2mms[22m[39m
+ [32m✓[39m tests/guards.test.tsx[2m > [22msource auth expectation: logged out deep link preserves fullPath[32m 21[2mms[22m[39m
+ [32m✓[39m tests/guards.test.tsx[2m > [22msource auth expectation: logged in allowed[32m 2[2mms[22m[39m
+ [32m✓[39m tests/guards.test.tsx[2m > [22mpending auth never renders protected content[32m 48[2mms[22m[39m
+ [32m✓[39m tests/guards.test.tsx[2m > [22madmin and actual group membership conditions are not conflated[32m 4[2mms[22m[39m
+ [32m✓[39m tests/guards.test.tsx[2m > [22mgroup-only rejects another group even for admin[32m 3[2mms[22m[39m
+ [32m✓[39m tests/samples.test.tsx[2m > [22mRecipeChips source behavior[2m > [22mempty default mounts no list and no zero text[32m 10[2mms[22m[39m
+ [32m✓[39m tests/samples.test.tsx[2m > [22mRecipeChips source behavior[2m > [22mlist limit, truncation and emitted payload preserve actual source objects[32m 76[2mms[22m[39m
+ [32m✓[39m tests/samples.test.tsx[2m > [22mRecipeChips source behavior[2m > [22mdefault urlPrefix and optional listener[32m 11[2mms[22m[39m
+ [32m✓[39m tests/samples.test.tsx[2m > [22mRecipeChips source behavior[2m > [22mboolean title remains source interpolation, not an invented string prop[32m 7[2mms[22m[39m
+ [32m✓[39m tests/samples.test.tsx[2m > [22mRecipeChips source behavior[2m > [22mundefined uses default; caller attrs reach root; updates change visible list[32m 2[2mms[22m[39m
+ [32m✓[39m tests/samples.test.tsx[2m > [22mRecipeChips source behavior[2m > [22mmarkup remains escaped text[32m 2[2mms[22m[39m
+ [32m✓[39m tests/samples.test.tsx[2m > [22mBaseButton local contracts (transport supplied explicitly)[2m > [22maction precedence and explicit text override[32m 20[2mms[22m[39m
+ [32m✓[39m tests/samples.test.tsx[2m > [22mBaseButton local contracts (transport supplied explicitly)[2m > [22mdefault and named slots replace fallback and preserve ordering[32m 12[2mms[22m[39m
+ [32m✓[39m tests/samples.test.tsx[2m > [22mBaseButton local contracts (transport supplied explicitly)[2m > [22mnonempty destination renders a real link with query/hash; empty remains button[32m 22[2mms[22m[39m
+ [32m✓[39m tests/samples.test.tsx[2m > [22mBaseButton local contracts (transport supplied explicitly)[2m > [22mdownload port receives original URL exactly once and fallthrough callback runs[32m 9[2mms[22m[39m
+ [32m✓[39m tests/samples.test.tsx[2m > [22mBaseButton local contracts (transport supplied explicitly)[2m > [22mdisabled and loading block clicks[32m 17[2mms[22m[39m
+ [32m✓[39m tests/samples.test.tsx[2m > [22mBaseButton local contracts (transport supplied explicitly)[2m > [22mmissing transport throws rather than creating a fake client[32m 3[2mms[22m[39m
+ [32m✓[39m tests/samples.test.tsx[2m > [22mBaseButton local contracts (transport supplied explicitly)[2m > [22msetup-created translated option preserves Vue instance lifetime[32m 12[2mms[22m[39m
+ [32m✓[39m tests/samples.test.tsx[2m > [22mBaseButton local contracts (transport supplied explicitly)[2m > [22mdefault icon is an SVG path, not raw path text[32m 6[2mms[22m[39m
+ [32m✓[39m tests/samples.test.tsx[2m > [22mBaseButton local contracts (transport supplied explicitly)[2m > [22munresolved grey/cancel and legacy x-small fail visibly instead of guessing[32m 3[2mms[22m[39m
+ [32m✓[39m tests/samples.test.tsx[2m > [22mlimited legacy i18n adapter[2m > [22mnamed, positional and missing arguments[32m 0[2mms[22m[39m
+ [32m✓[39m tests/samples.test.tsx[2m > [22mlimited legacy i18n adapter[2m > [22munsupported syntax blocks instead of silently mistranslating[32m 0[2mms[22m[39m
+ [32m✓[39m tests/samples.test.tsx[2m > [22mlimited legacy i18n adapter[2m > [22mexisting resource key preserved through react-i18next initialization[32m 0[2mms[22m[39m
+
+[2m Test Files [22m [1m[32m5 passed[39m[22m[90m (5)[39m
+[2m      Tests [22m [1m[32m36 passed[39m[22m[90m (36)[39m
+[2m   Start at [22m 23:54:15
+[2m   Duration [22m 1.80s[2m (environment 61%, import 17%, setup 9%, tests 7%, transform 6%)[22m
+
+JSON report written to <WORKSPACE>/wf4-r2-evidence/workflow-sessions/phase-b/wsl-unit-results.json
+
