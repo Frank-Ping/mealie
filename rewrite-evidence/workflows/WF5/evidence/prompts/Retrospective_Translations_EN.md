@@ -1,20 +1,20 @@
 Public preparation note: this is a retrospective translation of the original prompts. Public projections modify private paths and metadata; original hashes and transformations are listed in [PUBLIC_MANIFEST.json](../PUBLIC_MANIFEST.json).
 
-# WF5 R2 English prompt evidence
+English presentation note: workflow labels and workspace paths in this presentation are normalized for the report. This is not a verbatim export; the linked original Chinese messages and visible-session records preserve the recorded wording.
+
+# WF5 WF5 English prompt evidence
 
 These are retrospective English translations prepared after the sessions on **14 October 2026**, Pacific/Auckland. The original workflow messages were written in Chinese and are retained in the private original evidence and published here with explicit path/metadata redactions. The translated text was not supplied to the agent during the experiment.
-
-The historical identifier **WF4-R2** corresponds to **WF5** in the report. Historical identifiers, commit hashes, numbers and commands are preserved; private workstation paths use documented placeholders. **WF4-R3 is excluded.** The post-stop independent audit is recorded separately from the formal Phase A/B experiment.
 
 All source event timestamps below are UTC. JSONL rows are one-based; exported `ordinal` values are a different indexing field and are identified separately. The Phase A/B visible exports contain available visible records, rather than a complete unfiltered platform transcript. No hidden reasoning or system instructions are reproduced here.
 
 ## 1 Phase A rules design and experiment records
 
-Original saved prompt: `wf4-r2-evidence/workflow-sessions/phase-a/prompt-1.txt`.
+Original saved prompt: `<EVIDENCE>/phase-a/prompt-1.txt`.
 
-Original visible export: `wf4-r2-evidence/workflow-sessions/phase-a/visible-transcript-finalized.jsonl`, **row 1**, exported **ordinal 878**.
+Original visible export: `<EVIDENCE>/phase-a/visible-transcript-finalized.jsonl`, **row 1**, exported **ordinal 878**.
 
-Original raw session log: `<PRIVATE_SESSION_LOG>`, **row 879**.
+Source event: identified by the timestamp and source row recorded below.
 
 Source event timestamp: **2026-10-13T09:39:59.423Z**.
 
@@ -23,17 +23,17 @@ The translation below follows the actual user-message text in the JSONL event. T
 ```text
 Prompt 1 Rules design and experiment records
 
-Begin WF4-R2 Phase A: rule design. Formal workflow usage recording starts
+Begin WF5 Phase A: rule design. Formal workflow usage recording starts
 with this prompt.
 
 Canonical source directory:
-<WORKSPACE>/mealie-wf4-rerun
+<WORKSPACE>/mealie-wf5
 Evidence directory:
-<WORKSPACE>/wf4-r2-evidence
+<WORKSPACE>/wf5-evidence
 
 First read AGENTS.md in the canonical source directory, and SETUP.md,
 BASELINE.md, environment.json and runtime-env.sh in the evidence directory.
-Confirm that the current branch is rewrite/wf4-codemod-rerun and that the
+Confirm that the current branch is rewrite/wf5-rule-driven and that the
 starting commit is 4b9ca06b6581f7152e164ea0fd9d4da366975a79.
 
 Target stack: Vite + React 19 + strict TypeScript + React Router SPA + MUI
@@ -45,10 +45,10 @@ execution snapshots only.
 In this phase, analyse the source and create documents. Do not begin
 conversion. Create the following in rewrite-evidence/workflows/ inside
 the canonical source directory:
-- WF4-R2-plan.md: workflow, infrastructure design, output-file ownership,
+- WF5-plan.md: workflow, infrastructure design, output-file ownership,
   verification methods, budget and stopping conditions.
-- WF4-R2-conversion-rules.md: rule catalogue.
-- WF4-R2-state.md: completed work, decisions, risks and next steps.
+- WF5-conversion-rules.md: rule catalogue.
+- WF5-state.md: completed work, decisions, risks and next steps.
 
 Each rule must include an ID, a real source path, before-and-after
 Vue/React examples, applicability conditions, a Mechanical/Semi-mechanical/
@@ -70,25 +70,25 @@ budget to Gate 1 as an item awaiting confirmation.
 
 Save this phase's prompt, available session records, time and raw usage in
 workflow-sessions/ inside the evidence directory. If available, list earlier
-WF4-R2-specific prompt-template preparation costs separately; list shared
+WF5-specific prompt-template preparation costs separately; list shared
 baseline preparation costs separately. Write "not provided" for tokens or
 fees the tool does not report. State whether cached input is included in
 input and whether usage is cumulative, to avoid double counting. Record
 human review time separately. If a complete transcript cannot be exported,
 mark it as pending.
 
-Commit only documents relevant to this phase, using the [WF4-R2-A] commit
+Commit only documents relevant to this phase, using the commit
 prefix, and update state. After submitting the rule summary, unresolved
 questions and review materials, stop and wait for me to confirm Gate 1.
 ```
 
 ## 2 Gate 1 approval with the unfilled token placeholder
 
-Original saved prompt: `wf4-r2-evidence/workflow-sessions/phase-b/gate-1-prompt.txt`.
+Original saved prompt: `<EVIDENCE>/phase-b/gate-1-prompt.txt`.
 
-Original visible export: `wf4-r2-evidence/workflow-sessions/phase-b/visible-transcript.jsonl`, **row 1**, exported **ordinal 1060**.
+Original visible export: `<EVIDENCE>/phase-b/visible-transcript.jsonl`, **row 1**, exported **ordinal 1060**.
 
-Original raw session log: `<PRIVATE_SESSION_LOG>`, **row 1061**.
+Source event: identified by the timestamp and source row recorded below.
 
 Source event timestamp: **2026-10-13T10:06:11.148Z**.
 
@@ -104,11 +104,11 @@ completing the specified implementation and sample checks. Wait for my review.
 
 ## 3 Token-budget clarification
 
-Original saved record: `wf4-r2-evidence/workflow-sessions/phase-b/token-policy-confirmation.txt`.
+Original saved record: `<EVIDENCE>/phase-b/token-policy-confirmation.txt`.
 
-Original visible export: `wf4-r2-evidence/workflow-sessions/phase-b/visible-transcript.jsonl`, **row 7**, exported **ordinal 1078**.
+Original visible export: `<EVIDENCE>/phase-b/visible-transcript.jsonl`, **row 7**, exported **ordinal 1078**.
 
-Original raw session log: `<PRIVATE_SESSION_LOG>`, **row 1079**.
+Source event: identified by the timestamp and source row recorded below.
 
 Source event timestamp: **2026-10-13T10:06:38.887Z**.
 
@@ -117,7 +117,7 @@ The source is a structured question-reply record. Both the question and the user
 ```text
 Assistant clarification:
 What total token limit should be entered? Please provide an integer and
-state whether it is a cumulative limit for the whole WF4-R2 workflow,
+state whether it is a cumulative limit for the whole WF5 workflow,
 including the completed Phase A, or an additional budget starting from
 Phase B. The counting basis is input + output; cached input is already
 included in input.
@@ -126,28 +126,28 @@ User answer:
 No limit; only record the usage.
 ```
 
-## 4 Post-R2 independent Gate 2 audit
+## 4 post-stop independent Gate 2 audit
 
-This prompt initiated an independent audit after the R2 implementation had stopped at Gate 2. It is separate from the formal Phase A/B experiment and did not authorise further implementation or an additional sample-review round.
+This prompt initiated an independent audit after the WF5 implementation had stopped at Gate 2. It is separate from the formal Phase A/B experiment and did not authorise further implementation or an additional sample-review round.
 
 Original extracted user text in this package: `Audit_Prompt_Original_ZH.txt`.
 
 Extraction provenance: `Audit_Prompt_Source.json`.
 
-Original raw session log: `<PRIVATE_SESSION_LOG>`, **row 141**.
+Source event: identified by the timestamp and source row recorded below.
 
 Source event timestamp: **2026-10-13T11:08:48.341Z**.
 
 No separate visible export or `ordinal` field was found for this event. The raw JSONL row and timestamp identify the actual message. Only its user text and provenance metadata are included in this package.
 
 ```text
-Please independently review WF4-R2 Gate 2.
+Please independently review WF5 Gate 2.
 
 Source directory:
-<WORKSPACE>/mealie-wf4-rerun
+<WORKSPACE>/mealie-wf5
 
 Evidence directory:
-<WORKSPACE>/wf4-r2-evidence
+<WORKSPACE>/wf5-evidence
 
 First read AGENTS.md, the Gate 2 submission, plan, decisions,
 conversion-rules and state. Then check:
@@ -175,7 +175,7 @@ Keep the canonical source and existing records read-only. Do not repair
 the implementation, add sample rounds or begin batch conversion.
 
 Write the independent review result to:
-rewrite-evidence/workflows/WF4-R2-Gate-2-independent-review.md
+rewrite-evidence/workflows/WF5-Gate-2-independent-review.md
 
 Stop when complete. I will decide the next action.
 ```

@@ -1,6 +1,6 @@
 # WF5 decision log
 
-> Publication naming updated to WF5 on 14 October 2026. The historical experiment ran as WF4-R2 and ended at `8b0fae1`; its original documents and commits remain accessible at that revision. This naming update is not a new conversion run or a new Gate 2 approval. See [WF5 publication provenance](WF5/provenance/publication-rename.json).
+> Publication naming updated to WF5 on 14 October 2026. The historical experiment ran as WF5 and ended at `8b0fae1`; its original documents and commits remain accessible at that revision. This naming update is not a new conversion run or a new Gate 2 approval. See [WF5 publication provenance](WF5/provenance/publication-rename.json).
 ## G1 — approved by user, 2026-10-13
 
 User confirmed: “Gate 1 确认通过。我同意你刚提交的决策清单。时间预算按计划执行 … 请记录确认决定，开始 Phase B，完成规定实现和样本检查后停在 Gate 2，等待我审核。”

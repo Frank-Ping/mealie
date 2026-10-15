@@ -1,20 +1,20 @@
 # WF5 plan — Phase A / Gate 1
 
-> Publication naming updated to WF5 on 14 October 2026. The historical experiment ran as WF4-R2 and ended at `8b0fae1`; its original documents and commits remain accessible at that revision. This naming update is not a new conversion run or a new Gate 2 approval. See [WF5 publication provenance](WF5/provenance/publication-rename.json).
+> Publication naming updated to WF5 on 14 October 2026. The historical experiment ran as WF5 and ended at `8b0fae1`; its original documents and commits remain accessible at that revision. This naming update is not a new conversion run or a new Gate 2 approval. See [WF5 publication provenance](WF5/provenance/publication-rename.json).
 This is a design proposal, not a rewrite result. Phase A reads source and writes documentation only. Gate 1 approval is required before implementing infrastructure, codemods, samples or React application code.
 
 ## Fixed inputs and scope
 
 - Canonical Windows source: `<WORKSPACE>/mealie-wf5`.
-- Branch verified: `rewrite/wf4-codemod-rerun`; initial HEAD verified: `4b9ca06b6581f7152e164ea0fd9d4da366975a79`. Working tree was clean before Phase A.
-- Canonical evidence: sibling `wf4-r2-evidence/`. Read `SETUP.md`, `BASELINE.md`, `environment.json`, `runtime-env.sh` and repository `AGENTS.md` before design.
+- Branch verified: `rewrite/wf5-rule-driven`; initial HEAD verified: `4b9ca06b6581f7152e164ea0fd9d4da366975a79`. Working tree was clean before Phase A.
+- Canonical evidence: sibling `<EVIDENCE>/`. Read `SETUP.md`, `BASELINE.md`, `environment.json`, `runtime-env.sh` and repository `AGENTS.md` before design.
 - Frozen evaluator: sibling `mealie-wf4-evaluator`, commit `758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d`. Its inputs/assertions/route and flow standards must not be modified.
 - Target: Vite + React **19** + TypeScript **strict** + React Router **SPA** + MUI + react-i18next. No SSR framework is proposed.
 - Original `frontend/`, `mealie/`, baseline evidence and evaluator remain unchanged. Generated API types and all existing locale files stay unchanged. Backend schemas are out of scope.
 
 Inventory: 229 Vue files, 66 page files, 84 literal Vuetify tags across 201 files. Composables contain 124 TypeScript files, including 32 tests: 92 non-test TypeScript files. API directory has 72 TypeScript files and no other file extension in this checkout; do not reuse the older 90-file report claim. Direct framework imports were not found in those API TypeScript files; dependency closure/auto-import auditing is still required before declaring reuse safe. Lexical discovery is an inventory, not an AST semantic audit or demonstrated conversion coverage.
 
-Fresh Vue baseline: build passed (14 s), 517 unit tests passed, lint 0 errors/warnings, **314 existing Vue type diagnostics**, strict routes 66/66, flows 15/15, Playwright 82/82 (66 routes + 15 flows + one guard), statement coverage 15.1%, page coverage 1.82%, composables coverage 49.45%. Static counters: any 88, TODO 16, expect 817, 48 test files. Measurement 210 s excludes tool setup and separate coverage. Raw run: `wf4-r2-evidence/runs/20261013T085845Z-source_frontend-WF4-R2-Vue-baseline/`.
+Fresh Vue baseline: build passed (14 s), 517 unit tests passed, lint 0 errors/warnings, **314 existing Vue type diagnostics**, strict routes 66/66, flows 15/15, Playwright 82/82 (66 routes + 15 flows + one guard), statement coverage 15.1%, page coverage 1.82%, composables coverage 49.45%. Static counters: any 88, TODO 16, expect 817, 48 test files. Measurement 210 s excludes tool setup and separate coverage. Saved baseline results are linked from the WF5 evidence index.
 
 The previous 315-diagnostic record differs by one; the cause is unestablished. Existing diagnostics do not justify disabling strict checks in the React target. Historical comparisons must disclose newer evaluator and approximately 15 GiB WSL memory versus earlier 3.8 GiB.
 
@@ -53,7 +53,7 @@ All paths below are proposed relative to the canonical source repo except extern
 | `rewrite-evidence/workflows/WF5-artifacts/<round>/refined/` | Derived copy of pure artifact; validated refinements applied transactionally | pure provenance plus ordered refinement manifest and resulting hashes |
 | `frontend-react/src/generated/` | Published copy from a selected validated artifact, not an independent hand-edited source | artifact ID and copy/hash verification; imports to infrastructure declared |
 | `rewrite-evidence/workflows/WF5-state.md` | Progress and decisions | completed versus proposed, pending gates and risks |
-| external `wf4-r2-evidence/workflow-sessions/` | Prompts, visible transcript, original usage, wall time and review records | category/boundary/counter provenance; never stage external files into unrelated Git paths |
+| external `<EVIDENCE>/workflow-sessions/` | Prompts, visible transcript, original usage, wall time and review records | category/boundary/counter provenance; never stage external files into unrelated Git paths |
 | external checkpoint run directories | Raw measurements, screenshots, assertion parity and manifests | canonical source commit, evaluator SHA, actual commands/env and exit statuses |
 
 Pure artifact may use declared infrastructure imports but must contain no hidden file-specific semantic patch. Evaluate the runnable assembly **pure + infrastructure** and separately **refined + infrastructure**. Report their dependencies and actual readiness; if pure cannot run, record that failure rather than borrowing refined results. Missing fixture input/expected files fail hard. Validate refinement preconditions and all outputs before writing; partial failures cannot leave the published tree half changed.
@@ -90,7 +90,7 @@ For the codemod harness itself, challenge missing input/expected fixtures, inval
 
 Windows remains the only edit source. Before each target checkpoint commit/select the canonical SHA, export a fresh tracked-file snapshot to a new WSL execution directory, verify file hashes and record both Windows SHA and execution manifest. Never copy WSL edits back. Include explicitly declared artifact/config files; ignore dependencies and untracked unrelated data. Reuse compatible runtime caches only with recorded versions.
 
-Current `/var/tmp/wf4-r2-b0yNLt76/source` is the **original Vue execution snapshot**. Existing `run-baseline.sh` and `verify-frozen-inputs.sh` enforce original source HEAD; they cannot measure new React commits. A separate future checkpoint wrapper must verify current canonical commit and unchanged evaluator, select the intended React artifact, and use compatible target ports/base URLs. `runtime-env.sh` currently points at the original execution root; do not assume it updates snapshots automatically.
+Current `<EXECUTION_COPY>` is the **original Vue execution snapshot**. Existing `run-baseline.sh` and `verify-frozen-inputs.sh` enforce original source HEAD; they cannot measure new React commits. A separate future checkpoint wrapper must verify current canonical commit and unchanged evaluator, select the intended React artifact, and use compatible target ports/base URLs. `runtime-env.sh` currently points at the original execution root; do not assume it updates snapshots automatically.
 
 Use the frozen local FastAPI with fresh disposable SQLite data on port 9091. Wrapper must validate the resolved exact disposable data directory is within its new checkpoint root and refuse reuse/existing paths before any cleanup. The evaluator itself stays unchanged. Record runner process startup/termination, actual browser run and cache/setup state. A successful build is not evidence of an active deployed app.
 

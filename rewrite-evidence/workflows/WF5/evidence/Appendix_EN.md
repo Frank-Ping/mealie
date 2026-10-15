@@ -1,12 +1,10 @@
-# WF5 English evidence appendix for WF4-R2
+# WF5 English evidence appendix
 
-WF5 tested a rule-driven Vue/Nuxt-to-React migration, recorded under the historical identifier WF4-R2. The attempt reached its approved stop condition: three of five fixed samples remained blocked (60%), so Gate 2 was NOT READY and batch conversion did not begin. Four genuine local commits record design, implementation, a dependency correction, and the final evidence checkpoint. This appendix concerns R2 only; subsequent WF4-R3 implementation and its results are excluded.
-
-English explanations and prompt translations were prepared retrospectively on 14 October 2026. Original-language wording, timestamps and commit identities are retained in public projections; private paths and internal/account metadata are redacted. Original source hashes remain in PUBLIC_MANIFEST.json. A translated prompt is not represented as the language originally sent to the agent. This evidence preparation did not rerun the application tests or alter the experiment's code, Git history or existing reports.
+WF5 tested a rule-driven Vue/Nuxt-to-React migration. The attempt reached its approved stop condition: three of five fixed samples remained blocked (60%), so Gate 2 was NOT READY and batch conversion did not begin. Four genuine local commits record design, implementation, a dependency correction, and the final evidence checkpoint.English explanations and prompt translations were prepared retrospectively on 14 October 2026. Original-language wording, timestamps and commit identities are retained in public projections; private paths and internal/account metadata are redacted. Original source hashes remain in PUBLIC_MANIFEST.json. A translated prompt is not represented as the language originally sent to the agent. This evidence preparation did not rerun the application tests or alter the experiment's code, Git history or existing reports.
 
 ## Scope and baseline
 
-Source: `4b9ca06b6581f7152e164ea0fd9d4da366975a79`. Evaluator: `758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d`. Branch: `rewrite/wf4-codemod-rerun`. The original Vue frontend and FastAPI backend have an empty diff between the frozen source and the R2 endpoint. [E1, E4]
+Source: `4b9ca06b6581f7152e164ea0fd9d4da366975a79`. Evaluator: `758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d`. Branch: `rewrite/wf5-rule-driven`. The original Vue frontend and FastAPI backend have an empty diff between the frozen source and the WF5 endpoint. [E1, E4]
 
 | Baseline measurement | Recorded result |
 | --- | --- |
@@ -19,22 +17,22 @@ Source: `4b9ca06b6581f7152e164ea0fd9d4da366975a79`. Evaluator: `758351adcf1cc8ec
 
 ## Actual Git and commit evidence
 
-There are four R2 commits after the frozen source. The author field is Frank-Ping; the original commit subjects are already English. These author fields identify the recorded Git metadata, not a claim that all code was manually written by the human author. Timestamps below use the commit-recorded Pacific/Auckland offset of UTC+13. [E4]
+There are four WF5 commits after the frozen source. The author field is Frank-Ping; the commit records are already English. These author fields identify the recorded Git metadata, not a claim that all code was manually written by the human author. Timestamps below use the commit-recorded Pacific/Auckland offset of UTC+13. [E4]
 
-| Commit | Auckland time on 13 Oct 2026 | Original subject | Verified role |
+| Commit | Auckland time on 13 Oct 2026 | Checkpoint purpose | Verified role |
 | --- | --- | --- | --- |
-| 2176881a9810633a8de7753456dbd63ee44b27c6 | 22:59:03 | [WF4-R2-A] Document conversion rules and Gate 1 experiment plan | Phase A design: plan, 35-rule catalogue and initial state; no converter implementation. |
-| 63e239bb35fab4b53fc8d913b284dfa43edec5a9 | 23:45:33 | [WF4-R2-B] Implement bounded AST samples and record Gate 2 blockers | Bounded AST converter, independent React sample package, infrastructure, test inventories and numbered generation rounds. |
-| b57453838ef770a32188159350d5f9971f8b94e1 | 23:53:59 | [WF4-R2-B] Close sample imports and retain unsupported UI diagnostics | Correct the generated icon import; remove aliases into the original Vue tree; retain explicit unsupported diagnostics and final revision 4. |
-| 8b0fae128ea823ebee4a6507d274df1f8987e8d1 | 23:58:03 | [WF4-R2-B] Record verified WSL checks and stopped Gate 2 outcome | Record successful WSL sample checks and the stopped Gate 2 outcome; only three evidence/state documents changed. |
+| 2176881a9810633a8de7753456dbd63ee44b27c6 | 22:59:03 | Document conversion rules and Gate 1 experiment plan | Phase A design: plan, 35-rule catalogue and initial state; no converter implementation. |
+| 63e239bb35fab4b53fc8d913b284dfa43edec5a9 | 23:45:33 | Implement bounded AST samples and record Gate 2 blockers | Bounded AST converter, independent React sample package, infrastructure, test inventories and numbered generation rounds. |
+| b57453838ef770a32188159350d5f9971f8b94e1 | 23:53:59 | Close sample imports and retain unsupported UI diagnostics | Correct the generated icon import; remove aliases into the original Vue tree; retain explicit unsupported diagnostics and final revision 4. |
+| 8b0fae128ea823ebee4a6507d274df1f8987e8d1 | 23:58:03 | Record verified WSL checks and stopped Gate 2 outcome | Record successful WSL sample checks and the stopped Gate 2 outcome; only three evidence/state documents changed. |
 
-Tested implementation checkpoint: `b57453838ef770a32188159350d5f9971f8b94e1`. Final R2 evidence commit: `8b0fae128ea823ebee4a6507d274df1f8987e8d1`. The original four commits are preserved directly in the publication repository. Subsequent rewrite implementation is excluded. The publication rename and evidence preparation are separate later commits and do not change the historical R2 outcome.
+Tested implementation checkpoint: `b57453838ef770a32188159350d5f9971f8b94e1`. Final WF5 evidence commit: `8b0fae128ea823ebee4a6507d274df1f8987e8d1`. The original four commits are preserved directly in the publication repository. Subsequent rewrite implementation is excluded. The publication rename and evidence preparation are separate later commits and do not change the historical WF5 outcome.
 
 ## Workflow and fixed sample outcome
 
 Phase A inspected the actual source and proposed 35 rules classified as Mechanical, Semi-mechanical or Judgement. Gate 1 approval preceded implementation. An initially unfilled numeric token placeholder was resolved by a separate user answer: no limit, record usage. Phase B implemented bounded AST rules and separate handwritten infrastructure, retained numbered generation rounds, and stopped before batch conversion. [E2, E3]
 
-| Fixed sample | R2 output | Remaining limit |
+| Fixed sample | WF5 output | Remaining limit |
 | --- | --- | --- |
 | pages/index.vue | Blocked, absent | Auth/startup/redirect dependency and lifecycle closure unresolved |
 | RecipeChips.vue | Generated | Pure/refined/published bytes match; real visual equivalence not established |
@@ -57,7 +55,7 @@ The selected artifact is round-3/revision-4. Pure, refined and published TSX are
 
 These six historical commands tested b574538. The snapshot checker covered 1,804 regular files; Git contains 1,805 entries including a symlink, subsequently checked by the independent audit. The unchanged source baseline remained separate. Only two framework-free helper suites, ten cases total, were copied unchanged; the other 46 original test files were not migrated. No complete React Mealie application, target coverage, whole-app 66-route/15-flow run, or deployment was established. [E6, E7]
 
-After the R2 endpoint, an independent temporary-copy audit reproduced all six routine passes. Nineteen fault/control cases had 11 satisfied and 8 unsatisfied safety conditions; 16 added behavior probes had 14 passes and 2 failures. These post-checkpoint findings did not cause the original stop, which was already required by unresolved sample coverage. [E7]
+After the WF5 endpoint, an independent temporary-copy audit reproduced all six routine passes. Nineteen fault/control cases had 11 satisfied and 8 unsatisfied safety conditions; 16 added behavior probes had 14 passes and 2 failures. These post-checkpoint findings did not cause the original stop, which was already required by unresolved sample coverage. [E7]
 
 | Finding | Topic | Independent observation |
 | --- | --- | --- |
@@ -68,7 +66,7 @@ After the R2 endpoint, an independent temporary-copy audit reproduced all six ro
 | F5 | Store data-validation cleanup | An error in processing a successful loader result left loading=true and error=null. |
 | F6 | Round-by-round semantic verdicts | Numbered rounds and artifacts exist, but semantic fields remained pending; complete semantic-review tables were not demonstrated. |
 
-The audit report remains untracked in the canonical repository and is preserved as a separate source, with a hash matching final-preservation.json. It recommended keeping Gate 2 NOT READY; it neither implemented repairs nor constituted human Gate 2 approval. Later R3 fixes are excluded.
+The audit report remains untracked in the canonical repository and is preserved as a separate source, with a hash matching final-preservation.json. It recommended keeping Gate 2 NOT READY; it neither implemented repairs nor constituted human Gate 2 approval.
 
 ## Time and usage
 
@@ -81,11 +79,11 @@ The audit report remains untracked in the canonical repository and is preserved 
 | Post-stop independent audit | 13,086,633 | 20.85 min; multi-agent and approval use included |
 | Audit accounting follow-up | 1,906,736 | Separate completed window; 7.05 min |
 
-Formal R2 started 2026-10-13T09:39:59.423Z and ended with the final reply/provider boundary at 10:58:34.735Z/10:58:34.904Z. In Auckland this is 13 October, approximately 22:39:59 to 23:58:35. The independent audit occurred on 14 October, approximately 00:08:48 to 00:29:39. Wall time includes tools, waiting and clarification, not measured human review or active assistant time. [E8]
+Formal WF5 started 2026-10-13T09:39:59.423Z and ended with the final reply/provider boundary at 10:58:34.735Z/10:58:34.904Z. In Auckland this is 13 October, approximately 22:39:59 to 23:58:35. The independent audit occurred on 14 October, approximately 00:08:48 to 00:29:39. Wall time includes tools, waiting and clarification, not measured human review or active assistant time. [E8]
 
 Provider totals are differences between cumulative counters. Cached input is inside input; reasoning output is inside output. Formal A+B is 2,361,518 + 6,631,373 = 8,992,891. Earlier provisional totals of 2,127,948 (A), 6,227,467 (B), and 8,588,985 (A+B) are superseded and must not be added. Baseline/preparation discussion and prompt preparation are additional separately recorded windows, not precise activity-only costs. Actual fees and human review minutes are unavailable.
 
-The audit total already includes 12,865,779 task-agent tokens and 220,854 automatic-review tokens. The later 1,906,736 bookkeeping window and the 686,591 original-chat post-R2 delta use different, partly overlapping scopes; neither is folded into formal A+B or naively added into an all-in total. [E8]
+The audit total already includes 12,865,779 task-agent tokens and 220,854 automatic-review tokens. The later 1,906,736 bookkeeping window and the 686,591 original-chat post-stop delta use different, partly overlapping scopes; neither is folded into formal A+B or naively added into an all-in total. [E8]
 
 ## Evidence index and limitations
 
@@ -98,7 +96,7 @@ The audit total already includes 12,865,779 task-agent tokens and 220,854 automa
 | E5 | Fixed samples and artifact identity | Historical artifact bytes preserved in the publication repository; [audit provenance](post-stop-audit/provenance.json) |
 | E6 | Successful and failed implementation checks | [final WSL results](implementation-checks/final-wsl/check-results.json), [selected failure history](implementation-checks/failure-history/) |
 | E7 | Independent audit after the stop | [English summary](post-stop-audit/Summary_EN.md), [faults](post-stop-audit/fault-results.json), [probes](post-stop-audit/probe-results.json) |
-| E8 | Completed usage and boundaries | [accounting](accounting/Accounting_EN.md), [sealed R2 extract](accounting/Sealed_R2_Accounting_Extract.json) |
+| E8 | Completed usage and boundaries | [accounting](accounting/Accounting_EN.md), [sealed WF5 extract](accounting/Sealed_R2_Accounting_Extract.json) |
 
 This public subset contains explicitly modified historical projections and retrospective English explanations. Internal originals remain private; the manifest records original and public hashes plus transformations. Selected failures and final passes retain their separate checkpoints. Hidden reasoning, system/developer instructions, account state and connector metadata are excluded. Complete unfiltered transcripts, complete per-round semantic verdict tables and fully self-contained early-round replay environments remain unavailable.
 

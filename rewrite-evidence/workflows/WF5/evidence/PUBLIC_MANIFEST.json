@@ -585,10 +585,11 @@
       "original_source_id": "private-evidence-package/04-accounting/Accounting_EN.md",
       "original_sha256": "d7b8b2c468d11221314847e0ed1cd9253bd658c50f77e2141002432151fa100a",
       "public_path": "accounting/Accounting_EN.md",
-      "public_sha256": "d54690daafe7664fd6b1c8fadfb85045c376936c8dbe8775453e24702de411bb",
+      "public_sha256": "b1763d1e4d76ff0c862bd19ed4d89b41df0410db91b492c9ebc7367730e61f4a",
       "transforms": [
         "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
-        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+        "Historical content/identifiers retained; translated summaries explicitly retrospective",
+        "16 October 2026: current English report presentation uses the WF5 label consistently; raw records and original source hashes are retained separately."
       ]
     },
     {
@@ -645,10 +646,11 @@
       "original_source_id": "private-evidence-package/01-prompts/Prompts_EN.md",
       "original_sha256": "db050b03e0a3f47bf5ac0c38a17604ebb37baf245ff9add73d637baf40bdda76",
       "public_path": "prompts/Retrospective_Translations_EN.md",
-      "public_sha256": "66df66ce671d6d66b94cb6421c5769ccefb0c3f24328ed1f141530b4f837e5ec",
+      "public_sha256": "4b9a4276384ae9716053e78189c166fa0fc05763575be4050644b3ff9241dffd",
       "transforms": [
         "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
-        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+        "Historical content/identifiers retained; translated summaries explicitly retrospective",
+        "16 October 2026: current English report presentation uses the WF5 label consistently; raw records and original source hashes are retained separately."
       ]
     },
     {
@@ -1079,20 +1081,24 @@
       "original_source_id": "private-evidence-package/05-post-stop-audit/Post_Stop_Audit_Summary_EN.md",
       "original_sha256": "2d1ba0ad72e90447ab17d19bcee7b7422a994727585a2b74a2baf55b633a3509",
       "public_path": "post-stop-audit/Summary_EN.md",
-      "public_sha256": "869d13e82e84b1884a94c12d595665bd5ec453bf4e2e3406cdf78fd3e9845941",
+      "public_sha256": "f0a1e314530dcd6fc2d950ad8475867d33fd761b365b8d46c6779c1326dc6eb1",
       "transforms": [
         "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
-        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+        "Historical content/identifiers retained; translated summaries explicitly retrospective",
+        "16 October 2026: current English report presentation uses the WF5 label consistently; raw records and original source hashes are retained separately."
       ]
     },
     {
       "original_source_id": "private-evidence-package/WF5_R2_Evidence_Appendix_EN.md",
       "original_sha256": "bc73abdff32052d5510157b469a69c6afda96b4d1af174798ecd72aeedfa1ed3",
       "public_path": "Appendix_EN.md",
-      "public_sha256": "470581f067aa24c7688d044a89b59d33c0ee5dc897f0cc0e54a4ceeac5774c6b",
+      "public_sha256": "5d37ac30e65729a62f134ad176d1478382d0f69c56aa7970480ac6576849efd8",
       "transforms": [
         "Private paths normalized; local Markdown evidence links made relative where a copied target exists",
-        "Historical content/identifiers retained; translated summaries explicitly retrospective"
+        "Historical content/identifiers retained; translated summaries explicitly retrospective",
+        "16 October 2026: current English report presentation uses the WF5 label consistently; raw records and original source hashes are retained separately.",
+        "16 October 2026: current English report presentation uses the WF5 label consistently; raw records and original source hashes are retained separately.",
+        "16 October 2026: current English report presentation uses the WF5 label consistently; raw records and original source hashes are retained separately."
       ]
     }
   ]

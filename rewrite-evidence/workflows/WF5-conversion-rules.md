@@ -1,7 +1,7 @@
 # WF5 conversion rules — Gate 1 review draft
 
-> Publication naming updated to WF5 on 14 October 2026. The historical experiment ran as WF4-R2 and ended at `8b0fae1`; its original documents and commits remain accessible at that revision. This naming update is not a new conversion run or a new Gate 2 approval. See [WF5 publication provenance](WF5/provenance/publication-rename.json).
-Phase A documents design only. No converter or React code has been executed. Source: `4b9ca06b6581f7152e164ea0fd9d4da366975a79`; branch `rewrite/wf4-codemod-rerun`.
+> Publication naming updated to WF5 on 14 October 2026. The historical experiment ran as WF5 and ended at `8b0fae1`; its original documents and commits remain accessible at that revision. This naming update is not a new conversion run or a new Gate 2 approval. See [WF5 publication provenance](WF5/provenance/publication-rename.json).
+Phase A documents design only. No converter or React code has been executed. Source: `4b9ca06b6581f7152e164ea0fd9d4da366975a79`; branch `rewrite/wf5-rule-driven`.
 
 Mechanical = exact syntax/data mapping under stated preconditions. Semi-mechanical = deterministic after a reviewed adapter/contract and verified preconditions. Judgement = unresolved semantics requiring a human-approved decision; automatic generation must stop at that node. A component can contain all three categories. Classification is not a promise that a whole file is convertible.
 
@@ -935,7 +935,6 @@ const requestKey = useAsyncKey();
 | `v-treeview` | 1 / 1 | `frontend/app/pages/group/migrations.vue` | reviewed tree adapter; optional MUI X decision | J | node keys, expansion, selection and keyboard |
 
 | `v-virtual-scroll` | 6 / 4 | `frontend/app/components/Domain/Group/GroupDataPage.vue` | reviewed virtualization adapter | J | item sizes, keys, scrolling, focus and rendered-window semantics |
-
 
 ## Fixture and rule acceptance contract
 

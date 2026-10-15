@@ -1,8 +1,8 @@
 # WF5 rule driven migration evidence
 
-WF5 is the rule-driven Mealie Vue/Nuxt-to-React experiment that originally ran as WF4-R2. It ended at Gate 2 with at least three of five samples blocked (60%), so batch conversion stopped. This publication uses WF5 as its current name and preserves all four original experiment commits.
+WF5 is the rule-driven Mealie Vue/Nuxt-to-React experiment. It ended at Gate 2 with at least three of five samples blocked (60%), so batch conversion stopped. The four experiment commits and their evidence are preserved.
 
-The branch begins from the final R2 checkpoint. Subsequent R3 implementation is excluded. The new publication commit changes names and supplies public evidence; it does not change the original experiment outcome or retroactively approve Gate 2.
+The experiment ends at checkpoint `8b0fae1`. Evidence publication does not change its outcome or grant Gate 2 approval.
 
 ## Evidence to cite
 
@@ -17,14 +17,12 @@ The branch begins from the final R2 checkpoint. Subsequent R3 implementation is 
 
 ## Four actual experiment commits
 
-The commit subjects contain the historical identifier because they record what was committed during the experiment. They are not rewritten or replaced by newly invented historical commits.
-
 | Commit | Scope |
 | --- | --- |
 | [2176881](https://github.com/Frank-Ping/mealie/commit/2176881a9810633a8de7753456dbd63ee44b27c6) | Phase A rule catalogue, migration plan and state |
 | [63e239b](https://github.com/Frank-Ping/mealie/commit/63e239bb35fab4b53fc8d913b284dfa43edec5a9) | Bounded AST converter, samples, infrastructure, tests and numbered rounds |
 | [b574538](https://github.com/Frank-Ping/mealie/commit/b57453838ef770a32188159350d5f9971f8b94e1) | Sample dependency correction and explicit unsupported diagnostics; tested implementation checkpoint |
-| [8b0fae1](https://github.com/Frank-Ping/mealie/commit/8b0fae128ea823ebee4a6507d274df1f8987e8d1) | Final R2 evidence, WSL checks and stopped Gate 2 outcome |
+| [8b0fae1](https://github.com/Frank-Ping/mealie/commit/8b0fae128ea823ebee4a6507d274df1f8987e8d1) | Final WF5 evidence, WSL checks and stopped Gate 2 outcome |
 
 ## Limits
 
@@ -38,4 +36,4 @@ Formal design and implementation used 8,992,891 reported tokens and approximatel
 
 The active tooling path is `rewrite-tools/wf5/`; the sample package is `mealie-wf5-samples`. Historical artifacts are under `WF5-artifacts/` with their original bytes, hashes and historical labels retained. The old paths remain visible through commit `8b0fae1`.
 
-Use the package's `test:rules`, `typecheck`, `lint`, `test`, `build` and `build:components` commands with the pinned lockfile. Renaming does not repair the independently identified R2 defects or authorize another generation round. Generation experiments require a new explicit decision and disposable output.
+Use the package's `test:rules`, `typecheck`, `lint`, `test`, `build` and `build:components` commands with the pinned lockfile. Renaming does not repair the independently identified WF5 defects or authorize another generation round. Generation experiments require a new explicit decision and disposable output.

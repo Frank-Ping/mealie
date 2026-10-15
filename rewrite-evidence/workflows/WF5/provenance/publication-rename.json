@@ -139,7 +139,7 @@
       "historical_path": "rewrite-evidence/workflows/WF4-R2-Gate-2-review.md",
       "wf5_path": "rewrite-evidence/workflows/WF5-Gate-2-review.md",
       "historical_sha256": "f46562f5b7ec139c9893b8bbedf995d385e60cef1009214219a309d9c92b0f37",
-      "publication_sha256": "00a050d07813e87568e4d4ada8d7749a30d563789a6da926ff09776269fa63e8",
+      "publication_sha256": "ad221bcd5ca94d77e2fd056dede0a001bc50065765b231a14df3a5ad13fd0c2f",
       "bytes_preserved": false
     },
     {
@@ -440,28 +440,28 @@
       "historical_path": "rewrite-evidence/workflows/WF4-R2-conversion-rules.md",
       "wf5_path": "rewrite-evidence/workflows/WF5-conversion-rules.md",
       "historical_sha256": "8fddc288579ab2fcf92f6372f050068e851c68474a4cb54b2297b188f15eac34",
-      "publication_sha256": "6caa16271042ef0aa1f9e1ed4ad841cc92de84dbfd7422d4ed5abae6ea9f27f3",
+      "publication_sha256": "fb975e6e09897770ac1729c99bccb7ac7b19c7a239d42461b9235833a95c9249",
       "bytes_preserved": false
     },
     {
       "historical_path": "rewrite-evidence/workflows/WF4-R2-decisions.md",
       "wf5_path": "rewrite-evidence/workflows/WF5-decisions.md",
       "historical_sha256": "eb883ccfa1d651294bf5a987cefb1034d8cf38ba1886361a29c2687a6f27f0c8",
-      "publication_sha256": "714aac9cd88091ea31259f78a1a6e62d3345caf6577b7f255600976906069d00",
+      "publication_sha256": "8dfa8201ac1dda97d2ff834f91145140bcb60de71b749fd1eb48eb85a6e32003",
       "bytes_preserved": false
     },
     {
       "historical_path": "rewrite-evidence/workflows/WF4-R2-plan.md",
       "wf5_path": "rewrite-evidence/workflows/WF5-plan.md",
       "historical_sha256": "cdabfd786db038603ae380b469418607b5540705764d0200f3e1b232daa0d698",
-      "publication_sha256": "347a3f636656024c55c3774ad34424956f03ddf7257832a1b1a0ef10428564e2",
+      "publication_sha256": "3373087c9ef5c0ad3e1ab0a79f2f67d97aa6bf1f61ba3dc1d289f9350e527cc4",
       "bytes_preserved": false
     },
     {
       "historical_path": "rewrite-evidence/workflows/WF4-R2-state.md",
       "wf5_path": "rewrite-evidence/workflows/WF5-state.md",
       "historical_sha256": "a90a39f16d6f85a9968b4c712228ccae26628e2f0f152eb0fb313ec32ad145d9",
-      "publication_sha256": "4ff586431b053a5fbda9c0fc50b4a4014e58a25d345d40eea50e779a14da76bd",
+      "publication_sha256": "8b57c20f513351a3f9e0806d81acb8f6685d6597a626dfa5bfad59a30539238e",
       "bytes_preserved": false
     }
   ],

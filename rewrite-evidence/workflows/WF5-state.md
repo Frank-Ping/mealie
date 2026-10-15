@@ -1,6 +1,6 @@
 # WF5 state
 
-> Publication naming updated to WF5 on 14 October 2026. The historical experiment ran as WF4-R2 and ended at `8b0fae1`; its original documents and commits remain accessible at that revision. This naming update is not a new conversion run or a new Gate 2 approval. See [WF5 publication provenance](WF5/provenance/publication-rename.json).
+> Publication naming updated to WF5 on 14 October 2026. The historical experiment ran as WF5 and ended at `8b0fae1`; its original documents and commits remain accessible at that revision. This naming update is not a new conversion run or a new Gate 2 approval. See [WF5 publication provenance](WF5/provenance/publication-rename.json).
 ## Current stage
 
 **Gate 1 approved; Phase B sample implementation/checks completed to the stop condition. Gate 2 NOT READY; user review pending.** The complete catalogue/full application is not implemented. Three of five fixed samples remain blocked after three internal reviews (60%); batch conversion is stopped. Phase A commit is `2176881a9810633a8de7753456dbd63ee44b27c6`; original frozen source is `4b9ca06b6581f7152e164ea0fd9d4da366975a79`. Token policy: no upper limit, record actual usage. See `WF5-decisions.md` and `WF5-Gate-2-review.md`.
@@ -8,12 +8,12 @@
 ## Completed in Phase A
 
 - Read canonical `AGENTS.md` and external `SETUP.md`, `BASELINE.md`, `environment.json`, `runtime-env.sh`.
-- Verified branch `rewrite/wf4-codemod-rerun`, initial HEAD and clean source; inspected real page/component/composable/layout/auth/API/i18n/CSS examples.
+- Verified branch `rewrite/wf5-rule-driven`, initial HEAD and clean source; inspected real page/component/composable/layout/auth/API/i18n/CSS examples.
 - Created plan, 35 source-backed rules, complete 84-tag literal Vuetify mapping and fixed five-sample proposal.
 - Defined pure conversion, handwritten infrastructure and semantic refinement ownership; transactional publication and strict fixture manifests.
 - Defined test/assertion correspondence, route/flow identity checks and additional risk probes; no new React or codemod tests were executed.
 - Preserved original baseline (including 314 Vue diagnostics), evaluator and original frontend/backend. Phase A validation checks document references, scope and Git diff, not runtime conversion quality.
-- Saved Phase A prompt, accessible visible-session export, raw reported usage windows and time metadata externally under `wf4-r2-evidence/workflow-sessions/phase-a/`.
+- Saved Phase A prompt, accessible visible-session export, raw reported usage windows and time metadata externally under `<EVIDENCE>/phase-a/`.
 - Repaired usage recorder's change detector to observe file size as well as modification time; the provider log's unchanged modification time had prevented refresh. Recorder replays original events, deduplicates cumulative counters and keeps S0 outside Phase A.
 
 ## Decisions fixed by user / source evidence

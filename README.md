@@ -1,6 +1,6 @@
 ## WF5 coursework experiment
 
-This branch publishes the failed rule-driven rewrite experiment as **WF5**. Start with [WF5 overview and Git evidence](WF5.md) or the [English evidence index](rewrite-evidence/workflows/WF5/README.md). Historical commits and raw records retain the identifier WF4-R2.
+This branch publishes the failed rule-driven rewrite experiment as **WF5**. Start with [WF5 overview and Git evidence](WF5.md) or the [English evidence index](rewrite-evidence/workflows/WF5/README.md).
 
 [![Latest Release][latest-release-shield]][latest-release-url]
 [![Contributors][contributors-shield]][contributors-url]
@@ -35,9 +35,6 @@ This branch publishes the failed rule-driven rewrite experiment as **WF5**. Star
     <a href="https://github.com/mealie-recipes/mealie/pkgs/container/mealie">GitHub Container Registry</a>
 </p>
 
-
-
-
 [![Product Name Screen Shot][product-screenshot]](https://docs.mealie.io)
 
 # About The Project
@@ -46,7 +43,6 @@ Mealie is a self hosted recipe manager, meal planner and shopping list with a Re
 
 - [Remember to join the Discord](https://discord.gg/QuStdQGSGK)!
 - [Documentation](https://docs.mealie.io/)
-
 
 ## Key Features
 - Recipe imports: Create recipes, by **importing from a URL** or entering data manually
@@ -78,7 +74,6 @@ For more information, check out the translation page on the [contributor's guide
 ## License
 Distributed under the AGPL License. See `LICENSE` for more information.
 
-
 ## Sponsors
 
 Huge thanks to all the sponsors of this project on [Github Sponsors](https://github.com/sponsors/hay-kot) and Buy Me a Coffee. Without you, this project would surely not be possible.
@@ -86,8 +81,6 @@ Huge thanks to all the sponsors of this project on [Github Sponsors](https://git
 Thanks to Depot for providing build instances for our Docker image builds.
 
 [![Built with Depot](https://depot.dev/badges/built-with-depot.svg)](https://depot.dev?utm_source=Mealie)
-
-
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
