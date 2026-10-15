@@ -1,6 +1,6 @@
 {
   "repository": "https://github.com/Frank-Ping/mealie",
-  "evidence_revision": "27c181dcba779f4dfbb00ac77a91117a8128d326",
+  "evidence_revision": "a4c00595cb0afe89639549a49d3e7dfcaf39241d",
   "branch": "rewrite/wf5-rule-driven",
   "historical_endpoint": "8b0fae128ea823ebee4a6507d274df1f8987e8d1",
   "implementation_checkpoint": "b57453838ef770a32188159350d5f9971f8b94e1",
@@ -9,61 +9,61 @@
       "id": "E1",
       "title": "Frozen source and baseline",
       "path": "rewrite-evidence/workflows/WF5/evidence/baseline/BASELINE.md",
-      "url": "https://github.com/Frank-Ping/mealie/blob/27c181dcba779f4dfbb00ac77a91117a8128d326/rewrite-evidence/workflows/WF5/evidence/baseline/BASELINE.md"
+      "url": "https://github.com/Frank-Ping/mealie/blob/a4c00595cb0afe89639549a49d3e7dfcaf39241d/rewrite-evidence/workflows/WF5/evidence/baseline/BASELINE.md"
     },
     {
       "id": "E2",
       "title": "Actual prompts and retrospective English translations",
       "path": "rewrite-evidence/workflows/WF5/prompts/Prompts_EN.md",
-      "url": "https://github.com/Frank-Ping/mealie/blob/27c181dcba779f4dfbb00ac77a91117a8128d326/rewrite-evidence/workflows/WF5/prompts/Prompts_EN.md"
+      "url": "https://github.com/Frank-Ping/mealie/blob/a4c00595cb0afe89639549a49d3e7dfcaf39241d/rewrite-evidence/workflows/WF5/prompts/Prompts_EN.md"
     },
     {
       "id": "E3",
       "title": "Visible Phase A history",
       "path": "rewrite-evidence/workflows/WF5/evidence/transcripts/Phase_A_Visible_Through_Final.jsonl",
-      "url": "https://github.com/Frank-Ping/mealie/blob/27c181dcba779f4dfbb00ac77a91117a8128d326/rewrite-evidence/workflows/WF5/evidence/transcripts/Phase_A_Visible_Through_Final.jsonl"
+      "url": "https://github.com/Frank-Ping/mealie/blob/a4c00595cb0afe89639549a49d3e7dfcaf39241d/rewrite-evidence/workflows/WF5/evidence/transcripts/Phase_A_Visible_Through_Final.jsonl"
     },
     {
       "id": "E4",
       "title": "Visible Phase B history, including final reply",
       "path": "rewrite-evidence/workflows/WF5/evidence/transcripts/Phase_B_Visible_Through_Final.jsonl",
-      "url": "https://github.com/Frank-Ping/mealie/blob/27c181dcba779f4dfbb00ac77a91117a8128d326/rewrite-evidence/workflows/WF5/evidence/transcripts/Phase_B_Visible_Through_Final.jsonl"
+      "url": "https://github.com/Frank-Ping/mealie/blob/a4c00595cb0afe89639549a49d3e7dfcaf39241d/rewrite-evidence/workflows/WF5/evidence/transcripts/Phase_B_Visible_Through_Final.jsonl"
     },
     {
       "id": "E5",
       "title": "Fixed samples and stopped Gate 2 result",
       "path": "rewrite-evidence/workflows/WF5-Gate-2-review.md",
-      "url": "https://github.com/Frank-Ping/mealie/blob/27c181dcba779f4dfbb00ac77a91117a8128d326/rewrite-evidence/workflows/WF5-Gate-2-review.md"
+      "url": "https://github.com/Frank-Ping/mealie/blob/a4c00595cb0afe89639549a49d3e7dfcaf39241d/rewrite-evidence/workflows/WF5-Gate-2-review.md"
     },
     {
       "id": "E6",
       "title": "Final WSL commands and exit codes",
       "path": "rewrite-evidence/workflows/WF5/evidence/implementation-checks/final-wsl/check-results.json",
-      "url": "https://github.com/Frank-Ping/mealie/blob/27c181dcba779f4dfbb00ac77a91117a8128d326/rewrite-evidence/workflows/WF5/evidence/implementation-checks/final-wsl/check-results.json"
+      "url": "https://github.com/Frank-Ping/mealie/blob/a4c00595cb0afe89639549a49d3e7dfcaf39241d/rewrite-evidence/workflows/WF5/evidence/implementation-checks/final-wsl/check-results.json"
     },
     {
       "id": "E7",
       "title": "Post-stop independent audit",
       "path": "rewrite-evidence/workflows/WF5/evidence/post-stop-audit/Summary_EN.md",
-      "url": "https://github.com/Frank-Ping/mealie/blob/27c181dcba779f4dfbb00ac77a91117a8128d326/rewrite-evidence/workflows/WF5/evidence/post-stop-audit/Summary_EN.md"
+      "url": "https://github.com/Frank-Ping/mealie/blob/a4c00595cb0afe89639549a49d3e7dfcaf39241d/rewrite-evidence/workflows/WF5/evidence/post-stop-audit/Summary_EN.md"
     },
     {
       "id": "E8",
       "title": "Completed accounting and separate cost windows",
       "path": "rewrite-evidence/workflows/WF5/evidence/accounting/Accounting_EN.md",
-      "url": "https://github.com/Frank-Ping/mealie/blob/27c181dcba779f4dfbb00ac77a91117a8128d326/rewrite-evidence/workflows/WF5/evidence/accounting/Accounting_EN.md"
+      "url": "https://github.com/Frank-Ping/mealie/blob/a4c00595cb0afe89639549a49d3e7dfcaf39241d/rewrite-evidence/workflows/WF5/evidence/accounting/Accounting_EN.md"
     },
     {
       "id": "E9",
       "title": "Publication naming map and preserved byte hashes",
       "path": "rewrite-evidence/workflows/WF5/provenance/publication-rename.json",
-      "url": "https://github.com/Frank-Ping/mealie/blob/27c181dcba779f4dfbb00ac77a91117a8128d326/rewrite-evidence/workflows/WF5/provenance/publication-rename.json"
+      "url": "https://github.com/Frank-Ping/mealie/blob/a4c00595cb0afe89639549a49d3e7dfcaf39241d/rewrite-evidence/workflows/WF5/provenance/publication-rename.json"
     },
     {
       "id": "E10",
       "title": "New naming validation",
       "path": "rewrite-evidence/workflows/WF5/provenance/rename-validation.json",
-      "url": "https://github.com/Frank-Ping/mealie/blob/27c181dcba779f4dfbb00ac77a91117a8128d326/rewrite-evidence/workflows/WF5/provenance/rename-validation.json"
+      "url": "https://github.com/Frank-Ping/mealie/blob/a4c00595cb0afe89639549a49d3e7dfcaf39241d/rewrite-evidence/workflows/WF5/provenance/rename-validation.json"
     }
   ],
   "original_commits": [
