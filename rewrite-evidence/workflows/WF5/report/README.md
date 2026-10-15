@@ -1,6 +1,6 @@
 # WF5 Report document
 
-Updated 16 October 2026. [WF5-1.doc](WF5-1.doc) is a genuine Word 97–2003 binary document; [WF5-1.docx](WF5-1.docx) is the editable modern-format companion. Both contain the report subsection and its evidence appendices. All four pages were rendered and visually checked after conversion.
+Updated 16 October 2026. [WF5-1.doc](WF5-1.doc) is a genuine Word 97–2003 binary document; [WF5-1.docx](WF5-1.docx) is the editable modern-format companion. Both contain the concise report subsection and its evidence appendices. The main evaluation is approximately 400 words on one page; all three pages including appendices were rendered and visually checked after conversion.
 
 The report evaluates only the stopped WF5 experiment. It uses 37 explicit evidence references with immutable GitHub revisions. The editable text and complete paths are in [the report subsection](../Report_Section_EN.md), [the appendix](../Report_Appendix_EN.md) and [the citation manifest](../Report_Citation_Manifest.json).
 
