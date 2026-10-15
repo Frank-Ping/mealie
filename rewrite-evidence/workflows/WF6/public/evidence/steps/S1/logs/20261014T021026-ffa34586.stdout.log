@@ -1,0 +1,12 @@
+{
+  "preparation_id": "P1-audit-dependencies",
+  "status": "exact_reported",
+  "input_tokens": 12081364,
+  "cached_input_tokens": 11985664,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 45543,
+  "reasoning_output_tokens": 21079,
+  "total_tokens": 12126907,
+  "final_reply_included": true,
+  "coverage_notes": []
+}

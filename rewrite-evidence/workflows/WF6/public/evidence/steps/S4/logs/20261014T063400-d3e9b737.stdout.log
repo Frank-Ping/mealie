@@ -1,0 +1,9 @@
+[rewrite/wf6-route-coexistence b977dee] [WF6-S4] Implement and verify real scoped read-only recipes
+ 11 files changed, 1624 insertions(+), 27 deletions(-)
+ create mode 100644 frontend-react-wf6/eslint.config.mjs
+ create mode 100644 frontend-react-wf6/src/api.ts
+ create mode 100644 frontend-react-wf6/src/business.test.ts
+ create mode 100644 frontend-react-wf6/src/model.ts
+ create mode 100644 frontend-react-wf6/src/recipes.tsx
+ create mode 100644 frontend-react-wf6/src/strings.ts
+ create mode 100644 rewrite-evidence/workflows/WF6/S4-RESULT.md

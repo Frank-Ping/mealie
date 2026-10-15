@@ -1,0 +1,125 @@
+{
+  "stage": "S5",
+  "gate": "PASS",
+  "frozen_selected": {
+    "startTime": "2026-10-14T07:40:52.753Z",
+    "duration": 11195.507,
+    "expected": 4,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "supplemental": {
+    "startTime": "2026-10-14T07:41:06.985Z",
+    "duration": 24879.514,
+    "expected": 8,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "repairs": {
+    "stage": "S5",
+    "limit": 2,
+    "used": 2,
+    "rounds": [
+      {
+        "round": 1,
+        "scope": "Supplemental test navigation; application bytes unchanged",
+        "cause": "Second goto of identical URL with same fragment did not load a new document; initial trace confirms real anonymous 401.",
+        "fix": "Distinct case query per anonymous/expired document request; keep all assertions and timeouts.",
+        "failure_log": "logs/20261014T073502-06a4994d.stdout.log",
+        "failure_trace": "browser/test-results/s5-extra-tests.cjs--Bounda-27bde--do-not-request-recipe-data/trace.zip",
+        "diff": "repair-1-test.diff"
+      },
+      {
+        "round": 2,
+        "scope": "Detection control test origin; application unchanged",
+        "cause": "Fresh auth cookie domain 127.0.0.1 but control probe targeted localhost; trace proves real self 401.",
+        "fix": "Use WF6_GATEWAY_ORIGIN matching this auth state. Preserve all business/ownership assertions and timeout.",
+        "failure_log": "logs/20261014T073842-d7eb55e2.stdout.log",
+        "failure_trace": "browser-r1/probe-control/s5-detection-probe.cjs-tar-c4bb3--detail-business-acceptance/trace.zip",
+        "diff": "repair-2-test.diff"
+      }
+    ]
+  },
+  "application_source_repairs": 0,
+  "expected_detection_failure": {
+    "status": "PASS",
+    "classification": "expected_failure",
+    "takeoverEnabled": true,
+    "source_unchanged": true,
+    "mutation": "Atomic rename of this S5 runtime copy assets only; restored byte hashes verified",
+    "outcomes": [
+      {
+        "phase": "control",
+        "command_id": "20261014T074132-7102ef24",
+        "exit_code": 0,
+        "stats": {
+          "startTime": "2026-10-14T07:41:35.072Z",
+          "duration": 2816.0710000000004,
+          "expected": 1,
+          "skipped": 0,
+          "unexpected": 0,
+          "flaky": 0
+        }
+      },
+      {
+        "phase": "expected_failure",
+        "command_id": "20261014T074137-0424d904",
+        "exit_code": 1,
+        "stats": {
+          "startTime": "2026-10-14T07:41:40.676Z",
+          "duration": 7513.817999999999,
+          "expected": 0,
+          "skipped": 0,
+          "unexpected": 1,
+          "flaky": 0
+        }
+      },
+      {
+        "phase": "restored",
+        "command_id": "20261014T074148-9bbdf3ce",
+        "exit_code": 0,
+        "stats": {
+          "startTime": "2026-10-14T07:41:50.741Z",
+          "duration": 2360.4799999999996,
+          "expected": 1,
+          "skipped": 0,
+          "unexpected": 0,
+          "flaky": 0
+        }
+      }
+    ]
+  },
+  "stale_build_guard": {
+    "status": "PASS",
+    "classification": "expected_failure",
+    "failure_command": "20261014T073413-15979c92",
+    "actual_failure_exit_code": 1,
+    "old_dist_remained": true,
+    "old_dist_accepted_for_failed_attempt": false,
+    "accepted_success_build": "20261014T073114-e2b6a92a",
+    "scope": "Isolated invalid temporary config; S5 acceptance guard; not a product source failure or a source repair round"
+  },
+  "coverage": null,
+  "cost": null,
+  "human_review_time": null,
+  "whole_suite": "not_executed",
+  "source_before_document_commit": "b977deed0fec5de86bee28a5cacc5f99ed5ced53",
+  "builds": {
+    "react": {
+      "actual_served_directory": "/tmp/wf6-rerun-20261014-01-S5-R2/react",
+      "build_hash": "2b409d4deadf1bc17acc5a4a6634e638feca52550caec23a7d6f23f6dd1493f8",
+      "source_hash": "a29595c8ae1bce60b3db08a9185cbc40046c83fc224ece095bec30d2f487a7af",
+      "successful_build_command": "20261014T073114-e2b6a92a",
+      "all_file_hashes_match": true
+    },
+    "vue": {
+      "actual_served_directory": "/tmp/wf6-rerun-20261014-01-S5-R2/vue",
+      "build_hash": "cb2b9a5e0868eb5c5616d7c9996b5d57e7f59fa2297cf1ebeaaf1c655fd40b8c",
+      "source_hash": "46796953770e6ac0a549e9d38497ff1172e421cb863e2428b6075b28be1ae4a5",
+      "successful_build_command": "20261014T073114-43abd113",
+      "all_file_hashes_match": true
+    }
+  }
+}

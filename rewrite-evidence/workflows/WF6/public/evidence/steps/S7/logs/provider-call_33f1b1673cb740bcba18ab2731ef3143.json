@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 4532,
+    "byte_offset": 13542625,
+    "timestamp": "2026-10-14T09:54:08.876Z",
+    "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf513b884c819186019ebf7231d0cb",
+      "status": "completed",
+      "call_id": "call_33f1b1673cb740bcba18ab2731ef3143",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 - <<'PY'\\np='wf6-evidence/usage/collect_usage.py'\\ns=open(p).read();old='    manifest(evidence)\\\\n    return result';new='    # S7 external report summaries follow verified accounting; committed snapshots stay unchanged.\\\\n    if (evidence/\\\"steps/S7/audit.json\\\").exists():\\\\n        from finish_s7 import sync_usage\\\\n        sync_usage()\\\\n    manifest(evidence)\\\\n    return result';assert old in s;s=s.replace(old,new);open(p,'w').write(s)\\nPY\",\"workdir\":\"<WORKSPACE>/wf6-rerun-20261014-01\",\"max_output_tokens\":100}));\ntext(await tools.write_stdin({session_id:68366,chars:\"\",yield_time_ms:1000,max_output_tokens:600}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+        "create_time": 1791971643.535766
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 4535,
+    "byte_offset": 13546288,
+    "timestamp": "2026-10-14T09:54:14.010Z",
+    "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a139d5-797a-7e30-aaa1-620affd82f54",
+      "call_id": "call_33f1b1673cb740bcba18ab2731ef3143",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 5.1 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"bfcf34\",\"wall_time_seconds\":0.000019928,\"exit_code\":0,\"original_token_count\":0,\"output\":\"\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"fe1382\",\"wall_time_seconds\":5.000773233,\"session_id\":68366,\"original_token_count\":0,\"output\":\"\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+        "create_time": 1791971654.010109
+      }
+    }
+  }
+}

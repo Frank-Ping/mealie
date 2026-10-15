@@ -1,0 +1,84 @@
+{
+  "run_id": "wf6-rerun-20261014-01",
+  "cwd": "<WORKSPACE>/wf6-rerun-20261014-01",
+  "shell": "/bin/bash",
+  "os_release": "PRETTY_NAME=\"Ubuntu 26.04 LTS\"\nNAME=\"Ubuntu\"\nVERSION_ID=\"26.04\"\nVERSION=\"26.04 (Resolute Raccoon)\"\nVERSION_CODENAME=resolute\nID=ubuntu\nID_LIKE=debian\nHOME_URL=\"https://www.ubuntu.com/\"\nSUPPORT_URL=\"https://help.ubuntu.com/\"\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\nUBUNTU_CODENAME=resolute\nLOGO=ubuntu-logo\n",
+  "kernel": {
+    "system": "Linux",
+    "node": "FlorianP",
+    "release": "6.6.87.2-microsoft-standard-WSL2",
+    "version": "#1 SMP PREEMPT_DYNAMIC Thu Jun  5 18:30:46 UTC 2025",
+    "machine": "x86_64",
+    "processor": ""
+  },
+  "wsl_distribution": "Ubuntu",
+  "codex_home_environment": null,
+  "observed_codex_home": "<WSL_HOME>/.codex",
+  "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+  "session_id": "01a137ea-f571-70f0-8cf3-7b8560c420bf",
+  "turn_id": "01a137f3-c2d3-7db0-9623-6d33961b39eb",
+  "sandbox": "workspace-write; restricted network",
+  "permission_escalations": [],
+  "versions": {
+    "git": {
+      "executable": "/usr/bin/git",
+      "available": true,
+      "exit_code": 0,
+      "command_id": "20261014T011641-8676e630",
+      "stdout": "git version 2.53.0\n",
+      "stderr": "",
+      "usable": true
+    },
+    "python3": {
+      "executable": "/usr/bin/python3",
+      "available": true,
+      "exit_code": 0,
+      "command_id": "20261014T011641-8d64cd39",
+      "stdout": "Python 3.14.4\n",
+      "stderr": "",
+      "usable": true
+    },
+    "node": {
+      "executable": null,
+      "available": false,
+      "usable": false
+    },
+    "npm": {
+      "executable": "/mnt/c/Program Files/nodejs/npm",
+      "available": true,
+      "exit_code": 1,
+      "command_id": "20261014T011641-71495819",
+      "stdout": "",
+      "stderr": "WSL 1 is not supported. Please upgrade to WSL 2 or above.\nCould not determine Node.js install directory\n",
+      "usable": false
+    },
+    "uv": {
+      "executable": null,
+      "available": false,
+      "usable": false
+    },
+    "task": {
+      "executable": null,
+      "available": false,
+      "usable": false
+    },
+    "codex": {
+      "executable": "<WSL_HOME>/.local/bin/codex",
+      "available": true,
+      "exit_code": 0,
+      "command_id": "20261014T011641-16fe74fe",
+      "stdout": "codex-cli 0.162.1\n",
+      "stderr": "WARNING: proceeding, even though we could not create PATH aliases: Read-only file system (os error 30)\n",
+      "usable": true
+    }
+  },
+  "isolated_directories": {
+    "data": "<WORKSPACE>/wf6-rerun-20261014-01/runtime/data",
+    "auth": "<WORKSPACE>/wf6-rerun-20261014-01/runtime/auth",
+    "browser": "<WORKSPACE>/wf6-rerun-20261014-01/runtime/browser",
+    "output": "<WORKSPACE>/wf6-rerun-20261014-01/runtime/output",
+    "test-fixtures": "<WORKSPACE>/wf6-rerun-20261014-01/runtime/test-fixtures"
+  },
+  "auth_database_browser_state": "No credentials, SQLite database or browser context/profile initialized.",
+  "dependency_preparation": "No dependencies installed in S0. Node/npm/uv availability is explicitly recorded; S1 must prepare dependencies separately."
+}

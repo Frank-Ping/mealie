@@ -1,0 +1,63 @@
+{
+  "run_id": "wf6-rerun-20261014-01",
+  "stage_id": "S2",
+  "gate": "PASS",
+  "takeover_enabled": false,
+  "frontend": "Vue only",
+  "build_hash": "af9a32e7318fd2c82d289f49f335d13168ddb476bf3d0ec152834ebc6f14c914",
+  "build_source_head": "f318d69d033e5269415f0b94d4beebd8d70a00dc",
+  "gateway_tested_sha256": "d6037d96885e7b0b60354f9b6873d60a7ac2413cbc4f88bb066e6e83d4c1412a",
+  "real_browser": {
+    "startTime": "2026-10-14T04:18:02.005Z",
+    "duration": 15563.144,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "checks": [
+    "real /api/app/about",
+    "disabled route map",
+    "missing JS/CSS/image 404",
+    "invalid login 401",
+    "real Vue UI login",
+    "real /api/users/self identity/group",
+    "recipe list link/details/content",
+    "shopping list page",
+    "direct URL/query/hash",
+    "refresh",
+    "same origin assets/API/documents",
+    "fresh Vue build attribution"
+  ],
+  "protocol_fixture": {
+    "status": "PASS",
+    "scope": "Independent mock transport: method/body/query/cookie, two Set-Cookie headers, status 418, media forwarding, HEAD, fallback, asset 404; not real-backend browser evidence"
+  },
+  "repairs": 0,
+  "type_diagnostics": {
+    "status": "FAIL",
+    "current": 318,
+    "historical": 315,
+    "difference": 3,
+    "causal_explanation": "Not established"
+  },
+  "S1_usage_status": "partial",
+  "S1_final_reply_included": true,
+  "S1_known_usage": {
+    "input_tokens": 30194364,
+    "cached_input_tokens": 29885568,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 114262,
+    "reasoning_output_tokens": 61765,
+    "total_tokens": 30308626
+  },
+  "not_executed": [
+    "S2 full frozen 66-route/15-flow yardstick (not required for targeted S2 gate)",
+    "React",
+    "Vue boundary middleware",
+    "S3-S7",
+    "production/TLS/WebSocket deployment"
+  ],
+  "cost": null,
+  "human_review_time": null
+}

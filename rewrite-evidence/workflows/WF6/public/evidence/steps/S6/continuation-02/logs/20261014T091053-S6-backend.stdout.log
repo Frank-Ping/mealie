@@ -1,0 +1,4 @@
+WARNING  2026-10-14T09:11:01 - Secrets directory '/run/secrets' does not exist
+WARNING  2026-10-14T09:11:11 - Secrets directory '/run/secrets' does not exist
+ERROR    2026-10-14T09:11:15 - Incorrect username or password from 127.0.0.1
+ERROR    2026-10-14T09:11:21 - Incorrect username or password from 127.0.0.1

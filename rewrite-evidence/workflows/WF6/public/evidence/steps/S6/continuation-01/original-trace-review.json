@@ -1,0 +1,152 @@
+[
+  {
+    "trace": "browser/restored-frozen-test-results/flows-auth-auth-flow-a-reg-15752--is-not-offered-admin-pages-flows/trace.zip",
+    "sha256": "c3c9fe5a32cde08d4a011ed571a2afe7d25720efbf9593cfb98da3ea89353c26",
+    "documents": [
+      {
+        "url": "http://localhost:9106/login",
+        "status": 200,
+        "owner": "vue",
+        "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231"
+      },
+      {
+        "url": "http://localhost:9106/g/home",
+        "status": 200,
+        "owner": "react",
+        "build": "2b409d4deadf1bc17acc5a4a6634e638feca52550caec23a7d6f23f6dd1493f8"
+      },
+      {
+        "url": "http://localhost:9106/g/home",
+        "status": 200,
+        "owner": "react",
+        "build": "2b409d4deadf1bc17acc5a4a6634e638feca52550caec23a7d6f23f6dd1493f8"
+      }
+    ],
+    "actions": [
+      {
+        "method": "fill",
+        "selector": "internal:role=textbox[name=\"Email or Username\"i]"
+      },
+      {
+        "method": "fill",
+        "selector": "internal:role=textbox[name=\"Password\"i]"
+      },
+      {
+        "method": "click",
+        "selector": "internal:role=button[name=\"Login\"i]"
+      },
+      {
+        "method": "click",
+        "selector": "internal:text=\"Settings\"s >> visible=true >> nth=0"
+      }
+    ],
+    "error_excerpt": "\n\n```\nTest timeout of 45000ms exceeded.\n```\n\n```\nError: locator.click: Test timeout of 45000ms exceeded.\nCall log:\n  - waiting for getByText('Settings', { exact: true }).visible().first()\n\n```\n\n",
+    "explicit_vue_link_in_snapshot": true,
+    "original_failure_unchanged": true
+  },
+  {
+    "trace": "browser/restored-frozen-test-results/flows-auth-auth-flow-an-admin-is-offered-admin-pages-flows/trace.zip",
+    "sha256": "8e9a8c33d1d1ec850b09820feb0d6024ce4de79f794b4d077bac7a2d495ccadd",
+    "documents": [
+      {
+        "url": "http://localhost:9106/login",
+        "status": 200,
+        "owner": "vue",
+        "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231"
+      },
+      {
+        "url": "http://localhost:9106/g/home",
+        "status": 200,
+        "owner": "react",
+        "build": "2b409d4deadf1bc17acc5a4a6634e638feca52550caec23a7d6f23f6dd1493f8"
+      },
+      {
+        "url": "http://localhost:9106/g/home",
+        "status": 200,
+        "owner": "react",
+        "build": "2b409d4deadf1bc17acc5a4a6634e638feca52550caec23a7d6f23f6dd1493f8"
+      }
+    ],
+    "actions": [
+      {
+        "method": "fill",
+        "selector": "internal:role=textbox[name=\"Email or Username\"i]"
+      },
+      {
+        "method": "fill",
+        "selector": "internal:role=textbox[name=\"Password\"i]"
+      },
+      {
+        "method": "click",
+        "selector": "internal:role=button[name=\"Login\"i]"
+      },
+      {
+        "method": "click",
+        "selector": "internal:text=\"Settings\"s >> visible=true >> nth=0"
+      }
+    ],
+    "error_excerpt": "\n\n```\nTest timeout of 45000ms exceeded.\n```\n\n```\nError: locator.click: Test timeout of 45000ms exceeded.\nCall log:\n  - waiting for getByText('Settings', { exact: true }).visible().first()\n\n```\n\n",
+    "explicit_vue_link_in_snapshot": true,
+    "original_failure_unchanged": true
+  },
+  {
+    "trace": "browser/restored-frozen-test-results/flows-auth-auth-flow-log-out-ends-the-session-flows/trace.zip",
+    "sha256": "4939e258cd1a6be84c503f186b376b9b4ce9e07d00df43213fa208d67063dcd6",
+    "documents": [
+      {
+        "url": "http://localhost:9106/login",
+        "status": 200,
+        "owner": "vue",
+        "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231"
+      },
+      {
+        "url": "http://localhost:9106/g/home",
+        "status": 200,
+        "owner": "react",
+        "build": "2b409d4deadf1bc17acc5a4a6634e638feca52550caec23a7d6f23f6dd1493f8"
+      }
+    ],
+    "actions": [
+      {
+        "method": "fill",
+        "selector": "internal:role=textbox[name=\"Email or Username\"i]"
+      },
+      {
+        "method": "fill",
+        "selector": "internal:role=textbox[name=\"Password\"i]"
+      },
+      {
+        "method": "click",
+        "selector": "internal:role=button[name=\"Login\"i]"
+      },
+      {
+        "method": "click",
+        "selector": "internal:role=button[name=\"Logout\"i]"
+      }
+    ],
+    "error_excerpt": "\n\n```\nTest timeout of 45000ms exceeded.\n```\n\n```\nError: locator.click: Test timeout of 45000ms exceeded.\nCall log:\n  - waiting for getByRole('button', { name: 'Logout' })\n\n```\n\n",
+    "explicit_vue_link_in_snapshot": true,
+    "original_failure_unchanged": true
+  },
+  {
+    "trace": "browser/restored-frozen-test-results/flows-recipes-recipes-flow-a3d3d-ipe-and-see-it-after-reload-flows/trace.zip",
+    "sha256": "6b842e27c281d122b8d16fbf2678cd29d908d6ffeaf6366b58215ca3d1f3efd4",
+    "documents": [
+      {
+        "url": "http://localhost:9106/g/home/r/e2e-garden-salad",
+        "status": 200,
+        "owner": "react",
+        "build": "2b409d4deadf1bc17acc5a4a6634e638feca52550caec23a7d6f23f6dd1493f8"
+      }
+    ],
+    "actions": [
+      {
+        "method": "fill",
+        "selector": "internal:role=textbox[name=\"Join the Conversation\"i]"
+      }
+    ],
+    "error_excerpt": "\n\n```\nTest timeout of 45000ms exceeded.\n```\n\n```\nError: locator.fill: Test timeout of 45000ms exceeded.\nCall log:\n  - waiting for getByRole('textbox', { name: 'Join the Conversation' })\n\n```\n\n",
+    "explicit_vue_link_in_snapshot": true,
+    "original_failure_unchanged": true
+  }
+]

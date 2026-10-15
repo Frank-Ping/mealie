@@ -1,0 +1,1877 @@
+{
+  "config": {
+    "argv": [
+      "<WORKSPACE>/wf6-rerun-20261014-01/runtime/tools/node-v24.21.0-linux-x64/bin/node",
+      "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/node_modules/@playwright/test/cli.js",
+      "test",
+      "--list",
+      "--reporter=json"
+    ],
+    "configFile": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/playwright.config.ts",
+    "rootDir": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": true,
+    "fullyParallel": false,
+    "globalSetup": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/global-setup.ts",
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {},
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "routes",
+        "name": "routes",
+        "testDir": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "/routes\\.spec\\.ts/"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "flows",
+        "name": "flows",
+        "testDir": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "/flows\\/.*\\.spec\\.ts/"
+        ],
+        "timeout": 45000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": {
+      "command": "./scripts/start-backend.sh",
+      "url": "http://localhost:9106/api/app/about",
+      "reuseExistingServer": true,
+      "timeout": 180000,
+      "stdout": "ignore",
+      "stderr": "pipe",
+      "env": {
+        "E2E_PORT": "9106"
+      }
+    }
+  },
+  "suites": [
+    {
+      "title": "routes.spec.ts",
+      "file": "routes.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "route table has unique entries",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "routes",
+              "projectName": "routes",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "598fdabf36083b33787e-bf90b53cd5ead572ef69",
+          "file": "routes.spec.ts",
+          "line": 23,
+          "column": 5
+        }
+      ],
+      "suites": [
+        {
+          "title": "admin",
+          "file": "routes.spec.ts",
+          "line": 32,
+          "column": 8,
+          "specs": [
+            {
+              "title": "[route] admin.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-5b0da5825c045e688b7c",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] admin/backups.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-45ec34ffc5ff8a6ccc15",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] admin/debug/openai.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-cc95e0ac2cbe7ea8577e",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] admin/debug/parser.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-a951409c236f1fb43c74",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] admin/maintenance/index.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-6a931b1cb59a9b7bc38e",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] admin/manage/groups/[id].vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-c6184e92bfe2859353b4",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] admin/manage/groups/index.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-0a5267cfc6016beed383",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] admin/manage/households/[id].vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-15d47693e3ffbe490c65",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] admin/manage/households/index.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-76a640f277648018cef9",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] admin/manage/users/[id].vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-45c7cf2584ecd3610a15",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] admin/manage/users/create.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-cefd3a35e83298445760",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] admin/manage/users/index.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-33e42cb285f7dc106927",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] admin/setup.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-39d7a1eed1fb705394d3",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] admin/site-settings.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-2de34dc59fec97ed6bf8",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] index.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-eac60b637c7c52c12ffc",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] g/[groupSlug]/index.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-a80a31242bf06324ccfa",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] g/[groupSlug]/r/[slug]/index.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-2d3faba90036dc8cb7d3",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] g/[groupSlug]/cookbooks/index.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-f63016db6877bc274205",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] g/[groupSlug]/cookbooks/[slug].vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-3e666d46589f8e845c99",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] g/[groupSlug]/r/create.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-3e58434fb66cc62de084",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] g/[groupSlug]/r/create/index.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-de5d5336895270a5ab0b",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] g/[groupSlug]/r/create/ai.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-2f3162c23ebe81663d53",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] g/[groupSlug]/r/create/bulk.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-c3db01f031f98901acba",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] g/[groupSlug]/r/create/debug.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-2c0850b81180f1a025f1",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] g/[groupSlug]/r/create/html.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-e7cab3817bbed5126f80",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] g/[groupSlug]/r/create/image.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-8a92b18801b15dfdf260",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] g/[groupSlug]/r/create/new.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-4f743ff98cccbfeb1f06",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] g/[groupSlug]/r/create/url.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-57ad61d01d80b9f5a801",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] g/[groupSlug]/r/create/zip.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-68fcb517be53a0f91f82",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] g/[groupSlug]/recipes/categories/index.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-6c8c3bf186b1e0dcf17d",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] g/[groupSlug]/recipes/tags/index.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-c077a44eada489b6e724",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] g/[groupSlug]/recipes/tools/index.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-e8009a6d809152dc345c",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] g/[groupSlug]/recipes/finder/index.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-cbe7814a41208316c106",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] g/[groupSlug]/recipes/timeline.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-091bb11fb42fe8167add",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] group/index.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-95a5fd2d11ae0d609efd",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] group/migrations.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-859ed13b0760cfb35746",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] group/reports/[id].vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-2971c51347156294c3e3",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] group/data.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-241dcbd90198596d1e5e",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] group/data/index.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-3ad84b8b806ac3ea07d9",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] group/data/foods.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-938fc01118dfe7f47267",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] group/data/units.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-1a74c0aa570bc0f02697",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] group/data/labels.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-dc00d211442e4b7fef0f",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] group/data/categories.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-8c1ea12cd576d2405b5c",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] group/data/tags.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-e91d62a09e3b2cb757c9",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] group/data/tools.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-7a6c5d06a201018c7e85",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] group/data/recipes.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-2706b040cab8bbce18ca",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] group/data/recipe-actions.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-df991418cbb97085325f",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] household/index.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-ce545851925f4556300d",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] household/members.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-87142ccea4c7c172b179",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] household/notifiers.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-7b7aa8519fb748f2d81b",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] household/webhooks.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-09df3560ca29938edc9c",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] household/mealplan/settings.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-f31abf554b10fef8cc1b",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] household/mealplan/planner.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-a86d33c6f62a38617e84",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] household/mealplan/planner/view.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-fe86c9e3f13f28503403",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] household/mealplan/planner/edit.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-a97460c63dd58cee91a9",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] shopping-lists/index.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-120fa2e8fcca2a17e028",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] shopping-lists/[id].vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-bbbad5533a0af83d2511",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] user/profile/index.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-9ee98ca1f8ac7159dd2f",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] user/profile/edit.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-bca7ebadf7b1417f20db",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] user/profile/api-tokens.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-3fd8848981d711c1aec5",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] user/[id]/favorites.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-475c8f722fd9ceea9641",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            }
+          ]
+        },
+        {
+          "title": "anonymous",
+          "file": "routes.spec.ts",
+          "line": 32,
+          "column": 8,
+          "specs": [
+            {
+              "title": "[route] forgot-password.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-ffe61a8871f564360821",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] login.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-0ab35b8eb82fc16bea27",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] register/index.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-0cf339821088294a9f11",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] reset-password.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-92008c632357d0b19748",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] g/[groupSlug]/shared/r/[id].vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-cfb98b34316bcdd195c7",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "flows/admin.spec.ts",
+      "file": "flows/admin.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "admin",
+          "file": "flows/admin.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "[flow] create a user and find them in user management",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flows",
+                  "projectName": "flows",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "d5124b62b618a9af8149-181a6e70afb6add50b1e",
+              "file": "flows/admin.spec.ts",
+              "line": 5,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "flows/auth.spec.ts",
+      "file": "flows/auth.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "auth",
+          "file": "flows/auth.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "[flow] log in with valid credentials and land on the recipe list",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flows",
+                  "projectName": "flows",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "4104d3f02111767719d7-fd56942a55bd84be8829",
+              "file": "flows/auth.spec.ts",
+              "line": 8,
+              "column": 7
+            },
+            {
+              "title": "[flow] a wrong password is rejected",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flows",
+                  "projectName": "flows",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "4104d3f02111767719d7-c6fb17aaaeaeb6979429",
+              "file": "flows/auth.spec.ts",
+              "line": 16,
+              "column": 7
+            },
+            {
+              "title": "[flow] log out ends the session",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flows",
+                  "projectName": "flows",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "4104d3f02111767719d7-2c448d7071dc96aa029b",
+              "file": "flows/auth.spec.ts",
+              "line": 27,
+              "column": 7
+            },
+            {
+              "title": "[flow] a regular member is not offered admin pages",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flows",
+                  "projectName": "flows",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "4104d3f02111767719d7-3059d475d661d2dc095f",
+              "file": "flows/auth.spec.ts",
+              "line": 39,
+              "column": 7
+            },
+            {
+              "title": "[flow] an admin is offered admin pages",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flows",
+                  "projectName": "flows",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "4104d3f02111767719d7-51ddb1e20820a037aed7",
+              "file": "flows/auth.spec.ts",
+              "line": 50,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "flows/mealplan.spec.ts",
+      "file": "flows/mealplan.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "meal plan",
+          "file": "flows/mealplan.spec.ts",
+          "line": 11,
+          "column": 6,
+          "specs": [
+            {
+              "title": "[flow] add a note to tomorrow's meal plan",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flows",
+                  "projectName": "flows",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "b8509fa8ee188014e8a4-775b0d0e8d93791a4995",
+              "file": "flows/mealplan.spec.ts",
+              "line": 12,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "flows/organize.spec.ts",
+      "file": "flows/organize.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "organizing",
+          "file": "flows/organize.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "[flow] create a tag in data management",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flows",
+                  "projectName": "flows",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "eb58f7d2c5ebb02e55f1-89cbfed335af17650bea",
+              "file": "flows/organize.spec.ts",
+              "line": 5,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "flows/profile.spec.ts",
+      "file": "flows/profile.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "profile",
+          "file": "flows/profile.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "[flow] a member updates their full name",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flows",
+                  "projectName": "flows",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "bdbc2a54e77d786dbd88-4912b9d57c46223313f2",
+              "file": "flows/profile.spec.ts",
+              "line": 8,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "flows/recipes.spec.ts",
+      "file": "flows/recipes.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "recipes",
+          "file": "flows/recipes.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "[flow] open a recipe from the recipe list",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flows",
+                  "projectName": "flows",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "adbcddc045ffdc002fe7-e190de4c90cd8c3bacd4",
+              "file": "flows/recipes.spec.ts",
+              "line": 6,
+              "column": 7
+            },
+            {
+              "title": "[flow] search narrows the recipe list",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flows",
+                  "projectName": "flows",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "adbcddc045ffdc002fe7-1af8f189e631f269eec5",
+              "file": "flows/recipes.spec.ts",
+              "line": 15,
+              "column": 7
+            },
+            {
+              "title": "[flow] create a recipe by name",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flows",
+                  "projectName": "flows",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "adbcddc045ffdc002fe7-b28f9a44de96de38b864",
+              "file": "flows/recipes.spec.ts",
+              "line": 24,
+              "column": 7
+            },
+            {
+              "title": "[flow] comment on a recipe and see it after reload",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flows",
+                  "projectName": "flows",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "adbcddc045ffdc002fe7-94521aca8e8c97c31455",
+              "file": "flows/recipes.spec.ts",
+              "line": 36,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "flows/shopping.spec.ts",
+      "file": "flows/shopping.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "shopping lists",
+          "file": "flows/shopping.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "[flow] create a shopping list",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flows",
+                  "projectName": "flows",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "cc05f9079d993201a00b-ad46c466069292b4cdb6",
+              "file": "flows/shopping.spec.ts",
+              "line": 6,
+              "column": 7
+            },
+            {
+              "title": "[flow] add an item and check it off",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flows",
+                  "projectName": "flows",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "cc05f9079d993201a00b-73340ea3768bda6b5e44",
+              "file": "flows/shopping.spec.ts",
+              "line": 19,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-14T07:56:47.001Z",
+    "duration": 232.86000000000013,
+    "expected": 0,
+    "skipped": 82,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

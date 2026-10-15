@@ -1,0 +1,6 @@
+[('S6-C1-fresh-build-existing-inputs', 0), ('S6-C1-gateway-protocol-fixture', 0), ('S6-C1-frozen-exact-selection-inventory', 0), ('S6-C1-frozen-list-detail-routes-open-search-flows', 0), ('S6-C1-real-business-states-keyboard-boundary-browser', 0), ('S6-C1-four-existing-Vue-functions-real-browser', 0)]
+20261014T081336-S6-backend.stdout.log
+WARNING  2026-10-14T08:13:45 - Secrets directory '/run/secrets' does not exist
+WARNING  2026-10-14T08:13:54 - Secrets directory '/run/secrets' does not exist
+ERROR    2026-10-14T08:14:02 - Incorrect username or password from 127.0.0.1
+

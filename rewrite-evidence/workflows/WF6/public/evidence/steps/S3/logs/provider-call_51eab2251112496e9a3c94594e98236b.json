@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2598,
+    "byte_offset": 7231122,
+    "timestamp": "2026-10-14T04:45:17.050Z",
+    "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf08d6910c81918bfc74c22381d694",
+      "status": "completed",
+      "call_id": "call_51eab2251112496e9a3c94594e98236b",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 - <<'PY'\\nfrom pathlib import Path\\nimport json,datetime\\np=Path('wf6-rerun-20261014-01/wf6-evidence/experiment-budget.json');d=json.loads(p.read_text());prior=d['segments'][-2];current=d['segments'][-1]\\na=datetime.datetime.fromisoformat(prior['end_utc'].replace('Z','+00:00'));b=datetime.datetime.fromisoformat(current['start_utc'].replace('Z','+00:00'))\\nd['excluded_between_turn_intervals']=[dict(start_utc=prior['end_utc'],end_utc=current['start_utc'],elapsed_seconds=(b-a).total_seconds(),category='human_pause/between_authorized_turns',activity='Not provided; elapsed gap is excluded from model/tool execution. Human review time is not inferred.')]\\np.write_text(json.dumps(d,indent=2)+'\\\\n')\\nPY\",\"max_output_tokens\":200}));\ntext(await tools.write_stdin({session_id:8722,chars:\"\",yield_time_ms:1000,max_output_tokens:600}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+        "create_time": 1791953110.5691884
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2601,
+    "byte_offset": 7235412,
+    "timestamp": "2026-10-14T04:45:22.196Z",
+    "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a138ba-b394-7430-b58d-f69438bed397",
+      "call_id": "call_51eab2251112496e9a3c94594e98236b",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 5.1 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"929715\",\"wall_time_seconds\":0.000010314,\"exit_code\":0,\"original_token_count\":0,\"output\":\"\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"55d06e\",\"wall_time_seconds\":5.001958981,\"session_id\":8722,\"original_token_count\":0,\"output\":\"\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+        "create_time": 1791953122.1962976
+      }
+    }
+  }
+}

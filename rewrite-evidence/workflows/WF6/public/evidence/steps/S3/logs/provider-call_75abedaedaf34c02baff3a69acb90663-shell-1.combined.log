@@ -1,0 +1,16 @@
+ frontend-react-wf6/.gitignore                  |    2 +
+ frontend-react-wf6/index.html                  |    2 +
+ frontend-react-wf6/package-lock.json           | 2053 ++++++++++++++++++++++++
+ frontend-react-wf6/package.json                |   28 +
+ frontend-react-wf6/src/main.tsx                |   63 +
+ frontend-react-wf6/tsconfig.json               |   10 +
+ frontend-react-wf6/vite.config.ts              |    8 +
+ frontend/app/middleware/wf6-boundary.global.ts |   11 +
+ rewrite-evidence/workflows/WF6/S3-RESULT.md    |    8 +
+ wf6/gateway.mjs                                |   28 +-
+ wf6/gateway.test.mjs                           |    4 +-
+ wf6/route-map.json                             |   45 +-
+ wf6/route-policy.d.mts                         |   10 +
+ wf6/route-policy.mjs                           |   21 +
+ wf6/route-policy.test.mjs                      |   23 +
+ 15 files changed, 2297 insertions(+), 19 deletions(-)

@@ -1,0 +1,3 @@
+[rewrite/wf6-route-coexistence 61d1671] [WF6-S6] Record limited extension gate failure after two repair rounds
+ 1 file changed, 11 insertions(+)
+ create mode 100644 rewrite-evidence/workflows/WF6/S6-C2-RESULT.md

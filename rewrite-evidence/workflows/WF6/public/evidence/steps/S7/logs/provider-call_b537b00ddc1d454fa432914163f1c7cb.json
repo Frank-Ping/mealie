@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 4584,
+    "byte_offset": 13638865,
+    "timestamp": "2026-10-14T09:56:43.603Z",
+    "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf51c789588191a8d422a7d80a0175",
+      "status": "completed",
+      "call_id": "call_b537b00ddc1d454fa432914163f1c7cb",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"cat > wf6-evidence/usage/audit_s7_raw.py <<'PY'\\n\\\"\\\"\\\"Corroborate summaries directly against original Playwright JSON and trace network.\\\"\\\"\\\"\\nimport json,zipfile\\nfrom pathlib import Path\\nfrom urllib.parse import urlsplit\\nfrom finish_s7 import E,T,write,now,sha\\nreports=[]\\nfor path,passed,failed in [('steps/S1/browser-native/results.json',82,0),('steps/S6/browser/restored-frozen-results.json',78,4),('steps/S6/continuation-03/browser/restored-frozen-results.json',82,0)]:\\n d=json.loads((E/path).read_text());assert d['stats']['expected']==passed and d['stats']['unexpected']==failed and d['stats']['skipped']==0 and d['stats']['flaky']==0 and not d['errors'];reports.append(dict(path=path,sha256=sha(E/path),stats=d['stats']))\\nproof=json.loads((E/'steps/S6/continuation-03/browser/persistence-redacted.jsonl').read_text().splitlines()[-1]);assert proof['sameServerRecordAfterRefresh']\\ntrace=next((E/'steps/S6/continuation-03/browser/persistence-test-results').glob('**/trace.zip'));z=zipfile.ZipFile(trace);events=[]\\nfor name in z.namelist():\\n if not name.endswith('.network'):continue\\n for line in z.read(name).splitlines():\\n  r=json.loads(line).get('snapshot',{});request=r.get('request',{});response=r.get('response',{});path=urlsplit(request.get('url','')).path\\n  if path=='/api/comments' or path.endswith('/comments'):\\n   content=response.get('content',{});resource=content.get('_sha1');body=None\\n   if resource and 'resources/'+resource in z.namelist():\\n    try:body=json.loads(z.read('resources/'+resource))\\n    except (ValueError,UnicodeDecodeError):pass\\n   records=body if isinstance(body,list) else [body] if isinstance(body,dict) else []\\n   same=any(x.get('id')==proof['commentId'] and x.get('recipeId')==proof['recipeId'] and x.get('text')==proof['text'] for x in records)\\n   events.append(dict(network_member=name,started_utc=r.get('startedDateTime'),method=request.get('method'),path=path,status=response.get('status'),body_resource=resource,same_comment_id_recipe_text=same))\\nassert any(x['method']=='POST' and x['status']==201 and x['same_comment_id_recipe_text'] for x in events),events\\nassert any(x['method']=='GET' and x['status']==200 and x['same_comment_id_recipe_text'] for x in events),events\\nwrite(T/'raw-test-trace-audit.json',dict(timestamp=now(),raw_reports=reports,trace_path=str(trace.relative_to(E)),trace_sha256=sha(trace),comment_network=events,redaction='Only method/path/status/body-resource ID and boolean same-record result; no cookie/bearer/password. Raw trace is unchanged.'))\\nprint(json.dumps(dict(raw_reports=reports,comment_network=events)))\\nPY\\npython3 -B wf6-evidence/usage/record_command.py --stage S7 --cwd \\\"$PWD\\\" --label verify-original-tests-and-same-record-trace -- python3 -B wf6-evidence/usage/audit_s7_raw.py\",\"workdir\":\"<WORKSPACE>/wf6-rerun-20261014-01\",\"yield_time_ms\":1000,\"max_output_tokens\":500}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+        "create_time": 1791971783.5394363
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 4587,
+    "byte_offset": 13650341,
+    "timestamp": "2026-10-14T09:56:44.156Z",
+    "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a139d7-c3fc-71f0-b4ed-9cff4e7fd242",
+      "call_id": "call_b537b00ddc1d454fa432914163f1c7cb",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.5 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"5fc3ef\",\"wall_time_seconds\":0.346045559,\"exit_code\":1,\"original_token_count\":201,\"output\":\"{\\\"command_id\\\": \\\"20261014T095643-546adb6f\\\", \\\"stage_id\\\": \\\"S7\\\", \\\"label\\\": \\\"verify-original-tests-and-same-record-trace\\\", \\\"argv\\\": [\\\"python3\\\", \\\"-B\\\", \\\"wf6-evidence/usage/audit_s7_raw.py\\\"], \\\"cwd\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01\\\", \\\"start_utc\\\": \\\"2026-10-14T09:56:43.869946+00:00\\\", \\\"end_utc\\\": \\\"2026-10-14T09:56:44.130769+00:00\\\", \\\"duration_seconds\\\": 0.26000469100108603, \\\"exit_code\\\": 1, \\\"stdout\\\": \\\"steps/S7/logs/20261014T095643-546adb6f.stdout.log\\\", \\\"stderr\\\": \\\"steps/S7/logs/20261014T095643-546adb6f.stderr.log\\\", \\\"environment_overrides\\\": {}, \\\"permission\\\": \\\"workspace-write; network restricted; no escalation\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+        "create_time": 1791971804.1560016
+      }
+    }
+  }
+}

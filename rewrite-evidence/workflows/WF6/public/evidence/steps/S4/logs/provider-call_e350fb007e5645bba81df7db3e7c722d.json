@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3046,
+    "byte_offset": 8714783,
+    "timestamp": "2026-10-14T06:38:22.935Z",
+    "turn_id": "01a13905-d942-7e23-8387-48f7946bf050",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf235dc4508191b4a62746c4f6cd21",
+      "status": "completed",
+      "call_id": "call_e350fb007e5645bba81df7db3e7c722d",
+      "name": "exec",
+      "input": "text(await tools.write_stdin({session_id:64043,chars:\"\",yield_time_ms:1000,max_output_tokens:1000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13905-d942-7e23-8387-48f7946bf050",
+        "create_time": 1791959901.785726
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3048,
+    "byte_offset": 8716188,
+    "timestamp": "2026-10-14T06:38:22.963Z",
+    "turn_id": "01a13905-d942-7e23-8387-48f7946bf050",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13922-2af3-7ed1-bfa9-b324ebf42a91",
+      "call_id": "call_e350fb007e5645bba81df7db3e7c722d",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.0 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"d0bf1f\",\"wall_time_seconds\":0.000013148,\"exit_code\":0,\"original_token_count\":45,\"output\":\"{\\\"index_links\\\": \\\"PASS\\\", \\\"source_clean\\\": true, \\\"evaluator_clean\\\": true, \\\"shared_source_repairs\\\": \\\"0/2\\\", \\\"S1\\\": \\\"partial retained\\\", \\\"S4\\\": \\\"provisional; final_reply_included=false\\\"}\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13905-d942-7e23-8387-48f7946bf050",
+        "create_time": 1791959902.9630241
+      }
+    }
+  }
+}

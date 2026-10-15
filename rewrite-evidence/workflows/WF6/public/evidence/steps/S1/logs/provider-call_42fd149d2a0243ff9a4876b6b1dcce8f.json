@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1949,
+    "byte_offset": 5701452,
+    "timestamp": "2026-10-14T03:54:52.609Z",
+    "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acefd041d908191acb05a988e8cb15a",
+      "status": "completed",
+      "call_id": "call_42fd149d2a0243ff9a4876b6b1dcce8f",
+      "name": "exec",
+      "input": "text(await tools.apply_patch(\"*** Begin Patch\\n*** Update File: <WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/usage/finish_s1.py\\n@@\\n import json\\n+import os\\n@@\\n def file_record(path,base):\\n-    return dict(path=str(path.relative_to(base)),bytes=path.stat().st_size,sha256=hashlib.sha256(path.read_bytes()).hexdigest())\\n+    content=os.readlink(path).encode() if path.is_symlink() else path.read_bytes()\\n+    return dict(path=str(path.relative_to(base)),bytes=len(content),sha256=hashlib.sha256(content).hexdigest(),symlink=path.is_symlink())\\n@@\\n-            if not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest()!=item['sha256']:\\n+            content=os.readlink(path).encode() if path.is_symlink() else path.read_bytes() if path.is_file() else None\\n+            if content is None or path.is_symlink()!=item.get('symlink',False) or hashlib.sha256(content).hexdigest()!=item['sha256']:\\n*** End Patch\"));\ntext(await tools.exec_command({cmd:\"python3 -B wf6-rerun-20261014-01/wf6-evidence/usage/record_command.py --stage S1 --cwd '<WORKSPACE>/wf6-rerun-20261014-01' --label S1-frozen-byte-audit-with-original-symlink-semantics -- python3 -B wf6-evidence/usage/finish_s1.py snapshot\",\"yield_time_ms\":1000,\"max_output_tokens\":600}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+        "create_time": 1791950084.1234636
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1952,
+    "byte_offset": 5705845,
+    "timestamp": "2026-10-14T03:54:54.597Z",
+    "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a1388c-8105-71a1-b11d-9e4e304ee3e8",
+      "call_id": "call_42fd149d2a0243ff9a4876b6b1dcce8f",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 2.0 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"310731\",\"wall_time_seconds\":1.001062137,\"session_id\":80454,\"original_token_count\":0,\"output\":\"\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+        "create_time": 1791950094.5973754
+      }
+    }
+  }
+}

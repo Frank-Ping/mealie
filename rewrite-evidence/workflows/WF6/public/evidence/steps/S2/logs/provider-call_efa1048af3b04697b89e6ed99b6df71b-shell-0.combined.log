@@ -1,0 +1,28 @@
+"""Independent WF6 collector for observed Codex JSONL events.
+
+Only attributed response usage is authoritative. Legacy cumulative events are
+preserved but never added. Missing identity, boundaries, fields, or reconciliation
+produce partial/not_provided rather than guessed values.
+"""
+import argparse
+import copy
+import csv
+import datetime as dt
+import hashlib
+import json
+from pathlib import Path
+import re
+import time
+
+FIELDS = ("input_tokens", "cached_input_tokens", "cache_write_input_tokens", "output_tokens", "reasoning_output_tokens", "total_tokens")
+MARKER = re.compile(r"^\[\[WF6:(S[0-7]):(START|CONTINUE)\]\]$")
+END = re.compile(r"\[\[WF6:(S[0-7]):END\]\]\s*$")
+
+Progress: resolved 1231, reused 0, downloaded 1228, added 1224
+Progress: resolved 1231, reused 0, downloaded 1228, added 1225
+Progress: resolved 1231, reused 0, downloaded 1228, added 1226
+Progress: resolved 1231, reused 0, downloaded 1228, added 1227
+Progress: resolved 1231, reused 0, downloaded 1228, added 1228
+Progress: resolved 1231, reused 0, downloaded 1229, added 1228
+Progress: resolved 1231, reused 0, downloaded 1229, added 1229
+Progress: resolved 1231, reused 0, downloaded 1229, added 1230

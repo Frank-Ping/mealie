@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3963,
+    "byte_offset": 11352323,
+    "timestamp": "2026-10-14T08:51:14.562Z",
+    "turn_id": "01a13999-f4f9-78f2-8751-6c0a710636a0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf427d4e3c8191b49daff5d5559219",
+      "status": "completed",
+      "call_id": "call_09568bdacd334f47abc7cbf9803fe491",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"rg --files wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app | rg 'household.*self|household.*ts|use-household'\\nrg -n 'self' wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/user/households.ts\\nsed -n '134,154p' wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/types/user.ts\\nsed -n '125,151p' wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Layout/LayoutParts/AppHeader.vue\",\"max_output_tokens\":1200}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13999-f4f9-78f2-8751-6c0a710636a0",
+        "create_time": 1791967869.329056
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3966,
+    "byte_offset": 11357620,
+    "timestamp": "2026-10-14T08:51:14.809Z",
+    "turn_id": "01a13999-f4f9-78f2-8751-6c0a710636a0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a1399b-cef9-7d82-81ae-28adfcffcb2f",
+      "call_id": "call_09568bdacd334f47abc7cbf9803fe491",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"67c619\",\"wall_time_seconds\":0.061248455,\"exit_code\":0,\"original_token_count\":373,\"output\":\"wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/use-households.ts\\nwf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/store/use-household-store.ts\\nwf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/middleware/can-manage-household-only.ts\\nwf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/admin/admin-households.ts\\nwf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/user/households.ts\\nwf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/public/explore/households.ts\\nwf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/types/household.ts\\n21:  householdsSelf: `${prefix}/households/self`,\\n30:  householdsSelfRecipesSlug: (recipeSlug: string) => `${prefix}/households/self/recipes/${recipeSlug}`,\\n  fullName?: string | null;\\n  email: string;\\n  authMethod?: AuthMethod;\\n  admin?: boolean;\\n  group: string;\\n  household: string;\\n  advanced?: boolean;\\n  showAnnouncements?: boolean;\\n  lastReadAnnouncement?: string | null;\\n  canInvite?: boolean;\\n  canManage?: boolean;\\n  canManageHousehold?: boolean;\\n  canOrganize?: boolean;\\n  groupId: string;\\n  groupSlug: string;\\n  householdId: string;\\n  householdSlug: string;\\n  tokens?: LongLiveTokenOut[] | null;\\n  cacheKey: string;\\n  password: string;\\n  loginAttemps?: number;\\n\\nasync function logout() {\\n  try {\\n    await auth.signOut(\\\"/login?direct=1\\\");\\n  }\\n  catch (e) {\\n    console.error(e);\\n  }\\n}\\n</script>\\n\\n<style scoped>\\n.v-toolbar {\\n  z-index: 2010 !important;\\n}\\n</style>\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13999-f4f9-78f2-8751-6c0a710636a0",
+        "create_time": 1791967874.80928
+      }
+    }
+  }
+}

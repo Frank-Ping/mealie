@@ -1,0 +1,2 @@
+1 ['codex-linux-sandbox', '--sandbox-policy-cwd', '<WORKSPACE>', '--command-cwd', '<WORKSPACE>']
+2 ['/bin/bash', '-c', "tail -12 wf6-rerun-20261014-01/wf6-evidence/steps/S2/logs/20261014T040533-43abd8a6.stderr.log; python3 - <<'PY'\nimport pathlib,json\nfor p in pathlib.Path('/proc').iterdir():\n if p.name.isdigit():\n  try:\n   a=(p/'cmdline').read_bytes().split(b'\\0')\n   if any(b'pnpm.mjs' in x or b'build_s2.py' in x for x in a) and len(a)<15:print(p.name,[x.decode() for x in a[:5]])\n  except OSError:pass\nPY", '']

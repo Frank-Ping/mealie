@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 782,
+    "byte_offset": 3036549,
+    "timestamp": "2026-10-14T02:14:29.762Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acee56d45d88191ae19e485a8b39992",
+      "status": "completed",
+      "call_id": "call_c453c670afd546ddbfa9e8177d3b277f",
+      "name": "exec",
+      "input": "text(await tools.apply_patch(\"*** Begin Patch\\n*** Update File: <WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/usage/run_s1.py\\n@@\\n-    assert not disposable.exists(),\\\"Refuse to erase existing S1 data before auditing its identity.\\\"\\n-    disposable.mkdir()\\n+    if disposable.exists():\\n+        assert not any(disposable.iterdir()),\\\"Refuse to erase preexisting populated S1 data during setup.\\\"\\n+    else:disposable.mkdir()\\n@@\\n-    assert not auth.exists() and not auth.is_symlink(),\\\"Refuse to reuse an existing browser auth state.\\\"\\n-    auth.symlink_to(RUNTIME/\\\"auth\\\",target_is_directory=True)\\n+    if auth.exists() or auth.is_symlink():\\n+        assert auth.is_symlink() and auth.resolve()==(RUNTIME/\\\"auth\\\").resolve() and not any(auth.iterdir()),\\\"Refuse to reuse foreign/populated auth state.\\\"\\n+    else:auth.symlink_to(RUNTIME/\\\"auth\\\",target_is_directory=True)\\n+    # A directory-only upstream ignore does not ignore a symlink. Keep runtime\\n+    # aliases out of source status through local Git metadata, not tracked files.\\n+    exclude=EVALUATOR/\\\".git/info/exclude\\\"\\n+    existing=exclude.read_text() if exclude.exists() else \\\"\\\"\\n+    if \\\"frontend-e2e/.auth\\\\n\\\" not in existing:\\n+        with exclude.open(\\\"a\\\") as stream:stream.write(\\\"\\\\n# WF6 S1 isolated runtime authentication alias\\\\nfrontend-e2e/.auth\\\\n\\\")\\n*** Add File: <WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/usage/test_s1_boundaries.py\\n+\\\"\\\"\\\"Verify natural S1 authorization and disjoint preparation accounting.\\\"\\\"\\\"\\n+import unittest\\n+from collect_usage import analyze\\n+from test_collect_usage import config,event,fixture,final,rows,usage,user\\n+\\n+class S1BoundaryTests(unittest.TestCase):\\n+    def test_verified_natural_request_excludes_preparation(self):\\n+        text=\\\"Measure only the unchanged S1 baseline.\\\"\\n+        data=fixture()+[usage(\\\"P1\\\",\\\"prep-only\\\",19,132),user(\\\"b\\\",text,\\\"natural-s1\\\"),usage(\\\"b\\\",\\\"s1-r1\\\",2,134),\\n+            final(\\\"b\\\",\\\"S1\\\"),usage(\\\"b\\\",\\\"s1-r2\\\",3,137,5),event(\\\"event_msg\\\",dict(type=\\\"task_complete\\\",turn_id=\\\"b\\\"))]\\n+        cfg=config();cfg[\\\"natural_requests\\\"]=[dict(stage_id=\\\"S1\\\",user_message_id=\\\"natural-s1\\\",actual_prompt=text,turn_id=\\\"b\\\",line=9)]\\n+        result=analyze(rows(data),cfg)\\n+        self.assertEqual(result[\\\"stages\\\"][0][\\\"total_tokens\\\"],13)\\n+        self.assertEqual(result[\\\"stages\\\"][1][\\\"total_tokens\\\"],5)\\n+        self.assertEqual(result[\\\"stages\\\"][1][\\\"status\\\"],\\\"exact_reported\\\")\\n+        self.assertEqual(result[\\\"extra_discussion\\\"][\\\"known_usage\\\"][\\\"total_tokens\\\"],19)\\n+        self.assertEqual(result[\\\"stages\\\"][1][\\\"segments\\\"][0][\\\"boundary\\\"][\\\"action\\\"],\\\"NATURAL_START\\\")\\n+\\n+    def test_unregistered_natural_text_is_not_fabricated_marker(self):\\n+        result=analyze(rows(fixture()+[user(\\\"b\\\",\\\"Discuss a future S1 baseline.\\\",\\\"discussion\\\")]),config())\\n+        self.assertEqual(result[\\\"stages\\\"][1][\\\"status\\\"],\\\"not_executed\\\")\\n+        self.assertEqual(len(result[\\\"boundaries\\\"]),1)\\n+\\n+if __name__==\\\"__main__\\\":unittest.main(verbosity=2)\\n*** End Patch\"));\ntext(await tools.exec_command({cmd:\"python3 -B wf6-rerun-20261014-01/wf6-evidence/usage/record_command.py --stage S1 --cwd '<WORKSPACE>/wf6-rerun-20261014-01' --label S1-natural-boundary-accounting-checks -- python3 -B -m unittest discover -s wf6-evidence/usage -p 'test*boundaries.py' -v\\npython3 -B wf6-rerun-20261014-01/wf6-evidence/usage/record_command.py --stage S1 --cwd '<WORKSPACE>/wf6-rerun-20261014-01' --label S1-runtime-isolation-recheck-after-auth-alias-ignore -- python3 -B wf6-evidence/usage/run_s1.py setup\",yield_time_ms:1000,max_output_tokens:1300}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791944045.2804282
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 785,
+    "byte_offset": 3046114,
+    "timestamp": "2026-10-14T02:14:31.149Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13830-97ed-7311-a0f0-3c049fa4ee99",
+      "call_id": "call_c453c670afd546ddbfa9e8177d3b277f",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 1.4 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"36a8f4\",\"wall_time_seconds\":1.0017631,\"session_id\":46865,\"original_token_count\":213,\"output\":\"{\\\"command_id\\\": \\\"20261014T021430-4c9a3765\\\", \\\"stage_id\\\": \\\"S1\\\", \\\"label\\\": \\\"S1-natural-boundary-accounting-checks\\\", \\\"argv\\\": [\\\"python3\\\", \\\"-B\\\", \\\"-m\\\", \\\"unittest\\\", \\\"discover\\\", \\\"-s\\\", \\\"wf6-evidence/usage\\\", \\\"-p\\\", \\\"test*boundaries.py\\\", \\\"-v\\\"], \\\"cwd\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01\\\", \\\"start_utc\\\": \\\"2026-10-14T02:14:30.188327+00:00\\\", \\\"end_utc\\\": \\\"2026-10-14T02:14:30.322421+00:00\\\", \\\"duration_seconds\\\": 0.13409906800006866, \\\"exit_code\\\": 0, \\\"stdout\\\": \\\"steps/S1/logs/20261014T021430-4c9a3765.stdout.log\\\", \\\"stderr\\\": \\\"steps/S1/logs/20261014T021430-4c9a3765.stderr.log\\\", \\\"environment_overrides\\\": {}, \\\"permission\\\": \\\"workspace-write; network restricted; no escalation\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791944071.149841
+      }
+    }
+  }
+}

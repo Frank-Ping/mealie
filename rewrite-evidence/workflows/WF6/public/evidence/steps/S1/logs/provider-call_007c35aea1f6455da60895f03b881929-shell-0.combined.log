@@ -1,0 +1,28 @@
+{
+  "command_id": "20261014T034925-3cf9fe69",
+  "stage_id": "S1",
+  "label": "S1-continuation-collector-regression-check",
+  "argv": [
+    "python3",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "wf6-evidence/usage",
+    "-p",
+    "test*.py"
+  ],
+  "cwd": "<WORKSPACE>/wf6-rerun-20261014-01",
+  "start_utc": "2026-10-14T03:49:25.833434+00:00",
+  "end_utc": "2026-10-14T03:49:26.000824+00:00",
+  "duration_seconds": 0.16739422400132753,
+  "exit_code": 0,
+  "stdout": "steps/S1/logs/20261014T034925-3cf9fe69.stdout.log",
+  "stderr": "steps/S1/logs/20261014T034925-3cf9fe69.stderr.log",
+  "environment_overrides": {},
+  "permission": "workspace-write; network restricted; no escalation",
+  "environment_capture": "Only explicit non-secret overrides; inherited secrets are not exported.",
+  "launch_error": null,
+  "stdin_path": null
+}

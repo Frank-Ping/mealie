@@ -1,0 +1,10 @@
+{"mock_transport_checks":"PASS","scope":"Local protocol fixture only, separate from real backend/browser acceptance"}
+✔ all-Vue transport preserves bodies/status/cookies and separates asset misses from history (60.343157ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 172.346755

@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3916,
+    "byte_offset": 11144385,
+    "timestamp": "2026-10-14T08:21:24.665Z",
+    "turn_id": "01a13974-b942-7012-950c-89399b0de489",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf3b8385a081919f6af43400522b29",
+      "status": "completed",
+      "call_id": "call_9c00d48a8a7a451cba4b39f32420ab63",
+      "name": "exec",
+      "input": "text(await tools.write_stdin({session_id:54085,chars:\"\",yield_time_ms:1000,max_output_tokens:500}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13974-b942-7012-950c-89399b0de489",
+        "create_time": 1791966083.5250762
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3918,
+    "byte_offset": 11145795,
+    "timestamp": "2026-10-14T08:21:24.774Z",
+    "turn_id": "01a13974-b942-7012-950c-89399b0de489",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13980-7ea6-7a42-8cea-698d00063776",
+      "call_id": "call_9c00d48a8a7a451cba4b39f32420ab63",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.0 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"cf6546\",\"wall_time_seconds\":0.000010934,\"exit_code\":0,\"original_token_count\":47,\"output\":\"Original four FAIL, trace hashes and commit history retained. Two disjoint S6 segments reconcile; continuation is provisional; current source/evaluator clean; gate FAIL retained, no S7.\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13974-b942-7012-950c-89399b0de489",
+        "create_time": 1791966084.77424
+      }
+    }
+  }
+}

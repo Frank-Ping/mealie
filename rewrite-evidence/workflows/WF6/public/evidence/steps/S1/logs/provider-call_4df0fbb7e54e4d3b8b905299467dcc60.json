@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 897,
+    "byte_offset": 3332705,
+    "timestamp": "2026-10-14T02:24:54.630Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acee7f1aecc8191825c633e0a36a4d6",
+      "status": "completed",
+      "call_id": "call_4df0fbb7e54e4d3b8b905299467dcc60",
+      "name": "exec",
+      "input": "text(await tools.write_stdin({session_id:34209,chars:\"\",yield_time_ms:1000,max_output_tokens:1200}));\ntext(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nfrom pathlib import Path\\nimport json\\ns=Path('wf6-rerun-20261014-01/wf6-evidence/steps/S1')\\nfor l in (s/'commands.jsonl').read_text().splitlines()[-2:]:\\n d=json.loads(l);print(d['label'],d['command_id'],d['exit_code'])\\nfor f in sorted((s/'logs').glob('20261014T022*.stdout.log'))[-2:]:print(f.name,f.read_text()[-900:])\\nfor f in sorted((s/'logs').glob('20261014T022*.stderr.log'))[-2:]:print(f.name,f.read_text()[-900:])\\nPY\",max_output_tokens:1800}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791944689.6863897
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 900,
+    "byte_offset": 3338315,
+    "timestamp": "2026-10-14T02:24:59.790Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a1383a-2f8e-79e0-9113-7430942a8480",
+      "call_id": "call_4df0fbb7e54e4d3b8b905299467dcc60",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 5.1 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"4dd0df\",\"wall_time_seconds\":5.001675202,\"session_id\":34209,\"original_token_count\":0,\"output\":\"\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"4305a7\",\"wall_time_seconds\":0.000010689,\"exit_code\":0,\"original_token_count\":519,\"output\":\"S1-Vue-generate 20261014T021853-1d788840 0\\nS1-Vue-build-approved-font-network-retest 20261014T021852-130c7726 0\\n20261014T022219-2bf3158a.stdout.log \\n20261014T022219-9342196b.stdout.log /composables/recipes/__tests__/use-parse-ingredients-dialog.test.ts > useParseIngredientsDialog > parseIngredients > handles errors gracefully\\nshowing info\\n\\nstdout | app/composables/recipes/__tests__/use-parse-ingredients-dialog.test.ts > useParseIngredientsDialog > parseIngredients > handles errors gracefully\\nshowing info\\n\\n ✓ app/composables/recipes/__tests__/use-parse-ingredients-dialog.test.ts (41 tests) 49ms\\n ✓ app/composables/recipes/__tests__/use-recipe-ingredients.test.ts (30 tests) 19ms\\n ✓ app/composables/recipes/__tests__/use-unit-conversion.test.ts (34 tests) 12ms\\n ✓ app/composables/shopping-list-page/sub-composables/__tests__/use-shopping-list-crud.test.ts (23 tests) 8ms\\n ✓ app/plugins/__tests__/axios.test.ts (20 tests) 2455ms\\n     ✓ refreshes and replays the original request  2433ms\\n ✓ app/composables/shopping-list-page/__tests__/use-shopping-list-page.test.ts (24 tests) 9ms\\n\\n20261014T022219-2bf3158a.stderr.log \\n20261014T022219-9342196b.stderr.log n API mode, see https://vue-i18n.intlify.dev/guide/advanced/composition.html\\n\\nstderr | app/composables/shopping-list-page/sub-composables/__tests__/use-shopping-list-crud.test.ts\\n[intlify] Legacy API mode has been deprecated in v11. Use Composition API mode instead.\\nAbout how to use the Composition API mode, see https://vue-i18n.intlify.dev/guide/advanced/composition.html\\n\\nstderr | app/plugins/__tests__/axios.test.ts\\n[intlify] Legacy API mode has been deprecated in v11. Use Composition API mode instead.\\nAbout how to use the Composition API mode, see https://vue-i18n.intlify.dev/guide/advanced/composition.html\\n\\nstderr | app/composables/shopping-list-page/__tests__/use-shopping-list-page.test.ts\\n[intlify] Legacy API mode has been deprecated in v11. Use Composition API mode instead.\\nAbout how to use the Composition API mode, see https://vue-i18n.intlify.dev/guide/advanced/composition.html\\n\\n\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791944699.7904024
+      }
+    }
+  }
+}

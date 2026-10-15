@@ -1,0 +1,271 @@
+{
+  "config": {
+    "argv": [
+      "<WORKSPACE>/wf6-rerun-20261014-01/runtime/tools/node-v24.21.0-linux-x64/bin/node",
+      "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/node_modules/@playwright/test/cli.js",
+      "test",
+      "--config=/tmp/wf6-rerun-20261014-01-S6-C1/tests/playwright.config.cjs",
+      "--output=/tmp/wf6-rerun-20261014-01-S6-C1/browser/test-results"
+    ],
+    "configFile": "/tmp/wf6-rerun-20261014-01-S6-C1/tests/playwright.config.cjs",
+    "rootDir": "/tmp/wf6-rerun-20261014-01-S6-C1/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": true,
+    "fullyParallel": false,
+    "globalSetup": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/global-setup.ts",
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/tmp/wf6-rerun-20261014-01-S6-C1/browser/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "/tmp/wf6-rerun-20261014-01-S6-C1/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "s6-existing-vue-functions.cjs"
+        ],
+        "timeout": 45000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        null
+      ],
+      [
+        "html",
+        {
+          "open": "never"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "s6-existing-vue-functions.cjs",
+      "file": "s6-existing-vue-functions.cjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "existing explicit Vue entry restores real Logout; React remains read-only",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2753,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-14T08:14:17.761Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/tmp/wf6-rerun-20261014-01-S6-C1/browser/test-results/s6-existing-vue-functions.-fcc90-out-React-remains-read-only/test-finished-1.png"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/tmp/wf6-rerun-20261014-01-S6-C1/browser/test-results/s6-existing-vue-functions.-fcc90-out-React-remains-read-only/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bac986557cc290867e67-9d9e3fd0235ad6885b5c",
+          "file": "s6-existing-vue-functions.cjs",
+          "line": 15,
+          "column": 1
+        },
+        {
+          "title": "existing explicit Vue entry restores member Settings with no offered admin links",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1842,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-14T08:14:21.150Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/tmp/wf6-rerun-20261014-01-S6-C1/browser/test-results/s6-existing-vue-functions.-24267-with-no-offered-admin-links/test-finished-1.png"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/tmp/wf6-rerun-20261014-01-S6-C1/browser/test-results/s6-existing-vue-functions.-24267-with-no-offered-admin-links/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bac986557cc290867e67-f9b1d0b7a07a52849167",
+          "file": "s6-existing-vue-functions.cjs",
+          "line": 18,
+          "column": 1
+        },
+        {
+          "title": "existing explicit Vue entry restores admin Settings and Site Settings navigation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2378,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-14T08:14:23.276Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/tmp/wf6-rerun-20261014-01-S6-C1/browser/test-results/s6-existing-vue-functions.-4d675-nd-Site-Settings-navigation/test-finished-1.png"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/tmp/wf6-rerun-20261014-01-S6-C1/browser/test-results/s6-existing-vue-functions.-4d675-nd-Site-Settings-navigation/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bac986557cc290867e67-c7100499665965e44527",
+          "file": "s6-existing-vue-functions.cjs",
+          "line": 21,
+          "column": 1
+        },
+        {
+          "title": "existing explicit Vue detail entry restores real comment and reload persistence",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3150,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-14T08:14:26.015Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/tmp/wf6-rerun-20261014-01-S6-C1/browser/test-results/s6-existing-vue-functions.-41b95-ment-and-reload-persistence/test-finished-1.png"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/tmp/wf6-rerun-20261014-01-S6-C1/browser/test-results/s6-existing-vue-functions.-41b95-ment-and-reload-persistence/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "bac986557cc290867e67-08b11441e088903b3f7e",
+          "file": "s6-existing-vue-functions.cjs",
+          "line": 24,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-14T08:14:15.699Z",
+    "duration": 13996.179000000002,
+    "expected": 4,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "stage": "S6",
+  "gate": "FAIL",
+  "rollback_gate": "PASS",
+  "restored_ownership_gate": "PASS",
+  "full_frozen_gate": "FAIL",
+  "full_counts": {
+    "routes": {
+      "total": 66,
+      "passed": 66,
+      "failed": 0,
+      "skipped": 0,
+      "flaky": 0
+    },
+    "flows": {
+      "total": 15,
+      "passed": 11,
+      "failed": 4,
+      "skipped": 0,
+      "flaky": 0
+    },
+    "guard": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0,
+      "flaky": 0
+    }
+  },
+  "supplemental": {
+    "rollback": {
+      "startTime": "2026-10-14T07:55:54.660Z",
+      "duration": 13607.742000000002,
+      "expected": 1,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "restored": {
+      "startTime": "2026-10-14T07:56:30.387Z",
+      "duration": 13094.421999999999,
+      "expected": 4,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    }
+  },
+  "repairs": {
+    "stage": "S6",
+    "limit": 2,
+    "used": 0,
+    "rounds": []
+  },
+  "source_at_acceptance": "a4487ac3e1331cd116d08dcca41cc8de23a5eb2b",
+  "builds": {
+    "vue": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+    "react": "2b409d4deadf1bc17acc5a4a6634e638feca52550caec23a7d6f23f6dd1493f8"
+  },
+  "failures": [
+    {
+      "category": "flows",
+      "title": "[flow] log out ends the session",
+      "file": "flows/auth.spec.ts",
+      "project": "flows",
+      "status": "unexpected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "timedOut"
+      ],
+      "duration_ms": 45530,
+      "retries": [
+        0
+      ],
+      "classification": "scope_gap",
+      "reason": "React pilot has no Logout control/full Vue layout; original flow requests Logout on React list.",
+      "raw_errors": [
+        "\u001b[31mTest timeout of 45000ms exceeded.\u001b[39m",
+        "Error: locator.click: Test timeout of 45000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Logout' })\u001b[22m\n\n\n  28 |     const f = loadFixtures();\n  29 |     await loginViaUi(page, ADMIN.email, ADMIN.password);\n> 30 |     await page.getByRole(\"button\", { name: \"Logout\" }).click();\n     |                                                        ^\n  31 |     await expect(page).toHaveURL(/\\/login\\/?/);\n  32 |     await page.goto(`/g/${f.groupSlug}/r/${f.recipeSlug}`);\n  33 |     await expect(page).toHaveURL(/\\/login\\/?/);\n    at <WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/tests/flows/auth.spec.ts:30:56"
+      ],
+      "scope_repair_performed": false
+    },
+    {
+      "category": "flows",
+      "title": "[flow] a regular member is not offered admin pages",
+      "file": "flows/auth.spec.ts",
+      "project": "flows",
+      "status": "unexpected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "timedOut"
+      ],
+      "duration_ms": 45496,
+      "retries": [
+        0
+      ],
+      "classification": "scope_gap",
+      "reason": "React pilot has no Settings menu/household navigation expected by original flow.",
+      "raw_errors": [
+        "\u001b[31mTest timeout of 45000ms exceeded.\u001b[39m",
+        "Error: locator.click: Test timeout of 45000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByText('Settings', { exact: true }).visible().first()\u001b[22m\n\n\n  43 |     await expect(visibleText(page, MEMBER.fullName)).toBeVisible();\n  44 |     await expect(visibleText(page, NAMES.recipe)).toBeVisible();\n> 45 |     await page.getByText(\"Settings\", { exact: true }).filter({ visible: true }).first().click();\n     |                                                                                         ^\n  46 |     await expect(page.locator('a[href^=\"/household\"]').filter({ visible: true }).first()).toBeVisible();\n  47 |     await expect(page.locator('a[href^=\"/admin\"]').filter({ visible: true })).toHaveCount(0);\n  48 |   });\n    at <WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/tests/flows/auth.spec.ts:45:89"
+      ],
+      "scope_repair_performed": false
+    },
+    {
+      "category": "flows",
+      "title": "[flow] an admin is offered admin pages",
+      "file": "flows/auth.spec.ts",
+      "project": "flows",
+      "status": "unexpected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "timedOut"
+      ],
+      "duration_ms": 45521,
+      "retries": [
+        0
+      ],
+      "classification": "scope_gap",
+      "reason": "React pilot has no Settings menu/admin navigation expected by original flow.",
+      "raw_errors": [
+        "\u001b[31mTest timeout of 45000ms exceeded.\u001b[39m",
+        "Error: locator.click: Test timeout of 45000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByText('Settings', { exact: true }).visible().first()\u001b[22m\n\n\n  52 |     await loginViaUi(page, ADMIN.email, ADMIN.password);\n  53 |     await page.goto(`/g/${f.groupSlug}`);\n> 54 |     await page.getByText(\"Settings\", { exact: true }).filter({ visible: true }).first().click();\n     |                                                                                         ^\n  55 |     await page.locator('a[href=\"/admin/site-settings\"]').filter({ visible: true }).first().click();\n  56 |     await expect(page.getByRole(\"heading\", { name: \"Site Settings\" })).toBeVisible();\n  57 |   });\n    at <WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/tests/flows/auth.spec.ts:54:89"
+      ],
+      "scope_repair_performed": false
+    },
+    {
+      "category": "flows",
+      "title": "[flow] comment on a recipe and see it after reload",
+      "file": "flows/recipes.spec.ts",
+      "project": "flows",
+      "status": "unexpected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "timedOut"
+      ],
+      "duration_ms": 45077,
+      "retries": [
+        0
+      ],
+      "classification": "scope_gap",
+      "reason": "Configured detail is React read-only; original comment textbox/Submit is absent. Comments remain accessible through explicit Vue entry, not on React pilot.",
+      "raw_errors": [
+        "\u001b[31mTest timeout of 45000ms exceeded.\u001b[39m",
+        "Error: locator.fill: Test timeout of 45000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('textbox', { name: 'Join the Conversation' })\u001b[22m\n\n\n  38 |     const comment = uniqueName(\"E2E comment\");\n  39 |     await page.goto(`/g/${f.groupSlug}/r/${f.recipe2Slug}`);\n> 40 |     await page.getByRole(\"textbox\", { name: \"Join the Conversation\" }).fill(comment);\n     |                                                                        ^\n  41 |     await page.getByRole(\"button\", { name: \"Submit\" }).click();\n  42 |     await expect(visibleText(page, comment)).toBeVisible();\n  43 |     await page.reload();\n    at <WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/tests/flows/recipes.spec.ts:40:72"
+      ],
+      "scope_repair_performed": false
+    }
+  ],
+  "coverage": null,
+  "cost": null,
+  "human_review_time": null
+}

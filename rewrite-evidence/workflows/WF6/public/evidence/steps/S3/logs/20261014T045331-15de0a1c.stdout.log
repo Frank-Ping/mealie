@@ -1,0 +1,14 @@
+[rewrite/wf6-route-coexistence 9cc5a51] [WF6-S3] Prove real Vue React navigation and session boundaries
+ 15 files changed, 2297 insertions(+), 19 deletions(-)
+ create mode 100644 frontend-react-wf6/.gitignore
+ create mode 100644 frontend-react-wf6/index.html
+ create mode 100644 frontend-react-wf6/package-lock.json
+ create mode 100644 frontend-react-wf6/package.json
+ create mode 100644 frontend-react-wf6/src/main.tsx
+ create mode 100644 frontend-react-wf6/tsconfig.json
+ create mode 100644 frontend-react-wf6/vite.config.ts
+ create mode 100644 frontend/app/middleware/wf6-boundary.global.ts
+ create mode 100644 rewrite-evidence/workflows/WF6/S3-RESULT.md
+ create mode 100644 wf6/route-policy.d.mts
+ create mode 100644 wf6/route-policy.mjs
+ create mode 100644 wf6/route-policy.test.mjs

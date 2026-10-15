@@ -1,0 +1,32 @@
+[
+  {
+    "path": "<WORKSPACE>/wf6-rerun-20261014-01/runtime/downloads/node-v24.21.0-linux-x64.tar.xz",
+    "algorithm": "sha256",
+    "digest": "fd8e59d5a511510f6a298afb548f18c7d2b1be404d8b4a27d94fbe49f56cb2d6",
+    "verified": true
+  },
+  {
+    "path": "<WORKSPACE>/wf6-rerun-20261014-01/runtime/downloads/uv-0.13.0-linux-x64.whl",
+    "algorithm": "sha256",
+    "digest": "52c7da0fd9056d9551124777ec77de53f0df7017daf8f98a19e947b7837416ed",
+    "verified": true
+  },
+  {
+    "path": "<WORKSPACE>/wf6-rerun-20261014-01/runtime/downloads/pnpm-11.23.0.tgz",
+    "algorithm": "sha1",
+    "digest": "0a15e2d3f345118a5fe6850597fba5c09c036f3b",
+    "verified": true
+  },
+  {
+    "path": "<WORKSPACE>/wf6-rerun-20261014-01/runtime/downloads/pnpm-11.23.0.tgz",
+    "algorithm": "sha512",
+    "integrity": "sha512-8ACC5bKDoZm3Tgedoo0VXACP4jL0TIoG6n3foBTs9xn8Ni95DsxnsoEG3awq+yTEmpoHkVnaVgss59Hpjv0Rrw==",
+    "verified": true
+  },
+  {
+    "path": "<WORKSPACE>/wf6-rerun-20261014-01/runtime/downloads/task-linux-amd64.tar.gz",
+    "algorithm": "sha256",
+    "digest": "680859dbb4d881a9c72d4d9a8f510825450849af8567deacd7302c01124416fb",
+    "verified": true
+  }
+]

@@ -1,0 +1,55 @@
+{
+  "current_count": 318,
+  "current_status": "FAIL",
+  "historical_count_reported": 315,
+  "historical_raw_count": 315,
+  "historical_path": "mealie-wf6-coexist/rewrite-evidence/runs/20260929T231339Z-frontend-P0-vue-baseline/types.log",
+  "historical_sha256": "bcb96c1ada869439ca1345eb8668c420334af922abf0860d8a60d18c7a9c72ba",
+  "current_path": "wf6-rerun-20261014-01/wf6-evidence/steps/S1/machine/type-diagnostics.json",
+  "current_sha256": "386d0a410d4439b425a3468882d6de0366444f7d93eeec553f58a8fdc47b2660",
+  "count_difference": 3,
+  "causal_attribution": "Not established. Both measurements precede WF6 application changes; toolchain/generated environment differences are possible, not proven. Historical counts are not imported as new-run results.",
+  "current_only_diagnostic_lines": [
+    "app/components/Domain/Recipe/RecipeAssets.vue(114,16): error TS2532: Object is possibly 'undefined'.",
+    "app/components/Domain/Recipe/RecipeAssets.vue(127,30): error TS2532: Object is possibly 'undefined'.",
+    "app/components/Domain/Recipe/RecipeDialogAddToShoppingList.vue(140,27): error TS2532: Object is possibly 'undefined'.",
+    "app/components/layout/DefaultLayout.vue(173,9): error TS2532: Object is possibly 'undefined'.",
+    "app/pages/household/members.vue(108,36): error TS2339: Property 'sessionUser' does not exist on type '{ UserAvatar: DefineComponent<ExtractPropTypes<{ userId: { type: StringConstructor; required: true; }; list: { type: BooleanConstructor; default: boolean; }; size: { type: StringConstructor; default: string; }; tooltip: { ...; }; }>, ... 18 more ..., any>; ... 331 more ...; $globals: { ...; }; }'.",
+    "app/pages/household/members.vue(60,36): error TS2339: Property 'sessionUser' does not exist on type '{ UserAvatar: DefineComponent<ExtractPropTypes<{ userId: { type: StringConstructor; required: true; }; list: { type: BooleanConstructor; default: boolean; }; size: { type: StringConstructor; default: string; }; tooltip: { ...; }; }>, ... 18 more ..., any>; ... 331 more ...; $globals: { ...; }; }'.",
+    "app/pages/household/members.vue(76,36): error TS2339: Property 'sessionUser' does not exist on type '{ UserAvatar: DefineComponent<ExtractPropTypes<{ userId: { type: StringConstructor; required: true; }; list: { type: BooleanConstructor; default: boolean; }; size: { type: StringConstructor; default: string; }; tooltip: { ...; }; }>, ... 18 more ..., any>; ... 331 more ...; $globals: { ...; }; }'.",
+    "app/pages/household/members.vue(92,36): error TS2339: Property 'sessionUser' does not exist on type '{ UserAvatar: DefineComponent<ExtractPropTypes<{ userId: { type: StringConstructor; required: true; }; list: { type: BooleanConstructor; default: boolean; }; size: { type: StringConstructor; default: string; }; tooltip: { ...; }; }>, ... 18 more ..., any>; ... 331 more ...; $globals: { ...; }; }'."
+  ],
+  "historical_only_diagnostic_lines": [
+    "app/components/Domain/Recipe/RecipeAssets.vue(114,34): error TS2532: Object is possibly 'undefined'.",
+    "app/components/Domain/Recipe/RecipeAssets.vue(127,48): error TS2532: Object is possibly 'undefined'.",
+    "app/components/Domain/Recipe/RecipeSelector.vue(205,3): error TS2345: Argument of type 'Ref<{ accessKey: string; readonly accessKeyLabel: string; autocapitalize: string; autocorrect: boolean; dir: string; draggable: boolean; hidden: boolean; inert: boolean; innerText: string; lang: string; ... 312 more ...; focus: (options?: FocusOptions | undefined) => void; } | null, HTMLElement | ... 1 more ... | nu...' is not assignable to parameter of type 'MaybeComputedElementRef<MaybeElement> | MaybeRefOrGetter<MaybeElement[]> | MaybeComputedElementRef<MaybeElement>[]'.",
+    "app/pages/household/members.vue(108,36): error TS2339: Property 'sessionUser' does not exist on type 'CreateComponentPublicInstanceWithMixins<ToResolvedProps<{}, {}>, { UserAvatar: DefineComponent<ExtractPropTypes<{ userId: { type: StringConstructor; required: true; }; list: { type: BooleanConstructor; default: boolean; }; size: { ...; }; tooltip: { ...; }; }>, ... 18 more ..., any>; members: Ref<...>; headers: ({ ....'.",
+    "app/pages/household/members.vue(60,36): error TS2339: Property 'sessionUser' does not exist on type 'CreateComponentPublicInstanceWithMixins<ToResolvedProps<{}, {}>, { UserAvatar: DefineComponent<ExtractPropTypes<{ userId: { type: StringConstructor; required: true; }; list: { type: BooleanConstructor; default: boolean; }; size: { ...; }; tooltip: { ...; }; }>, ... 18 more ..., any>; members: Ref<...>; headers: ({ ....'.",
+    "app/pages/household/members.vue(76,36): error TS2339: Property 'sessionUser' does not exist on type 'CreateComponentPublicInstanceWithMixins<ToResolvedProps<{}, {}>, { UserAvatar: DefineComponent<ExtractPropTypes<{ userId: { type: StringConstructor; required: true; }; list: { type: BooleanConstructor; default: boolean; }; size: { ...; }; tooltip: { ...; }; }>, ... 18 more ..., any>; members: Ref<...>; headers: ({ ....'.",
+    "app/pages/household/members.vue(92,36): error TS2339: Property 'sessionUser' does not exist on type 'CreateComponentPublicInstanceWithMixins<ToResolvedProps<{}, {}>, { UserAvatar: DefineComponent<ExtractPropTypes<{ userId: { type: StringConstructor; required: true; }; list: { type: BooleanConstructor; default: boolean; }; size: { ...; }; tooltip: { ...; }; }>, ... 18 more ..., any>; members: Ref<...>; headers: ({ ....'."
+  ],
+  "comparison_note": "Exact saved diagnostic first lines compared; location/message/type expansions may differ. Set difference is not the count difference.",
+  "current_only_occurrences": [
+    "app/components/Domain/Recipe/RecipeAssets.vue(114,16): error TS2532: Object is possibly 'undefined'.",
+    "app/components/Domain/Recipe/RecipeAssets.vue(127,30): error TS2532: Object is possibly 'undefined'.",
+    "app/components/Domain/Recipe/RecipeDialogAddToShoppingList.vue(140,27): error TS2532: Object is possibly 'undefined'.",
+    "app/components/Domain/Recipe/RecipeDialogAddToShoppingList.vue(140,27): error TS2532: Object is possibly 'undefined'.",
+    "app/components/Domain/Recipe/RecipeDialogAddToShoppingList.vue(140,27): error TS2532: Object is possibly 'undefined'.",
+    "app/components/layout/DefaultLayout.vue(173,9): error TS2532: Object is possibly 'undefined'.",
+    "app/pages/household/members.vue(60,36): error TS2339: Property 'sessionUser' does not exist on type '{ UserAvatar: DefineComponent<ExtractPropTypes<{ userId: { type: StringConstructor; required: true; }; list: { type: BooleanConstructor; default: boolean; }; size: { type: StringConstructor; default: string; }; tooltip: { ...; }; }>, ... 18 more ..., any>; ... 331 more ...; $globals: { ...; }; }'.",
+    "app/pages/household/members.vue(76,36): error TS2339: Property 'sessionUser' does not exist on type '{ UserAvatar: DefineComponent<ExtractPropTypes<{ userId: { type: StringConstructor; required: true; }; list: { type: BooleanConstructor; default: boolean; }; size: { type: StringConstructor; default: string; }; tooltip: { ...; }; }>, ... 18 more ..., any>; ... 331 more ...; $globals: { ...; }; }'.",
+    "app/pages/household/members.vue(92,36): error TS2339: Property 'sessionUser' does not exist on type '{ UserAvatar: DefineComponent<ExtractPropTypes<{ userId: { type: StringConstructor; required: true; }; list: { type: BooleanConstructor; default: boolean; }; size: { type: StringConstructor; default: string; }; tooltip: { ...; }; }>, ... 18 more ..., any>; ... 331 more ...; $globals: { ...; }; }'.",
+    "app/pages/household/members.vue(108,36): error TS2339: Property 'sessionUser' does not exist on type '{ UserAvatar: DefineComponent<ExtractPropTypes<{ userId: { type: StringConstructor; required: true; }; list: { type: BooleanConstructor; default: boolean; }; size: { type: StringConstructor; default: string; }; tooltip: { ...; }; }>, ... 18 more ..., any>; ... 331 more ...; $globals: { ...; }; }'."
+  ],
+  "historical_only_occurrences": [
+    "app/components/Domain/Recipe/RecipeAssets.vue(114,34): error TS2532: Object is possibly 'undefined'.",
+    "app/components/Domain/Recipe/RecipeAssets.vue(127,48): error TS2532: Object is possibly 'undefined'.",
+    "app/components/Domain/Recipe/RecipeSelector.vue(205,3): error TS2345: Argument of type 'Ref<{ accessKey: string; readonly accessKeyLabel: string; autocapitalize: string; autocorrect: boolean; dir: string; draggable: boolean; hidden: boolean; inert: boolean; innerText: string; lang: string; ... 312 more ...; focus: (options?: FocusOptions | undefined) => void; } | null, HTMLElement | ... 1 more ... | nu...' is not assignable to parameter of type 'MaybeComputedElementRef<MaybeElement> | MaybeRefOrGetter<MaybeElement[]> | MaybeComputedElementRef<MaybeElement>[]'.",
+    "app/pages/household/members.vue(60,36): error TS2339: Property 'sessionUser' does not exist on type 'CreateComponentPublicInstanceWithMixins<ToResolvedProps<{}, {}>, { UserAvatar: DefineComponent<ExtractPropTypes<{ userId: { type: StringConstructor; required: true; }; list: { type: BooleanConstructor; default: boolean; }; size: { ...; }; tooltip: { ...; }; }>, ... 18 more ..., any>; members: Ref<...>; headers: ({ ....'.",
+    "app/pages/household/members.vue(76,36): error TS2339: Property 'sessionUser' does not exist on type 'CreateComponentPublicInstanceWithMixins<ToResolvedProps<{}, {}>, { UserAvatar: DefineComponent<ExtractPropTypes<{ userId: { type: StringConstructor; required: true; }; list: { type: BooleanConstructor; default: boolean; }; size: { ...; }; tooltip: { ...; }; }>, ... 18 more ..., any>; members: Ref<...>; headers: ({ ....'.",
+    "app/pages/household/members.vue(92,36): error TS2339: Property 'sessionUser' does not exist on type 'CreateComponentPublicInstanceWithMixins<ToResolvedProps<{}, {}>, { UserAvatar: DefineComponent<ExtractPropTypes<{ userId: { type: StringConstructor; required: true; }; list: { type: BooleanConstructor; default: boolean; }; size: { ...; }; tooltip: { ...; }; }>, ... 18 more ..., any>; members: Ref<...>; headers: ({ ....'.",
+    "app/pages/household/members.vue(108,36): error TS2339: Property 'sessionUser' does not exist on type 'CreateComponentPublicInstanceWithMixins<ToResolvedProps<{}, {}>, { UserAvatar: DefineComponent<ExtractPropTypes<{ userId: { type: StringConstructor; required: true; }; list: { type: BooleanConstructor; default: boolean; }; size: { ...; }; tooltip: { ...; }; }>, ... 18 more ..., any>; members: Ref<...>; headers: ({ ....'."
+  ],
+  "current_duplicate_occurrences": 4,
+  "historical_duplicate_occurrences": 2
+}

@@ -1,0 +1,22 @@
+{
+  "command_id": "20261014T011436-2fcac349",
+  "stage_id": "S0",
+  "label": "collector-fault-injection",
+  "argv": [
+    "python3",
+    "-B",
+    "wf6-evidence/usage/test_collect_usage.py"
+  ],
+  "cwd": "<WORKSPACE>/wf6-rerun-20261014-01",
+  "start_utc": "2026-10-14T01:14:36.744987+00:00",
+  "end_utc": "2026-10-14T01:14:36.883713+00:00",
+  "duration_seconds": 0.13871983500030183,
+  "exit_code": 0,
+  "stdout": "steps/S0/logs/20261014T011436-2fcac349.stdout.log",
+  "stderr": "steps/S0/logs/20261014T011436-2fcac349.stderr.log",
+  "environment_overrides": {},
+  "permission": "workspace-write; network restricted; no escalation",
+  "environment_capture": "Only explicit non-secret overrides; inherited secrets are not exported.",
+  "launch_error": null,
+  "stdin_path": null
+}

@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1854,
+    "byte_offset": 5586237,
+    "timestamp": "2026-10-14T03:50:23.262Z",
+    "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acefbfcf00c81919c82c5f66a3fce4a",
+      "status": "completed",
+      "call_id": "call_1380a02d59064c97a69c8ede10a2c958",
+      "name": "exec",
+      "input": "text(await tools.write_stdin({session_id:82502,chars:\"\",yield_time_ms:1000,max_output_tokens:1000}));\ntext(await tools.exec_command({cmd:\"tail -12 wf6-rerun-20261014-01/wf6-evidence/steps/S1/logs/20261014T034910-1f4d614e.stderr.log\",\"max_output_tokens\":1200}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+        "create_time": 1791949820.9399629
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1857,
+    "byte_offset": 5589625,
+    "timestamp": "2026-10-14T03:50:23.420Z",
+    "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13888-5dbb-7ba2-b867-69cca78a1c9e",
+      "call_id": "call_1380a02d59064c97a69c8ede10a2c958",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.1 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"0bee48\",\"wall_time_seconds\":0.000010374,\"exit_code\":1,\"original_token_count\":216,\"output\":\"{\\\"command_id\\\": \\\"20261014T034910-1f4d614e\\\", \\\"stage_id\\\": \\\"S1\\\", \\\"label\\\": \\\"S1-fresh-complete-native2-browser-suite\\\", \\\"argv\\\": [\\\"python3\\\", \\\"-B\\\", \\\"wf6-evidence/usage/browser_s1.py\\\", \\\"--approved\\\", \\\"--native\\\"], \\\"cwd\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01\\\", \\\"start_utc\\\": \\\"2026-10-14T03:49:10.886767+00:00\\\", \\\"end_utc\\\": \\\"2026-10-14T03:49:15.632182+00:00\\\", \\\"duration_seconds\\\": 4.7454199960011465, \\\"exit_code\\\": 1, \\\"stdout\\\": \\\"steps/S1/logs/20261014T034910-1f4d614e.stdout.log\\\", \\\"stderr\\\": \\\"steps/S1/logs/20261014T034910-1f4d614e.stderr.log\\\", \\\"environment_overrides\\\": {}, \\\"permission\\\": \\\"Approved fresh native2 localhost baseline after interrupted attempt; default sandbox unchanged\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"3a75d0\",\"wall_time_seconds\":0.000012722,\"exit_code\":0,\"original_token_count\":236,\"output\":\"Traceback (most recent call last):\\n  File \\\"<WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/usage/browser_s1.py\\\", line 109, in <module>\\n    parser=argparse.ArgumentParser();parser.add_argument(\\\"--approved\\\",action=\\\"store_true\\\");parser.add_argument(\\\"--native\\\",action=\\\"store_true\\\");args=parser.parse_args();main(args.approved,args.native)\\n                                                                                                                                                                        ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^\\n  File \\\"<WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/usage/browser_s1.py\\\", line 25, in main\\n    assert data.resolve()==(RUNTIME/\\\"disposable-data\\\").resolve() and not data.is_symlink()\\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\nAssertionError\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+        "create_time": 1791949823.419993
+      }
+    }
+  }
+}

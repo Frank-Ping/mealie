@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2732,
+    "byte_offset": 7596667,
+    "timestamp": "2026-10-14T04:57:58.185Z",
+    "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf0bd32dec81919dde74eae117e3df",
+      "status": "completed",
+      "call_id": "call_9c5c5a0151cb47278278f58cc1b20612",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 -B wf6-rerun-20261014-01/wf6-evidence/usage/record_command.py --stage S3 --cwd '<WORKSPACE>/wf6-rerun-20261014-01' --label S3-pre-final-tail-and-budget-snapshot -- python3 -B wf6-evidence/usage/collect_usage.py finalize --stage S3 --wait-seconds 0\",\"yield_time_ms\":1000,\"max_output_tokens\":650}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+        "create_time": 1791953875.1823657
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2734,
+    "byte_offset": 7598384,
+    "timestamp": "2026-10-14T04:57:59.386Z",
+    "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a138c6-415a-7880-a84e-ea51f6d3443f",
+      "call_id": "call_9c5c5a0151cb47278278f58cc1b20612",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 1.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"6349a3\",\"wall_time_seconds\":1.001428238,\"session_id\":77147,\"original_token_count\":0,\"output\":\"\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+        "create_time": 1791953879.3868432
+      }
+    }
+  }
+}

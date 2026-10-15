@@ -1,0 +1,36 @@
+{
+  "identity": {
+    "run_id": "wf6-rerun-20261014-01",
+    "stage_id": "S4",
+    "data_dir": "/tmp/wf6-rerun-20261014-01-S4/disposable-data",
+    "ports": [
+      9006,
+      9106
+    ]
+  },
+  "auth_real_target": "/tmp/wf6-rerun-20261014-01-S4/auth",
+  "backend_launcher_sha256": "8fd9652aae79dc39ff0ada7cb40b56f305d388c64b06523dcaa57fc190f3cb92",
+  "default_sandbox_unchanged": true,
+  "credentials_exported_in_summary": false,
+  "service_lifecycles_closed": true,
+  "database_files": [
+    {
+      "path": "disposable-data/mealie.db",
+      "sha256": "90322a8f85aff5048718fc327ab292cf3a334ac68054aed5d0c64ee82160f78b",
+      "bytes": 1490944
+    }
+  ],
+  "auth_file_hashes": [
+    {
+      "path": "fixtures.json",
+      "sha256": "d9535e7fa9c7a9819fb663abe046b77c5ebdce50260d679e321a856e14879983",
+      "bytes": 649
+    },
+    {
+      "path": "admin.json",
+      "sha256": "24feab599c2228bf8ccc1f9cff0c0d3852799cb06d5c46121bb4990c22068f66",
+      "bytes": 483
+    }
+  ],
+  "browser_trace_policy": "Original trace private; separate shareable JSONL excludes cookie/bearer/password and request/response bodies."
+}

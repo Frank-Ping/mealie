@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3145,
+    "byte_offset": 9270458,
+    "timestamp": "2026-10-14T07:33:11.539Z",
+    "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf301d09ec8191be126b3e94a85bc1",
+      "status": "completed",
+      "call_id": "call_9974a249054947a69e1f59f6ed3fb977",
+      "name": "exec",
+      "input": "text(await tools.write_stdin({session_id:6920,chars:\"\",yield_time_ms:1000,max_output_tokens:1000}));\ntext(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nfrom pathlib import Path\\np=Path('wf6-rerun-20261014-01/wf6-evidence/usage')\\ns=(p/'run_s4.py').read_text().replace('S4','S5').replace('s4-browser','s5-browser').replace(\\\"Path('/tmp/wf6-rerun-20261014-01-S3/auth')\\\",\\\"Path('/tmp/wf6-rerun-20261014-01-S4/auth')\\\")\\ns=s.replace(\\\"testMatch:'s5-browser-tests.cjs'\\\",\\\"testMatch:['s5-browser-tests.cjs','s5-extra-tests.cjs']\\\").replace(\\\"screenshot:'only-on-failure'\\\",\\\"screenshot:'on'\\\")\\ns=s.replace(\\\"WF6_BROWSER_EVIDENCE=str(RUNTIME/'browser/requests-redacted.jsonl')\\\",\\\"WF6_SHOTS=str(RUNTIME/'browser'),WF6_BROWSER_EVIDENCE=str(RUNTIME/'browser/requests-redacted.jsonl')\\\")\\ns=s.replace(\\\"shutil.copy2(EVIDENCE/'usage/s5-browser-tests.cjs',RUNTIME/'tests/s5-browser-tests.cjs')\\\", \\\"shutil.copy2(EVIDENCE/'usage/s4-browser-tests.cjs',RUNTIME/'tests/s5-browser-tests.cjs')\\\\n    shutil.copy2(EVIDENCE/'usage/s5-extra-tests.cjs',RUNTIME/'tests/s5-extra-tests.cjs')\\\\n    shutil.copy2(EVIDENCE/'usage/s5-detection-probe.cjs',RUNTIME/'tests/s5-detection-probe.cjs')\\\")\\nneedle=\\\"        if result['exit_code']!=0:raise SystemExit(result['exit_code'])\\\\n    finally:\\\"\\ninsert=\\\"\\\"\\\"        if result['exit_code']!=0:raise SystemExit(result['exit_code'])\\n        probe=RUNTIME/'tests/probe.config.cjs'\\n        probe.write_text(\\\"const {defineConfig}=require(process.env.WF6_PLAYWRIGHT_MODULE);module.exports=defineConfig({testDir:__dirname,testMatch:'s5-detection-probe.cjs',workers:1,retries:0,timeout:15000,reporter:[['list'],['json']],use:{trace:'on',screenshot:'on'}});\\\")\\n        assets=RUNTIME/'react/assets';hidden=RUNTIME/'react/expected-failure-assets';assert assets.is_dir() and not hidden.exists()\\n        outcomes=[]\\n        for phase in ['control','expected_failure','restored']:\\n            if phase=='expected_failure':assets.rename(hidden)\\n            penv={**env,'PLAYWRIGHT_JSON_OUTPUT_NAME':str(RUNTIME/'browser'/('probe-'+phase+'.json'))}\\n            try:\\n                check=run(['node',str(EVALUATOR/'frontend-e2e/node_modules/@playwright/test/cli.js'),'test','--config='+str(probe),'--output='+str(RUNTIME/'browser'/('probe-'+phase))],EVALUATOR/'frontend-e2e','S5-detection-'+phase,stage='S5',env=penv,permission=permission)\\n                machine=json.loads(Path(penv['PLAYWRIGHT_JSON_OUTPUT_NAME']).read_text());outcomes.append(dict(phase=phase,command_id=check['command_id'],exit_code=check['exit_code'],stats=machine['stats']))\\n                assert check['exit_code']==(1 if phase=='expected_failure' else 0)\\n                assert machine['stats']['unexpected']==(1 if phase=='expected_failure' else 0)\\n                if phase=='expected_failure':\\n                    with urllib.request.urlopen(base+'/_wf6/route-map.json') as r:assert json.load(r)['takeoverEnabled'] is True\\n                    try:urllib.request.urlopen(urllib.request.Request(base+'/_wf6/assets/'+next(hidden.glob('*.js')).name,headers={'Accept':'text/html'}))\\n                    except urllib.error.HTTPError as error:assert error.code==404;assert 'text/html' not in error.headers['content-type']\\n                    else:raise AssertionError('Missing React asset was hidden')\\n            finally:\\n                if hidden.exists():hidden.rename(assets)\\n        for item in react['files']:assert hashlib.sha256((RUNTIME/'react'/item['path']).read_bytes()).hexdigest()==item['sha256']\\n        (STAGE/'detection-negative.json').write_text(json.dumps(dict(status='PASS',classification='expected_failure',takeoverEnabled=True,source_unchanged=True,mutation='Atomic rename of this S5 runtime copy assets only; restored byte hashes verified',outcomes=outcomes),indent=2)+'\\\\\\\\n')\\n    finally:\\\"\\\"\\\"\\nassert needle in s;s=s.replace(needle,insert)\\ns=s.replace('import urllib.request','import urllib.request\\\\nimport urllib.error')\\n(p/'run_s5.py').write_text(s)\\nPY\",\"max_output_tokens\":1000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+        "create_time": 1791963165.042087
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3148,
+    "byte_offset": 9284286,
+    "timestamp": "2026-10-14T07:33:16.716Z",
+    "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13954-6d2c-7432-a79f-7b40f3b817df",
+      "call_id": "call_9974a249054947a69e1f59f6ed3fb977",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 5.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"6ceaa0\",\"wall_time_seconds\":5.000598642,\"session_id\":6920,\"original_token_count\":0,\"output\":\"\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"4011f0\",\"wall_time_seconds\":0.000028607,\"exit_code\":0,\"original_token_count\":0,\"output\":\"\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+        "create_time": 1791963196.7160437
+      }
+    }
+  }
+}

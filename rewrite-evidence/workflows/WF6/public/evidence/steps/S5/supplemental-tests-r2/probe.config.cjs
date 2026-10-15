@@ -1,0 +1,1 @@
+const {defineConfig}=require(process.env.WF6_PLAYWRIGHT_MODULE);module.exports=defineConfig({testDir:__dirname,testMatch:'s5-detection-probe.cjs',workers:1,retries:0,timeout:15000,reporter:[['list'],['json']],use:{trace:'on',screenshot:'on'}});

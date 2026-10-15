@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3820,
+    "byte_offset": 10913764,
+    "timestamp": "2026-10-14T08:13:22.195Z",
+    "turn_id": "01a13974-b942-7012-950c-89399b0de489",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf39a0e8588191906f0cba152a7c6c",
+      "status": "completed",
+      "call_id": "call_93fe63c94f844aa88f50a395b55ead4d",
+      "name": "exec",
+      "input": "text(await tools.write_stdin({session_id:98359,chars:\"\",yield_time_ms:1000,max_output_tokens:1000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13974-b942-7012-950c-89399b0de489",
+        "create_time": 1791965600.9214418
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3823,
+    "byte_offset": 10921917,
+    "timestamp": "2026-10-14T08:13:24.266Z",
+    "turn_id": "01a13974-b942-7012-950c-89399b0de489",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13979-29aa-7aa0-b740-95fa1481b251",
+      "call_id": "call_93fe63c94f844aa88f50a395b55ead4d",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 2.1 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"ac89b2\",\"wall_time_seconds\":2.061234009,\"exit_code\":0,\"original_token_count\":200,\"output\":\"{\\\"command_id\\\": \\\"20261014T081039-4ba0203f\\\", \\\"stage_id\\\": \\\"S6\\\", \\\"label\\\": \\\"S6-C1-fresh-build-existing-inputs\\\", \\\"argv\\\": [\\\"python3\\\", \\\"-B\\\", \\\"wf6-evidence/usage/build_s6_c1.py\\\"], \\\"cwd\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01\\\", \\\"start_utc\\\": \\\"2026-10-14T08:10:39.052003+00:00\\\", \\\"end_utc\\\": \\\"2026-10-14T08:13:24.253388+00:00\\\", \\\"duration_seconds\\\": 165.2014120189997, \\\"exit_code\\\": 0, \\\"stdout\\\": \\\"steps/S6/logs/20261014T081039-4ba0203f.stdout.log\\\", \\\"stderr\\\": \\\"steps/S6/logs/20261014T081039-4ba0203f.stderr.log\\\", \\\"environment_overrides\\\": {}, \\\"permission\\\": \\\"Approved bounded anonymous font/build access; sandbox retained\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13974-b942-7012-950c-89399b0de489",
+        "create_time": 1791965604.2667673
+      }
+    }
+  }
+}

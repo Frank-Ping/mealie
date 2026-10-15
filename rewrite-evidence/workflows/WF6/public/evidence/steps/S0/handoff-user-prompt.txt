@@ -1,0 +1,236 @@
+这是 WF6 从桌面应用迁移到 Ubuntu WSL2 中 Codex CLI 的初始化。
+
+本条只授权只读核查：
+不执行实验、不安装依赖、不创建目录、不修改文件。
+完成初始化后停止，等待我单独发送 [[WF6:S0:START]]。
+
+一、工作区和执行环境
+
+工作区根目录：
+<WORKSPACE>
+
+先核实实际 pwd、shell、操作系统、CLI 版本和工具执行能力。
+确认 CLI 实际运行在 Ubuntu 中，并读取根目录 AGENTS.md。
+不在工作区根目录初始化 Git。
+
+二、必须读取的文件
+
+1. WF6-plan.md。
+2. WF6-step-prompts-bilingual.md，尤其共同契约及 S0–S7。
+   以该文件的 S0–S7 为执行顺序。
+3. COMPX574 - Agentic Development.pdf 中的 Workflows、
+   Evidence log 和 Report Content。
+4. 已有 mealie-wf6-coexist checkout 中的独立 AGENTS.md、
+   rewrite-evidence/workflows/WF6/WF6-CONTRACT.md，
+   以及已有 WF6 的最新进度、结果、失败证据和用量记录。
+
+列出实际读取的路径、覆盖范围和缺失项。
+未读取或未验证的内容不能宣称已完成。
+不读取或复制其他 workflow 的 React 实现、codemod
+和语义适配代码。
+
+三、用户已批准的新 run 方案
+
+用户已决定采用独立新 run，从 S0 重新开始。
+之前“不重做 S0”的要求已被这个决定替代。
+旧 run 继续作为历史记录保留，不覆盖、不重置、不删除。
+
+run_id：
+wf6-rerun-20261014-01
+
+新运行根目录：
+<WORKSPACE>/wf6-rerun-20261014-01
+
+新运行根目录下分别使用：
+mealie-wf6-coexist/
+mealie-wf6-evaluator/
+wf6-evidence/
+
+此目录调整是用户明确批准的例外。
+正式 S0 时将重新开始、目录调整和 CLI 迁移决定写入
+新 run 的 decisions.jsonl。
+创建前检查是否已存在；如存在，先验证身份和状态，
+不覆盖或重置已有内容。
+
+固定输入不变：
+原 Vue commit：
+4b9ca06b6581f7152e164ea0fd9d4da366975a79
+
+evaluator commit：
+758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d
+
+先验证 Git 对象、来源和内容，再从固定 Vue commit
+建立新 checkout，不从包含旧 React 工作的 HEAD 开始。
+
+实验分支：
+rewrite/wf6-route-coexistence
+
+原 WF6 目录、失败日志、token 记录及其他实验全部保留。
+旧证据可以只读审计，但不能把旧通过成绩当成新 run 成绩。
+
+四、迁移背景
+
+桌面应用版本为 26.1007.2314.0。
+桌面聊天的代理执行工具报：
+Failed to create unified exec process:
+No such file or directory (os error 2)
+
+Node 工具报：
+sandboxCwd is not a local file URI
+
+已人工验证：
+Ubuntu 是默认发行版，处于 Running 状态，版本为 WSL2。
+手工调用 Ubuntu 的 /bin/bash 成功，
+返回的 pwd 与工作区完全一致。
+配置中 runCodexInWindowsSubsystemForLinux = true。
+用户已完整退出并重启过桌面应用。
+
+桌面日志反复出现：
+primary_runtime_restore_failed
+Failed to sync primary runtime bundled plugin marketplace
+
+以及：
+marketplace `openai-primary-runtime` is reserved
+and cannot be added from this source
+
+主运行时恢复失败是已观察到的应用故障；
+它与全部工具错误的因果关系尚未完全证明。
+
+桌面聊天 ID：
+01a137ad-36b0-7aa1-b4ba-bdd109348285
+
+桌面聊天未创建新 run、未启动新 S0、未修改旧证据。
+上述内容是迁移交接摘要，不是旧聊天的原始逐字 transcript。
+
+五、实验执行约束
+
+一个实施代理，串行完成，不启动子代理或并行实施。
+每次只执行用户授权的一个步骤。
+前置 gate 未通过，不执行依赖步骤。
+失败、修复和重测必须保留历史，不降低验收门槛。
+
+S2–S6 合计三小时模型执行与工具等待预算。
+依赖准备、S1 baseline、人工停顿和 S7 整理另列。
+S2、S5、S6 各最多两轮修复；
+S3/S4 共用最多两轮源码修复。
+达到限制后保留失败并停止。
+
+继续遵守 AGENTS.md 中的路由共存范围、同源会话、
+显式回退、冻结 evaluator 和真实浏览器验收要求。
+不将 Vue 保留功能计作 React 迁移成果。
+
+数据库、测试账号、认证文件、浏览器 context/profile、
+端口、运行目录、输出和计量窗口全部独立。
+不配置推送 remote，不向 upstream 开 PR。
+不修改其他 workflow、原 Word 报告、
+后端 API/schema 或冻结 evaluator 断言。
+
+六、英文记录与原始证据
+
+原始命令、stdout/stderr、工具输出、日志和 trace
+原样保存，保留英文输出。
+原始中文输出也原样保留。
+翻译或英文摘要另存，不能替换原始日志。
+
+新写的代码注释、技术日志说明和 attempts 原因说明使用英文。
+用户解释默认中文。
+result.md、阶段小结和报告素材提供中英文对照。
+实际用户 prompt 保留原文，只执行用户发送的一个语言版本。
+
+每步在新 run 的 wf6-evidence/steps/Sn/ 保存：
+[REDACTED]
+visible-transcript.jsonl
+commands.jsonl
+logs/
+source-state.json
+diff.patch
+file-manifest.json
+attempts.jsonl
+result.md
+token-usage.json
+
+记录完整命令、cwd、必要的去敏环境、开始/结束 UTC、
+退出码、耗时、原始 stdout/stderr 和机器结果。
+保存实际源码/evaluator SHA、dirty 状态、未跟踪文件、
+SHA256 和实际服务的 build 标识。
+
+同步新 run 的：
+EVIDENCE_INDEX.md
+PROGRESS.md
+decisions.jsonl
+timing.csv
+usage/usage-ledger.csv
+
+原始 logs/trace/usage 留在兄弟证据目录，
+不从实验 checkout 提交。
+提交前缀使用 [WF6-Sn]，排除依赖、数据库和凭据。
+
+可见 transcript 只收集可取得的用户、可见助手、
+工具调用和输出，并说明覆盖范围。
+不导出隐藏推理或系统/开发者指令。
+重建摘要不得称为原始逐字 transcript。
+
+七、Token 计量与跨会话边界
+
+本初始化属于 preparation，不混入新 S0。
+新 S0 正式起点是实际用户 S0 执行请求。
+S0 建立环境和 collector 本身也计入 S0。
+
+只读核实 CLI 的实际 session/turn、模型和设置、
+CODEX_HOME、provider usage 日志位置及真实 schema。
+不假定 CLI 与桌面应用共享配置或会话日志。
+
+旧 run、新 run、preparation 和迁移排障分别列账。
+保留旧边界、失败用量和缺失字段。
+不以旧累计值作为新 run 起点，
+不补零、不重复计算继承历史，不复制旧 tracker 的窗口。
+
+正式 S0 创建独立 collector，并建立：
+tracking-config.json
+stage-boundaries.jsonl
+raw-token-events.jsonl
+usage-ledger.json/csv
+USAGE.md
+
+实际验证日志 schema 和关键失败路径，
+包括去重、counter reset、compaction、
+跨 session/turn 迟到事件及重复 START 的处理。
+
+每步保存：
+实际 session/turn 身份；
+原始 usage 来源、行号或 offset；
+开始前与结束 provider 累计事件；
+input_tokens、cached input、output_tokens、
+reasoning output 和 total_tokens。
+
+total_tokens = input_tokens + output_tokens。
+cached input 已包含在 input；
+reasoning output 已包含在 output，不重复相加。
+累计快照只取经核实的差额。
+
+未提供字段为 null，未执行步骤为 not_executed。
+账号额度百分比和文本 token 估算不是 provider usage。
+费用、coverage 和人工 review 时间无数据则写未提供。
+
+每步最终回复前只能保存 provisional，
+final_reply_included=false。
+下一步开始或终端 collector 核实最终回复覆盖后再结算。
+
+CONTINUE 属于同一步；已结算步骤续跑使用不重叠 segments，
+保留旧导出并更新当前合计，不能将两版合计相加。
+
+只有原始事件、身份、边界、最终回复覆盖和一致性
+都核实后才标 exact_reported。
+否则保持 provisional、partial 或 not_provided。
+
+S7 最终回复后由用户在终端运行：
+collect_usage.py finalize --all --wait-seconds 30
+使用 S0 建立的脚本实际路径。
+不再通过额外模型 turn 声称已计入它自己的最终回复。
+
+八、本次初始化的结束条件
+
+报告环境是否可用、实际读取覆盖、缺失项、
+新目录是否已存在，以及新 S0 的准备状态。
+本次只读，不落盘、不执行实验。
+然后停止，等待 [[WF6:S0:START]]。

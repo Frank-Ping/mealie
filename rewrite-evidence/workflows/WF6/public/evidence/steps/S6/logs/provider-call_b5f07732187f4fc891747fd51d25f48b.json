@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 4284,
+    "byte_offset": 12230212,
+    "timestamp": "2026-10-14T09:21:33.410Z",
+    "turn_id": "01a13999-f4f9-78f2-8751-6c0a710636a0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf499c1ccc8191961ef8abcf0c08bb",
+      "status": "completed",
+      "call_id": "call_b5f07732187f4fc891747fd51d25f48b",
+      "name": "exec",
+      "input": "text(await tools.write_stdin({session_id:67539,chars:\"\",yield_time_ms:1000,max_output_tokens:500}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13999-f4f9-78f2-8751-6c0a710636a0",
+        "create_time": 1791969692.1402886
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 4286,
+    "byte_offset": 12231629,
+    "timestamp": "2026-10-14T09:21:33.458Z",
+    "turn_id": "01a13999-f4f9-78f2-8751-6c0a710636a0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a139b7-8f12-7530-9be1-f81648461e02",
+      "call_id": "call_b5f07732187f4fc891747fd51d25f48b",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.0 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"38c80d\",\"wall_time_seconds\":0.000011885,\"exit_code\":0,\"original_token_count\":50,\"output\":\"C2 evidence/clean accepted bytes verified; three disjoint provisional segments reconcile; original FAILs and new R1/R2 failures retained; cap exhausted, no dependent full regression or S7 executed.\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13999-f4f9-78f2-8751-6c0a710636a0",
+        "create_time": 1791969693.4584448
+      }
+    }
+  }
+}

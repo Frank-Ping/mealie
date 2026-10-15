@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3721,
+    "byte_offset": 10642982,
+    "timestamp": "2026-10-14T08:05:45.728Z",
+    "turn_id": "01a13964-888e-7540-98b2-3abbc8e32d90",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf37d06b48819184a29845eadc407b",
+      "status": "completed",
+      "call_id": "call_bfd7119045c34822b6a6f1f7e8d8d27c",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nfrom pathlib import Path\\nimport json,sys\\np=Path('wf6-rerun-20261014-01/wf6-evidence').resolve();s=p/'steps/S6';sys.path.insert(0,str(p/'usage'));import collect_usage\\nfor n in ['[REDACTED]','visible-transcript.jsonl','commands.jsonl','logs','source-state.json','diff.patch','file-manifest.json','attempts.jsonl','result.md','token-usage.json','route-ownership.csv','feature-inventory.csv']:assert(s/n).exists(),n\\nassert json.loads((p/'steps/S1/token-usage.json').read_text())['status']=='partial'\\nassert json.loads((p/'steps/S5/token-usage.json').read_text())['final_reply_included'] is True\\nassert json.loads((p/'steps/S5/repair-budget.json').read_text())['used']==2\\nassert json.loads((s/'repair-budget.json').read_text())['used']==0\\nassert json.loads((s/'token-usage.json').read_text())['final_reply_included'] is False\\nassert json.loads((s/'measurements.json').read_text())['gate']=='FAIL'\\nassert not json.loads((p/'usage/index-validation.json').read_text())['missing_links']\\nstate=json.loads((s/'source-state.json').read_text());assert not state['source']['dirty'] and not state['evaluator']['dirty'];assert state['evaluator']['actual_head']=='758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d'\\ncollect_usage.manifest(p)\\nprint('S6 complete evidence checked; rollback/restored ownership PASS, full strict regression FAIL retained; no S7 executed; final reply excluded from provisional snapshot.')\\nPY\",\"yield_time_ms\":1000,\"max_output_tokens\":500}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13964-888e-7540-98b2-3abbc8e32d90",
+        "create_time": 1791965136.4653313
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3723,
+    "byte_offset": 10645824,
+    "timestamp": "2026-10-14T08:05:46.906Z",
+    "turn_id": "01a13964-888e-7540-98b2-3abbc8e32d90",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13972-2f1a-7972-9e6e-5dbfd3f43beb",
+      "call_id": "call_bfd7119045c34822b6a6f1f7e8d8d27c",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 1.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"4932f7\",\"wall_time_seconds\":1.001491824,\"session_id\":55356,\"original_token_count\":0,\"output\":\"\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13964-888e-7540-98b2-3abbc8e32d90",
+        "create_time": 1791965146.906017
+      }
+    }
+  }
+}

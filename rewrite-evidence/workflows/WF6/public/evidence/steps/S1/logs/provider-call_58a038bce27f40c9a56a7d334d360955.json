@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1813,
+    "byte_offset": 5525472,
+    "timestamp": "2026-10-14T03:48:08.573Z",
+    "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acefb6bb16481918b46b6563fb6ba4b",
+      "status": "completed",
+      "call_id": "call_58a038bce27f40c9a56a7d334d360955",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 - <<'PY'\\nimport pathlib,json\\np=pathlib.Path('<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl')\\nturn=None\\nfor i,l in enumerate(p.read_text().splitlines(),1):\\n d=json.loads(l);pl=d.get('payload',{})\\n if d['type']=='turn_context':turn=pl.get('turn_id')\\n if d['type']=='response_item' and pl.get('role')=='user':\\n  t=''.join(c.get('text','') for c in pl.get('content',[]))\\n  if t=='Continue from where you stopped.':print(i,turn,pl.get('id'),d.get('timestamp'))\\nPY\",\"max_output_tokens\":500}));\ntext(await tools.exec_command({cmd:\"python3 - <<'PY'\\nimport pathlib,os,signal,datetime,json\\np=pathlib.Path('/proc/32542')\\na=p.joinpath('cmdline').read_bytes().split(b'\\\\0')\\ne=p.joinpath('environ').read_bytes().split(b'\\\\0')\\nassert b'uvicorn' in a and b'E2E_DATA_DIR=/tmp/wf6-rerun-20261014-01-S1-native/disposable-data' in e\\nassert os.getpgid(32542)==32542\\nos.killpg(32542,signal.SIGTERM)\\nprint(json.dumps({'action':'SIGTERM verified owned backend process group','pid':32542,'observed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'reason':'Runner handle lost after interrupted turn; preserve partial suite, close only verified owned service before fresh serial measurement.'}))\\nPY\",\"sandbox_permissions\":\"require_escalated\",\"justification\":\"只停止此前 S1 已启动且现已核实命令、独立 DATA_DIR 和 process group 的 owned backend 32542；runner 已在迁移中消失，保留部分测试证据后才能串行重新运行。不会停止其他实验进程。\",\"max_output_tokens\":700}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+        "create_time": 1791949675.7095356
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1817,
+    "byte_offset": 5532604,
+    "timestamp": "2026-10-14T03:48:11.689Z",
+    "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13886-5b29-7fd3-b68c-a475f3c95f12",
+      "call_id": "call_58a038bce27f40c9a56a7d334d360955",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 3.1 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"70a61a\",\"wall_time_seconds\":0.060852143,\"exit_code\":0,\"original_token_count\":27,\"output\":\"1774 01a13885-24dd-7ff3-a6cc-b87a30d19d71 msg_01a13885-2703-78a0-872b-b4ddbb366bfd 2026-10-14T03:46:52.804Z\\n\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"fecfb5\",\"wall_time_seconds\":0.000011885,\"exit_code\":0,\"original_token_count\":68,\"output\":\"{\\\"action\\\": \\\"SIGTERM verified owned backend process group\\\", \\\"pid\\\": 32542, \\\"observed_utc\\\": \\\"2026-10-14T03:48:11.659128+00:00\\\", \\\"reason\\\": \\\"Runner handle lost after interrupted turn; preserve partial suite, close only verified owned service before fresh serial measurement.\\\"}\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+        "create_time": 1791949691.6895564
+      }
+    }
+  }
+}

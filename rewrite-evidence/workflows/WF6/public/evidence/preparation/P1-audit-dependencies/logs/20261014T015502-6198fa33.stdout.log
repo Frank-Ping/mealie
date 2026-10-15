@@ -1,0 +1,17 @@
+✓ Lockfile passes supply-chain policies (verified 16h ago)
+Lockfile is up to date, resolution step is skipped
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Packages: +6
+++++++
+Packages are hard linked from the content-addressable store to the virtual store.
+  Content-addressable store is at: <WORKSPACE>/wf6-rerun-20261014-01/runtime/cache/pnpm/v11
+  Virtual store is at:             node_modules/.pnpm
+Progress: resolved 6, reused 1, downloaded 5, added 5
+Progress: resolved 6, reused 1, downloaded 5, added 6, done
+
+devDependencies:
++ @playwright/test 1.63.0
++ @types/node 22.20.4
++ typescript 5.9.3
+
+Done in 2.2s using pnpm v11.23.0

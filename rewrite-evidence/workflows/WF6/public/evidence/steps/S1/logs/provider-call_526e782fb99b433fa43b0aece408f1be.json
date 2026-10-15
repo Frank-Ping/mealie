@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1863,
+    "byte_offset": 5597953,
+    "timestamp": "2026-10-14T03:50:39.262Z",
+    "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acefc05fc78819181e47410222d34e3",
+      "status": "completed",
+      "call_id": "call_526e782fb99b433fa43b0aece408f1be",
+      "name": "exec",
+      "input": "text(await tools.apply_patch(\"*** Begin Patch\\n*** Update File: <WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/usage/browser_s1.py\\n@@\\n-    assert data.resolve()==(RUNTIME/\\\"disposable-data\\\").resolve() and not data.is_symlink()\\n-    assert data.resolve().is_relative_to(RUNTIME.resolve())\\n+    assert os.path.samefile(data,RUNTIME/\\\"disposable-data\\\") and not data.is_symlink()\\n+    assert os.path.samefile(data.parent,RUNTIME)\\n@@\\n-    assert env[\\\"E2E_DATA_DIR\\\"]==str(data)\\n+    assert os.path.samefile(env[\\\"E2E_DATA_DIR\\\"],data)\\n*** End Patch\"));\ntext(await tools.exec_command({cmd:\"python3 -B wf6-rerun-20261014-01/wf6-evidence/usage/record_command.py --stage S1 --permission 'Approved native2 localhost baseline with samefile isolation verification; default sandbox unchanged' --cwd '<WORKSPACE>/wf6-rerun-20261014-01' --label S1-complete-native2-browser-after-case-identity-fix -- python3 -B wf6-evidence/usage/browser_s1.py --approved --native\",\"sandbox_permissions\":\"require_escalated\",\"justification\":\"大小写路径已核实 samefile；只修复独立目录身份检查，重试原冻结本地浏览器 suite。仍使用全新 native2 数据与输出，不改源码或 evaluator。\",\"yield_time_ms\":1000,\"max_output_tokens\":700}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+        "create_time": 1791949829.989969
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1866,
+    "byte_offset": 5602078,
+    "timestamp": "2026-10-14T03:50:43.193Z",
+    "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13888-aaf9-7641-9394-28ae99dc640f",
+      "call_id": "call_526e782fb99b433fa43b0aece408f1be",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 3.9 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"8072c7\",\"wall_time_seconds\":1.001131699,\"session_id\":53803,\"original_token_count\":0,\"output\":\"\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+        "create_time": 1791949843.1938791
+      }
+    }
+  }
+}

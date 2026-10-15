@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 4261,
+    "byte_offset": 12172801,
+    "timestamp": "2026-10-14T09:19:21.907Z",
+    "turn_id": "01a13999-f4f9-78f2-8751-6c0a710636a0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf491539b08191bdb8095bb1b94acd",
+      "status": "completed",
+      "call_id": "call_9195154beea0401d97267a0d03c351f8",
+      "name": "exec",
+      "input": "text(await tools.write_stdin({session_id:72978,chars:\"\",yield_time_ms:1000,max_output_tokens:1000}));\ntext(await tools.exec_command({cmd:\"python3 -B wf6-rerun-20261014-01/wf6-evidence/usage/record_command.py --stage S6 --cwd '<WORKSPACE>/wf6-rerun-20261014-01' --label S6-C2-provisional-three-disjoint-segments-and-budget-tail -- python3 -B wf6-evidence/usage/collect_usage.py finalize --stage S6 --wait-seconds 0\",\"yield_time_ms\":1000,\"max_output_tokens\":1000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13999-f4f9-78f2-8751-6c0a710636a0",
+        "create_time": 1791969557.2334046
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 4263,
+    "byte_offset": 12174648,
+    "timestamp": "2026-10-14T09:19:23.109Z",
+    "turn_id": "01a13999-f4f9-78f2-8751-6c0a710636a0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a139b5-91e5-7413-86dd-b2e70814fcb6",
+      "call_id": "call_9195154beea0401d97267a0d03c351f8",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 1.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"45f529\",\"wall_time_seconds\":0.000011457,\"exit_code\":0,\"original_token_count\":201,\"output\":\"{\\\"command_id\\\": \\\"20261014T091843-257f1aed\\\", \\\"stage_id\\\": \\\"S6\\\", \\\"label\\\": \\\"S6-C2-postcommit-tested-source-build-hashes\\\", \\\"argv\\\": [\\\"python3\\\", \\\"-B\\\", \\\"wf6-evidence/usage/postcommit_s6_c2.py\\\"], \\\"cwd\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01\\\", \\\"start_utc\\\": \\\"2026-10-14T09:18:43.320442+00:00\\\", \\\"end_utc\\\": \\\"2026-10-14T09:18:46.755846+00:00\\\", \\\"duration_seconds\\\": 3.4354028640009346, \\\"exit_code\\\": 0, \\\"stdout\\\": \\\"steps/S6/logs/20261014T091843-257f1aed.stdout.log\\\", \\\"stderr\\\": \\\"steps/S6/logs/20261014T091843-257f1aed.stderr.log\\\", \\\"environment_overrides\\\": {}, \\\"permission\\\": \\\"workspace-write; network restricted; no escalation\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"64edf8\",\"wall_time_seconds\":1.001665782,\"session_id\":35700,\"original_token_count\":0,\"output\":\"\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13999-f4f9-78f2-8751-6c0a710636a0",
+        "create_time": 1791969563.1093743
+      }
+    }
+  }
+}

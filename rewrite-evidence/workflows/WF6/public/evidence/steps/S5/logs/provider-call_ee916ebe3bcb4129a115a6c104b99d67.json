@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3417,
+    "byte_offset": 9812036,
+    "timestamp": "2026-10-14T07:47:17.165Z",
+    "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf3383e89481918320bc1317098cd7",
+      "status": "completed",
+      "call_id": "call_ee916ebe3bcb4129a115a6c104b99d67",
+      "name": "exec",
+      "input": "text(await tools.write_stdin({session_id:57154,chars:\"\",yield_time_ms:1000,max_output_tokens:500}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+        "create_time": 1791964035.9111495
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3419,
+    "byte_offset": 9813445,
+    "timestamp": "2026-10-14T07:47:17.226Z",
+    "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13961-406a-73e0-bae9-60dc0a8d4862",
+      "call_id": "call_ee916ebe3bcb4129a115a6c104b99d67",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.0 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"f8d398\",\"wall_time_seconds\":0.000020614,\"exit_code\":0,\"original_token_count\":31,\"output\":\"S5 bundle and clean accepted states verified; S1 partial and S4 final coverage retained; S5 final reply not yet included.\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+        "create_time": 1791964037.2263727
+      }
+    }
+  }
+}

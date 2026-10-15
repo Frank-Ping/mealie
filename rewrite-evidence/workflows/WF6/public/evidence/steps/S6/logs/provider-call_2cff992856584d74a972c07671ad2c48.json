@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 4268,
+    "byte_offset": 12188491,
+    "timestamp": "2026-10-14T09:20:03.769Z",
+    "turn_id": "01a13999-f4f9-78f2-8751-6c0a710636a0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf493d90a08191bda1d1036e1d12fe",
+      "status": "completed",
+      "call_id": "call_2cff992856584d74a972c07671ad2c48",
+      "name": "exec",
+      "input": "text(await tools.write_stdin({session_id:35700,chars:\"\",yield_time_ms:1000,max_output_tokens:1000}));\ntext(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nfrom pathlib import Path\\nimport json\\np=Path('wf6-rerun-20261014-01/wf6-evidence');s=p/'steps/S6';u=json.loads((s/'token-usage.json').read_text());print('usage',{k:u.get(k) for k in ['status','final_reply_included','input_tokens','cached_input_tokens','output_tokens','reasoning_output_tokens','total_tokens']});print('segments',[(x['turn_id'],x['final_reply_included'],x['usage']['total_tokens']) for x in u['segments']]);b=json.loads((p/'experiment-budget.json').read_text());print('budget',b['known_execution_seconds'],b['remaining_seconds']);state=json.loads((s/'continuation-02/source-state.json').read_text());print('acceptance',state['acceptance_commit']);print('links',json.loads((p/'usage/index-validation.json').read_text()))\\nPY\",\"max_output_tokens\":1600}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13999-f4f9-78f2-8751-6c0a710636a0",
+        "create_time": 1791969597.5689282
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 4271,
+    "byte_offset": 12193497,
+    "timestamp": "2026-10-14T09:20:03.937Z",
+    "turn_id": "01a13999-f4f9-78f2-8751-6c0a710636a0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a139b6-3161-7b32-a8ea-38fe93bca3ba",
+      "call_id": "call_2cff992856584d74a972c07671ad2c48",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"8f5640\",\"wall_time_seconds\":0.000015562,\"exit_code\":0,\"original_token_count\":217,\"output\":\"{\\\"command_id\\\": \\\"20261014T091922-5ad6dc0a\\\", \\\"stage_id\\\": \\\"S6\\\", \\\"label\\\": \\\"S6-C2-provisional-three-disjoint-segments-and-budget-tail\\\", \\\"argv\\\": [\\\"python3\\\", \\\"-B\\\", \\\"wf6-evidence/usage/collect_usage.py\\\", \\\"finalize\\\", \\\"--stage\\\", \\\"S6\\\", \\\"--wait-seconds\\\", \\\"0\\\"], \\\"cwd\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01\\\", \\\"start_utc\\\": \\\"2026-10-14T09:19:22.155590+00:00\\\", \\\"end_utc\\\": \\\"2026-10-14T09:19:42.753204+00:00\\\", \\\"duration_seconds\\\": 20.597617686005833, \\\"exit_code\\\": 0, \\\"stdout\\\": \\\"steps/S6/logs/20261014T091922-5ad6dc0a.stdout.log\\\", \\\"stderr\\\": \\\"steps/S6/logs/20261014T091922-5ad6dc0a.stderr.log\\\", \\\"environment_overrides\\\": {}, \\\"permission\\\": \\\"workspace-write; network restricted; no escalation\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"e8bd2a\",\"wall_time_seconds\":0.00001775,\"exit_code\":0,\"original_token_count\":139,\"output\":\"usage {'status': 'provisional', 'final_reply_included': False, 'input_tokens': 25706755, 'cached_input_tokens': 25412864, 'output_tokens': 85862, 'reasoning_output_tokens': 26286, 'total_tokens': 25792617}\\nsegments [('01a13964-888e-7540-98b2-3abbc8e32d90', True, 7711295), ('01a13974-b942-7012-950c-89399b0de489', True, 5373909), ('01a13999-f4f9-78f2-8751-6c0a710636a0', False, 12707413)]\\nbudget 9637.713908 1162.2860920000003\\nacceptance 61d16716ac2699e68af20e9854aba9ca8daa00e6\\nlinks {'timestamp': '2026-10-14T09:19:24.806899+00:00', 'missing_links': []}\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13999-f4f9-78f2-8751-6c0a710636a0",
+        "create_time": 1791969603.93785
+      }
+    }
+  }
+}

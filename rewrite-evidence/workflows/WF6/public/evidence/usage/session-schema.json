@@ -1,0 +1,262 @@
+{
+  "source": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+  "session_id": "01a137ea-f571-70f0-8cf3-7b8560c420bf",
+  "contexts": [
+    {
+      "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+      "line": 8,
+      "byte_offset": 65690,
+      "turn_id": "01a137ee-6528-7671-a838-3b0c0ef54c8b",
+      "model": "gpt-6.1-sol",
+      "effort": "medium",
+      "approval_policy": "on-request",
+      "sandbox_policy": {
+        "type": "read-only"
+      },
+      "cwd": "<WORKSPACE>"
+    },
+    {
+      "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+      "line": 103,
+      "byte_offset": 882166,
+      "turn_id": "01a137f3-c2d3-7db0-9623-6d33961b39eb",
+      "model": "gpt-6.1-sol",
+      "effort": "medium",
+      "approval_policy": "on-request",
+      "sandbox_policy": {
+        "type": "workspace-write",
+        "network_access": false,
+        "exclude_tmpdir_env_var": false,
+        "exclude_slash_tmp": false
+      },
+      "cwd": "<WORKSPACE>"
+    },
+    {
+      "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+      "line": 292,
+      "byte_offset": 1554859,
+      "turn_id": "01a1380b-3c88-7c01-a26b-59bb242a5d88",
+      "model": "gpt-6.1-sol",
+      "effort": "medium",
+      "approval_policy": "on-request",
+      "sandbox_policy": {
+        "type": "workspace-write",
+        "network_access": false,
+        "exclude_tmpdir_env_var": false,
+        "exclude_slash_tmp": false
+      },
+      "cwd": "<WORKSPACE>"
+    },
+    {
+      "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+      "line": 708,
+      "byte_offset": 2727942,
+      "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+      "model": "gpt-6.1-sol",
+      "effort": "medium",
+      "approval_policy": "on-request",
+      "sandbox_policy": {
+        "type": "workspace-write",
+        "network_access": false,
+        "exclude_tmpdir_env_var": false,
+        "exclude_slash_tmp": false
+      },
+      "cwd": "<WORKSPACE>"
+    },
+    {
+      "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+      "line": 1302,
+      "byte_offset": 4445403,
+      "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+      "model": "gpt-6.1-sol",
+      "effort": "medium",
+      "approval_policy": "on-request",
+      "sandbox_policy": {
+        "type": "workspace-write",
+        "network_access": false,
+        "exclude_tmpdir_env_var": false,
+        "exclude_slash_tmp": false
+      },
+      "cwd": "<WORKSPACE>"
+    },
+    {
+      "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+      "line": 1773,
+      "byte_offset": 5406279,
+      "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+      "model": "gpt-6.1-sol",
+      "effort": "medium",
+      "approval_policy": "on-request",
+      "sandbox_policy": {
+        "type": "workspace-write",
+        "network_access": false,
+        "exclude_tmpdir_env_var": false,
+        "exclude_slash_tmp": false
+      },
+      "cwd": "<WORKSPACE>"
+    },
+    {
+      "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+      "line": 2053,
+      "byte_offset": 5833421,
+      "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+      "model": "gpt-6.1-sol",
+      "effort": "medium",
+      "approval_policy": "on-request",
+      "sandbox_policy": {
+        "type": "workspace-write",
+        "network_access": false,
+        "exclude_tmpdir_env_var": false,
+        "exclude_slash_tmp": false
+      },
+      "cwd": "<WORKSPACE>"
+    },
+    {
+      "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+      "line": 2427,
+      "byte_offset": 6770941,
+      "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+      "model": "gpt-6.1-sol",
+      "effort": "medium",
+      "approval_policy": "on-request",
+      "sandbox_policy": {
+        "type": "workspace-write",
+        "network_access": false,
+        "exclude_tmpdir_env_var": false,
+        "exclude_slash_tmp": false
+      },
+      "cwd": "<WORKSPACE>"
+    },
+    {
+      "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+      "line": 2776,
+      "byte_offset": 7683668,
+      "turn_id": "01a13905-d942-7e23-8387-48f7946bf050",
+      "model": "gpt-6.1-sol",
+      "effort": "medium",
+      "approval_policy": "on-request",
+      "sandbox_policy": {
+        "type": "workspace-write",
+        "network_access": false,
+        "exclude_tmpdir_env_var": false,
+        "exclude_slash_tmp": false
+      },
+      "cwd": "<WORKSPACE>"
+    },
+    {
+      "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+      "line": 2997,
+      "byte_offset": 8583274,
+      "turn_id": "01a13905-d942-7e23-8387-48f7946bf050",
+      "model": "gpt-6.1-sol",
+      "effort": "medium",
+      "approval_policy": "on-request",
+      "sandbox_policy": {
+        "type": "workspace-write",
+        "network_access": false,
+        "exclude_tmpdir_env_var": false,
+        "exclude_slash_tmp": false
+      },
+      "cwd": "<WORKSPACE>"
+    },
+    {
+      "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+      "line": 3057,
+      "byte_offset": 8728319,
+      "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+      "model": "gpt-6.1-sol",
+      "effort": "medium",
+      "approval_policy": "on-request",
+      "sandbox_policy": {
+        "type": "workspace-write",
+        "network_access": false,
+        "exclude_tmpdir_env_var": false,
+        "exclude_slash_tmp": false
+      },
+      "cwd": "<WORKSPACE>"
+    },
+    {
+      "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+      "line": 3431,
+      "byte_offset": 9837791,
+      "turn_id": "01a13964-888e-7540-98b2-3abbc8e32d90",
+      "model": "gpt-6.1-sol",
+      "effort": "medium",
+      "approval_policy": "on-request",
+      "sandbox_policy": {
+        "type": "workspace-write",
+        "network_access": false,
+        "exclude_tmpdir_env_var": false,
+        "exclude_slash_tmp": false
+      },
+      "cwd": "<WORKSPACE>"
+    },
+    {
+      "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+      "line": 3749,
+      "byte_offset": 10675693,
+      "turn_id": "01a13974-b942-7012-950c-89399b0de489",
+      "model": "gpt-6.1-sol",
+      "effort": "medium",
+      "approval_policy": "on-request",
+      "sandbox_policy": {
+        "type": "workspace-write",
+        "network_access": false,
+        "exclude_tmpdir_env_var": false,
+        "exclude_slash_tmp": false
+      },
+      "cwd": "<WORKSPACE>"
+    },
+    {
+      "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+      "line": 3927,
+      "byte_offset": 11158329,
+      "turn_id": "01a13999-f4f9-78f2-8751-6c0a710636a0",
+      "model": "gpt-6.1-sol",
+      "effort": "medium",
+      "approval_policy": "on-request",
+      "sandbox_policy": {
+        "type": "workspace-write",
+        "network_access": false,
+        "exclude_tmpdir_env_var": false,
+        "exclude_slash_tmp": false
+      },
+      "cwd": "<WORKSPACE>"
+    },
+    {
+      "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+      "line": 4295,
+      "byte_offset": 12244389,
+      "turn_id": "01a139bb-53dc-7111-96d4-1398771bbfb1",
+      "model": "gpt-6.1-sol",
+      "effort": "medium",
+      "approval_policy": "on-request",
+      "sandbox_policy": {
+        "type": "workspace-write",
+        "network_access": false,
+        "exclude_tmpdir_env_var": false,
+        "exclude_slash_tmp": false
+      },
+      "cwd": "<WORKSPACE>"
+    },
+    {
+      "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+      "line": 4448,
+      "byte_offset": 12812303,
+      "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+      "model": "gpt-6.1-sol",
+      "effort": "medium",
+      "approval_policy": "on-request",
+      "sandbox_policy": {
+        "type": "workspace-write",
+        "network_access": false,
+        "exclude_tmpdir_env_var": false,
+        "exclude_slash_tmp": false
+      },
+      "cwd": "<WORKSPACE>"
+    }
+  ],
+  "authoritative_schema": "token_usage_record: session_id/thread_id/turn_id/response_id, usage, turn_token_usage, thread_token_usage",
+  "legacy_policy": "Preserved token_count events never contribute to totals.",
+  "issues": []
+}

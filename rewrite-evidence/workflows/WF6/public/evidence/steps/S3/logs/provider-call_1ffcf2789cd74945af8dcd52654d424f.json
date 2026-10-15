@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2745,
+    "byte_offset": 7636087,
+    "timestamp": "2026-10-14T04:59:32.963Z",
+    "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf0c2c6d9081919419d1e9c2bf8cf3",
+      "status": "completed",
+      "call_id": "call_1ffcf2789cd74945af8dcd52654d424f",
+      "name": "exec",
+      "input": "text(await tools.write_stdin({session_id:77147,chars:\"\",yield_time_ms:1000,max_output_tokens:700}));\ntext(await tools.exec_command({cmd:\"python3 - <<'PY'\\nfrom pathlib import Path\\nimport json\\nb=Path('wf6-rerun-20261014-01/wf6-evidence');s=json.loads((b/'steps/S3/token-usage.json').read_text());print({k:s[k] for k in ['status','input_tokens','cached_input_tokens','output_tokens','reasoning_output_tokens','total_tokens','final_reply_included']});d=json.loads((b/'experiment-budget.json').read_text());print('budget',d['known_execution_seconds'],d['remaining_seconds']);print('S2',json.loads((b/'steps/S2/token-usage.json').read_text())['status'],'S1',json.loads((b/'steps/S1/token-usage.json').read_text())['status'])\\np=b/'steps/S3/measurements.json';d=json.loads(p.read_text());d['coverage']=None;d['coverage_status']='not_provided; not measured in S3; earlier Vue coverage is not attributed to React';p.write_text(json.dumps(d,indent=2)+'\\\\n')\\np=b/'steps/S3/result.md';t=p.read_text();t=t.replace('## Evidence / 证据','Coverage was not measured in S3 and is not provided; earlier Vue coverage is not a React result.\\\\nS3 未测 coverage，记未提供；旧 Vue coverage 不计作 React 成果。\\\\n\\\\n## Evidence / 证据');p.write_text(t)\\nPY\",\"max_output_tokens\":750}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+        "create_time": 1791953964.4305604
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2748,
+    "byte_offset": 7641870,
+    "timestamp": "2026-10-14T04:59:33.134Z",
+    "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a138c7-af8e-7ab1-96b4-067ae225cc56",
+      "call_id": "call_1ffcf2789cd74945af8dcd52654d424f",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"91a123\",\"wall_time_seconds\":0.000010911,\"exit_code\":0,\"original_token_count\":212,\"output\":\"{\\\"command_id\\\": \\\"20261014T045758-d959c75a\\\", \\\"stage_id\\\": \\\"S3\\\", \\\"label\\\": \\\"S3-pre-final-tail-and-budget-snapshot\\\", \\\"argv\\\": [\\\"python3\\\", \\\"-B\\\", \\\"wf6-evidence/usage/collect_usage.py\\\", \\\"finalize\\\", \\\"--stage\\\", \\\"S3\\\", \\\"--wait-seconds\\\", \\\"0\\\"], \\\"cwd\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01\\\", \\\"start_utc\\\": \\\"2026-10-14T04:57:58.493621+00:00\\\", \\\"end_utc\\\": \\\"2026-10-14T04:58:12.992046+00:00\\\", \\\"duration_seconds\\\": 14.498422197000764, \\\"exit_code\\\": 0, \\\"stdout\\\": \\\"steps/S3/logs/20261014T045758-d959c75a.stdout.log\\\", \\\"stderr\\\": \\\"steps/S3/logs/20261014T045758-d959c75a.stderr.log\\\", \\\"environment_overrides\\\": {}, \\\"permission\\\": \\\"workspace-write; network restricted; no escalation\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"09024c\",\"wall_time_seconds\":0.000011017,\"exit_code\":0,\"original_token_count\":66,\"output\":\"{'status': 'provisional', 'input_tokens': 8155185, 'cached_input_tokens': 8081920, 'output_tokens': 42366, 'reasoning_output_tokens': 20466, 'total_tokens': 8197551, 'final_reply_included': False}\\nbudget 2939.549585 7860.450414999999\\nS2 exact_reported S1 partial\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+        "create_time": 1791953973.1340685
+      }
+    }
+  }
+}

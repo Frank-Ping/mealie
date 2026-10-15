@@ -1,0 +1,6 @@
+
+Running 1 test using 1 worker
+
+  ✓  1 ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S6-C3/tests/s6-c3-persistence-tests.cjs:5:1 › real POST receipt and refreshed GET identify the same published comment; failed POST restores draft (2.6s)
+
+  1 passed (6.3s)

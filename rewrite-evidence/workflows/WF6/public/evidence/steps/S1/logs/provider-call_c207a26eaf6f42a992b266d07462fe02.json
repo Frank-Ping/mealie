@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2026,
+    "byte_offset": 5798442,
+    "timestamp": "2026-10-14T03:57:26.486Z",
+    "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acefda31dc48191bb4cd02a6e1541f9",
+      "status": "completed",
+      "call_id": "call_c207a26eaf6f42a992b266d07462fe02",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 - <<'PY'\\nimport pathlib,json\\ns=pathlib.Path('wf6-rerun-20261014-01/wf6-evidence/steps/S1');state=json.loads((s/'source-state.json').read_text());print('commit',state['evidence_commit']);print('clean',state['source']['dirty'],state['evaluator']['dirty']);print('browser',json.loads((s/'machine/browser-native-summary.json').read_text())['stats'])\\nPY\",\"max_output_tokens\":600}));\ntext(await tools.write_stdin({session_id:14127,chars:\"\",yield_time_ms:1000,max_output_tokens:900}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+        "create_time": 1791950243.136279
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2029,
+    "byte_offset": 5801869,
+    "timestamp": "2026-10-14T03:57:31.652Z",
+    "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a1388e-e683-71d3-8d61-ac9bdc02d230",
+      "call_id": "call_c207a26eaf6f42a992b266d07462fe02",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 5.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"bd15b6\",\"wall_time_seconds\":0.000088111,\"exit_code\":0,\"original_token_count\":50,\"output\":\"commit f318d69d033e5269415f0b94d4beebd8d70a00dc\\nclean False False\\nbrowser {'startTime': '2026-10-14T03:51:10.531Z', 'duration': 131050.429, 'expected': 82, 'skipped': 0, 'unexpected': 0, 'flaky': 0}\\n\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"c59a60\",\"wall_time_seconds\":5.000714148,\"session_id\":14127,\"original_token_count\":0,\"output\":\"\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+        "create_time": 1791950251.6519668
+      }
+    }
+  }
+}

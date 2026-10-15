@@ -1,0 +1,7 @@
+feature,owner,actual_result,remaining_scope
+Real Logout and request/session cleanup,React -> Vue login,"Original four {'startTime': '2026-10-14T09:11:50.361Z', 'duration': 17732.371, 'expected': 3, 'skipped': 0, 'unexpected': 1, 'flaky': 0}; supplemental pending/401 check",No full OIDC/long-lived auth parity
+Self-role Settings menu,React navigation only,Original member/admin flows; Vue links retained,"Settings pages still Vue, not migrated"
+Comment read/create/persistence,React,Original comment flow; blank/submitting/failure/server success checks,Edit/delete comments not implemented
+Own-group recipe list/search/detail,React,Full strict 2 target routes + frozen open/search if full exists,Not full recipe write UI
+Other routes and settings pages,Vue,See full suite / rollback,Not React migration score
+Whole-system deployment/coverage/cost/review,unverified,not_provided,No production/full-system equivalence claim

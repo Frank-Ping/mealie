@@ -1,0 +1,18 @@
+ M wf6/gateway.mjs
+ M wf6/gateway.test.mjs
+ M wf6/route-map.json
+?? frontend-react-wf6/
+?? frontend/app/middleware/wf6-boundary.global.ts
+?? rewrite-evidence/workflows/WF6/S3-RESULT.md
+?? wf6/route-policy.d.mts
+?? wf6/route-policy.mjs
+?? wf6/route-policy.test.mjs
+{
+  "stages": [
+    "S3",
+    "S4"
+  ],
+  "limit": 2,
+  "used": 0,
+  "rounds": []
+}

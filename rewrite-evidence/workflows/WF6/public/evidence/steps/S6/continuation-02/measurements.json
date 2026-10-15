@@ -1,0 +1,97 @@
+{
+  "gate": "FAIL",
+  "rounds_used": 2,
+  "rounds_limit": 2,
+  "scope_commit": "8cbba16f7b4d54e1d1c476814583197a3a40e253",
+  "implementation_head": "c5f765adea3c1967d3e6326f9f328360831ab0c8",
+  "recent_commits": [
+    "c5f765adea3c1967d3e6326f9f328360831ab0c8 [WF6-S6] Correct comment GET slug and verify ID versus slug contract",
+    "ab032949b1375e01037842331894f72309dd80f0 [WF6-S6] Implement real logout role navigation and persisted comments",
+    "8cbba16f7b4d54e1d1c476814583197a3a40e253 [WF6-S6] Authorize limited auth navigation and comment scope extension",
+    "1d4f20c48d630474906b822c08fc713ec0234de2 [WF6-S6] Audit existing explicit Vue recovery and preserve frozen failures"
+  ],
+  "original_four": {
+    "startTime": "2026-10-14T09:11:50.361Z",
+    "duration": 17732.371,
+    "expected": 3,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  },
+  "rollback_supplemental": {
+    "startTime": "2026-10-14T09:11:15.435Z",
+    "duration": 12468.035,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "rollback_frozen_four": {
+    "startTime": "2026-10-14T09:11:34.175Z",
+    "duration": 11566.081000000002,
+    "expected": 4,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "restored_supplemental": null,
+  "full_counts": null,
+  "full_not_executed": true,
+  "builds": {
+    "vue": "d5c6a8cc2db26452bcfb5d563b8a6a105303cffbf0c234a2ff846350c03d8d6c",
+    "react": "eb2c2c39ebe47b3220c8620ebf0194a230007f83452101eacc1ee2119a473f99"
+  },
+  "react_source_hash": "9905b7053846f5918973fd2bfde515c89a77d1cbe055dcd52ef765cf92fca726",
+  "original_full_FAIL_preserved": "../full-regression-summary.json",
+  "S1_usage": "partial",
+  "S1_diagnostics": "318 FAIL retained",
+  "coverage": null,
+  "cost": null,
+  "human_review_time": null,
+  "remaining_failure": {
+    "classification": "implementation_and_rendering_timing_failure",
+    "gate": "FAIL",
+    "actual_original_four": "3 PASS / 1 FAIL",
+    "verified_network": "No /api/comments POST or 201 in original failure trace; pending recipe revalidation request was cancelled by reload",
+    "verified_DOM": "Original first text visibility expectation targeted a TEXTAREA holding draft text, not a saved server comment",
+    "targeted_textarea_snapshots": [
+      [
+        "TEXTAREA",
+        {
+          "__playwright_value_": "E2E comment mv7w58bjry",
+          "__playwright_target__": "",
+          "aria-invalid": "false",
+          "id": "_r_5_",
+          "class": "MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline css-s63k3s",
+          "style": "height: 23px; overflow: hidden;"
+        },
+        "E2E comment mv7w58bjry"
+      ],
+      [
+        "TEXTAREA",
+        {
+          "__playwright_value_": "E2E comment mv7w58bjry",
+          "__playwright_target__": "",
+          "aria-invalid": "false",
+          "id": "_r_5_",
+          "class": "MuiInputBase-input MuiOutlinedInput-input Mui-disabled MuiInputBase-inputMultiline css-s63k3s",
+          "style": "height: 23px; overflow: hidden;",
+          "disabled": ""
+        },
+        [
+          [
+            5,
+            4
+          ]
+        ]
+      ]
+    ],
+    "root_cause_limit": "No new experiment after repair budget exhausted; DOM/network evidence identifies early draft match and aborted pre-POST validation. Durable server comment creation not demonstrated.",
+    "proposed_change_not_applied": "Separate pending draft from persisted comment text matching and/or appropriate user navigation protection; requires further authorization/budget because S6 two rounds exhausted",
+    "original_trace": "browser-r2/four-original-test-results/flows-recipes-recipes-flow-a3d3d-ipe-and-see-it-after-reload-flows/trace.zip",
+    "no_more_repairs": true
+  },
+  "new_boundary_suite": "not_executed",
+  "new_full_suite": "not_executed",
+  "original_baseline_results": "Historical initial S6 routes66/66,flows11/15,guard1/1; not reused for C2"
+}

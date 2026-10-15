@@ -1,0 +1,22 @@
+[
+  {
+    "path": "<WORKSPACE>/AGENTS.md",
+    "sha256": "335a3aa4648e0c7f1e18ebaf52c86e15d85d16c65880b960b958bd885f9c18dd",
+    "size": 11287
+  },
+  {
+    "path": "<WORKSPACE>/WF6-plan.md",
+    "sha256": "000353245d7282ad27d58f274c56405f292f4e23afce0867fac83e27cc11d9cd",
+    "size": 18702
+  },
+  {
+    "path": "<WORKSPACE>/WF6-step-prompts-bilingual.md",
+    "sha256": "4f0145629a56116d1611d934e876a63b89286f8adc55de33558b3873d61fc452",
+    "size": 51780
+  },
+  {
+    "path": "<WORKSPACE>/COMPX574 - Agentic Development.pdf",
+    "sha256": "cc414bf2633fe3bf1b95e01d03c94e96f0a7cdd5eeb226653915ae867238b219",
+    "size": 111398
+  }
+]

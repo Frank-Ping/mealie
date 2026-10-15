@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1512,
+    "byte_offset": 4950242,
+    "timestamp": "2026-10-14T03:27:17.436Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acef6932b948191ae09eb38897fd05c",
+      "status": "completed",
+      "call_id": "call_f70856de7ab04914a596a55a28e7a94c",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"tail -2 wf6-rerun-20261014-01/wf6-evidence/steps/S1/logs/20261014T030622-9490b72b.stdout.log; cat wf6-rerun-20261014-01/wf6-evidence/steps/S1/logs/20261014T032617-c9f83d46.stdout.log\",\"max_output_tokens\":600}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791948435.176333
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1515,
+    "byte_offset": 4953114,
+    "timestamp": "2026-10-14T03:27:17.567Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13873-383f-74a1-bd5a-15fca2bc23b6",
+      "call_id": "call_f70856de7ab04914a596a55a28e7a94c",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.1 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"4c78fb\",\"wall_time_seconds\":0.00001539,\"exit_code\":0,\"original_token_count\":70,\"output\":\"  ✘  60 [routes] › tests/routes.spec.ts:37:9 › admin › [route] household/mealplan/planner/view.vue (20.6s)\\n  ✘  61 [routes] › tests/routes.spec.ts:37:9 › admin › [route] household/mealplan/planner/edit.vue (21.3s)\\n/tmp/wf6-rerun-20261014-01-S1-native tmpfs\\n. v9fs\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791948437.5679233
+      }
+    }
+  }
+}

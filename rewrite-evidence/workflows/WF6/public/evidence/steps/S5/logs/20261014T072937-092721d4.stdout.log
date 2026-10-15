@@ -1,0 +1,13 @@
+{
+  "S4": {
+    "status": "exact_reported",
+    "input_tokens": 6687491,
+    "cached_input_tokens": 6595328,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 46028,
+    "reasoning_output_tokens": 20539,
+    "total_tokens": 6733519,
+    "final_reply_included": true,
+    "coverage_notes": []
+  }
+}

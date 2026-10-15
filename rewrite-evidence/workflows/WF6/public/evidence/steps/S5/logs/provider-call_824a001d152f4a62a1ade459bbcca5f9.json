@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3306,
+    "byte_offset": 9577782,
+    "timestamp": "2026-10-14T07:40:27.183Z",
+    "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf31d1f940819190b6e78604272ded",
+      "status": "completed",
+      "call_id": "call_824a001d152f4a62a1ade459bbcca5f9",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nfrom pathlib import Path\\nimport json,shutil,datetime as dt,difflib\\np=Path('wf6-rerun-20261014-01/wf6-evidence');u=p/'usage';s=p/'steps/S5';f=u/'s5-detection-probe.cjs';old=f.read_text();new=old.replace('// Frozen auth is localhost scoped, so this probe deliberately uses that exact origin.','// Match the fresh auth state origin; cookies do not cross hostnames.').replace('`http://localhost:9106/g/${f.groupSlug}/r/${f.recipeSlug}`','`${process.env.WF6_GATEWAY_ORIGIN}/g/${f.groupSlug}/r/${f.recipeSlug}`');assert new!=old;f.write_text(new);(s/'repair-2-test.diff').write_text(''.join(difflib.unified_diff(old.splitlines(True),new.splitlines(True),fromfile='repair1/s5-detection-probe.cjs',tofile='repair2/s5-detection-probe.cjs')))\\nb=json.loads((s/'repair-budget.json').read_text());b['used']=2;b['rounds'].append(dict(round=2,scope='Detection control test origin; application unchanged',cause='Fresh auth cookie domain 127.0.0.1 but control probe targeted localhost; trace proves real self 401.',fix='Use WF6_GATEWAY_ORIGIN matching this auth state. Preserve all business/ownership assertions and timeout.',failure_log='logs/20261014T073842-d7eb55e2.stdout.log',failure_trace='browser-r1/probe-control/s5-detection-probe.cjs-tar-c4bb3--detail-business-acceptance/trace.zip',diff='repair-2-test.diff'));(s/'repair-budget.json').write_text(json.dumps(b,indent=2)+'\\\\n')\\nwith (s/'attempts.jsonl').open('a') as stream:stream.write(json.dumps(dict(timestamp=dt.datetime.now(dt.timezone.utc).isoformat(),classification='unexpected_test_failure',repair_round=2,**b['rounds'][-1]))+'\\\\n')\\nr=Path('/tmp/wf6-rerun-20261014-01-S5-R2');assert not r.exists();r.mkdir(mode=0o700)\\nfor name in ['auth','tmp','browser','tests']:(r/name).mkdir(mode=0o700)\\nfor name in ['vue','react']:shutil.copytree(Path('/tmp/wf6-rerun-20261014-01-S5')/name,r/name)\\n(r/'identity.json').write_text(json.dumps(dict(run_id='wf6-rerun-20261014-01',stage_id='S5',attempt='repair2',data_dir=str(r/'disposable-data'),ports=[9006,9106]),indent=2)+'\\\\n')\\nshutil.copy2(s/'served-build.json',s/'served-build-r1.json')\\nx=(u/'run_s5.py').read_text().replace(\\\"RUNTIME=Path('/tmp/wf6-rerun-20261014-01-S5')\\\",\\\"RUNTIME=Path('/tmp/wf6-rerun-20261014-01-S5-R2')\\\").replace(\\\"Path('/tmp/wf6-rerun-20261014-01-S4/auth')\\\",\\\"Path('/tmp/wf6-rerun-20261014-01-S5-R1/auth')\\\").replace(\\\"destination=STAGE/'browser'\\\",\\\"destination=STAGE/'browser-r2'\\\").replace(\\\"STAGE/'supplemental-tests'\\\",\\\"STAGE/'supplemental-tests-r2'\\\")\\n(u/'run_s5_r2.py').write_text(x)\\nPY\\npython3 -B wf6-rerun-20261014-01/wf6-evidence/usage/record_command.py --stage S5 --cwd '<WORKSPACE>/wf6-rerun-20261014-01' --label S5-repair2-browser-and-detection-negative --permission 'Approved bounded S5 repair2 loopback backend/gateway/Chromium; sandbox retained' -- python3 -B wf6-evidence/usage/run_s5_r2.py\",\"sandbox_permissions\":\"require_escalated\",\"justification\":\"执行 S5 最后一轮修复重测：仅修正 probe 的 origin 与本轮 cookie domain 一致；新建独立运行副本及认证/数据库，保留两轮失败和冻结业务断言，负例只临时移走本轮 React 资源并恢复。\",\"yield_time_ms\":1000,\"max_output_tokens\":1000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+        "create_time": 1791963601.9761193
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3308,
+    "byte_offset": 9582458,
+    "timestamp": "2026-10-14T07:40:30.684Z",
+    "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a1395b-0c5c-7b60-b14b-f0f0cb0bae05",
+      "call_id": "call_824a001d152f4a62a1ade459bbcca5f9",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 3.5 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"1f7354\",\"wall_time_seconds\":1.001578613,\"session_id\":56252,\"original_token_count\":0,\"output\":\"\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+        "create_time": 1791963630.684685
+      }
+    }
+  }
+}

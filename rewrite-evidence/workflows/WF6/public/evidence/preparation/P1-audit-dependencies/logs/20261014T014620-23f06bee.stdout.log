@@ -1,0 +1,144 @@
+✓ Lockfile passes supply-chain policies (verified 16h ago)
+Lockfile is up to date, resolution step is skipped
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Packages: +1231
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+[WARN] GET https://registry.npmjs.org/dompurify/-/dompurify-3.4.16.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/sse.js/-/sse.js-2.8.0.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/ufo/-/ufo-1.6.4.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+Progress: resolved 1231, reused 0, downloaded 0, added 0
+[WARN] GET https://registry.npmjs.org/vue/-/vue-3.5.43.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/vue-draggable-plus/-/vue-draggable-plus-0.6.1.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/vue-advanced-cropper/-/vue-advanced-cropper-2.8.9.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/vue-i18n/-/vue-i18n-11.4.12.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/vuetify/-/vuetify-4.2.2.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/vuetify-nuxt-module/-/vuetify-nuxt-module-1.0.0-rc.6.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/@stylistic/eslint-plugin/-/eslint-plugin-5.10.0.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/@nuxt/eslint/-/eslint-1.17.0.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/@types/node/-/node-25.9.8.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/@types/sortablejs/-/sortablejs-1.15.9.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/@vitejs/plugin-vue/-/plugin-vue-6.0.9.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/@vitest/coverage-v8/-/coverage-v8-4.1.10.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/@vitest/ui/-/ui-4.1.10.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/@vue/test-utils/-/test-utils-2.5.1.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/eslint/-/eslint-10.11.0.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/eslint-config-prettier/-/eslint-config-prettier-10.1.8.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/eslint-plugin-format/-/eslint-plugin-format-1.5.0.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/eslint-plugin-prettier/-/eslint-plugin-prettier-5.5.6.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/eslint-plugin-vue/-/eslint-plugin-vue-10.11.1.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/lint-staged/-/lint-staged-15.5.2.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/prettier/-/prettier-3.9.9.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/sass-embedded/-/sass-embedded-1.105.0.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/typescript/-/typescript-5.9.3.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/unplugin-auto-import/-/unplugin-auto-import-21.1.0.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/vite-plugin-commonjs/-/vite-plugin-commonjs-0.10.4.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/vitest/-/vitest-4.1.11.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/@nuxt/devtools-kit/-/devtools-kit-2.7.0.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/@nuxt/kit/-/kit-3.21.11.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/consola/-/consola-3.4.2.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/css-tree/-/css-tree-3.2.1.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/defu/-/defu-6.1.7.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/esbuild/-/esbuild-0.25.12.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/fontaine/-/fontaine-0.6.0.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/h3/-/h3-1.15.11.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/jiti/-/jiti-2.7.0.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/magic-regexp/-/magic-regexp-0.10.0.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/magic-string/-/magic-string-0.30.21.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/node-fetch-native/-/node-fetch-native-1.6.7.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/ohash/-/ohash-2.0.12.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/pathe/-/pathe-2.0.3.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/sirv/-/sirv-3.0.2.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/tinyglobby/-/tinyglobby-0.2.17.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/unifont/-/unifont-0.4.1.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/unplugin/-/unplugin-2.3.11.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/unstorage/-/unstorage-1.17.5.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/@intlify/core/-/core-11.4.12.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/@intlify/h3/-/h3-0.7.4.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/@intlify/message-compiler/-/message-compiler-11.4.12.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/@intlify/shared/-/shared-11.4.12.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/fuse.js/-/fuse.js-7.5.0.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/isomorphic-dompurify/-/isomorphic-dompurify-3.23.0.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/json-editor-vue/-/json-editor-vue-0.18.1.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/marked/-/marked-15.0.12.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/nuxt/-/nuxt-4.5.2.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/@mdi/js/-/js-7.4.47.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/@nuxt/fonts/-/fonts-0.11.4.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/@nuxtjs/i18n/-/i18n-10.6.0.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/@vite-pwa/nuxt/-/nuxt-0.10.8.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/@vueuse/core/-/core-12.8.2.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/@vueuse/shared/-/shared-14.4.0.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/axios/-/axios-1.20.0.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[WARN] GET https://registry.npmjs.org/dompurify/-/dompurify-3.4.16.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/sse.js/-/sse.js-2.8.0.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/ufo/-/ufo-1.6.4.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/vue/-/vue-3.5.43.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/vue-draggable-plus/-/vue-draggable-plus-0.6.1.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/vue-advanced-cropper/-/vue-advanced-cropper-2.8.9.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/vue-i18n/-/vue-i18n-11.4.12.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/vuetify/-/vuetify-4.2.2.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/vuetify-nuxt-module/-/vuetify-nuxt-module-1.0.0-rc.6.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/@stylistic/eslint-plugin/-/eslint-plugin-5.10.0.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/@nuxt/eslint/-/eslint-1.17.0.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/@types/node/-/node-25.9.8.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/@types/sortablejs/-/sortablejs-1.15.9.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/@vitejs/plugin-vue/-/plugin-vue-6.0.9.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/@vitest/coverage-v8/-/coverage-v8-4.1.10.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/@vitest/ui/-/ui-4.1.10.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/@vue/test-utils/-/test-utils-2.5.1.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/eslint/-/eslint-10.11.0.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/eslint-config-prettier/-/eslint-config-prettier-10.1.8.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/eslint-plugin-format/-/eslint-plugin-format-1.5.0.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/eslint-plugin-prettier/-/eslint-plugin-prettier-5.5.6.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/eslint-plugin-vue/-/eslint-plugin-vue-10.11.1.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/lint-staged/-/lint-staged-15.5.2.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/prettier/-/prettier-3.9.9.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/sass-embedded/-/sass-embedded-1.105.0.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/typescript/-/typescript-5.9.3.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/unplugin-auto-import/-/unplugin-auto-import-21.1.0.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/vite-plugin-commonjs/-/vite-plugin-commonjs-0.10.4.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/vitest/-/vitest-4.1.11.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/@nuxt/devtools-kit/-/devtools-kit-2.7.0.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/@nuxt/kit/-/kit-3.21.11.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/consola/-/consola-3.4.2.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/css-tree/-/css-tree-3.2.1.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/defu/-/defu-6.1.7.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/esbuild/-/esbuild-0.25.12.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/fontaine/-/fontaine-0.6.0.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/h3/-/h3-1.15.11.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/jiti/-/jiti-2.7.0.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/magic-regexp/-/magic-regexp-0.10.0.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/magic-string/-/magic-string-0.30.21.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/node-fetch-native/-/node-fetch-native-1.6.7.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/ohash/-/ohash-2.0.12.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/pathe/-/pathe-2.0.3.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/sirv/-/sirv-3.0.2.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/tinyglobby/-/tinyglobby-0.2.17.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/unifont/-/unifont-0.4.1.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/unplugin/-/unplugin-2.3.11.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/unstorage/-/unstorage-1.17.5.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/@intlify/core/-/core-11.4.12.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/@intlify/h3/-/h3-0.7.4.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/@intlify/message-compiler/-/message-compiler-11.4.12.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/@intlify/shared/-/shared-11.4.12.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/fuse.js/-/fuse.js-7.5.0.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/isomorphic-dompurify/-/isomorphic-dompurify-3.23.0.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/json-editor-vue/-/json-editor-vue-0.18.1.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/marked/-/marked-15.0.12.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/nuxt/-/nuxt-4.5.2.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/@mdi/js/-/js-7.4.47.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/@nuxt/fonts/-/fonts-0.11.4.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/@nuxtjs/i18n/-/i18n-10.6.0.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/@vite-pwa/nuxt/-/nuxt-0.10.8.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/@vueuse/core/-/core-12.8.2.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/@vueuse/shared/-/shared-14.4.0.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/axios/-/axios-1.20.0.tgz error (EAI_AGAIN). Will retry in 1 minute. 1 retries left.
+[WARN] GET https://registry.npmjs.org/date-fns/-/date-fns-4.4.0.tgz error (EAI_AGAIN). Will retry in 10 seconds. 2 retries left.
+[ERROR] fetch failed
+
+TypeError: fetch failed
+    at Object.processResponse (file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/runtime/tools/pnpm-11.23.0/package/dist/pnpm.mjs:82295:20)
+    at file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/runtime/tools/pnpm-11.23.0/package/dist/pnpm.mjs:82676:23
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/runtime/tools/pnpm-11.23.0/package/dist/pnpm.mjs:87342:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async RetryOperation._fn (file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/runtime/tools/pnpm-11.23.0/package/dist/pnpm.mjs:87865:23)

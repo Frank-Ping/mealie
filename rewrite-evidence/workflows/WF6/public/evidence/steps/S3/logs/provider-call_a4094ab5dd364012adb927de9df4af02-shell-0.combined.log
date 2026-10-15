@@ -1,0 +1,192 @@
+```text
+[[WF6:S3:START]]
+执行 S3。读共同契约与 S2 gate，补齐 S2 tokens。只有全 Vue 网关通过后才继续。
+
+建立 frontend-react-wf6 的最小可构建骨架，使用计划的 React target stack，
+资源前缀 /_wf6/。先不实现食谱业务。加入 React 来源标记、简单导航、真实
+/api/users/self 会话读取与 groupSlug 校验。Vue 负责登录；401、匿名或身份
+不匹配时使用明确的 Vue 入口，保留目标 URL，不能形成跳转循环。
+
+为配置 group 的列表和详情 HTML 路由建立准确接管规则，排除 r/create 及
+其后代、共享与其他 group 路径，以及 edit/parse/cook 等留在 Vue 的模式。
+React 接管判断必须先于 FastAPI 食谱 metadata HTML 路由。网关和 Vue 共用
+route map，加入唯一必要的 wf6-boundary.global.ts，使 Nuxt 内部导航确实
+触发整页切换；React 返回 Vue 也整页跳转。
+
+先验证 Vue 登录 → React 骨架 → Vue 购物清单 → React 骨架、刷新与登录状态。
+骨架只是共存技术探针，不计入业务完成率，不要求完整业务 suite 此时全绿。
+来源标记必须来自真实 React build，不能在 Vue 页写 React 标记来通过检查。
+
+保存会话/接口去敏证据、document 请求、两套资源来源、修改 Vue 的完整 diff、
+build/static 检查和原始失败。S3/S4 共用最多两轮源码修复，记录已使用轮次。
+边界无法成立就停止，不继续做一个脱离 Vue 的两页 React 应用。
+
+完成 [WF6-S3] 提交与证据包；更新预算、tokens 和 provisional 尾部状态。
+报告共存 gate 后停止，结尾写 [[WF6:S3:END]]。
+```
+
+### English Prompt
+
+```text
+[[WF6:S3:START]]
+Execute S3. Read the common contract and S2 gate, and settle S2 tokens. Proceed only
+after the all-Vue gateway is accepted.
+
+Create a minimal buildable frontend-react-wf6 using the planned target stack and
+/_wf6/ asset prefix. Do not implement recipe business features yet. Add a genuine
+React provenance marker, simple navigation and real /api/users/self loading with
+groupSlug validation. Vue owns login. For 401, anonymous or mismatched identity,
+use an explicit Vue entry, preserve the destination and prevent redirect loops.
+
+Define exact HTML takeover routes for the configured group's list/detail. Exclude
+r/create and descendants, shared/other-group paths, and Vue-owned edit/parse/cook
+modes. Gateway takeover must precede FastAPI's recipe metadata HTML route. Use one
+route map in the gateway and the sole necessary wf6-boundary.global.ts middleware
+so Nuxt client navigation triggers document navigation. Returning to Vue must also
+load a document.
+
+Verify Vue login → React skeleton → Vue shopping lists → React skeleton, refresh
+and preserved login. The skeleton is a technical probe, not migrated business
+coverage; the full business suite need not pass yet. React identity must come
+from an actual React build, not a marker attached to a Vue page.
+
+Save redacted session/API evidence, document requests, both asset origins, the full
+Vue diff, static/build checks and initial failures. S3/S4 share at most two source
+repair rounds; record consumption. If coexistence cannot be established, stop
+rather than building detached React pages.
+
+Make a [WF6-S3] commit and complete evidence, budget and token records, leaving
+pending final-reply usage provisional. Report the gate, stop, and end with
+[[WF6:S3:END]].
+```
+
+## S4 实现真实食谱切片 Implement the real recipe slice
+
+### 中文 Prompt
+
+import http from 'node:http';
+import { createReadStream } from 'node:fs';
+import { readFile, realpath, stat } from 'node:fs/promises';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const hopHeaders = new Set(['connection', 'keep-alive', 'proxy-authenticate', 'proxy-authorization', 'te', 'trailer', 'transfer-encoding', 'upgrade']);
+const mime = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.mjs': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.json': 'application/json; charset=utf-8', '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.webp': 'image/webp', '.ico': 'image/x-icon', '.woff': 'font/woff', '.woff2': 'font/woff2', '.txt': 'text/plain; charset=utf-8', '.webmanifest': 'application/manifest+json' };
+
+function cleanHeaders(headers) {
+  const excluded = new Set([...hopHeaders, ...String(headers.connection ?? '').split(',').map(x => x.trim().toLowerCase())]);
+  return Object.fromEntries(Object.entries(headers).filter(([key]) => !excluded.has(key.toLowerCase())));
+}
+
+export async function createGateway({ vueDir, backendOrigin, routeMapPath = fileURLToPath(new URL('./route-map.json', import.meta.url)), buildHash }) {
+  const root = await realpath(vueDir);
+  const map = JSON.parse(await readFile(routeMapPath, 'utf8'));
+  if (map.takeoverEnabled || map.defaultFrontend !== 'vue' || map.activeReactRoutes.length) throw new Error('S2 supports verified all-Vue mode only. React takeover must remain disabled.');
+  const backend = new URL(backendOrigin);
+  if (backend.protocol !== 'http:' || !['127.0.0.1', 'localhost'].includes(backend.hostname)) throw new Error('Backend must be an isolated loopback HTTP origin.');
+  if (!buildHash) throw new Error('A verified build hash is required.');
+  await stat(path.join(root, 'index.html'));
+  const server = http.createServer(async (req, res) => {
+    const fail = (code, message) => { if (!res.headersSent) res.writeHead(code, { 'content-type': 'text/plain; charset=utf-8', 'cache-control': 'no-store' }); res.end(message); };
+    try {
+      const url = new URL(req.url, 'http://localhost');
+      const pathname = decodeURIComponent(url.pathname);
+      if (pathname.includes('\0') || pathname.includes('\\') || pathname.split('/').some(x => x === '..')) return fail(400, 'Invalid path');
+      if (map.backendPrefixes.some(prefix => pathname === prefix || pathname.startsWith(prefix + '/'))) {
+        const headers = cleanHeaders(req.headers);
+        headers.host = backend.host;
+        headers['x-forwarded-host'] = req.headers.host;
+        headers['x-forwarded-proto'] = 'http';
+        const upstream = http.request(new URL(url.pathname + url.search, backend), { method: req.method, headers }, reply => {
+          const responseHeaders = cleanHeaders(reply.headers);
+          // Keep each Set-Cookie header separate; do not join or log credentials.
+          if (responseHeaders.location?.startsWith(backend.origin)) responseHeaders.location = responseHeaders.location.replace(backend.origin, `http://${req.headers.host}`);
+          responseHeaders['x-wf6-backend'] = 'isolated';
+          res.writeHead(reply.statusCode, responseHeaders);
+          reply.on('error', () => res.destroy());
+          reply.pipe(res);
+        });
+        upstream.setTimeout(30000, () => upstream.destroy(new Error('Upstream timeout')));
+        upstream.on('error', () => fail(502, 'Isolated backend unavailable'));
+        req.on('aborted', () => upstream.destroy());
+        req.pipe(upstream);
+        return;
+      }
+      if (!['GET', 'HEAD'].includes(req.method)) return fail(405, 'Method not allowed');
+      if (pathname === '/_wf6/route-map.json') {
+        res.writeHead(200, { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store' });
+        return res.end(req.method === 'HEAD' ? undefined : JSON.stringify(map));
+      }
+      if (pathname.split('/').some(part => part.startsWith('.'))) return fail(404, 'Not found');
+      let file = path.resolve(root, '.' + pathname);
+      if (!file.startsWith(root + path.sep) && file !== root) return fail(400, 'Invalid path');
+      let info = await stat(file).catch(() => null);
+      if (info?.isDirectory()) { file = path.join(file, 'index.html'); info = await stat(file).catch(() => null); }
+      if (!info?.isFile()) {
+        // Missing assets are real 404s. Only document requests use history fallback.
+        const asset = pathname.startsWith('/_nuxt/') || pathname.startsWith('/_wf6/') || Boolean(path.extname(pathname));
+        if (asset || !String(req.headers.accept ?? '').includes('text/html')) return fail(404, 'Not found');
+        file = path.join(root, 'index.html'); info = await stat(file);
+      }
+      const resolved = await realpath(file);
+      if (!resolved.startsWith(root + path.sep)) return fail(404, 'Not found');
+      const type = mime[path.extname(file)] ?? 'application/octet-stream';
+      res.writeHead(200, { 'content-type': type, 'content-length': info.size, 'x-wf6-frontend': 'vue', 'x-wf6-build': buildHash,
+        'cache-control': type.startsWith('text/html') ? 'no-store' : pathname.startsWith('/_nuxt/') ? 'public, max-age=31536000, immutable' : 'no-cache' });
+      if (req.method === 'HEAD') return res.end();
+      createReadStream(file).on('error', () => res.destroy()).pipe(res);
+    } catch { fail(400, 'Invalid request'); }
+  });
+  return server;
+}
+
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  const server = await createGateway({ vueDir: process.env.WF6_VUE_DIR, backendOrigin: process.env.WF6_BACKEND_ORIGIN,
+    buildHash: process.env.WF6_BUILD_HASH, routeMapPath: process.env.WF6_ROUTE_MAP });
+  server.listen(Number(process.env.WF6_PORT ?? 9106), '127.0.0.1', () => console.log(JSON.stringify({ event: 'gateway_ready', port: server.address().port, takeoverEnabled: false, buildHash: process.env.WF6_BUILD_HASH })));
+  for (const signal of ['SIGTERM', 'SIGINT']) process.on(signal, () => server.close(() => process.exit(0)));
+}
+{
+  "version": 1,
+  "stage": "S2",
+  "takeoverEnabled": false,
+  "groupSlug": null,
+  "defaultFrontend": "vue",
+  "explicitVueQuery": { "name": "wf6", "value": "vue" },
+  "backendPrefixes": ["/api", "/media"],
+  "candidateReactRoutes": ["/g/<testGroupSlug>", "/g/<testGroupSlug>/r/<slug>"],
+  "vueOwnedExclusions": ["create and all descendants", "shared pages", "other groups", "edit/parse/cook modes", "all non-pilot routes"],
+  "activeReactRoutes": [],
+  "navigation": "All pages remain Vue-owned in S2. No client middleware or React build is installed."
+}
+{
+  "limit_seconds": 10800,
+  "first_start_utc": "2026-10-14T04:01:41.937Z",
+  "stages": [
+    "S2",
+    "S3",
+    "S4",
+    "S5",
+    "S6"
+  ],
+  "segments": [
+    {
+      "stage": "S2",
+      "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+      "start_utc": "2026-10-14T04:01:41.937Z",
+      "end_utc": "2026-10-14T04:24:11.702Z",
+      "elapsed_seconds": 1349.765,
+      "status": "closed"
+    }
+  ],
+  "policy": "Only authorized model/tool execution segments. Exclude S0, preparation, S1, between-turn human pauses and S7. This first segment begins at the actual S2 request.",
+  "known_execution_seconds": 1349.765,
+  "remaining_seconds": 9450.235
+}
+# S2 all-Vue gateway / 全 Vue 网关
+
+Gate PASS. 真实同源 Vue 登录、食谱列表/详情、购物清单、直达与刷新通过；接管关闭，未进入 S3。
+
+Fresh Vue build `af9a32e7318fd2c82d289f49f335d13168ddb476bf3d0ec152834ebc6f14c914`. S1 type diagnostics remain FAIL: 318 vs historical 315, cause not established. S1 final reply covered; usage partial due to interrupted earlier segment.
+
+[Full bilingual result, commands, raw trace and usage](../../../../wf6-evidence/steps/S2/result.md). Raw evidence and credentials remain outside Git.

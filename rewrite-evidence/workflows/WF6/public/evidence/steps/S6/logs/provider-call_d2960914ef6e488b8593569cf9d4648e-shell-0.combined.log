@@ -1,0 +1,11 @@
+1:# S1 unchanged Vue baseline / 未修改 Vue 基线
+11:Measure frozen Vue input `4b9ca06b6581f7152e164ea0fd9d4da366975a79` and evaluator `758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d` with frozen installs, static generation, units, coverage, lint, actual type diagnostics and the complete real-browser yardstick. The build was produced from docs-only S0 HEAD `955e790f86c9c4ff2d56e06b9e54d948cbf0e698`; build manifest SHA256 is `51e1fc21edd74fdb002a57a5e11b8085932a0898945685edb45177aece86d733`. Backend code is served from the evaluator checkout, whose frozen backend tree was verified identical to the source input in S0.
+15:冻结安装及验收构建通过。Unit 实际成绩如上；lint 无错误或警告；coverage 重跑相同测试，不重复计数。
+26:Actual Vue typecheck reports 318 diagnostics, separately recorded as FAIL. The initial missing-checker failure is retained; diagnostic-only TypeScript 5.9.3 and vue-tsc 3.1.5 were installed outside the app manifests. No source errors were repaired; no historical diagnostic count is assumed.
+27:实际 Vue typecheck 报出 318 条诊断，单独记 FAIL。保留最初缺少工具的失败；辅助 checker 安装于运行目录，未修改应用 manifest 或源码。
+32:Future authorized stages should use verified Linux-native runtime paths and record every attempt. Existing Vue type errors stay separate. This baseline gives no React completion, route coexistence, boundary or fallback evidence. Costs and human review time are not provided. Complete ancestor Git history remains unavailable behind declared shallow boundaries; pinned tree/blob provenance and working bytes were verified.
+45:- [Machine measurements](baseline-measurements.json), [Coverage](coverage/coverage-summary.json), [Types](machine/type-diagnostics.json)
+52:Evidence-only commit / 仅证据提交: `f318d69d033e5269415f0b94d4beebd8d70a00dc` (`[WF6-S1]`). Both checkouts are clean; all 1711 source and 1789 evaluator original manifest entries match. 实际 build HEAD 保持构建时 SHA，提交仅包含两个 baseline 文档。
+[('S6-rollback-frozen-inventory', 0), ('S6-rollback-frozen-selected-four', 0), ('S6-owned-gateway', 0), ('S6-restored-real-browser-and-ownership', 0)]
+20261014T075643-c05b6fdc.stdout.log
+

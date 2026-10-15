@@ -1,0 +1,21 @@
+20261014T075439-ad795754.stdout.log 0
+
+20261014T075532-S6-backend.stdout.log 312
+WARNING  2026-10-14T07:55:40 - Secrets directory '/run/secrets' does not exist
+WARNING  2026-10-14T07:55:50 - Secrets directory '/run/secrets' does not exist
+ERROR    2026-10-14T07:55:55 - Incorrect username or password from 127.0.0.1
+ERROR    2026-10-14T07:56:01 - Incorrect username or password from 127.0.0.1
+
+20261014T075532-S6-gateway.stdout.log 204
+{"event":"gateway_ready","port":9106,"vueBuildHash":"3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231","reactBuildHash":"2b409d4deadf1bc17acc5a4a6634e638feca52550caec23a7d6f23f6dd1493f8"}
+
+20261014T075532-bd78e1f0.stdout.log 0
+
+20261014T075551-S6-rollback-gateway.stdout.log 204
+{"event":"gateway_ready","port":9106,"vueBuildHash":"3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231","reactBuildHash":"2b409d4deadf1bc17acc5a4a6634e638feca52550caec23a7d6f23f6dd1493f8"}
+
+20261014T075551-e76215df.stdout.log 32
+
+Running 1 test using 1 worker
+
+

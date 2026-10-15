@@ -1,0 +1,2 @@
+  ✘  64 [routes] › tests/routes.spec.ts:37:9 › admin › [route] user/profile/index.vue (18.7s)
+  ✘  65 [routes] › tests/routes.spec.ts:37:9 › admin › [route] user/profile/edit.vue (18.5s)

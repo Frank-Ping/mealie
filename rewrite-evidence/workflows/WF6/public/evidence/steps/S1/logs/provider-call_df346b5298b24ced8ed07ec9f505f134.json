@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1351,
+    "byte_offset": 4622029,
+    "timestamp": "2026-10-14T03:14:44.213Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acef3a019288191996c7e31c6575be0",
+      "status": "completed",
+      "call_id": "call_df346b5298b24ced8ed07ec9f505f134",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"cat wf6-rerun-20261014-01/wf6-evidence/steps/S0/source-state.json; cat wf6-rerun-20261014-01/wf6-evidence/steps/S0/file-manifest.json | head -30; rg -n '^def |raw-provider|original_shell|S0|manifest' wf6-rerun-20261014-01/wf6-evidence/usage/collect_usage.py\",\"max_output_tokens\":5000}));\ntext(await tools.write_stdin({session_id:62149,chars:\"\",yield_time_ms:1000,max_output_tokens:1000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791947680.1017084
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1355,
+    "byte_offset": 4631305,
+    "timestamp": "2026-10-14T03:14:46.239Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13867-c15f-7510-8089-db387c41907f",
+      "call_id": "call_df346b5298b24ced8ed07ec9f505f134",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 2.0 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"939b6b\",\"wall_time_seconds\":0.000010343,\"exit_code\":0,\"original_token_count\":915,\"output\":\"{\\n  \\\"snapshot_utc\\\": \\\"2026-10-14T01:20:39.775768+00:00\\\",\\n  \\\"source\\\": {\\n    \\\"path\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist\\\",\\n    \\\"pinned_input_sha\\\": \\\"4b9ca06b6581f7152e164ea0fd9d4da366975a79\\\",\\n    \\\"actual_head\\\": \\\"955e790f86c9c4ff2d56e06b9e54d948cbf0e698\\\",\\n    \\\"dirty\\\": false,\\n    \\\"untracked\\\": [],\\n    \\\"remotes\\\": [],\\n    \\\"shallow\\\": \\\"true\\\",\\n    \\\"shared_objects\\\": false,\\n    \\\"served_build\\\": null,\\n    \\\"build_note\\\": \\\"No application build or service in S0.\\\"\\n  },\\n  \\\"evaluator\\\": {\\n    \\\"path\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator\\\",\\n    \\\"pinned_input_sha\\\": \\\"758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d\\\",\\n    \\\"actual_head\\\": \\\"758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d\\\",\\n    \\\"dirty\\\": false,\\n    \\\"untracked\\\": [],\\n    \\\"remotes\\\": [],\\n    \\\"shallow\\\": \\\"true\\\",\\n    \\\"shared_objects\\\": false,\\n    \\\"served_build\\\": null,\\n    \\\"build_note\\\": \\\"No application build or service in S0.\\\"\\n  }\\n}\\n{\\n  \\\"snapshot_utc\\\": \\\"2026-10-14T01:20:39.777792+00:00\\\",\\n  \\\"source\\\": [\\n    {\\n      \\\"path\\\": \\\".claude/settings.json\\\",\\n      \\\"sha256\\\": \\\"1a1b0a51b01ec0915360f37bfbdfbbe4d19ddf751b9be0a1050af4cf558be118\\\",\\n      \\\"bytes\\\": 638,\\n      \\\"symlink\\\": false\\n    },\\n    {\\n      \\\"path\\\": \\\".devcontainer/Dockerfile\\\",\\n      \\\"sha256\\\": \\\"f3bd2e738ed8cde6a220ee5788d46c11f8c320e77dd7e23946411b24c13d502a\\\",\\n      \\\"bytes\\\": 680,\\n      \\\"symlink\\\": false\\n    },\\n    {\\n      \\\"path\\\": \\\".devcontainer/devcontainer-lock.json\\\",\\n      \\\"sha256\\\": \\\"67f464659f19a1d6037f6ebeda63978afa0d8ac17a4365a01883ca637020ddf0\\\",\\n      \\\"bytes\\\": 965,\\n      \\\"symlink\\\": false\\n    },\\n    {\\n      \\\"path\\\": \\\".devcontainer/devcontainer.json\\\",\\n      \\\"sha256\\\": \\\"31f512b8069794973df557079d371ad136549a12d6fe41b73cc49eb4a8f740f6\\\",\\n      \\\"bytes\\\": 2045,\\n      \\\"symlink\\\": false\\n    },\\n    {\\n      \\\"path\\\": \\\".dockerignore\\\",\\n      \\\"sha256\\\": \\\"7643cb020e78d29cfa012bafe32ea4a9b864671497b82d9a60e6055dcb8b355c\\\",\\n21:def now():\\n24:def read_log(path):\\n41:def payload(row):\\n44:def text_of(pl):\\n47:def locator(row):\\n50:def original_shell_commands(original_input):\\n63:def turn_of(pl, fallback=None):\\n66:def valid_usage(data):\\n69:def sums(events):\\n73:def redact(value):\\n84:def analyze(records, config, read_issues=None):\\n186:    if not stage_segments[\\\"S0\\\"]:\\n188:        boundary=dict(stage_id=\\\"S0\\\",action=\\\"START\\\",session_id=session,turn_id=config.get(\\\"initial_turn_id\\\"),\\n193:        stage_segments[\\\"S0\\\"].append(dict(boundary=boundary,turn_id=config.get(\\\"initial_turn_id\\\"),request_line=config[\\\"start_line\\\"]))\\n249:def write_json(path,data):\\n253:def write_lines(path,rows):\\n257:def reconcile_index(evidence):\\n265:def manifest(evidence):\\n268:        if file.is_file() and file.name!=\\\"evidence-manifest.json\\\":\\n270:    write_json(evidence/\\\"evidence-manifest.json\\\",dict(updated_utc=now(),self_included=False,files=rows))\\n272:def collect(config_path):\\n291:    for label,stage_ids in ((\\\"S0_setup\\\",[\\\"S0\\\"]),(\\\"S1_baseline\\\",[\\\"S1\\\"]),(\\\"S2_S6_experiment\\\",[f\\\"S{i}\\\" for i in range(2,7)]),(\\\"S7_reporting\\\",[\\\"S7\\\"])):\\n326:    write_lines(evidence/\\\"steps/S0/provider-tool-events.jsonl\\\",redact(tools))\\n331:    folder=evidence/\\\"steps/S0/logs\\\"\\n341:            shell_commands=original_shell_commands(original_input)\\n362:    write_lines(evidence/\\\"steps/S0/provider-command-events.jsonl\\\",provider_commands)\\n373:            writer.writerow(dict(category=entry.get(\\\"category\\\", \\\"S1_baseline\\\" if entry.get(\\\"stage_id\\\")==\\\"S1\\\" else \\\"S0_setup\\\"),stage_id=entry.get(\\\"preparation_id\\\") if is_preparation else entry.get(\\\"stage_id\\\",\\\"S0\\\"),**{k:entry.get(k) for k in timing_fields if k not in (\\\"category\\\",\\\"stage_id\\\",\\\"aggregation\\\")},\\n383:    manifest(evidence)\\n386:def main():\\n\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"ee8fd2\",\"wall_time_seconds\":1.870044893,\"exit_code\":0,\"original_token_count\":201,\"output\":\"{\\\"command_id\\\": \\\"20261014T031435-88898812\\\", \\\"stage_id\\\": \\\"S1\\\", \\\"label\\\": \\\"S1-prepare-identical-build-native-runtime\\\", \\\"argv\\\": [\\\"python3\\\", \\\"-B\\\", \\\"wf6-evidence/usage/prepare_s1_native.py\\\"], \\\"cwd\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01\\\", \\\"start_utc\\\": \\\"2026-10-14T03:14:35.396606+00:00\\\", \\\"end_utc\\\": \\\"2026-10-14T03:14:46.223172+00:00\\\", \\\"duration_seconds\\\": 10.826571891999265, \\\"exit_code\\\": 0, \\\"stdout\\\": \\\"steps/S1/logs/20261014T031435-88898812.stdout.log\\\", \\\"stderr\\\": \\\"steps/S1/logs/20261014T031435-88898812.stderr.log\\\", \\\"environment_overrides\\\": {}, \\\"permission\\\": \\\"workspace-write; network restricted; no escalation\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791947686.2395072
+      }
+    }
+  }
+}

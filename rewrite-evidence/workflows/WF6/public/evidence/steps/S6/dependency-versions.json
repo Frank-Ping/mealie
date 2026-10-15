@@ -1,0 +1,66 @@
+{
+  "package": {
+    "name": "mealie-wf6-react-probe",
+    "version": "0.0.0",
+    "private": true,
+    "type": "module",
+    "scripts": {
+      "typecheck": "tsc --noEmit",
+      "build": "vite build",
+      "lint": "eslint . --max-warnings=0",
+      "test": "node --test src/business.test.ts"
+    },
+    "dependencies": {
+      "react": "19.3.0",
+      "react-dom": "19.3.0",
+      "react-router": "7.18.4",
+      "@mui/material": "7.3.11",
+      "@emotion/react": "11.14.0",
+      "@emotion/styled": "11.14.1",
+      "i18next": "25.10.10",
+      "react-i18next": "16.6.6"
+    },
+    "devDependencies": {
+      "vite": "8.3.4",
+      "@vitejs/plugin-react": "6.1.2",
+      "typescript": "5.9.3",
+      "@types/react": "19.3.0",
+      "@types/react-dom": "19.3.0",
+      "@types/node": "24.19.2",
+      "eslint": "9.39.5",
+      "@eslint/js": "9.39.5",
+      "typescript-eslint": "8.71.2",
+      "eslint-plugin-react-hooks": "5.2.0",
+      "globals": "16.5.0"
+    }
+  },
+  "lint_metadata": [
+    {
+      "package": "eslint",
+      "pinned_version": "9.39.5",
+      "command_id": "20261014T061530-5cb60406"
+    },
+    {
+      "package": "@eslint/js",
+      "pinned_version": "9.39.5",
+      "command_id": "20261014T061540-57970fc4"
+    },
+    {
+      "package": "typescript-eslint",
+      "pinned_version": "8.71.2",
+      "command_id": "20261014T061548-9ee73a66"
+    },
+    {
+      "package": "eslint-plugin-react-hooks",
+      "pinned_version": "5.2.0",
+      "command_id": "20261014T061556-bc9bbae8"
+    },
+    {
+      "package": "globals",
+      "pinned_version": "16.5.0",
+      "command_id": "20261014T061604-e07279f1"
+    }
+  ],
+  "native_dependency_root": "/tmp/wf6-rerun-20261014-01-S4/deps",
+  "install_scripts": false
+}

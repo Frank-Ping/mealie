@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1024,
+    "byte_offset": 3616127,
+    "timestamp": "2026-10-14T02:38:15.678Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016aceeb11d4648191b68539d6afd1dc9c",
+      "status": "completed",
+      "call_id": "call_15f8252b7a4d419d88cd18c94fb69db5",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nfrom pathlib import Path\\nimport json\\ns=Path('wf6-rerun-20261014-01/wf6-evidence/steps/S1');d=json.loads((s/'machine/unit-results.json').read_text());print({k:d.get(k) for k in ['success','numTotalTestSuites','numPassedTestSuites','numFailedTestSuites','numTotalTests','numPassedTests','numFailedTests','numPendingTests','startTime']});print((s/'logs/20261014T022219-9342196b.stdout.log').read_text()[-600:])\\nPY\\npython3 -B wf6-rerun-20261014-01/wf6-evidence/usage/record_command.py --stage S1 --cwd '<WORKSPACE>/wf6-rerun-20261014-01' --label S1-Vue-coverage-measurement -- python3 -B wf6-evidence/usage/run_s1.py coverage\",yield_time_ms:1000,max_output_tokens:1600}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791945489.83269
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1026,
+    "byte_offset": 3618230,
+    "timestamp": "2026-10-14T02:38:16.846Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13846-590e-7823-a3ac-90551347c43b",
+      "call_id": "call_15f8252b7a4d419d88cd18c94fb69db5",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 1.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"809ab2\",\"wall_time_seconds\":1.001024881,\"session_id\":80082,\"original_token_count\":206,\"output\":\"{'success': True, 'numTotalTestSuites': 173, 'numPassedTestSuites': 173, 'numFailedTestSuites': 0, 'numTotalTests': 517, 'numPassedTests': 517, 'numFailedTests': 0, 'numPendingTests': 0, 'startTime': 1791944556586}\\ns\\n ✓ app/composables/__tests__/use-passwords.test.ts (2 tests) 4ms\\n ✓ app/lib/api/base/routes.test.ts (4 tests) 2ms\\n ✓ app/lib/recipe/recipe-finder.test.ts (3 tests) 2ms\\n ✓ app/composables/recipes/__tests__/use-recipe-nutrition.test.ts (10 tests) 2ms\\n\\n Test Files  48 passed (48)\\n      Tests  517 passed (517)\\n   Start at  15:22:36\\n   Duration  927.51s (transform 18.25s, setup 92.91s, import 30.66s, tests 3.48s, environment 690.73s)\\n\\nJSON report written to <WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/steps/S1/machine/unit-results.json\\n\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791945496.84685
+      }
+    }
+  }
+}

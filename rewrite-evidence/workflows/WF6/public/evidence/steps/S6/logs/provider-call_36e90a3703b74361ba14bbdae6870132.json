@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 4404,
+    "byte_offset": 12580090,
+    "timestamp": "2026-10-14T09:37:07.207Z",
+    "turn_id": "01a139bb-53dc-7111-96d4-1398771bbfb1",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf4d3f63708191b692fde4940767e7",
+      "status": "completed",
+      "call_id": "call_36e90a3703b74361ba14bbdae6870132",
+      "name": "exec",
+      "input": "text(await tools.write_stdin({session_id:21959,chars:\"\",yield_time_ms:1000,max_output_tokens:800}));\ntext(await tools.exec_command({cmd:\"python3 -B wf6-rerun-20261014-01/wf6-evidence/usage/record_command.py --stage S6 --cwd '<WORKSPACE>/wf6-rerun-20261014-01' --label S6-C3-postcommit-source-build-verification -- python3 -B wf6-evidence/usage/postcommit_s6_c3.py\",\"yield_time_ms\":1000,\"max_output_tokens\":1000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a139bb-53dc-7111-96d4-1398771bbfb1",
+        "create_time": 1791970623.3964128
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 4406,
+    "byte_offset": 12581883,
+    "timestamp": "2026-10-14T09:37:08.391Z",
+    "turn_id": "01a139bb-53dc-7111-96d4-1398771bbfb1",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a139c5-d327-73b3-bc8a-711e23aba364",
+      "call_id": "call_36e90a3703b74361ba14bbdae6870132",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 1.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"99da58\",\"wall_time_seconds\":0.000009342,\"exit_code\":0,\"original_token_count\":220,\"output\":\"{\\\"command_id\\\": \\\"20261014T093636-ffef4713\\\", \\\"stage_id\\\": \\\"S6\\\", \\\"label\\\": \\\"S6-C3-commit-successful-acceptance-record\\\", \\\"argv\\\": [\\\"git\\\", \\\"-C\\\", \\\"mealie-wf6-coexist\\\", \\\"commit\\\", \\\"-m\\\", \\\"[WF6-S6] Record real comment persistence and complete strict regression acceptance\\\"], \\\"cwd\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01\\\", \\\"start_utc\\\": \\\"2026-10-14T09:36:36.057200+00:00\\\", \\\"end_utc\\\": \\\"2026-10-14T09:36:37.287863+00:00\\\", \\\"duration_seconds\\\": 1.230676567996852, \\\"exit_code\\\": 0, \\\"stdout\\\": \\\"steps/S6/logs/20261014T093636-ffef4713.stdout.log\\\", \\\"stderr\\\": \\\"steps/S6/logs/20261014T093636-ffef4713.stderr.log\\\", \\\"environment_overrides\\\": {}, \\\"permission\\\": \\\"workspace-write; network restricted; no escalation\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"14a380\",\"wall_time_seconds\":1.000910631,\"session_id\":54582,\"original_token_count\":0,\"output\":\"\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a139bb-53dc-7111-96d4-1398771bbfb1",
+        "create_time": 1791970628.3918333
+      }
+    }
+  }
+}

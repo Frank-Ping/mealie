@@ -1,0 +1,152 @@
+Warning: truncated output (original token count: 1322)
+Total output lines: 169
+
+65:export interface CreateIngredientFood {
+66-  id?: string | null;
+67-  name: string;
+68-  pluralName?: string | null;
+69-  description?: string;
+70-  extras?: {
+71-    [k: string]: unknown;
+72-  } | null;
+73-  labelId?: string | null;
+74-  aliases?: CreateIngredientFoodAlias[];
+75-  substitutions?: CreateIngredientFoodSubstitution[];
+76-  householdsWithIngredientFood?: string[];
+77-}
+78:export interface CreateIngredientFoodAlias {
+79-  name: string;
+80-}
+81:export interface CreateIngredientFoodSubstitution {
+82-  substituteFoodId?: string | null;
+83-  note?: string | null;
+84-}
+85:export interface CreateIngredientUnit {
+86-  id?: string | null;
+87-  name: string;
+88-  pluralName?: string | null;
+89-  description?: string;
+90-  extras?: {
+91-    [k: string]: unknown;
+92-  } | null;
+93-  fraction?: boolean;
+94-  abbreviation?: string;
+95-  pluralAbbreviation?: string | null;
+96-  useAbbreviation?: boolean;
+97-  aliases?: CreateIngredientUnitAlias[];
+98-  standardQuantity?: number | null;
+99-  standardUnit?: string | null;
+100-}
+101:export interface CreateIngredientUnitAlias {
+102-  name: string;
+103-}
+104-export interface CreateRecipe {
+105-  name: string;
+106-}
+107-export interface CreateRecipeBulk {
+108-  url: string;
+109-  categories?: RecipeCategory[] | null;
+110-  tags?: RecipeTag[] | null;
+111-}
+112-export interface RecipeCategory {
+113-  id?: string | null;
+114-  groupId?: string | null;
+115-  name: string;
+116-  slug: string;
+117-  recipeCount?: number;
+118-}
+119-export interface RecipeTag {
+120-  id?: string | null;
+121-  groupId?: string | null;
+122-  name: string;
+123-  slug: string;
+--
+151:export interface IngredientFood {
+152-  id: string;
+153-  name: string;
+154-  pluralName?: string | null;
+155-  description?: string;
+156-  extras?: {
+157-    [k: string]: unknown;
+158-  } | null;
+159-  labelId?: string | null;
+160-  aliases?: IngredientFoodAlias[];
+161-  substitutions?: IngredientFoodSubstitution[];
+162-  householdsWithIngredientFood?: string[];
+163-  label?: MultiPurposeLabelSummary | null;
+164-  createdAt?: string | null;
+165-  updatedAt?: string | null;
+166-}
+167:export interface IngredientFoodAlias {
+168-  name: string;
+169-}
+170:export interface IngredientFoodSubstitution {
+171-  substituteFoodId?: string | null;
+172-  note?: string | null;
+173-  substituteFood?: IngredientFoodSummary | null;
+174-}
+175:export interface IngredientFoodSumma…122 tokens truncated…;
+196-  pluralName?: string | null;
+197-  description?: string;
+198-  extras?: {
+199-    [k: string]: unknown;
+200-  } | null;
+201-  fraction?: boolean;
+202-  abbreviation?: string;
+203-  pluralAbbreviation?: string | null;
+204-  useAbbreviation?: boolean;
+205-  aliases?: IngredientUnitAlias[];
+206-  standardQuantity?: number | null;
+207-  standardUnit?: string | null;
+208-  createdAt?: string | null;
+209-  updatedAt?: string | null;
+210-}
+211:export interface IngredientUnitAlias {
+212-  name: string;
+213-}
+214-export interface IngredientsRequest {
+215-  parser?: RegisteredParser;
+216-  ingredients: string[];
+217-}
+218-export interface MergeFood {
+219-  fromFood: string;
+220-  toFood: string;
+221-}
+222-export interface MergeUnit {
+223-  fromUnit: string;
+224-  toUnit: string;
+225-}
+226-export interface NoteReference {
+227-  referenceId?: string | null;
+228-}
+229-export interface Nutrition {
+230-  calories?: string | null;
+231-  carbohydrateContent?: string | null;
+232-  cholesterolContent?: string | null;
+233-  fatContent?: string | null;
+48:    per_page: int = 50
+53:    per_page: int = 10
+55:    total_pages: int = 0
+61:        if self.page >= self.total_pages:
+import { expect, type Page } from "@playwright/test";
+
+/**
+ * Errors caused by the headless test browser rather than by the app. Keep this list short and
+ * specific: anything added here stops counting against every frontend under test.
+ */
+const ENVIRONMENT_ERRORS: RegExp[] = [
+  // Headless Chromium always denies the Screen Wake Lock API ("Keep Screen Awake" on recipe/list pages).
+  /NotAllowedError: Wake Lock permission request denied/,
+];
+
+// Network failures already show up as console errors; 4xx are expected for some permission checks
+// (e.g. a public page probing an authed endpoint), so only 5xx answers count, tracked separately.
+const IGNORED_CONSOLE = [/^Failed to load resource: the server responded with a status of 4\d\d/];
+
+12:// Network failures already show up as console errors; 4xx are expected for some permission checks
+27:  page.on("pageerror", (err) => {
+31:  page.on("console", (msg) => {
+33:    if (msg.type() === "error" && !envNoise(text) && !IGNORED_CONSOLE.some(re => re.test(text))) {
+34:      problems.push(`console.error: ${text.slice(0, 300)}`);
+43:      // Let in-flight requests settle so late errors are caught too.
+48:      expect(problems, "page raised errors").toEqual([]);

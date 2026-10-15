@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 4708,
+    "byte_offset": 13844851,
+    "timestamp": "2026-10-14T10:01:49.847Z",
+    "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf5305b938819186ccaa96c8dbe601",
+      "status": "completed",
+      "call_id": "call_47a9a38a128b4ea59eb9f720a17ac3e6",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport sys,json,pathlib\\nsys.path.insert(0,'wf6-evidence/usage')\\nfrom collect_usage import manifest,reconcile_index,now,write_json\\nE=pathlib.Path('wf6-evidence');p=E/'usage/collect_usage.py';s=p.read_text();needle='        sync_usage()\\\\n    manifest(evidence)';replacement='        sync_usage()\\\\n        write_json(evidence/\\\"usage/index-validation.json\\\",dict(timestamp=now(),missing_links=reconcile_index(evidence)))\\\\n    manifest(evidence)';assert needle in s;p.write_text(s.replace(needle,replacement))\\nwrite_json(E/'usage/index-validation.json',dict(timestamp=now(),missing_links=reconcile_index(E)))\\np=E/'steps/S7/source-state.json';state=json.loads(p.read_text());state['report_commit']=state['source']['head'];write_json(p,state)\\nmanifest(E);assert not reconcile_index(E)\\nprint(json.dumps(dict(report_commit=state['report_commit'],missing_links=[],manifest_self_included=False,S7_final_reply_included=False,finalize_command='python3 -B wf6-evidence/usage/collect_usage.py finalize --all --wait-seconds 30')))\\nPY\",\"workdir\":\"<WORKSPACE>/wf6-rerun-20261014-01\",\"yield_time_ms\":1000,\"max_output_tokens\":150}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+        "create_time": 1791972101.7267153
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 4710,
+    "byte_offset": 13847431,
+    "timestamp": "2026-10-14T10:01:51.024Z",
+    "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a139dc-72b0-7e91-802c-f76914cf3178",
+      "call_id": "call_47a9a38a128b4ea59eb9f720a17ac3e6",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 1.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"2dc335\",\"wall_time_seconds\":1.002445811,\"session_id\":82665,\"original_token_count\":0,\"output\":\"\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+        "create_time": 1791972111.0249388
+      }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3397,
+    "byte_offset": 9781873,
+    "timestamp": "2026-10-14T07:46:35.587Z",
+    "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf3355d61c8191ac793e9c70bb85ff",
+      "status": "completed",
+      "call_id": "call_b374c84604164fffb41909ae474cb3b6",
+      "name": "exec",
+      "input": "text(await tools.write_stdin({session_id:92795,chars:\"\",yield_time_ms:1000,max_output_tokens:1000}));\ntext(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json\\nfrom pathlib import Path\\np=Path('wf6-rerun-20261014-01/wf6-evidence');s=p/'steps/S5';u=json.loads((s/'token-usage.json').read_text());print('usage',{k:u.get(k) for k in ['session_id','turn_ids','status','final_reply_included','input_tokens','cached_input_tokens','output_tokens','reasoning_output_tokens','total_tokens']});b=json.loads((p/'experiment-budget.json').read_text());print('budget',b['known_execution_seconds'],b['remaining_seconds']);print('commit',json.loads((s/'source-state.json').read_text())['acceptance_commit']);print('links',json.loads((p/'usage/index-validation.json').read_text()));print('transcript',json.loads((s/'transcript-coverage.json').read_text()))\\nPY\",\"max_output_tokens\":1800}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+        "create_time": 1791963989.8389187
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3400,
+    "byte_offset": 9787204,
+    "timestamp": "2026-10-14T07:46:35.749Z",
+    "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13960-9e65-7820-8efe-a890fd7843fe",
+      "call_id": "call_b374c84604164fffb41909ae474cb3b6",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.1 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"838e97\",\"wall_time_seconds\":0.000011537,\"exit_code\":0,\"original_token_count\":212,\"output\":\"{\\\"command_id\\\": \\\"20261014T074604-5ad384f2\\\", \\\"stage_id\\\": \\\"S5\\\", \\\"label\\\": \\\"S5-provisional-usage-and-budget-tail\\\", \\\"argv\\\": [\\\"python3\\\", \\\"-B\\\", \\\"wf6-evidence/usage/collect_usage.py\\\", \\\"finalize\\\", \\\"--stage\\\", \\\"S5\\\", \\\"--wait-seconds\\\", \\\"0\\\"], \\\"cwd\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01\\\", \\\"start_utc\\\": \\\"2026-10-14T07:46:04.821237+00:00\\\", \\\"end_utc\\\": \\\"2026-10-14T07:46:18.230655+00:00\\\", \\\"duration_seconds\\\": 13.409434021999914, \\\"exit_code\\\": 0, \\\"stdout\\\": \\\"steps/S5/logs/20261014T074604-5ad384f2.stdout.log\\\", \\\"stderr\\\": \\\"steps/S5/logs/20261014T074604-5ad384f2.stderr.log\\\", \\\"environment_overrides\\\": {}, \\\"permission\\\": \\\"workspace-write; network restricted; no escalation\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"0b6a8c\",\"wall_time_seconds\":0.000011083,\"exit_code\":0,\"original_token_count\":255,\"output\":\"usage {'session_id': '01a137ea-f571-70f0-8cf3-7b8560c420bf', 'turn_ids': ['01a13950-206a-7bc2-bb38-6d6e5387c349'], 'status': 'provisional', 'final_reply_included': False, 'input_tokens': 4978051, 'cached_input_tokens': 4877568, 'output_tokens': 25627, 'reasoning_output_tokens': 6463, 'total_tokens': 5003678}\\nbudget 6017.463122 4782.536878\\ncommit a4487ac3e1331cd116d08dcca41cc8de23a5eb2b\\nlinks {'timestamp': '2026-10-14T07:46:06.745366+00:00', 'missing_links': []}\\ntranscript {'source': '<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl', 'turn_ids': ['01a13950-206a-7bc2-bb38-6d6e5387c349'], 'entry_count': 101, 'coverage': 'Available original user/visible assistant/tool items only. Analysis, system/developer instructions and environment injection are excluded. Tool source may contain supplied user instructions.', 'raw_stream_policy': 'Command stdout/stderr remain unchanged in logs; shareable transcript is redacted.', 'final_reply_included': False}\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+        "create_time": 1791963995.7490227
+      }
+    }
+  }
+}

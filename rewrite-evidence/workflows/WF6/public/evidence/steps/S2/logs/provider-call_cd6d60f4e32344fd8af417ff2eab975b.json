@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2342,
+    "byte_offset": 6595988,
+    "timestamp": "2026-10-14T04:18:40.681Z",
+    "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf029d95f881919e7b809b15b51b96",
+      "status": "completed",
+      "call_id": "call_cd6d60f4e32344fd8af417ff2eab975b",
+      "name": "exec",
+      "input": "text(await tools.write_stdin({session_id:69690,chars:\"\",yield_time_ms:1000,max_output_tokens:1000}));\ntext(await tools.exec_command({cmd:\"python3 - <<'PY'\\nfrom pathlib import Path\\ns=Path('wf6-rerun-20261014-01/wf6-evidence/steps/S2/logs')\\nfor p in sorted(s.glob('20261014T041[78]*log')):\\n if p.stat().st_size:print(p.name,p.read_text()[-800:])\\nPY\",\"max_output_tokens\":1900}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+        "create_time": 1791951517.5933354
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2345,
+    "byte_offset": 6601461,
+    "timestamp": "2026-10-14T04:18:40.922Z",
+    "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a138a2-449a-77d2-be52-a803cfe87206",
+      "call_id": "call_cd6d60f4e32344fd8af417ff2eab975b",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"d93b7c\",\"wall_time_seconds\":0.000027048,\"exit_code\":0,\"original_token_count\":207,\"output\":\"{\\\"command_id\\\": \\\"20261014T041728-1e840165\\\", \\\"stage_id\\\": \\\"S2\\\", \\\"label\\\": \\\"S2-real-all-Vue-gateway-acceptance\\\", \\\"argv\\\": [\\\"python3\\\", \\\"-B\\\", \\\"wf6-evidence/usage/run_s2.py\\\"], \\\"cwd\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01\\\", \\\"start_utc\\\": \\\"2026-10-14T04:17:28.029390+00:00\\\", \\\"end_utc\\\": \\\"2026-10-14T04:18:18.641959+00:00\\\", \\\"duration_seconds\\\": 50.61257979700167, \\\"exit_code\\\": 0, \\\"stdout\\\": \\\"steps/S2/logs/20261014T041728-1e840165.stdout.log\\\", \\\"stderr\\\": \\\"steps/S2/logs/20261014T041728-1e840165.stderr.log\\\", \\\"environment_overrides\\\": {}, \\\"permission\\\": \\\"Approved isolated S2 FastAPI/gateway/Chromium and protocol sockets; default sandbox unchanged\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"26c08c\",\"wall_time_seconds\":0.035250641,\"exit_code\":0,\"original_token_count\":646,\"output\":\"20261014T041728-1e840165.stdout.log wf6-rerun-20261014-01-S2/static\\\", \\\"WF6_BACKEND_ORIGIN\\\": \\\"http://127.0.0.1:9006\\\", \\\"WF6_PORT\\\": \\\"9106\\\", \\\"WF6_BUILD_HASH\\\": \\\"af9a32e7318fd2c82d289f49f335d13168ddb476bf3d0ec152834ebc6f14c914\\\", \\\"WF6_PLAYWRIGHT_MODULE\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/node_modules/@playwright/test\\\", \\\"WF6_AUTH_DIR\\\": \\\"/tmp/wf6-rerun-20261014-01-S2/auth\\\", \\\"WF6_GATEWAY_ORIGIN\\\": \\\"http://127.0.0.1:9106\\\", \\\"WF6_BROWSER_EVIDENCE\\\": \\\"/tmp/wf6-rerun-20261014-01-S2/browser/requests-redacted.json\\\"}, \\\"permission\\\": \\\"Approved bounded S2 loopback backend/gateway/Chromium; default sandbox unchanged\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n\\n20261014T041728-S2-backend.stderr.log WARNING  2026-10-14T04:17:40 - Secrets directory '/run/secrets' does not exist\\nWARNING  2026-10-14T04:17:55 - Secrets directory '/run/secrets' does not exist\\nERROR    2026-10-14T04:18:02 - Incorrect username or password from 127.0.0.1\\nERROR    2026-10-14T04:18:10 - Incorrect username or password from 127.0.0.1\\n\\n20261014T041728-S2-backend.stdout.log WARNING  2026-10-14T04:17:40 - Secrets directory '/run/secrets' does not exist\\nWARNING  2026-10-14T04:17:55 - Secrets directory '/run/secrets' does not exist\\nERROR    2026-10-14T04:18:02 - Incorrect username or password from 127.0.0.1\\nERROR    2026-10-14T04:18:10 - Incorrect username or password from 127.0.0.1\\n\\n20261014T041728-S2-gateway.stdout.log {\\\"event\\\":\\\"gateway_ready\\\",\\\"port\\\":9106,\\\"takeoverEnabled\\\":false,\\\"buildHash\\\":\\\"af9a32e7318fd2c82d289f49f335d13168ddb476bf3d0ec152834ebc6f14c914\\\"}\\n\\n20261014T041756-472bb9dc.stdout.log {\\\"mock_transport_checks\\\":\\\"PASS\\\",\\\"scope\\\":\\\"Local protocol fixture only, separate from real backend/browser acceptance\\\"}\\n✔ all-Vue transport preserves bodies/status/cookies and separates asset misses from history (106.204512ms)\\nℹ tests 1\\nℹ suites 0\\nℹ pass 1\\nℹ fail 0\\nℹ cancelled 0\\nℹ skipped 0\\nℹ todo 0\\nℹ duration_ms 277.051402\\n\\n20261014T041756-fbebdd5f.stderr.log (node:39858) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.\\n(Use `node --trace-warnings ...` to show where the warning was created)\\n\\n20261014T041756-fbebdd5f.stdout.log \\nRunning 1 test using 1 worker\\n\\n  ✓  1 ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S2/tests/s2-browser-tests.cjs:7:1 › real all-Vue gateway: login, list, detail, shopping list, direct URL and refresh (7.2s)\\n\\n  1 passed (15.6s)\\n\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+        "create_time": 1791951520.922638
+      }
+    }
+  }
+}

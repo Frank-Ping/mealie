@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "stage": "S3",
+  "takeoverEnabled": false,
+  "groupSlug": "home",
+  "defaultFrontend": "vue",
+  "explicitVueQuery": {
+    "name": "wf6",
+    "value": "vue"
+  },
+  "backendPrefixes": [
+    "/api",
+    "/media"
+  ],
+  "candidateReactRoutes": [
+    "/g/<testGroupSlug>",
+    "/g/<testGroupSlug>/r/<slug>"
+  ],
+  "vueOwnedExclusions": [
+    "create and all descendants",
+    "shared pages",
+    "other groups",
+    "edit/parse/cook modes",
+    "all non-pilot routes"
+  ],
+  "activeReactRoutes": [],
+  "navigation": "React skeleton only. Vue/React boundary uses shared route-policy.mjs and document navigation; explicit wf6=vue suppresses takeover.",
+  "vueModes": [
+    "edit",
+    "parse",
+    "cook"
+  ],
+  "excludedSlugs": [
+    "create",
+    "shared"
+  ]
+}

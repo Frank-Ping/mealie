@@ -1,0 +1,13 @@
+{
+  "S6": {
+    "status": "provisional",
+    "input_tokens": 27576411,
+    "cached_input_tokens": 27272320,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 90632,
+    "reasoning_output_tokens": 28350,
+    "total_tokens": 27667043,
+    "final_reply_included": false,
+    "coverage_notes": []
+  }
+}

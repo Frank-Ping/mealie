@@ -1,0 +1,57 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2987,
+    "byte_offset": 8419737,
+    "timestamp": "2026-10-14T06:33:59.068Z",
+    "turn_id": "01a13905-d942-7e23-8387-48f7946bf050",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf224f89f08191ad54c942fb3523d1",
+      "status": "completed",
+      "call_id": "call_fa9227d21628493d9ac88b2465ee6a21",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 -B wf6-rerun-20261014-01/wf6-evidence/usage/record_command.py --stage S4 --cwd '<WORKSPACE>/wf6-rerun-20261014-01' --label S4-stage-only-recipe-pilot-and-summary -- git -C mealie-wf6-coexist add -- frontend-react-wf6 rewrite-evidence/workflows/WF6/S4-RESULT.md\",\"yield_time_ms\":1000,\"max_output_tokens\":650}));\ntext(await tools.exec_command({cmd:\"git --no-optional-locks -C wf6-rerun-20261014-01/mealie-wf6-coexist diff --cached --stat\",\"max_output_tokens\":800}));\ntext(await tools.exec_command({cmd:\"python3 -B wf6-rerun-20261014-01/wf6-evidence/usage/record_command.py --stage S4 --cwd '<WORKSPACE>/wf6-rerun-20261014-01' --label S4-commit-real-read-only-recipe-pilot -- git -C mealie-wf6-coexist commit -m '[WF6-S4] Implement and verify real scoped read-only recipes'\",\"yield_time_ms\":1000,\"max_output_tokens\":650}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13905-d942-7e23-8387-48f7946bf050",
+        "create_time": 1791959631.5426579
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2991,
+    "byte_offset": 8425839,
+    "timestamp": "2026-10-14T06:34:01.007Z",
+    "turn_id": "01a13905-d942-7e23-8387-48f7946bf050",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a1391e-2baf-7020-ad4a-6599f83b4fd0",
+      "call_id": "call_fa9227d21628493d9ac88b2465ee6a21",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 1.9 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"b1e8d0\",\"wall_time_seconds\":0.238272527,\"exit_code\":0,\"original_token_count\":215,\"output\":\"{\\\"command_id\\\": \\\"20261014T063359-9d0400c8\\\", \\\"stage_id\\\": \\\"S4\\\", \\\"label\\\": \\\"S4-stage-only-recipe-pilot-and-summary\\\", \\\"argv\\\": [\\\"git\\\", \\\"-C\\\", \\\"mealie-wf6-coexist\\\", \\\"add\\\", \\\"--\\\", \\\"frontend-react-wf6\\\", \\\"rewrite-evidence/workflows/WF6/S4-RESULT.md\\\"], \\\"cwd\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01\\\", \\\"start_utc\\\": \\\"2026-10-14T06:33:59.289575+00:00\\\", \\\"end_utc\\\": \\\"2026-10-14T06:33:59.494025+00:00\\\", \\\"duration_seconds\\\": 0.20445629299865686, \\\"exit_code\\\": 0, \\\"stdout\\\": \\\"steps/S4/logs/20261014T063359-9d0400c8.stdout.log\\\", \\\"stderr\\\": \\\"steps/S4/logs/20261014T063359-9d0400c8.stderr.log\\\", \\\"environment_overrides\\\": {}, \\\"permission\\\": \\\"workspace-write; network restricted; no escalation\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"17ce8d\",\"wall_time_seconds\":0.109613408,\"exit_code\":0,\"original_token_count\":170,\"output\":\" frontend-react-wf6/eslint.config.mjs        |   12 +\\n frontend-react-wf6/package-lock.json        | 1359 ++++++++++++++++++++++++++-\\n frontend-react-wf6/package.json             |   11 +-\\n frontend-react-wf6/src/api.ts               |   53 ++\\n frontend-react-wf6/src/business.test.ts     |   50 +\\n frontend-react-wf6/src/main.tsx             |   25 +-\\n frontend-react-wf6/src/model.ts             |   11 +\\n frontend-react-wf6/src/recipes.tsx          |   78 ++\\n frontend-react-wf6/src/strings.ts           |   14 +\\n frontend-react-wf6/tsconfig.json            |   30 +-\\n rewrite-evidence/workflows/WF6/S4-RESULT.md |    8 +\\n 11 files changed, 1624 insertions(+), 27 deletions(-)\\n\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"dc29f3\",\"wall_time_seconds\":1.001503881,\"session_id\":39001,\"original_token_count\":0,\"output\":\"\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13905-d942-7e23-8387-48f7946bf050",
+        "create_time": 1791959641.007002
+      }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 4563,
+    "byte_offset": 13595064,
+    "timestamp": "2026-10-14T09:55:47.167Z",
+    "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf518994a481919b62f23454e8f9b4",
+      "status": "completed",
+      "call_id": "call_5322e844b6624ee7acc50ae2c5fdf27b",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"cat > wf6-evidence/usage/audit_s7_history.py <<'PY'\\n\\\"\\\"\\\"Check historical Git snapshots and disjoint provider response ownership.\\\"\\\"\\\"\\nimport hashlib,json,subprocess\\nfrom pathlib import Path\\nfrom finish_s7 import E,S,V,T,write,now,git\\nchecks=[]\\nfor f in [E/'steps'/f'S{i}' for i in range(7)]+[E/'steps/S6'/f'continuation-0{i}' for i in range(1,4)]:\\n state=json.loads((f/'source-state.json').read_text()); inv=json.loads((f/'file-manifest.json').read_text());roles=[]\\n for role,repo in [('source',S),('evaluator',V)]:\\n  r=state.get(role,{});head=r.get('actual_head') or r.get('head') or r.get('actual_sha')\\n  if not head:\\n   roles.append(dict(role=role,status='not_provided',reason='Snapshot HEAD schema unavailable; audit does not infer it.'));continue\\n  tree=subprocess.check_output(['git','-C',str(repo),'ls-tree','-rz','--full-tree',head]);mapping={}\\n  for line in tree.split(b'\\\\0'):\\n   if line:\\n    meta,path=line.split(b'\\\\t');mapping[path.decode()]=meta.split()[2].decode()\\n  rows=inv[role];ids=list(dict.fromkeys(mapping[x['path']] for x in rows if x['path'] in mapping));raw=subprocess.check_output(['git','-C',str(repo),'cat-file','--batch'],input=('\\\\n'.join(ids)+'\\\\n').encode());pos=0;blobs={}\\n  for oid in ids:\\n   end=raw.index(b'\\\\n',pos);header=raw[pos:end].split();size=int(header[2]);body=raw[end+1:end+1+size];pos=end+size+2;blobs[oid]=hashlib.sha256(body).hexdigest()\\n  mismatch=[x['path'] for x in rows if x['path'] in mapping and blobs[mapping[x['path']]]!=x['sha256']];absent=[x['path'] for x in rows if x['path'] not in mapping]\\n  roles.append(dict(role=role,head=head,verified_matches=len(rows)-len(mismatch)-len(absent),mismatches=mismatch,not_in_recorded_commit=absent,interpretation='Documentation acceptance updates or implementation files captured before their commit remain explicit differences; original manifest is retained.'))\\n checks.append(dict(stage=str(f.relative_to(E)),roles=roles))\\nl=json.loads((E/'usage/usage-ledger.json').read_text());seen=set();duplicates=[];segments=[]\\nfor stage in l['stages']:\\n for s in stage['segments']:\\n  for response in s['response_ids']:\\n   if response in seen:duplicates.append(response)\\n   seen.add(response)\\n  assert s['usage']['total_tokens']==s['usage']['input_tokens']+s['usage']['output_tokens']\\n  segments.append(dict(stage=stage['stage_id'],turn=s['turn_id'],start=s['boundary'],end=s['end_event'],final_reply=s['final_reply_included'],response_count=len(s['response_ids'])))\\nfor key in ['preparation','extra_discussion']:\\n for response in l[key]['response_ids']:\\n  if response in seen:duplicates.append(response)\\n  seen.add(response)\\nassert not duplicates\\nwrite(T/'historical-source-and-accounting-audit.json',dict(timestamp=now(),snapshots=checks,segments=segments,duplicate_response_ids=duplicates,total_distinct_provider_responses=len(seen),coverage='Checks known reported provider responses only; S1 unknown gap is not reconstructed. No inherited legacy/cumulative snapshots added.'))\\nprint(json.dumps(dict(snapshots=checks,duplicate_response_ids=duplicates),ensure_ascii=False))\\nPY\\npython3 -B wf6-evidence/usage/record_command.py --stage S7 --cwd \\\"$PWD\\\" --label historical-source-and-accounting-audit -- python3 -B wf6-evidence/usage/audit_s7_history.py\",\"workdir\":\"<WORKSPACE>/wf6-rerun-20261014-01\",\"yield_time_ms\":1000,\"max_output_tokens\":600}));\ntext(await tools.write_stdin({session_id:32135,chars:\"\",yield_time_ms:1000,max_output_tokens:600}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+        "create_time": 1791971721.5833485
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 4565,
+    "byte_offset": 13600023,
+    "timestamp": "2026-10-14T09:55:48.358Z",
+    "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a139d6-ea06-73a2-b307-1b82b7404fcd",
+      "call_id": "call_5322e844b6624ee7acc50ae2c5fdf27b",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 1.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"b115b6\",\"wall_time_seconds\":1.001118752,\"session_id\":45576,\"original_token_count\":0,\"output\":\"\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"2a0edc\",\"wall_time_seconds\":0.000019121,\"exit_code\":0,\"original_token_count\":199,\"output\":\"{\\\"command_id\\\": \\\"20261014T095506-ec27a205\\\", \\\"stage_id\\\": \\\"S7\\\", \\\"label\\\": \\\"verify-report-links-and-capture-doc-state\\\", \\\"argv\\\": [\\\"python3\\\", \\\"-B\\\", \\\"wf6-evidence/usage/verify_s7.py\\\"], \\\"cwd\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01\\\", \\\"start_utc\\\": \\\"2026-10-14T09:55:06.438547+00:00\\\", \\\"end_utc\\\": \\\"2026-10-14T09:55:43.153878+00:00\\\", \\\"duration_seconds\\\": 36.71533091500169, \\\"exit_code\\\": 0, \\\"stdout\\\": \\\"steps/S7/logs/20261014T095506-ec27a205.stdout.log\\\", \\\"stderr\\\": \\\"steps/S7/logs/20261014T095506-ec27a205.stderr.log\\\", \\\"environment_overrides\\\": {}, \\\"permission\\\": \\\"workspace-write; network restricted; no escalation\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+        "create_time": 1791971748.3581023
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1507,
+    "byte_offset": 4947107,
+    "timestamp": "2026-10-14T03:26:23.177Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "function_call",
+      "id": "fc_0aed6ad8672e0512016acef65e89748191adff9d10ee732473",
+      "name": "sleep",
+      "namespace": "clock",
+      "arguments": "{\"duration_ms\":50000}",
+      "call_id": "call_3c65615dea0948938fbe97b5994e4f87",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791948382.5421846
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1510,
+    "byte_offset": 4948878,
+    "timestamp": "2026-10-14T03:27:13.188Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "function_call_output",
+      "id": "fco_01a13873-2724-7f73-b7bc-15cc06c2f46a",
+      "call_id": "call_3c65615dea0948938fbe97b5994e4f87",
+      "output": "Wall time: 50.0046 seconds\nSleep completed.",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791948433.188205
+      }
+    }
+  }
+}

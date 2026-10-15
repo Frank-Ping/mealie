@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1547,
+    "byte_offset": 4994896,
+    "timestamp": "2026-10-14T03:30:16.050Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acef745873881919f6414892e5d6005",
+      "status": "completed",
+      "call_id": "call_56c760c8e92a4bea9bfe9fa3def29983",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"cat wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/tests/flows/auth.spec.ts 2>/dev/null | head -45; tail -2 wf6-rerun-20261014-01/wf6-evidence/steps/S1/logs/20261014T030622-9490b72b.stdout.log\",\"max_output_tokens\":800}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791948613.5306623
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1550,
+    "byte_offset": 5000259,
+    "timestamp": "2026-10-14T03:30:16.187Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13875-f1fb-76f0-aaf7-57d997e9877b",
+      "call_id": "call_56c760c8e92a4bea9bfe9fa3def29983",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.1 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"df43e1\",\"wall_time_seconds\":0.000013246,\"exit_code\":0,\"original_token_count\":656,\"output\":\"import { expect, test } from \\\"@playwright/test\\\";\\nimport { ADMIN, loadFixtures, MEMBER, NAMES } from \\\"../../lib/fixtures\\\";\\nimport { loginViaUi, visibleText } from \\\"../../lib/ui\\\";\\n\\ntest.describe(\\\"auth\\\", () => {\\n  test.use({ storageState: { cookies: [], origins: [] } });\\n\\n  test(\\\"[flow] log in with valid credentials and land on the recipe list\\\", async ({ page }) => {\\n    const f = loadFixtures();\\n    await loginViaUi(page, ADMIN.email, ADMIN.password);\\n    await expect(page).toHaveURL(new RegExp(`/g/${f.groupSlug}/?$`));\\n    await expect(visibleText(page, NAMES.recipe)).toBeVisible();\\n    await expect(visibleText(page, ADMIN.fullName)).toBeVisible();\\n  });\\n\\n  test(\\\"[flow] a wrong password is rejected\\\", async ({ page }) => {\\n    await page.goto(\\\"/login\\\");\\n    await page.getByRole(\\\"textbox\\\", { name: \\\"Email or Username\\\" }).fill(ADMIN.email);\\n    await page.getByRole(\\\"textbox\\\", { name: \\\"Password\\\" }).fill(\\\"definitely-not-the-password\\\");\\n    const answer = page.waitForResponse(r => r.url().includes(\\\"/api/auth/token\\\"));\\n    await page.getByRole(\\\"button\\\", { name: \\\"Login\\\" }).click();\\n    expect((await answer).status()).toBe(401);\\n    await expect(visibleText(page, /invalid|incorrect/i)).toBeVisible();\\n    await expect(page).toHaveURL(/\\\\/login\\\\/?$/);\\n  });\\n\\n  test(\\\"[flow] log out ends the session\\\", async ({ page }) => {\\n    const f = loadFixtures();\\n    await loginViaUi(page, ADMIN.email, ADMIN.password);\\n    await page.getByRole(\\\"button\\\", { name: \\\"Logout\\\" }).click();\\n    await expect(page).toHaveURL(/\\\\/login\\\\/?/);\\n    await page.goto(`/g/${f.groupSlug}/r/${f.recipeSlug}`);\\n    await expect(page).toHaveURL(/\\\\/login\\\\/?/);\\n  });\\n\\n  // Admin pages are only reachable through admin navigation. (Note: in the Vue reference, a member who\\n  // types an /admin URL directly still gets the page shell with every admin API call answering 403;\\n  // the backend is the real guard, so the yardstick checks what the member is offered, not that.)\\n  test(\\\"[flow] a regular member is not offered admin pages\\\", async ({ page }) => {\\n    const f = loadFixtures();\\n    await loginViaUi(page, MEMBER.email, MEMBER.password);\\n    await page.goto(`/g/${f.groupSlug}`);\\n    await expect(visibleText(page, MEMBER.fullName)).toBeVisible();\\n    await expect(visibleText(page, NAMES.recipe)).toBeVisible();\\n    await page.getByText(\\\"Settings\\\", { exact: true }).filter({ visible: true }).first().click();\\n  ✘  67 [routes] › tests/routes.spec.ts:37:9 › admin › [route] user/[id]/favorites.vue (18.0s)\\n  ✘  68 [flows] › tests/flows/admin.spec.ts:5:7 › admin › [flow] create a user and find them in user management (46.5s)\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791948616.1870387
+      }
+    }
+  }
+}

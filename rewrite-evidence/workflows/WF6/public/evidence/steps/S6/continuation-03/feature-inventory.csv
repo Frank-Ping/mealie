@@ -1,0 +1,6 @@
+feature,owner,actual_result,limitation
+List/search/detail,React,See frozen routes/open/search flows,Configured own group only
+Logout/role Settings navigation,React -> Vue,Original four flow results,"Settings/login pages are Vue, not React migration"
+Comment submission/persistence,React,"{'startTime': '2026-10-14T09:31:12.429Z', 'duration': 6277.225, 'expected': 1, 'skipped': 0, 'unexpected': 0, 'flaky': 0}",Only read/create; no edit/delete
+Vue retained domains,Vue,See rollback/full strict,Not React migration score
+Coverage/cost/review time,not_provided,not_provided,No zero fill

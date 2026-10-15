@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 4418,
+    "byte_offset": 12611541,
+    "timestamp": "2026-10-14T09:38:25.419Z",
+    "turn_id": "01a139bb-53dc-7111-96d4-1398771bbfb1",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf4d8b59488191ae8aa2e2129b68c0",
+      "status": "completed",
+      "call_id": "call_841cfe6ad400478eb3a8fef073e6b27d",
+      "name": "exec",
+      "input": "text(await tools.write_stdin({session_id:27497,chars:\"\",yield_time_ms:1000,max_output_tokens:1000}));\ntext(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nfrom pathlib import Path\\nimport json\\np=Path('wf6-rerun-20261014-01/wf6-evidence');s=p/'steps/S6';u=json.loads((s/'token-usage.json').read_text());print('usage',{k:u.get(k) for k in ['status','final_reply_included','input_tokens','cached_input_tokens','output_tokens','reasoning_output_tokens','total_tokens']});print('segments',[(x['final_reply_included'],x['usage']['total_tokens']) for x in u['segments']]);b=json.loads((p/'experiment-budget.json').read_text());print('budget',b['known_execution_seconds'],b['remaining_seconds']);st=json.loads((s/'continuation-03/source-state.json').read_text());print('commit',st['acceptance_commit']);print('links',json.loads((p/'usage/index-validation.json').read_text()))\\nPY\",\"max_output_tokens\":1300}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a139bb-53dc-7111-96d4-1398771bbfb1",
+        "create_time": 1791970699.3524485
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 4421,
+    "byte_offset": 12616368,
+    "timestamp": "2026-10-14T09:38:25.599Z",
+    "turn_id": "01a139bb-53dc-7111-96d4-1398771bbfb1",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a139c7-00bf-7a72-a51a-e292c2cecd82",
+      "call_id": "call_841cfe6ad400478eb3a8fef073e6b27d",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"f90292\",\"wall_time_seconds\":0.00000999,\"exit_code\":0,\"original_token_count\":216,\"output\":\"{\\\"command_id\\\": \\\"20261014T093743-ec96969a\\\", \\\"stage_id\\\": \\\"S6\\\", \\\"label\\\": \\\"S6-C3-provisional-four-disjoint-segments-budget-tail\\\", \\\"argv\\\": [\\\"python3\\\", \\\"-B\\\", \\\"wf6-evidence/usage/collect_usage.py\\\", \\\"finalize\\\", \\\"--stage\\\", \\\"S6\\\", \\\"--wait-seconds\\\", \\\"0\\\"], \\\"cwd\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01\\\", \\\"start_utc\\\": \\\"2026-10-14T09:37:43.138938+00:00\\\", \\\"end_utc\\\": \\\"2026-10-14T09:38:03.203711+00:00\\\", \\\"duration_seconds\\\": 20.06478213200171, \\\"exit_code\\\": 0, \\\"stdout\\\": \\\"steps/S6/logs/20261014T093743-ec96969a.stdout.log\\\", \\\"stderr\\\": \\\"steps/S6/logs/20261014T093743-ec96969a.stderr.log\\\", \\\"environment_overrides\\\": {}, \\\"permission\\\": \\\"workspace-write; network restricted; no escalation\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"e61603\",\"wall_time_seconds\":0.000011007,\"exit_code\":0,\"original_token_count\":113,\"output\":\"usage {'status': 'provisional', 'final_reply_included': False, 'input_tokens': 32179512, 'cached_input_tokens': 31851904, 'output_tokens': 106918, 'reasoning_output_tokens': 34238, 'total_tokens': 32286430}\\nsegments [(True, 7711295), (True, 5373909), (True, 13951453), (False, 5249773)]\\nbudget 10507.611604 292.3883960000003\\ncommit 06569c09ec71e75d4ecf066f0b3b5aada4da1728\\nlinks {'timestamp': '2026-10-14T09:37:45.691209+00:00', 'missing_links': []}\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a139bb-53dc-7111-96d4-1398771bbfb1",
+        "create_time": 1791970705.599756
+      }
+    }
+  }
+}

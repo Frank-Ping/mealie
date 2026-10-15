@@ -1,0 +1,12 @@
+{
+  "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+  "executable": "<WORKSPACE>/wf6-rerun-20261014-01/runtime/env/backend/bin/python",
+  "packages": {
+    "mealie": "3.28.0",
+    "fastapi": "0.141.1",
+    "uvicorn": "0.53.0",
+    "pytest": "9.1.1",
+    "python-ldap": "3.4.8",
+    "psycopg2-binary": "2.9.13"
+  }
+}

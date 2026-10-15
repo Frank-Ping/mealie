@@ -1,0 +1,29 @@
+test_bearer_and_named_credentials_redacted (__main__.AccountingTests.test_bearer_and_named_credentials_redacted) ... ok
+test_compaction_inherited_counter_gap_is_partial (__main__.AccountingTests.test_compaction_inherited_counter_gap_is_partial) ... ok
+test_conflicting_duplicate_is_partial (__main__.AccountingTests.test_conflicting_duplicate_is_partial) ... ok
+test_continue_uses_disjoint_segments (__main__.AccountingTests.test_continue_uses_disjoint_segments) ... ok
+test_counter_reset_not_clamped (__main__.AccountingTests.test_counter_reset_not_clamped) ... ok
+test_cross_turn_late_events_not_swallowed (__main__.AccountingTests.test_cross_turn_late_events_not_swallowed) ... ok
+test_delayed_final_usage_is_provisional (__main__.AccountingTests.test_delayed_final_usage_is_provisional) ... ok
+test_duplicate_response_not_added (__main__.AccountingTests.test_duplicate_response_not_added) ... ok
+test_duplicate_user_identity_deduplicated (__main__.AccountingTests.test_duplicate_user_identity_deduplicated) ... ok
+test_embedded_marker_is_not_a_request (__main__.AccountingTests.test_embedded_marker_is_not_a_request) ... ok
+test_exact_identity_boundary_final_and_consistency (__main__.AccountingTests.test_exact_identity_boundary_final_and_consistency) ... ok
+test_export_replaces_current_total_and_preserves_history (__main__.AccountingTests.test_export_replaces_current_total_and_preserves_history) ... ok
+test_foreign_session_excluded_and_partial (__main__.AccountingTests.test_foreign_session_excluded_and_partial) ... ok
+test_hidden_content_not_exported (__main__.AccountingTests.test_hidden_content_not_exported) ... ok
+test_incomplete_tail_is_excluded (__main__.AccountingTests.test_incomplete_tail_is_excluded) ... ok
+test_legacy_counters_never_added (__main__.AccountingTests.test_legacy_counters_never_added) ... ok
+test_missing_boundary_not_zero (__main__.AccountingTests.test_missing_boundary_not_zero) ... ok
+test_missing_field_remains_null (__main__.AccountingTests.test_missing_field_remains_null) ... ok
+test_missing_source_preserves_authorized_stage (__main__.AccountingTests.test_missing_source_preserves_authorized_stage) ... ok
+test_missing_task_complete_is_provisional (__main__.AccountingTests.test_missing_task_complete_is_provisional) ... ok
+test_preparation_excluded (__main__.AccountingTests.test_preparation_excluded) ... ok
+test_provider_original_shell_commands_recovered_without_execution (__main__.AccountingTests.test_provider_original_shell_commands_recovered_without_execution) ... ok
+test_repeated_start_is_partial_and_preserved (__main__.AccountingTests.test_repeated_start_is_partial_and_preserved) ... ok
+test_unexecuted_is_not_zero (__main__.AccountingTests.test_unexecuted_is_not_zero) ... ok
+
+----------------------------------------------------------------------
+Ran 24 tests in 0.016s
+
+OK

@@ -1,0 +1,6 @@
+[('S6-C2-R2-React-strict-TypeScript', 0), ('S6-C2-R2-React-lint', 0), ('S6-C2-R2-business-unit-checks', 0), ('S6-C2-R2-shared-route-policy-matrix', 0), ('S6-C2-R2-React-production-build', 0)]
+[rewrite/wf6-route-coexistence 8cbba16] [WF6-S6] Authorize limited auth navigation and comment scope extension
+ 1 file changed, 14 insertions(+)
+[rewrite/wf6-route-coexistence ab03294] [WF6-S6] Implement real logout role navigation and persisted comments
+ 5 files changed, 164 insertions(+), 59 deletions(-)
+ create mode 100644 frontend-react-wf6/src/comments.tsx

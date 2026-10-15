@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3369,
+    "byte_offset": 9736767,
+    "timestamp": "2026-10-14T07:45:22.916Z",
+    "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf330f9f5081918ee30fc6f671aea9",
+      "status": "completed",
+      "call_id": "call_bc4d086b9f2c4e0fb6954e9fa76cb863",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 -B wf6-rerun-20261014-01/wf6-evidence/usage/record_command.py --stage S5 --cwd '<WORKSPACE>/wf6-rerun-20261014-01' --label S5-commit-verified-journey-and-detection -- git -C mealie-wf6-coexist commit -m '[WF6-S5] Record verified journey boundaries and failure detection'\",\"yield_time_ms\":1000,\"max_output_tokens\":1000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+        "create_time": 1791963919.6287904
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3371,
+    "byte_offset": 9738503,
+    "timestamp": "2026-10-14T07:45:24.118Z",
+    "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a1395f-8696-7c32-a10d-426ace99a61b",
+      "call_id": "call_bc4d086b9f2c4e0fb6954e9fa76cb863",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 1.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"51a526\",\"wall_time_seconds\":1.001626198,\"session_id\":45079,\"original_token_count\":0,\"output\":\"\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+        "create_time": 1791963924.1180382
+      }
+    }
+  }
+}

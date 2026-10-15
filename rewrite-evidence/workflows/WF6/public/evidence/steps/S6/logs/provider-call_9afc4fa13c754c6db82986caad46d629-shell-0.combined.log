@@ -1,0 +1,61 @@
+wf6-rerun-20261014-01/mealie-wf6-evaluator/mealie/routes/recipe/__init__.py:3:from . import bulk_actions, comments, exports, recipe_crud_routes, shared_routes, timeline_events
+wf6-rerun-20261014-01/mealie-wf6-evaluator/mealie/routes/recipe/__init__.py:11:router.include_router(comments.router, prefix=prefix, tags=["Recipe: Comments"])
+wf6-rerun-20261014-01/mealie-wf6-evaluator/mealie/routes/recipe/comments.py:3:from mealie.schema.recipe.recipe_comments import RecipeCommentOut
+wf6-rerun-20261014-01/mealie-wf6-evaluator/mealie/routes/recipe/comments.py:10:    @router.get("/{slug}/comments", response_model=list[RecipeCommentOut])
+wf6-rerun-20261014-01/mealie-wf6-evaluator/mealie/routes/recipe/comments.py:11:    async def get_recipe_comments(self, slug: str):
+wf6-rerun-20261014-01/mealie-wf6-evaluator/mealie/routes/recipe/comments.py:12:        """Get all comments for a recipe"""
+wf6-rerun-20261014-01/mealie-wf6-evaluator/mealie/routes/recipe/comments.py:14:        return self.repos.comments.multi_query({"recipe_id": recipe.id})
+1-WARNING  2026-10-14T09:01:44 - Secrets directory '/run/secrets' does not exist
+2-WARNING  2026-10-14T09:01:56 - Secrets directory '/run/secrets' does not exist
+3:ERROR    2026-10-14T09:02:02 - Incorrect username or password from 127.0.0.1
+4:ERROR    2026-10-14T09:02:09 - Incorrect username or password from 127.0.0.1
+5:ERROR    2026-10-14T09:02:49 - Exception in ASGI application
+6:Traceback (most recent call last):
+7-  File "<WORKSPACE>/wf6-rerun-20261014-01/runtime/env/backend/lib/python3.14/site-packages/uvicorn/protocols/http/httptools_impl.py", line 422, in run_asgi
+8-    result = await app(  # type: ignore[func-returns-value]
+9-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10-        self.scope, self.receive, self.send
+11-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+12-    )
+13-    ^
+14-  File "<WORKSPACE>/wf6-rerun-20261014-01/runtime/env/backend/lib/python3.14/site-packages/uvicorn/middleware/proxy_headers.py", line 63, in __call__
+15-    return await self.app(scope, receive, send)
+16-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+17-  File "<WORKSPACE>/wf6-rerun-20261014-01/runtime/env/backend/lib/python3.14/site-packages/fastapi/applications.py", line 1163, in __call__
+18-    await super().__call__(scope, receive, send)
+19-  File "<WORKSPACE>/wf6-rerun-20261014-01/runtime/env/backend/lib/python3.14/site-packages/starlette/applications.py", line 96, in __call__
+20-    await self.middleware_stack(scope, receive, send)
+21-  File "<WORKSPACE>/wf6-rerun-20261014-01/runtime/env/backend/lib/python3.14/site-packages/starlette/middleware/errors.py", line 186, in __call__
+22-    raise exc
+23-  File "<WORKSPACE>/wf6-rerun-20261014-01/runtime/env/backend/lib/python3.14/site-packages/starlette/middleware/errors.py", line 164, in __call__
+24-    await self.app(scope, receive, _send)
+--
+91-    ...<3 lines>...
+92-    )
+93-    ^
+94-  File "<WORKSPACE>/wf6-rerun-20261014-01/runtime/env/backend/lib/python3.14/site-packages/fastapi/routing.py", line 352, in run_endpoint_function
+95-    return await dependant.call(**values)
+96-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+97:  File "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator/mealie/routes/recipe/comments.py", line 14, in get_recipe_comments
+98:    return self.repos.comments.multi_query({"recipe_id": recipe.id})
+99-                                                         ^^^^^^^^^
+100-AttributeError: 'NoneType' object has no attribute 'id'
+import { BaseCRUDAPI } from "../../base/base-clients";
+import type { RecipeCommentCreate, RecipeCommentOut, RecipeCommentUpdate } from "~/lib/api/types/recipe";
+
+const prefix = "/api";
+
+const routes = {
+  comment: `${prefix}/comments`,
+  byRecipe: (id: string) => `${prefix}/recipes/${id}/comments`,
+  commentsId: (id: string) => `${prefix}/comments/${id}`,
+};
+
+export class CommentsApi extends BaseCRUDAPI<RecipeCommentCreate, RecipeCommentOut, RecipeCommentUpdate> {
+  baseRoute: string = routes.comment;
+  itemRoute = routes.commentsId;
+
+  async byRecipe(slug: string) {
+    return await this.requests.get<RecipeCommentOut[]>(routes.byRecipe(slug));
+  }
+}

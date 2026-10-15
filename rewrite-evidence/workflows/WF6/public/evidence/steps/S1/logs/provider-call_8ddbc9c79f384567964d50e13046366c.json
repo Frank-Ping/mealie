@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1868,
+    "byte_offset": 5603674,
+    "timestamp": "2026-10-14T03:50:52.029Z",
+    "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acefc1569b0819189c9455b4bcb0fbc",
+      "status": "completed",
+      "call_id": "call_8ddbc9c79f384567964d50e13046366c",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 - <<'PY'\\nimport pathlib,json,datetime\\np=pathlib.Path('wf6-rerun-20261014-01/wf6-evidence/steps/S1/attempts.jsonl')\\nwith p.open('a') as f:f.write(json.dumps({'timestamp':datetime.datetime.now(datetime.timezone.utc).isoformat(),'kind':'workspace_case_alias_preflight_failure','cause':'Resumed tool cwd uses lowercase mounted aliases; pathlib.resolve string equality does not normalize v9fs case aliases. The paths were independently verified with os.path.samefile.','repair':'Use samefile for exact runtime/data identity checks, preserve launcher SHA validation and native identity guard. No source/assertion changes.','original':'logs/20261014T034910-1f4d614e.stderr.log','scope':'S1 helper preflight; backend was not started by this failure.'})+'\\\\n')\\nPY\",\"max_output_tokens\":300}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+        "create_time": 1791949845.418494
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1871,
+    "byte_offset": 5608014,
+    "timestamp": "2026-10-14T03:50:52.180Z",
+    "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13888-ce14-75b1-9a52-9b852a4f35e9",
+      "call_id": "call_8ddbc9c79f384567964d50e13046366c",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.1 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"70e22d\",\"wall_time_seconds\":0.000011364,\"exit_code\":0,\"original_token_count\":0,\"output\":\"\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+        "create_time": 1791949852.1806514
+      }
+    }
+  }
+}

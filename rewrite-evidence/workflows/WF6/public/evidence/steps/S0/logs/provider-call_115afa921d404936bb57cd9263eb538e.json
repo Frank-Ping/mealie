@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 259,
+    "byte_offset": 1469255,
+    "timestamp": "2026-10-14T01:22:41.062Z",
+    "turn_id": "01a137f3-c2d3-7db0-9623-6d33961b39eb",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016aced95663988191abe413869fecbd68",
+      "status": "completed",
+      "call_id": "call_115afa921d404936bb57cd9263eb538e",
+      "name": "exec",
+      "input": "text(await tools.apply_patch(\"*** Begin Patch\\n*** Update File: <WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/usage/test_collect_usage.py\\n@@\\n-from collect_usage import analyze, read_log, redact, collect\\n+from collect_usage import analyze, read_log, redact, collect, original_shell_commands\\n@@\\n     def test_bearer_and_named_credentials_redacted(self):\\n         self.assertNotIn(\\\"[REDACTED]\\\",str(redact({\\\"authorization\\\":\\\"Bearer [REDACTED]\\\",\\\"password\\\":\\\"[REDACTED]\\\"})))\\n+\\n+    def test_provider_original_shell_commands_recovered_without_execution(self):\\n+        raw='text(await tools.exec_command({cmd:\\\"pwd\\\\\\\\ncat AGENTS.md\\\"}));'\\n+        self.assertEqual(original_shell_commands(raw),['pwd\\\\ncat AGENTS.md'])\\n+        escaped=raw.replace('\\\"','\\\\\\\\\\\"').replace('\\\\\\\\n','\\\\\\\\\\\\\\\\n')\\n+        self.assertEqual(original_shell_commands(escaped),['pwd\\\\ncat AGENTS.md'])\\n@@\\n-        (root/\\\"steps/S0/collector-acceptance.json\\\").write_text(json.dumps(report,indent=2)+\\\"\\\\n\\\")\\n+        path=root/\\\"steps/S0/collector-acceptance.json\\\"\\n+        if path.exists():\\n+            previous=json.loads(path.read_text())\\n+            if \\\"cli_interfaces\\\" in previous:report[\\\"cli_interfaces\\\"]=previous[\\\"cli_interfaces\\\"]\\n+        path.write_text(json.dumps(report,indent=2)+\\\"\\\\n\\\")\\n*** End Patch\"));\ntext(await tools.exec_command({cmd:\"python3 -B wf6-rerun-20261014-01/wf6-evidence/usage/record_command.py --cwd '<WORKSPACE>/wf6-rerun-20261014-01' --label final-collector-tests-including-provider-command-recovery -- python3 -B wf6-evidence/usage/test_collect_usage.py\\npython3 -B wf6-rerun-20261014-01/wf6-evidence/usage/record_command.py --cwd '<WORKSPACE>/wf6-rerun-20261014-01' --label refresh-final-provider-evidence -- python3 -B wf6-evidence/usage/collect_usage.py finalize --all --wait-seconds 0\",max_output_tokens:1400}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a137f3-c2d3-7db0-9623-6d33961b39eb",
+        "create_time": 1791940950.3917131
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 263,
+    "byte_offset": 1478332,
+    "timestamp": "2026-10-14T01:22:43.365Z",
+    "turn_id": "01a137f3-c2d3-7db0-9623-6d33961b39eb",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13801-2c25-7a21-8d02-614620584879",
+      "call_id": "call_115afa921d404936bb57cd9263eb538e",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 2.3 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"94fd81\",\"wall_time_seconds\":2.017570616,\"exit_code\":0,\"original_token_count\":414,\"output\":\"{\\\"command_id\\\": \\\"20261014T012241-de864302\\\", \\\"stage_id\\\": \\\"S0\\\", \\\"label\\\": \\\"final-collector-tests-including-provider-command-recovery\\\", \\\"argv\\\": [\\\"python3\\\", \\\"-B\\\", \\\"wf6-evidence/usage/test_collect_usage.py\\\"], \\\"cwd\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01\\\", \\\"start_utc\\\": \\\"2026-10-14T01:22:41.391932+00:00\\\", \\\"end_utc\\\": \\\"2026-10-14T01:22:41.514258+00:00\\\", \\\"duration_seconds\\\": 0.12232770200171217, \\\"exit_code\\\": 0, \\\"stdout\\\": \\\"steps/S0/logs/20261014T012241-de864302.stdout.log\\\", \\\"stderr\\\": \\\"steps/S0/logs/20261014T012241-de864302.stderr.log\\\", \\\"environment_overrides\\\": {}, \\\"permission\\\": \\\"workspace-write; network restricted; no escalation\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n{\\\"command_id\\\": \\\"20261014T012241-1abdd637\\\", \\\"stage_id\\\": \\\"S0\\\", \\\"label\\\": \\\"refresh-final-provider-evidence\\\", \\\"argv\\\": [\\\"python3\\\", \\\"-B\\\", \\\"wf6-evidence/usage/collect_usage.py\\\", \\\"finalize\\\", \\\"--all\\\", \\\"--wait-seconds\\\", \\\"0\\\"], \\\"cwd\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01\\\", \\\"start_utc\\\": \\\"2026-10-14T01:22:41.648825+00:00\\\", \\\"end_utc\\\": \\\"2026-10-14T01:22:43.344901+00:00\\\", \\\"duration_seconds\\\": 1.6960736969995196, \\\"exit_code\\\": 0, \\\"stdout\\\": \\\"steps/S0/logs/20261014T012241-1abdd637.stdout.log\\\", \\\"stderr\\\": \\\"steps/S0/logs/20261014T012241-1abdd637.stderr.log\\\", \\\"environment_overrides\\\": {}, \\\"permission\\\": \\\"workspace-write; network restricted; no escalation\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a137f3-c2d3-7db0-9623-6d33961b39eb",
+        "create_time": 1791940963.3657181
+      }
+    }
+  }
+}

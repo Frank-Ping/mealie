@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1399,
+    "byte_offset": 4750742,
+    "timestamp": "2026-10-14T03:17:12.174Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acef434e9c0819198f363632f6b8344",
+      "status": "completed",
+      "call_id": "call_7a882719d4404fbdb9bac76a48e43255",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"head -22 wf6-rerun-20261014-01/wf6-evidence/steps/S1/machine/type-diagnostics.json; head -16 wf6-rerun-20261014-01/wf6-evidence/EVIDENCE_INDEX.md; head -15 wf6-rerun-20261014-01/wf6-evidence/decisions.jsonl; cat wf6-rerun-20261014-01/wf6-evidence/usage/tracking-config.json\",\"max_output_tokens\":2200}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791947828.9160025
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1402,
+    "byte_offset": 4759455,
+    "timestamp": "2026-10-14T03:17:12.312Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13869-fbf7-77f3-90cf-2bca49d58d73",
+      "call_id": "call_7a882719d4404fbdb9bac76a48e43255",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.1 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"5e94d6\",\"wall_time_seconds\":0.000010915,\"exit_code\":0,\"original_token_count\":1380,\"output\":\"{\\n  \\\"status\\\": \\\"FAIL\\\",\\n  \\\"exit_code\\\": 1,\\n  \\\"error_count\\\": 318,\\n  \\\"codes\\\": {\\n    \\\"TS2322\\\": 64,\\n    \\\"TS2532\\\": 78,\\n    \\\"TS2345\\\": 31,\\n    \\\"TS18048\\\": 25,\\n    \\\"TS2769\\\": 7,\\n    \\\"TS2540\\\": 2,\\n    \\\"TS2554\\\": 25,\\n    \\\"TS2339\\\": 18,\\n    \\\"TS2307\\\": 1,\\n    \\\"TS2739\\\": 4,\\n    \\\"TS4114\\\": 48,\\n    \\\"TS2353\\\": 4,\\n    \\\"TS2558\\\": 1,\\n    \\\"TS2741\\\": 1,\\n    \\\"TS2538\\\": 3,\\n    \\\"TS2304\\\": 1,\\n    \\\"TS2551\\\": 3,\\n# WF6 evidence index / 证据索引\\n\\nRun: wf6-rerun-20261014-01. Original raw logs remain outside checkout.\\n原始日志位于 checkout 外；旧 run 不混入新成绩。\\n\\n- [Result](steps/S0/result.md)\\n- [Actual prompt](steps/S0/[REDACTED])\\n- [Original handoff user prompt](steps/S0/handoff-user-[REDACTED])\\n- [Visible transcript](steps/S0/visible-transcript.jsonl)\\n- [Transcript coverage](steps/S0/transcript-coverage.json)\\n- [Commands](steps/S0/commands.jsonl)\\n- [Bootstrap/provider command coverage](steps/S0/provider-command-events.jsonl)\\n- [Original tool events](steps/S0/provider-tool-events.jsonl)\\n- [Failures and repairs](steps/S0/attempts.jsonl)\\n- [Pinned snapshot provenance](steps/S0/input-provenance.json)\\n- [Input hashes](steps/S0/input-hashes.json)\\n{\\\"actor\\\": \\\"user\\\", \\\"stage\\\": \\\"S0\\\", \\\"timestamp\\\": \\\"2026-10-14T01:08:04.488Z\\\", \\\"actual_text\\\": \\\"[[WF6:S0:START]]\\\\n\\\\n正式启动 wf6-rerun-20261014-01 的 S0。\\\\n按已读取的 S0 中文 prompt、共同契约和交接要求执行。\\\\n\\\\n本条实际请求为新 S0 token 起点；\\\\n初始化 preparation 单列，保留旧失败证据和计量边界。\\\\n\\\\n先处理初始化发现的 Git 父对象缺失及 git show 报错，\\\\n核实冻结来源与内容；验证完成前不得标记 gate 通过。\\\\n\\\\n保留原始日志，新增技术说明使用英文，\\\\n阶段结果提供中英文对照，并建立独立 token collector。\\\\n\\\\n仅执行 S0，结束后停止，不自动进入 S1。\\\", \\\"decision\\\": \\\"Start new S0 only; use independent rerun root. Preserve old run and preparation boundaries.\\\"}\\n{\\\"actor\\\": \\\"user\\\", \\\"stage\\\": \\\"handoff\\\", \\\"decision\\\": \\\"CLI migration and independent rerun supersede the earlier do-not-repeat-S0 instruction. Approved nested root: wf6-rerun-20261014-01. Handoff is a summary, not an original desktop transcript.\\\", \\\"source\\\": \\\"Current-session preparation user message; exported separately during collection.\\\"}\\n{\\\"actor\\\": \\\"agent\\\", \\\"stage\\\": \\\"S0\\\", \\\"decision\\\": \\\"One implementation agent; no subagents. Import pinned commit/tree/blob objects only into independent stores. Declare pinned shallow boundaries because parent history is incomplete; leave original repositories unchanged.\\\"}\\n{\\\"timestamp\\\": \\\"2026-10-14T01:33:42.974Z\\\", \\\"actor\\\": \\\"user\\\", \\\"category\\\": \\\"extra_discussion/preparation\\\", \\\"decision\\\": \\\"Audit S0 final-reply coverage and prepare native Linux dependencies only. Do not start S1 or change frozen inputs; S2-S6 budget remains unstarted.\\\", \\\"prompt\\\": \\\"preparation/P1-audit-dependencies/[REDACTED]\\\"}\\n{\\\"timestamp\\\": \\\"2026-10-14T02:07:41.816Z\\\", \\\"actor\\\": \\\"user\\\", \\\"stage_id\\\": \\\"S1\\\", \\\"decision\\\": \\\"Authorize S1 only by this actual natural-language prompt. No fabricated START marker. Settle P1; keep S1 disjoint from preparation and S2-S6 budget.\\\", \\\"prompt\\\": \\\"steps/S1/[REDACTED]\\\"}\\n{\\n  \\\"version\\\": 1,\\n  \\\"run_id\\\": \\\"wf6-rerun-20261014-01\\\",\\n  \\\"run_root\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01\\\",\\n  \\\"workspace_root\\\": \\\"<WORKSPACE>\\\",\\n  \\\"session_id\\\": \\\"01a137ea-f571-70f0-8cf3-7b8560c420bf\\\",\\n  \\\"source_log\\\": \\\"<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl\\\",\\n  \\\"initial_turn_id\\\": \\\"01a137f3-c2d3-7db0-9623-6d33961b39eb\\\",\\n  \\\"start_line\\\": 104,\\n  \\\"start_byte_offset\\\": 886375,\\n  \\\"user_message_id\\\": \\\"msg_01a137f3-c308-7400-b27e-520081c5b978\\\",\\n  \\\"created_utc\\\": \\\"2026-10-14T01:09:28.572645+00:00\\\",\\n  \\\"accounting_policy\\\": \\\"Attributed response records only; legacy token_count retained but never added. No inherited-history recount.\\\",\\n  \\\"final_reply_policy\\\": \\\"Latest END + matching subsequent usage + task_complete + identity/boundary/counter reconciliation.\\\",\\n  \\\"python_executable\\\": \\\"/usr/bin/python3\\\",\\n  \\\"actual_prompt\\\": \\\"[[WF6:S0:START]]\\\\n\\\\n正式启动 wf6-rerun-20261014-01 的 S0。\\\\n按已读取的 S0 中文 prompt、共同契约和交接要求执行。\\\\n\\\\n本条实际请求为新 S0 token 起点；\\\\n初始化 preparation 单列，保留旧失败证据和计量边界。\\\\n\\\\n先处理初始化发现的 Git 父对象缺失及 git show 报错，\\\\n核实冻结来源与内容；验证完成前不得标记 gate 通过。\\\\n\\\\n保留原始日志，新增技术说明使用英文，\\\\n阶段结果提供中英文对照，并建立独立 token collector。\\\\n\\\\n仅执行 S0，结束后停止，不自动进入 S1。\\\",\\n  \\\"natural_requests\\\": [\\n    {\\n      \\\"stage_id\\\": \\\"S1\\\",\\n      \\\"action\\\": \\\"NATURAL_START\\\",\\n      \\\"session_id\\\": \\\"01a137ea-f571-70f0-8cf3-7b8560c420bf\\\",\\n      \\\"turn_id\\\": \\\"01a1382a-58bc-7f40-9ce8-5b97298b1cd0\\\",\\n      \\\"user_message_id\\\": \\\"msg_01a1382a-58f8-7de3-b1ea-8ca5ceac2207\\\",\\n      \\\"line\\\": 709,\\n      \\\"byte_offset\\\": 2732151,\\n      \\\"actual_prompt\\\": \\\"本次 S1 属于 wf6-rerun-20261014-01。\\\\n先核实 P1 收尾结果，保持 preparation 与 S1 计量区间不重叠。\\\\n\\\\n仅测量冻结的未修改 Vue baseline。\\\\n保留原始日志，技术说明使用英文，结果提供中英文对照。\\\\n记录实际源码、构建与测试结果；未运行检查不得算通过。\\\\n\\\\n仅执行 S1，结束后停止，不自动进入 S2。\\\",\\n      \\\"timestamp\\\": \\\"2026-10-14T02:07:41.816Z\\\"\\n    }\\n  ]\\n}\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791947832.3119535
+      }
+    }
+  }
+}

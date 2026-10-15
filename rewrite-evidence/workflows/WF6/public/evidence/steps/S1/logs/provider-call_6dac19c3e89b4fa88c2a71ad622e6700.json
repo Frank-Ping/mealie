@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1878,
+    "byte_offset": 5612699,
+    "timestamp": "2026-10-14T03:51:41.303Z",
+    "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acefc4a97b48191a2d4f2403f5bc445",
+      "status": "completed",
+      "call_id": "call_6dac19c3e89b4fa88c2a71ad622e6700",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 - <<'PY'\\nfrom pathlib import Path\\ns=Path('wf6-rerun-20261014-01/wf6-evidence/steps/S1')\\nprint((s/'service-events.jsonl').read_text().splitlines()[-1])\\nfor p in sorted((s/'logs').glob('20261014T035*.stdout.log')):print(p.name,p.read_text()[-400:])\\nPY\",\"max_output_tokens\":1200}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+        "create_time": 1791949898.5991125
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1881,
+    "byte_offset": 5616580,
+    "timestamp": "2026-10-14T03:51:41.483Z",
+    "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13889-8eab-7801-9eeb-bfa70fdae23b",
+      "call_id": "call_6dac19c3e89b4fa88c2a71ad622e6700",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"21b327\",\"wall_time_seconds\":0.001769979,\"exit_code\":0,\"original_token_count\":255,\"output\":\"{\\\"event\\\": \\\"owned_backend_started\\\", \\\"timestamp\\\": \\\"2026-10-14T03:50:46.813905+00:00\\\", \\\"pid\\\": 35011, \\\"process_group\\\": 35011, \\\"command_id\\\": \\\"20261014T035046-785b612e\\\", \\\"data_dir\\\": \\\"/tmp/wf6-rerun-20261014-01-S1-native2/disposable-data\\\"}\\n20261014T035042-44ac176d.stdout.log \\n20261014T035046-785b612e.backend.stdout.log WARNING  2026-10-14T03:50:55 - Secrets directory '/run/secrets' does not exist\\nWARNING  2026-10-14T03:51:05 - Secrets directory '/run/secrets' does not exist\\nERROR    2026-10-14T03:51:10 - Incorrect username or password from 127.0.0.1\\n\\n20261014T035106-9353f711.stdout.log password.vue (884ms)\\n  ✓  17 [routes] › tests/routes.spec.ts:37:9 › anonymous › [route] login.vue (920ms)\\n  ✓  18 [routes] › tests/routes.spec.ts:37:9 › anonymous › [route] register/index.vue (894ms)\\n  ✓  19 [routes] › tests/routes.spec.ts:37:9 › anonymous › [route] reset-password.vue (879ms)\\n  ✓  20 [routes] › tests/routes.spec.ts:37:9 › anonymous › [route] g/[groupSlug]/shared/r/[id].vue (1.3s)\\n\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+        "create_time": 1791949901.4836886
+      }
+    }
+  }
+}

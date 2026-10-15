@@ -1,0 +1,317 @@
+{
+  "config": {
+    "argv": [
+      "<WORKSPACE>/wf6-rerun-20261014-01/runtime/tools/node-v24.21.0-linux-x64/bin/node",
+      "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/node_modules/@playwright/test/cli.js",
+      "test",
+      "--grep",
+      "\\[flow\\] (?:log out ends the session|a regular member is not offered admin pages|an admin is offered admin pages|comment on a recipe and see it after reload)$",
+      "--workers=1",
+      "--reporter=list,json,html",
+      "--output=/tmp/wf6-rerun-20261014-01-S6-C2-R2/browser/four-original-test-results"
+    ],
+    "configFile": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/playwright.config.ts",
+    "rootDir": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": true,
+    "fullyParallel": false,
+    "globalSetup": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/global-setup.ts",
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/tmp/wf6-rerun-20261014-01-S6-C2-R2/browser/four-original-test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "routes",
+        "name": "routes",
+        "testDir": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "/routes\\.spec\\.ts/"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "/tmp/wf6-rerun-20261014-01-S6-C2-R2/browser/four-original-test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "flows",
+        "name": "flows",
+        "testDir": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "/flows\\/.*\\.spec\\.ts/"
+        ],
+        "timeout": 45000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list"
+      ],
+      [
+        "json"
+      ],
+      [
+        "html"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": {
+      "command": "./scripts/start-backend.sh",
+      "url": "http://localhost:9106/api/app/about",
+      "reuseExistingServer": true,
+      "timeout": 180000,
+      "stdout": "ignore",
+      "stderr": "pipe",
+      "env": {
+        "E2E_PORT": "9106"
+      }
+    }
+  },
+  "suites": [
+    {
+      "title": "flows/auth.spec.ts",
+      "file": "flows/auth.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "auth",
+          "file": "flows/auth.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "[flow] log out ends the session",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flows",
+                  "projectName": "flows",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1306,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-14T09:11:53.335Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "4104d3f02111767719d7-2c448d7071dc96aa029b",
+              "file": "flows/auth.spec.ts",
+              "line": 27,
+              "column": 7
+            },
+            {
+              "title": "[flow] a regular member is not offered admin pages",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flows",
+                  "projectName": "flows",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1099,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-14T09:11:54.884Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "4104d3f02111767719d7-3059d475d661d2dc095f",
+              "file": "flows/auth.spec.ts",
+              "line": 39,
+              "column": 7
+            },
+            {
+              "title": "[flow] an admin is offered admin pages",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flows",
+                  "projectName": "flows",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1500,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-14T09:11:55.988Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "4104d3f02111767719d7-51ddb1e20820a037aed7",
+              "file": "flows/auth.spec.ts",
+              "line": 50,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "flows/recipes.spec.ts",
+      "file": "flows/recipes.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "recipes",
+          "file": "flows/recipes.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "[flow] comment on a recipe and see it after reload",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flows",
+                  "projectName": "flows",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 10489,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('E2E comment mv7w58bjry').visible().first()\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText('E2E comment mv7w58bjry').visible().first() with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByText('E2E comment mv7w58bjry').visible().first()\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('E2E comment mv7w58bjry').visible().first()\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText('E2E comment mv7w58bjry').visible().first() with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByText('E2E comment mv7w58bjry').visible().first()\u001b[22m\n\n    at <WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/tests/flows/recipes.spec.ts:44:46",
+                        "location": {
+                          "file": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/tests/flows/recipes.spec.ts",
+                          "column": 46,
+                          "line": 44
+                        },
+                        "snippet": "  42 |     await expect(visibleText(page, comment)).toBeVisible();\n  43 |     await page.reload();\n> 44 |     await expect(visibleText(page, comment)).toBeVisible();\n     |                                              ^\n  45 |   });\n  46 | });\n  47 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/tests/flows/recipes.spec.ts",
+                            "column": 46,
+                            "line": 44
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('E2E comment mv7w58bjry').visible().first()\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText('E2E comment mv7w58bjry').visible().first() with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByText('E2E comment mv7w58bjry').visible().first()\u001b[22m\n\n\n  42 |     await expect(visibleText(page, comment)).toBeVisible();\n  43 |     await page.reload();\n> 44 |     await expect(visibleText(page, comment)).toBeVisible();\n     |                                              ^\n  45 |   });\n  46 | });\n  47 |\n    at <WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/tests/flows/recipes.spec.ts:44:46"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-14T09:11:57.508Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/tmp/wf6-rerun-20261014-01-S6-C2-R2/browser/four-original-test-results/flows-recipes-recipes-flow-a3d3d-ipe-and-see-it-after-reload-flows/test-failed-1.png"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/tmp/wf6-rerun-20261014-01-S6-C2-R2/browser/four-original-test-results/flows-recipes-recipes-flow-a3d3d-ipe-and-see-it-after-reload-flows/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/tmp/wf6-rerun-20261014-01-S6-C2-R2/browser/four-original-test-results/flows-recipes-recipes-flow-a3d3d-ipe-and-see-it-after-reload-flows/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/tests/flows/recipes.spec.ts",
+                        "column": 46,
+                        "line": 44
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "adbcddc045ffdc002fe7-94521aca8e8c97c31455",
+              "file": "flows/recipes.spec.ts",
+              "line": 36,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-14T09:11:50.361Z",
+    "duration": 17732.371,
+    "expected": 3,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

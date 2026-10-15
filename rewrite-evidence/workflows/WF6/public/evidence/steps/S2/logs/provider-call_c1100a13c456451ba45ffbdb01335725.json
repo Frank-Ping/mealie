@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2351,
+    "byte_offset": 6618225,
+    "timestamp": "2026-10-14T04:19:25.450Z",
+    "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf02bd9dd881919f087977cd09ade7",
+      "status": "completed",
+      "call_id": "call_c1100a13c456451ba45ffbdb01335725",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 -B wf6-rerun-20261014-01/wf6-evidence/usage/record_command.py --stage S2 --cwd '<WORKSPACE>/wf6-rerun-20261014-01' --label S2-final-frozen-input-and-gateway-state-audit -- python3 -B wf6-evidence/usage/finish_s2.py snapshot\",\"yield_time_ms\":1000,\"max_output_tokens\":700}));\ntext(await tools.exec_command({cmd:\"python3 - <<'PY'\\nfrom pathlib import Path\\nimport json,datetime,hashlib\\nb=Path('wf6-rerun-20261014-01/wf6-evidence');s=b/'steps/S2';now=datetime.datetime.now(datetime.timezone.utc).isoformat()\\nentry={'timestamp':now,'kind':'build_dependency_restore_observation','cause':'pnpm generate automatically recreated Linux node_modules under the changed case alias, then restored the existing lockfile package set before generation. It exited successfully; no failed application repair round.','repair':'Wait for complete successful build, verify original manifest/lock bytes and served build before real acceptance. Use the installed Playwright CLI directly for S2 to avoid package-manager install side effects.','original':'logs/20261014T040533-43abd8a6.stdout.log','scope':'S2 runtime/build; charged to current budget.'}\\nwith (s/'attempts.jsonl').open('a') as f:f.write(json.dumps(entry)+'\\\\n')\\nrows=[]\\nfor p in sorted((s/'browser').rglob('*')):\\n if p.is_file():rows.append(dict(path=str(p.relative_to(s/'browser')),bytes=p.stat().st_size,sha256=hashlib.sha256(p.read_bytes()).hexdigest()))\\n(s/'browser-manifest.json').write_text(json.dumps(dict(scope='Original private trace and byte-preserved outputs; requests-redacted.json is separate shareable summary',files=rows),indent=2)+'\\\\n')\\noriginal=s/'runtime-isolation.json';d=json.loads(original.read_text());runtime=Path('/tmp/wf6-rerun-20261014-01-S2')\\nd['database_files']=[dict(path=str(p.relative_to(runtime)),bytes=p.stat().st_size,sha256=hashlib.sha256(p.read_bytes()).hexdigest()) for p in runtime.rglob('*.db')]\\nd['auth_file_hashes']=[dict(path=p.name,bytes=p.stat().st_size,sha256=hashlib.sha256(p.read_bytes()).hexdigest()) for p in sorted((runtime/'auth').iterdir()) if p.is_file()]\\nd['browser_raw_policy']='Original trace includes isolated login/session details and is private; redacted shareable summary contains no request/response bodies or cookie/bearer/password values.'\\noriginal.write_text(json.dumps(d,indent=2)+'\\\\n')\\nPY\",\"yield_time_ms\":1000,\"max_output_tokens\":400}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+        "create_time": 1791951549.620176
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2354,
+    "byte_offset": 6626695,
+    "timestamp": "2026-10-14T04:19:27.185Z",
+    "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a138a2-f951-70e2-88d1-ddb87ca4b145",
+      "call_id": "call_c1100a13c456451ba45ffbdb01335725",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 1.7 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"e52e75\",\"wall_time_seconds\":1.001350075,\"session_id\":75974,\"original_token_count\":0,\"output\":\"\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"4882f2\",\"wall_time_seconds\":0.340830043,\"exit_code\":0,\"original_token_count\":0,\"output\":\"\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+        "create_time": 1791951567.185557
+      }
+    }
+  }
+}

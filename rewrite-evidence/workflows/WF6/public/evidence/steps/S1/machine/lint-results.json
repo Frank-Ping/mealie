@@ -1,0 +1,6210 @@
+[
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/assets/main.css",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/assets/style-overrides.scss",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/assets/variables.scss",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Admin/Setup/EndPageContent.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Announcement/AnnouncementDialog.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Announcement/Announcements/2026-03-27_1_welcome.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Announcement/Announcements/2026-05-21_1_ai-providers.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Announcement/Announcements/2026-05-31_1_iframe-embeds.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Announcement/Announcements/2026-07-27_1_oidc-email-verification.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Announcement/Announcements/2026-07-27_2_scraper-proxy-flaresolverr.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Announcement/Announcements/2026-09-04_1_outbound-request-protection.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Announcement/Announcements/announcements.test.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Cookbook/CookbookEditor.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Cookbook/CookbookPage.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Group/GroupAIProviderDialog.test.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Group/GroupAIProviderDialog.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Group/GroupAIProviderSettingsEditor.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Group/GroupDataPage.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Group/GroupExportData.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Group/GroupPreferencesEditor.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Household/GroupMealPlanEntryDialog.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Household/GroupMealPlanRuleForm.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Household/GroupWebhookEditor.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Household/HouseholdPreferencesEditor.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Mealplan/MealPlanAddRecipeDialog.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Mealplan/MealPlanDatePicker.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Mealplan/MealPlanDay.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Mealplan/MealPlanDayHeader.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Mealplan/MealPlanLayout.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Mealplan/MealPlanNoteMenu.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/QueryFilterBuilder.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeActionMenu.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeAssets.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeCard.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeCardImage.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeCardLineItem.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeCardMobile.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeCardRating.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeCardSection.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeChips.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeContextMenu/RecipeContextMenu.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeContextMenu/RecipeContextMenuContent.vue",
+    "messages": [],
+    "suppressedMessages": [
+      {
+        "ruleId": "@typescript-eslint/no-invalid-void-type",
+        "severity": 2,
+        "message": "void is not valid as a constituent in a union type",
+        "line": 391,
+        "column": 45,
+        "messageId": "invalidVoidUnionConstituent",
+        "endLine": 391,
+        "endColumn": 49,
+        "suppressions": [
+          {
+            "kind": "directive",
+            "justification": ""
+          }
+        ]
+      }
+    ],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeDataAliasManagerDialog.test.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeDataAliasManagerDialog.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeDataSubstitutionManagerDialog.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeDataTable.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeDialogAddToShoppingList.vue",
+    "messages": [],
+    "suppressedMessages": [
+      {
+        "ruleId": "@typescript-eslint/no-unused-expressions",
+        "severity": 2,
+        "message": "Expected an assignment or function call and instead saw an expression.",
+        "line": 467,
+        "column": 3,
+        "messageId": "unusedExpression",
+        "endLine": 474,
+        "endColumn": 10,
+        "suppressions": [
+          {
+            "kind": "directive",
+            "justification": ""
+          }
+        ]
+      }
+    ],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeDialogBulkAdd.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeDialogPrintPreferences.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeDialogSearch.test.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeDialogSearch.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeDialogShare.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeExplorerPage/RecipeExplorerPage.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeExplorerPage/RecipeExplorerPageParts/RecipeExplorerPageSearch.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeExplorerPage/RecipeExplorerPageParts/RecipeExplorerPageSearchFilters.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeFavoriteBadge.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeImageLightbox.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeImageUploadBtn.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeImportImages.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeIngredientEditor.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeIngredientEditorLayout.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeIngredientHtml.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeIngredientListItem.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeIngredientSubstitutionEditor.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeIngredientSubstitutions.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeIngredients.test.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeIngredients.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeLastMade.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeList.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeNotes.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeNutrition.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeOrganizerDialog.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeOrganizerPage.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeOrganizerSelector.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipePage/RecipePage.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageComments.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageEditorToolbar.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageFooter.vue",
+    "messages": [],
+    "suppressedMessages": [
+      {
+        "ruleId": "@typescript-eslint/no-dynamic-delete",
+        "severity": 2,
+        "message": "Do not delete dynamically computed property keys.",
+        "line": 116,
+        "column": 30,
+        "messageId": "dynamicDelete",
+        "endLine": 116,
+        "endColumn": 33,
+        "suppressions": [
+          {
+            "kind": "directive",
+            "justification": ""
+          }
+        ]
+      }
+    ],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageHeader.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInfoCard.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInfoCardImage.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInfoEditor.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageIngredientEditor.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageIngredientToolsView.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInstructions.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageOrganizers.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageScale.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipeParseDialog/ParseDialogChangeParser.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipeParseDialog/ParseDialogInfo.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipeParseDialog/ParseDialogParse.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipeParseDialog/ParseDialogReview.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipeParseDialog/RecipePageParseDialog.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipePrintContainer.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipePrintView.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeRating.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeScaleEditButton.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeSelector.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeSettingsMenu.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeSettingsSwitches.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeSuggestion.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeTimeCard.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeTimeInput.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeTimeline.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeTimelineBadge.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeTimelineContextMenu.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeTimelineItem.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeUnitSystemButton.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeYield.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/SearchFilter.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/ShoppingList/MultiPurposeLabel.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/ShoppingList/MultiPurposeLabelSection.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/ShoppingList/ShoppingListAddItemForm.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/ShoppingList/ShoppingListItem.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/ShoppingList/ShoppingListItemDetails.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/ShoppingList/ShoppingListItemEditor.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/User/UserAvatar.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/User/UserInviteDialog.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/User/UserPasswordStrength.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/User/UserProfileLinkCard.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/User/UserRegistrationForm.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Layout/DefaultLayout.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Layout/LayoutParts/AppFooter.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Layout/LayoutParts/AppHeader.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Layout/LayoutParts/AppScrollToTop.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Layout/LayoutParts/AppSidebar.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Layout/LayoutParts/TheSnackbar.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/global/AdvancedOnly.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/global/AppButtonCopy.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/global/AppButtonUpload.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/global/AppLoader.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/global/AppLogo.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/global/AppToolbar.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/global/AutoForm.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/global/BannerExperimental.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/global/BannerWarning.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/global/BaseButton.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/global/BaseButtonGroup.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/global/BaseCardSectionTitle.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/global/BaseDialog.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/global/BaseDialogContent.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/global/BaseDivider.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/global/BaseExpansionPanels.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/global/BaseKeyValueEditor.vue",
+    "messages": [],
+    "suppressedMessages": [
+      {
+        "ruleId": "@typescript-eslint/no-dynamic-delete",
+        "severity": 2,
+        "message": "Do not delete dynamically computed property keys.",
+        "line": 124,
+        "column": 18,
+        "messageId": "dynamicDelete",
+        "endLine": 124,
+        "endColumn": 21,
+        "suppressions": [
+          {
+            "kind": "directive",
+            "justification": ""
+          }
+        ]
+      }
+    ],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/global/BaseMenu.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/global/BaseOverflowButton.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/global/BasePageTitle.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/global/ButtonLink.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/global/ContextMenu.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/global/CrudTable.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/global/DevDumpJson.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/global/DocLink.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/global/DropZone.test.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/global/DropZone.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/global/HelpIcon.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/global/ImageCropper.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/global/InputColor.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/global/InputLabelType.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/global/LanguageDialog.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/global/MarkdownEditor.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/global/RecipeJsonEditor.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/global/ReportTable.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/global/SafeMarkdown.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/global/StatsCards.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/global/ToggleState.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/global/Transition/SpinTransition.vue",
+    "messages": [],
+    "suppressedMessages": [
+      {
+        "ruleId": "@typescript-eslint/no-empty-object-type",
+        "severity": 2,
+        "message": "The `{}` (\"empty object\") type allows any non-nullish value, including literals like `0` and `\"\"`.\n- If that's what you want, disable this lint rule with an inline comment or configure the 'allowObjectTypes' rule option.\n- If you want a type meaning \"any object\", you probably want `object` instead.\n- If you want a type meaning \"any value\", you probably want `unknown` instead.",
+        "line": 9,
+        "column": 13,
+        "messageId": "noEmptyObject",
+        "endLine": 9,
+        "endColumn": 15,
+        "suggestions": [
+          {
+            "messageId": "replaceEmptyObjectType",
+            "data": {
+              "replacement": "object"
+            },
+            "fix": {
+              "range": [
+                202,
+                204
+              ],
+              "text": "object"
+            },
+            "desc": "Replace `{}` with `object`."
+          },
+          {
+            "messageId": "replaceEmptyObjectType",
+            "data": {
+              "replacement": "unknown"
+            },
+            "fix": {
+              "range": [
+                202,
+                204
+              ],
+              "text": "unknown"
+            },
+            "desc": "Replace `{}` with `unknown`."
+          }
+        ],
+        "suppressions": [
+          {
+            "kind": "directive",
+            "justification": ""
+          }
+        ]
+      }
+    ],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/global/Transition/SwipeTransition.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/global/WakelockSwitch.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/__tests__/use-auth-backend.test.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/__tests__/use-mealplan-rules.test.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/__tests__/use-passwords.test.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/__tests__/use-query-filter-builder.test.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/__tests__/use-toast.test.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/__tests__/use-token-cookie.test.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/__tests__/use-utils.test.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/api/api-client.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/api/index.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/api/static-routes.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/api/use-downloader.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/forms/index.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/forms/use-field-types.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/partials/__tests__/use-actions-factory.test.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/partials/types.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/partials/use-actions-factory.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/partials/use-store-factory.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/recipe-page/__tests__/use-extract-ingredient-references.test.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/recipe-page/shared-state.ts",
+    "messages": [],
+    "suppressedMessages": [
+      {
+        "ruleId": "@typescript-eslint/no-dynamic-delete",
+        "severity": 2,
+        "message": "Do not delete dynamically computed property keys.",
+        "line": 164,
+        "column": 15,
+        "messageId": "dynamicDelete",
+        "endLine": 164,
+        "endColumn": 19,
+        "suppressions": [
+          {
+            "kind": "directive",
+            "justification": ""
+          }
+        ]
+      }
+    ],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/recipe-page/use-cook-mode-query.test.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/recipe-page/use-cook-mode-query.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/recipe-page/use-extract-ingredient-references.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/recipes/__tests__/use-ingredient-substitutions.test.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/recipes/__tests__/use-parse-ingredients-dialog.test.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/recipes/__tests__/use-recipe-ingredients.test.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/recipes/__tests__/use-recipe-nutrition.test.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/recipes/__tests__/use-recipe-permissions.test.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/recipes/__tests__/use-recipe-time.test.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/recipes/__tests__/use-scaled-amount.test.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/recipes/__tests__/use-unit-conversion.test.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/recipes/__tests__/use-unit-system.test.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/recipes/index.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/recipes/unit-systems.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/recipes/use-fraction.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/recipes/use-ingredient-substitutions.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/recipes/use-parse-ingredients-dialog.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/recipes/use-recipe-ingredients.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/recipes/use-recipe-nutrition.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/recipes/use-recipe-permissions.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/recipes/use-recipe-search.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/recipes/use-recipe-time.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/recipes/use-recipe-timeline-events.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/recipes/use-recipe-tools.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/recipes/use-recipe.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/recipes/use-recipes.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/recipes/use-scaled-amount.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/recipes/use-unit-conversion.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/recipes/use-unit-system.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/shopping-list-page/__tests__/use-shopping-list-item-editor.test.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/shopping-list-page/__tests__/use-shopping-list-page.test.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/shopping-list-page/sub-composables/__tests__/mocks.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/shopping-list-page/sub-composables/__tests__/use-shopping-list-copy.test.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/shopping-list-page/sub-composables/__tests__/use-shopping-list-crud.test.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/shopping-list-page/sub-composables/__tests__/use-shopping-list-data.test.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/shopping-list-page/sub-composables/__tests__/use-shopping-list-item-actions.test.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/shopping-list-page/sub-composables/__tests__/use-shopping-list-labels.test.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/shopping-list-page/sub-composables/__tests__/use-shopping-list-recipes.test.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/shopping-list-page/sub-composables/__tests__/use-shopping-list-sorting.test.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/shopping-list-page/sub-composables/__tests__/use-shopping-list-state.test.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/shopping-list-page/sub-composables/use-shopping-list-copy.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/shopping-list-page/sub-composables/use-shopping-list-crud.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/shopping-list-page/sub-composables/use-shopping-list-data.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/shopping-list-page/sub-composables/use-shopping-list-item-actions.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/shopping-list-page/sub-composables/use-shopping-list-labels.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/shopping-list-page/sub-composables/use-shopping-list-recipes.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/shopping-list-page/sub-composables/use-shopping-list-search.test.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/shopping-list-page/sub-composables/use-shopping-list-search.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/shopping-list-page/sub-composables/use-shopping-list-sorting.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/shopping-list-page/sub-composables/use-shopping-list-state.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/shopping-list-page/use-add-to-shopping-list-dialog.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/shopping-list-page/use-shopping-list-item-editor.ts",
+    "messages": [],
+    "suppressedMessages": [
+      {
+        "ruleId": "@typescript-eslint/no-unused-expressions",
+        "severity": 2,
+        "message": "Expected an assignment or function call and instead saw an expression.",
+        "line": 15,
+        "column": 5,
+        "messageId": "unusedExpression",
+        "endLine": 15,
+        "endColumn": 107,
+        "suppressions": [
+          {
+            "kind": "directive",
+            "justification": ""
+          }
+        ]
+      },
+      {
+        "ruleId": "@typescript-eslint/no-unused-expressions",
+        "severity": 2,
+        "message": "Expected an assignment or function call and instead saw an expression.",
+        "line": 29,
+        "column": 5,
+        "messageId": "unusedExpression",
+        "endLine": 29,
+        "endColumn": 107,
+        "suppressions": [
+          {
+            "kind": "directive",
+            "justification": ""
+          }
+        ]
+      }
+    ],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/shopping-list-page/use-shopping-list-page.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/store/index.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/store/use-category-store.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/store/use-cookbook-store.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/store/use-food-store.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/store/use-household-store.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/store/use-label-store.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/store/use-tag-store.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/store/use-tool-store.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/store/use-unit-store.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/store/use-user-store.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/use-ai-providers.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/use-announcements.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/use-auth-backend.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/use-backups.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/use-clear-composable-caches.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/use-context-presents.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/use-copy.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/use-default-activity.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/use-global-i18n.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/use-group-cookbooks.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/use-group-mealplan.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/use-group-recipe-actions.ts",
+    "messages": [],
+    "suppressedMessages": [
+      {
+        "ruleId": "@typescript-eslint/no-invalid-void-type",
+        "severity": 2,
+        "message": "void is not valid as a constituent in a union type",
+        "line": 67,
+        "column": 102,
+        "messageId": "invalidVoidUnionConstituent",
+        "endLine": 67,
+        "endColumn": 106,
+        "suppressions": [
+          {
+            "kind": "directive",
+            "justification": ""
+          }
+        ]
+      }
+    ],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/use-group-webhooks.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/use-groups.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/use-households.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/use-locales/available-locales.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/use-locales/index.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/use-locales/use-locales.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/use-logged-in-state.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/use-mealie-auth.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/use-mealplan-rules.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/use-navigation-warning.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/use-new-recipe-options.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/use-passwords.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/use-query-filter-builder.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/use-recipe-explorer-search.ts",
+    "messages": [],
+    "suppressedMessages": [
+      {
+        "ruleId": "@typescript-eslint/no-dynamic-delete",
+        "severity": 2,
+        "message": "Do not delete dynamically computed property keys.",
+        "line": 475,
+        "column": 15,
+        "messageId": "dynamicDelete",
+        "endLine": 475,
+        "endColumn": 24,
+        "suppressions": [
+          {
+            "kind": "directive",
+            "justification": ""
+          }
+        ]
+      }
+    ],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/use-router.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/use-scroll-position.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/use-search.test.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/use-search.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/use-setup/common-settings-form.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/use-setup/index.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/use-toast.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/use-token-cookie.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/use-user.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/use-users/index.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/use-users/preferences.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/use-users/user-form.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/use-users/user-ratings.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/use-users/user-registration-form.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/use-utils.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/use-validators.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/i18n.config.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lang/locales/af-ZA.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lang/locales/ar-SA.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lang/locales/bg-BG.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lang/locales/ca-ES.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lang/locales/cs-CZ.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lang/locales/da-DK.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lang/locales/de-DE.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lang/locales/el-GR.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lang/locales/en-GB.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lang/locales/en-US.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lang/locales/es-ES.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lang/locales/et-EE.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lang/locales/fi-FI.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lang/locales/fr-BE.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lang/locales/fr-CA.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lang/locales/fr-FR.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lang/locales/gl-ES.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lang/locales/he-IL.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lang/locales/hr-HR.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lang/locales/hu-HU.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lang/locales/is-IS.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lang/locales/it-IT.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lang/locales/ja-JP.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lang/locales/ko-KR.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lang/locales/lt-LT.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lang/locales/lv-LV.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lang/locales/nl-NL.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lang/locales/no-NO.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lang/locales/pl-PL.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lang/locales/pt-BR.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lang/locales/pt-PT.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lang/locales/ro-RO.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lang/locales/ru-RU.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lang/locales/sk-SK.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lang/locales/sl-SI.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lang/locales/sr-SP.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lang/locales/sv-SE.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lang/locales/tr-TR.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lang/locales/uk-UA.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lang/locales/vi-VN.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lang/locales/zh-CN.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lang/locales/zh-TW.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/layouts/admin.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/layouts/basic.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/layouts/blank.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/layouts/default.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/layouts/error.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/admin/admin-about.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/admin/admin-ai-providers.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/admin/admin-analytics.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/admin/admin-backups.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/admin/admin-debug.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/admin/admin-groups.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/admin/admin-households.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/admin/admin-maintenance.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/admin/admin-users.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/base/base-clients.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/base/index.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/base/route.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/base/routes.test.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/client-admin.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/client-public.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/client-user.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/config.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/index.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/types/activity.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/types/admin.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/types/analytics.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/types/cookbook.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/types/events.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/types/group.ts",
+    "messages": [],
+    "suppressedMessages": [
+      {
+        "ruleId": "@stylistic/operator-linebreak",
+        "severity": 2,
+        "message": "'=' should be placed at the beginning of the line.",
+        "line": 8,
+        "column": 33,
+        "messageId": "operatorAtBeginning",
+        "endLine": 8,
+        "endColumn": 34,
+        "fix": {
+          "range": [
+            256,
+            261
+          ],
+          "text": "\n  = "
+        },
+        "suppressions": [
+          {
+            "kind": "directive",
+            "justification": ""
+          }
+        ]
+      }
+    ],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/types/household.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/types/labels.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/types/meal-plan.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/types/non-generated.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/types/openai.ts",
+    "messages": [],
+    "suppressedMessages": [
+      {
+        "ruleId": "@typescript-eslint/no-empty-object-type",
+        "severity": 2,
+        "message": "An empty interface declaration allows any non-nullish value, including literals like `0` and `\"\"`.\n- If that's what you want, disable this lint rule with an inline comment or configure the 'allowInterfaces' rule option.\n- If you want a type meaning \"any object\", you probably want `object` instead.\n- If you want a type meaning \"any value\", you probably want `unknown` instead.",
+        "line": 69,
+        "column": 18,
+        "messageId": "noEmptyInterface",
+        "endLine": 69,
+        "endColumn": 28,
+        "suggestions": [
+          {
+            "messageId": "replaceEmptyInterface",
+            "data": {
+              "replacement": "object"
+            },
+            "fix": {
+              "range": [
+                1820,
+                1843
+              ],
+              "text": "type OpenAIBase = object"
+            },
+            "desc": "Replace empty interface with `object`."
+          },
+          {
+            "messageId": "replaceEmptyInterface",
+            "data": {
+              "replacement": "unknown"
+            },
+            "fix": {
+              "range": [
+                1820,
+                1843
+              ],
+              "text": "type OpenAIBase = unknown"
+            },
+            "desc": "Replace empty interface with `unknown`."
+          }
+        ],
+        "suppressions": [
+          {
+            "kind": "directive",
+            "justification": ""
+          }
+        ]
+      }
+    ],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/types/recipe.ts",
+    "messages": [],
+    "suppressedMessages": [
+      {
+        "ruleId": "@typescript-eslint/no-empty-object-type",
+        "severity": 2,
+        "message": "An empty interface declaration allows any non-nullish value, including literals like `0` and `\"\"`.\n- If that's what you want, disable this lint rule with an inline comment or configure the 'allowInterfaces' rule option.\n- If you want a type meaning \"any object\", you probably want `object` instead.\n- If you want a type meaning \"any value\", you probably want `unknown` instead.",
+        "line": 645,
+        "column": 18,
+        "messageId": "noEmptyInterface",
+        "endLine": 645,
+        "endColumn": 30,
+        "suggestions": [
+          {
+            "messageId": "replaceEmptyInterface",
+            "data": {
+              "replacement": "object"
+            },
+            "fix": {
+              "range": [
+                15704,
+                15729
+              ],
+              "text": "type SlugResponse = object"
+            },
+            "desc": "Replace empty interface with `object`."
+          },
+          {
+            "messageId": "replaceEmptyInterface",
+            "data": {
+              "replacement": "unknown"
+            },
+            "fix": {
+              "range": [
+                15704,
+                15729
+              ],
+              "text": "type SlugResponse = unknown"
+            },
+            "desc": "Replace empty interface with `unknown`."
+          }
+        ],
+        "suppressions": [
+          {
+            "kind": "directive",
+            "justification": ""
+          }
+        ]
+      }
+    ],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/types/reports.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/types/response.ts",
+    "messages": [],
+    "suppressedMessages": [
+      {
+        "ruleId": "@typescript-eslint/no-empty-object-type",
+        "severity": 2,
+        "message": "An empty interface declaration allows any non-nullish value, including literals like `0` and `\"\"`.\n- If that's what you want, disable this lint rule with an inline comment or configure the 'allowInterfaces' rule option.\n- If you want a type meaning \"any object\", you probably want `object` instead.\n- If you want a type meaning \"any value\", you probably want `unknown` instead.",
+        "line": 43,
+        "column": 18,
+        "messageId": "noEmptyInterface",
+        "endLine": 43,
+        "endColumn": 34,
+        "suggestions": [
+          {
+            "messageId": "replaceEmptyInterface",
+            "data": {
+              "replacement": "object"
+            },
+            "fix": {
+              "range": [
+                1171,
+                1200
+              ],
+              "text": "type SSEDataEventBase = object"
+            },
+            "desc": "Replace empty interface with `object`."
+          },
+          {
+            "messageId": "replaceEmptyInterface",
+            "data": {
+              "replacement": "unknown"
+            },
+            "fix": {
+              "range": [
+                1171,
+                1200
+              ],
+              "text": "type SSEDataEventBase = unknown"
+            },
+            "desc": "Replace empty interface with `unknown`."
+          }
+        ],
+        "suppressions": [
+          {
+            "kind": "directive",
+            "justification": ""
+          }
+        ]
+      }
+    ],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/types/static.ts",
+    "messages": [],
+    "suppressedMessages": [
+      {
+        "ruleId": "@typescript-eslint/no-empty-object-type",
+        "severity": 2,
+        "message": "An empty interface declaration allows any non-nullish value, including literals like `0` and `\"\"`.\n- If that's what you want, disable this lint rule with an inline comment or configure the 'allowInterfaces' rule option.\n- If you want a type meaning \"any object\", you probably want `object` instead.\n- If you want a type meaning \"any value\", you probably want `unknown` instead.",
+        "line": 8,
+        "column": 18,
+        "messageId": "noEmptyInterface",
+        "endLine": 8,
+        "endColumn": 26,
+        "suggestions": [
+          {
+            "messageId": "replaceEmptyInterface",
+            "data": {
+              "replacement": "object"
+            },
+            "fix": {
+              "range": [
+                232,
+                253
+              ],
+              "text": "type _Master_ = object"
+            },
+            "desc": "Replace empty interface with `object`."
+          },
+          {
+            "messageId": "replaceEmptyInterface",
+            "data": {
+              "replacement": "unknown"
+            },
+            "fix": {
+              "range": [
+                232,
+                253
+              ],
+              "text": "type _Master_ = unknown"
+            },
+            "desc": "Replace empty interface with `unknown`."
+          }
+        ],
+        "suppressions": [
+          {
+            "kind": "directive",
+            "justification": ""
+          }
+        ]
+      }
+    ],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/types/user.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/user/backups.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/user/email.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/user/group-ai-providers.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/user/group-cookbooks.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/user/group-event-notifier.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/user/group-mealplan-rules.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/user/group-mealplan.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/user/group-migrations.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/user/group-multiple-purpose-labels.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/user/group-recipe-actions.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/user/group-reports.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/user/group-seeder.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/user/group-shopping-lists.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/user/group-webhooks.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/user/groups.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/user/households.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/user/organizer-categories.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/user/organizer-tags.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/user/organizer-tools.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/user/recipe-bulk-actions.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/user/recipe-foods.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/user/recipe-units.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/user/recipes/index.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/user/recipes/recipe-comments.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/user/recipes/recipe-share.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/user/recipes/recipe.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/user/upload.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/user/user-registration.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/user/users.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/user/utils.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/icons/icon-type.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/icons/icons.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/icons/index.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/recipe/recipe-finder.test.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/recipe/recipe-finder.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/recipe/recipe-visibility.test.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/recipe/recipe-visibility.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/sanitize/markdown.test.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/sanitize/markdown.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/sanitize/text.test.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/sanitize/text.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/validators/index.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/validators/inputs.test.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/validators/inputs.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/validators/password.test.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/validators/password.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/validators/redirect.test.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/validators/redirect.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/middleware/__tests__/auth.test.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/middleware/admin-only.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/middleware/advanced-only.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/middleware/auth.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/middleware/can-manage-household-only.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/middleware/can-manage-only.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/middleware/can-organize-only.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/middleware/group-only.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/middleware/pwa-share-target-redirect.global.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/admin.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/admin/backups.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/admin/debug/openai.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/admin/debug/parser.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/admin/maintenance/index.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/admin/manage/groups/[id].vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/admin/manage/groups/index.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/admin/manage/households/[id].vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/admin/manage/households/index.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/admin/manage/users/[id].vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/admin/manage/users/create.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/admin/manage/users/index.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/admin/setup.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/admin/site-settings.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/forgot-password.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/g/[groupSlug]/cookbooks/[slug].vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/g/[groupSlug]/cookbooks/index.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/g/[groupSlug]/index.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/g/[groupSlug]/r/[slug]/index.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/g/[groupSlug]/r/create.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/g/[groupSlug]/r/create/ai.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/g/[groupSlug]/r/create/bulk.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/g/[groupSlug]/r/create/debug.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/g/[groupSlug]/r/create/html.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/g/[groupSlug]/r/create/image.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/g/[groupSlug]/r/create/index.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/g/[groupSlug]/r/create/new.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/g/[groupSlug]/r/create/url.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/g/[groupSlug]/r/create/zip.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/g/[groupSlug]/recipes/categories/index.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/g/[groupSlug]/recipes/finder/index.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/g/[groupSlug]/recipes/tags/index.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/g/[groupSlug]/recipes/timeline.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/g/[groupSlug]/recipes/tools/index.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/g/[groupSlug]/shared/r/[id].vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/group/data.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/group/data/categories.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/group/data/foods.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/group/data/index.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/group/data/labels.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/group/data/recipe-actions.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/group/data/recipes.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/group/data/tags.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/group/data/tools.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/group/data/units.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/group/index.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/group/migrations.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/group/reports/[id].vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/household/index.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/household/mealplan/planner.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/household/mealplan/planner/edit.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/household/mealplan/planner/view.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/household/mealplan/settings.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/household/members.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/household/notifiers.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/household/webhooks.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/index.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/login.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/register/index.test.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/register/index.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/register/states.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/reset-password.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/shopping-lists/[id].vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/shopping-lists/index.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/user/[id]/favorites.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/user/profile/api-tokens.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/user/profile/edit.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/user/profile/index.vue",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/plugins/__tests__/axios.test.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/plugins/app-info.client.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/plugins/axios.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/plugins/dark-mode.client.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/plugins/globals.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/plugins/init-auth.client.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/plugins/no-autofill.client.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/plugins/theme.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/tests/setup.ts",
+    "messages": [],
+    "suppressedMessages": [
+      {
+        "ruleId": "@typescript-eslint/no-require-imports",
+        "severity": 2,
+        "message": "A `require()` style import is forbidden.",
+        "line": 7,
+        "column": 8,
+        "messageId": "noRequireImports",
+        "endLine": 7,
+        "endColumn": 46,
+        "suppressions": [
+          {
+            "kind": "directive",
+            "justification": ""
+          }
+        ]
+      },
+      {
+        "ruleId": "@typescript-eslint/no-require-imports",
+        "severity": 2,
+        "message": "A `require()` style import is forbidden.",
+        "line": 9,
+        "column": 19,
+        "messageId": "noRequireImports",
+        "endLine": 9,
+        "endColumn": 91,
+        "suppressions": [
+          {
+            "kind": "directive",
+            "justification": ""
+          }
+        ]
+      }
+    ],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/tests/utils.ts",
+    "messages": [],
+    "suppressedMessages": [
+      {
+        "ruleId": "@typescript-eslint/no-require-imports",
+        "severity": 2,
+        "message": "A `require()` style import is forbidden.",
+        "line": 7,
+        "column": 8,
+        "messageId": "noRequireImports",
+        "endLine": 7,
+        "endColumn": 46,
+        "suppressions": [
+          {
+            "kind": "directive",
+            "justification": ""
+          }
+        ]
+      },
+      {
+        "ruleId": "@typescript-eslint/no-require-imports",
+        "severity": 2,
+        "message": "A `require()` style import is forbidden.",
+        "line": 9,
+        "column": 19,
+        "messageId": "noRequireImports",
+        "endLine": 9,
+        "endColumn": 91,
+        "suppressions": [
+          {
+            "kind": "directive",
+            "justification": ""
+          }
+        ]
+      }
+    ],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/types/application-types.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/types/auth.d.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/types/auto-forms.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/types/components.d.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/types/recipe/organizers.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/types/ts-shim.d.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/eslint.config.mjs",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/nuxt.config.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/server/api/[...].ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/server/routes/docs.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/server/routes/openapi.json.ts",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/vitest.config.js",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  },
+  {
+    "filePath": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/vuetify.options.js",
+    "messages": [],
+    "suppressedMessages": [],
+    "errorCount": 0,
+    "fatalErrorCount": 0,
+    "warningCount": 0,
+    "fixableErrorCount": 0,
+    "fixableWarningCount": 0,
+    "usedDeprecatedRules": []
+  }
+]

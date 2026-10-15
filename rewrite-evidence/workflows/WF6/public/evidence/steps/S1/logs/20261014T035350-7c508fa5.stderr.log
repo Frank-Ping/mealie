@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "<WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/usage/finish_s1.py", line 172, in <module>
+    else:source_snapshot();print('Frozen bytes and final source/evaluator states captured.')
+         ~~~~~~~~~~~~~~~^^
+  File "<WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/usage/finish_s1.py", line 31, in source_snapshot
+    assert not mismatches, 'Frozen tracked bytes changed: '+str(mismatches)
+           ^^^^^^^^^^^^^^
+AssertionError: Frozen tracked bytes changed: ['CLAUDE.md']

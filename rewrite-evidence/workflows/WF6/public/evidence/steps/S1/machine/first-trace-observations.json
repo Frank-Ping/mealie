@@ -1,0 +1,1576 @@
+{
+  "trace": "<WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/steps/S1/browser/test-results/routes-admin-route-admin-vue-routes/trace.zip",
+  "sha256": "f5dff6797fece902356c479643762b161f8a085b48a71e06492e4f89c5e3e9ef",
+  "event_counts": {
+    "context-options:": 3,
+    "before:hook": 3,
+    "before:fixture": 17,
+    "before:pw:api": 5,
+    "after:": 30,
+    "before:expect": 2,
+    "error:": 1,
+    "before:test.attach": 1,
+    "before:newPage": 1,
+    "event:page": 1,
+    "before:goto": 1,
+    "frame-snapshot:": 4,
+    "log:": 3,
+    "screencast-frame:": 3
+  },
+  "resource_count": 121,
+  "pending_resources": 48,
+  "resources_over_10_seconds": 8,
+  "resources": [
+    {
+      "path": "/admin",
+      "status": 307,
+      "mime_type": "x-unknown",
+      "duration_ms": 46.116,
+      "timings": {
+        "dns": 0.064,
+        "connect": 1.186,
+        "ssl": 4.224,
+        "send": 0,
+        "wait": 36.976,
+        "receive": 3.666
+      }
+    },
+    {
+      "path": "/admin/",
+      "status": 200,
+      "mime_type": "text/html; charset=utf-8",
+      "duration_ms": 202.409,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 41.796,
+        "receive": 160.613
+      }
+    },
+    {
+      "path": "/_nuxt/entry.CQVEe2cP.css",
+      "status": 200,
+      "mime_type": "text/css; charset=utf-8",
+      "duration_ms": 704.935,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 369.436,
+        "receive": 335.499
+      }
+    },
+    {
+      "path": "/_nuxt/BivhsKIM.js",
+      "status": 200,
+      "mime_type": "text/javascript; charset=utf-8",
+      "duration_ms": 709.3530000000001,
+      "timings": {
+        "dns": 0.003,
+        "connect": 0.816,
+        "ssl": 1.875,
+        "send": 0,
+        "wait": 27.924,
+        "receive": 678.735
+      }
+    },
+    {
+      "path": "/_nuxt/hePW80VL.js",
+      "status": 200,
+      "mime_type": "text/javascript; charset=utf-8",
+      "duration_ms": 711.707,
+      "timings": {
+        "dns": 0.003,
+        "connect": 1.059,
+        "ssl": 2.102,
+        "send": 0,
+        "wait": 248.935,
+        "receive": 459.608
+      }
+    },
+    {
+      "path": "/_nuxt/Bpd53_OI.js",
+      "status": 200,
+      "mime_type": "text/javascript; charset=utf-8",
+      "duration_ms": 715.251,
+      "timings": {
+        "dns": 0.003,
+        "connect": 0.82,
+        "ssl": 1.897,
+        "send": 0,
+        "wait": 165.322,
+        "receive": 547.209
+      }
+    },
+    {
+      "path": "/_nuxt/Z7zO-HVY.js",
+      "status": 200,
+      "mime_type": "text/javascript; charset=utf-8",
+      "duration_ms": 717.483,
+      "timings": {
+        "dns": 0.003,
+        "connect": 0.792,
+        "ssl": 1.851,
+        "send": 0,
+        "wait": 580.626,
+        "receive": 134.211
+      }
+    },
+    {
+      "path": "/_nuxt/Ckw7G4I1.js",
+      "status": 200,
+      "mime_type": "text/javascript; charset=utf-8",
+      "duration_ms": 723.951,
+      "timings": {
+        "dns": 0.011,
+        "connect": 1.349,
+        "ssl": 2.418,
+        "send": 0,
+        "wait": 470.022,
+        "receive": 250.151
+      }
+    },
+    {
+      "path": "/_nuxt/BxVfNv8g.js",
+      "status": 200,
+      "mime_type": "text/javascript; charset=utf-8",
+      "duration_ms": 579.106,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 143.679,
+        "receive": 435.427
+      }
+    },
+    {
+      "path": "/_nuxt/B4cVd0we.js",
+      "status": 200,
+      "mime_type": "text/javascript; charset=utf-8",
+      "duration_ms": 585.586,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 233.004,
+        "receive": 352.582
+      }
+    },
+    {
+      "path": "/_nuxt/CE3Vozt4.js",
+      "status": 200,
+      "mime_type": "text/javascript; charset=utf-8",
+      "duration_ms": 582.705,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 22.249,
+        "receive": 560.456
+      }
+    },
+    {
+      "path": "/_nuxt/BLyFw4RI.js",
+      "status": 200,
+      "mime_type": "text/javascript; charset=utf-8",
+      "duration_ms": 589.481,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 352.361,
+        "receive": 237.12
+      }
+    },
+    {
+      "path": "/_nuxt/C5luLN7t.js",
+      "status": 200,
+      "mime_type": "text/javascript; charset=utf-8",
+      "duration_ms": 592.2040000000001,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 490.994,
+        "receive": 101.21
+      }
+    },
+    {
+      "path": "/_nuxt/DSnecla9.js",
+      "status": 200,
+      "mime_type": "text/javascript; charset=utf-8",
+      "duration_ms": 621.075,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 154.284,
+        "receive": 466.791
+      }
+    },
+    {
+      "path": "/_nuxt/asUCYmp2.js",
+      "status": 200,
+      "mime_type": "text/javascript; charset=utf-8",
+      "duration_ms": 615.53,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 349.851,
+        "receive": 265.679
+      }
+    },
+    {
+      "path": "/_nuxt/BKlyjday.js",
+      "status": 200,
+      "mime_type": "text/javascript; charset=utf-8",
+      "duration_ms": 617.183,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 433.693,
+        "receive": 183.49
+      }
+    },
+    {
+      "path": "/_nuxt/CTOpmJH2.js",
+      "status": 200,
+      "mime_type": "text/javascript; charset=utf-8",
+      "duration_ms": 915.832,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 84.577,
+        "receive": 831.255
+      }
+    },
+    {
+      "path": "/_nuxt/Bj6Am4mI.js",
+      "status": 200,
+      "mime_type": "text/javascript; charset=utf-8",
+      "duration_ms": 1911.4950000000001,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 524.99,
+        "receive": 1386.505
+      }
+    },
+    {
+      "path": "/_nuxt/qVSC5sKV.js",
+      "status": 200,
+      "mime_type": "text/javascript; charset=utf-8",
+      "duration_ms": 1907.277,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 16.175,
+        "receive": 1891.102
+      }
+    },
+    {
+      "path": "/_nuxt/DJPNPMC0.js",
+      "status": 200,
+      "mime_type": "text/javascript; charset=utf-8",
+      "duration_ms": 1908.681,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 241.617,
+        "receive": 1667.064
+      }
+    },
+    {
+      "path": "/_nuxt/VBtn.el6qa_Et.css",
+      "status": 200,
+      "mime_type": "text/css; charset=utf-8",
+      "duration_ms": 2599.652,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 286.096,
+        "receive": 2313.556
+      }
+    },
+    {
+      "path": "/_nuxt/Rim8dSt2.js",
+      "status": 200,
+      "mime_type": "text/javascript; charset=utf-8",
+      "duration_ms": 2599.404,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 584.788,
+        "receive": 2014.616
+      }
+    },
+    {
+      "path": "/_nuxt/yFQpeWdz.js",
+      "status": 200,
+      "mime_type": "text/javascript; charset=utf-8",
+      "duration_ms": 2598.2760000000003,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 19.347,
+        "receive": 2578.929
+      }
+    },
+    {
+      "path": "/_nuxt/CuhMzCWZ.js",
+      "status": 200,
+      "mime_type": "text/javascript; charset=utf-8",
+      "duration_ms": 2598.524,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 150.701,
+        "receive": 2447.823
+      }
+    },
+    {
+      "path": "/_nuxt/Co4O2DBc.js",
+      "status": 200,
+      "mime_type": "text/javascript; charset=utf-8",
+      "duration_ms": 2598.747,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 379.734,
+        "receive": 2219.013
+      }
+    },
+    {
+      "path": "/_nuxt/BVksxkEz.js",
+      "status": 200,
+      "mime_type": "text/javascript; charset=utf-8",
+      "duration_ms": 2599.076,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 479.391,
+        "receive": 2119.685
+      }
+    },
+    {
+      "path": "/_nuxt/AppHeader.C5kG51fn.css",
+      "status": 200,
+      "mime_type": "text/css; charset=utf-8",
+      "duration_ms": 3715.44,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 113.692,
+        "receive": 3601.748
+      }
+    },
+    {
+      "path": "/_nuxt/CNs_Ozdc.js",
+      "status": 200,
+      "mime_type": "text/javascript; charset=utf-8",
+      "duration_ms": 646.4580000000001,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 543.09,
+        "receive": 103.368
+      }
+    },
+    {
+      "path": "/_nuxt/VSpacer.DfbUir7X.css",
+      "status": 200,
+      "mime_type": "text/css; charset=utf-8",
+      "duration_ms": 3716.7160000000003,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 205.673,
+        "receive": 3511.043
+      }
+    },
+    {
+      "path": "/_nuxt/VCard.C4Mx7Eb9.css",
+      "status": 200,
+      "mime_type": "text/css; charset=utf-8",
+      "duration_ms": 3716.968,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 295.602,
+        "receive": 3421.366
+      }
+    },
+    {
+      "path": "/_nuxt/CmC0__Wo.js",
+      "status": 200,
+      "mime_type": "text/javascript; charset=utf-8",
+      "duration_ms": 995.793,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 126.963,
+        "receive": 868.83
+      }
+    },
+    {
+      "path": "/_nuxt/VAvatar.DrqErn-G.css",
+      "status": 200,
+      "mime_type": "text/css; charset=utf-8",
+      "duration_ms": 3717.432,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 373.709,
+        "receive": 3343.723
+      }
+    },
+    {
+      "path": "/_nuxt/VToolbar.CeWuXx7D.css",
+      "status": 200,
+      "mime_type": "text/css; charset=utf-8",
+      "duration_ms": 3731.163,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 87.15,
+        "receive": 3644.013
+      }
+    },
+    {
+      "path": "/_nuxt/VField.CeQ0THPG.css",
+      "status": 200,
+      "mime_type": "text/css; charset=utf-8",
+      "duration_ms": 4826.342,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 105.143,
+        "receive": 4721.199
+      }
+    },
+    {
+      "path": "/_nuxt/VDialog.CZWf1yfq.css",
+      "status": 200,
+      "mime_type": "text/css; charset=utf-8",
+      "duration_ms": 4822.941000000001,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 177.051,
+        "receive": 4645.89
+      }
+    },
+    {
+      "path": "/_nuxt/VOverlay.DObTzQ9r.css",
+      "status": 200,
+      "mime_type": "text/css; charset=utf-8",
+      "duration_ms": 4828.335999999999,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 254.431,
+        "receive": 4573.905
+      }
+    },
+    {
+      "path": "/_nuxt/VTextField.B19tSIlz.css",
+      "status": 200,
+      "mime_type": "text/css; charset=utf-8",
+      "duration_ms": 4828.7429999999995,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 334.199,
+        "receive": 4494.544
+      }
+    },
+    {
+      "path": "/_nuxt/RecipeCardMobile.BcOc57xZ.css",
+      "status": 200,
+      "mime_type": "text/css; charset=utf-8",
+      "duration_ms": 4828.976,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 451.642,
+        "receive": 4377.334
+      }
+    },
+    {
+      "path": "/_nuxt/VListItem.C291c-x-.css",
+      "status": 200,
+      "mime_type": "text/css; charset=utf-8",
+      "duration_ms": 5706.889,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 77.536,
+        "receive": 5629.353
+      }
+    },
+    {
+      "path": "/_nuxt/RecipeCardImage.DdyWljL5.css",
+      "status": 200,
+      "mime_type": "text/css; charset=utf-8",
+      "duration_ms": 5556.266,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 81.052,
+        "receive": 5475.214
+      }
+    },
+    {
+      "path": "/_nuxt/VMenu.DCy1EQlK.css",
+      "status": 200,
+      "mime_type": "text/css; charset=utf-8",
+      "duration_ms": 5402.348,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 118.89,
+        "receive": 5283.458
+      }
+    },
+    {
+      "path": "/_nuxt/VTooltip.BJE5Gwua.css",
+      "status": 200,
+      "mime_type": "text/css; charset=utf-8",
+      "duration_ms": 5203.839,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 84.735,
+        "receive": 5119.104
+      }
+    },
+    {
+      "path": "/_nuxt/CYi3wqSZ.js",
+      "status": 200,
+      "mime_type": "text/javascript; charset=utf-8",
+      "duration_ms": 946.3290000000001,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 125.749,
+        "receive": 820.58
+      }
+    },
+    {
+      "path": "/_nuxt/VDivider.DvkP_iX7.css",
+      "status": 200,
+      "mime_type": "text/css; charset=utf-8",
+      "duration_ms": 7125.049999999999,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 117.373,
+        "receive": 7007.677
+      }
+    },
+    {
+      "path": "/_nuxt/AppSidebar.CNJPWHWD.css",
+      "status": 200,
+      "mime_type": "text/css; charset=utf-8",
+      "duration_ms": 7125.558,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 238.975,
+        "receive": 6886.583
+      }
+    },
+    {
+      "path": "/_nuxt/SafeMarkdown.C86xBMyU.css",
+      "status": 200,
+      "mime_type": "text/css; charset=utf-8",
+      "duration_ms": 6097.602,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 373.138,
+        "receive": 5724.464
+      }
+    },
+    {
+      "path": "/_nuxt/BaseDialog.uTvPD-Z5.css",
+      "status": 200,
+      "mime_type": "text/css; charset=utf-8",
+      "duration_ms": 7126.267,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 486.378,
+        "receive": 6639.889
+      }
+    },
+    {
+      "path": "/_nuxt/VList.BBXvNjSN.css",
+      "status": 200,
+      "mime_type": "text/css; charset=utf-8",
+      "duration_ms": 7126.582,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 626.98,
+        "receive": 6499.602
+      }
+    },
+    {
+      "path": "/_nuxt/VChip.BrjvYOh0.css",
+      "status": 200,
+      "mime_type": "text/css; charset=utf-8",
+      "duration_ms": 6092.129999999999,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 714.132,
+        "receive": 5377.998
+      }
+    },
+    {
+      "path": "/_nuxt/VAutocomplete.ZDY-9VoU.css",
+      "status": 200,
+      "mime_type": "text/css; charset=utf-8",
+      "duration_ms": 7940.365,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 80.469,
+        "receive": 7859.896
+      }
+    },
+    {
+      "path": "/_nuxt/VSelect.k5rAiazX.css",
+      "status": 200,
+      "mime_type": "text/css; charset=utf-8",
+      "duration_ms": 7784.784,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 89.155,
+        "receive": 7695.629
+      }
+    },
+    {
+      "path": "/_nuxt/VSheet.CAbzDn_9.css",
+      "status": 200,
+      "mime_type": "text/css; charset=utf-8",
+      "duration_ms": 7620.777,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 83.264,
+        "receive": 7537.513
+      }
+    },
+    {
+      "path": "/_nuxt/VSelectionControl.C_utRB8r.css",
+      "status": 200,
+      "mime_type": "text/css; charset=utf-8",
+      "duration_ms": 7465.715999999999,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 88.508,
+        "receive": 7377.208
+      }
+    },
+    {
+      "path": "/_nuxt/VNavigationDrawer.BWwMo3hw.css",
+      "status": 200,
+      "mime_type": "text/css; charset=utf-8",
+      "duration_ms": 8977.64,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 143.009,
+        "receive": 8834.631
+      }
+    },
+    {
+      "path": "/_nuxt/VMain.BCz8rPo0.css",
+      "status": 200,
+      "mime_type": "text/css; charset=utf-8",
+      "duration_ms": 8978.074999999999,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 217.069,
+        "receive": 8761.006
+      }
+    },
+    {
+      "path": "/_nuxt/VApp.CEzKzXz0.css",
+      "status": 200,
+      "mime_type": "text/css; charset=utf-8",
+      "duration_ms": 8979.814,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 380.414,
+        "receive": 8599.4
+      }
+    },
+    {
+      "path": "/_nuxt/DdFO81gu.js",
+      "status": 200,
+      "mime_type": "text/javascript; charset=utf-8",
+      "duration_ms": 8980.188,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 450.664,
+        "receive": 8529.524
+      }
+    },
+    {
+      "path": "/_nuxt/VVirtualScroll.Bou2pvaJ.css",
+      "status": 200,
+      "mime_type": "text/css; charset=utf-8",
+      "duration_ms": 8034.1990000000005,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 533.787,
+        "receive": 7500.412
+      }
+    },
+    {
+      "path": "/_nuxt/BySQA94u.js",
+      "status": 200,
+      "mime_type": "text/javascript; charset=utf-8",
+      "duration_ms": 2118.7999999999997,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 297.45,
+        "receive": 1821.35
+      }
+    },
+    {
+      "path": "/_nuxt/DcuawNwP.js",
+      "status": 200,
+      "mime_type": "text/javascript; charset=utf-8",
+      "duration_ms": 907.489,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 571.402,
+        "receive": 336.087
+      }
+    },
+    {
+      "path": "/_nuxt/CrqMMz0l.js",
+      "status": 200,
+      "mime_type": "text/javascript; charset=utf-8",
+      "duration_ms": 10099.145999999999,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 141.454,
+        "receive": 9957.692
+      }
+    },
+    {
+      "path": "/_nuxt/-1VBE9SV.js",
+      "status": 200,
+      "mime_type": "text/javascript; charset=utf-8",
+      "duration_ms": 10256.799,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 75.906,
+        "receive": 10180.893
+      }
+    },
+    {
+      "path": "/_nuxt/Cb5a68yT.js",
+      "status": 200,
+      "mime_type": "text/javascript; charset=utf-8",
+      "duration_ms": 9507.924,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 174.057,
+        "receive": 9333.867
+      }
+    },
+    {
+      "path": "/_nuxt/DdvHG1Xj.js",
+      "status": 200,
+      "mime_type": "text/javascript; charset=utf-8",
+      "duration_ms": 9861.753,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 169.611,
+        "receive": 9692.142
+      }
+    },
+    {
+      "path": "/_nuxt/CHXfCQnZ.js",
+      "status": 200,
+      "mime_type": "text/javascript; charset=utf-8",
+      "duration_ms": 10093.437,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 441.975,
+        "receive": 9651.462
+      }
+    },
+    {
+      "path": "/_nuxt/IVvUXQQT.js",
+      "status": 200,
+      "mime_type": "text/javascript; charset=utf-8",
+      "duration_ms": 11282.365,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 301.384,
+        "receive": 10980.981
+      }
+    },
+    {
+      "path": "/_nuxt/BV3tqRcu.js",
+      "status": 200,
+      "mime_type": "text/javascript; charset=utf-8",
+      "duration_ms": 11283.829,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 743.016,
+        "receive": 10540.813
+      }
+    },
+    {
+      "path": "/_nuxt/Cvx6st_S.js",
+      "status": 200,
+      "mime_type": "text/javascript; charset=utf-8",
+      "duration_ms": 11281.612000000001,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 17.002,
+        "receive": 11264.61
+      }
+    },
+    {
+      "path": "/_nuxt/DHRyXhcE.js",
+      "status": 200,
+      "mime_type": "text/javascript; charset=utf-8",
+      "duration_ms": 11282.735,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 161.936,
+        "receive": 11120.799
+      }
+    },
+    {
+      "path": "/_nuxt/CccvSpJB.js",
+      "status": 200,
+      "mime_type": "text/javascript; charset=utf-8",
+      "duration_ms": 11678.486,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 143.295,
+        "receive": 11535.191
+      }
+    },
+    {
+      "path": "/_nuxt/BPM-XMAx.js",
+      "status": 200,
+      "mime_type": "text/javascript; charset=utf-8",
+      "duration_ms": 196.027,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 196.027,
+        "receive": -1
+      }
+    },
+    {
+      "path": "/_nuxt/DXsDW_pu.js",
+      "status": 200,
+      "mime_type": "text/javascript; charset=utf-8",
+      "duration_ms": 355.703,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 355.703,
+        "receive": -1
+      }
+    },
+    {
+      "path": "/_nuxt/Bp-xA0KX.js",
+      "status": 200,
+      "mime_type": "text/javascript; charset=utf-8",
+      "duration_ms": 488.552,
+      "timings": {
+        "dns": -1,
+        "connect": -1,
+        "ssl": -1,
+        "send": 0,
+        "wait": 488.552,
+        "receive": -1
+      }
+    },
+    {
+      "path": "/_nuxt/DDYmOwwO.js",
+      "status": -1,
+      "mime_type": "x-unknown",
+      "duration_ms": -1,
+      "timings": {
+        "send": -1,
+        "wait": -1,
+        "receive": -1
+      }
+    },
+    {
+      "path": "/_nuxt/C_loK7lP.js",
+      "status": -1,
+      "mime_type": "x-unknown",
+      "duration_ms": -1,
+      "timings": {
+        "send": -1,
+        "wait": -1,
+        "receive": -1
+      }
+    },
+    {
+      "path": "/_nuxt/ZSSC9UpZ.js",
+      "status": -1,
+      "mime_type": "x-unknown",
+      "duration_ms": -1,
+      "timings": {
+        "send": -1,
+        "wait": -1,
+        "receive": -1
+      }
+    },
+    {
+      "path": "/_nuxt/Dtx-hegO.js",
+      "status": -1,
+      "mime_type": "x-unknown",
+      "duration_ms": -1,
+      "timings": {
+        "send": -1,
+        "wait": -1,
+        "receive": -1
+      }
+    },
+    {
+      "path": "/_nuxt/q2B0C-lJ.js",
+      "status": -1,
+      "mime_type": "x-unknown",
+      "duration_ms": -1,
+      "timings": {
+        "send": -1,
+        "wait": -1,
+        "receive": -1
+      }
+    },
+    {
+      "path": "/_nuxt/72BGcmeX.js",
+      "status": -1,
+      "mime_type": "x-unknown",
+      "duration_ms": -1,
+      "timings": {
+        "send": -1,
+        "wait": -1,
+        "receive": -1
+      }
+    },
+    {
+      "path": "/_nuxt/CbZjKPII.js",
+      "status": -1,
+      "mime_type": "x-unknown",
+      "duration_ms": -1,
+      "timings": {
+        "send": -1,
+        "wait": -1,
+        "receive": -1
+      }
+    },
+    {
+      "path": "/_nuxt/B4a3rZ3I.js",
+      "status": -1,
+      "mime_type": "x-unknown",
+      "duration_ms": -1,
+      "timings": {
+        "send": -1,
+        "wait": -1,
+        "receive": -1
+      }
+    },
+    {
+      "path": "/_nuxt/BuHpP8BO.js",
+      "status": -1,
+      "mime_type": "x-unknown",
+      "duration_ms": -1,
+      "timings": {
+        "send": -1,
+        "wait": -1,
+        "receive": -1
+      }
+    },
+    {
+      "path": "/_nuxt/DZCebDVs.js",
+      "status": -1,
+      "mime_type": "x-unknown",
+      "duration_ms": -1,
+      "timings": {
+        "send": -1,
+        "wait": -1,
+        "receive": -1
+      }
+    },
+    {
+      "path": "/_nuxt/BMFkBnM3.js",
+      "status": -1,
+      "mime_type": "x-unknown",
+      "duration_ms": -1,
+      "timings": {
+        "send": -1,
+        "wait": -1,
+        "receive": -1
+      }
+    },
+    {
+      "path": "/_nuxt/BOb2YEQm.js",
+      "status": -1,
+      "mime_type": "x-unknown",
+      "duration_ms": -1,
+      "timings": {
+        "send": -1,
+        "wait": -1,
+        "receive": -1
+      }
+    },
+    {
+      "path": "/_nuxt/B1LQimsF.js",
+      "status": -1,
+      "mime_type": "x-unknown",
+      "duration_ms": -1,
+      "timings": {
+        "send": -1,
+        "wait": -1,
+        "receive": -1
+      }
+    },
+    {
+      "path": "/_nuxt/D6ykhjtE.js",
+      "status": -1,
+      "mime_type": "x-unknown",
+      "duration_ms": -1,
+      "timings": {
+        "send": -1,
+        "wait": -1,
+        "receive": -1
+      }
+    },
+    {
+      "path": "/_nuxt/pUGis90V.js",
+      "status": -1,
+      "mime_type": "x-unknown",
+      "duration_ms": -1,
+      "timings": {
+        "send": -1,
+        "wait": -1,
+        "receive": -1
+      }
+    },
+    {
+      "path": "/_nuxt/CSePiRGW.js",
+      "status": -1,
+      "mime_type": "x-unknown",
+      "duration_ms": -1,
+      "timings": {
+        "send": -1,
+        "wait": -1,
+        "receive": -1
+      }
+    },
+    {
+      "path": "/_nuxt/7v2ijVGD.js",
+      "status": -1,
+      "mime_type": "x-unknown",
+      "duration_ms": -1,
+      "timings": {
+        "send": -1,
+        "wait": -1,
+        "receive": -1
+      }
+    },
+    {
+      "path": "/_nuxt/u2PiXd6a.js",
+      "status": -1,
+      "mime_type": "x-unknown",
+      "duration_ms": -1,
+      "timings": {
+        "send": -1,
+        "wait": -1,
+        "receive": -1
+      }
+    },
+    {
+      "path": "/_nuxt/Bt3A5wsC.js",
+      "status": -1,
+      "mime_type": "x-unknown",
+      "duration_ms": -1,
+      "timings": {
+        "send": -1,
+        "wait": -1,
+        "receive": -1
+      }
+    },
+    {
+      "path": "/_nuxt/B7gtbaja.js",
+      "status": -1,
+      "mime_type": "x-unknown",
+      "duration_ms": -1,
+      "timings": {
+        "send": -1,
+        "wait": -1,
+        "receive": -1
+      }
+    },
+    {
+      "path": "/_nuxt/CUkRbvJk.js",
+      "status": -1,
+      "mime_type": "x-unknown",
+      "duration_ms": -1,
+      "timings": {
+        "send": -1,
+        "wait": -1,
+        "receive": -1
+      }
+    },
+    {
+      "path": "/_nuxt/CQI1DrHr.js",
+      "status": -1,
+      "mime_type": "x-unknown",
+      "duration_ms": -1,
+      "timings": {
+        "send": -1,
+        "wait": -1,
+        "receive": -1
+      }
+    },
+    {
+      "path": "/_nuxt/CbWb6Wsz.js",
+      "status": -1,
+      "mime_type": "x-unknown",
+      "duration_ms": -1,
+      "timings": {
+        "send": -1,
+        "wait": -1,
+        "receive": -1
+      }
+    },
+    {
+      "path": "/_nuxt/Obifc9An.js",
+      "status": -1,
+      "mime_type": "x-unknown",
+      "duration_ms": -1,
+      "timings": {
+        "send": -1,
+        "wait": -1,
+        "receive": -1
+      }
+    },
+    {
+      "path": "/_nuxt/Cii5hfy2.js",
+      "status": -1,
+      "mime_type": "x-unknown",
+      "duration_ms": -1,
+      "timings": {
+        "send": -1,
+        "wait": -1,
+        "receive": -1
+      }
+    },
+    {
+      "path": "/_nuxt/BeRugEoM.js",
+      "status": -1,
+      "mime_type": "x-unknown",
+      "duration_ms": -1,
+      "timings": {
+        "send": -1,
+        "wait": -1,
+        "receive": -1
+      }
+    },
+    {
+      "path": "/_nuxt/ZXJzeDrY.js",
+      "status": -1,
+      "mime_type": "x-unknown",
+      "duration_ms": -1,
+      "timings": {
+        "send": -1,
+        "wait": -1,
+        "receive": -1
+      }
+    },
+    {
+      "path": "/_nuxt/C8yqF71e.js",
+      "status": -1,
+      "mime_type": "x-unknown",
+      "duration_ms": -1,
+      "timings": {
+        "send": -1,
+        "wait": -1,
+        "receive": -1
+      }
+    },
+    {
+      "path": "/_nuxt/DOv8psL9.js",
+      "status": -1,
+      "mime_type": "x-unknown",
+      "duration_ms": -1,
+      "timings": {
+        "send": -1,
+        "wait": -1,
+        "receive": -1
+      }
+    },
+    {
+      "path": "/_nuxt/DeJ6pocD.js",
+      "status": -1,
+      "mime_type": "x-unknown",
+      "duration_ms": -1,
+      "timings": {
+        "send": -1,
+        "wait": -1,
+        "receive": -1
+      }
+    },
+    {
+      "path": "/_nuxt/Dtx8-uRF.js",
+      "status": -1,
+      "mime_type": "x-unknown",
+      "duration_ms": -1,
+      "timings": {
+        "send": -1,
+        "wait": -1,
+        "receive": -1
+      }
+    },
+    {
+      "path": "/_nuxt/DBW8AYlU.js",
+      "status": -1,
+      "mime_type": "x-unknown",
+      "duration_ms": -1,
+      "timings": {
+        "send": -1,
+        "wait": -1,
+        "receive": -1
+      }
+    },
+    {
+      "path": "/_nuxt/CVGEjflk.js",
+      "status": -1,
+      "mime_type": "x-unknown",
+      "duration_ms": -1,
+      "timings": {
+        "send": -1,
+        "wait": -1,
+        "receive": -1
+      }
+    },
+    {
+      "path": "/_nuxt/B8Qiu3Ln.js",
+      "status": -1,
+      "mime_type": "x-unknown",
+      "duration_ms": -1,
+      "timings": {
+        "send": -1,
+        "wait": -1,
+        "receive": -1
+      }
+    },
+    {
+      "path": "/_nuxt/blank.DCqlSycz.css",
+      "status": -1,
+      "mime_type": "x-unknown",
+      "duration_ms": -1,
+      "timings": {
+        "send": -1,
+        "wait": -1,
+        "receive": -1
+      }
+    },
+    {
+      "path": "/_nuxt/heROUk2j.js",
+      "status": -1,
+      "mime_type": "x-unknown",
+      "duration_ms": -1,
+      "timings": {
+        "send": -1,
+        "wait": -1,
+        "receive": -1
+      }
+    },
+    {
+      "path": "/_nuxt/CMivtwW-.js",
+      "status": -1,
+      "mime_type": "x-unknown",
+      "duration_ms": -1,
+      "timings": {
+        "send": -1,
+        "wait": -1,
+        "receive": -1
+      }
+    },
+    {
+      "path": "/_nuxt/B-p4_8fp.js",
+      "status": -1,
+      "mime_type": "x-unknown",
+      "duration_ms": -1,
+      "timings": {
+        "send": -1,
+        "wait": -1,
+        "receive": -1
+      }
+    },
+    {
+      "path": "/_nuxt/error.BJhBfqqF.css",
+      "status": -1,
+      "mime_type": "x-unknown",
+      "duration_ms": -1,
+      "timings": {
+        "send": -1,
+        "wait": -1,
+        "receive": -1
+      }
+    },
+    {
+      "path": "/_nuxt/BYSg_HgL.js",
+      "status": -1,
+      "mime_type": "x-unknown",
+      "duration_ms": -1,
+      "timings": {
+        "send": -1,
+        "wait": -1,
+        "receive": -1
+      }
+    },
+    {
+      "path": "/_nuxt/CNs_Ozdc.js",
+      "status": -1,
+      "mime_type": "x-unknown",
+      "duration_ms": -1,
+      "timings": {
+        "send": -1,
+        "wait": -1,
+        "receive": -1
+      }
+    },
+    {
+      "path": "/_nuxt/CmC0__Wo.js",
+      "status": -1,
+      "mime_type": "x-unknown",
+      "duration_ms": -1,
+      "timings": {
+        "send": -1,
+        "wait": -1,
+        "receive": -1
+      }
+    },
+    {
+      "path": "/_nuxt/Bd17z0YL.js",
+      "status": -1,
+      "mime_type": "x-unknown",
+      "duration_ms": -1,
+      "timings": {
+        "send": -1,
+        "wait": -1,
+        "receive": -1
+      }
+    },
+    {
+      "path": "/_nuxt/error-404.DFDNqWli.css",
+      "status": -1,
+      "mime_type": "x-unknown",
+      "duration_ms": -1,
+      "timings": {
+        "send": -1,
+        "wait": -1,
+        "receive": -1
+      }
+    },
+    {
+      "path": "/_nuxt/BriQOlnr.js",
+      "status": -1,
+      "mime_type": "x-unknown",
+      "duration_ms": -1,
+      "timings": {
+        "send": -1,
+        "wait": -1,
+        "receive": -1
+      }
+    },
+    {
+      "path": "/_nuxt/error-500.DYwHvFJL.css",
+      "status": -1,
+      "mime_type": "x-unknown",
+      "duration_ms": -1,
+      "timings": {
+        "send": -1,
+        "wait": -1,
+        "receive": -1
+      }
+    },
+    {
+      "path": "/_nuxt/_wcewrdH.js",
+      "status": -1,
+      "mime_type": "x-unknown",
+      "duration_ms": -1,
+      "timings": {
+        "send": -1,
+        "wait": -1,
+        "receive": -1
+      }
+    },
+    {
+      "path": "/_nuxt/BiYcHxTF.js",
+      "status": -1,
+      "mime_type": "x-unknown",
+      "duration_ms": -1,
+      "timings": {
+        "send": -1,
+        "wait": -1,
+        "receive": -1
+      }
+    }
+  ],
+  "interpretation": "Observed blank page and unfinished resource requests at the assertion deadline. This trace alone does not prove a source defect or filesystem cause. Native runtime remeasurement preserves all frozen assertions and deadlines."
+}

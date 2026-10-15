@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 4517,
+    "byte_offset": 13519516,
+    "timestamp": "2026-10-14T09:53:43.677Z",
+    "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf511eb4d88191a21c720a122746ff",
+      "status": "completed",
+      "call_id": "call_c1f98a0310104e4e80a609f5c5473f41",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 - <<'PY'\\np='wf6-evidence/usage/finish_s7.py'\\ns=open(p).read().replace(\\\"for h in shas: git(S,'cat-file','-e',h+'^{commit}')\\\",\\\"for h in shas: git(V if h=='758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d' else S,'cat-file','-e',h+'^{commit}')\\\").replace(\\\"str(x['payload'].get('message',x['payload']))\\\",\\\"x['text']\\\").replace(\\\"write(T/'attempts.jsonl',dict(timestamp=now(),kind='evidence_audit',status='PASS',scope='Existing evidence only; known accounting/source-history/coverage limits remain disclosed.'))\\\",\\\"with (T/'attempts.jsonl').open('a') as stream:stream.write(json.dumps(dict(timestamp=now(),kind='evidence_audit',status='PASS',scope='Existing evidence only; initial audit-helper commit ownership error retained and corrected; no application change. Known accounting/source-history/coverage limits remain disclosed.'))+'\\\\\\\\n')\\\")\\nopen(p,'w').write(s)\\nPY\\npython3 -B wf6-evidence/usage/record_command.py --stage S7 --cwd \\\"$PWD\\\" --label audit-correct-evaluator-object-owner -- python3 -B wf6-evidence/usage/finish_s7.py\",\"workdir\":\"<WORKSPACE>/wf6-rerun-20261014-01\",\"yield_time_ms\":1000,\"max_output_tokens\":600}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+        "create_time": 1791971614.7094665
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 4519,
+    "byte_offset": 13522096,
+    "timestamp": "2026-10-14T09:53:44.877Z",
+    "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a139d5-07ad-71e2-986f-73da0848aa01",
+      "call_id": "call_c1f98a0310104e4e80a609f5c5473f41",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 1.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"a1eb4b\",\"wall_time_seconds\":1.001609493,\"session_id\":68366,\"original_token_count\":0,\"output\":\"\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+        "create_time": 1791971624.8776095
+      }
+    }
+  }
+}

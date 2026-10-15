@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2111,
+    "byte_offset": 6173186,
+    "timestamp": "2026-10-14T04:04:24.471Z",
+    "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016aceff1bcb0081918843f156fb3d2e18",
+      "status": "completed",
+      "call_id": "call_5fd88d9eb058443eab95ef9c699ab4fe",
+      "name": "exec",
+      "input": "text(await tools.apply_patch(\"*** Begin Patch\\n*** Add File: <WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/wf6/route-map.json\\n+{\\n+  \\\"version\\\": 1,\\n+  \\\"stage\\\": \\\"S2\\\",\\n+  \\\"takeoverEnabled\\\": false,\\n+  \\\"groupSlug\\\": null,\\n+  \\\"defaultFrontend\\\": \\\"vue\\\",\\n+  \\\"explicitVueQuery\\\": { \\\"name\\\": \\\"wf6\\\", \\\"value\\\": \\\"vue\\\" },\\n+  \\\"backendPrefixes\\\": [\\\"/api\\\", \\\"/media\\\"],\\n+  \\\"candidateReactRoutes\\\": [\\\"/g/<testGroupSlug>\\\", \\\"/g/<testGroupSlug>/r/<slug>\\\"],\\n+  \\\"vueOwnedExclusions\\\": [\\\"create and all descendants\\\", \\\"shared pages\\\", \\\"other groups\\\", \\\"edit/parse/cook modes\\\", \\\"all non-pilot routes\\\"],\\n+  \\\"activeReactRoutes\\\": [],\\n+  \\\"navigation\\\": \\\"All pages remain Vue-owned in S2. No client middleware or React build is installed.\\\"\\n+}\\n*** Add File: <WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/wf6/gateway.mjs\\n+import http from 'node:http';\\n+import { createReadStream } from 'node:fs';\\n+import { readFile, realpath, stat } from 'node:fs/promises';\\n+import path from 'node:path';\\n+import { fileURLToPath } from 'node:url';\\n+\\n+const hopHeaders = new Set(['connection', 'keep-alive', 'proxy-authenticate', 'proxy-authorization', 'te', 'trailer', 'transfer-encoding', 'upgrade']);\\n+const mime = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.mjs': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.json': 'application/json; charset=utf-8', '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.webp': 'image/webp', '.ico': 'image/x-icon', '.woff': 'font/woff', '.woff2': 'font/woff2', '.txt': 'text/plain; charset=utf-8', '.webmanifest': 'application/manifest+json' };\\n+\\n+function cleanHeaders(headers) {\\n+  const excluded = new Set([...hopHeaders, ...String(headers.connection ?? '').split(',').map(x => x.trim().toLowerCase())]);\\n+  return Object.fromEntries(Object.entries(headers).filter(([key]) => !excluded.has(key.toLowerCase())));\\n+}\\n+\\n+export async function createGateway({ vueDir, backendOrigin, routeMapPath = fileURLToPath(new URL('./route-map.json', import.meta.url)), buildHash }) {\\n+  const root = await realpath(vueDir);\\n+  const map = JSON.parse(await readFile(routeMapPath, 'utf8'));\\n+  if (map.takeoverEnabled || map.defaultFrontend !== 'vue' || map.activeReactRoutes.length) throw new Error('S2 supports verified all-Vue mode only. React takeover must remain disabled.');\\n+  const backend = new URL(backendOrigin);\\n+  if (backend.protocol !== 'http:' || !['127.0.0.1', 'localhost'].includes(backend.hostname)) throw new Error('Backend must be an isolated loopback HTTP origin.');\\n+  if (!buildHash) throw new Error('A verified build hash is required.');\\n+  await stat(path.join(root, 'index.html'));\\n+  const server = http.createServer(async (req, res) => {\\n+    const fail = (code, message) => { if (!res.headersSent) res.writeHead(code, { 'content-type': 'text/plain; charset=utf-8', 'cache-control': 'no-store' }); res.end(message); };\\n+    try {\\n+      const url = new URL(req.url, 'http://localhost');\\n+      const pathname = decodeURIComponent(url.pathname);\\n+      if (pathname.includes('\\\\0') || pathname.includes('\\\\\\\\') || pathname.split('/').some(x => x === '..')) return fail(400, 'Invalid path');\\n+      if (map.backendPrefixes.some(prefix => pathname === prefix || pathname.startsWith(prefix + '/'))) {\\n+        const headers = cleanHeaders(req.headers);\\n+        headers.host = backend.host;\\n+        headers['x-forwarded-host'] = req.headers.host;\\n+        headers['x-forwarded-proto'] = 'http';\\n+        const upstream = http.request(new URL(req.url, backend), { method: req.method, headers }, reply => {\\n+          const responseHeaders = cleanHeaders(reply.headers);\\n+          // Keep each Set-Cookie header separate; do not join or log credentials.\\n+          if (responseHeaders.location?.startsWith(backend.origin)) responseHeaders.location = responseHeaders.location.replace(backend.origin, `http://${req.headers.host}`);\\n+          responseHeaders['x-wf6-backend'] = 'isolated';\\n+          res.writeHead(reply.statusCode, responseHeaders);\\n+          reply.on('error', () => res.destroy());\\n+          reply.pipe(res);\\n+        });\\n+        upstream.setTimeout(30000, () => upstream.destroy(new Error('Upstream timeout')));\\n+        upstream.on('error', () => fail(502, 'Isolated backend unavailable'));\\n+        req.on('aborted', () => upstream.destroy());\\n+        req.pipe(upstream);\\n+        return;\\n+      }\\n+      if (!['GET', 'HEAD'].includes(req.method)) return fail(405, 'Method not allowed');\\n+      if (pathname === '/_wf6/route-map.json') {\\n+        res.writeHead(200, { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store' });\\n+        return res.end(req.method === 'HEAD' ? undefined : JSON.stringify(map));\\n+      }\\n+      if (pathname.split('/').some(part => part.startsWith('.'))) return fail(404, 'Not found');\\n+      let file = path.resolve(root, '.' + pathname);\\n+      if (!file.startsWith(root + path.sep) && file !== root) return fail(400, 'Invalid path');\\n+      let info = await stat(file).catch(() => null);\\n+      if (info?.isDirectory()) { file = path.join(file, 'index.html'); info = await stat(file).catch(() => null); }\\n+      if (!info?.isFile()) {\\n+        // Missing assets are real 404s. Only document requests use history fallback.\\n+        const asset = pathname.startsWith('/_nuxt/') || pathname.startsWith('/_wf6/') || Boolean(path.extname(pathname));\\n+        if (asset || !String(req.headers.accept ?? '').includes('text/html')) return fail(404, 'Not found');\\n+        file = path.join(root, 'index.html'); info = await stat(file);\\n+      }\\n+      const resolved = await realpath(file);\\n+      if (!resolved.startsWith(root + path.sep)) return fail(404, 'Not found');\\n+      const type = mime[path.extname(file)] ?? 'application/octet-stream';\\n+      res.writeHead(200, { 'content-type': type, 'content-length': info.size, 'x-wf6-frontend': 'vue', 'x-wf6-build': buildHash,\\n+        'cache-control': type.startsWith('text/html') ? 'no-store' : pathname.startsWith('/_nuxt/') ? 'public, max-age=31536000, immutable' : 'no-cache' });\\n+      if (req.method === 'HEAD') return res.end();\\n+      createReadStream(file).on('error', () => res.destroy()).pipe(res);\\n+    } catch { fail(400, 'Invalid request'); }\\n+  });\\n+  return server;\\n+}\\n+\\n+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {\\n+  const server = await createGateway({ vueDir: process.env.WF6_VUE_DIR, backendOrigin: process.env.WF6_BACKEND_ORIGIN,\\n+    buildHash: process.env.WF6_BUILD_HASH, routeMapPath: process.env.WF6_ROUTE_MAP });\\n+  server.listen(Number(process.env.WF6_PORT ?? 9106), '127.0.0.1', () => console.log(JSON.stringify({ event: 'gateway_ready', port: server.address().port, takeoverEnabled: false, buildHash: process.env.WF6_BUILD_HASH })));\\n+  for (const signal of ['SIGTERM', 'SIGINT']) process.on(signal, () => server.close(() => process.exit(0)));\\n+}\\n*** End Patch\"));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+        "create_time": 1791950619.798093
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2114,
+    "byte_offset": 6189765,
+    "timestamp": "2026-10-14T04:04:28.393Z",
+    "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13895-4269-7283-96dc-f0ccd3942345",
+      "call_id": "call_5fd88d9eb058443eab95ef9c699ab4fe",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 3.9 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+        "create_time": 1791950668.3938243
+      }
+    }
+  }
+}

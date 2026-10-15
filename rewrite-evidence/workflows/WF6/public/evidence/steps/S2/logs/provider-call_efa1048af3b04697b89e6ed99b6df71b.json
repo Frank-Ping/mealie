@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2205,
+    "byte_offset": 6384182,
+    "timestamp": "2026-10-14T04:10:09.424Z",
+    "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf0093df2481918e7726d8f124f677",
+      "status": "completed",
+      "call_id": "call_efa1048af3b04697b89e6ed99b6df71b",
+      "name": "exec",
+      "input": "text(await tools.apply_patch(\"*** Begin Patch\\n*** Update File: <WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/usage/collect_usage.py\\n@@\\n-            writer.writerow(dict(category=entry.get(\\\"category\\\", \\\"S1_baseline\\\" if entry.get(\\\"stage_id\\\")==\\\"S1\\\" else \\\"S0_setup\\\"),stage_id=entry.get(\\\"preparation_id\\\") if is_preparation else entry.get(\\\"stage_id\\\",\\\"S0\\\"),**{k:entry.get(k) for k in timing_fields if k not in (\\\"category\\\",\\\"stage_id\\\",\\\"aggregation\\\")},\\n+            writer.writerow(dict(category=entry.get(\\\"category\\\", \\\"S1_baseline\\\" if entry.get(\\\"stage_id\\\")==\\\"S1\\\" else \\\"S2_S6_experiment\\\" if entry.get(\\\"stage_id\\\") in [f'S{i}' for i in range(2,7)] else \\\"S7_reporting\\\" if entry.get(\\\"stage_id\\\")==\\\"S7\\\" else \\\"S0_setup\\\"),stage_id=entry.get(\\\"preparation_id\\\") if is_preparation else entry.get(\\\"stage_id\\\",\\\"S0\\\"),**{k:entry.get(k) for k in timing_fields if k not in (\\\"category\\\",\\\"stage_id\\\",\\\"aggregation\\\")},\\n@@\\n-    manifest(evidence)\\n+    budget_path=evidence/'experiment-budget.json'\\n+    if budget_path.exists():\\n+        budget=json.loads(budget_path.read_text())\\n+        for segment in budget['segments']:\\n+            completed=[r for r in records if r['record'].get('type')=='event_msg' and payload(r).get('type')=='task_complete' and payload(r).get('turn_id')==segment['turn_id']]\\n+            end=completed[-1]['record']['timestamp'] if completed else now()\\n+            start_date=datetime.datetime.fromisoformat(segment['start_utc'].replace('Z','+00:00'))\\n+            end_date=datetime.datetime.fromisoformat(end.replace('Z','+00:00'))\\n+            segment.update(end_utc=end,elapsed_seconds=(end_date-start_date).total_seconds(),status='closed' if completed else 'provisional_active')\\n+        budget['known_execution_seconds']=sum(s['elapsed_seconds'] for s in budget['segments'])\\n+        budget['remaining_seconds']=budget['limit_seconds']-budget['known_execution_seconds']\\n+        write_json(budget_path,budget)\\n+    manifest(evidence)\\n*** End Patch\"));\ntext(await tools.exec_command({cmd:\"head -20 wf6-rerun-20261014-01/wf6-evidence/usage/collect_usage.py; tail -8 wf6-rerun-20261014-01/wf6-evidence/steps/S2/logs/20261014T040533-43abd8a6.stdout.log\",\"max_output_tokens\":700}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+        "create_time": 1791950995.8741994
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2209,
+    "byte_offset": 6393184,
+    "timestamp": "2026-10-14T04:10:09.761Z",
+    "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a1389a-77e1-7920-9d6a-91c32eb46321",
+      "call_id": "call_efa1048af3b04697b89e6ed99b6df71b",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.3 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"cd33ca\",\"wall_time_seconds\":0.000018526,\"exit_code\":0,\"original_token_count\":295,\"output\":\"\\\"\\\"\\\"Independent WF6 collector for observed Codex JSONL events.\\n\\nOnly attributed response usage is authoritative. Legacy cumulative events are\\npreserved but never added. Missing identity, boundaries, fields, or reconciliation\\nproduce partial/not_provided rather than guessed values.\\n\\\"\\\"\\\"\\nimport argparse\\nimport copy\\nimport csv\\nimport datetime as dt\\nimport hashlib\\nimport json\\nfrom pathlib import Path\\nimport re\\nimport time\\n\\nFIELDS = (\\\"input_tokens\\\", \\\"cached_input_tokens\\\", \\\"cache_write_input_tokens\\\", \\\"output_tokens\\\", \\\"reasoning_output_tokens\\\", \\\"total_tokens\\\")\\nMARKER = re.compile(r\\\"^\\\\[\\\\[WF6:(S[0-7]):(START|CONTINUE)\\\\]\\\\]$\\\")\\nEND = re.compile(r\\\"\\\\[\\\\[WF6:(S[0-7]):END\\\\]\\\\]\\\\s*$\\\")\\n\\nProgress: resolved 1231, reused 0, downloaded 1228, added 1224\\nProgress: resolved 1231, reused 0, downloaded 1228, added 1225\\nProgress: resolved 1231, reused 0, downloaded 1228, added 1226\\nProgress: resolved 1231, reused 0, downloaded 1228, added 1227\\nProgress: resolved 1231, reused 0, downloaded 1228, added 1228\\nProgress: resolved 1231, reused 0, downloaded 1229, added 1228\\nProgress: resolved 1231, reused 0, downloaded 1229, added 1229\\nProgress: resolved 1231, reused 0, downloaded 1229, added 1230\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+        "create_time": 1791951009.7617097
+      }
+    }
+  }
+}

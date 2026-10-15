@@ -1,0 +1,30 @@
+{
+  "react_completed": [
+    "authenticated own-group list",
+    "server search and clear",
+    "keyboard-accessible real recipe links",
+    "read-only detail name/ingredients/steps/tools/categories/tags",
+    "loading/empty/error and retry",
+    "basic pagination UI (multi-page browser scenario not measured)"
+  ],
+  "vue_retained_or_not_migrated": [
+    "create/edit/delete",
+    "comments",
+    "cook/parse modes",
+    "shopping-list business",
+    "administration/settings",
+    "advanced filters/suggestions",
+    "full public/shared browsing",
+    "other-group pilot",
+    "nutrition/assets/images/rating/timeline",
+    "unit conversion and rich Markdown parity",
+    "complete non-en-US localization",
+    "whole-system/production deployment"
+  ],
+  "vue_retained_not_counted_as_react": true,
+  "recipe_write_requests_from_react": 0,
+  "full_frozen_suite": "not_executed",
+  "coverage": null,
+  "cost": null,
+  "human_review_time": null
+}

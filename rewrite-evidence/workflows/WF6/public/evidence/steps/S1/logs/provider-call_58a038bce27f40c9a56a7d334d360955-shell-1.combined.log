@@ -1,0 +1,1 @@
+{"action": "SIGTERM verified owned backend process group", "pid": 32542, "observed_utc": "2026-10-14T03:48:11.659128+00:00", "reason": "Runner handle lost after interrupted turn; preserve partial suite, close only verified owned service before fresh serial measurement."}

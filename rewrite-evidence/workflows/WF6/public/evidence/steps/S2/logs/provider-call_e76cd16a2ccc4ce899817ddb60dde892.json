@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2088,
+    "byte_offset": 6095543,
+    "timestamp": "2026-10-14T04:02:57.245Z",
+    "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acefeed332881918eb310ac900a5214",
+      "status": "completed",
+      "call_id": "call_e76cd16a2ccc4ce899817ddb60dde892",
+      "name": "exec",
+      "input": "text(await tools.write_stdin({session_id:79082,chars:\"\",yield_time_ms:1000,max_output_tokens:500}));\ntext(await tools.exec_command({cmd:\"python3 - <<'PY'\\nimport pathlib,json\\nb=pathlib.Path('wf6-rerun-20261014-01/wf6-evidence');d=json.loads((b/'steps/S1/token-usage.json').read_text());print({k:d[k] for k in ['status','input_tokens','cached_input_tokens','output_tokens','reasoning_output_tokens','total_tokens','final_reply_included','coverage_notes']})\\nPY\\nsed -n '200,244p' wf6-rerun-20261014-01/wf6-evidence/usage/collect_usage.py\",\"max_output_tokens\":2100}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+        "create_time": 1791950573.2030942
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2091,
+    "byte_offset": 6103403,
+    "timestamp": "2026-10-14T04:02:57.442Z",
+    "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13893-df22-7e70-80ea-65871dca436f",
+      "call_id": "call_e76cd16a2ccc4ce899817ddb60dde892",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"f3a805\",\"wall_time_seconds\":0.000012789,\"exit_code\":0,\"original_token_count\":210,\"output\":\"{\\\"command_id\\\": \\\"20261014T040216-410a5d63\\\", \\\"stage_id\\\": \\\"S2\\\", \\\"label\\\": \\\"S2-settle-S1-final-reply-usage\\\", \\\"argv\\\": [\\\"python3\\\", \\\"-B\\\", \\\"wf6-evidence/usage/collect_usage.py\\\", \\\"finalize\\\", \\\"--stage\\\", \\\"S1\\\", \\\"--wait-seconds\\\", \\\"0\\\"], \\\"cwd\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01\\\", \\\"start_utc\\\": \\\"2026-10-14T04:02:16.883879+00:00\\\", \\\"end_utc\\\": \\\"2026-10-14T04:02:35.074872+00:00\\\", \\\"duration_seconds\\\": 18.19100623600025, \\\"exit_code\\\": 0, \\\"stdout\\\": \\\"steps/S2/logs/20261014T040216-410a5d63.stdout.log\\\", \\\"stderr\\\": \\\"steps/S2/logs/20261014T040216-410a5d63.stderr.log\\\", \\\"environment_overrides\\\": {}, \\\"permission\\\": \\\"workspace-write; network restricted; no escalation\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"5026d4\",\"wall_time_seconds\":0.000154831,\"exit_code\":0,\"original_token_count\":1089,\"output\":\"{'status': 'provisional', 'input_tokens': 30194364, 'cached_input_tokens': 29885568, 'output_tokens': 114262, 'reasoning_output_tokens': 61765, 'total_tokens': 30308626, 'final_reply_included': False, 'coverage_notes': []}\\n    for stage,segs in stage_segments.items():\\n        notes=list(issues)+stage_issues[stage]\\n        exported=[];all_events=[];final_included=bool(segs)\\n        for seg in segs:\\n            turn=seg[\\\"turn_id\\\"];start=seg[\\\"request_line\\\"]\\n            events=[e for e in unique if payload(e)[\\\"turn_id\\\"]==turn and e[\\\"line\\\"]>start]\\n            before=[e for e in unique if e[\\\"line\\\"]<start]\\n            start_event=before[-1] if before else None\\n            if start_event is None:notes.append(\\\"No verified pre-request cumulative boundary; zero is not assumed.\\\")\\n            matching=[f for f in finals if f[\\\"turn_id\\\"]==turn and END.search(f[\\\"text\\\"]) and END.search(f[\\\"text\\\"]).group(1)==stage]\\n            final=matching[-1] if matching else None\\n            after_final=[e for e in events if final and e[\\\"line\\\"]>final[\\\"row\\\"][\\\"line\\\"]]\\n            complete=[c for c in completions if c[\\\"turn_id\\\"]==turn and final and c[\\\"row\\\"][\\\"line\\\"]>final[\\\"row\\\"][\\\"line\\\"]]\\n            closed=bool(final and after_final and complete)\\n            if closed:\\n                end_line=complete[-1][\\\"row\\\"][\\\"line\\\"]\\n                late=[e for e in events if e[\\\"line\\\"]>end_line]\\n                if late:notes.append(\\\"Attributed late usage arrived after task completion; retained, closure requires reconciliation.\\\")\\n            final_included=final_included and closed\\n            if start_event and events:\\n                a=payload(start_event).get(\\\"thread_token_usage\\\",{});b=payload(events[-1]).get(\\\"thread_token_usage\\\",{})\\n                delta={k:b[k]-a[k] if isinstance(a.get(k),int) and isinstance(b.get(k),int) else None for k in FIELDS}\\n                interleaved=[e for e in unique if start<e[\\\"line\\\"]<=events[-1][\\\"line\\\"] and payload(e)[\\\"turn_id\\\"]!=turn]\\n                if interleaved:\\n                    notes.append(\\\"Interleaved/late foreign-turn usage in segment; per-response attribution used, cumulative boundary is not an uncontaminated stage delta.\\\")\\n                if not interleaved and any(delta[k]!=sums(events)[k] for k in FIELDS):notes.append(\\\"Segment cumulative difference disagrees with unique responses.\\\")\\n            else:delta={k:None for k in FIELDS}\\n            def event_export(e):\\n                return None if e is None else {**locator(e),\\\"timestamp\\\":e[\\\"record\\\"].get(\\\"timestamp\\\"),\\\"payload\\\":payload(e)}\\n            exported.append(dict(session_id=session,turn_id=turn,boundary=seg[\\\"boundary\\\"],start_event=event_export(start_event),\\n                end_event=event_export(events[-1]) if events else None,cumulative_delta=delta,usage=sums(events) if events else {k:None for k in FIELDS},\\n                response_ids=[payload(e)[\\\"response_id\\\"] for e in events],final_reply_included=closed,\\n                final_event=locator(final[\\\"row\\\"]) if final else None,complete_event=locator(complete[-1][\\\"row\\\"]) if complete else None))\\n            all_events.extend(events)\\n        known=sums(all_events) if all_events else {k:None for k in FIELDS}\\n        status=\\\"not_executed\\\" if not segs else \\\"not_provided\\\" if not all_events else \\\"partial\\\" if notes else \\\"exact_reported\\\" if final_included else \\\"provisional\\\"\\n        stages.append(dict(stage_id=stage,status=status,session_id=session,turn_ids=[s[\\\"turn_id\\\"] for s in segs],segments=exported,\\n            **(known if status in (\\\"provisional\\\",\\\"exact_reported\\\") else {k:None for k in FIELDS}),known_partial_usage=known,\\n            final_reply_included=final_included,source_log=config[\\\"source_log\\\"],coverage_notes=sorted(set(notes)) if segs else [\\\"No actual execution request.\\\"],\\n            cost=None,cache_write_semantics=\\\"Observed separately; not added to total.\\\"))\\n    prep_events=[e for e in unique if e[\\\"line\\\"]<config[\\\"start_line\\\"]]\\n    extra_events=[e for e in unique if e[\\\"line\\\"]>=config[\\\"start_line\\\"] and payload(e)[\\\"turn_id\\\"] not in claimed_turns]\\n    def external(events,label):\\n        return dict(category=label,status=\\\"partial\\\" if issues or label==\\\"preparation\\\" else \\\"provisional\\\",known_usage=sums(events) if events else {k:None for k in FIELDS},\\n            turn_ids=sorted({payload(e)[\\\"turn_id\\\"] for e in events}),response_ids=[payload(e)[\\\"response_id\\\"] for e in events],\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+        "create_time": 1791950577.4427602
+      }
+    }
+  }
+}

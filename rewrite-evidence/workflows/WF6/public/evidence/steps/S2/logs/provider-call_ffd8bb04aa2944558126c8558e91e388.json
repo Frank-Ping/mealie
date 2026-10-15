@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2188,
+    "byte_offset": 6353577,
+    "timestamp": "2026-10-14T04:09:18.231Z",
+    "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf0060ab2481918829e7bea097a1ab",
+      "status": "completed",
+      "call_id": "call_ffd8bb04aa2944558126c8558e91e388",
+      "name": "exec",
+      "input": "text(await tools.apply_patch(\"*** Begin Patch\\n*** Update File: <WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/usage/run_s2.py\\n@@\\n-        result=run(['pnpm','exec','playwright','test','--config='+str(config),'--output='+str(RUNTIME/'browser/test-results')],EVALUATOR/'frontend-e2e','S2-real-all-Vue-same-origin-browser',stage='S2',env=env,permission=permission)\\n+        result=run(['node',str(EVALUATOR/'frontend-e2e/node_modules/@playwright/test/cli.js'),'test','--config='+str(config),'--output='+str(RUNTIME/'browser/test-results')],EVALUATOR/'frontend-e2e','S2-real-all-Vue-same-origin-browser',stage='S2',env=env,permission=permission)\\n*** Update File: <WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/usage/test_s1_boundaries.py\\n@@\\n class S1BoundaryTests(unittest.TestCase):\\n+    def test_interrupted_segment_does_not_hide_latest_reply_or_certify_exact(self):\\n+        data=fixture()+[user('b','[[WF6:S1:START]]','b'),usage('b','br',2,115),\\n+            event('event_msg',dict(type='turn_aborted',turn_id='b')),user('c','[[WF6:S1:CONTINUE]]','c'),\\n+            usage('c','cr1',3,118),final('c','S1'),usage('c','cr2',4,122,7),event('event_msg',dict(type='task_complete',turn_id='c'))]\\n+        result=analyze(rows(data),config())['stages'][1]\\n+        self.assertEqual(result['status'],'partial')\\n+        self.assertTrue(result['final_reply_included'])\\n+        self.assertFalse(result['segments'][0]['final_reply_included'])\\n+        self.assertEqual(result['known_partial_usage']['total_tokens'],9)\\n+\\n*** End Patch\"));\ntext(await tools.exec_command({cmd:\"python3 -B wf6-rerun-20261014-01/wf6-evidence/usage/record_command.py --stage S2 --cwd '<WORKSPACE>/wf6-rerun-20261014-01' --label S2-collector-interrupted-tail-regression-check -- python3 -B -m unittest discover -s wf6-evidence/usage -p 'test*.py'\",\"yield_time_ms\":1000,\"max_output_tokens\":700}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+        "create_time": 1791950944.6723127
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2192,
+    "byte_offset": 6361785,
+    "timestamp": "2026-10-14T04:09:19.175Z",
+    "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13899-b247-7bd1-bdde-ef97d7de5def",
+      "call_id": "call_ffd8bb04aa2944558126c8558e91e388",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.9 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"8ff0d8\",\"wall_time_seconds\":0.430691233,\"exit_code\":0,\"original_token_count\":211,\"output\":\"{\\\"command_id\\\": \\\"20261014T040918-dd59c549\\\", \\\"stage_id\\\": \\\"S2\\\", \\\"label\\\": \\\"S2-collector-interrupted-tail-regression-check\\\", \\\"argv\\\": [\\\"python3\\\", \\\"-B\\\", \\\"-m\\\", \\\"unittest\\\", \\\"discover\\\", \\\"-s\\\", \\\"wf6-evidence/usage\\\", \\\"-p\\\", \\\"test*.py\\\"], \\\"cwd\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01\\\", \\\"start_utc\\\": \\\"2026-10-14T04:09:18.880461+00:00\\\", \\\"end_utc\\\": \\\"2026-10-14T04:09:19.145932+00:00\\\", \\\"duration_seconds\\\": 0.2654544329998316, \\\"exit_code\\\": 0, \\\"stdout\\\": \\\"steps/S2/logs/20261014T040918-dd59c549.stdout.log\\\", \\\"stderr\\\": \\\"steps/S2/logs/20261014T040918-dd59c549.stderr.log\\\", \\\"environment_overrides\\\": {}, \\\"permission\\\": \\\"workspace-write; network restricted; no escalation\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+        "create_time": 1791950959.1753318
+      }
+    }
+  }
+}

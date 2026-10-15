@@ -1,0 +1,82 @@
+{
+  "timestamp": "2026-10-14T09:57:07.588202+00:00",
+  "raw_reports": [
+    {
+      "path": "steps/S1/browser-native/results.json",
+      "sha256": "47456b46f9b05e0d6ee468209b8fee8529481e123c0e8c90b1a30c19c0f99108",
+      "stats": {
+        "startTime": "2026-10-14T03:51:10.531Z",
+        "duration": 131050.429,
+        "expected": 82,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    {
+      "path": "steps/S6/browser/restored-frozen-results.json",
+      "sha256": "6a074d52d1527156f8c286046c4a71ea3b47ebd0d4920f14f233d4a9489cbe39",
+      "stats": {
+        "startTime": "2026-10-14T07:56:49.870Z",
+        "duration": 294472.485,
+        "expected": 78,
+        "skipped": 0,
+        "unexpected": 4,
+        "flaky": 0
+      }
+    },
+    {
+      "path": "steps/S6/continuation-03/browser/restored-frozen-results.json",
+      "sha256": "000370cef12f1ac2181fcb8c1d92d9d9cfcdab75df41d86f0b7c1969a643e349",
+      "stats": {
+        "startTime": "2026-10-14T09:31:53.521Z",
+        "duration": 97585.553,
+        "expected": 82,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    }
+  ],
+  "trace_path": "steps/S6/continuation-03/browser/persistence-test-results/s6-c3-persistence-tests.cj-d7f2f--failed-POST-restores-draft/trace.zip",
+  "trace_sha256": "8e241f4b8ce7baa319789275eb965ea4f3af5819d08a4cd1ff95d8d5e32933f5",
+  "comment_network": [
+    {
+      "network_member": "1-trace.network",
+      "started_utc": "2026-10-14T09:31:17.324Z",
+      "method": "GET",
+      "path": "/api/recipes/e2e-garden-salad/comments",
+      "status": 200,
+      "body_resource": "resources/171e068669723512e65f168047c7633067799f0e.json",
+      "same_comment_id_recipe_text": false
+    },
+    {
+      "network_member": "1-trace.network",
+      "started_utc": "2026-10-14T09:31:17.468Z",
+      "method": "POST",
+      "path": "/api/comments",
+      "status": 500,
+      "body_resource": "resources/7d409edbec9d4a288af4e5e6c867af55cd21c312.json",
+      "same_comment_id_recipe_text": false
+    },
+    {
+      "network_member": "1-trace.network",
+      "started_utc": "2026-10-14T09:31:17.610Z",
+      "method": "POST",
+      "path": "/api/comments",
+      "status": 201,
+      "body_resource": "resources/43210591bff2fae91504cde04c314369c8ba1164.json",
+      "same_comment_id_recipe_text": true
+    },
+    {
+      "network_member": "1-trace.network",
+      "started_utc": "2026-10-14T09:31:17.732Z",
+      "method": "GET",
+      "path": "/api/recipes/e2e-garden-salad/comments",
+      "status": 200,
+      "body_resource": "resources/6b70f43c7d20d20dacbcf3873a603983f971b072.json",
+      "same_comment_id_recipe_text": true
+    }
+  ],
+  "redaction": "Only method/path/status/body-resource ID and boolean same-record result; no cookie/bearer/password. Raw trace is unchanged."
+}

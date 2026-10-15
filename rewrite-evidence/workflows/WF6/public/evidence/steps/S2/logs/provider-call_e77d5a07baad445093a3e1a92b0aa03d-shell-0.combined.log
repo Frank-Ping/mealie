@@ -1,0 +1,7 @@
+current-only 8 historical-only 7
+current_only_diagnostic_lines {'TS2532': 4, 'TS2339': 4}
+historical_only_diagnostic_lines {'TS2532': 2, 'TS2345': 1, 'TS2339': 4}
+historical type helper package
+
+added 26 packages in 6s
+

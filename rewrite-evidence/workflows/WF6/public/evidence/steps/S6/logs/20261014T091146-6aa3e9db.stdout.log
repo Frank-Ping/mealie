@@ -1,0 +1,49 @@
+
+Running 4 tests using 1 worker
+
+  ✓  1 [flows] › tests/flows/auth.spec.ts:27:7 › auth › [flow] log out ends the session (1.3s)
+  ✓  2 [flows] › tests/flows/auth.spec.ts:39:7 › auth › [flow] a regular member is not offered admin pages (1.1s)
+  ✓  3 [flows] › tests/flows/auth.spec.ts:50:7 › auth › [flow] an admin is offered admin pages (1.5s)
+  ✘  4 [flows] › tests/flows/recipes.spec.ts:36:7 › recipes › [flow] comment on a recipe and see it after reload (10.5s)
+
+
+  1) [flows] › tests/flows/recipes.spec.ts:36:7 › recipes › [flow] comment on a recipe and see it after reload 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByText('E2E comment mv7w58bjry').visible().first()
+    Expected: visible
+    Timeout: 10000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByText('E2E comment mv7w58bjry').visible().first() with timeout 10000ms
+      - waiting for getByText('E2E comment mv7w58bjry').visible().first()
+
+
+      42 |     await expect(visibleText(page, comment)).toBeVisible();
+      43 |     await page.reload();
+    > 44 |     await expect(visibleText(page, comment)).toBeVisible();
+         |                                              ^
+      45 |   });
+      46 | });
+      47 |
+        at <WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/tests/flows/recipes.spec.ts:44:46
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S6-C2-R2/browser/four-original-test-results/flows-recipes-recipes-flow-a3d3d-ipe-and-see-it-after-reload-flows/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S6-C2-R2/browser/four-original-test-results/flows-recipes-recipes-flow-a3d3d-ipe-and-see-it-after-reload-flows/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S6-C2-R2/browser/four-original-test-results/flows-recipes-recipes-flow-a3d3d-ipe-and-see-it-after-reload-flows/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S6-C2-R2/browser/four-original-test-results/flows-recipes-recipes-flow-a3d3d-ipe-and-see-it-after-reload-flows/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [flows] › tests/flows/recipes.spec.ts:36:7 › recipes › [flow] comment on a recipe and see it after reload 
+  3 passed (17.7s)

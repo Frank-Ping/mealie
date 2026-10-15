@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1104,
+    "byte_offset": 3838391,
+    "timestamp": "2026-10-14T02:50:06.541Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016aceedd626d48191af104edef63678f8",
+      "status": "completed",
+      "call_id": "call_da2fe0444c874ef9af14b2d4c89cd22f",
+      "name": "exec",
+      "input": "text(await tools.apply_patch(\"*** Begin Patch\\n*** Update File: <WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/usage/run_s1.py\\n@@\\n     if entry[\\\"exit_code\\\"]!=0:\\n-        write(STAGE/\\\"build-failed.json\\\",dict(command_id=entry[\\\"command_id\\\"],exit_code=entry[\\\"exit_code\\\"],browser_acceptance_allowed=False,\\n-            note=\\\"Any dist left by this failed build is not an accepted artifact.\\\"));return\\n+        failure=dict(command_id=entry[\\\"command_id\\\"],exit_code=entry[\\\"exit_code\\\"],browser_acceptance_allowed=False,\\n+            note=\\\"Any dist left by this failed build is not an accepted artifact.\\\")\\n+        write(STAGE/\\\"build-failed.json\\\",failure)\\n+        write(STAGE/\\\"build-artifact.json\\\",failure)\\n+        return\\n*** Update File: <WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/usage/browser_s1.py\\n@@\\n     assert build[\\\"exit_code\\\"]==0 and build[\\\"browser_acceptance_allowed\\\"]\\n+    for record in build[\\\"files\\\"]:\\n+        file=SOURCE/\\\"frontend/dist\\\"/record[\\\"path\\\"]\\n+        assert file.is_file() and hashlib.sha256(file.read_bytes()).hexdigest()==record[\\\"sha256\\\"],\\\"Accepted build file changed before browser acceptance: \\\"+record[\\\"path\\\"]\\n*** End Patch\"));\ntext(await tools.write_stdin({session_id:80082,chars:\"\",yield_time_ms:20000,max_output_tokens:1200}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791946198.1551461
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1107,
+    "byte_offset": 3843403,
+    "timestamp": "2026-10-14T02:50:26.732Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13851-7c2c-7901-a6f4-2d33774a572a",
+      "call_id": "call_da2fe0444c874ef9af14b2d4c89cd22f",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 20.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"65a6f8\",\"wall_time_seconds\":20.000860964,\"session_id\":80082,\"original_token_count\":0,\"output\":\"\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791946226.732474
+      }
+    }
+  }
+}

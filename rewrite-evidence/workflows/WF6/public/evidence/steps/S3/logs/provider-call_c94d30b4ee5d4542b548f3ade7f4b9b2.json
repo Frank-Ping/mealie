@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2515,
+    "byte_offset": 7054117,
+    "timestamp": "2026-10-14T04:38:54.612Z",
+    "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf0749f08081919bc19ce9c1531c87",
+      "status": "completed",
+      "call_id": "call_c94d30b4ee5d4542b548f3ade7f4b9b2",
+      "name": "exec",
+      "input": "text(await tools.apply_patch(\"*** Begin Patch\\n*** Add File: <WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/usage/build_s3.py\\n+\\\"\\\"\\\"Build strict React and the single Vue boundary patch; retain artifact/source identities.\\\"\\\"\\\"\\n+import hashlib\\n+import json\\n+from pathlib import Path\\n+import shutil\\n+from record_command import ROOT,EVIDENCE,run\\n+from run_s1 import SOURCE,environment\\n+from prepare_s3 import RUNTIME,REACT,STAGE\\n+\\n+def command(argv,cwd,label,env):\\n+    result=run(argv,cwd,label,stage='S3',env=env,permission='Approved bounded build/public-font access; default sandbox unchanged')\\n+    if result['exit_code']!=0:raise SystemExit(result['exit_code'])\\n+    return result\\n+\\n+def artifact(folder,destination,command_id,source_hash):\\n+    files=[]\\n+    for p in sorted(folder.rglob('*')):\\n+        if p.is_file():\\n+            relative=p.relative_to(folder);digest=hashlib.sha256(p.read_bytes()).hexdigest();target=destination/relative;target.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(p,target)\\n+            assert hashlib.sha256(target.read_bytes()).hexdigest()==digest\\n+            files.append(dict(path=str(relative),bytes=p.stat().st_size,sha256=digest))\\n+    return dict(command_id=command_id,source_hash=source_hash,files=files,build_hash=hashlib.sha256(json.dumps(files,sort_keys=True).encode()).hexdigest(),served_path=str(destination),exit_code=0,browser_acceptance_allowed=True)\\n+\\n+def main():\\n+    assert (STAGE/'dependency-versions.json').exists()\\n+    env=environment();env['TMPDIR']=str(RUNTIME/'tmp')\\n+    files=[p for p in REACT.rglob('*') if p.is_file() and 'node_modules' not in p.parts and 'dist' not in p.parts]\\n+    files+=list((SOURCE/'wf6').glob('route-policy.*'))\\n+    records=[dict(path=str(p.relative_to(SOURCE)),sha256=hashlib.sha256(p.read_bytes()).hexdigest()) for p in sorted(files)]\\n+    source_hash=hashlib.sha256(json.dumps(records,sort_keys=True).encode()).hexdigest();env['WF6_REACT_SOURCE_HASH']=source_hash\\n+    command(['node',str(REACT/'node_modules/typescript/bin/tsc'),'--noEmit'],REACT,'S3-React-strict-TypeScript',env)\\n+    command(['node','--test',str(SOURCE/'wf6/route-policy.test.mjs')],SOURCE,'S3-shared-route-policy-matrix',env)\\n+    entry=command(['node',str(REACT/'node_modules/vite/bin/vite.js'),'build'],REACT,'S3-React-production-build',env)\\n+    react=artifact(REACT/'dist',RUNTIME/'react',entry['command_id'],source_hash)\\n+    assert '/_wf6/assets/' in (RUNTIME/'react/index.html').read_text()\\n+    entry=command(['node',str(SOURCE/'frontend/node_modules/nuxt/bin/nuxt.mjs'),'generate','--spa'],SOURCE/'frontend','S3-Vue-boundary-production-build',env)\\n+    vue=artifact(SOURCE/'frontend/dist',RUNTIME/'vue',entry['command_id'],hashlib.sha256((SOURCE/'frontend/app/middleware/wf6-boundary.global.ts').read_bytes()).hexdigest())\\n+    command(['node',str(SOURCE/'frontend/node_modules/eslint/bin/eslint.js'),'app/middleware/wf6-boundary.global.ts','--max-warnings=0'],SOURCE/'frontend','S3-Vue-boundary-targeted-lint',env)\\n+    (STAGE/'build-artifacts.json').write_text(json.dumps(dict(react=react,vue=vue,react_source_files=records,vue_original_type_diagnostics='S1 318 FAIL retained; full Vue typecheck is not claimed passing'),indent=2)+'\\\\n')\\n+    print(json.dumps(dict(react_build_hash=react['build_hash'],vue_build_hash=vue['build_hash'],react_source_hash=source_hash)))\\n+\\n+if __name__=='__main__':main()\\n*** End Patch\"));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+        "create_time": 1791952713.9421484
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2518,
+    "byte_offset": 7062981,
+    "timestamp": "2026-10-14T04:38:54.809Z",
+    "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a138b4-ca59-7581-a991-2db3464bfb13",
+      "call_id": "call_c94d30b4ee5d4542b548f3ade7f4b9b2",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.1 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+        "create_time": 1791952734.8090901
+      }
+    }
+  }
+}

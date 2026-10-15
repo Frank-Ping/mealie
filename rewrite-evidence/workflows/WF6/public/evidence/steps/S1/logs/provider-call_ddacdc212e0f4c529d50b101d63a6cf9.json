@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1655,
+    "byte_offset": 5210392,
+    "timestamp": "2026-10-14T03:38:27.423Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acef92e8f5c81918545ad4b7105f35a",
+      "status": "completed",
+      "call_id": "call_ddacdc212e0f4c529d50b101d63a6cf9",
+      "name": "exec",
+      "input": "text(await tools.apply_patch(\"*** Begin Patch\\n*** Update File: <WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/usage/finish_s1.py\\n@@\\n     state['runtime']=dict(auth_alias=str(auth),auth_real_path=str(auth.resolve()),\\n         auth_files=[file_record(p,auth.resolve()) for p in sorted(auth.resolve().rglob('*')) if p.is_file()],\\n         credentials_exported=False,services_stopped=True)\\n+    state['runtime']['auth_attempts']=[dict(root=str(base),files=[file_record(p,base) for p in sorted(base.rglob('*')) if p.is_file()])\\n+        for base in (RUNTIME/'auth',Path('/tmp/wf6-rerun-20261014-01-S1-native/auth')) if base.exists()]\\n*** End Patch\"));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791949102.5627434
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1658,
+    "byte_offset": 5213521,
+    "timestamp": "2026-10-14T03:38:27.538Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a1387d-7152-74a3-b067-cd9d03b993a3",
+      "call_id": "call_ddacdc212e0f4c529d50b101d63a6cf9",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.1 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791949107.538157
+      }
+    }
+  }
+}

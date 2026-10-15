@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 4081,
+    "byte_offset": 11701285,
+    "timestamp": "2026-10-14T09:03:45.477Z",
+    "turn_id": "01a13999-f4f9-78f2-8751-6c0a710636a0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf456ec3dc8191b5a07fd7d2a6c788",
+      "status": "completed",
+      "call_id": "call_7467f413af514e54bd9280fa1d9a6c29",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nfrom pathlib import Path\\np=Path('wf6-rerun-20261014-01/wf6-evidence/steps/S6/logs');f=max(p.glob('*.stdout.log'),key=lambda x:x.stat().st_mtime);print(f.name);print(f.read_text()[-2300:])\\nPY\",\"max_output_tokens\":1600}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13999-f4f9-78f2-8751-6c0a710636a0",
+        "create_time": 1791968622.768189
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 4084,
+    "byte_offset": 11706414,
+    "timestamp": "2026-10-14T09:03:45.818Z",
+    "turn_id": "01a13999-f4f9-78f2-8751-6c0a710636a0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a139a7-449a-78f1-a572-a1b42059dfed",
+      "call_id": "call_7467f413af514e54bd9280fa1d9a6c29",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.3 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"0ad1e0\",\"wall_time_seconds\":0.155969617,\"exit_code\":0,\"original_token_count\":585,\"output\":\"20261014T090134-7dd76362.stdout.log\\n\\\"1\\\", \\\"E2E_DATA_DIR\\\": \\\"/tmp/wf6-rerun-20261014-01-S6-C2/disposable-data\\\", \\\"E2E_STATIC_DIR\\\": \\\"/tmp/wf6-rerun-20261014-01-S6-C2/vue\\\", \\\"PLAYWRIGHT_JSON_OUTPUT_NAME\\\": \\\"/tmp/wf6-rerun-20261014-01-S6-C2/browser/four-original-results.json\\\", \\\"PLAYWRIGHT_HTML_OUTPUT_DIR\\\": \\\"/tmp/wf6-rerun-20261014-01-S6-C2/browser/four-original-html\\\", \\\"NODE_PATH\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01/runtime/S1/typechecker:<WORKSPACE>/wf6-rerun-20261014-01/runtime/S1/typechecker/node_modules\\\", \\\"WF6_VUE_DIR\\\": \\\"/tmp/wf6-rerun-20261014-01-S6-C2/vue\\\", \\\"WF6_BACKEND_ORIGIN\\\": \\\"http://127.0.0.1:9006\\\", \\\"WF6_PORT\\\": \\\"9106\\\", \\\"WF6_BUILD_HASH\\\": \\\"a6b58c95f917ea6b033f57ff56fa08d28f88637fc12103e21f52634b363de003\\\", \\\"WF6_REACT_DIR\\\": \\\"/tmp/wf6-rerun-20261014-01-S6-C2/react\\\", \\\"WF6_REACT_BUILD_HASH\\\": \\\"5d217d66e45876a8b89b539023f4da38e27a3e73e3bea6594819b7587b87d8e3\\\", \\\"WF6_REACT_SOURCE_HASH\\\": \\\"639abf616598ffe22d28390f0afb9d6a16ca871aeb10bcb72b6b7906faf1a407\\\", \\\"WF6_PLAYWRIGHT_MODULE\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/node_modules/@playwright/test\\\", \\\"WF6_AUTH_DIR\\\": \\\"/tmp/wf6-rerun-20261014-01-S6-C2/auth\\\", \\\"WF6_GATEWAY_ORIGIN\\\": \\\"http://127.0.0.1:9106\\\", \\\"WF6_BROWSER_EVIDENCE\\\": \\\"/tmp/wf6-rerun-20261014-01-S6-C2/browser/requests-redacted.jsonl\\\", \\\"WF6_ROUTE_MAP\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/steps/S6/continuation-02/route-map-restored.json\\\", \\\"WF6_FROZEN_ROUTES\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/lib/routes.ts\\\", \\\"WF6_ROUTE_POLICY\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/wf6/route-policy.mjs\\\", \\\"WF6_ROUTE_OWNERSHIP\\\": \\\"/tmp/wf6-rerun-20261014-01-S6-C2/browser/route-ownership.json\\\", \\\"WF6_SHOTS\\\": \\\"/tmp/wf6-rerun-20261014-01-S6-C2/browser\\\"}, \\\"permission\\\": \\\"Approved bounded S6 loopback backend/gateway/Chromium; default sandbox unchanged\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13999-f4f9-78f2-8751-6c0a710636a0",
+        "create_time": 1791968625.8180652
+      }
+    }
+  }
+}

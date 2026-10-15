@@ -1,0 +1,39 @@
+{
+  "snapshot_utc": "2026-10-14T04:19:25.933963+00:00",
+  "source": {
+    "path": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist",
+    "pinned_input_sha": "4b9ca06b6581f7152e164ea0fd9d4da366975a79",
+    "actual_head": "f2a2bd95327c91b85ff4c690811a4f0ab08f4c87",
+    "dirty": false,
+    "status_porcelain": "",
+    "untracked": [],
+    "remotes": [],
+    "verified_original_file_count": 1711,
+    "frozen_file_mismatches": [],
+    "served_build_hash": "af9a32e7318fd2c82d289f49f335d13168ddb476bf3d0ec152834ebc6f14c914"
+  },
+  "evaluator": {
+    "path": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator",
+    "pinned_input_sha": "758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d",
+    "actual_head": "758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d",
+    "dirty": false,
+    "status_porcelain": "",
+    "untracked": [],
+    "remotes": [],
+    "verified_original_file_count": 1789,
+    "frozen_file_mismatches": [],
+    "served_build_hash": "af9a32e7318fd2c82d289f49f335d13168ddb476bf3d0ec152834ebc6f14c914"
+  },
+  "served_build": {
+    "build_hash": "af9a32e7318fd2c82d289f49f335d13168ddb476bf3d0ec152834ebc6f14c914",
+    "served_index_sha256": "690b9586db92b5c29ea0fccd364b52666ae097bc87616c8cb720a73e8120eeee",
+    "actual_static_dir": "/tmp/wf6-rerun-20261014-01-S2/static",
+    "source_head_at_build": "f318d69d033e5269415f0b94d4beebd8d70a00dc",
+    "gateway_sha256": "d6037d96885e7b0b60354f9b6873d60a7ac2413cbc4f88bb066e6e83d4c1412a",
+    "route_map_sha256": "46c3b002636494090fd778a8cad7a6113089ec8609dd16ce75bf01e3bb40ffe7",
+    "evaluator_sha": "758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d"
+  },
+  "postcommit_utc": "2026-10-14T04:23:12.253033+00:00",
+  "acceptance_commit": "f2a2bd95327c91b85ff4c690811a4f0ab08f4c87",
+  "build_policy": "Vue build source HEAD remains its actual pre-S2 build SHA. Gateway/route-map byte hashes tested match committed files."
+}

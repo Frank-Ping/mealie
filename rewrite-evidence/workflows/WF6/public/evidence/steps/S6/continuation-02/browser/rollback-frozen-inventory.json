@@ -1,0 +1,208 @@
+{
+  "config": {
+    "argv": [
+      "<WORKSPACE>/wf6-rerun-20261014-01/runtime/tools/node-v24.21.0-linux-x64/bin/node",
+      "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/node_modules/@playwright/test/cli.js",
+      "test",
+      "--list",
+      "--grep",
+      "\\[route\\] g/\\[groupSlug\\]/(?:index\\.vue|r/\\[slug\\]/index\\.vue)$|\\[flow\\] (?:open a recipe from the recipe list|search narrows the recipe list)$",
+      "--reporter=json"
+    ],
+    "configFile": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/playwright.config.ts",
+    "rootDir": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": true,
+    "fullyParallel": false,
+    "globalSetup": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/global-setup.ts",
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {},
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "routes",
+        "name": "routes",
+        "testDir": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "/routes\\.spec\\.ts/"
+        ],
+        "timeout": 45000
+      },
+      {
+        "outputDir": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {},
+        "id": "flows",
+        "name": "flows",
+        "testDir": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "/flows\\/.*\\.spec\\.ts/"
+        ],
+        "timeout": 45000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": {
+      "command": "./scripts/start-backend.sh",
+      "url": "http://localhost:9106/api/app/about",
+      "reuseExistingServer": true,
+      "timeout": 180000,
+      "stdout": "ignore",
+      "stderr": "pipe",
+      "env": {
+        "E2E_PORT": "9106"
+      }
+    }
+  },
+  "suites": [
+    {
+      "title": "routes.spec.ts",
+      "file": "routes.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "admin",
+          "file": "routes.spec.ts",
+          "line": 32,
+          "column": 8,
+          "specs": [
+            {
+              "title": "[route] g/[groupSlug]/index.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-a80a31242bf06324ccfa",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            },
+            {
+              "title": "[route] g/[groupSlug]/r/[slug]/index.vue",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "routes",
+                  "projectName": "routes",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "598fdabf36083b33787e-2d3faba90036dc8cb7d3",
+              "file": "routes.spec.ts",
+              "line": 37,
+              "column": 9
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "flows/recipes.spec.ts",
+      "file": "flows/recipes.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "recipes",
+          "file": "flows/recipes.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "[flow] open a recipe from the recipe list",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flows",
+                  "projectName": "flows",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "adbcddc045ffdc002fe7-e190de4c90cd8c3bacd4",
+              "file": "flows/recipes.spec.ts",
+              "line": 6,
+              "column": 7
+            },
+            {
+              "title": "[flow] search narrows the recipe list",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "flows",
+                  "projectName": "flows",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "adbcddc045ffdc002fe7-1af8f189e631f269eec5",
+              "file": "flows/recipes.spec.ts",
+              "line": 15,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-14T09:02:19.802Z",
+    "duration": 276.73099999999977,
+    "expected": 0,
+    "skipped": 4,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "disjoint_segments": 4,
+  "sum_reconciled": true,
+  "prior_finals_covered": 3,
+  "current_final_included": false,
+  "repair_limit": 3,
+  "used": 3,
+  "old_2_of_2_exhaustion_preserved": true,
+  "S1_partial_preserved": true,
+  "gate": "PASS",
+  "fees_coverage_review": null
+}

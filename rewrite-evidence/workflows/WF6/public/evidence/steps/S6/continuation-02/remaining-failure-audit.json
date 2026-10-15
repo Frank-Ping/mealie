@@ -1,0 +1,43 @@
+{
+  "classification": "implementation_and_rendering_timing_failure",
+  "gate": "FAIL",
+  "actual_original_four": "3 PASS / 1 FAIL",
+  "verified_network": "No /api/comments POST or 201 in original failure trace; pending recipe revalidation request was cancelled by reload",
+  "verified_DOM": "Original first text visibility expectation targeted a TEXTAREA holding draft text, not a saved server comment",
+  "targeted_textarea_snapshots": [
+    [
+      "TEXTAREA",
+      {
+        "__playwright_value_": "E2E comment mv7w58bjry",
+        "__playwright_target__": "",
+        "aria-invalid": "false",
+        "id": "_r_5_",
+        "class": "MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline css-s63k3s",
+        "style": "height: 23px; overflow: hidden;"
+      },
+      "E2E comment mv7w58bjry"
+    ],
+    [
+      "TEXTAREA",
+      {
+        "__playwright_value_": "E2E comment mv7w58bjry",
+        "__playwright_target__": "",
+        "aria-invalid": "false",
+        "id": "_r_5_",
+        "class": "MuiInputBase-input MuiOutlinedInput-input Mui-disabled MuiInputBase-inputMultiline css-s63k3s",
+        "style": "height: 23px; overflow: hidden;",
+        "disabled": ""
+      },
+      [
+        [
+          5,
+          4
+        ]
+      ]
+    ]
+  ],
+  "root_cause_limit": "No new experiment after repair budget exhausted; DOM/network evidence identifies early draft match and aborted pre-POST validation. Durable server comment creation not demonstrated.",
+  "proposed_change_not_applied": "Separate pending draft from persisted comment text matching and/or appropriate user navigation protection; requires further authorization/budget because S6 two rounds exhausted",
+  "original_trace": "browser-r2/four-original-test-results/flows-recipes-recipes-flow-a3d3d-ipe-and-see-it-after-reload-flows/trace.zip",
+  "no_more_repairs": true
+}

@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 216,
+    "byte_offset": 1356910,
+    "timestamp": "2026-10-14T01:19:53.375Z",
+    "turn_id": "01a137f3-c2d3-7db0-9623-6d33961b39eb",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016aced89de0ec8191ad7959d5e67df8c8",
+      "status": "completed",
+      "call_id": "call_d5b6b58d130e4a1b85c7736595215a91",
+      "name": "exec",
+      "input": "text(await tools.apply_patch(\"*** Begin Patch\\n*** Update File: <WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/usage/collect_usage.py\\n@@\\n         stage,action=match.groups()\\n         if user[\\\"row\\\"][\\\"line\\\"]<config[\\\"start_line\\\"]:continue\\n+        if user[\\\"row\\\"][\\\"line\\\"]==config[\\\"start_line\\\"] and (user[\\\"turn_id\\\"]!=config.get(\\\"initial_turn_id\\\") or user[\\\"message_id\\\"]!=config.get(\\\"user_message_id\\\")):\\n+            stage_issues[stage].append(\\\"Initial request identity disagrees with verified tracking configuration.\\\")\\n@@\\n     claimed_turns={s[\\\"turn_id\\\"] for segs in stage_segments.values() for s in segs}\\n+    for turn in claimed_turns:\\n+        owners=[stage for stage,segs in stage_segments.items() if any(s[\\\"turn_id\\\"]==turn for s in segs)]\\n+        if len(owners)>1:\\n+            for stage in owners:stage_issues[stage].append(\\\"One turn is claimed by multiple stages; no exact aggregate is permitted.\\\")\\n@@\\n     write_lines(evidence/\\\"steps/S0/provider-tool-events.jsonl\\\",redact(tools))\\n+    # Preserve provider originals, including bootstrap orchestration and merged outputs.\\n+    # Inner shell start/end times and separate streams are not fabricated.\\n+    calls={}\\n+    provider_commands=[]\\n+    folder=evidence/\\\"steps/S0/logs\\\"\\n+    folder.mkdir(exist_ok=True)\\n+    for item in tools:\\n+        pl=item[\\\"payload\\\"];call_id=pl.get(\\\"call_id\\\")\\n+        if pl.get(\\\"type\\\") in (\\\"custom_tool_call\\\",\\\"function_call\\\"):\\n+            calls[call_id]=item\\n+        if pl.get(\\\"type\\\") in (\\\"custom_tool_call_output\\\",\\\"function_call_output\\\") and call_id in calls:\\n+            call=calls[call_id];original=folder/(\\\"provider-\\\"+re.sub(r\\\"[^A-Za-z0-9_-]\\\",\\\"_\\\",str(call_id))+\\\".json\\\")\\n+            write_json(original,dict(call=call,output=item))\\n+            provider_commands.append(dict(kind=\\\"original_provider_orchestration\\\",call_id=call_id,\\n+                tool_name=call[\\\"payload\\\"].get(\\\"name\\\"),original_input=call[\\\"payload\\\"].get(\\\"input\\\",call[\\\"payload\\\"].get(\\\"arguments\\\")),\\n+                source_call=locator(call),source_output=locator(item),cwd=config[\\\"workspace_root\\\"],\\n+                raw_tool_record=str(original.relative_to(evidence)),stdout=None,stderr=None,start_utc=None,end_utc=None,\\n+                coverage=\\\"Exact provider tool input/output retained. Inner commands may have separate recorder events; nested timings and streams unavailable here remain null.\\\"))\\n+    write_lines(evidence/\\\"steps/S0/provider-command-events.jsonl\\\",provider_commands)\\n*** Update File: <WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/usage/finish_s0.py\\n@@\\n-Gate: **PASS — isolation, frozen snapshots and accounting only / 仅隔离、冻结快照与计量准备通过**.\\n+Gate: PENDING — final evidence checks are running / 正在执行最后证据核查。\\n@@\\n     (EVIDENCE/\\\"PROGRESS.md\\\").write_text(\\\"# WF6 progress / 进度\\\\n\\\\nRun: wf6-rerun-20261014-01. S0 PASS for isolation/accounting; S1–S7 not executed.\\\\n新 run 的 S0 仅隔离与计量准备通过；S1–S7 未执行。\\\\n\\\\nUsage is live in usage/USAGE.md; pre-final reply provisional. Old run retained separately.\\\\n用量见实时记录；回复前 provisional；旧 run 保留并单列。\\\\n\\\\nS2–S6 budget unstarted. Node/npm/uv need separate dependency preparation before S1 checks.\\\\nS2–S6 预算未开始；S1 前仍需独立依赖准备。\\\\n\\\")\\n+    if not (EVIDENCE/\\\"timing.csv\\\").exists():\\n+        (EVIDENCE/\\\"timing.csv\\\").write_text(\\\"category,stage_id,command_id,label,start_utc,end_utc,duration_seconds,exit_code,aggregation\\\\n\\\")\\n@@\\n     write(S0/\\\"evidence-audit.json\\\",dict(timestamp=dt.datetime.now(dt.timezone.utc).isoformat(),passed=True,\\n@@\\n             \\\"Recorder bootstrap coverage is original provider merged output; unavailable split/timing not invented.\\\"]))\\n+    (S0/\\\"result.md\\\").write_text((S0/\\\"result.md\\\").read_text().replace(\\\"Gate: PENDING — final evidence checks are running / 正在执行最后证据核查。\\\",\\n+        \\\"Gate: **PASS — isolation, frozen snapshots and accounting only / 仅隔离、冻结快照与计量准备通过**.\\\"))\\n*** End Patch\"));\ntext(await tools.exec_command({cmd:\"python3 -B wf6-rerun-20261014-01/wf6-evidence/usage/record_command.py --cwd '<WORKSPACE>/wf6-rerun-20261014-01' --label collector-fault-injection-after-boundary-export-changes -- python3 -B wf6-evidence/usage/test_collect_usage.py\\npython3 -B wf6-rerun-20261014-01/wf6-evidence/usage/record_command.py --cwd '<WORKSPACE>/wf6-rerun-20261014-01' --label actual-cli-collector-all-interface -- python3 -B wf6-evidence/usage/collect_usage.py finalize --all --wait-seconds 0\",max_output_tokens:1600}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a137f3-c2d3-7db0-9623-6d33961b39eb",
+        "create_time": 1791940766.0687761
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 220,
+    "byte_offset": 1372442,
+    "timestamp": "2026-10-14T01:19:55.513Z",
+    "turn_id": "01a137f3-c2d3-7db0-9623-6d33961b39eb",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a137fe-9c79-7f13-81e1-8e100a5d8034",
+      "call_id": "call_d5b6b58d130e4a1b85c7736595215a91",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 2.1 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"39edde\",\"wall_time_seconds\":1.767964173,\"exit_code\":0,\"original_token_count\":414,\"output\":\"{\\\"command_id\\\": \\\"20261014T011953-bd1a30a9\\\", \\\"stage_id\\\": \\\"S0\\\", \\\"label\\\": \\\"collector-fault-injection-after-boundary-export-changes\\\", \\\"argv\\\": [\\\"python3\\\", \\\"-B\\\", \\\"wf6-evidence/usage/test_collect_usage.py\\\"], \\\"cwd\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01\\\", \\\"start_utc\\\": \\\"2026-10-14T01:19:53.795409+00:00\\\", \\\"end_utc\\\": \\\"2026-10-14T01:19:53.922529+00:00\\\", \\\"duration_seconds\\\": 0.12712620300044364, \\\"exit_code\\\": 0, \\\"stdout\\\": \\\"steps/S0/logs/20261014T011953-bd1a30a9.stdout.log\\\", \\\"stderr\\\": \\\"steps/S0/logs/20261014T011953-bd1a30a9.stderr.log\\\", \\\"environment_overrides\\\": {}, \\\"permission\\\": \\\"workspace-write; network restricted; no escalation\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n{\\\"command_id\\\": \\\"20261014T011954-14d6bfb4\\\", \\\"stage_id\\\": \\\"S0\\\", \\\"label\\\": \\\"actual-cli-collector-all-interface\\\", \\\"argv\\\": [\\\"python3\\\", \\\"-B\\\", \\\"wf6-evidence/usage/collect_usage.py\\\", \\\"finalize\\\", \\\"--all\\\", \\\"--wait-seconds\\\", \\\"0\\\"], \\\"cwd\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01\\\", \\\"start_utc\\\": \\\"2026-10-14T01:19:54.039035+00:00\\\", \\\"end_utc\\\": \\\"2026-10-14T01:19:55.493660+00:00\\\", \\\"duration_seconds\\\": 1.4546157820004737, \\\"exit_code\\\": 0, \\\"stdout\\\": \\\"steps/S0/logs/20261014T011954-14d6bfb4.stdout.log\\\", \\\"stderr\\\": \\\"steps/S0/logs/20261014T011954-14d6bfb4.stderr.log\\\", \\\"environment_overrides\\\": {}, \\\"permission\\\": \\\"workspace-write; network restricted; no escalation\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a137f3-c2d3-7db0-9623-6d33961b39eb",
+        "create_time": 1791940795.5136657
+      }
+    }
+  }
+}

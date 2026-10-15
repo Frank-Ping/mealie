@@ -1,0 +1,45 @@
+
+Running 8 tests using 1 worker
+
+  ✓  1 ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S5/tests/s5-browser-tests.cjs:15:1 › real read-only recipe UI, keyboard link, direct refresh and retained Vue round trip (2.8s)
+  ✓  2 ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S5/tests/s5-browser-tests.cjs:35:1 › loading, real empty search, clear restoration and real missing-detail error (4.9s)
+  ✓  3 ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S5/tests/s5-browser-tests.cjs:51:1 › business rendering retains explicit Vue/mode/group boundaries (1.3s)
+  ✓  4 ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S5/tests/s5-extra-tests.cjs:10:1 › [Mixed] login search detail Vue shopping return and browser history (3.3s)
+  ✓  5 ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S5/tests/s5-extra-tests.cjs:22:1 › [Boundary] complete route matrix and missing assets are real 404 (2.5s)
+  ✘  6 ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S5/tests/s5-extra-tests.cjs:29:1 › [Boundary] anonymous and expired real 401 do not request recipe data (45.1s)
+  ✓  7 ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S5/tests/s5-extra-tests.cjs:34:1 › [Boundary] real second-group user cannot read pilot data (2.6s)
+  ✓  8 ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S5/tests/s5-extra-tests.cjs:41:1 › [React] injected API 500 stays visible and Retry restores real backend (2.4s)
+
+
+  1) ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S5/tests/s5-extra-tests.cjs:29:1 › [Boundary] anonymous and expired real 401 do not request recipe data 
+
+    Test timeout of 45000ms exceeded.
+
+    Error: page.waitForResponse: Test timeout of 45000ms exceeded.
+
+      29 | test('[Boundary] anonymous and expired real 401 do not request recipe data',async({page,context})=>{
+      30 |  const f=fixtures();let recipes=0;page.on('request',r=>{if(new URL(r.url()).pathname.startsWith('/api/recipes'))recipes++;});
+    > 31 |  for(const expired of [false,true]){await context.clearCookies();if(expired)await context.addCookies([{name:'mealie.access_token',value:'[REDACTED]',url:process.env.WF6_GATEWAY_ORIGIN}]);const self=page.waitForResponse(r=>new URL(r.url()).pathname==='/api/users/self');await page.goto(`/g/${f.groupSlug}?probe=auth#preserve`);expect((await self).status()).toBe(401);await expect(page.locator('[data-wf6-session="vue-required"]')).toContainText('401');await expect(page.locator('[data-wf6-business]')).toHaveCount(0);expect(recipes).toBe(0);await expect(page.getByRole('link',{name:'Use Vue login'})).toBeVisible();}
+         |                                                                                                                                                                                                                      ^
+      32 |  const navigation=page.waitForResponse(r=>r.request().isNavigationRequest());await page.getByRole('link',{name:'Use explicit Vue entry'}).click();expect((await navigation).headers()['x-wf6-frontend']).toBe('vue');expect(page.url()).toContain('probe=auth');expect(page.url()).toContain('#preserve');save({category:'boundary',test:'anonymous_expired_real401',status:'PASS',recipeRequests:recipes});
+      33 | });
+      34 | test('[Boundary] real second-group user cannot read pilot data',async({page,context})=>{
+        at /tmp/wf6-rerun-20261014-01-S5/tests/s5-extra-tests.cjs:31:214
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S5/browser/test-results/s5-extra-tests.cjs--Bounda-27bde--do-not-request-recipe-data/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S5/browser/test-results/s5-extra-tests.cjs--Bounda-27bde--do-not-request-recipe-data/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S5/browser/test-results/s5-extra-tests.cjs--Bounda-27bde--do-not-request-recipe-data/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S5/browser/test-results/s5-extra-tests.cjs--Bounda-27bde--do-not-request-recipe-data/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S5/tests/s5-extra-tests.cjs:29:1 › [Boundary] anonymous and expired real 401 do not request recipe data 
+  7 passed (1.2m)

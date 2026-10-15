@@ -1,0 +1,275 @@
+{
+  "config": {
+    "argv": [
+      "<WORKSPACE>/wf6-rerun-20261014-01/runtime/tools/node-v24.21.0-linux-x64/bin/node",
+      "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/node_modules/@playwright/test/cli.js",
+      "test",
+      "--config=/tmp/wf6-rerun-20261014-01-S6-C3/tests/restored.config.cjs",
+      "--output=/tmp/wf6-rerun-20261014-01-S6-C3/browser/restored-test-results"
+    ],
+    "configFile": "/tmp/wf6-rerun-20261014-01-S6-C3/tests/restored.config.cjs",
+    "rootDir": "/tmp/wf6-rerun-20261014-01-S6-C3/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": true,
+    "fullyParallel": false,
+    "globalSetup": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/global-setup.ts",
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/tmp/wf6-rerun-20261014-01-S6-C3/browser/restored-test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "/tmp/wf6-rerun-20261014-01-S6-C3/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "s6-restored-tests.cjs",
+          "s6-ownership-tests.cjs"
+        ],
+        "timeout": 45000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        null
+      ],
+      [
+        "html",
+        {
+          "open": "never"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "s6-ownership-tests.cjs",
+      "file": "s6-ownership-tests.cjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "all frozen route ownership and comparable seeded input",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 374,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-14T09:31:35.084Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/tmp/wf6-rerun-20261014-01-S6-C3/browser/restored-test-results/s6-ownership-tests.cjs-all-1c5f3-and-comparable-seeded-input/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "757810455b2c948efb23-33505847db8be22e5b9d",
+          "file": "s6-ownership-tests.cjs",
+          "line": 3,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "s6-restored-tests.cjs",
+      "file": "s6-restored-tests.cjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "real read-only recipe UI, keyboard link, direct refresh and retained Vue round trip",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2807,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-14T09:31:35.519Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/tmp/wf6-rerun-20261014-01-S6-C3/browser/restored-test-results/s6-restored-tests.cjs-real-db1d0-and-retained-Vue-round-trip/test-finished-1.png"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/tmp/wf6-rerun-20261014-01-S6-C3/browser/restored-test-results/s6-restored-tests.cjs-real-db1d0-and-retained-Vue-round-trip/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6b9973017b021050f156-5f083f425bec0134d6e3",
+          "file": "s6-restored-tests.cjs",
+          "line": 15,
+          "column": 1
+        },
+        {
+          "title": "loading, real empty search, clear restoration and real missing-detail error",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5057,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-14T09:31:39.056Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/tmp/wf6-rerun-20261014-01-S6-C3/browser/restored-test-results/s6-restored-tests.cjs-load-c8b17-d-real-missing-detail-error/test-finished-1.png"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/tmp/wf6-rerun-20261014-01-S6-C3/browser/restored-test-results/s6-restored-tests.cjs-load-c8b17-d-real-missing-detail-error/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6b9973017b021050f156-5cb5648885bd95bd28bb",
+          "file": "s6-restored-tests.cjs",
+          "line": 35,
+          "column": 1
+        },
+        {
+          "title": "business rendering retains explicit Vue/mode/group boundaries",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1223,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-14T09:31:44.585Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/tmp/wf6-rerun-20261014-01-S6-C3/browser/restored-test-results/s6-restored-tests.cjs-busi-2c59d-t-Vue-mode-group-boundaries/test-finished-1.png"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/tmp/wf6-rerun-20261014-01-S6-C3/browser/restored-test-results/s6-restored-tests.cjs-busi-2c59d-t-Vue-mode-group-boundaries/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "6b9973017b021050f156-da8abf2f22565ffe0ea4",
+          "file": "s6-restored-tests.cjs",
+          "line": 51,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-14T09:31:32.353Z",
+    "duration": 13749.056999999999,
+    "expected": 4,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

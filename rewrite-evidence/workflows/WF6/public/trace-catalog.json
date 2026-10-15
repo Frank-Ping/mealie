@@ -1,0 +1,346 @@
+[
+  {
+    "id": "trace-fd9289f041b7fbb1",
+    "source": "steps/S1/browser/test-results/flows-recipes-recipes-flow-64d93-recipe-from-the-recipe-list-flows/trace.zip",
+    "index": "traces/trace-fd9289f041b7fbb1.json",
+    "entries": 195,
+    "original_zip_bytes": 1677229,
+    "sanitized_entries": 5
+  },
+  {
+    "id": "trace-aea9efbdf1cbad0d",
+    "source": "steps/S2/browser/test-results/s2-browser-tests.cjs-real--3ecad-list-direct-URL-and-refresh/trace.zip",
+    "index": "traces/trace-aea9efbdf1cbad0d.json",
+    "entries": 703,
+    "original_zip_bytes": 11010511,
+    "sanitized_entries": 9
+  },
+  {
+    "id": "trace-922b4a47531b5a2e",
+    "source": "steps/S3/browser/test-results/s3-browser-tests.cjs-a-rea-3330a--refused-by-the-React-pilot/trace.zip",
+    "index": "traces/trace-922b4a47531b5a2e.json",
+    "entries": 35,
+    "original_zip_bytes": 83942,
+    "sanitized_entries": 12
+  },
+  {
+    "id": "trace-bd71a4c77ac6382c",
+    "source": "steps/S3/browser/test-results/s3-browser-tests.cjs-anony-d0a35-hout-loops-or-identity-data/trace.zip",
+    "index": "traces/trace-bd71a4c77ac6382c.json",
+    "entries": 76,
+    "original_zip_bytes": 169990,
+    "sanitized_entries": 3
+  },
+  {
+    "id": "trace-00377a0297d16627",
+    "source": "steps/S3/browser/test-results/s3-browser-tests.cjs-gatew-b3ac3-parse-cook-and-other-groups/trace.zip",
+    "index": "traces/trace-00377a0297d16627.json",
+    "entries": 14,
+    "original_zip_bytes": 18379,
+    "sanitized_entries": 1
+  },
+  {
+    "id": "trace-2a58e2155f046d0e",
+    "source": "steps/S3/browser/test-results/s3-browser-tests.cjs-real--60541-rip-with-preserved-identity/trace.zip",
+    "index": "traces/trace-2a58e2155f046d0e.json",
+    "entries": 359,
+    "original_zip_bytes": 7154441,
+    "sanitized_entries": 6
+  },
+  {
+    "id": "trace-495dca6a023979b2",
+    "source": "steps/S4/browser/test-results/s4-browser-tests.cjs-busin-e4864-t-Vue-mode-group-boundaries/trace.zip",
+    "index": "traces/trace-495dca6a023979b2.json",
+    "entries": 236,
+    "original_zip_bytes": 6397042,
+    "sanitized_entries": 6
+  },
+  {
+    "id": "trace-f65dfc00501b256a",
+    "source": "steps/S4/browser/test-results/s4-browser-tests.cjs-loadi-0e89f-d-real-missing-detail-error/trace.zip",
+    "index": "traces/trace-f65dfc00501b256a.json",
+    "entries": 557,
+    "original_zip_bytes": 8654060,
+    "sanitized_entries": 6
+  },
+  {
+    "id": "trace-bdd8cd3a43b566ad",
+    "source": "steps/S4/browser/test-results/s4-browser-tests.cjs-real--a6078-and-retained-Vue-round-trip/trace.zip",
+    "index": "traces/trace-bdd8cd3a43b566ad.json",
+    "entries": 547,
+    "original_zip_bytes": 8647364,
+    "sanitized_entries": 6
+  },
+  {
+    "id": "trace-ed12eb8510bfddd1",
+    "source": "steps/S5/browser-r2/probe-control/s5-detection-probe.cjs-tar-c4bb3--detail-business-acceptance/trace.zip",
+    "index": "traces/trace-ed12eb8510bfddd1.json",
+    "entries": 19,
+    "original_zip_bytes": 106197,
+    "sanitized_entries": 2
+  },
+  {
+    "id": "trace-8c93601322ea3a21",
+    "source": "steps/S5/browser-r2/probe-expected_failure/s5-detection-probe.cjs-tar-c4bb3--detail-business-acceptance/trace.zip",
+    "index": "traces/trace-8c93601322ea3a21.json",
+    "entries": 14,
+    "original_zip_bytes": 10451,
+    "sanitized_entries": 2
+  },
+  {
+    "id": "trace-5e0d870b559d25d8",
+    "source": "steps/S5/browser-r2/probe-restored/s5-detection-probe.cjs-tar-c4bb3--detail-business-acceptance/trace.zip",
+    "index": "traces/trace-5e0d870b559d25d8.json",
+    "entries": 19,
+    "original_zip_bytes": 106148,
+    "sanitized_entries": 2
+  },
+  {
+    "id": "trace-929d61a4355bfb95",
+    "source": "steps/S5/browser-r2/test-results/s5-browser-tests.cjs-busin-6d9a2-t-Vue-mode-group-boundaries/trace.zip",
+    "index": "traces/trace-929d61a4355bfb95.json",
+    "entries": 230,
+    "original_zip_bytes": 6368675,
+    "sanitized_entries": 6
+  },
+  {
+    "id": "trace-dc64659a89698389",
+    "source": "steps/S5/browser-r2/test-results/s5-browser-tests.cjs-loadi-ec533-d-real-missing-detail-error/trace.zip",
+    "index": "traces/trace-dc64659a89698389.json",
+    "entries": 558,
+    "original_zip_bytes": 8663465,
+    "sanitized_entries": 6
+  },
+  {
+    "id": "trace-05f892c68b194074",
+    "source": "steps/S5/browser-r2/test-results/s5-browser-tests.cjs-real--a6fce-and-retained-Vue-round-trip/trace.zip",
+    "index": "traces/trace-05f892c68b194074.json",
+    "entries": 554,
+    "original_zip_bytes": 8695801,
+    "sanitized_entries": 6
+  },
+  {
+    "id": "trace-3376fdf9eec67084",
+    "source": "steps/S5/browser-r2/test-results/s5-extra-tests.cjs--Bounda-27bde--do-not-request-recipe-data/trace.zip",
+    "index": "traces/trace-3376fdf9eec67084.json",
+    "entries": 41,
+    "original_zip_bytes": 107891,
+    "sanitized_entries": 3
+  },
+  {
+    "id": "trace-c78b669470902f95",
+    "source": "steps/S5/browser-r2/test-results/s5-extra-tests.cjs--Bounda-68425-missing-assets-are-real-404/trace.zip",
+    "index": "traces/trace-c78b669470902f95.json",
+    "entries": 454,
+    "original_zip_bytes": 7703786,
+    "sanitized_entries": 6
+  },
+  {
+    "id": "trace-bc903cde881037ed",
+    "source": "steps/S5/browser-r2/test-results/s5-extra-tests.cjs--Bounda-780dd-user-cannot-read-pilot-data/trace.zip",
+    "index": "traces/trace-bc903cde881037ed.json",
+    "entries": 429,
+    "original_zip_bytes": 7339755,
+    "sanitized_entries": 11
+  },
+  {
+    "id": "trace-893da8ab799322f0",
+    "source": "steps/S5/browser-r2/test-results/s5-extra-tests.cjs--Mixed--ea604--return-and-browser-history/trace.zip",
+    "index": "traces/trace-893da8ab799322f0.json",
+    "entries": 589,
+    "original_zip_bytes": 9018180,
+    "sanitized_entries": 6
+  },
+  {
+    "id": "trace-a0ef141940105fd6",
+    "source": "steps/S5/browser-r2/test-results/s5-extra-tests.cjs--React--74f34-Retry-restores-real-backend/trace.zip",
+    "index": "traces/trace-a0ef141940105fd6.json",
+    "entries": 491,
+    "original_zip_bytes": 8164478,
+    "sanitized_entries": 6
+  },
+  {
+    "id": "trace-fca1963ea6554940",
+    "source": "steps/S6/browser/restored-frozen-test-results/flows-auth-auth-flow-a-reg-15752--is-not-offered-admin-pages-flows/trace.zip",
+    "index": "traces/trace-fca1963ea6554940.json",
+    "entries": 536,
+    "original_zip_bytes": 8363129,
+    "sanitized_entries": 7
+  },
+  {
+    "id": "trace-6930846b93cbcd2b",
+    "source": "steps/S6/browser/restored-frozen-test-results/flows-auth-auth-flow-an-admin-is-offered-admin-pages-flows/trace.zip",
+    "index": "traces/trace-6930846b93cbcd2b.json",
+    "entries": 537,
+    "original_zip_bytes": 8371699,
+    "sanitized_entries": 7
+  },
+  {
+    "id": "trace-2df231537bb0cc65",
+    "source": "steps/S6/browser/restored-frozen-test-results/flows-auth-auth-flow-log-out-ends-the-session-flows/trace.zip",
+    "index": "traces/trace-2df231537bb0cc65.json",
+    "entries": 534,
+    "original_zip_bytes": 8351122,
+    "sanitized_entries": 7
+  },
+  {
+    "id": "trace-daaf33b4f25f1b2a",
+    "source": "steps/S6/browser/restored-frozen-test-results/flows-recipes-recipes-flow-a3d3d-ipe-and-see-it-after-reload-flows/trace.zip",
+    "index": "traces/trace-daaf33b4f25f1b2a.json",
+    "entries": 20,
+    "original_zip_bytes": 113990,
+    "sanitized_entries": 5
+  },
+  {
+    "id": "trace-446c6296d6e440c7",
+    "source": "steps/S6/browser/restored-test-results/s6-ownership-tests.cjs-all-1c5f3-and-comparable-seeded-input/trace.zip",
+    "index": "traces/trace-446c6296d6e440c7.json",
+    "entries": 9,
+    "original_zip_bytes": 33849,
+    "sanitized_entries": 0
+  },
+  {
+    "id": "trace-e965479570837419",
+    "source": "steps/S6/browser/restored-test-results/s6-restored-tests.cjs-busi-2c59d-t-Vue-mode-group-boundaries/trace.zip",
+    "index": "traces/trace-e965479570837419.json",
+    "entries": 242,
+    "original_zip_bytes": 6411515,
+    "sanitized_entries": 6
+  },
+  {
+    "id": "trace-5949e4fd81ab6203",
+    "source": "steps/S6/browser/restored-test-results/s6-restored-tests.cjs-load-c8b17-d-real-missing-detail-error/trace.zip",
+    "index": "traces/trace-5949e4fd81ab6203.json",
+    "entries": 558,
+    "original_zip_bytes": 8665168,
+    "sanitized_entries": 6
+  },
+  {
+    "id": "trace-cf285ab47b77aa46",
+    "source": "steps/S6/browser/restored-test-results/s6-restored-tests.cjs-real-db1d0-and-retained-Vue-round-trip/trace.zip",
+    "index": "traces/trace-cf285ab47b77aa46.json",
+    "entries": 466,
+    "original_zip_bytes": 7945282,
+    "sanitized_entries": 6
+  },
+  {
+    "id": "trace-df2fccb4f4ac1db5",
+    "source": "steps/S6/browser/rollback-test-results/s6-rollback-tests.cjs-real-12454-list-direct-URL-and-refresh/trace.zip",
+    "index": "traces/trace-df2fccb4f4ac1db5.json",
+    "entries": 711,
+    "original_zip_bytes": 11904214,
+    "sanitized_entries": 9
+  },
+  {
+    "id": "trace-3ec9e5f151f3c07f",
+    "source": "steps/S6/continuation-01/browser/test-results/s6-existing-vue-functions.-24267-with-no-offered-admin-links/trace.zip",
+    "index": "traces/trace-3ec9e5f151f3c07f.json",
+    "entries": 338,
+    "original_zip_bytes": 7215837,
+    "sanitized_entries": 6
+  },
+  {
+    "id": "trace-ac01bae956bc9de9",
+    "source": "steps/S6/continuation-01/browser/test-results/s6-existing-vue-functions.-41b95-ment-and-reload-persistence/trace.zip",
+    "index": "traces/trace-ac01bae956bc9de9.json",
+    "entries": 577,
+    "original_zip_bytes": 9310778,
+    "sanitized_entries": 6
+  },
+  {
+    "id": "trace-8be43a673106fb16",
+    "source": "steps/S6/continuation-01/browser/test-results/s6-existing-vue-functions.-4d675-nd-Site-Settings-navigation/trace.zip",
+    "index": "traces/trace-8be43a673106fb16.json",
+    "entries": 459,
+    "original_zip_bytes": 8452302,
+    "sanitized_entries": 6
+  },
+  {
+    "id": "trace-d4b053725bcdf85e",
+    "source": "steps/S6/continuation-01/browser/test-results/s6-existing-vue-functions.-fcc90-out-React-remains-read-only/trace.zip",
+    "index": "traces/trace-d4b053725bcdf85e.json",
+    "entries": 440,
+    "original_zip_bytes": 7658506,
+    "sanitized_entries": 6
+  },
+  {
+    "id": "trace-a320ead3f903549b",
+    "source": "steps/S6/continuation-02/browser/four-original-test-results/flows-recipes-recipes-flow-a3d3d-ipe-and-see-it-after-reload-flows/trace.zip",
+    "index": "traces/trace-a320ead3f903549b.json",
+    "entries": 23,
+    "original_zip_bytes": 147884,
+    "sanitized_entries": 5
+  },
+  {
+    "id": "trace-3b0f529e7a897c06",
+    "source": "steps/S6/continuation-02/browser/rollback-test-results/s6-rollback-tests.cjs-real-12454-list-direct-URL-and-refresh/trace.zip",
+    "index": "traces/trace-3b0f529e7a897c06.json",
+    "entries": 699,
+    "original_zip_bytes": 11707153,
+    "sanitized_entries": 9
+  },
+  {
+    "id": "trace-aec443e53b1f2f97",
+    "source": "steps/S6/continuation-02/browser-r2/four-original-test-results/flows-recipes-recipes-flow-a3d3d-ipe-and-see-it-after-reload-flows/trace.zip",
+    "index": "traces/trace-aec443e53b1f2f97.json",
+    "entries": 32,
+    "original_zip_bytes": 307215,
+    "sanitized_entries": 5
+  },
+  {
+    "id": "trace-3a75a0d735a84527",
+    "source": "steps/S6/continuation-02/browser-r2/rollback-test-results/s6-rollback-tests.cjs-real-12454-list-direct-URL-and-refresh/trace.zip",
+    "index": "traces/trace-3a75a0d735a84527.json",
+    "entries": 696,
+    "original_zip_bytes": 11689106,
+    "sanitized_entries": 9
+  },
+  {
+    "id": "trace-889f83e4ca64b7d8",
+    "source": "steps/S6/continuation-03/browser/persistence-test-results/s6-c3-persistence-tests.cj-d7f2f--failed-POST-restores-draft/trace.zip",
+    "index": "traces/trace-889f83e4ca64b7d8.json",
+    "entries": 450,
+    "original_zip_bytes": 7726877,
+    "sanitized_entries": 6
+  },
+  {
+    "id": "trace-8589d1ff3555b209",
+    "source": "steps/S6/continuation-03/browser/restored-test-results/s6-ownership-tests.cjs-all-1c5f3-and-comparable-seeded-input/trace.zip",
+    "index": "traces/trace-8589d1ff3555b209.json",
+    "entries": 10,
+    "original_zip_bytes": 37365,
+    "sanitized_entries": 0
+  },
+  {
+    "id": "trace-014a1781251f9746",
+    "source": "steps/S6/continuation-03/browser/restored-test-results/s6-restored-tests.cjs-busi-2c59d-t-Vue-mode-group-boundaries/trace.zip",
+    "index": "traces/trace-014a1781251f9746.json",
+    "entries": 231,
+    "original_zip_bytes": 6362260,
+    "sanitized_entries": 6
+  },
+  {
+    "id": "trace-e5821805bfb1777d",
+    "source": "steps/S6/continuation-03/browser/restored-test-results/s6-restored-tests.cjs-load-c8b17-d-real-missing-detail-error/trace.zip",
+    "index": "traces/trace-e5821805bfb1777d.json",
+    "entries": 562,
+    "original_zip_bytes": 8742544,
+    "sanitized_entries": 6
+  },
+  {
+    "id": "trace-4e1fbbfdf6568538",
+    "source": "steps/S6/continuation-03/browser/restored-test-results/s6-restored-tests.cjs-real-db1d0-and-retained-Vue-round-trip/trace.zip",
+    "index": "traces/trace-4e1fbbfdf6568538.json",
+    "entries": 460,
+    "original_zip_bytes": 7761990,
+    "sanitized_entries": 6
+  },
+  {
+    "id": "trace-5bd51e1e3ddcfe2f",
+    "source": "steps/S6/continuation-03/browser/rollback-test-results/s6-rollback-tests.cjs-real-12454-list-direct-URL-and-refresh/trace.zip",
+    "index": "traces/trace-5bd51e1e3ddcfe2f.json",
+    "entries": 679,
+    "original_zip_bytes": 11357830,
+    "sanitized_entries": 9
+  }
+]

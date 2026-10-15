@@ -1,0 +1,20 @@
+fatal: Not a valid object name 758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d^{commit}
+Traceback (most recent call last):
+  File "<WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/usage/finish_s7.py", line 71, in <module>
+    stages,budget,served=audit()
+                         ~~~~~^^
+  File "<WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/usage/finish_s7.py", line 39, in audit
+    for h in shas: git(S,'cat-file','-e',h+'^{commit}')
+                   ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/usage/finish_s7.py", line 9, in git
+    def git(repo,*args): return subprocess.check_output(['git','--no-optional-locks','-C',str(repo),*args],text=True).strip()
+                                ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 473, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+               **kwargs).stdout
+               ^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['git', '--no-optional-locks', '-C', '<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist', 'cat-file', '-e', '758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d^{commit}']' returned non-zero exit status 128.

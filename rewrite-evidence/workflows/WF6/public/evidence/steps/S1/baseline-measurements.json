@@ -1,0 +1,2963 @@
+{
+  "run_id": "wf6-rerun-20261014-01",
+  "stage_id": "S1",
+  "gate": "PASS",
+  "source_pin": "4b9ca06b6581f7152e164ea0fd9d4da366975a79",
+  "evaluator_pin": "758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d",
+  "build_source_head": "955e790f86c9c4ff2d56e06b9e54d948cbf0e698",
+  "build_hash": "51e1fc21edd74fdb002a57a5e11b8085932a0898945685edb45177aece86d733",
+  "build_command_id": "20261014T021853-1d788840",
+  "unit": {
+    "total": 517,
+    "passed": 517,
+    "failed": 0,
+    "skipped": 0,
+    "files": 48,
+    "distinct_measurements": "Coverage reruns the same unit tests; do not count twice."
+  },
+  "lint": {
+    "files": 521,
+    "errors": 0,
+    "warnings": 0
+  },
+  "coverage": {
+    "lines": {
+      "total": 12332,
+      "covered": 1861,
+      "skipped": 0,
+      "pct": 15.09
+    },
+    "statements": {
+      "total": 12968,
+      "covered": 1959,
+      "skipped": 0,
+      "pct": 15.1
+    },
+    "functions": {
+      "total": 5350,
+      "covered": 423,
+      "skipped": 0,
+      "pct": 7.9
+    },
+    "branches": {
+      "total": 7772,
+      "covered": 1002,
+      "skipped": 0,
+      "pct": 12.89
+    },
+    "branchesTrue": {
+      "total": 0,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 100
+    }
+  },
+  "type_diagnostics": {
+    "status": "FAIL",
+    "exit_code": 1,
+    "error_count": 318,
+    "codes": {
+      "TS2322": 64,
+      "TS2532": 78,
+      "TS2345": 31,
+      "TS18048": 25,
+      "TS2769": 7,
+      "TS2540": 2,
+      "TS2554": 25,
+      "TS2339": 18,
+      "TS2307": 1,
+      "TS2739": 4,
+      "TS4114": 48,
+      "TS2353": 4,
+      "TS2558": 1,
+      "TS2741": 1,
+      "TS2538": 3,
+      "TS2304": 1,
+      "TS2551": 3,
+      "TS18047": 2
+    },
+    "diagnostics": [
+      "app/components/Domain/Cookbook/CookbookPage.vue(106,3): error TS2322: Type 'ReadCookBook | null | undefined' is not assignable to type 'ReadCookBook | { name: string; description?: string | undefined; slug?: string | null | undefined; position?: number | undefined; public?: boolean | undefined; queryFilterString?: string | undefined; ... 4 more ...; household?: { ...; } | ... 1 more ... | undefined; } | null'.",
+      "app/components/Domain/Group/GroupAIProviderDialog.test.ts(109,12): error TS2532: Object is possibly 'undefined'.",
+      "app/components/Domain/Group/GroupAIProviderDialog.test.ts(116,12): error TS2532: Object is possibly 'undefined'.",
+      "app/components/Domain/Household/GroupMealPlanEntryDialog.vue(178,19): error TS2345: Argument of type 'number | undefined' is not assignable to parameter of type 'number'.",
+      "app/components/Domain/Household/GroupMealPlanEntryDialog.vue(178,25): error TS18048: 'month' is possibly 'undefined'.",
+      "app/components/Domain/QueryFilterBuilder.vue(175,53): error TS2345: Argument of type 'FieldValue' is not assignable to parameter of type 'string'.",
+      "app/components/Domain/QueryFilterBuilder.vue(176,82): error TS2345: Argument of type 'FieldValue' is not assignable to parameter of type 'string'.",
+      "app/components/Domain/QueryFilterBuilder.vue(479,51): error TS2345: Argument of type 'FieldValue' is not assignable to parameter of type 'number'.",
+      "app/components/Domain/QueryFilterBuilder.vue(601,9): error TS2532: Object is possibly 'undefined'.",
+      "app/components/Domain/QueryFilterBuilder.vue(602,12): error TS2532: Object is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipeAssets.vue(41,20): error TS2532: Object is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipeAssets.vue(114,16): error TS2532: Object is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipeAssets.vue(127,30): error TS2532: Object is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipeAssets.vue(149,16): error TS2322: Type '(fileObject: File) => void' is not assignable to type '(payload: unknown) => any'.",
+      "app/components/Domain/Recipe/RecipeCardImage.vue(53,3): error TS2322: Type 'null' is not assignable to type '((props: LooseRequired<Props>) => {}) | undefined'.",
+      "app/components/Domain/Recipe/RecipeCardSection.vue(124,16): error TS2322: Type '{}' is not assignable to type 'string'.",
+      "app/components/Domain/Recipe/RecipeCardSection.vue(148,16): error TS2322: Type '{}' is not assignable to type 'string'.",
+      "app/components/Domain/Recipe/RecipeContextMenu/RecipeContextMenu.vue(36,8): error TS2345: Argument of type '{ slug: string; name: string; recipeId: string; useItems: Partial<ContextMenuIncludes>; appendItems: ContextMenuItem[]; leadingItems: ContextMenuItem[]; ... 9 more ...; onPrint: any; }' is not assignable to parameter of type '{ readonly [x: `on${Capitalize<string>}`]: ((...args: unknown[] & []) => any) | undefined; readonly useItems?: ContextMenuIncludes | undefined; readonly appendItems?: ContextMenuItem[] | undefined; ... 9 more ...; readonly recipeScale?: number | undefined; } & VNodeProps & AllowedComponentProps & ComponentCustomProp...'.",
+      "app/components/Domain/Recipe/RecipeContextMenu/RecipeContextMenuContent.vue(3,67): error TS2322: Type '{ id?: string | null | undefined; userId?: string | undefined; householdId?: string | undefined; groupId?: string | undefined; name?: string | null | undefined; slug?: string | undefined; ... 29 more ...; comments?: { ...; }[] | ... 1 more ... | undefined; } | undefined' is not assignable to type 'NoUndefinedField<Recipe> | undefined'.",
+      "app/components/Domain/Recipe/RecipeDialogAddToShoppingList.vue(140,27): error TS2532: Object is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipeDialogAddToShoppingList.vue(140,27): error TS2532: Object is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipeDialogAddToShoppingList.vue(140,27): error TS2532: Object is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipeDialogAddToShoppingList.vue(142,48): error TS2532: Object is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipeDialogAddToShoppingList.vue(142,48): error TS2532: Object is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipeDialogAddToShoppingList.vue(142,48): error TS2532: Object is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipeDialogAddToShoppingList.vue(264,7): error TS2322: Type '{ name?: string | null | undefined; extras?: { [k: string]: unknown; } | null | undefined; createdAt?: string | null | undefined; updatedAt?: string | null | undefined; groupId: string; userId: string; id: string; householdId: string; recipeReferences: { ...; }[]; labelSettings: { ...; }[]; } | undefined' is not assignable to type 'ShoppingListSummary | { name?: string | null | undefined; extras?: { [k: string]: unknown; } | null | undefined; createdAt?: string | null | undefined; updatedAt?: string | null | undefined; ... 5 more ...; labelSettings: { ...; }[]; } | null'.",
+      "app/components/Domain/Recipe/RecipeDialogAddToShoppingList.vue(265,40): error TS2345: Argument of type '{ name?: string | null | undefined; extras?: { [k: string]: unknown; } | null | undefined; createdAt?: string | null | undefined; updatedAt?: string | null | undefined; groupId: string; userId: string; id: string; householdId: string; recipeReferences: { ...; }[]; labelSettings: { ...; }[]; } | null' is not assignable to parameter of type 'ShoppingListSummary'.",
+      "app/components/Domain/Recipe/RecipeDialogAddToShoppingList.vue(285,41): error TS2532: Object is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipeDialogAddToShoppingList.vue(287,9): error TS2532: Object is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipeDialogAddToShoppingList.vue(299,5): error TS2532: Object is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipeDialogAddToShoppingList.vue(304,5): error TS2532: Object is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipeDialogAddToShoppingList.vue(358,49): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string | number'.",
+      "app/components/Domain/Recipe/RecipeDialogAddToShoppingList.vue(375,5): error TS18048: 'recipeData.recipeIngredient' is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipeDialogAddToShoppingList.vue(389,7): error TS2322: Type 'string | null | undefined' is not assignable to type 'string'.",
+      "app/components/Domain/Recipe/RecipeDialogAddToShoppingList.vue(390,7): error TS2322: Type 'string | null | undefined' is not assignable to type 'string'.",
+      "app/components/Domain/Recipe/RecipeDialogSearch.test.ts(141,12): error TS2532: Object is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipeDialogSearch.test.ts(148,12): error TS2532: Object is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipeDialogSearch.test.ts(152,12): error TS2532: Object is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipeDialogSearch.vue(63,14): error TS2322: Type 'unknown' is not assignable to type 'string | undefined'.",
+      "app/components/Domain/Recipe/RecipeExplorerPage/RecipeExplorerPageParts/RecipeExplorerPageSearchFilters.vue(7,6): error TS2322: Type 'RecipeCategory[]' is not assignable to type 'ISearchableItem[]'.",
+      "app/components/Domain/Recipe/RecipeExplorerPage/RecipeExplorerPageParts/RecipeExplorerPageSearchFilters.vue(20,6): error TS2322: Type 'RecipeTag[]' is not assignable to type 'ISearchableItem[]'.",
+      "app/components/Domain/Recipe/RecipeImageUploadBtn.vue(46,16): error TS2322: Type '(fileObject: File) => void' is not assignable to type '(payload: unknown) => any'.",
+      "app/components/Domain/Recipe/RecipeImportImages.vue(13,8): error TS2322: Type '(files: File[]) => void' is not assignable to type '(payload: unknown) => any'.",
+      "app/components/Domain/Recipe/RecipeImportImages.vue(75,23): error TS2345: Argument of type 'string | undefined' is not assignable to parameter of type 'string'.",
+      "app/components/Domain/Recipe/RecipeIngredientEditor.vue(329,5): error TS2322: Type 'undefined' is not assignable to type '{ text: string; event: string; }[]'.",
+      "app/components/Domain/Recipe/RecipeIngredients.test.ts(68,11): error TS2532: Object is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipeIngredients.test.ts(71,12): error TS2532: Object is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipeIngredients.test.ts(76,12): error TS2532: Object is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipeIngredients.test.ts(77,12): error TS2532: Object is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipeLastMade.vue(41,22): error TS2322: Type 'string | null | undefined' is not assignable to type 'string | undefined'.",
+      "app/components/Domain/Recipe/RecipeLastMade.vue(87,22): error TS2322: Type '(fileObject: File) => void' is not assignable to type '(payload: unknown) => any'.",
+      "app/components/Domain/Recipe/RecipeLastMade.vue(335,9): error TS2322: Type 'string' is not assignable to type 'TimelineEventImage | null | undefined'.",
+      "app/components/Domain/Recipe/RecipeList.vue(107,23): error TS18048: 'itemRef' is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipeList.vue(107,55): error TS18048: 'itemRef' is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipeList.vue(116,11): error TS2532: Object is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipeList.vue(139,9): error TS18048: 'itemRef' is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipeList.vue(140,35): error TS18048: 'itemRef' is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipeNotes.vue(19,24): error TS2532: Object is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipeNotes.vue(33,22): error TS2532: Object is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipeNutrition.vue(15,21): error TS2532: Object is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipeNutrition.vue(16,22): error TS2532: Object is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipeOrganizerPage.vue(88,10): error TS2322: Type 'string | number' is not assignable to type 'string'.",
+      "app/components/Domain/Recipe/RecipeOrganizerPage.vue(252,22): error TS2532: Object is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipePage/RecipePage.vue(294,60): error TS2769: No overload matches this call.",
+      "app/components/Domain/Recipe/RecipePage/RecipePage.vue(327,43): error TS18048: 'entry' is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageComments.vue(109,32): error TS2345: Argument of type 'RecipeCommentOut' is not assignable to parameter of type 'NoUndefinedField<RecipeCommentOut>'.",
+      "app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageFooter.vue(47,18): error TS2322: Type 'string | number' is not assignable to type 'string | undefined'.",
+      "app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageIngredientEditor.vue(49,9): error TS2322: Type 'NoUndefinedField<RecipeIngredient> | undefined' is not assignable to type 'RecipeIngredient'.",
+      "app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageIngredientEditor.vue(100,16): error TS2322: Type '(ingredients?: string[] | null) => void' is not assignable to type '((args_0: MouseEvent | KeyboardEvent) => void) & ((e: MouseEvent | KeyboardEvent) => any)'.",
+      "app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageIngredientEditor.vue(107,16): error TS2322: Type '(recipes?: string[] | null) => void' is not assignable to type '((args_0: MouseEvent | KeyboardEvent) => void) & ((e: MouseEvent | KeyboardEvent) => any)'.",
+      "app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageIngredientToolsView.vue(22,24): error TS2532: Object is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageIngredientToolsView.vue(84,9): error TS18048: 'tool' is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageIngredientToolsView.vue(84,25): error TS18048: 'tool' is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageIngredientToolsView.vue(85,12): error TS18048: 'tool' is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageIngredientToolsView.vue(86,9): error TS18048: 'tool' is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageIngredientToolsView.vue(89,9): error TS18048: 'tool' is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageIngredientToolsView.vue(92,15): error TS18048: 'tool' is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageIngredientToolsView.vue(92,30): error TS18048: 'tool' is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageIngredientToolsView.vue(93,7): error TS18048: 'tool' is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageIngredientToolsView.vue(93,33): error TS18048: 'tool' is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageIngredientToolsView.vue(96,33): error TS2345: Argument of type '{ onHand: boolean; id: string; groupId?: string | null | undefined; name: string; slug: string; recipeCount?: number | undefined; householdsWithTool?: string[] | undefined; } | undefined' is not assignable to parameter of type 'RecipeTool'.",
+      "app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInstructions.vue(301,57): error TS2345: Argument of type 'string | null | undefined' is not assignable to parameter of type 'string | undefined'.",
+      "app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInstructions.vue(400,30): error TS2532: Object is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInstructions.vue(879,17): error TS2532: Object is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInstructions.vue(880,17): error TS2532: Object is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInstructions.vue(883,3): error TS2532: Object is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInstructions.vue(883,47): error TS2532: Object is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInstructions.vue(898,5): error TS2532: Object is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInstructions.vue(911,35): error TS2345: Argument of type 'RecipeStep | undefined' is not assignable to parameter of type 'RecipeStep'.",
+      "app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInstructions.vue(914,32): error TS2345: Argument of type 'RecipeStep | undefined' is not assignable to parameter of type 'RecipeStep'.",
+      "app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInstructions.vue(934,43): error TS2532: Object is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageInstructions.vue(1021,3): error TS2532: Object is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipePrintContainer.vue(4,8): error TS2322: Type 'Recipe' is not assignable to type 'NoUndefinedField<Recipe>'.",
+      "app/components/Domain/Recipe/RecipePrintView.vue(77,17): error TS2532: Object is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipePrintView.vue(80,14): error TS2532: Object is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipePrintView.vue(212,26): error TS2532: Object is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipePrintView.vue(213,35): error TS2532: Object is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipePrintView.vue(213,68): error TS2532: Object is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipePrintView.vue(340,13): error TS2532: Object is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipePrintView.vue(364,26): error TS2532: Object is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipePrintView.vue(365,28): error TS2532: Object is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipePrintView.vue(392,5): error TS2532: Object is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipeSelector.vue(24,10): error TS2322: Type 'RecipeCategory[]' is not assignable to type 'ISearchableItem[]'.",
+      "app/components/Domain/Recipe/RecipeSelector.vue(34,10): error TS2322: Type 'RecipeTag[]' is not assignable to type 'ISearchableItem[]'.",
+      "app/components/Domain/Recipe/RecipeSuggestion.vue(6,12): error TS2322: Type 'string | null | undefined' is not assignable to type 'string'.",
+      "app/components/Domain/Recipe/RecipeSuggestion.vue(7,12): error TS2322: Type 'string | null | undefined' is not assignable to type 'string'.",
+      "app/components/Domain/Recipe/RecipeSuggestion.vue(8,12): error TS2322: Type 'string | undefined' is not assignable to type 'string'.",
+      "app/components/Domain/Recipe/RecipeSuggestion.vue(9,12): error TS2322: Type 'number | null | undefined' is not assignable to type 'number | undefined'.",
+      "app/components/Domain/Recipe/RecipeSuggestion.vue(10,12): error TS2322: Type 'unknown' is not assignable to type 'string | undefined'.",
+      "app/components/Domain/Recipe/RecipeSuggestion.vue(11,12): error TS2322: Type 'string | null | undefined' is not assignable to type 'string'.",
+      "app/components/Domain/Recipe/RecipeSuggestion.vue(31,41): error TS2345: Argument of type '{ id: string; groupId?: string | null | undefined; name: string; slug: string; recipeCount?: number | undefined; householdsWithTool?: string[] | undefined; } | { id: string; name: string; pluralName?: string | ... 1 more ... | undefined; ... 8 more ...; updatedAt?: string | ... 1 more ... | undefined; }' is not assignable to parameter of type 'IngredientFood & RecipeTool'.",
+      "app/components/Domain/Recipe/RecipeTimeline.vue(184,19): error TS2532: Object is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipeTimeline.vue(198,62): error TS2532: Object is possibly 'undefined'.",
+      "app/components/Domain/Recipe/RecipeTimelineItem.vue(56,16): error TS2322: Type 'string | null | undefined' is not assignable to type 'string'.",
+      "app/components/Domain/Recipe/RecipeTimelineItem.vue(57,16): error TS2322: Type 'string | undefined' is not assignable to type 'string'.",
+      "app/components/Domain/Recipe/RecipeTimelineItem.vue(58,16): error TS2322: Type 'string | null | undefined' is not assignable to type 'string'.",
+      "app/components/Domain/Recipe/RecipeTimelineItem.vue(59,16): error TS2322: Type 'number | null | undefined' is not assignable to type 'number | undefined'.",
+      "app/components/Domain/Recipe/RecipeTimelineItem.vue(60,16): error TS2322: Type 'unknown' is not assignable to type 'string | undefined'.",
+      "app/components/Domain/Recipe/RecipeTimelineItem.vue(61,16): error TS2322: Type 'string | null | undefined' is not assignable to type 'string'.",
+      "app/components/Domain/SearchFilter.vue(192,23): error TS2769: No overload matches this call.",
+      "app/components/Domain/SearchFilter.vue(205,19): error TS2540: Cannot assign to 'value' because it is a read-only property.",
+      "app/components/Domain/SearchFilter.vue(211,17): error TS2540: Cannot assign to 'value' because it is a read-only property.",
+      "app/components/Domain/User/UserPasswordStrength.vue(21,52): error TS2345: Argument of type 'Composer<{ \"af-ZA\": LocaleMessage<VueMessageType>; \"ar-SA\": LocaleMessage<VueMessageType>; \"bg-BG\": LocaleMessage<VueMessageType>; ... 38 more ...; \"zh-TW\": LocaleMessage<...>; }, ... 4 more ..., \"af-ZA\" | ... 40 more ... | \"zh-TW\">' is not assignable to parameter of type 'VueI18n<{}, {}, {}, \"af-ZA\" | \"ar-SA\" | \"bg-BG\" | \"ca-ES\" | \"cs-CZ\" | \"da-DK\" | \"de-DE\" | \"el-GR\" | \"en-GB\" | \"en-US\" | \"es-ES\" | \"et-EE\" | \"fi-FI\" | \"fr-BE\" | \"fr-CA\" | \"fr-FR\" | \"gl-ES\" | ... 24 more ... | \"zh-TW\", never, \"af-ZA\" | ... 40 more ... | \"zh-TW\", Composer<...>>'.",
+      "app/components/Layout/DefaultLayout.vue(173,9): error TS2532: Object is possibly 'undefined'.",
+      "app/components/global/AppButtonUpload.vue(116,35): error TS2769: No overload matches this call.",
+      "app/components/global/BaseOverflowButton.vue(88,32): error TS2554: Expected 2 arguments, but got 1.",
+      "app/components/global/CrudTable.vue(58,8): error TS2322: Type '({ title: string; text: string; value: string; show: boolean; align?: \"start\" | \"center\" | \"end\" | undefined; sortable?: boolean | undefined; sort?: ((a: any, b: any) => number) | undefined; } | { ...; })[]' is not assignable to type 'readonly { readonly key?: (string & {}) | \"data-table-group\" | \"data-table-select\" | \"data-table-expand\" | undefined; readonly value?: SelectItemKey<any>; readonly title?: string | undefined; ... 13 more ...; readonly children?: readonly ...[] | undefined; }[]'.",
+      "app/components/global/DropZone.test.ts(128,12): error TS2532: Object is possibly 'undefined'.",
+      "app/components/global/DropZone.test.ts(129,12): error TS2532: Object is possibly 'undefined'.",
+      "app/components/global/DropZone.test.ts(130,12): error TS2532: Object is possibly 'undefined'.",
+      "app/components/global/DropZone.vue(74,25): error TS2769: No overload matches this call.",
+      "app/components/global/DropZone.vue(82,23): error TS18048: 'type' is possibly 'undefined'.",
+      "app/components/global/InputLabelType.vue(42,20): error TS2769: No overload matches this call.",
+      "app/components/global/InputLabelType.vue(84,25): error TS2339: Property 'id' does not exist on type 'NonNullable<T>'.",
+      "app/components/global/InputLabelType.vue(85,5): error TS2322: Type 'NonNullable<T> | null' is not assignable to type 'T'.",
+      "app/components/layout/DefaultLayout.vue(173,9): error TS2532: Object is possibly 'undefined'.",
+      "app/composables/api/use-downloader.ts(17,58): error TS2322: Type 'unknown' is not assignable to type 'BlobPart'.",
+      "app/composables/partials/__tests__/use-actions-factory.test.ts(19,51): error TS2345: Argument of type 'BaseCRUDAPI<unknown, unknown, unknown>' is not assignable to parameter of type 'BaseCRUDAPI<unknown, BoundT, unknown>'.",
+      "app/composables/partials/__tests__/use-actions-factory.test.ts(36,51): error TS2345: Argument of type 'BaseCRUDAPI<unknown, unknown, unknown>' is not assignable to parameter of type 'BaseCRUDAPI<unknown, BoundT, unknown>'.",
+      "app/composables/partials/__tests__/use-actions-factory.test.ts(48,51): error TS2345: Argument of type 'BaseCRUDAPI<unknown, unknown, unknown>' is not assignable to parameter of type 'BaseCRUDAPI<unknown, BoundT, unknown>'.",
+      "app/composables/partials/__tests__/use-actions-factory.test.ts(62,51): error TS2345: Argument of type 'BaseCRUDAPI<unknown, unknown, unknown>' is not assignable to parameter of type 'BaseCRUDAPI<unknown, BoundT, unknown>'.",
+      "app/composables/partials/__tests__/use-actions-factory.test.ts(73,51): error TS2345: Argument of type 'BaseCRUDAPI<unknown, unknown, unknown>' is not assignable to parameter of type 'BaseCRUDAPI<unknown, BoundT, unknown>'.",
+      "app/composables/partials/use-actions-factory.ts(78,5): error TS2322: Type '(page?: number, perPage?: number, params?: Record<string, QueryValue>) => AsyncData<T[] | undefined, NuxtError<unknown> | undefined>' is not assignable to type '(page?: number | undefined, perPage?: number | undefined, params?: any) => AsyncData<T[] | null, NuxtError<unknown> | null>'.",
+      "app/composables/partials/use-actions-factory.ts(191,5): error TS2322: Type '(page?: number, perPage?: number, params?: Record<string, QueryValue>) => AsyncData<T[] | undefined, NuxtError<unknown> | undefined>' is not assignable to type '(page?: number | undefined, perPage?: number | undefined, params?: any) => AsyncData<T[] | null, NuxtError<unknown> | null>'.",
+      "app/composables/recipes/use-recipe-ingredients.ts(127,13): error TS2532: Object is possibly 'undefined'.",
+      "app/composables/recipes/use-recipe-tools.ts(3,28): error TS2307: Cannot find module '~/types/vuetify' or its corresponding type declarations.",
+      "app/composables/recipes/use-recipe-tools.ts(40,15): error TS2339: Property 'value' does not exist on type 'Ref<never[], never[]> | AsyncData<RecipeTool[] | null | undefined, NuxtError<unknown> | undefined>'.",
+      "app/composables/recipes/use-recipe-tools.ts(56,15): error TS2339: Property 'value' does not exist on type 'Ref<never[], never[]> | AsyncData<RecipeTool[] | null | undefined, NuxtError<unknown> | undefined>'.",
+      "app/composables/recipes/use-recipe-tools.ts(67,15): error TS2339: Property 'value' does not exist on type 'Ref<never[], never[]> | AsyncData<RecipeTool[] | null | undefined, NuxtError<unknown> | undefined>'.",
+      "app/composables/recipes/use-recipes.ts(89,11): error TS2532: Object is possibly 'undefined'.",
+      "app/composables/recipes/use-scaled-amount.ts(17,7): error TS2532: Object is possibly 'undefined'.",
+      "app/composables/shopping-list-page/sub-composables/use-shopping-list-copy.ts(20,61): error TS2532: Object is possibly 'undefined'.",
+      "app/composables/shopping-list-page/sub-composables/use-shopping-list-search.test.ts(77,47): error TS2739: Type '{ name: string; }' is missing the following properties from type 'MultiPurposeLabelSummary': groupId, id",
+      "app/composables/shopping-list-page/sub-composables/use-shopping-list-search.test.ts(78,46): error TS2739: Type '{ name: string; }' is missing the following properties from type 'MultiPurposeLabelSummary': groupId, id",
+      "app/composables/shopping-list-page/sub-composables/use-shopping-list-search.test.ts(79,38): error TS2739: Type '{ name: string; }' is missing the following properties from type 'MultiPurposeLabelSummary': groupId, id",
+      "app/composables/store/use-user-store.ts(18,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPIReadOnly<UserSummary>'.",
+      "app/composables/store/use-user-store.ts(19,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPIReadOnly<UserSummary>'.",
+      "app/composables/store/use-user-store.ts(24,15): error TS2554: Expected 3 arguments, but got 1.",
+      "app/composables/use-group-recipe-actions.ts(91,9): error TS2353: Object literal may only specify known properties, and 'orderBy' does not exist in type 'Ref<boolean, boolean>'.",
+      "app/composables/use-utils.ts(64,21): error TS2532: Object is possibly 'undefined'.",
+      "app/layouts/error.vue(93,37): error TS2532: Object is possibly 'undefined'.",
+      "app/lib/api/admin/admin-ai-providers.ts(21,92): error TS2345: Argument of type 'AIProviderUpdate' is not assignable to parameter of type 'AIProviderOut'.",
+      "app/lib/api/admin/admin-groups.ts(13,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<GroupBase, GroupInDB, GroupAdminUpdate>'.",
+      "app/lib/api/admin/admin-groups.ts(14,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<GroupBase, GroupInDB, GroupAdminUpdate>'.",
+      "app/lib/api/admin/admin-households.ts(12,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<HouseholdCreate, HouseholdInDB, UpdateHouseholdAdmin>'.",
+      "app/lib/api/admin/admin-households.ts(13,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<HouseholdCreate, HouseholdInDB, UpdateHouseholdAdmin>'.",
+      "app/lib/api/admin/admin-users.ts(14,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<UserIn, UserOut, UserOut>'.",
+      "app/lib/api/admin/admin-users.ts(15,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<UserIn, UserOut, UserOut>'.",
+      "app/lib/api/client-admin.ts(25,18): error TS2554: Expected 3 arguments, but got 1.",
+      "app/lib/api/client-admin.ts(26,23): error TS2554: Expected 3 arguments, but got 1.",
+      "app/lib/api/client-admin.ts(27,19): error TS2554: Expected 3 arguments, but got 1.",
+      "app/lib/api/client-user.ts(62,23): error TS2554: Expected 3 arguments, but got 1.",
+      "app/lib/api/client-user.ts(63,17): error TS2554: Expected 3 arguments, but got 1.",
+      "app/lib/api/client-user.ts(64,18): error TS2554: Expected 3 arguments, but got 1.",
+      "app/lib/api/client-user.ts(65,18): error TS2554: Expected 3 arguments, but got 1.",
+      "app/lib/api/client-user.ts(66,18): error TS2554: Expected 3 arguments, but got 1.",
+      "app/lib/api/client-user.ts(69,18): error TS2554: Expected 3 arguments, but got 1.",
+      "app/lib/api/client-user.ts(70,23): error TS2554: Expected 3 arguments, but got 1.",
+      "app/lib/api/client-user.ts(71,19): error TS2554: Expected 3 arguments, but got 1.",
+      "app/lib/api/client-user.ts(72,22): error TS2554: Expected 3 arguments, but got 1.",
+      "app/lib/api/client-user.ts(73,31): error TS2554: Expected 3 arguments, but got 1.",
+      "app/lib/api/client-user.ts(74,26): error TS2554: Expected 3 arguments, but got 1.",
+      "app/lib/api/client-user.ts(76,22): error TS2554: Expected 3 arguments, but got 1.",
+      "app/lib/api/client-user.ts(77,26): error TS2554: Expected 3 arguments, but got 1.",
+      "app/lib/api/client-user.ts(83,31): error TS2554: Expected 3 arguments, but got 1.",
+      "app/lib/api/client-user.ts(96,31): error TS2554: Expected 3 arguments, but got 1.",
+      "app/lib/api/user/group-ai-providers.ts(35,37): error TS2558: Expected 1 type arguments, but got 2.",
+      "app/lib/api/user/group-cookbooks.ts(12,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<CreateCookBook, ReadCookBook, UpdateCookBook>'.",
+      "app/lib/api/user/group-cookbooks.ts(13,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<CreateCookBook, ReadCookBook, UpdateCookBook>'.",
+      "app/lib/api/user/group-event-notifier.ts(16,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<GroupEventNotifierCreate, GroupEventNotifierOut, GroupEventNotifierUpdate>'.",
+      "app/lib/api/user/group-event-notifier.ts(17,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<GroupEventNotifierCreate, GroupEventNotifierOut, GroupEventNotifierUpdate>'.",
+      "app/lib/api/user/group-mealplan-rules.ts(12,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<PlanRulesCreate, PlanRulesOut, PlanRulesCreate>'.",
+      "app/lib/api/user/group-mealplan-rules.ts(13,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<PlanRulesCreate, PlanRulesOut, PlanRulesCreate>'.",
+      "app/lib/api/user/group-mealplan.ts(13,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<CreatePlanEntry, ReadPlanEntry, UpdatePlanEntry>'.",
+      "app/lib/api/user/group-mealplan.ts(14,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<CreatePlanEntry, ReadPlanEntry, UpdatePlanEntry>'.",
+      "app/lib/api/user/group-multiple-purpose-labels.ts(16,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<MultiPurposeLabelCreate, MultiPurposeLabelOut, MultiPurposeLabelUpdate>'.",
+      "app/lib/api/user/group-multiple-purpose-labels.ts(17,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<MultiPurposeLabelCreate, MultiPurposeLabelOut, MultiPurposeLabelUpdate>'.",
+      "app/lib/api/user/group-recipe-actions.ts(13,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<CreateGroupRecipeAction, GroupRecipeActionOut, CreateGroupRecipeAction>'.",
+      "app/lib/api/user/group-recipe-actions.ts(14,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<CreateGroupRecipeAction, GroupRecipeActionOut, CreateGroupRecipeAction>'.",
+      "app/lib/api/user/group-shopping-lists.ts(29,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<ShoppingListCreate, ShoppingListOut, ShoppingListUpdate>'.",
+      "app/lib/api/user/group-shopping-lists.ts(30,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<ShoppingListCreate, ShoppingListOut, ShoppingListUpdate>'.",
+      "app/lib/api/user/group-shopping-lists.ts(50,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<ShoppingListItemCreate, ShoppingListItemOut, ShoppingListItemUpdateBulk>'.",
+      "app/lib/api/user/group-shopping-lists.ts(51,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<ShoppingListItemCreate, ShoppingListItemOut, ShoppingListItemUpdateBulk>'.",
+      "app/lib/api/user/group-shopping-lists.ts(77,18): error TS2554: Expected 3 arguments, but got 1.",
+      "app/lib/api/user/group-shopping-lists.ts(78,18): error TS2554: Expected 3 arguments, but got 1.",
+      "app/lib/api/user/group-webhooks.ts(13,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<CreateWebhook, ReadWebhook, CreateWebhook>'.",
+      "app/lib/api/user/group-webhooks.ts(14,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<CreateWebhook, ReadWebhook, CreateWebhook>'.",
+      "app/lib/api/user/groups.ts(27,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<GroupBase, GroupInDB, GroupAdminUpdate>'.",
+      "app/lib/api/user/groups.ts(28,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<GroupBase, GroupInDB, GroupAdminUpdate>'.",
+      "app/lib/api/user/households.ts(34,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPIReadOnly<HouseholdSummary>'.",
+      "app/lib/api/user/households.ts(35,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPIReadOnly<HouseholdSummary>'.",
+      "app/lib/api/user/organizer-categories.ts(16,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<CategoryIn, RecipeCategoryResponse, CategoryIn>'.",
+      "app/lib/api/user/organizer-categories.ts(17,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<CategoryIn, RecipeCategoryResponse, CategoryIn>'.",
+      "app/lib/api/user/organizer-tags.ts(16,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<TagIn, RecipeTagResponse, TagIn>'.",
+      "app/lib/api/user/organizer-tags.ts(17,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<TagIn, RecipeTagResponse, TagIn>'.",
+      "app/lib/api/user/organizer-tools.ts(14,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<RecipeToolCreate, RecipeTool, RecipeToolCreate>'.",
+      "app/lib/api/user/organizer-tools.ts(15,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<RecipeToolCreate, RecipeTool, RecipeToolCreate>'.",
+      "app/lib/api/user/recipe-foods.ts(13,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<CreateIngredientFood, IngredientFood, CreateIngredientFood>'.",
+      "app/lib/api/user/recipe-foods.ts(14,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<CreateIngredientFood, IngredientFood, CreateIngredientFood>'.",
+      "app/lib/api/user/recipe-foods.ts(17,62): error TS2353: Object literal may only specify known properties, and 'fromFood' does not exist in type 'IngredientFood'.",
+      "app/lib/api/user/recipe-units.ts(13,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<CreateIngredientUnit, IngredientUnit, CreateIngredientUnit>'.",
+      "app/lib/api/user/recipe-units.ts(14,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<CreateIngredientUnit, IngredientUnit, CreateIngredientUnit>'.",
+      "app/lib/api/user/recipe-units.ts(17,62): error TS2353: Object literal may only specify known properties, and 'fromUnit' does not exist in type 'IngredientUnit'.",
+      "app/lib/api/user/recipes/recipe-comments.ts(13,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<RecipeCommentCreate, RecipeCommentOut, RecipeCommentUpdate>'.",
+      "app/lib/api/user/recipes/recipe-comments.ts(14,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<RecipeCommentCreate, RecipeCommentOut, RecipeCommentUpdate>'.",
+      "app/lib/api/user/recipes/recipe-share.ts(13,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<RecipeShareTokenCreate, RecipeShareToken, RecipeShareTokenCreate>'.",
+      "app/lib/api/user/recipes/recipe-share.ts(14,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<RecipeShareTokenCreate, RecipeShareToken, RecipeShareTokenCreate>'.",
+      "app/lib/api/user/recipes/recipe.ts(96,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<CreateRecipe, Recipe, RecipeIn>'.",
+      "app/lib/api/user/recipes/recipe.ts(97,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<CreateRecipe, Recipe, RecipeIn>'.",
+      "app/lib/api/user/recipes/recipe.ts(103,5): error TS2554: Expected 3 arguments, but got 1.",
+      "app/lib/api/user/recipes/recipe.ts(105,21): error TS2554: Expected 3 arguments, but got 1.",
+      "app/lib/api/user/recipes/recipe.ts(106,18): error TS2554: Expected 3 arguments, but got 1.",
+      "app/lib/api/user/users.ts(47,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<UserIn, UserOut, UserBase>'.",
+      "app/lib/api/user/users.ts(48,3): error TS4114: This member must have an 'override' modifier because it overrides a member in the base class 'BaseCRUDAPI<UserIn, UserOut, UserBase>'.",
+      "app/lib/recipe/recipe-visibility.test.ts(53,31): error TS2739: Type '{ privateGroup: true; }' is missing the following properties from type 'ReadGroupPreferences': groupId, id",
+      "app/lib/recipe/recipe-visibility.test.ts(58,39): error TS2741: Property 'id' is missing in type '{ privateHousehold: true; }' but required in type 'ReadHouseholdPreferences'.",
+      "app/lib/sanitize/markdown.ts(74,50): error TS18048: 'property' is possibly 'undefined'.",
+      "app/lib/sanitize/markdown.ts(94,26): error TS2769: No overload matches this call.",
+      "app/lib/validators/password.ts(26,13): error TS2538: Type 'undefined' cannot be used as an index type.",
+      "app/lib/validators/password.ts(26,33): error TS2538: Type 'undefined' cannot be used as an index type.",
+      "app/lib/validators/password.ts(27,28): error TS2538: Type 'undefined' cannot be used as an index type.",
+      "app/pages/admin/backups.vue(101,12): error TS2322: Type '({ title: string; value: string; align?: undefined; } | { title: string; value: string; align: string; })[]' is not assignable to type 'readonly { readonly key?: (string & {}) | \"data-table-group\" | \"data-table-select\" | \"data-table-expand\" | undefined; readonly value?: SelectItemKey<{ name: string; date: string; size: string; }>; ... 14 more ...; readonly children?: readonly ...[] | undefined; }[]'.",
+      "app/pages/admin/manage/groups/index.vue(49,10): error TS2322: Type '({ title: string; align: string; sortable: boolean; value: string; } | { title: string; value: string; align?: undefined; sortable?: undefined; })[]' is not assignable to type 'readonly { readonly key?: (string & {}) | \"data-table-group\" | \"data-table-select\" | \"data-table-expand\" | undefined; readonly value?: SelectItemKey<{ name: string; id: string; slug: string; categories?: { name: string; id: string; groupId?: string | ... 1 more ... | undefined; slug: string; }[] | null | undefined; ...'.",
+      "app/pages/admin/manage/households/[id].vue(114,66): error TS18048: 'household.value' is possibly 'undefined'.",
+      "app/pages/admin/manage/households/[id].vue(114,86): error TS2345: Argument of type 'HouseholdInDB | undefined' is not assignable to parameter of type 'UpdateHouseholdAdmin'.",
+      "app/pages/admin/manage/households/index.vue(68,10): error TS2322: Type '({ title: string; align: string; sortable: boolean; value: string; } | { title: string; value: string; align?: undefined; sortable?: undefined; })[]' is not assignable to type 'readonly { readonly key?: (string & {}) | \"data-table-group\" | \"data-table-select\" | \"data-table-expand\" | undefined; readonly value?: SelectItemKey<{ groupId: string; name: string; id: string; slug: string; preferences?: { ...; } | ... 1 more ... | undefined; group: string; users?: { ...; }[] | ... 1 more ... | und...'.",
+      "app/pages/admin/manage/users/[id].vue(164,28): error TS2304: Cannot find name 'VForm'.",
+      "app/pages/admin/manage/users/index.vue(57,10): error TS2322: Type '({ title: string; align: string; value: string; sortable?: undefined; } | { title: string; value: string; align?: undefined; sortable?: undefined; } | { title: string; value: string; sortable: boolean; align: string; })[]' is not assignable to type 'readonly { readonly key?: (string & {}) | \"data-table-group\" | \"data-table-select\" | \"data-table-expand\" | undefined; readonly value?: SelectItemKey<UserOut>; ... 14 more ...; readonly children?: readonly ...[] | undefined; }[]'.",
+      "app/pages/admin/site-settings.vue(377,5): error TS2322: Type '{}' is not assignable to type 'AppStatistics | { totalRecipes: number; totalUsers: number; totalHouseholds: number; totalGroups: number; uncategorizedRecipes: number; untaggedRecipes: number; }'.",
+      "app/pages/g/[groupSlug]/cookbooks/index.vue(108,17): error TS2322: Type '{ name: string; description?: string | undefined; slug?: string | null | undefined; position?: number | undefined; public?: boolean | undefined; queryFilterString?: string | undefined; ... 4 more ...; household?: { ...; } | ... 1 more ... | undefined; } | undefined' is not assignable to type 'ReadCookBook'.",
+      "app/pages/g/[groupSlug]/cookbooks/index.vue(127,47): error TS2345: Argument of type '{ name: string; description?: string | undefined; slug?: string | null | undefined; position?: number | undefined; public?: boolean | undefined; queryFilterString?: string | undefined; ... 4 more ...; household?: { ...; } | ... 1 more ... | undefined; } | undefined' is not assignable to parameter of type 'ReadCookBook'.",
+      "app/pages/g/[groupSlug]/cookbooks/index.vue(128,44): error TS2345: Argument of type '{ name: string; description?: string | undefined; slug?: string | null | undefined; position?: number | undefined; public?: boolean | undefined; queryFilterString?: string | undefined; ... 4 more ...; household?: { ...; } | ... 1 more ... | undefined; } | undefined' is not assignable to parameter of type 'ReadCookBook'.",
+      "app/pages/g/[groupSlug]/cookbooks/index.vue(174,14): error TS2345: Argument of type '(a: ReadCookBook, b: ReadCookBook) => boolean' is not assignable to parameter of type '(a: ReadCookBook, b: ReadCookBook) => number'.",
+      "app/pages/g/[groupSlug]/cookbooks/index.vue(174,24): error TS18048: 'a.position' is possibly 'undefined'.",
+      "app/pages/g/[groupSlug]/cookbooks/index.vue(174,37): error TS18048: 'b.position' is possibly 'undefined'.",
+      "app/pages/g/[groupSlug]/cookbooks/index.vue(192,27): error TS2345: Argument of type 'CreateCookBook' is not assignable to parameter of type 'ReadCookBook'.",
+      "app/pages/g/[groupSlug]/r/[slug]/index.vue(5,7): error TS2322: Type '{ id?: string | null | undefined; userId?: string | undefined; householdId?: string | undefined; groupId?: string | undefined; name?: string | null | undefined; slug?: string | undefined; ... 29 more ...; comments?: { ...; }[] | ... 1 more ... | undefined; }' is not assignable to type 'NoUndefinedField<Recipe>'.",
+      "app/pages/g/[groupSlug]/r/[slug]/index.vue(48,3): error TS2322: Type 'Recipe | null | undefined' is not assignable to type 'Recipe | { id?: string | null | undefined; userId?: string | undefined; householdId?: string | undefined; groupId?: string | undefined; name?: string | null | undefined; slug?: string | undefined; ... 29 more ...; comments?: { ...; }[] | ... 1 more ... | undefined; } | null'.",
+      "app/pages/g/[groupSlug]/r/create/ai.vue(52,11): error TS2322: Type 'string | object | null' is not assignable to type 'object | undefined'.",
+      "app/pages/g/[groupSlug]/r/create/bulk.vue(25,26): error TS2532: Object is possibly 'undefined'.",
+      "app/pages/g/[groupSlug]/r/create/bulk.vue(60,28): error TS2532: Object is possibly 'undefined'.",
+      "app/pages/g/[groupSlug]/r/create/bulk.vue(80,28): error TS2532: Object is possibly 'undefined'.",
+      "app/pages/g/[groupSlug]/r/create/html.vue(49,11): error TS2322: Type 'string | object | null' is not assignable to type 'object | undefined'.",
+      "app/pages/g/[groupSlug]/recipes/categories/index.vue(5,8): error TS2322: Type 'RecipeCategory[]' is not assignable to type 'GenericItem[]'.",
+      "app/pages/g/[groupSlug]/recipes/finder/index.vue(84,48): error TS2322: Type 'string | undefined' is not assignable to type 'string'.",
+      "app/pages/g/[groupSlug]/recipes/finder/index.vue(85,56): error TS2322: Type 'QueryFilterJSON | undefined' is not assignable to type '{}'.",
+      "app/pages/g/[groupSlug]/recipes/tags/index.vue(5,8): error TS2322: Type 'RecipeTag[]' is not assignable to type 'GenericItem[]'.",
+      "app/pages/g/[groupSlug]/shared/r/[id].vue(6,9): error TS2322: Type 'Recipe' is not assignable to type 'NoUndefinedField<Recipe>'.",
+      "app/pages/group/data.vue(107,14): error TS2532: Object is possibly 'undefined'.",
+      "app/pages/group/data/foods.vue(68,25): error TS2339: Property 'raw' does not exist on type '{ name: string; value: string; progress: number; dir: string; pluralFoodHandling: string; }'.",
+      "app/pages/group/data/units.vue(81,25): error TS2339: Property 'raw' does not exist on type '{ name: string; value: string; progress: number; dir: string; pluralFoodHandling: string; }'.",
+      "app/pages/group/data/units.vue(252,19): error TS2769: No overload matches this call.",
+      "app/pages/group/migrations.vue(60,14): error TS2322: Type '(fileObject: File) => void' is not assignable to type '(payload: unknown) => any'.",
+      "app/pages/group/migrations.vue(442,7): error TS18048: 'migration' is possibly 'undefined'.",
+      "app/pages/group/migrations.vue(442,39): error TS18048: 'migration' is possibly 'undefined'.",
+      "app/pages/group/migrations.vue(444,5): error TS18048: 'migration' is possibly 'undefined'.",
+      "app/pages/household/mealplan/planner/edit.vue(158,22): error TS2532: Object is possibly 'undefined'.",
+      "app/pages/household/mealplan/planner/edit.vue(159,22): error TS2532: Object is possibly 'undefined'.",
+      "app/pages/household/mealplan/planner/edit.vue(161,5): error TS18048: 'mealData' is possibly 'undefined'.",
+      "app/pages/household/mealplan/planner/edit.vue(163,29): error TS2345: Argument of type 'ReadPlanEntry | undefined' is not assignable to parameter of type 'UpdatePlanEntry'.",
+      "app/pages/household/mealplan/planner/view.vue(32,24): error TS2322: Type '{} | undefined' is not assignable to type 'string | undefined'.",
+      "app/pages/household/mealplan/settings.vue(78,33): error TS2339: Property 'categories' does not exist on type '{ day?: PlanRulesDay | undefined; entryType?: PlanRulesType | undefined; queryFilterString?: string | undefined; groupId: string; householdId: string; id: string; queryFilter?: { ...; } | undefined; }'.",
+      "app/pages/household/mealplan/settings.vue(83,32): error TS2339: Property 'categories' does not exist on type '{ day?: PlanRulesDay | undefined; entryType?: PlanRulesType | undefined; queryFilterString?: string | undefined; groupId: string; householdId: string; id: string; queryFilter?: { ...; } | undefined; }'.",
+      "app/pages/household/mealplan/settings.vue(84,34): error TS2339: Property 'categories' does not exist on type '{ day?: PlanRulesDay | undefined; entryType?: PlanRulesType | undefined; queryFilterString?: string | undefined; groupId: string; householdId: string; id: string; queryFilter?: { ...; } | undefined; }'.",
+      "app/pages/household/mealplan/settings.vue(100,33): error TS2339: Property 'tags' does not exist on type '{ day?: PlanRulesDay | undefined; entryType?: PlanRulesType | undefined; queryFilterString?: string | undefined; groupId: string; householdId: string; id: string; queryFilter?: { ...; } | undefined; }'.",
+      "app/pages/household/mealplan/settings.vue(105,32): error TS2339: Property 'tags' does not exist on type '{ day?: PlanRulesDay | undefined; entryType?: PlanRulesType | undefined; queryFilterString?: string | undefined; groupId: string; householdId: string; id: string; queryFilter?: { ...; } | undefined; }'.",
+      "app/pages/household/mealplan/settings.vue(106,34): error TS2339: Property 'tags' does not exist on type '{ day?: PlanRulesDay | undefined; entryType?: PlanRulesType | undefined; queryFilterString?: string | undefined; groupId: string; householdId: string; id: string; queryFilter?: { ...; } | undefined; }'.",
+      "app/pages/household/mealplan/settings.vue(122,33): error TS2551: Property 'households' does not exist on type '{ day?: PlanRulesDay | undefined; entryType?: PlanRulesType | undefined; queryFilterString?: string | undefined; groupId: string; householdId: string; id: string; queryFilter?: { ...; } | undefined; }'. Did you mean 'householdId'?",
+      "app/pages/household/mealplan/settings.vue(126,35): error TS2551: Property 'households' does not exist on type '{ day?: PlanRulesDay | undefined; entryType?: PlanRulesType | undefined; queryFilterString?: string | undefined; groupId: string; householdId: string; id: string; queryFilter?: { ...; } | undefined; }'. Did you mean 'householdId'?",
+      "app/pages/household/mealplan/settings.vue(128,48): error TS2551: Property 'households' does not exist on type '{ day?: PlanRulesDay | undefined; entryType?: PlanRulesType | undefined; queryFilterString?: string | undefined; groupId: string; householdId: string; id: string; queryFilter?: { ...; } | undefined; }'. Did you mean 'householdId'?",
+      "app/pages/household/mealplan/settings.vue(153,32): error TS2532: Object is possibly 'undefined'.",
+      "app/pages/household/mealplan/settings.vue(154,39): error TS2532: Object is possibly 'undefined'.",
+      "app/pages/household/mealplan/settings.vue(155,48): error TS2532: Object is possibly 'undefined'.",
+      "app/pages/household/mealplan/settings.vue(156,34): error TS2532: Object is possibly 'undefined'.",
+      "app/pages/household/mealplan/settings.vue(161,33): error TS2532: Object is possibly 'undefined'.",
+      "app/pages/household/members.vue(35,8): error TS2322: Type '({ title: string; value: string; sortable: boolean; align: string; } | { title: string; value: string; sortable?: undefined; align?: undefined; })[]' is not assignable to type 'readonly { readonly key?: (string & {}) | \"data-table-group\" | \"data-table-select\" | \"data-table-expand\" | undefined; readonly value?: SelectItemKey<{ id: string; username?: string | null | undefined; fullName?: string | ... 1 more ... | undefined; ... 17 more ...; cacheKey: string; } | null>; ... 14 more ...; reado...'.",
+      "app/pages/household/members.vue(60,36): error TS2339: Property 'sessionUser' does not exist on type '{ UserAvatar: DefineComponent<ExtractPropTypes<{ userId: { type: StringConstructor; required: true; }; list: { type: BooleanConstructor; default: boolean; }; size: { type: StringConstructor; default: string; }; tooltip: { ...; }; }>, ... 18 more ..., any>; ... 331 more ...; $globals: { ...; }; }'.",
+      "app/pages/household/members.vue(76,36): error TS2339: Property 'sessionUser' does not exist on type '{ UserAvatar: DefineComponent<ExtractPropTypes<{ userId: { type: StringConstructor; required: true; }; list: { type: BooleanConstructor; default: boolean; }; size: { type: StringConstructor; default: string; }; tooltip: { ...; }; }>, ... 18 more ..., any>; ... 331 more ...; $globals: { ...; }; }'.",
+      "app/pages/household/members.vue(92,36): error TS2339: Property 'sessionUser' does not exist on type '{ UserAvatar: DefineComponent<ExtractPropTypes<{ userId: { type: StringConstructor; required: true; }; list: { type: BooleanConstructor; default: boolean; }; size: { type: StringConstructor; default: string; }; tooltip: { ...; }; }>, ... 18 more ..., any>; ... 331 more ...; $globals: { ...; }; }'.",
+      "app/pages/household/members.vue(108,36): error TS2339: Property 'sessionUser' does not exist on type '{ UserAvatar: DefineComponent<ExtractPropTypes<{ userId: { type: StringConstructor; required: true; }; list: { type: BooleanConstructor; default: boolean; }; size: { type: StringConstructor; default: string; }; tooltip: { ...; }; }>, ... 18 more ..., any>; ... 331 more ...; $globals: { ...; }; }'.",
+      "app/pages/household/notifiers.vue(119,22): error TS2532: Object is possibly 'undefined'.",
+      "app/pages/household/notifiers.vue(123,22): error TS2532: Object is possibly 'undefined'.",
+      "app/pages/household/notifiers.vue(123,39): error TS2339: Property 'appriseUrl' does not exist on type 'GroupEventNotifierOut'.",
+      "app/pages/household/notifiers.vue(128,22): error TS2532: Object is possibly 'undefined'.",
+      "app/pages/household/notifiers.vue(148,26): error TS2532: Object is possibly 'undefined'.",
+      "app/pages/register/index.vue(99,18): error TS2345: Argument of type '{ label: string; rules: ((v: string | undefined | null) => string | true)[]; variant: string; validateOnBlur: boolean; modelValue: any; }' is not assignable to parameter of type 'Partial<{ style: StyleValue; focused: boolean; errorMessages: string | readonly string[] | null; maxErrors: string | number; readonly: boolean | null; rules: readonly (string | boolean | PromiseLike<ValidationResult> | [...] | ((value: any) => ValidationResult) | ((value: any) => PromiseLike<...>))[]; ... 25 more .....'.",
+      "app/pages/register/index.vue(153,18): error TS2345: Argument of type '{ label: string; rules: ((v: string | undefined | null) => string | true)[]; errorMessages: string[]; variant: string; validateOnBlur: boolean; modelValue: string; onBlur: any; }' is not assignable to parameter of type 'Partial<{ style: StyleValue; focused: boolean; errorMessages: string | readonly string[] | null; maxErrors: string | number; readonly: boolean | null; rules: readonly (string | boolean | PromiseLike<ValidationResult> | [...] | ((value: any) => ValidationResult) | ((value: any) => PromiseLike<...>))[]; ... 25 more .....'.",
+      "app/pages/shopping-lists/[id].vue(67,39): error TS2322: Type 'ShoppingListMultiPurposeLabelOut | undefined' is not assignable to type 'ShoppingListMultiPurposeLabelOut'.",
+      "app/pages/shopping-lists/[id].vue(225,39): error TS2345: Argument of type 'string | number' is not assignable to parameter of type 'string'.",
+      "app/pages/shopping-lists/[id].vue(227,39): error TS2345: Argument of type 'string | number' is not assignable to parameter of type 'string'.",
+      "app/pages/shopping-lists/[id].vue(246,25): error TS2322: Type 'ShoppingListItemOut | undefined' is not assignable to type 'ShoppingListItemOut'.",
+      "app/pages/shopping-lists/[id].vue(308,19): error TS2322: Type '{ quantity?: number | undefined; unit?: { id: string; name: string; pluralName?: string | null | undefined; description?: string | undefined; extras?: { [k: string]: unknown; } | null | undefined; ... 8 more ...; updatedAt?: string | ... 1 more ... | undefined; } | null | undefined; ... 17 more ...; updatedAt?: stri...' is not assignable to type 'ShoppingListItemOut'.",
+      "app/pages/shopping-lists/[id].vue(375,18): error TS2532: Object is possibly 'undefined'.",
+      "app/pages/shopping-lists/index.vue(191,37): error TS2532: Object is possibly 'undefined'.",
+      "app/pages/user/profile/api-tokens.vue(15,52): error TS18047: '__VLS_ctx.user' is possibly 'null'.",
+      "app/pages/user/profile/api-tokens.vue(87,36): error TS18047: '__VLS_ctx.user' is possibly 'null'.",
+      "app/pages/user/profile/api-tokens.vue(161,31): error TS2339: Property 'token' does not exist on type 'LongLiveTokenOut'.",
+      "nuxt.config.ts(216,5): error TS2353: Object literal may only specify known properties, and 'lazy' does not exist in type 'Partial<NuxtI18nOptions<unknown, string[] | LocaleObject<\"af-ZA\" | \"ar-SA\" | \"bg-BG\" | \"ca-ES\" | \"cs-CZ\" | \"da-DK\" | \"de-DE\" | \"el-GR\" | \"en-GB\" | \"en-US\" | \"es-ES\" | \"et-EE\" | \"fi-FI\" | \"fr-BE\" | \"fr-CA\" | \"fr-FR\" | ... 25 more ... | \"zh-TW\">[]>>'."
+    ],
+    "source": "logs/20261014T030131-d1583192.stdout.log",
+    "scope": "Unmodified frozen Vue under Nuxt 4.5.2, TypeScript 5.9.3 and supplemental vue-tsc 3.1.5; not introduced by a WF6 implementation.",
+    "diagnostic_command_exit_code": 2,
+    "orchestration_exit_code": 1,
+    "exit_code_note": "Original exit_code=1 denotes the outer helper. The recorded Nuxt typecheck command exited 2; preserve both exact results."
+  },
+  "browser_attempts": [
+    {
+      "source": "<WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/steps/S1/browser/results.json",
+      "stats": {
+        "startTime": "2026-10-14T03:06:27.047Z",
+        "duration": 2077048.733,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 80,
+        "flaky": 0
+      },
+      "categories": {
+        "routes": {
+          "total": 66,
+          "passed": 0,
+          "failed": 66,
+          "skipped": 0,
+          "flaky": 0
+        },
+        "flows": {
+          "total": 15,
+          "passed": 1,
+          "failed": 14,
+          "skipped": 0,
+          "flaky": 0
+        },
+        "guard": {
+          "total": 1,
+          "passed": 1,
+          "failed": 0,
+          "skipped": 0,
+          "flaky": 0
+        }
+      },
+      "cases": [
+        {
+          "category": "guard",
+          "title": "route table has unique entries",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 10,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] admin.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 13329,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] admin/backups.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 17393,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] admin/debug/openai.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 16101,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] admin/debug/parser.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 15977,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] admin/maintenance/index.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 17785,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] admin/manage/groups/[id].vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 17975,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] admin/manage/groups/index.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 18540,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] admin/manage/households/[id].vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 19654,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] admin/manage/households/index.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 18319,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] admin/manage/users/[id].vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 17557,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] admin/manage/users/create.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 17542,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] admin/manage/users/index.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 17222,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] admin/setup.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 18570,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] admin/site-settings.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 17564,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] index.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 13451,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] g/[groupSlug]/index.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 17683,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] g/[groupSlug]/r/[slug]/index.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 19024,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] g/[groupSlug]/cookbooks/index.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 21193,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] g/[groupSlug]/cookbooks/[slug].vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 19649,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] g/[groupSlug]/r/create.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 16677,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] g/[groupSlug]/r/create/index.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 15996,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] g/[groupSlug]/r/create/ai.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 19129,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] g/[groupSlug]/r/create/bulk.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 18499,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] g/[groupSlug]/r/create/debug.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 16814,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] g/[groupSlug]/r/create/html.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 17444,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] g/[groupSlug]/r/create/image.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 15708,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] g/[groupSlug]/r/create/new.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 16187,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] g/[groupSlug]/r/create/url.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 17223,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] g/[groupSlug]/r/create/zip.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 15844,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] g/[groupSlug]/recipes/categories/index.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 17088,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] g/[groupSlug]/recipes/tags/index.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 16758,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] g/[groupSlug]/recipes/tools/index.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 16541,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] g/[groupSlug]/recipes/finder/index.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 18557,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] g/[groupSlug]/recipes/timeline.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 17481,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] group/index.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 19310,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] group/migrations.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 17129,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] group/reports/[id].vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 16348,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] group/data.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 20082,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] group/data/index.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 15502,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] group/data/foods.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 19419,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] group/data/units.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 18611,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] group/data/labels.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 17592,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] group/data/categories.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 18276,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] group/data/tags.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 18480,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] group/data/tools.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 18496,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] group/data/recipes.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 17908,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] group/data/recipe-actions.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 19884,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] household/index.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 19040,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] household/members.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 18365,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] household/notifiers.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 17411,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] household/webhooks.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 17581,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] household/mealplan/settings.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 19756,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] household/mealplan/planner.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 19142,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] household/mealplan/planner/view.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 20615,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] household/mealplan/planner/edit.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 21311,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] shopping-lists/index.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 18897,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] shopping-lists/[id].vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 18970,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] user/profile/index.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 18669,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] user/profile/edit.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 18517,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] user/profile/api-tokens.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 17762,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] user/[id]/favorites.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 18039,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] forgot-password.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 16081,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] login.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 16955,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] register/index.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 18155,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] reset-password.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 15634,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] g/[groupSlug]/shared/r/[id].vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 18676,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "flows",
+          "title": "[flow] create a user and find them in user management",
+          "file": "flows/admin.spec.ts",
+          "project": "flows",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "timedOut"
+          ],
+          "duration_ms": 46462,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "flows",
+          "title": "[flow] log in with valid credentials and land on the recipe list",
+          "file": "flows/auth.spec.ts",
+          "project": "flows",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "timedOut"
+          ],
+          "duration_ms": 46408,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "flows",
+          "title": "[flow] a wrong password is rejected",
+          "file": "flows/auth.spec.ts",
+          "project": "flows",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 35047,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "flows",
+          "title": "[flow] log out ends the session",
+          "file": "flows/auth.spec.ts",
+          "project": "flows",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "timedOut"
+          ],
+          "duration_ms": 46239,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "flows",
+          "title": "[flow] a regular member is not offered admin pages",
+          "file": "flows/auth.spec.ts",
+          "project": "flows",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "timedOut"
+          ],
+          "duration_ms": 46186,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "flows",
+          "title": "[flow] an admin is offered admin pages",
+          "file": "flows/auth.spec.ts",
+          "project": "flows",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "timedOut"
+          ],
+          "duration_ms": 46012,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "flows",
+          "title": "[flow] add a note to tomorrow's meal plan",
+          "file": "flows/mealplan.spec.ts",
+          "project": "flows",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "timedOut"
+          ],
+          "duration_ms": 48133,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "flows",
+          "title": "[flow] create a tag in data management",
+          "file": "flows/organize.spec.ts",
+          "project": "flows",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "timedOut"
+          ],
+          "duration_ms": 46189,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "flows",
+          "title": "[flow] a member updates their full name",
+          "file": "flows/profile.spec.ts",
+          "project": "flows",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "timedOut"
+          ],
+          "duration_ms": 45999,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "flows",
+          "title": "[flow] open a recipe from the recipe list",
+          "file": "flows/recipes.spec.ts",
+          "project": "flows",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "timedOut"
+          ],
+          "duration_ms": 46146,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "flows",
+          "title": "[flow] search narrows the recipe list",
+          "file": "flows/recipes.spec.ts",
+          "project": "flows",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 20227,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "flows",
+          "title": "[flow] create a recipe by name",
+          "file": "flows/recipes.spec.ts",
+          "project": "flows",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "timedOut"
+          ],
+          "duration_ms": 46230,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "flows",
+          "title": "[flow] comment on a recipe and see it after reload",
+          "file": "flows/recipes.spec.ts",
+          "project": "flows",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "timedOut"
+          ],
+          "duration_ms": 46032,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "flows",
+          "title": "[flow] create a shopping list",
+          "file": "flows/shopping.spec.ts",
+          "project": "flows",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 19115,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "flows",
+          "title": "[flow] add an item and check it off",
+          "file": "flows/shopping.spec.ts",
+          "project": "flows",
+          "status": "unexpected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "failed"
+          ],
+          "duration_ms": 77390,
+          "retries": [
+            0
+          ]
+        }
+      ],
+      "gate_checks": {
+        "inventory": true,
+        "routes_66": true,
+        "flows_15": true,
+        "guard_1": true,
+        "all_passed": false
+      },
+      "runner_errors": [],
+      "attempt_id": "browser"
+    },
+    {
+      "source": "<WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/steps/S1/browser-native/results.json",
+      "stats": {
+        "startTime": "2026-10-14T03:51:10.531Z",
+        "duration": 131050.429,
+        "expected": 82,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "categories": {
+        "routes": {
+          "total": 66,
+          "passed": 66,
+          "failed": 0,
+          "skipped": 0,
+          "flaky": 0
+        },
+        "flows": {
+          "total": 15,
+          "passed": 15,
+          "failed": 0,
+          "skipped": 0,
+          "flaky": 0
+        },
+        "guard": {
+          "total": 1,
+          "passed": 1,
+          "failed": 0,
+          "skipped": 0,
+          "flaky": 0
+        }
+      },
+      "cases": [
+        {
+          "category": "guard",
+          "title": "route table has unique entries",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 16,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] admin.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1403,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] admin/backups.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1093,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] admin/debug/openai.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1051,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] admin/debug/parser.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1095,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] admin/maintenance/index.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1043,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] admin/manage/groups/[id].vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1092,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] admin/manage/groups/index.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1048,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] admin/manage/households/[id].vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1074,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] admin/manage/households/index.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1113,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] admin/manage/users/[id].vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1119,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] admin/manage/users/create.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1093,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] admin/manage/users/index.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1060,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] admin/setup.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1033,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] admin/site-settings.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 5643,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] index.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1156,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] g/[groupSlug]/index.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1105,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] g/[groupSlug]/r/[slug]/index.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1329,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] g/[groupSlug]/cookbooks/index.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1181,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] g/[groupSlug]/cookbooks/[slug].vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1172,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] g/[groupSlug]/r/create.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1099,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] g/[groupSlug]/r/create/index.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1184,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] g/[groupSlug]/r/create/ai.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1143,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] g/[groupSlug]/r/create/bulk.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1208,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] g/[groupSlug]/r/create/debug.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1380,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] g/[groupSlug]/r/create/html.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1902,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] g/[groupSlug]/r/create/image.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1641,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] g/[groupSlug]/r/create/new.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1177,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] g/[groupSlug]/r/create/url.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1148,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] g/[groupSlug]/r/create/zip.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1152,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] g/[groupSlug]/recipes/categories/index.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1242,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] g/[groupSlug]/recipes/tags/index.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1198,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] g/[groupSlug]/recipes/tools/index.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1727,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] g/[groupSlug]/recipes/finder/index.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1615,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] g/[groupSlug]/recipes/timeline.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1560,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] group/index.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1260,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] group/migrations.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1335,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] group/reports/[id].vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1436,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] group/data.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1403,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] group/data/index.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1619,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] group/data/foods.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1922,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] group/data/units.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1556,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] group/data/labels.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1399,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] group/data/categories.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1743,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] group/data/tags.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1336,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] group/data/tools.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1291,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] group/data/recipes.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1311,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] group/data/recipe-actions.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1281,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] household/index.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1137,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] household/members.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1200,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] household/notifiers.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1080,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] household/webhooks.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1138,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] household/mealplan/settings.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1234,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] household/mealplan/planner.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1256,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] household/mealplan/planner/view.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1305,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] household/mealplan/planner/edit.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1277,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] shopping-lists/index.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1066,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] shopping-lists/[id].vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1146,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] user/profile/index.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1122,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] user/profile/edit.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1190,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] user/profile/api-tokens.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1148,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] user/[id]/favorites.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1102,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] forgot-password.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 884,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] login.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 920,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] register/index.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 894,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] reset-password.vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 879,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "routes",
+          "title": "[route] g/[groupSlug]/shared/r/[id].vue",
+          "file": "routes.spec.ts",
+          "project": "routes",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1299,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "flows",
+          "title": "[flow] create a user and find them in user management",
+          "file": "flows/admin.spec.ts",
+          "project": "flows",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 2627,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "flows",
+          "title": "[flow] log in with valid credentials and land on the recipe list",
+          "file": "flows/auth.spec.ts",
+          "project": "flows",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1106,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "flows",
+          "title": "[flow] a wrong password is rejected",
+          "file": "flows/auth.spec.ts",
+          "project": "flows",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 873,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "flows",
+          "title": "[flow] log out ends the session",
+          "file": "flows/auth.spec.ts",
+          "project": "flows",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 2042,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "flows",
+          "title": "[flow] a regular member is not offered admin pages",
+          "file": "flows/auth.spec.ts",
+          "project": "flows",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1532,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "flows",
+          "title": "[flow] an admin is offered admin pages",
+          "file": "flows/auth.spec.ts",
+          "project": "flows",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 2465,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "flows",
+          "title": "[flow] add a note to tomorrow's meal plan",
+          "file": "flows/mealplan.spec.ts",
+          "project": "flows",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 4327,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "flows",
+          "title": "[flow] create a tag in data management",
+          "file": "flows/organize.spec.ts",
+          "project": "flows",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1831,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "flows",
+          "title": "[flow] a member updates their full name",
+          "file": "flows/profile.spec.ts",
+          "project": "flows",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1810,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "flows",
+          "title": "[flow] open a recipe from the recipe list",
+          "file": "flows/recipes.spec.ts",
+          "project": "flows",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1529,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "flows",
+          "title": "[flow] search narrows the recipe list",
+          "file": "flows/recipes.spec.ts",
+          "project": "flows",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1924,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "flows",
+          "title": "[flow] create a recipe by name",
+          "file": "flows/recipes.spec.ts",
+          "project": "flows",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1731,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "flows",
+          "title": "[flow] comment on a recipe and see it after reload",
+          "file": "flows/recipes.spec.ts",
+          "project": "flows",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 1782,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "flows",
+          "title": "[flow] create a shopping list",
+          "file": "flows/shopping.spec.ts",
+          "project": "flows",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 2297,
+          "retries": [
+            0
+          ]
+        },
+        {
+          "category": "flows",
+          "title": "[flow] add an item and check it off",
+          "file": "flows/shopping.spec.ts",
+          "project": "flows",
+          "status": "expected",
+          "expected_status": "passed",
+          "actual_statuses": [
+            "passed"
+          ],
+          "duration_ms": 7325,
+          "retries": [
+            0
+          ]
+        }
+      ],
+      "gate_checks": {
+        "inventory": true,
+        "routes_66": true,
+        "flows_15": true,
+        "guard_1": true,
+        "all_passed": true
+      },
+      "runner_errors": [],
+      "attempt_id": "browser-native"
+    }
+  ],
+  "accepted_browser_attempt": "browser-native",
+  "cost": null,
+  "human_review_time": null,
+  "S2_S6_budget": "not_started",
+  "evidence": "../wf6-evidence/steps/S1",
+  "scope": "Unmodified Vue baseline only; no React migration or coexistence tested."
+}

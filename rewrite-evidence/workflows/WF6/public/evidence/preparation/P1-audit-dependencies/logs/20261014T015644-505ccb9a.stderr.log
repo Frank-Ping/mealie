@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "<WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/preparation/P1-audit-dependencies/prepare_dependencies.py", line 62, in <module>
+    if __name__=="__main__":main()
+                            ~~~~^^
+  File "<WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/preparation/P1-audit-dependencies/prepare_dependencies.py", line 50, in main
+    command(["node",str(FOLDER/"browser_probe.mjs")],ROOT,"Linux-Chromium-blank-page-capability-only")
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/preparation/P1-audit-dependencies/prepare_dependencies.py", line 23, in command
+    if result["exit_code"]!=0:raise RuntimeError(label+" failed; original log "+result["stderr"])
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Linux-Chromium-blank-page-capability-only failed; original log logs/20261014T015644-f6b45dae.stderr.log

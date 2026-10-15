@@ -1,0 +1,152 @@
+wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/use-token-cookie.ts:4: * The server sets the cookie; the client only ever removes it, on logout or a dead session. A cookie
+wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/use-auth-backend.ts:159:      await $axios.post("/api/auth/logout");
+wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/use-auth-backend.ts:162:      // Continue with logout even if API call fails
+wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/use-auth-backend.ts:163:      console.warn("Logout API call failed:", error);
+wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/use-auth-backend.ts:196:    // during boot, turning a recoverable 401 into a logout.
+wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/__tests__/use-auth-backend.test.ts:6:// Pulled in by use-auth-backend purely to wipe cached data on logout. They drag in most of the
+wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/__tests__/use-auth-backend.test.ts:187:  test("clears the session even when the logout call fails", async () => {
+wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Layout/LayoutParts/AppHeader.vue:65:        @click="logout()"
+wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Layout/LayoutParts/AppHeader.vue:68:          {{ $globals.icons.logout }}
+wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Layout/LayoutParts/AppHeader.vue:70:        {{ smAndUp ? $t("user.logout") : "" }}
+wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Layout/LayoutParts/AppHeader.vue:126:async function logout() {
+import { BaseCRUDAPI } from "../../base/base-clients";
+import type { RecipeCommentCreate, RecipeCommentOut, RecipeCommentUpdate } from "~/lib/api/types/recipe";
+
+const prefix = "/api";
+
+const routes = {
+  comment: `${prefix}/comments`,
+  byRecipe: (id: string) => `${prefix}/recipes/${id}/comments`,
+  commentsId: (id: string) => `${prefix}/comments/${id}`,
+};
+
+export class CommentsApi extends BaseCRUDAPI<RecipeCommentCreate, RecipeCommentOut, RecipeCommentUpdate> {
+  baseRoute: string = routes.comment;
+  itemRoute = routes.commentsId;
+
+  async byRecipe(slug: string) {
+    return await this.requests.get<RecipeCommentOut[]>(routes.byRecipe(slug));
+  }
+}
+<template>
+  <div>
+    <v-card-title class="headline pb-3">
+      <v-icon class="mr-2">
+        {{ $globals.icons.commentTextMultipleOutline }}
+      </v-icon>
+      {{ $t("recipe.comments") }}
+    </v-card-title>
+    <v-divider class="mx-2" />
+    <div
+      v-if="user.id"
+      class="d-flex flex-column"
+    >
+      <div
+        class="d-flex mt-3"
+        style="gap: 10px"
+      >
+        <UserAvatar
+          :tooltip="false"
+          size="40"
+          :user-id="user.id"
+        />
+
+        <v-textarea
+          v-model="comment"
+          hide-details
+          density="compact"
+          single-line
+          variant="outlined"
+          auto-grow
+          rows="2"
+          :placeholder="$t('recipe.join-the-conversation')"
+        />
+      </div>
+      <div class="ml-auto mt-1">
+        <BaseButton
+          size="small"
+          :disabled="!comment.trim()"
+          @click="submitComment"
+        >
+          <template #icon>
+            {{ $globals.icons.check }}
+          </template>
+          {{ $t("general.submit") }}
+        </BaseButton>
+      </div>
+    </div>
+    <div
+      v-for="recipeComment in recipe.comments"
+      :key="recipeComment.id"
+      class="d-flex my-2"
+      style="gap: 10px"
+    >
+      <UserAvatar
+        :tooltip="false"
+        size="40"
+        :user-id="recipeComment.userId"
+      />
+      <v-card
+        variant="outlined"
+        class="flex-grow-1"
+      >
+        <v-card-text class="pa-3 pb-0">
+          <p class="">
+            {{ recipeComment.user.fullName }} • {{ $d(Date.parse(recipeComment.createdAt), "medium") }}
+          </p>
+          <SafeMarkdown :source="recipeComment.text" />
+        </v-card-text>
+        <v-card-actions class="justify-end mt-0 pt-0">
+          <v-btn
+            v-if="user.id == recipeComment.user.id || user.admin"
+            color="error"
+            variant="text"
+            size="x-small"
+            @click="deleteComment(recipeComment.id)"
+          >
+            {{ $t("general.delete") }}
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </div>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { useUserApi } from "~/composables/api";
+import type { Recipe } from "~/lib/api/types/recipe";
+import UserAvatar from "~/components/Domain/User/UserAvatar.vue";
+import type { NoUndefinedField } from "~/lib/api/types/non-generated";
+import { usePageUser } from "~/composables/recipe-page/shared-state";
+import SafeMarkdown from "~/components/global/SafeMarkdown.vue";
+
+const recipe = defineModel<NoUndefinedField<Recipe>>({ required: true });
+const api = useUserApi();
+const { user } = usePageUser();
+const comment = ref("");
+
+async function submitComment() {
+  const text = comment.value.trim();
+  if (!text) {
+    return;
+  }
+  const { data } = await api.recipes.comments.createOne({
+    recipeId: recipe.value.id,
+    text,
+  });
+
+  if (data) {
+    recipe.value.comments.push(data);
+  }
+
+  comment.value = "";
+}
+
+async function deleteComment(id: string) {
+  const { response } = await api.recipes.comments.deleteOne(id);
+
+  if (response?.status === 200) {
+    recipe.value.comments = recipe.value.comments.filter(comment => comment.id !== id);
+  }
+}
+</script>

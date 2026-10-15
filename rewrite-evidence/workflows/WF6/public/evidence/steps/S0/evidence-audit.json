@@ -1,0 +1,69 @@
+{
+  "timestamp": "2026-10-14T01:20:39.988641+00:00",
+  "passed": true,
+  "snapshot_hashes_verified": true,
+  "original_agents_prefix_preserved": true,
+  "application_and_backend_unchanged": true,
+  "evaluator_assertions_unchanged": true,
+  "clean_checkouts": true,
+  "no_remotes_or_shared_objects": true,
+  "collector_tests": {
+    "scope": "S0 accounting fault injection only",
+    "tests": 24,
+    "pass_count": 24,
+    "fail_count": 0,
+    "error_count": 0,
+    "skip_count": 0,
+    "passed": true,
+    "failures": [],
+    "cli_interfaces": [
+      {
+        "label": "actual-cli-collector-stage-interface",
+        "command_id": "20261014T011653-7edb4d08",
+        "argv": [
+          "python3",
+          "-B",
+          "wf6-evidence/usage/collect_usage.py",
+          "finalize",
+          "--stage",
+          "S0",
+          "--wait-seconds",
+          "0"
+        ],
+        "exit_code": 0,
+        "stdout": "steps/S0/logs/20261014T011653-7edb4d08.stdout.log",
+        "stderr": "steps/S0/logs/20261014T011653-7edb4d08.stderr.log"
+      },
+      {
+        "label": "actual-cli-collector-all-interface",
+        "command_id": "20261014T011954-14d6bfb4",
+        "argv": [
+          "python3",
+          "-B",
+          "wf6-evidence/usage/collect_usage.py",
+          "finalize",
+          "--all",
+          "--wait-seconds",
+          "0"
+        ],
+        "exit_code": 0,
+        "stdout": "steps/S0/logs/20261014T011954-14d6bfb4.stdout.log",
+        "stderr": "steps/S0/logs/20261014T011954-14d6bfb4.stderr.log"
+      }
+    ]
+  },
+  "missing_links": [],
+  "source_commit": "955e790f86c9c4ff2d56e06b9e54d948cbf0e698",
+  "limitations": [
+    "Final reply and matching usage still pending.",
+    "Full ancestor history unavailable.",
+    "No application validation in S0.",
+    "Recorder bootstrap coverage is original provider merged output; unavailable split/timing not invented.",
+    "Sandbox socket creation denied; candidate ports unverified.",
+    "Linux Node/uv unavailable; Windows npm exists but fails."
+  ],
+  "final_cli_index_validation": {
+    "timestamp": "2026-10-14T01:22:41.916799+00:00",
+    "missing_links": []
+  }
+}

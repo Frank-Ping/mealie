@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1912,
+    "byte_offset": 5649368,
+    "timestamp": "2026-10-14T03:53:34.315Z",
+    "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acefcbc28d48191a5d4fdefeae4b04b",
+      "status": "completed",
+      "call_id": "call_f71132aa9603460d8541bd657fceac99",
+      "name": "exec",
+      "input": "text(await tools.write_stdin({session_id:53803,chars:\"\",yield_time_ms:1000,max_output_tokens:1200}));\ntext(await tools.exec_command({cmd:\"tail -5 wf6-rerun-20261014-01/wf6-evidence/steps/S1/logs/20261014T035106-9353f711.stdout.log\",\"max_output_tokens\":750}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+        "create_time": 1791950012.167919
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1915,
+    "byte_offset": 5652177,
+    "timestamp": "2026-10-14T03:53:34.466Z",
+    "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a1388b-4802-7da2-8949-ad669c6948a6",
+      "call_id": "call_f71132aa9603460d8541bd657fceac99",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.1 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"1b650c\",\"wall_time_seconds\":0.000014458,\"exit_code\":0,\"original_token_count\":220,\"output\":\"{\\\"command_id\\\": \\\"20261014T035042-44ac176d\\\", \\\"stage_id\\\": \\\"S1\\\", \\\"label\\\": \\\"S1-complete-native2-browser-after-case-identity-fix\\\", \\\"argv\\\": [\\\"python3\\\", \\\"-B\\\", \\\"wf6-evidence/usage/browser_s1.py\\\", \\\"--approved\\\", \\\"--native\\\"], \\\"cwd\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01\\\", \\\"start_utc\\\": \\\"2026-10-14T03:50:42.157514+00:00\\\", \\\"end_utc\\\": \\\"2026-10-14T03:53:21.963405+00:00\\\", \\\"duration_seconds\\\": 159.8059370100018, \\\"exit_code\\\": 0, \\\"stdout\\\": \\\"steps/S1/logs/20261014T035042-44ac176d.stdout.log\\\", \\\"stderr\\\": \\\"steps/S1/logs/20261014T035042-44ac176d.stderr.log\\\", \\\"environment_overrides\\\": {}, \\\"permission\\\": \\\"Approved native2 localhost baseline with samefile isolation verification; default sandbox unchanged\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"327258\",\"wall_time_seconds\":0.000015235,\"exit_code\":0,\"original_token_count\":97,\"output\":\"  ✓  80 [flows] › tests/flows/recipes.spec.ts:36:7 › recipes › [flow] comment on a recipe and see it after reload (1.8s)\\n  ✓  81 [flows] › tests/flows/shopping.spec.ts:6:7 › shopping lists › [flow] create a shopping list (2.3s)\\n  ✓  82 [flows] › tests/flows/shopping.spec.ts:19:7 › shopping lists › [flow] add an item and check it off (7.3s)\\n\\n  82 passed (2.2m)\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+        "create_time": 1791950014.4665964
+      }
+    }
+  }
+}

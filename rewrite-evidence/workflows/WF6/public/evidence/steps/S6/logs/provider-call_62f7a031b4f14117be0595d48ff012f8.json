@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3621,
+    "byte_offset": 10461922,
+    "timestamp": "2026-10-14T08:00:56.613Z",
+    "turn_id": "01a13964-888e-7540-98b2-3abbc8e32d90",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf36b267c481918ac4ac0e54fcb47d",
+      "status": "completed",
+      "call_id": "call_62f7a031b4f14117be0595d48ff012f8",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nfrom pathlib import Path\\nimport zipfile,json\\np=Path('/tmp/wf6-rerun-20261014-01-S6/browser/restored-frozen-test-results');rows=[]\\nfor z in p.rglob('trace.zip'):\\n with zipfile.ZipFile(z) as f:\\n  docs=[]\\n  for n in f.namelist():\\n   if n.endswith('.network'):\\n    for raw in f.read(n).splitlines():\\n     d=json.loads(raw).get('snapshot',{});r=d.get('response',{});h={x['name'].lower():x['value'] for x in r.get('headers',[])}\\n     if d.get('_resourceType')=='document':docs.append(dict(url=d.get('request',{}).get('url'),status=r.get('status'),owner=h.get('x-wf6-frontend')))\\n  rows.append(dict(trace=z.parent.name,documents=docs))\\nprint(json.dumps(rows))\\nPY\",\"max_output_tokens\":1400}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13964-888e-7540-98b2-3abbc8e32d90",
+        "create_time": 1791964850.4101331
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3624,
+    "byte_offset": 10466999,
+    "timestamp": "2026-10-14T08:00:56.819Z",
+    "turn_id": "01a13964-888e-7540-98b2-3abbc8e32d90",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a1396d-c1f3-7d81-8f61-2f676b10921e",
+      "call_id": "call_62f7a031b4f14117be0595d48ff012f8",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"a49bf2\",\"wall_time_seconds\":0.024221054,\"exit_code\":0,\"original_token_count\":213,\"output\":\"[{\\\"trace\\\": \\\"flows-auth-auth-flow-an-admin-is-offered-admin-pages-flows\\\", \\\"documents\\\": [{\\\"url\\\": \\\"http://localhost:9106/login\\\", \\\"status\\\": 200, \\\"owner\\\": \\\"vue\\\"}, {\\\"url\\\": \\\"http://localhost:9106/g/home\\\", \\\"status\\\": 200, \\\"owner\\\": \\\"react\\\"}, {\\\"url\\\": \\\"http://localhost:9106/g/home\\\", \\\"status\\\": 200, \\\"owner\\\": \\\"react\\\"}]}, {\\\"trace\\\": \\\"flows-auth-auth-flow-a-reg-15752--is-not-offered-admin-pages-flows\\\", \\\"documents\\\": [{\\\"url\\\": \\\"http://localhost:9106/login\\\", \\\"status\\\": 200, \\\"owner\\\": \\\"vue\\\"}, {\\\"url\\\": \\\"http://localhost:9106/g/home\\\", \\\"status\\\": 200, \\\"owner\\\": \\\"react\\\"}, {\\\"url\\\": \\\"http://localhost:9106/g/home\\\", \\\"status\\\": 200, \\\"owner\\\": \\\"react\\\"}]}, {\\\"trace\\\": \\\"flows-auth-auth-flow-log-out-ends-the-session-flows\\\", \\\"documents\\\": [{\\\"url\\\": \\\"http://localhost:9106/login\\\", \\\"status\\\": 200, \\\"owner\\\": \\\"vue\\\"}, {\\\"url\\\": \\\"http://localhost:9106/g/home\\\", \\\"status\\\": 200, \\\"owner\\\": \\\"react\\\"}]}]\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13964-888e-7540-98b2-3abbc8e32d90",
+        "create_time": 1791964856.8190756
+      }
+    }
+  }
+}

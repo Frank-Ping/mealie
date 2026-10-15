@@ -1,0 +1,360 @@
+# WF6 分步执行 Prompt 中英文对照
+
+本文提供八个可逐步复制的 prompt，以及全过程证据和每步 token 记录要求。本文只准备指令，没有执行 WF6、创建实验 checkout 或产生实验成绩。
+
+This document provides eight copyable prompts with evidence collection and per-step token accounting. These are execution instructions only. WF6 has not been executed by creating this document.
+
+## 使用方法 How to use
+
+1. 建议为 WF6 开一个独立聊天，从 S0 开始。每步只发送中文或英文其中一个版本，不要将两种版本重复执行。
+   Use a dedicated WF6 chat. Start with S0 and send either the Chinese or English version of each step, not both.
+2. 每次只执行当前步骤，收到完成或失败结论后再发送下一步。步骤需要的前置验收未通过时，不运行依赖它的步骤；仍可执行 S7 整理失败证据。
+   Execute one step at a time. Do not run dependent steps after a failed prerequisite. S7 can still package a failed experiment.
+3. S0 会要求建立 `WF6-CONTRACT.md`。S1–S7 每次先读它，再执行本步；因此不要跳过 S0。
+   S0 creates `WF6-CONTRACT.md`. S1–S7 read this contract before execution; do not skip S0.
+4. 每步都记录 token，包括准备、失败、修复、验证和报告整理。回复结束前的数据可以是 provisional，不能假装已包含尚未生成的最后回复。
+   Record tokens for every step, including setup, failed attempts, repairs, verification and reporting. A pre-reply snapshot is provisional until the final reply is included.
+5. 每步回复显示完毕后，可以在终端运行本文末尾的 finalize 命令。下一步也应先补齐上一阶段的计数。最后 S7 必须由终端收尾，避免再发模型消息产生新的未计量回复。
+   Finalize after each reply from a terminal, or settle the previous step at the next step's start. Finalize S7 from a terminal after its reply, without another model turn.
+6. 以下路径以 `<WORKSPACE>` 为工作区根目录。所有待创建目录和脚本都是未来执行 S0 后的产物，当前不存在不代表错误。
+   Paths below are relative to that workspace root. Proposed directories and the collector are created when S0 is executed; they are not deliverables already present.
+
+## 步骤与完成检查 Steps and gates
+
+| 步骤 Step | 任务 Task | 完成检查 Gate |
+| --- | --- | --- |
+| S0 | 隔离、实验契约、证据与计量 Isolation, contract and accounting | 输入固定；计量来源核实；记录器可用，或明确记录缺失 |
+| S1 | 新环境 Vue baseline Fresh Vue baseline | 构建与冻结浏览器检查可复现；原有类型错误单列 |
+| S2 | 全 Vue 网关 All-Vue gateway | 网关没有破坏 Vue、API 和登录 |
+| S3 | 最小共存验证 Minimal coexistence proof | 同源会话与 Vue ↔ React 双向跳转成立 |
+| S4 | 列表、搜索、只读详情 Real recipe slice | 真实 API 功能、来源检查和 React 静态检查通过 |
+| S5 | 用户路径与边界 User journey and boundaries | 身份、链接、刷新、返回、错误归属和检测机制通过 |
+| S6 | 回退与完整回归 Rollback and full regression | 显式回退证明；冻结 suite 全量结果如实保留 |
+| S7 | 证据核验、报告素材、用量收尾 Evidence audit and report material | 所有声明有来源；所有步骤有 usage 行；最后回复待终端结算 |
+
+八步将原 `WF6-plan.md` 的阶段进一步拆开。S3/S4 属于原计划的 React 共存与实现阶段，共用最多两轮源码修复额度；不要因拆分 prompt 增加修复上限。S2–S6 的模型执行与工具等待时间合计最多三小时；依赖准备、S1 baseline、人工停顿和 S7 报告整理另列。此预算用于停止实验，不保证完成。
+
+The eight prompts expand the phases in `WF6-plan.md`. S3/S4 share the original React implementation phase's maximum of two source-repair rounds. Splitting prompts must not increase the repair allowance. S2–S6 share a three-hour execution budget including tool waits; dependency preparation, S1 baseline, pauses between user prompts and S7 reporting are recorded separately.
+
+## 全程共同要求 Common contract requirements
+
+S0 要将以下要求写入实验中的 `rewrite-evidence/workflows/WF6/WF6-CONTRACT.md`。S1–S7 的两种语言版本均引用同一份契约。
+
+S0 writes these requirements into the experiment's `rewrite-evidence/workflows/WF6/WF6-CONTRACT.md`. Both language versions of S1–S7 use the same contract.
+
+### 实验边界 Experiment boundaries
+
+- Workflow：同一入口按路由运行 Vue 或 React，跨边界整页跳转，显式开关退回全 Vue。使用一个实施代理。
+  One implementation agent; route-level Vue/React coexistence at one entry point, document navigation across boundaries, and explicit all-Vue rollback.
+- 输入：原 Vue commit `4b9ca06b6581f7152e164ea0fd9d4da366975a79`；evaluator commit `758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d`。先验证对象存在与内容来源。
+  Verify and pin those source and evaluator commits before use.
+- 独立目录：`mealie-wf6-coexist/`、`mealie-wf6-evaluator/`、`wf6-evidence/`。创建前检查，不覆盖已有内容；存在已识别的 WF6 工作时核对后继续，不能重置。
+  Use separate directories. Inspect existing content and continue verified WF6 work without overwriting or resetting it.
+- 分支：`rewrite/wf6-route-coexistence`。不复制其他 workflow 的 React 实现、codemod 或语义适配；原始 Vue、生成类型、locale 和冻结测试是共享输入。
+  Use the dedicated branch. Do not copy another workflow's target implementation or converters; only frozen source resources and evaluator inputs are shared.
+- 不修改旧 workflow、原报告、后端 API/schema 或 evaluator 断言。Vue 只增加必要的边界 middleware；React 使用计划里的 target stack，代码注释用英文。
+  Preserve earlier experiments, reports, backend API/schema and evaluator assertions. Add only the necessary Vue boundary middleware. Use the planned React stack and English code comments.
+- 代理必须在 sandbox 中运行并记录工具权限，不向代理提供 upstream repository、package registry 或 production service 凭据。公开依赖使用匿名访问；只允许本实验隔离的测试账号凭据。
+  Run the agent in a sandbox and record tool permissions. Do not provide upstream-repository, package-registry or production-service credentials. Access public dependencies anonymously and use only isolated local test credentials.
+- 第一轮只迁移已认证用户所属配置 group 的列表、搜索、只读详情；其他领域和高级功能继续由 Vue 提供。
+  Limit the pilot to the configured user's group and the read-only recipe slice; other domains and advanced operations remain Vue-owned.
+- 数据库、测试账号、auth 文件、浏览器 context、端口、运行目录、输出和 token 窗口全部独立。cookie 不按 localhost 端口隔离，不能只换端口。
+  Isolate data, auth state, browser context, ports, runtime directories, outputs and accounting windows. Port changes alone do not isolate localhost cookies.
+
+### 每步证据包 Per-step evidence bundle
+
+每步 `wf6-evidence/steps/Sn/` 都至少包含下面项目，没运行或拿不到的项目写明原因：
+
+Each `wf6-evidence/steps/Sn/` contains the following, with an explicit reason for any unavailable item:
+
+1. `[REDACTED]`：实际收到的用户指令；可见追加消息、反馈和真实发生的人工决定也要保留。
+   Actual prompt and visible follow-ups; retain human feedback and decisions only when they occurred.
+2. `visible-transcript.jsonl`：可取得的用户、可见助手回复、工具调用和输出。标明覆盖范围；不导出隐藏思考或系统/开发者指令，不把人工重建记录称为逐字原始 transcript。
+   Available user/visible-assistant/tool transcript; disclose coverage and reconstruction. Exclude hidden reasoning and system/developer instructions.
+3. `commands.jsonl` 与 `logs/`：完整命令、cwd、必要且去敏的环境、开始/结束 UTC、退出码、耗时、原始 stdout/stderr 和结果报告。
+   Exact commands, cwd, relevant redacted environment, UTC timestamps, exit codes, durations, raw stdout/stderr and reports.
+4. `source-state.json`、`diff.patch`、`file-manifest.json`：source/evaluator commit、dirty 状态、所有已跟踪及未跟踪实现文件的 SHA256、必要 diff、实际服务的 build 标识。
+   Commit IDs, dirty state, SHA256 inventory including untracked implementation files, relevant diff and the build actually served.
+5. `attempts.jsonl`：每次失败、原因假设、具体修改及重测证据。失败原日志保留，不能只留下成功版本。
+   Failed attempts, cause hypotheses, exact repairs and reruns. Preserve failures instead of replacing them with green runs.
+6. `result.md`：本步范围、实际完成、检查结果、未验证项、gate PASS/FAIL/BLOCKED、后续可执行步骤、证据链接。
+   Scope, completed work, check results, limitations, gate decision, permissible next steps and evidence links.
+7. `token-usage.json`：本步 token、累计值边界、原始事件定位、覆盖状态、最后回复是否计入。
+   Token deltas, cumulative boundaries, raw-event locators, coverage status and final-reply inclusion.
+
+同时更新全局 `EVIDENCE_INDEX.md`、`PROGRESS.md`、`decisions.jsonl`、`timing.csv` 和 `usage/usage-ledger.csv`。实现提交按 `[WF6-Sn]` 标识；证据来自测量时的实际源码，不以起始 commit 冒充完整快照。可分享的证据移除密码、cookie 和 bearer 值，但保留接口、状态码与去敏说明。
+
+Maintain the global index, progress, actual decision log, timing and usage ledger. Prefix commits `[WF6-Sn]` and identify the measured source snapshot. Redact credentials and tokens from shareable evidence while preserving request paths, status codes and a redaction note.
+
+原始包和全局索引位于兄弟目录 `wf6-evidence/`，不能从实验 checkout 直接提交。可提交的 `BASELINE.md`、`comparison-baseline.json`、阶段小结、`WF6-RESULTS.md`、`WF6-REPORT-MATERIAL.md` 和索引指针放在 `mealie-wf6-coexist/rewrite-evidence/workflows/WF6/`，链接外部原始证据。`[WF6-Sn]` 提交只包含 checkout 内的实现与这些小型文件。不要为提交兄弟目录而在整个工作区根目录初始化 Git。
+
+Raw bundles and the global index live in sibling `wf6-evidence/`, outside the experiment checkout's commit scope. Put committable baseline/comparison documents, step summaries, WF6-RESULTS.md, WF6-REPORT-MATERIAL.md and index pointers under `mealie-wf6-coexist/rewrite-evidence/workflows/WF6/`, linking to external raw evidence. `[WF6-Sn]` commits include only checkout implementation and these small documents. Do not initialize Git in the parent workspace to capture sibling evidence.
+
+### Token 口径 Token accounting
+
+- 每步用用户消息标记 `[[WF6:S0:START]]` 至 `[[WF6:S7:START]]` 开始，以可见最终答复末尾 `[[WF6:Sn:END]]` 标明本步工作结束。
+  Use explicit user START markers and visible final-reply END markers for every step.
+- 明确记录 session ID、实际 turn ID、原日志路径、行号/byte offset、模型与设置、开始前累计计数和结束累计计数。
+  Record session/turn identity, log source and event locations, model/settings, and start/end cumulative counters.
+- `total = input + output`。cached input 是 input 的子集，reasoning output 是 output 的子集。若 provider 暴露 cache-write，单列其原始字段和语义；不重复相加。
+  Total equals input plus output. Cached input and reasoning output are subsets. Preserve any cache-write field separately without double counting.
+- 只计算累计计数的差额，不直接相加累计快照。不用账号用量百分比或保存文本的 token 估计冒充 provider usage；未知费用写“未提供”。
+  Sum non-overlapping deltas, never cumulative snapshots. Account percentages and text-volume estimates are not provider usage; unavailable monetary cost remains unavailable.
+- 开始边界取 START 用户消息之前、能确认身份的最后累计事件。无可靠边界不能假定为零；字段缺失写 null/未提供，未发送步骤记 not_executed。
+  Use the last verified cumulative event before START. Missing boundaries or fields remain null; an unsent step is not_executed, not a fabricated usage value.
+- 有重复事件、counter reset、compaction、fork、会话更换或跨步迟到事件时保留原始记录、分段、去重并标明质量。不能把负差额截为零或把继承历史重算。未能准确恢复的数据标 partial。
+  Preserve and audit duplicates, resets, compaction, forks, session changes and late events. Split counter epochs, avoid inherited-history duplication, and mark unrecoverable gaps partial.
+- prompt 已发送但步骤阻塞、失败或中断，仍计入该步真实 tokens。修复与澄清消息使用 `[[WF6:Sn:CONTINUE]]`，继续归入同一步；明确关闭步骤后的额外讨论单列。
+  Count blocked/failed/interrupted execution. CONTINUE messages retain the same step; discussion after explicit closure is tracked separately.
+- CONTINUE 重开已结算步骤时，collector 用 `segments[]` 保存互不重叠的区间，查找最新 CONTINUE 所属 turn 的最终 END 和对应 usage。保留旧统计版本，但用新的阶段合计替换当前行，不把新累计合计再加到旧结果。关闭与重开之间的额外讨论独立计量，不被首次 START 至最新 END 的整体差值吞入。
+  On CONTINUE after settlement, store disjoint segments[] and locate the latest CONTINUE turn's final END and matching usage. Preserve older exports but replace the current step total rather than adding the new cumulative total to the old one. Keep intervening discussion outside those segments.
+- 重复 START 必须按实际用户消息身份、时间和日志位置识别。先判定它是重复指令、续跑或明确新尝试；不得仅因相同标记出现而重置计量、丢掉失败或重复计算继承历史。
+  Identify repeated START messages by actual identity, time and log location, then distinguish duplicate instructions, continuation and explicit new attempts. Repeated marker text alone must not reset accounting, erase failures or duplicate inherited history.
+- 本步最后回复前，更新 provisional 数值，并明确 `final_reply_included=false`。下一步开始先结算上一步，或用户在终端 finalize。S7 最后回复后由用户运行 collector 收尾。
+  Before replying, write provisional usage with final_reply_included=false. Settle it at the next step or externally. Finalize S7 externally after its final reply.
+- collector 只能在确认最后答复与对应 usage 均已落盘、且无身份/边界歧义时标 exact_reported。稳定文件大小本身不证明最后事件已计入；不确定时继续 provisional/partial。
+  exact_reported requires both the final reply and its matching usage plus valid boundaries. A stable file size alone is insufficient.
+- 最终汇总按互不重叠的步骤和额外讨论区间计算；分别报告 S0 准备、S1 baseline、S2–S6 实验、S7 报告整理。已知部分与缺失部分分开。
+  Sum disjoint windows and separate preparation, baseline, experiment, reporting and any extra discussion. Report known usage and missing coverage separately.
+
+### 每步回复格式 Per-step reply format
+
+本步完成或停止时，回复应简洁列出：实际完成、gate、关键证据文件、失败/限制、input/cached/output/reasoning/total、provisional 或 exact 状态、下一步。结尾写对应 END 标记；不自动执行下一步。
+
+At completion or stop, report actual work, gate, key evidence, failures/limits, input/cached/output/reasoning/total usage, coverage status and next step. End with the step's END marker and do not execute the next step automatically.
+
+## S0 建立隔离与证据计量 Establish isolation and accounting
+
+### 中文 Prompt
+
+```text
+[[WF6:S0:START]]
+执行 WF6 的 S0，只建立独立环境、实验契约和证据/token 记录工具，暂不实现应用。
+
+工作区：<WORKSPACE>。
+读取 WF6-plan.md、WF6-step-prompts-bilingual.md，以及作业 PDF 的 Workflows、
+## S5 验证用户路径与边界 Verify the journey and boundaries
+
+### 中文 Prompt
+
+```text
+[[WF6:S5:START]]
+执行 S5。读共同契约与 S4 gate，结算 S4 tokens。前置失败则记录，不继续验收。
+
+在独立补充套件中验证完整路径：Vue 登录 → React 列表 → 搜索 → React 详情
+→ Vue 购物清单 → 返回 React。保留 URL、session/group、关键真实 API 与
+document 请求证据，并确认目标确实运行 React，旧页面确实运行 Vue。
+
+检查真实链接的键盘导航、直接打开详情、刷新、前进/后退、query/hash 保留、
+创建路由排除、edit/parse/cook/完整 Vue 入口、匿名/401和 group 不匹配。
+确认没有跨 group 错误数据、循环跳转、资源 404 被 HTML 隐藏、未完成 build
+被旧 dist 替代。原 evaluator 保持冻结，新增归属检查不能代替业务断言。
+
+做一次隔离的检测负例：接管保持开启，暂时让 React 资源不可用。检查应捕捉
+目标页失败，不能因静默落回 Vue 而继续成功。保存失败预期与实际结果，恢复
+原 build 后重跑；这个负例单独标 expected_failure，不冒充应用回归故障。
+
+保存 trace/截图、服务/build hash、请求和结果、原始失败及修复；最多两轮
+本步修复，遵守总预算。不得新增写功能来让只读 pilot 看起来完整。
+
+完成 [WF6-S5] 提交和全证据包，记录本步 tokens 与 provisional 尾部状态。
+报告边界 gate 和限制后停止，结尾写 [[WF6:S5:END]]。
+```
+
+### English Prompt
+
+```text
+[[WF6:S5:START]]
+Execute S5. Read the contract and S4 gate and settle S4 tokens. Do not proceed if a
+required earlier gate failed.
+
+In an independent supplemental suite, verify Vue login → React list → search →
+React detail → Vue shopping lists → React list. Preserve URLs, session/group,
+real API and document requests. Confirm targets execute React and retained pages
+execute Vue.
+
+Check keyboard link navigation, direct detail URLs, refresh, back/forward, query
+and hash preservation, create-route exclusion, edit/parse/cook/full-Vue entry,
+anonymous/401 and mismatched group handling. Detect wrong-group data, redirect
+loops, asset 404s hidden by HTML and stale builds after build failure. Keep the
+original evaluator frozen; provenance checks supplement business assertions.
+
+Run one isolated detection negative case: keep takeover enabled but temporarily
+make React assets unavailable. Target-page checks must detect failure rather than
+silently succeed through Vue. Preserve expected/actual outcomes, restore the build
+and rerun. Label this expected_failure separately from unexpected regressions.
+
+Save trace/screenshots, service/build hashes, requests/results and failures/repairs.
+Allow at most two S5 repair rounds within the total budget. Do not add write
+features merely to make the read-only pilot look complete.
+
+Make a [WF6-S5] commit and complete evidence and token records with pending reply
+usage provisional. Report the boundary gate and limits, stop, and end with
+[[WF6:S5:END]].
+```
+
+{
+  "version": 1,
+  "run_id": "wf6-rerun-20261014-01",
+  "run_root": "<WORKSPACE>/wf6-rerun-20261014-01",
+  "workspace_root": "<WORKSPACE>",
+  "session_id": "01a137ea-f571-70f0-8cf3-7b8560c420bf",
+  "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+  "initial_turn_id": "01a137f3-c2d3-7db0-9623-6d33961b39eb",
+  "start_line": 104,
+  "start_byte_offset": 886375,
+  "user_message_id": "msg_01a137f3-c308-7400-b27e-520081c5b978",
+  "created_utc": "2026-10-14T01:09:28.572645+00:00",
+  "accounting_policy": "Attributed response records only; legacy token_count retained but never added. No inherited-history recount.",
+  "final_reply_policy": "Latest END + matching subsequent usage + task_complete + identity/boundary/counter reconciliation.",
+  "python_executable": "/usr/bin/python3",
+  "actual_prompt": "[[WF6:S0:START]]\n\n正式启动 wf6-rerun-20261014-01 的 S0。\n按已读取的 S0 中文 prompt、共同契约和交接要求执行。\n\n本条实际请求为新 S0 token 起点；\n初始化 preparation 单列，保留旧失败证据和计量边界。\n\n先处理初始化发现的 Git 父对象缺失及 git show 报错，\n核实冻结来源与内容；验证完成前不得标记 gate 通过。\n\n保留原始日志，新增技术说明使用英文，\n阶段结果提供中英文对照，并建立独立 token collector。\n\n仅执行 S0，结束后停止，不自动进入 S1。",
+  "natural_requests": [
+    {
+      "stage_id": "S1",
+      "action": "NATURAL_START",
+      "session_id": "01a137ea-f571-70f0-8cf3-7b8560c420bf",
+      "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+      "user_message_id": "msg_01a1382a-58f8-7de3-b1ea-8ca5ceac2207",
+      "line": 709,
+      "byte_offset": 2732151,
+      "actual_prompt": "本次 S1 属于 wf6-rerun-20261014-01。\n先核实 P1 收尾结果，保持 preparation 与 S1 计量区间不重叠。\n\n仅测量冻结的未修改 Vue baseline。\n保留原始日志，技术说明使用英文，结果提供中英文对照。\n记录实际源码、构建与测试结果；未运行检查不得算通过。\n\n仅执行 S1，结束后停止，不自动进入 S2。",
+      "timestamp": "2026-10-14T02:07:41.816Z"
+    },
+    {
+      "stage_id": "S1",
+      "action": "CONTINUE",
+      "session_id": "01a137ea-f571-70f0-8cf3-7b8560c420bf",
+      "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+      "user_message_id": "msg_01a13885-2703-78a0-872b-b4ddbb366bfd",
+      "line": 1774,
+      "actual_prompt": "Continue from where you stopped.",
+      "timestamp": "2026-10-14T03:46:52.804Z"
+    },
+    {
+      "stage_id": "S2",
+      "action": "NATURAL_START",
+      "session_id": "01a137ea-f571-70f0-8cf3-7b8560c420bf",
+      "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+      "user_message_id": "msg_01a13892-b831-78a2-ba0a-a36c62966306",
+      "line": 2054,
+      "byte_offset": 5837631,
+      "actual_prompt": "先核实 S1 最终用量收尾，并保留 318 条类型诊断的单列 FAIL\n及其与历史 315 条的差异说明。\n\n仅执行 S2，保持所有页面仍由 Vue 提供。\n从实际 S2 开始请求建立 S2–S6 三小时预算边界，\n不混入 S0、preparation、S1 和人工停顿。\n\n保留原始英文日志、失败历史、Git 提交和 token 记录，\n结果中英文对照。结束后停止，不自动进入 S3。",
+      "timestamp": "2026-10-14T04:01:41.937Z"
+    },
+    {
+      "stage_id": "S3",
+      "action": "NATURAL_START",
+      "session_id": "01a137ea-f571-70f0-8cf3-7b8560c420bf",
+      "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+      "user_message_id": "msg_01a138ae-03c4-7242-8376-67377a9cf25a",
+      "line": 2428,
+      "byte_offset": 6775151,
+      "actual_prompt": "先核实 S2 最终回复的用量覆盖。\n保持 S1 partial 和中断段缺口，不补零、不改标 exact_reported。\n\n仅执行 S3：验证 Vue 与最小 React 骨架的双向整页导航、\n真实登录会话、/api/users/self 身份/group，以及路由边界。\n本步不扩展 S4 的业务页面。\n\n延续 S2–S6 三小时预算；人工等待另列，不重置预算。\nS3/S4 共用最多两轮源码修复，明确记录每轮。\n\n保留英文技术记录、双语结果、失败证据和验收源码 commit。\n结束后停止，不自动进入 S4。",
+      "timestamp": "2026-10-14T04:31:30.756Z"
+    },
+    {
+      "stage_id": "S4",
+      "action": "NATURAL_START",
+      "session_id": "01a137ea-f571-70f0-8cf3-7b8560c420bf",
+      "turn_id": "01a13905-d942-7e23-8387-48f7946bf050",
+      "user_message_id": "msg_01a13905-dac0-7e92-833c-c7990f055109",
+      "line": 2777,
+      "byte_offset": 7687878,
+      "actual_prompt": "先核实 S3 最终回复用量覆盖，并结算实际预算尾部。\n保持 S1 partial、中断缺口和 318 条类型诊断 FAIL。\n\n仅接管测试用户所属 group 的食谱列表、搜索及只读详情。\n使用真实 API，呈现配料、步骤、工具、分类、标签，\n以及 loading/empty/error 状态。\n\n延续 S3 已验证的身份、路由边界和显式 Vue 入口。\nS3/S4 共用两轮源码修复，当前已使用 0/2。\n先构建成功，再进行浏览器验收，记录实际源码与 build hash。\n\n保留英文技术记录、双语结果、失败历史和提交记录。\n仅执行 S4，结束后停止，不自动进入 S5。",
+      "timestamp": "2026-10-14T06:07:27.424Z"
+    }
+  ]
+}
+"""Own the isolated real backend/gateway and preserve raw outputs and browser artifacts."""
+import datetime as dt
+import hashlib
+import json
+import os
+from pathlib import Path
+import shutil
+import signal
+import socket
+import subprocess
+import time
+import urllib.request
+from record_command import ROOT,EVIDENCE,run
+from run_s1 import SOURCE,EVALUATOR,environment
+
+STAGE=EVIDENCE/'steps/S4';RUNTIME=Path('/tmp/wf6-rerun-20261014-01-S4')
+
+def main():
+    artifacts=json.loads((STAGE/'build-artifacts.json').read_text());build=artifacts['vue'];react=artifacts['react'];assert build['exit_code']==0 and react['exit_code']==0 and build['browser_acceptance_allowed'] and react['browser_acceptance_allowed']
+    identity=json.loads((RUNTIME/'identity.json').read_text());assert identity['stage_id']=='S4' and identity['run_id']==ROOT.name
+    assert not (RUNTIME/'disposable-data').exists(), 'No preexisting data may be erased.'
+    for item in react['files']:assert hashlib.sha256((RUNTIME/'react'/item['path']).read_bytes()).hexdigest()==item['sha256']
+    for item in build['files']:assert hashlib.sha256((RUNTIME/'vue'/item['path']).read_bytes()).hexdigest()==item['sha256']
+    for port in [9006,9106]:
+        with socket.socket() as probe:probe.bind(('127.0.0.1',port))
+    auth=EVALUATOR/'frontend-e2e/.auth';assert auth.is_symlink() and auth.resolve()==Path('/tmp/wf6-rerun-20261014-01-S3/auth')
+    auth.unlink();auth.symlink_to(RUNTIME/'auth',target_is_directory=True)
+    env=environment();env.update(TMPDIR=str(RUNTIME/'tmp'),E2E_PORT='9006',E2E_DATA_DIR=str(RUNTIME/'disposable-data'),E2E_STATIC_DIR=str(RUNTIME/'vue'),
+        WF6_VUE_DIR=str(RUNTIME/'vue'),WF6_BACKEND_ORIGIN='http://127.0.0.1:9006',WF6_PORT='9106',WF6_BUILD_HASH=build['build_hash'],
+        WF6_REACT_DIR=str(RUNTIME/'react'),WF6_REACT_BUILD_HASH=react['build_hash'],WF6_REACT_SOURCE_HASH=react['source_hash'],WF6_PLAYWRIGHT_MODULE=str(EVALUATOR/'frontend-e2e/node_modules/@playwright/test'),WF6_AUTH_DIR=str(RUNTIME/'auth'),WF6_GATEWAY_ORIGIN='http://127.0.0.1:9106',
+        WF6_BROWSER_EVIDENCE=str(RUNTIME/'browser/requests-redacted.jsonl'),PLAYWRIGHT_JSON_OUTPUT_NAME=str(RUNTIME/'browser/results.json'),PLAYWRIGHT_HTML_OUTPUT_DIR=str(RUNTIME/'browser/html'))
+    assert Path(env['E2E_DATA_DIR']).parent==RUNTIME and not Path(env['E2E_DATA_DIR']).is_symlink()
+    config=RUNTIME/'tests/playwright.config.cjs'
+    config.write_text("const {defineConfig}=require(process.env.WF6_PLAYWRIGHT_MODULE); module.exports=defineConfig({testDir:__dirname, testMatch:'s4-browser-tests.cjs', workers:1,retries:0,forbidOnly:true,timeout:45000,expect:{timeout:10000},globalSetup:"+json.dumps(str(EVALUATOR/'frontend-e2e/global-setup.ts'))+",reporter:[['list'],['json'],['html',{open:'never'}]],use:{baseURL:process.env.WF6_GATEWAY_ORIGIN,locale:'en-US',timezoneId:'UTC',viewport:{width:1440,height:900},trace:'on',screenshot:'only-on-failure'}});\n")
+    shutil.copy2(EVIDENCE/'usage/s4-browser-tests.cjs',RUNTIME/'tests/s4-browser-tests.cjs')
+    processes=[];streams=[];permission='Approved bounded S4 loopback backend/gateway/Chromium; default sandbox unchanged'
+    try:
+        for label,argv in [('backend',[str(EVALUATOR/'frontend-e2e/scripts/start-backend.sh')]),('gateway',['node',str(SOURCE/'wf6/gateway.mjs')])]:
+            cid=dt.datetime.now(dt.timezone.utc).strftime('%Y%m%dT%H%M%S')+'-S4-'+label
+            out=STAGE/'logs'/(cid+'.stdout.log');err=STAGE/'logs'/(cid+'.stderr.log');streams.extend([out.open('wb'),err.open('wb')])
+            start=dt.datetime.now(dt.timezone.utc).isoformat();timer=time.monotonic()
+            p=subprocess.Popen(argv,cwd=EVALUATOR/'frontend-e2e',env={**os.environ,**env},stdout=streams[-2],stderr=streams[-1],start_new_session=True)
+            processes.append((p,dict(command_id=cid,stage_id='S4',label='S4-owned-'+label,argv=argv,cwd=str(EVALUATOR/'frontend-e2e'),start_utc=start,environment_overrides=env,permission=permission,stdout=str(out.relative_to(EVIDENCE)),stderr=str(err.relative_to(EVIDENCE)),aggregation='Service lifetime overlaps acceptance; do not sum durations'),timer))
+            with (STAGE/'service-events.jsonl').open('a') as f:f.write(json.dumps(dict(event='owned_service_started',service=label,pid=p.pid,group=p.pid,start_utc=start,command_id=cid))+'\n')
+        base=env['WF6_GATEWAY_ORIGIN'];deadline=time.monotonic()+180
+        while time.monotonic()<deadline:
+            assert all(p.poll() is None for p,_,_ in processes), 'Owned service exited before readiness'
+            try:
+                with urllib.request.urlopen(base+'/api/app/about',timeout=2) as r:assert r.status==200
+                break
+            except OSError:time.sleep(1)
+        else:raise RuntimeError('Gateway/backend readiness timed out')
+        with urllib.request.urlopen(urllib.request.Request(base+'/login',headers={'Accept':'text/html'})) as r:
+            data=r.read();assert r.headers['x-wf6-build']==build['build_hash'];assert hashlib.sha256(data).hexdigest()==hashlib.sha256((RUNTIME/'vue/login/index.html').read_bytes()).hexdigest()
+        (STAGE/'served-build.json').write_text(json.dumps(dict(build_hash=build['build_hash'],served_index_sha256=hashlib.sha256(data).hexdigest(),actual_static_dir=str(RUNTIME/'vue'),vue_boundary_source_hash=build['source_hash'],react_source_hash=react['source_hash'],react_build_hash=react['build_hash'],route_policy_sha256=hashlib.sha256((SOURCE/'wf6/route-policy.mjs').read_bytes()).hexdigest(),gateway_sha256=hashlib.sha256((SOURCE/'wf6/gateway.mjs').read_bytes()).hexdigest(),route_map_sha256=hashlib.sha256((SOURCE/'wf6/route-map.json').read_bytes()).hexdigest(),evaluator_sha='758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d'),indent=2)+'\n')
+        wire=run(['node','--test',str(SOURCE/'wf6/gateway.test.mjs')],SOURCE,'S4-gateway-protocol-fixture',stage='S4',env=env,permission=permission)
+        if wire['exit_code']!=0:raise SystemExit(wire['exit_code'])
+        selection=r"\[route\] g/\[groupSlug\]/(?:index\.vue|r/\[slug\]/index\.vue)$|\[flow\] (?:open a recipe from the recipe list|search narrows the recipe list)$"
+        frozen_env={**env,'E2E_PORT':'9106','E2E_REUSE_SERVER':'1','E2E_ROUTE_SCOPE':'all','E2E_ROUTE_CHECK':'strict',
+            'PLAYWRIGHT_JSON_OUTPUT_NAME':str(RUNTIME/'browser/frozen-inventory.json')}
+        listing=run(['node',str(EVALUATOR/'frontend-e2e/node_modules/@playwright/test/cli.js'),'test','--list','--grep',selection,'--reporter=json'],EVALUATOR/'frontend-e2e','S4-frozen-exact-selection-inventory',stage='S4',env=frozen_env,permission=permission)
+        assert listing['exit_code']==0
+        report=json.loads((RUNTIME/'browser/frozen-inventory.json').read_text());specs=[]
+        def visit(suite):
+            specs.extend(suite.get('specs',[]))
+            for child in suite.get('suites',[]):visit(child)
+        for suite in report['suites']:visit(suite)
+        assert len(specs)==4 and sum(x['title'].startswith('[route]') for x in specs)==2 and sum(x['title'].startswith('[flow]') for x in specs)==2
+        (STAGE/'frozen-selection.json').write_text(json.dumps(dict(grep=selection,specs=specs,scope='Two frozen route checks and open/search flows only; assertions/config unchanged'),indent=2)+'\n')
+        frozen_env.update(PLAYWRIGHT_JSON_OUTPUT_NAME=str(RUNTIME/'browser/frozen-results.json'),PLAYWRIGHT_HTML_OUTPUT_DIR=str(RUNTIME/'browser/frozen-html'))
+        frozen=run(['node',str(EVALUATOR/'frontend-e2e/node_modules/@playwright/test/cli.js'),'test','--grep',selection,'--workers=1','--reporter=list,json,html','--output='+str(RUNTIME/'browser/frozen-test-results')],EVALUATOR/'frontend-e2e','S4-frozen-list-detail-routes-open-search-flows',stage='S4',env=frozen_env,permission=permission)
+        if frozen['exit_code']!=0:raise SystemExit(frozen['exit_code'])
+        result=run(['node',str(EVALUATOR/'frontend-e2e/node_modules/@playwright/test/cli.js'),'test','--config='+str(config),'--output='+str(RUNTIME/'browser/test-results')],EVALUATOR/'frontend-e2e','S4-real-business-states-keyboard-boundary-browser',stage='S4',env=env,permission=permission)
+        if result['exit_code']!=0:raise SystemExit(result['exit_code'])
+    finally:
+        for p,entry,timer in reversed(processes):
+            if p.poll() is None:
+                os.killpg(p.pid,signal.SIGTERM)
+                try:p.wait(timeout=15)
+                except subprocess.TimeoutExpired:os.killpg(p.pid,signal.SIGKILL);p.wait(timeout=5)
+            entry.update(end_utc=dt.datetime.now(dt.timezone.utc).isoformat(),duration_seconds=time.monotonic()-timer,exit_code=p.returncode,planned_shutdown=True)
+            with (STAGE/'commands.jsonl').open('a') as f:f.write(json.dumps(entry)+'\n')
+            with (STAGE/'service-events.jsonl').open('a') as f:f.write(json.dumps(dict(event='owned_service_stopped',pid=p.pid,command_id=entry['command_id'],end_utc=entry['end_utc'],exit_code=p.returncode))+'\n')
+        for stream in streams:stream.close()
+        destination=STAGE/'browser';destination.mkdir(exist_ok=True)
+        for item in (RUNTIME/'browser').iterdir():
+            if item.is_dir():shutil.copytree(item,destination/item.name)
+            else:shutil.copy2(item,destination/item.name)
+        shutil.copytree(RUNTIME/'tests',STAGE/'supplemental-tests')
+        (STAGE/'runtime-isolation.json').write_text(json.dumps(dict(identity=identity,auth_real_target=str(auth.resolve()),backend_launcher_sha256=hashlib.sha256((EVALUATOR/'frontend-e2e/scripts/start-backend.sh').read_bytes()).hexdigest(),default_sandbox_unchanged=True,credentials_exported_in_summary=False,service_lifecycles_closed=True),indent=2)+'\n')
+
+if __name__=='__main__':main()

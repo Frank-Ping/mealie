@@ -1,0 +1,36 @@
+# S6 CONTINUE 03 final authorized comment repair / 评论状态最终单轮修复
+
+Latest S6 gate **PASS**. User authorized cap **2→3**, exactly one added round; now **3/3 used**. Prior exhausted 2/2, original four FAIL, C2 first GET500 and C2 refresh FAIL remain unchanged. No fourth round or S7.
+最新 S6 gate **PASS**；用户只批准追加一轮，上限 2→3，现 **3/3 已用**。此前用尽/FAIL/trace/提交均保留，不执行第四轮或 S7。
+
+## Approach → What happened → Why → What we would change
+
+Reviewed C2 original trace, remaining-failure-audit and comments.tsx/api.ts. The frozen first text assertion targeted the draft textarea, then reload cancelled pre-POST validation. Only comments.tsx changed: capture the draft snapshot, acquire a synchronous submission lock, clear/hide the input while submitting, append only the actual successful server record to a dedicated published region, restore draft on failure and release the lock. No fixed wait, test recognition, evaluator change or identity/group/disable-policy relaxation. API request semantics and authenticated checks remain unchanged. We would model draft/pending/published states separately from the beginning and require a real POST/GET same-ID proof rather than generic text visibility alone.
+核对原 trace 后仅修改评论 UI：捕获草稿、同步锁、提交中清空/收起输入，只有真实服务端返回才进已发布区，失败恢复草稿。未加固定等待/测试识别，未改断言/权限校验。以后应最初就区分三种状态，并以真实 POST/GET 同 ID 为持久化依据。
+
+Strict React TypeScript/lint, 12 business units, 34 route-policy cases and targeted Vue boundary lint passed before browsers. React build is new. Vue application/middleware bytes were unchanged, so the previous successful C2-R2 Vue build was copied with every SHA256 verified; it is explicitly reused, not a new Vue generation or a failed stale dist. Original whole Vue type checking is not rerun: S1 **318 diagnostics FAIL** remains. Source `6931fbd4c50cd17b0475424e01059ced5b183cfe`, React source `a047cb4c06306e76a3cb7977f138844dfafd9644817fe100f7033f55780ee95e`, React build `dc187e2077b85fabe9738cc4b275ec6e19ba28d668c7c2393db095c7425d4b49`, Vue build `d5c6a8cc2db26452bcfb5d563b8a6a105303cffbf0c234a2ff846350c03d8d6c`. All served build and source hashes matched; evaluator/backend/original Vue/types/locale manifest bytes remain unchanged except explicit append-only contract authorization documented separately.
+先静态和新 React build 通过；Vue 未改，逐文件核实复用上一成功 build，不冒充新 Vue 构建或失败旧 dist。原 Vue 类型 318 FAIL 保留，源码/两套服务哈希均记录。契约追加授权是明确文档例外，原后端/evaluator/类型等未改。
+
+Gate order: original comment **{'startTime': '2026-10-14T09:31:05.688Z', 'duration': 4098.346, 'expected': 1, 'skipped': 0, 'unexpected': 0, 'flaky': 0}** → independent live persistence **{'startTime': '2026-10-14T09:31:12.429Z', 'duration': 6277.225, 'expected': 1, 'skipped': 0, 'unexpected': 0, 'flaky': 0}** → original four **{'startTime': '2026-10-14T09:31:21.592Z', 'duration': 7366.061, 'expected': 4, 'skipped': 0, 'unexpected': 0, 'flaky': 0}** → restored boundary/business/66-ownership supplement **{'startTime': '2026-10-14T09:31:32.353Z', 'duration': 13749.056999999999, 'expected': 4, 'skipped': 0, 'unexpected': 0, 'flaky': 0}** → full unchanged all/strict evaluator **routes 66/66, flows 15/15, guard 1/1**. Inventory is 66 routes+15 flows+1 guard, retries0; no skip/assertion weakening. Any missing dependent result is not_executed. Selected repetitions are not added coverage. Full counts/skip/flaky/runner errors retain original JSON.
+顺序为原评论→独立真实持久化→原四项→边界/归属→全量严格 suite；实际结果如上，缺失检查 not_executed，重复选择不算新增覆盖。
+
+Actual persistence evidence (credential-free receipt): `[{"test": "real_comment_persistence", "status": "PASS", "actualPOST": 201, "actualGET": 200, "commentId": "6f8d35ec-decc-4970-ba9d-63939357d526", "recipeId": "bf06878b-82c4-40b7-b766-226a29198b2a", "userId": "12873ccc-03b8-46a4-95cf-9910f9c2a0af", "text": "WF6 S6 C3 durable 1791970277350", "sameServerRecordAfterRefresh": true, "successRegion": "server-saved only", "successfulWriteCount": 1, "injectedFailureStatus": 500, "draftRestored": true}]`. The supplemental test checks real POST201 recipeId/text/userId/commentId, then reload GET200 contains that exact ID/text/recipe/user in the server array and the published region. It also injects a separately labelled POST500 to prove draft restoration/error and absence from the published region; successful path uses actual backend data and no synthetic success body. A draft or unit fixture is never counted as durability evidence.
+持久化以真实 POST201 与刷新 GET200 中同一 ID/text/recipe/user 为证据，并检查已发布区域。单列注入 POST500 检查恢复草稿/错误，成功路径未伪造响应；草稿/单测不计持久化。
+
+Explicit all-Vue rollback supplement **{'startTime': '2026-10-14T09:30:33.556Z', 'duration': 12276.331, 'expected': 1, 'skipped': 0, 'unexpected': 0, 'flaky': 0}**, selected original read-only checks **{'startTime': '2026-10-14T09:30:51.976Z', 'duration': 10607.714, 'expected': 4, 'skipped': 0, 'unexpected': 0, 'flaky': 0}**; takeover restored on the same fresh C3 backend/data, with comparable seeded identities and independent contexts. Modes/create/other-group/explicit Vue and missing assets remain covered by prior measured boundaries and this restored supplemental scope; complete API fault/permission mutation parity is not claimed. Requested document owners remain 64 Vue/2 React, including root Vue→React transition. Settings pages and other retained Vue functions are not React migration scores. Full-system rewrite, comment edit/delete, production/coverage and long-lived OIDC parity remain unverified.
+回退与恢复均有各自成绩，使用同一 C3 隔离种子数据，context 独立。Vue 页面成绩不计 React 迁移；不扩展为全系统/生产/完整认证等价。
+
+Prior three S6 final replies are provider-covered. This is fourth disjoint segment, same stage; three-hour budget is unchanged and between-turn waits separately excluded. Original exports are archived, not added again. Current final reply/usage and timing tail are provisional until terminal/next-step reconciliation. S1 partial/unknown interruption gap/318 FAIL and S5 original failures remain. Coverage, cost and review duration: not provided.
+前三段最终回复已覆盖，本段为第四个不重叠 segment；预算不重置、停顿另列，旧导出不重复相加。回复前 provisional，S1 缺口/类型 FAIL 与 S5 失败保留。
+
+## Evidence / 证据
+
+- [Actual prompt/boundary](request-boundary.json), [Prior settlement](previous-segments-settlement.json), [Old cap record](prior-repair-budget.json), [Current cap](repair-budget.json), [Trace audit](trace-review.json)
+- [Original comment](browser/comment-original-results.json), [Real persistence](browser/persistence-results.json), [POST/GET proof](browser/persistence-redacted.jsonl), [Original four](browser/four-original-results.json)
+- [Rollback](browser/rollback-supplemental.json), [Restored supplement](browser/restored-supplemental.json), [Full raw](browser/restored-frozen-results.json), [Full summary](full-regression-summary.json)
+- [Fresh React/reused Vue](build-artifacts.json), [Actual served provenance](served-build.json), [Switch states](switch-states.json), [Raw artifacts](browser-manifest.json)
+- [Source state](source-state.json), [Hashes](file-manifest.json), [Diff](diff.patch), [Feature inventory](feature-inventory.csv), [All commands](../commands.jsonl), [Usage](../token-usage.json)
+
+Stop S6; no S7. / S6 后停止，不进入 S7。
+
+Acceptance commit / 验收提交: `06569c09ec71e75d4ecf066f0b3b5aada4da1728` (`[WF6-S6]`). Gateway/map byte hashes match browser-tested inputs. Both checkouts clean; Vue/backend/evaluator frozen bytes unchanged.

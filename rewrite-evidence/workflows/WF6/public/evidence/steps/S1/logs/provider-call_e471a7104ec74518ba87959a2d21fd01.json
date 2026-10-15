@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 747,
+    "byte_offset": 2938515,
+    "timestamp": "2026-10-14T02:11:15.365Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acee4bef1a48191906a00d3eb0b3237",
+      "status": "completed",
+      "call_id": "call_e471a7104ec74518ba87959a2d21fd01",
+      "name": "exec",
+      "input": "text(await tools.write_stdin({session_id:69729,chars:\"\",yield_time_ms:1000,max_output_tokens:2200}));\ntext(await tools.exec_command({cmd:\"rg -n 'vue-tsc|jsdom|@vitest/coverage-v8' wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/pnpm-lock.yaml\\npython3 -B - <<'PY'\\nfrom pathlib import Path\\nimport json\\nr=Path('wf6-rerun-20261014-01');p=r/'wf6-evidence/preparation/P1-audit-dependencies/token-usage.json';d=json.loads(p.read_text());print('P1',d['status'],d['final_reply_included'],d['total_tokens'],d['end_event'])\\nprint('dist_exists',(r/'mealie-wf6-coexist/frontend/dist').exists())\\nPY\",max_output_tokens:1100}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791943870.949269
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 750,
+    "byte_offset": 2943680,
+    "timestamp": "2026-10-14T02:11:15.561Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a1382d-9be9-79c3-ba4b-a3f9b2dbed3d",
+      "call_id": "call_e471a7104ec74518ba87959a2d21fd01",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"f057d7\",\"wall_time_seconds\":0.000009955,\"exit_code\":2,\"original_token_count\":1257,\"output\":\"{\\\"command_id\\\": \\\"20261014T021026-ffa34586\\\", \\\"stage_id\\\": \\\"S1\\\", \\\"label\\\": \\\"settle-P1-before-S1-baseline\\\", \\\"argv\\\": [\\\"python3\\\", \\\"-B\\\", \\\"wf6-evidence/usage/finalize_preparation.py\\\", \\\"--preparation-id\\\", \\\"P1-audit-dependencies\\\"], \\\"cwd\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01\\\", \\\"start_utc\\\": \\\"2026-10-14T02:10:26.023296+00:00\\\", \\\"end_utc\\\": \\\"2026-10-14T02:10:31.827153+00:00\\\", \\\"duration_seconds\\\": 5.803874492999967, \\\"exit_code\\\": 0, \\\"stdout\\\": \\\"steps/S1/logs/20261014T021026-ffa34586.stdout.log\\\", \\\"stderr\\\": \\\"steps/S1/logs/20261014T021026-ffa34586.stderr.log\\\", \\\"environment_overrides\\\": {}, \\\"permission\\\": \\\"workspace-write; network restricted; no escalation\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n/**\\n * Tier 1: selected pages render real content without errors.\\n * The test title starts with the page file so measure.sh can report route pass totals.\\n */\\nimport { expect, test } from \\\"@playwright/test\\\";\\nimport { loadFixtures } from \\\"../lib/fixtures\\\";\\nimport { expectFieldValue, monitorPage, normalizedPath } from \\\"../lib/page-health\\\";\\nimport { CORE_ROUTES, EXTENDED_ROUTES, type RouteScope, ROUTES, ROUTE_SETS } from \\\"../lib/routes\\\";\\n\\ntype RouteCheckMode = \\\"smoke\\\" | \\\"strict\\\";\\n\\nconst routeScope = (process.env.E2E_ROUTE_SCOPE ?? \\\"all\\\") as RouteScope;\\nconst selectedRoutes = ROUTE_SETS[routeScope];\\nconst routeCheck = (process.env.E2E_ROUTE_CHECK ?? \\\"strict\\\") as RouteCheckMode;\\n\\nif (!selectedRoutes) {\\n  throw new Error(`Unknown E2E_ROUTE_SCOPE \\\"${routeScope}\\\". Use all, core, or extended.`);\\n}\\nif (![\\\"smoke\\\", \\\"strict\\\"].includes(routeCheck)) {\\n  throw new Error(`Unknown E2E_ROUTE_CHECK \\\"${routeCheck}\\\". Use smoke or strict.`);\\n}\\n\\ntest(\\\"route table has unique entries\\\", () => {\\n  expect(ROUTES.length).toBeGreaterThan(0);\\n  expect(new Set(ROUTES.map(r => r.file)).size).toBe(ROUTES.length);\\n  expect(CORE_ROUTES.length).toBeGreaterThan(0);\\n  expect(EXTENDED_ROUTES.length).toBeGreaterThan(0);\\n  expect(CORE_ROUTES.length + EXTENDED_ROUTES.length).toBe(ROUTES.length);\\n});\\n\\nfor (const route of selectedRoutes) {\\n  test.describe(route.anonymous ? \\\"anonymous\\\" : \\\"admin\\\", () => {\\n    if (route.anonymous) {\\n      test.use({ storageState: { cookies: [], origins: [] } });\\n    }\\n\\n    test(`[route] ${route.file}`, async ({ page }) => {\\n      const f = loadFixtures();\\n      const health = monitorPage(page);\\n\\n      await page.goto(route.path(f));\\n\\n      if (routeCheck === \\\"strict\\\") {\\n        for (const text of route.texts(f)) {\\n          await expect(page.getByText(text, { exact: false }).filter({ visible: true }).first(), `visible text \\\"${text}\\\"`).toBeVisible();\\n        }\\n        for (const value of route.values?.(f) ?? []) {\\n          await expectFieldValue(page, value);\\n        }\\n      }\\n      else {\\n        await expect(page.locator(\\\"body\\\")).toBeVisible();\\n        await expect.poll(() => page.locator(\\\"body\\\").innerText()).not.toBe(\\\"\\\");\\n      }\\n\\n      const expected = route.finalPath?.(f) ?? route.path(f);\\n      if (expected instanceof RegExp) {\\n        expect(normalizedPath(page)).toMatch(expected);\\n      }\\n      else {\\n        expect(normalizedPath(page)).toBe(expected);\\n      }\\n\\n      await health.assertHealthy();\\n    });\\n  });\\n}\\nimport { fileURLToPath } from \\\"node:url\\\";\\nimport { defineNuxtConfig } from \\\"nuxt/config\\\";\\n\\nconst AUTH_TOKEN = \\\"mealie.access_token\\\";\\n\\nexport default defineNuxtConfig({\\n  // Global page headers: https://go.nuxtjs.dev/config-head\\n  // target: \\\"static\\\",\\n\\n  modules: [\\n    \\\"@vite-pwa/nuxt\\\",\\n    \\\"@nuxtjs/i18n\\\",\\n    \\\"@nuxt/fonts\\\",\\n    \\\"vuetify-nuxt-module\\\",\\n    \\\"@nuxt/eslint\\\",\\n  ],\\n  ssr: false,\\n\\n  components: [\\n    {\\n      path: \\\"~/components\\\",\\n      pathPrefix: false,\\n    },\\n  ],\\n  devtools: {\\n    enabled: false,\\n  },\\n\\n  app: {\\n    baseURL: process.env.SUB_PATH || \\\"/\\\",\\n\\n    head: {\\n      title: \\\"Mealie\\\",\\n      meta: [\\n        { property: \\\"og:type\\\", content: \\\"website\\\" },\\n        { property: \\\"og:title\\\", content: \\\"Mealie\\\" },\\n        { property: \\\"og:site_name\\\", content: \\\"Mealie\\\" },\\n        {\\n          property: \\\"og:description\\\",\\n          content: \\\"Mealie is a recipe management app for your kitchen.\\\",\\n        },\\n        {\\n          property: \\\"og:image\\\",\\n          content:\\n            \\\"https://raw.githubusercontent.com/mealie-recipes/mealie/9571816ac4eed5beacfc0abf6c03eff1427fd0eb/frontend/static/icons/android-chrome-512x512.png\\\",\\n        },\\n        { charset: \\\"utf-8\\\" },\\n        { name: \\\"viewport\\\", content: \\\"width=device-width, initial-scale=1\\\" },\\n        {\\n          name: \\\"description\\\",\\n          content: \\\"Mealie is a recipe management app for your kitchen.\\\",\\n        },\\n      ],\\n      script: [\\n        {\\nrg: wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/nuxt@*/node_modules/nuxt/dist/cli*: No such file or directory (os error 2)\\nrg: wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@nuxt+cli@*/node_modules/@nuxt/cli/dist/commands/typecheck*: No such file or directory (os error 2)\\n\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"c03364\",\"wall_time_seconds\":0.000012204,\"exit_code\":0,\"original_token_count\":409,\"output\":\"292:      '@vitest/coverage-v8':\\n336:        version: 4.1.11(@types/node@25.9.8)(@vitest/coverage-v8@4.1.10)(@vitest/ui@4.1.10)(jsdom@30.1.1)(vite@8.3.1(@types/node@25.9.8)(esbuild@0.28.2)(jiti@2.7.0)(sass-embedded@1.105.0)(sass@1.105.0)(terser@5.51.2)(yaml@2.9.1))\\n2954:  '@vitest/coverage-v8@4.1.10':\\n4892:  jsdom@30.1.1:\\n6863:      vue-tsc: ~2.2.10 || ^3.0.0\\n6879:      vue-tsc:\\n6971:      '@vitest/coverage-v8': 4.1.11\\n6974:      jsdom: '*'\\n6991:      '@vitest/coverage-v8':\\n6997:      jsdom:\\n9234:      - vue-tsc\\n10127:  '@vitest/coverage-v8@4.1.10(vitest@4.1.11)':\\n10139:      vitest: 4.1.11(@types/node@25.9.8)(@vitest/coverage-v8@4.1.10)(@vitest/ui@4.1.10)(jsdom@30.1.1)(vite@8.3.1(@types/node@25.9.8)(esbuild@0.28.2)(jiti@2.7.0)(sass-embedded@1.105.0)(sass@1.105.0)(terser@5.51.2)(yaml@2.9.1))\\n10189:      vitest: 4.1.11(@types/node@25.9.8)(@vitest/coverage-v8@4.1.10)(@vitest/ui@4.1.10)(jsdom@30.1.1)(vite@8.3.1(@types/node@25.9.8)(esbuild@0.28.2)(jiti@2.7.0)(sass-embedded@1.105.0)(sass@1.105.0)(terser@5.51.2)(yaml@2.9.1))\\n12169:      jsdom: 30.1.1\\n12234:  jsdom@30.1.1:\\n12888:      - vue-tsc\\n14612:  vitest@4.1.11(@types/node@25.9.8)(@vitest/coverage-v8@4.1.10)(@vitest/ui@4.1.10)(jsdom@30.1.1)(vite@8.3.1(@types/node@25.9.8)(esbuild@0.28.2)(jiti@2.7.0)(sass-embedded@1.105.0)(sass@1.105.0)(terser@5.51.2)(yaml@2.9.1)):\\n14636:      '@vitest/coverage-v8': 4.1.10(vitest@4.1.11)\\n14638:      jsdom: 30.1.1\\nP1 exact_reported True 12126907 {'line': 703, 'byte_offset': 2720592, 'source_log': '<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl'}\\ndist_exists False\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791943875.5615122
+      }
+    }
+  }
+}

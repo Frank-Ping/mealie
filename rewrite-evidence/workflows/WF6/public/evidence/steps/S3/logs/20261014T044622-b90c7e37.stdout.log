@@ -1,0 +1,9 @@
+
+Running 4 tests using 1 worker
+
+  ✓  1 ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S3/tests/s3-browser-tests.cjs:11:1 › real Vue login and document-boundary round trip with preserved identity (2.2s)
+  ✓  2 ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S3/tests/s3-browser-tests.cjs:49:1 › gateway boundaries use real builds, including Vue-owned edit/parse/cook and other groups (63ms)
+  ✓  3 ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S3/tests/s3-browser-tests.cjs:65:1 › anonymous and expired sessions expose explicit Vue entry without loops or identity data (769ms)
+  ✓  4 ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S3/tests/s3-browser-tests.cjs:80:1 › a real second-group identity is refused by the React pilot (881ms)
+
+  4 passed (9.8s)

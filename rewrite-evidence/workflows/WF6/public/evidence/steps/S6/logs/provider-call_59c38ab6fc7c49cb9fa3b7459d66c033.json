@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3737,
+    "byte_offset": 10658110,
+    "timestamp": "2026-10-14T08:06:10.750Z",
+    "turn_id": "01a13964-888e-7540-98b2-3abbc8e32d90",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf37f19be08191a5b383b878692a84",
+      "status": "completed",
+      "call_id": "call_59c38ab6fc7c49cb9fa3b7459d66c033",
+      "name": "exec",
+      "input": "text(await tools.write_stdin({session_id:55356,chars:\"\",yield_time_ms:1000,max_output_tokens:500}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13964-888e-7540-98b2-3abbc8e32d90",
+        "create_time": 1791965169.6970716
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3740,
+    "byte_offset": 10663212,
+    "timestamp": "2026-10-14T08:06:12.422Z",
+    "turn_id": "01a13964-888e-7540-98b2-3abbc8e32d90",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13972-92c6-7032-81b7-edce265f6a40",
+      "call_id": "call_59c38ab6fc7c49cb9fa3b7459d66c033",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 1.7 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"e9d9dd\",\"wall_time_seconds\":1.663558207,\"exit_code\":0,\"original_token_count\":42,\"output\":\"S6 complete evidence checked; rollback/restored ownership PASS, full strict regression FAIL retained; no S7 executed; final reply excluded from provisional snapshot.\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13964-888e-7540-98b2-3abbc8e32d90",
+        "create_time": 1791965172.4225855
+      }
+    }
+  }
+}

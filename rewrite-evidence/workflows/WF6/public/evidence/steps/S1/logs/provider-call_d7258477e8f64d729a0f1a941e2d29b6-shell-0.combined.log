@@ -1,0 +1,3 @@
+20261014T034910-1f4d614e.stdout.log 
+20261014T034925-3cf9fe69.stdout.log 
+{"event": "owned_backend_stopped", "timestamp": "2026-10-14T03:48:11.659128+00:00", "pid": 32542, "exit_code": null, "command_id": "20261014T034343-19d44281", "planned_shutdown": true, "coverage": "Verified owned group SIGTERM after interrupted runner; original exit status unavailable."}

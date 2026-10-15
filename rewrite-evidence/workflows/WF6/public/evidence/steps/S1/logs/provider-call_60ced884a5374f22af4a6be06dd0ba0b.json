@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1176,
+    "byte_offset": 4007950,
+    "timestamp": "2026-10-14T02:59:34.094Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acef011b3888191a243fb37190a16e6",
+      "status": "completed",
+      "call_id": "call_60ced884a5374f22af4a6be06dd0ba0b",
+      "name": "exec",
+      "input": "text(await tools.write_stdin({session_id:20947,chars:\"\",yield_time_ms:20000,max_output_tokens:1700}));\ntext(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nfrom pathlib import Path\\nimport json\\ns=Path('wf6-rerun-20261014-01/wf6-evidence/steps/S1');p=s/'machine/lint-results.json'\\nif p.exists():\\n d=json.loads(p.read_text());print('lint',len(d),sum(x['errorCount'] for x in d),sum(x['warningCount'] for x in d))\\nfor l in (s/'commands.jsonl').read_text().splitlines()[-3:]:\\n d=json.loads(l);print(d['label'],d['exit_code'],d['stderr'])\\nPY\",max_output_tokens:1000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791946769.7051284
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1179,
+    "byte_offset": 4011567,
+    "timestamp": "2026-10-14T02:59:54.249Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a1385a-2509-7bc2-9774-83dcd52b98be",
+      "call_id": "call_60ced884a5374f22af4a6be06dd0ba0b",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 20.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"ff0bba\",\"wall_time_seconds\":20.000637222,\"session_id\":20947,\"original_token_count\":196,\"output\":\"{\\\"command_id\\\": \\\"20261014T025454-70514f6b\\\", \\\"stage_id\\\": \\\"S1\\\", \\\"label\\\": \\\"S1-Vue-lint-measurement\\\", \\\"argv\\\": [\\\"python3\\\", \\\"-B\\\", \\\"wf6-evidence/usage/run_s1.py\\\", \\\"lint\\\"], \\\"cwd\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01\\\", \\\"start_utc\\\": \\\"2026-10-14T02:54:54.022575+00:00\\\", \\\"end_utc\\\": \\\"2026-10-14T02:59:32.762736+00:00\\\", \\\"duration_seconds\\\": 278.74017151299995, \\\"exit_code\\\": 0, \\\"stdout\\\": \\\"steps/S1/logs/20261014T025454-70514f6b.stdout.log\\\", \\\"stderr\\\": \\\"steps/S1/logs/20261014T025454-70514f6b.stderr.log\\\", \\\"environment_overrides\\\": {}, \\\"permission\\\": \\\"workspace-write; network restricted; no escalation\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"e855be\",\"wall_time_seconds\":0.000009996,\"exit_code\":0,\"original_token_count\":59,\"output\":\"lint 521 0 0\\nS1-Vue-coverage-measurement 0 steps/S1/logs/20261014T023815-7ec90a6b.stderr.log\\nS1-Vue-lint 0 steps/S1/logs/20261014T025454-cc351078.stderr.log\\nS1-Vue-lint-measurement 0 steps/S1/logs/20261014T025454-70514f6b.stderr.log\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791946794.249299
+      }
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1819,
+    "byte_offset": 5534740,
+    "timestamp": "2026-10-14T03:48:41.983Z",
+    "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acefb7eb2f881918077425571f6384f",
+      "status": "completed",
+      "call_id": "call_5fd03346ac9348999e69a8be0fb5af52",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 - <<'PY'\\nfrom pathlib import Path\\np=Path('wf6-rerun-20261014-01/wf6-evidence/usage/collect_usage.py');s=p.read_text();s=s.replace('stage=item[\\\"stage_id\\\"];action=\\\"NATURAL_START\\\"','stage=item[\\\"stage_id\\\"];action=item.get(\\\"action\\\",\\\"NATURAL_START\\\")');p.write_text(s)\\nimport json,datetime,shutil\\nbase=p.parents[1];st=base/'steps/S1';conf=base/'usage/tracking-config.json';c=json.loads(conf.read_text());r={'stage_id':'S1','action':'CONTINUE','session_id':c['session_id'],'turn_id':'01a13885-24dd-7ff3-a6cc-b87a30d19d71','user_message_id':'msg_01a13885-2703-78a0-872b-b4ddbb366bfd','line':1774,'actual_prompt':'Continue from where you stopped.','timestamp':'2026-10-14T03:46:52.804Z'}\\nif not any(x.get('user_message_id')==r['user_message_id'] for x in c['natural_requests']):c['natural_requests'].append(r)\\nconf.write_text(json.dumps(c,indent=2,ensure_ascii=False)+'\\\\n')\\nwith (st/'[REDACTED]').open('a') as f:f.write('\\\\n\\\\nContinuation after interrupted turn (actual text):\\\\nContinue from where you stopped.\\\\n')\\nnow=datetime.datetime.now(datetime.timezone.utc).isoformat()\\nwith (st/'attempts.jsonl').open('a') as f:f.write(json.dumps({'timestamp':now,'kind':'native_browser_interrupted_turn','cause':'The user interrupted the turn during native measurement; tool runtime migrated and runner handle disappeared. Original logs show 72 completed passing cases but no machine results or runner exit status. Owned backend remained alive and was identity-verified then terminated through approval.','repair':'Archive incomplete outputs; restart a fresh isolated native runtime and full frozen suite. Do not treat partial passing cases as acceptance or fabricate exit codes.','original':'browser-native-interrupted/','scope':'S1 continuation; source and evaluator unchanged.'})+'\\\\n')\\nwith (base/'decisions.jsonl').open('a') as f:f.write(json.dumps({'timestamp':now,'actor':'user','stage_id':'S1','decision':'Continue existing S1 after interruption, using a disjoint continuation turn. No S2 authorization.','actual_prompt':r['actual_prompt']})+'\\\\n')\\nwith (st/'service-events.jsonl').open('a') as f:f.write(json.dumps({'event':'owned_backend_stopped','timestamp':'2026-10-14T03:48:11.659128+00:00','pid':32542,'exit_code':None,'command_id':'20261014T034343-19d44281','planned_shutdown':True,'coverage':'Verified owned group SIGTERM after interrupted runner; original exit status unavailable.'})+'\\\\n')\\nold=st/'browser-native';archive=st/'browser-native-interrupted';assert not archive.exists();old.rename(archive)\\nfor x in Path('/tmp/wf6-rerun-20261014-01-S1-native/browser').iterdir():\\n if x.is_dir():shutil.copytree(x,archive/x.name)\\n else:shutil.copy2(x,archive/x.name)\\n(st/'native-runtime-interrupted.json').write_bytes((st/'native-runtime.json').read_bytes())\\nPY\",\"max_output_tokens\":700}));\ntext(await tools.apply_patch(\"*** Begin Patch\\n*** Update File: <WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/usage/prepare_s1_native.py\\n@@\\n-NATIVE = Path('/tmp/wf6-rerun-20261014-01-S1-native')\\n+NATIVE = Path('/tmp/wf6-rerun-20261014-01-S1-native2')\\n*** Update File: <WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/usage/browser_s1.py\\n@@\\n-        assert native_root==Path('/tmp/wf6-rerun-20261014-01-S1-native') and not native_root.is_symlink()\\n+        assert native_root==Path('/tmp/wf6-rerun-20261014-01-S1-native2') and not native_root.is_symlink()\\n@@\\n-        assert auth.is_symlink() and auth.resolve()==(RUNTIME/'auth').resolve()\\n+        assert auth.is_symlink() and auth.resolve()==Path('/tmp/wf6-rerun-20261014-01-S1-native/auth')\\n*** End Patch\"));\ntext(await tools.exec_command({cmd:\"python3 -B wf6-rerun-20261014-01/wf6-evidence/usage/record_command.py --stage S1 --cwd '<WORKSPACE>/wf6-rerun-20261014-01' --label S1-prepare-fresh-native-runtime-after-interruption -- python3 -B wf6-evidence/usage/prepare_s1_native.py\",\"yield_time_ms\":1000,\"max_output_tokens\":500}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+        "create_time": 1791949694.7068572
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1822,
+    "byte_offset": 5542140,
+    "timestamp": "2026-10-14T03:48:53.513Z",
+    "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13886-fe89-7a41-912b-d5f296e5fd38",
+      "call_id": "call_5fd03346ac9348999e69a8be0fb5af52",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 11.5 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"c079dc\",\"wall_time_seconds\":10.001933646,\"session_id\":89748,\"original_token_count\":0,\"output\":\"\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"03faa9\",\"wall_time_seconds\":1.000793075,\"session_id\":35715,\"original_token_count\":0,\"output\":\"\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+        "create_time": 1791949733.5130947
+      }
+    }
+  }
+}

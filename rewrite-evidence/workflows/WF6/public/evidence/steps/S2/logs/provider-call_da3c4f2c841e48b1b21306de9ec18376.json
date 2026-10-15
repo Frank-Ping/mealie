@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2156,
+    "byte_offset": 6288872,
+    "timestamp": "2026-10-14T04:08:14.833Z",
+    "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf0028b080819191f96ca2d08b0f02",
+      "status": "completed",
+      "call_id": "call_da3c4f2c841e48b1b21306de9ec18376",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 - <<'PY'\\nfrom pathlib import Path\\nfor p in sorted(Path('wf6-rerun-20261014-01/wf6-evidence/steps/S2/logs').glob('*stdout.log')):\\n print(p.name,p.stat().st_size,p.read_text()[-200:])\\nPY\",\"max_output_tokens\":600}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+        "create_time": 1791950894.3908489
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2159,
+    "byte_offset": 6292312,
+    "timestamp": "2026-10-14T04:08:15.348Z",
+    "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13898-b8f4-7e60-9660-7c085b6fea06",
+      "call_id": "call_da3c4f2c841e48b1b21306de9ec18376",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.5 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"8d982e\",\"wall_time_seconds\":0.282948473,\"exit_code\":0,\"original_token_count\":191,\"output\":\"20261014T040216-410a5d63.stdout.log 306 ,\\n    \\\"cache_write_input_tokens\\\": 0,\\n    \\\"output_tokens\\\": 114262,\\n    \\\"reasoning_output_tokens\\\": 61765,\\n    \\\"total_tokens\\\": 30308626,\\n    \\\"final_reply_included\\\": false,\\n    \\\"coverage_notes\\\": []\\n  }\\n}\\n\\n20261014T040503-c5a034a7.stdout.log 456 ,\\n    \\\"coverage_notes\\\": [\\n      \\\"Earlier interrupted segment has no final END/completion; provider completeness is not certified. Known attributed usage retained, missing amount unknown.\\\"\\n    ]\\n  }\\n}\\n\\n20261014T040533-43abd8a6.stdout.log 2313 oaded 655, added 37\\nProgress: resolved 1231, reused 0, downloaded 683, added 39\\nProgress: resolved 1231, reused 0, downloaded 723, added 43\\nProgress: resolved 1231, reused 0, downloaded 763, added 46\\n\\n20261014T040533-785dfb0d.stdout.log 0 \\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+        "create_time": 1791950895.3481908
+      }
+    }
+  }
+}

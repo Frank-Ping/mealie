@@ -1,0 +1,10 @@
+buildhash af9a32e7318fd2c82d289f49f335d13168ddb476bf3d0ec152834ebc6f14c914
+20261014T041728-1e840165.stderr.log 
+20261014T041728-1e840165.stdout.log 
+20261014T041728-S2-backend.stderr.log WARNING  2026-10-14T04:17:40 - Secrets directory '/run/secrets' does not exist
+
+20261014T041728-S2-backend.stdout.log WARNING  2026-10-14T04:17:40 - Secrets directory '/run/secrets' does not exist
+
+20261014T041728-S2-gateway.stderr.log 
+20261014T041728-S2-gateway.stdout.log {"event":"gateway_ready","port":9106,"takeoverEnabled":false,"buildHash":"af9a32e7318fd2c82d289f49f335d13168ddb476bf3d0ec152834ebc6f14c914"}
+

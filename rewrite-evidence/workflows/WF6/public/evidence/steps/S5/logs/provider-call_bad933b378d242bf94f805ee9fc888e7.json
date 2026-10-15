@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3343,
+    "byte_offset": 9688308,
+    "timestamp": "2026-10-14T07:43:56.449Z",
+    "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf32b938808191b6c7111384885159",
+      "status": "completed",
+      "call_id": "call_bad933b378d242bf94f805ee9fc888e7",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 -B wf6-rerun-20261014-01/wf6-evidence/usage/record_command.py --stage S5 --cwd '<WORKSPACE>/wf6-rerun-20261014-01' --label S5-final-source-build-audit-and-bilingual-result -- python3 -B wf6-evidence/usage/finish_s5.py\",\"yield_time_ms\":1000,\"max_output_tokens\":1000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+        "create_time": 1791963833.2305095
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3345,
+    "byte_offset": 9689992,
+    "timestamp": "2026-10-14T07:43:57.646Z",
+    "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a1395e-34ce-7bf3-902e-6ed8d9273454",
+      "call_id": "call_bad933b378d242bf94f805ee9fc888e7",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 1.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"3856c6\",\"wall_time_seconds\":1.000747592,\"session_id\":64435,\"original_token_count\":0,\"output\":\"\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+        "create_time": 1791963837.6465108
+      }
+    }
+  }
+}

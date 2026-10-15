@@ -1,0 +1,17 @@
+{
+  "identity": {
+    "run_id": "wf6-rerun-20261014-01",
+    "stage_id": "S6",
+    "segment": "continuation-03",
+    "data_dir": "/tmp/wf6-rerun-20261014-01-S6-C3/disposable-data",
+    "ports": [
+      9006,
+      9106
+    ]
+  },
+  "auth_real_target": "/tmp/wf6-rerun-20261014-01-S6-C3/auth",
+  "backend_launcher_sha256": "8fd9652aae79dc39ff0ada7cb40b56f305d388c64b06523dcaa57fc190f3cb92",
+  "default_sandbox_unchanged": true,
+  "credentials_exported_in_summary": false,
+  "service_lifecycles_closed": true
+}

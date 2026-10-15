@@ -1,0 +1,70 @@
+29:  "storeDir": "<WORKSPACE>/wf6-rerun-20261014-01/runtime/cache/pnpm/v11",
+30:  "virtualStoreDir": ".pnpm",
+31:  "virtualStoreDirMaxLength": 120
+"""Fault injection for independent accounting; no application success claims."""
+import copy
+import json
+from pathlib import Path
+import tempfile
+import unittest
+from collect_usage import analyze, read_log, redact, collect, original_shell_commands
+
+SESSION="session-test"
+SOURCE="fixture.jsonl"
+
+def fields(n):
+    return dict(input_tokens=n,cached_input_tokens=0,cache_write_input_tokens=0,output_tokens=0,reasoning_output_tokens=0,total_tokens=n)
+
+def event(kind,pl):
+    return dict(type=kind,payload=pl,timestamp="2026-10-14T00:00:00Z")
+
+def usage(turn,rid,n,thread,turn_total=None,session=SESSION):
+    return event("token_usage_record",dict(session_id=session,thread_id=session,turn_id=turn,response_id=rid,
+        usage=fields(n),thread_token_usage=fields(thread),turn_token_usage=fields(n if turn_total is None else turn_total)))
+
+def user(turn,text,identity):
+    return event("response_item",dict(type="message",role="user",id=identity,content=[dict(type="input_text",text=text)],
+        internal_chat_message_metadata_passthrough=dict(turn_id=turn)))
+
+def final(turn,stage="S0"):
+    return event("response_item",dict(type="message",role="assistant",phase="final_answer",turn_id=turn,
+        content=[dict(type="output_text",text="Done. [[WF6:"+stage+":END]]")]))
+
+def rows(data):
+    return [dict(line=i,byte_offset=i*100,source_log=SOURCE,record=d) for i,d in enumerate(data,1)]
+
+def fixture():
+    return [event("session_meta",dict(id=SESSION)),usage("prep","p",100,100),user("a","[[WF6:S0:START]]\nRun S0.","u"),
+        usage("a","r1",10,110),final("a"),usage("a","r2",3,113,13),event("event_msg",dict(type="task_complete",turn_id="a"))]
+
+def config():
+    return dict(session_id=SESSION,source_log=SOURCE,start_line=3,start_byte_offset=300,initial_turn_id="a",user_message_id="u",run_id="fixture",workspace_root="/fixture")
+
+class AccountingTests(unittest.TestCase):
+    def measure(self,data=None,cfg=None,issues=None):
+        return analyze(rows(fixture() if data is None else data),config() if cfg is None else cfg,issues)
+
+    def s0(self,result):return result["stages"][0]
+
+    def test_exact_identity_boundary_final_and_consistency(self):
+        s=self.s0(self.measure());self.assertEqual(s["status"],"exact_reported");self.assertEqual(s["total_tokens"],13)
+
+    def test_preparation_excluded(self):
+        r=self.measure();self.assertEqual(r["preparation"]["known_usage"]["total_tokens"],100);self.assertEqual(self.s0(r)["total_tokens"],13)
+
+    def test_duplicate_response_not_added(self):
+        data=fixture();data.insert(4,copy.deepcopy(data[3]));self.assertEqual(self.s0(self.measure(data))["total_tokens"],13)
+
+    def test_conflicting_duplicate_is_partial(self):
+        data=fixture();x=copy.deepcopy(data[3]);x["payload"]["usage"]=fields(11);data.insert(4,x)
+        self.assertEqual(self.s0(self.measure(data))["status"],"partial")
+
+    def test_legacy_counters_never_added(self):
+        data=fixture();data.insert(4,event("event_msg",dict(type="token_count",info=dict(total_token_usage=fields(999999)))))
+        self.assertEqual(self.s0(self.measure(data))["total_tokens"],13)
+
+    def test_missing_field_remains_null(self):
+        data=fixture();del data[3]["payload"]["usage"]["reasoning_output_tokens"]
+        s=self.s0(self.measure(data));self.assertEqual(s["status"],"partial");self.assertIsNone(s["reasoning_output_tokens"])
+42:    const { data: token } = await $axios.get<{ access_token: string; token_type: "bearer" }>("/api/auth/oauth/callback", { params });
+43:    auth.setToken(token.access_token);

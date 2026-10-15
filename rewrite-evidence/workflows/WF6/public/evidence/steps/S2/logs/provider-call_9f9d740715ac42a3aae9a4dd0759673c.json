@@ -1,0 +1,57 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2400,
+    "byte_offset": 6713132,
+    "timestamp": "2026-10-14T04:23:05.801Z",
+    "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf0393310c8191b5188c3d1a810529",
+      "status": "completed",
+      "call_id": "call_9f9d740715ac42a3aae9a4dd0759673c",
+      "name": "exec",
+      "input": "text(await tools.write_stdin({session_id:52765,chars:\"\",yield_time_ms:1000,max_output_tokens:700}));\ntext(await tools.apply_patch(\"*** Begin Patch\\n*** Add File: <WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/usage/postcommit_s2.py\\n+\\\"\\\"\\\"Capture only the accepted S2 implementation commit and clean final source states.\\\"\\\"\\\"\\n+import datetime as dt\\n+import hashlib\\n+import json\\n+from pathlib import Path\\n+from finish_s2 import SOURCE,EVALUATOR,STAGE,EVIDENCE,git,write\\n+\\n+state_path=STAGE/'source-state.json';(STAGE/'source-state-before-commit.json').write_bytes(state_path.read_bytes())\\n+state=json.loads(state_path.read_text());head=git(SOURCE,'rev-parse','HEAD')\\n+expected=['wf6/gateway.mjs','wf6/route-map.json','wf6/gateway.test.mjs','rewrite-evidence/workflows/WF6/S2-RESULT.md','rewrite-evidence/workflows/WF6/TYPE-DIAGNOSTICS.md']\\n+changed=git(SOURCE,'diff-tree','--no-commit-id','--name-only','-r',head).splitlines();assert sorted(changed)==sorted(expected)\\n+served=json.loads((STAGE/'served-build.json').read_text())\\n+assert hashlib.sha256((SOURCE/'wf6/gateway.mjs').read_bytes()).hexdigest()==served['gateway_sha256']\\n+assert hashlib.sha256((SOURCE/'wf6/route-map.json').read_bytes()).hexdigest()==served['route_map_sha256']\\n+for role,repo in [('source',SOURCE),('evaluator',EVALUATOR)]:\\n+    status=git(repo,'status','--porcelain=v1');assert not status\\n+    state[role].update(actual_head=git(repo,'rev-parse','HEAD'),dirty=False,status_porcelain=status,untracked=[])\\n+state.update(postcommit_utc=dt.datetime.now(dt.timezone.utc).isoformat(),acceptance_commit=head,\\n+    build_policy='Vue build source HEAD remains its actual pre-S2 build SHA. Gateway/route-map byte hashes tested match committed files.')\\n+write(state_path,state)\\n+manifest=json.loads((STAGE/'file-manifest.json').read_text());records={r['path']:r for r in manifest['source']}\\n+for name in expected:\\n+    content=(SOURCE/name).read_bytes();records[name]=dict(path=name,bytes=len(content),sha256=hashlib.sha256(content).hexdigest(),symlink=False)\\n+manifest['source']=[records[k] for k in sorted(records)];manifest['postcommit_utc']=state['postcommit_utc'];write(STAGE/'file-manifest.json',manifest)\\n+(STAGE/'diff-before-commit.patch').write_bytes((STAGE/'diff.patch').read_bytes())\\n+(STAGE/'diff.patch').write_text('# Source tracked changes since pinned Vue input\\\\n'+git(SOURCE,'diff','--binary',state['source']['pinned_input_sha'],'HEAD')+'\\\\n# Final working source/evaluator diffs are empty.\\\\n')\\n+result=STAGE/'result.md';text=result.read_text().split('<!-- WF6-USAGE -->')[0].rstrip();result.write_text(text+f'\\\\n\\\\nAcceptance commit / 验收提交: `{head}` (`[WF6-S2]`). Gateway/map byte hashes match browser-tested inputs. Both checkouts clean; Vue/backend/evaluator frozen bytes unchanged.\\\\n')\\n+with (EVIDENCE/'decisions.jsonl').open('a') as f:f.write(json.dumps(dict(timestamp=state['postcommit_utc'],actor='agent',stage_id='S2',decision='All-Vue S2 PASS, first acceptance, zero repairs. S1 partial usage and 318 FAIL diagnostics retained. Stop; S3 not executed.',commit=head))+'\\\\n')\\n+print(json.dumps(dict(commit=head,source_clean=True,evaluator_clean=True,committed_files=expected)))\\n*** End Patch\"));\ntext(await tools.exec_command({cmd:\"python3 -B wf6-rerun-20261014-01/wf6-evidence/usage/record_command.py --stage S2 --cwd '<WORKSPACE>/wf6-rerun-20261014-01' --label S2-verify-acceptance-commit-and-clean-final-state -- python3 -B wf6-evidence/usage/postcommit_s2.py\",\"yield_time_ms\":1000,\"max_output_tokens\":600}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+        "create_time": 1791951763.1949716
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2403,
+    "byte_offset": 6721851,
+    "timestamp": "2026-10-14T04:23:07.887Z",
+    "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a138a6-576f-7b11-8d7a-c76c238b0f69",
+      "call_id": "call_9f9d740715ac42a3aae9a4dd0759673c",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 2.1 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"d264fc\",\"wall_time_seconds\":0.000047028,\"exit_code\":0,\"original_token_count\":212,\"output\":\"{\\\"command_id\\\": \\\"20261014T042213-e01a44ae\\\", \\\"stage_id\\\": \\\"S2\\\", \\\"label\\\": \\\"S2-commit-all-Vue-gateway-and-audit-notes\\\", \\\"argv\\\": [\\\"git\\\", \\\"-C\\\", \\\"mealie-wf6-coexist\\\", \\\"commit\\\", \\\"-m\\\", \\\"[WF6-S2] Add verified all-Vue same-origin gateway\\\"], \\\"cwd\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01\\\", \\\"start_utc\\\": \\\"2026-10-14T04:22:13.664943+00:00\\\", \\\"end_utc\\\": \\\"2026-10-14T04:22:15.520748+00:00\\\", \\\"duration_seconds\\\": 1.8558073429994693, \\\"exit_code\\\": 0, \\\"stdout\\\": \\\"steps/S2/logs/20261014T042213-e01a44ae.stdout.log\\\", \\\"stderr\\\": \\\"steps/S2/logs/20261014T042213-e01a44ae.stderr.log\\\", \\\"environment_overrides\\\": {}, \\\"permission\\\": \\\"workspace-write; network restricted; no escalation\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"c42077\",\"wall_time_seconds\":1.001794177,\"session_id\":65972,\"original_token_count\":0,\"output\":\"\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+        "create_time": 1791951787.8872423
+      }
+    }
+  }
+}

@@ -1,0 +1,1 @@
+{"gate": "PASS", "browser": {"startTime": "2026-10-14T04:46:25.189Z", "duration": 9751.676, "expected": 4, "skipped": 0, "unexpected": 0, "flaky": 0}, "route_cases": 34, "source_repairs": 0, "builds": {"vue": "9376e691d1040f5d0d84ee162c24f76ec6395cd27845f494b21f0a7338a32a1a", "react": "12358dece70b9211cb1716bc409cce2c95b3ec058036c6accd61b522fb7c738a"}}

@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 4647,
+    "byte_offset": 13758560,
+    "timestamp": "2026-10-14T09:59:37.920Z",
+    "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf527be3908191989822ede6eee854",
+      "status": "completed",
+      "call_id": "call_e06ad62d8d514f4786c12f70b77b6c7b",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 - <<'PY'\\nfrom pathlib import Path\\nimport json,datetime\\nE=Path('wf6-evidence');T=E/'steps/S7';head=json.loads((T/'source-state.json').read_text())['report_commit']\\np=T/'result.md';p.write_text(p.read_text().split('<!-- WF6-USAGE -->')[0].rstrip()+f'\\\\n\\\\nDocumentation-only acceptance commit: `{head}`. Both checkouts clean; only three report/index Markdown files committed. 294 report links checked; 4197 manifest files verified, no mismatches, manifest excludes itself. Final collector regenerates manifest after updated accounting.\\\\n仅提交三份报告/索引，工作区 clean；294 链接、4197 文件核对无缺失/不匹配。\\\\n\\\\n[Raw trace audit](raw-test-trace-audit.json), [Historical source/accounting](historical-source-and-accounting-audit.json), [Manifest verification](manifest-validation.json), [Execution timing](stage-execution-timing.json).\\\\n')\\nwith (E/'EVIDENCE_INDEX.md').open('a') as f:f.write('\\\\n- [S7 report commit/source state](steps/S7/source-state.json)\\\\n- [Manifest validation](steps/S7/manifest-validation.json)\\\\n- [Stage execution timing](steps/S7/stage-execution-timing.json)\\\\n')\\nwith (E/'decisions.jsonl').open('a') as f:f.write(json.dumps(dict(timestamp=datetime.datetime.now(datetime.timezone.utc).isoformat(),stage_id='S7',actor='agent',decision='Documentation-only report commit accepted; 294 links and 4197 evidence hashes validated, no mismatches. Collector accounting logic unchanged; added external S7 category/timing/report summary synchronization before manifest regeneration. Committed report snapshots remain unchanged after terminal finalization; external originals are authoritative for final usage.',commit=head))+'\\\\n')\\nPY\\npython3 -B wf6-evidence/usage/record_command.py --stage S7 --cwd \\\"$PWD\\\" --label final-provisional-S7-accounting-and-summary-sync -- python3 -B wf6-evidence/usage/collect_usage.py finalize --all --wait-seconds 0\",\"workdir\":\"<WORKSPACE>/wf6-rerun-20261014-01\",\"yield_time_ms\":1000,\"max_output_tokens\":150}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+        "create_time": 1791971963.8922355
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 4649,
+    "byte_offset": 13762016,
+    "timestamp": "2026-10-14T09:59:39.102Z",
+    "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a139da-6f5e-7f20-bf2f-3d15eead4b3a",
+      "call_id": "call_e06ad62d8d514f4786c12f70b77b6c7b",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 1.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"51696d\",\"wall_time_seconds\":1.000546469,\"session_id\":48222,\"original_token_count\":0,\"output\":\"\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+        "create_time": 1791971979.1026742
+      }
+    }
+  }
+}

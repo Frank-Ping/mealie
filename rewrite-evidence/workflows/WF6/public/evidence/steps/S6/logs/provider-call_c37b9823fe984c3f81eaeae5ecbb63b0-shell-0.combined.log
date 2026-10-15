@@ -1,0 +1,193 @@
+import { useEffect, useRef, useState } from 'react';
+import { Alert, Button, Stack, TextField, Typography } from '@mui/material';
+import type { Recipe, RecipeCommentOut } from '../../frontend/app/lib/api/types/recipe.ts';
+import { SessionError, type RecipeApi } from './api.ts';
+interface Props { api: RecipeApi; recipe: Recipe; onSessionFailure: (error: SessionError) => void }
+export function RecipeComments({ api, recipe, onSessionFailure }: Props) {
+  const [items, setItems] = useState<RecipeCommentOut[]>([]); const [enabled, setEnabled] = useState(false);
+  const [loading, setLoading] = useState(true); const [text, setText] = useState(''); const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null); const [reload, setReload] = useState(0); const submitAbort = useRef<AbortController | null>(null);
+  useEffect(() => {
+    const abort = new AbortController(); setLoading(true); setError(null); setEnabled(false); setItems([]); setText(''); setSubmitting(false);
+    void api.comments(recipe, abort.signal).then(result => { if (!abort.signal.aborted) { setItems(result.items); setEnabled(result.enabled); } }).catch(failure => {
+      if (abort.signal.aborted) return;
+      if (failure instanceof SessionError) onSessionFailure(failure); else setError(failure instanceof Error ? failure.message : 'Comment request failed');
+    }).finally(() => { if (!abort.signal.aborted) setLoading(false); });
+    return () => { abort.abort(); submitAbort.current?.abort(); };
+  }, [api, recipe, onSessionFailure, reload]);
+  async function submit() {
+    if (!text.trim() || !enabled || submitting) return;
+    const abort = new AbortController(); submitAbort.current = abort; setSubmitting(true); setError(null);
+    try {
+      const saved = await api.submitComment(recipe, text, abort.signal);
+      if (!abort.signal.aborted) { setItems(current => [...current, saved]); setText(''); }
+    } catch (failure) {
+      if (abort.signal.aborted) return;
+      if (failure instanceof SessionError) onSessionFailure(failure); else setError(failure instanceof Error ? failure.message : 'Comment submission failed');
+    } finally { if (!abort.signal.aborted) setSubmitting(false); }
+  }
+  return <Stack spacing={2} data-wf6-comments="server">
+    <Typography component="h2" variant="h5">Comments</Typography>
+    {loading && <Typography role="status">Loading comments…</Typography>}
+    {!loading && !enabled && !error && <Typography>Comments are disabled</Typography>}
+    {error && <Alert severity="error">{error} <Button onClick={() => setReload(value => value + 1)} disabled={submitting}>Reload comments</Button></Alert>}
+    {!loading && enabled && <><TextField label="Join the Conversation" multiline value={text} disabled={submitting} onChange={event => setText(event.target.value)} />
+      <Button onClick={() => { void submit(); }} disabled={submitting || !text.trim()}>Submit</Button>{submitting && <Typography role="status">Submitting comment…</Typography>}
+      {items.map(comment => <Stack key={comment.id}><Typography>{comment.user.fullName ?? 'User'}</Typography><Typography sx={{ whiteSpace: 'pre-wrap' }}>{comment.text}</Typography></Stack>)}
+    </>}
+  </Stack>;
+}
+{
+  "classification": "implementation_and_rendering_timing_failure",
+  "gate": "FAIL",
+  "actual_original_four": "3 PASS / 1 FAIL",
+  "verified_network": "No /api/comments POST or 201 in original failure trace; pending recipe revalidation request was cancelled by reload",
+  "verified_DOM": "Original first text visibility expectation targeted a TEXTAREA holding draft text, not a saved server comment",
+  "targeted_textarea_snapshots": [
+    [
+      "TEXTAREA",
+      {
+        "__playwright_value_": "E2E comment mv7w58bjry",
+        "__playwright_target__": "",
+        "aria-invalid": "false",
+        "id": "_r_5_",
+        "class": "MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline css-s63k3s",
+        "style": "height: 23px; overflow: hidden;"
+      },
+      "E2E comment mv7w58bjry"
+    ],
+    [
+      "TEXTAREA",
+      {
+        "__playwright_value_": "E2E comment mv7w58bjry",
+        "__playwright_target__": "",
+        "aria-invalid": "false",
+        "id": "_r_5_",
+        "class": "MuiInputBase-input MuiOutlinedInput-input Mui-disabled MuiInputBase-inputMultiline css-s63k3s",
+        "style": "height: 23px; overflow: hidden;",
+        "disabled": ""
+      },
+      [
+        [
+          5,
+          4
+        ]
+      ]
+    ]
+  ],
+  "root_cause_limit": "No new experiment after repair budget exhausted; DOM/network evidence identifies early draft match and aborted pre-POST validation. Durable server comment creation not demonstrated.",
+  "proposed_change_not_applied": "Separate pending draft from persisted comment text matching and/or appropriate user navigation protection; requires further authorization/budget because S6 two rounds exhausted",
+  "original_trace": "browser-r2/four-original-test-results/flows-recipes-recipes-flow-a3d3d-ipe-and-see-it-after-reload-flows/trace.zip",
+  "no_more_repairs": true
+}
+{
+  "stage": "S6",
+  "limit": 2,
+  "used": 2,
+  "rounds": [
+    {
+      "round": 1,
+      "segment": "continuation-02",
+      "scope": "User-authorized limited scope repair for four original frozen FAIL",
+      "authorization": "[REDACTED]",
+      "changes": [
+        "Real Logout and cancellation/401 login handoff",
+        "Self-based Settings Vue navigation",
+        "Server comment read/create/persistence respecting Vue disable conditions"
+      ],
+      "previous_failure": "full-regression-summary.json",
+      "status": "FAIL: original target four 3 PASS / 1 FAIL; comments GET incorrectly used ID, actual 500"
+    },
+    {
+      "round": 2,
+      "segment": "continuation-02",
+      "scope": "Correct comment GET API parameter from ID to slug",
+      "cause": "Frozen recipe/comments.py get_recipe_comments resolves slug; ID yielded None and original backend 500, proven by original trace/backend stderr",
+      "fix": "GET /api/recipes/{encoded slug}/comments; POST /api/comments still uses recipeId",
+      "diff": "continuation-02/repair-2-source.diff",
+      "failure_log": "logs/20261014T090237-376caeb9.stdout.log",
+      "failure_trace": "continuation-02/browser/four-original-test-results/flows-recipes-recipes-flow-a3d3d-ipe-and-see-it-after-reload-flows/trace.zip",
+      "status": "Final gate FAIL; no further repair allowed"
+    }
+  ]
+}
+import type { Recipe, RecipeSummary, RecipeCommentOut, RecipeCommentCreate } from '../../frontend/app/lib/api/types/recipe.ts';
+
+export interface Identity { id: string; groupId: string; groupSlug: string; fullName: string; admin?: boolean; canManage?: boolean; canManageHousehold?: boolean; householdId?: string }
+export interface RecipePage { items: RecipeSummary[]; total: number; total_pages: number; page: number }
+interface Household { id: string; groupId: string; preferences?: { recipeDisableComments?: boolean } }
+export class ApiError extends Error {
+  readonly status: number;
+  constructor(message: string, status: number) { super(message); this.status = status; }
+}
+export class SessionError extends ApiError {}
+export function accessToken(): string | null {
+  const cookie = document.cookie.split(';').map(x => x.trim()).find(x => x.startsWith('mealie.access_token='));
+  return cookie ? decodeURIComponent(cookie.slice(cookie.indexOf('=') + 1)) : null;
+}
+export function clearAccessToken(): void { document.cookie = 'mealie.access_token=; Max-Age=0; Path=/; SameSite=Lax'; }
+export async function logoutRequest(transport: typeof fetch = fetch, token = accessToken()): Promise<void> {
+  const response = await transport('/api/auth/logout', { method: 'POST', headers: token ? { authorization: `Bearer ${token}` } : {}, credentials: 'same-origin', cache: 'no-store' });
+  if (!response.ok) throw new ApiError(`Logout failed (${response.status}); local session was cleared`, response.status);
+}
+export function recipeListUrl(search: string, page = 1): string {
+  const query = new URLSearchParams({ page: String(page), perPage: '50', orderBy: 'name' });
+  if (search.trim()) query.set('search', search.trim());
+  return '/api/recipes?' + query.toString();
+}
+export function commentsEnabled(recipe: Recipe, householdDisabled: boolean): boolean { return !householdDisabled && !recipe.settings?.disableComments; }
+export function createRecipeApi(identity: Identity, getToken: () => string | null = accessToken, transport: typeof fetch = fetch) {
+  const pending = new Set<AbortController>(); let closed = false;
+  async function request<T>(url: string, signal: AbortSignal, body?: RecipeCommentCreate): Promise<T> {
+    if (closed) throw new DOMException('Session closed', 'AbortError');
+    signal.throwIfAborted(); const owned = new AbortController(); pending.add(owned);
+    const cancel = () => owned.abort(); signal.addEventListener('abort', cancel, { once: true });
+    try {
+      const token = getToken();
+      const response = await transport(url, { method: body ? 'POST' : 'GET', headers: { ...(token ? { authorization: `Bearer ${token}` } : {}), ...(body ? { 'content-type': 'application/json' } : {}) }, credentials: 'same-origin', cache: 'no-store', signal: owned.signal, ...(body ? { body: JSON.stringify(body) } : {}) });
+      owned.signal.throwIfAborted();
+      if (response.status === 401) throw new SessionError('Anonymous or expired session (401)', 401);
+      if (!response.ok) throw new ApiError(response.status === 404 ? 'Recipe not found' : `Recipe API request failed (${response.status})`, response.status);
+      const result = await response.json() as T; owned.signal.throwIfAborted(); return result;
+    } finally { pending.delete(owned); signal.removeEventListener('abort', cancel); }
+  }
+  async function verify(signal: AbortSignal) {
+    const current = await request<Identity>('/api/users/self', signal);
+    if (current.id !== identity.id || current.groupId !== identity.groupId || current.groupSlug !== identity.groupSlug || current.householdId !== identity.householdId) throw new SessionError('Session identity or group changed; use the Vue entry', 403);
+  }
+  function checkGroup(recipe: RecipeSummary) { if (recipe.groupId !== identity.groupId) throw new SessionError('Recipe group does not match the verified session', 403); }
+  async function householdDisabled(signal: AbortSignal) {
+    const household = await request<Household>('/api/households/self', signal);
+    if (household.id !== identity.householdId || household.groupId !== identity.groupId) throw new SessionError('Household does not match the verified session', 403);
+    return household.preferences?.recipeDisableComments === true;
+  }
+  return {
+    cancel() { closed = true; for (const controller of pending) controller.abort(); pending.clear(); },
+    async list(search: string, page: number, signal: AbortSignal): Promise<RecipePage> {
+      await verify(signal); const data = await request<RecipePage>(recipeListUrl(search, page), signal);
+      if (!Array.isArray(data.items)) throw new ApiError('Invalid recipe list response', 502);
+      data.items.forEach(checkGroup); return data;
+    },
+    async detail(slug: string, signal: AbortSignal): Promise<Recipe> {
+      await verify(signal); const data = await request<Recipe>('/api/recipes/' + encodeURIComponent(slug), signal); checkGroup(data); return data;
+    },
+    async comments(recipe: Recipe, signal: AbortSignal): Promise<{ enabled: boolean; items: RecipeCommentOut[] }> {
+      await verify(signal); checkGroup(recipe);
+      if (!commentsEnabled(recipe, await householdDisabled(signal))) return { enabled: false, items: [] };
+      const items = await request<RecipeCommentOut[]>('/api/recipes/' + encodeURIComponent(recipe.slug ?? '') + '/comments', signal);
+      if (!Array.isArray(items) || items.some(item => item.recipeId !== recipe.id)) throw new ApiError('Invalid recipe comment response', 502);
+      return { enabled: true, items };
+    },
+    async submitComment(recipe: Recipe, text: string, signal: AbortSignal): Promise<RecipeCommentOut> {
+      const trimmed = text.trim(); if (!trimmed) throw new ApiError('Comment cannot be blank', 400);
+      await verify(signal); checkGroup(recipe);
+      // Revalidate both original Vue disable conditions immediately before the write.
+      const current = await request<Recipe>('/api/recipes/' + encodeURIComponent(recipe.slug ?? ''), signal); checkGroup(current);
+      if (current.id !== recipe.id || !commentsEnabled(current, await householdDisabled(signal))) throw new ApiError('Comments are disabled', 403);
+      const saved = await request<RecipeCommentOut>('/api/comments', signal, { recipeId: recipe.id ?? '', text: trimmed });
+      if (!saved.id || saved.recipeId !== recipe.id || saved.userId !== identity.id || saved.text !== trimmed) throw new ApiError('Invalid comment creation response', 502);
+      return saved;
+    },
+  };
+}
+export type RecipeApi = ReturnType<typeof createRecipeApi>;

@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2764,
+    "byte_offset": 7667214,
+    "timestamp": "2026-10-14T05:00:21.629Z",
+    "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf0c6472ec8191baffc971c3a635ba",
+      "status": "completed",
+      "call_id": "call_da06c585994d48faa65afd295396e7a8",
+      "name": "exec",
+      "input": "text(await tools.write_stdin({session_id:29945,chars:\"\",yield_time_ms:1000,max_output_tokens:350}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+        "create_time": 1791954020.4540243
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2767,
+    "byte_offset": 7671664,
+    "timestamp": "2026-10-14T05:00:22.063Z",
+    "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a138c8-6eae-7d33-9445-cf080ea5537d",
+      "call_id": "call_da06c585994d48faa65afd295396e7a8",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.4 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"c19227\",\"wall_time_seconds\":0.413476033,\"exit_code\":0,\"original_token_count\":25,\"output\":\"Final metadata/timing hash inventory refreshed. Usage remains provisional; final response excluded.\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+        "create_time": 1791954022.0628343
+      }
+    }
+  }
+}

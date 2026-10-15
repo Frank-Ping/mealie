@@ -1,0 +1,9 @@
+provisional False {'input_tokens': 2476858, 'cached_input_tokens': 2383744, 'cache_write_input_tokens': 0, 'output_tokens': 18603, 'reasoning_output_tokens': 2290, 'total_tokens': 2495461}
+{'category': 'S7_reporting', 'stage': 'S7', 'turn_id': '01a139cd-8328-7c83-882c-12a97fc9a466', 'start_utc': '2026-10-14T09:48:08.069Z', 'end_utc': None, 'elapsed_seconds': None, 'status': 'provisional', 'note': 'Missing task completion stays null; current S7 final tail pending terminal.'}
+{
+  "timestamp": "2026-10-14T09:59:41.674663+00:00",
+  "missing_links": [
+    "steps/S7/stage-execution-timing.json"
+  ]
+}
+

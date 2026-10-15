@@ -1,0 +1,11 @@
+--- initial/s5-extra-tests.cjs
++++ repair1/s5-extra-tests.cjs
+@@ -28,7 +28,7 @@
+ });
+ test('[Boundary] anonymous and expired real 401 do not request recipe data',async({page,context})=>{
+  const f=fixtures();let recipes=0;page.on('request',r=>{if(new URL(r.url()).pathname.startsWith('/api/recipes'))recipes++;});
+- for(const expired of [false,true]){await context.clearCookies();if(expired)await context.addCookies([{name:'mealie.access_token',value:'[REDACTED]',url:process.env.WF6_GATEWAY_ORIGIN}]);const self=page.waitForResponse(r=>new URL(r.url()).pathname==='/api/users/self');await page.goto(`/g/${f.groupSlug}?probe=auth#preserve`);expect((await self).status()).toBe(401);await expect(page.locator('[data-wf6-session="vue-required"]')).toContainText('401');await expect(page.locator('[data-wf6-business]')).toHaveCount(0);expect(recipes).toBe(0);await expect(page.getByRole('link',{name:'Use Vue login'})).toBeVisible();}
++ for(const expired of [false,true]){await context.clearCookies();if(expired)await context.addCookies([{name:'mealie.access_token',value:'[REDACTED]',url:process.env.WF6_GATEWAY_ORIGIN}]);const self=page.waitForResponse(r=>new URL(r.url()).pathname==='/api/users/self');await page.goto(`/g/${f.groupSlug}?probe=auth&case=${expired ? "expired" : "anonymous"}#preserve`);expect((await self).status()).toBe(401);await expect(page.locator('[data-wf6-session="vue-required"]')).toContainText('401');await expect(page.locator('[data-wf6-business]')).toHaveCount(0);expect(recipes).toBe(0);await expect(page.getByRole('link',{name:'Use Vue login'})).toBeVisible();}
+  const navigation=page.waitForResponse(r=>r.request().isNavigationRequest());await page.getByRole('link',{name:'Use explicit Vue entry'}).click();expect((await navigation).headers()['x-wf6-frontend']).toBe('vue');expect(page.url()).toContain('probe=auth');expect(page.url()).toContain('#preserve');save({category:'boundary',test:'anonymous_expired_real401',status:'PASS',recipeRequests:recipes});
+ });
+ test('[Boundary] real second-group user cannot read pilot data',async({page,context})=>{

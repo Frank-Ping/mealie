@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "<WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/usage/browser_s1.py", line 79, in <module>
+    parser=argparse.ArgumentParser();parser.add_argument("--approved",action="store_true");args=parser.parse_args();main(args.approved)
+                                                                                                                    ~~~~^^^^^^^^^^^^^^^
+  File "<WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/usage/browser_s1.py", line 26, in main
+    with socket.socket() as check:check.bind(("127.0.0.1",9006))
+         ~~~~~~~~~~~~~^^
+  File "/usr/lib/python3.14/socket.py", line 236, in __init__
+    _socket.socket.__init__(self, family, type, proto, fileno)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted

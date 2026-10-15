@@ -1,0 +1,10 @@
+{
+  "installed_bin": "<WORKSPACE>/wf6-rerun-20261014-01/runtime/tools/bin",
+  "tools": [
+    "Node 24.21.0",
+    "pnpm 11.23.0",
+    "uv 0.13.0",
+    "Task 3.54.0"
+  ],
+  "all_download_checksums_verified": true
+}

@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2522,
+    "byte_offset": 7073569,
+    "timestamp": "2026-10-14T04:39:23.999Z",
+    "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf0779599481919f6af053e5fc7ee9",
+      "status": "completed",
+      "call_id": "call_6cebe0fd9efa410b81a0b687b2d422db",
+      "name": "exec",
+      "input": "text(await tools.write_stdin({session_id:51905,chars:\"\",yield_time_ms:1000,max_output_tokens:700}));\ntext(await tools.exec_command({cmd:\"python3 - <<'PY'\\nfrom pathlib import Path\\nfor p in sorted(Path('wf6-rerun-20261014-01/wf6-evidence/steps/S3/logs').glob('*stdout.log'))[-5:]: print(p.name,p.read_text()[-140:])\\nPY\",\"max_output_tokens\":700}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+        "create_time": 1791952761.3529449
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2525,
+    "byte_offset": 7076851,
+    "timestamp": "2026-10-14T04:39:29.153Z",
+    "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a138b5-5081-7942-ae92-7bec5f382e98",
+      "call_id": "call_6cebe0fd9efa410b81a0b687b2d422db",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 5.1 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"3145ee\",\"wall_time_seconds\":5.001525214,\"session_id\":51905,\"original_token_count\":0,\"output\":\"\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"b19771\",\"wall_time_seconds\":0.000010353,\"exit_code\":0,\"original_token_count\":125,\"output\":\"20261014T043840-4e7ee64e.stdout.log \\\"6.1.2\\\"\\n\\n20261014T043850-691f6ba0.stdout.log [\\n  \\\"5.9.2\\\",\\n  \\\"5.9.3\\\"\\n]\\n\\n20261014T043903-88d60395.stdout.log \\\"19.2.9\\\",\\n  \\\"19.2.10\\\",\\n  \\\"19.2.11\\\",\\n  \\\"19.2.12\\\",\\n  \\\"19.2.13\\\",\\n  \\\"19.2.14\\\",\\n  \\\"19.2.15\\\",\\n  \\\"19.2.16\\\",\\n  \\\"19.2.17\\\",\\n  \\\"19.2.18\\\",\\n  \\\"19.3.0\\\"\\n]\\n\\n20261014T043913-d9f9961b.stdout.log .9\\\",\\n  \\\"19.1.10\\\",\\n  \\\"19.1.11\\\",\\n  \\\"19.2.0\\\",\\n  \\\"19.2.1\\\",\\n  \\\"19.2.2\\\",\\n  \\\"19.2.3\\\",\\n  \\\"19.2.4\\\",\\n  \\\"19.2.5\\\",\\n  \\\"19.2.6\\\",\\n  \\\"19.2.7\\\",\\n  \\\"19.3.0\\\"\\n]\\n\\n20261014T043923-a1ce7547.stdout.log \\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+        "create_time": 1791952769.1535218
+      }
+    }
+  }
+}

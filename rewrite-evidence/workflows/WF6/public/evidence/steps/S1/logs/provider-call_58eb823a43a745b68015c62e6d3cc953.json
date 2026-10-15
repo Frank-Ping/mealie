@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1628,
+    "byte_offset": 5117262,
+    "timestamp": "2026-10-14T03:36:37.215Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acef8c36f24819197777870d2810b5b",
+      "status": "completed",
+      "call_id": "call_58eb823a43a745b68015c62e6d3cc953",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"rg --files wf6-rerun-20261014-01/wf6-evidence/steps/S1/browser/test-results | rg 'admin.*flows' | head -4\",\"max_output_tokens\":500}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791948995.4488728
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1631,
+    "byte_offset": 5120281,
+    "timestamp": "2026-10-14T03:36:37.370Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a1387b-c2fa-77a2-91fc-9fb7c2001410",
+      "call_id": "call_58eb823a43a745b68015c62e6d3cc953",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"92544b\",\"wall_time_seconds\":0.000010111,\"exit_code\":0,\"original_token_count\":146,\"output\":\"wf6-rerun-20261014-01/wf6-evidence/steps/S1/browser/test-results/flows-auth-auth-flow-a-reg-15752--is-not-offered-admin-pages-flows/trace.zip\\nwf6-rerun-20261014-01/wf6-evidence/steps/S1/browser/test-results/flows-auth-auth-flow-a-reg-15752--is-not-offered-admin-pages-flows/test-failed-1.png\\nwf6-rerun-20261014-01/wf6-evidence/steps/S1/browser/test-results/flows-auth-auth-flow-a-reg-15752--is-not-offered-admin-pages-flows/error-context.md\\nwf6-rerun-20261014-01/wf6-evidence/steps/S1/browser/test-results/flows-admin-admin-flow-cre-c67c8-ind-them-in-user-management-flows/trace.zip\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791948997.370151
+      }
+    }
+  }
+}

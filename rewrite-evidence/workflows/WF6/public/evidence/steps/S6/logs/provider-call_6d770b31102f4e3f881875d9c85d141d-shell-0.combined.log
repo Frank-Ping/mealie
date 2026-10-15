@@ -1,0 +1,25 @@
+{
+  "command_id": "20261014T091038-19d3d023",
+  "stage_id": "S6",
+  "label": "S6-C2-stage-repair2-slug-regression",
+  "argv": [
+    "git",
+    "-C",
+    "mealie-wf6-coexist",
+    "add",
+    "frontend-react-wf6/src/api.ts",
+    "frontend-react-wf6/src/business.test.ts"
+  ],
+  "cwd": "<WORKSPACE>/wf6-rerun-20261014-01",
+  "start_utc": "2026-10-14T09:10:38.851252+00:00",
+  "end_utc": "2026-10-14T09:10:38.931020+00:00",
+  "duration_seconds": 0.07976443899678998,
+  "exit_code": 0,
+  "stdout": "steps/S6/logs/20261014T091038-19d3d023.stdout.log",
+  "stderr": "steps/S6/logs/20261014T091038-19d3d023.stderr.log",
+  "environment_overrides": {},
+  "permission": "workspace-write; network restricted; no escalation",
+  "environment_capture": "Only explicit non-secret overrides; inherited secrets are not exported.",
+  "launch_error": null,
+  "stdin_path": null
+}

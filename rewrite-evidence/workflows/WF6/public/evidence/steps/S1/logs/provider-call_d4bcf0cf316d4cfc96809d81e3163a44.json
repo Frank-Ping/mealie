@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1306,
+    "byte_offset": 4453974,
+    "timestamp": "2026-10-14T03:13:16.034Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acef349e90c8191a36324a2c7973536",
+      "status": "completed",
+      "call_id": "call_d4bcf0cf316d4cfc96809d81e3163a44",
+      "name": "exec",
+      "input": "text(await tools.write_stdin({session_id:94018,chars:\"\",yield_time_ms:1000,max_output_tokens:1200}));\ntext(await tools.exec_command({cmd:\"pwd; rg --files wf6-rerun-20261014-01/wf6-evidence/steps/S1/browser | head -25\",max_output_tokens:2000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791947593.9191427
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1309,
+    "byte_offset": 4459702,
+    "timestamp": "2026-10-14T03:13:21.180Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13866-751c-7ed3-85be-8e0a2bfb6d41",
+      "call_id": "call_d4bcf0cf316d4cfc96809d81e3163a44",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 5.1 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"099ee2\",\"wall_time_seconds\":5.000656144,\"session_id\":94018,\"original_token_count\":0,\"output\":\"\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"83048a\",\"wall_time_seconds\":0.000015895,\"exit_code\":0,\"original_token_count\":831,\"output\":\"<WORKSPACE>\\nwf6-rerun-20261014-01/wf6-evidence/steps/S1/browser/served-build.json\\nwf6-rerun-20261014-01/wf6-evidence/steps/S1/browser/test-results/routes-admin-route-admin-manage-users-id-vue-routes/trace.zip\\nwf6-rerun-20261014-01/wf6-evidence/steps/S1/browser/test-results/routes-admin-route-admin-manage-users-id-vue-routes/test-failed-1.png\\nwf6-rerun-20261014-01/wf6-evidence/steps/S1/browser/test-results/routes-admin-route-admin-manage-users-id-vue-routes/error-context.md\\nwf6-rerun-20261014-01/wf6-evidence/steps/S1/browser/test-results/routes-anonymous-route-reset-password-vue-routes/test-failed-1.png\\nwf6-rerun-20261014-01/wf6-evidence/steps/S1/browser/test-results/routes-anonymous-route-reset-password-vue-routes/error-context.md\\nwf6-rerun-20261014-01/wf6-evidence/steps/S1/browser/test-results/routes-anonymous-route-reset-password-vue-routes/trace.zip\\nwf6-rerun-20261014-01/wf6-evidence/steps/S1/browser/test-results/routes-admin-route-admin-manage-groups-id-vue-routes/error-context.md\\nwf6-rerun-20261014-01/wf6-evidence/steps/S1/browser/test-results/routes-admin-route-admin-manage-groups-id-vue-routes/test-failed-1.png\\nwf6-rerun-20261014-01/wf6-evidence/steps/S1/browser/test-results/routes-admin-route-admin-manage-groups-id-vue-routes/trace.zip\\nwf6-rerun-20261014-01/wf6-evidence/steps/S1/browser/test-results/routes-admin-route-admin-manage-households-id-vue-routes/trace.zip\\nwf6-rerun-20261014-01/wf6-evidence/steps/S1/browser/test-results/routes-admin-route-admin-manage-households-id-vue-routes/test-failed-1.png\\nwf6-rerun-20261014-01/wf6-evidence/steps/S1/browser/test-results/routes-admin-route-admin-manage-households-id-vue-routes/error-context.md\\nwf6-rerun-20261014-01/wf6-evidence/steps/S1/browser/test-results/routes-admin-route-admin-manage-households-index-vue-routes/test-failed-1.png\\nwf6-rerun-20261014-01/wf6-evidence/steps/S1/browser/test-results/routes-admin-route-admin-manage-households-index-vue-routes/error-context.md\\nwf6-rerun-20261014-01/wf6-evidence/steps/S1/browser/test-results/routes-admin-route-admin-manage-households-index-vue-routes/trace.zip\\nwf6-rerun-20261014-01/wf6-evidence/steps/S1/browser/test-results/routes-admin-route-admin-manage-users-create-vue-routes/test-failed-1.png\\nwf6-rerun-20261014-01/wf6-evidence/steps/S1/browser/test-results/routes-admin-route-admin-manage-users-create-vue-routes/error-context.md\\nwf6-rerun-20261014-01/wf6-evidence/steps/S1/browser/test-results/routes-admin-route-admin-manage-users-create-vue-routes/trace.zip\\nwf6-rerun-20261014-01/wf6-evidence/steps/S1/browser/test-results/routes-admin-route-index-vue-routes/error-context.md\\nwf6-rerun-20261014-01/wf6-evidence/steps/S1/browser/test-results/routes-anonymous-route-g-groupSlug-shared-r-id-vue-routes/trace.zip\\nwf6-rerun-20261014-01/wf6-evidence/steps/S1/browser/test-results/routes-anonymous-route-g-groupSlug-shared-r-id-vue-routes/test-failed-1.png\\nwf6-rerun-20261014-01/wf6-evidence/steps/S1/browser/test-results/routes-anonymous-route-g-groupSlug-shared-r-id-vue-routes/error-context.md\\nwf6-rerun-20261014-01/wf6-evidence/steps/S1/browser/test-results/routes-admin-route-index-vue-routes/test-failed-1.png\\nwf6-rerun-20261014-01/wf6-evidence/steps/S1/browser/test-results/routes-admin-route-index-vue-routes/trace.zip\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791947601.1802974
+      }
+    }
+  }
+}

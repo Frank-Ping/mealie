@@ -1,0 +1,16 @@
+[
+  {
+    "url": "http://localhost:9106/api/recipes/e2e-garden-salad/comments",
+    "method": "GET",
+    "status": 200,
+    "started": "2026-10-14T09:11:57.683Z",
+    "source_trace": "browser-r2/four-original-test-results/flows-recipes-recipes-flow-a3d3d-ipe-and-see-it-after-reload-flows/trace.zip"
+  },
+  {
+    "url": "http://localhost:9106/api/recipes/e2e-garden-salad/comments",
+    "method": "GET",
+    "status": 200,
+    "started": "2026-10-14T09:11:57.995Z",
+    "source_trace": "browser-r2/four-original-test-results/flows-recipes-recipes-flow-a3d3d-ipe-and-see-it-after-reload-flows/trace.zip"
+  }
+]

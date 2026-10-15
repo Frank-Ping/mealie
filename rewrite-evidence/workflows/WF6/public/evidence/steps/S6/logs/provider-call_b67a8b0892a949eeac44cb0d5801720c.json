@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 4427,
+    "byte_offset": 12630373,
+    "timestamp": "2026-10-14T09:39:20.894Z",
+    "turn_id": "01a139bb-53dc-7111-96d4-1398771bbfb1",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf4db26d1881918d5bb02a50215040",
+      "status": "completed",
+      "call_id": "call_b67a8b0892a949eeac44cb0d5801720c",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nfrom pathlib import Path\\nimport json,sys\\np=Path('wf6-rerun-20261014-01/wf6-evidence').resolve();parent=p/'steps/S6';s=parent/'continuation-03';u=json.loads((parent/'token-usage.json').read_text());b=json.loads((s/'request-boundary.json').read_text());assert len(u['segments'])==4 and all(seg['final_reply_included'] for seg in u['segments'][:3]) and not u['segments'][3]['final_reply_included']\\nfor k in ['input_tokens','cached_input_tokens','output_tokens','reasoning_output_tokens','total_tokens']:assert u[k]==sum(seg['usage'][k] for seg in u['segments'])\\nassert u['total_tokens']==u['input_tokens']+u['output_tokens'];assert u['status']=='provisional';assert json.loads((parent/'repair-budget.json').read_text())['used']==3;assert json.loads((parent/'repair-budget.json').read_text())['limit']==3;assert json.loads((s/'prior-repair-budget.json').read_text())['limit']==2 and json.loads((s/'prior-repair-budget.json').read_text())['used']==2\\nassert json.loads((p/'steps/S1/token-usage.json').read_text())['status']=='partial';assert json.loads((parent/'continuation-02/measurements.json').read_text())['gate']=='FAIL'\\nm=json.loads((s/'measurements.json').read_text());assert m['gate']=='PASS';full=json.loads((s/'full-regression-summary.json').read_text());assert full['gate_checks']['all_passed'] and full['stats']['expected']==82 and full['stats']['unexpected']==0\\nproof=json.loads((s/'browser/persistence-redacted.jsonl').read_text().splitlines()[0]);assert proof['actualPOST']==201 and proof['actualGET']==200 and proof['sameServerRecordAfterRefresh']\\nst=json.loads((s/'source-state.json').read_text());assert not st['source']['dirty'] and not st['evaluator']['dirty'];assert not json.loads((p/'usage/index-validation.json').read_text())['missing_links']\\nvisible=[json.loads(line) for line in (parent/'visible-transcript.jsonl').read_text().splitlines()];selected=[row for row in visible if row.get('turn_id')==b['turn_id']];(s/'visible-transcript.jsonl').write_text(''.join(json.dumps(row,ensure_ascii=False)+'\\\\n' for row in selected));(s/'transcript-coverage.json').write_text(json.dumps(dict(source='../visible-transcript.jsonl',turn_id=b['turn_id'],entry_count=len(selected),coverage='Available original user/visible assistant/tool items for this segment only; hidden reasoning and system/developer instructions excluded; before final reply',final_reply_included=False),indent=2)+'\\\\n')\\ncommands=[json.loads(line) for line in (parent/'commands.jsonl').read_text().splitlines()];(s/'commands.jsonl').write_text(''.join(json.dumps(row)+'\\\\n' for row in commands if row.get('label','').startswith('S6-C3')))\\n(s/'token-segment-usage.json').write_text(json.dumps(dict(segment=u['segments'][-1],stage_total_reference='../token-usage.json',status='provisional',final_reply_included=False),indent=2)+'\\\\n');(s/'accounting-verification.json').write_text(json.dumps(dict(disjoint_segments=4,sum_reconciled=True,prior_finals_covered=3,current_final_included=False,repair_limit=3,used=3,old_2_of_2_exhaustion_preserved=True,S1_partial_preserved=True,gate='PASS',fees_coverage_review=None),indent=2)+'\\\\n')\\nsys.path.insert(0,str(p/'usage'));import collect_usage;collect_usage.manifest(p)\\nprint('Latest S6 PASS verified: actual POST/GET same record and strict82/82; four disjoint provisional segments reconcile, all old failures/caps retained, no S7 or fourth repair.')\\nPY\\n git -C wf6-rerun-20261014-01/mealie-wf6-coexist log -2 --oneline\",\"yield_time_ms\":1000,\"max_output_tokens\":600}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a139bb-53dc-7111-96d4-1398771bbfb1",
+        "create_time": 1791970738.4375467
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 4429,
+    "byte_offset": 12635275,
+    "timestamp": "2026-10-14T09:39:22.070Z",
+    "turn_id": "01a139bb-53dc-7111-96d4-1398771bbfb1",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a139c7-dd56-7c42-8c8b-33d09a12c536",
+      "call_id": "call_b67a8b0892a949eeac44cb0d5801720c",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 1.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"6780ac\",\"wall_time_seconds\":1.000543956,\"session_id\":56281,\"original_token_count\":0,\"output\":\"\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a139bb-53dc-7111-96d4-1398771bbfb1",
+        "create_time": 1791970762.070325
+      }
+    }
+  }
+}

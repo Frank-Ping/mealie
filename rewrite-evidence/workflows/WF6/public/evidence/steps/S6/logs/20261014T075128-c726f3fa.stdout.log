@@ -1,0 +1,13 @@
+{
+  "S5": {
+    "status": "exact_reported",
+    "input_tokens": 5656914,
+    "cached_input_tokens": 5552256,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 27523,
+    "reasoning_output_tokens": 7181,
+    "total_tokens": 5684437,
+    "final_reply_included": true,
+    "coverage_notes": []
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2686,
+    "byte_offset": 7460739,
+    "timestamp": "2026-10-14T04:53:31.013Z",
+    "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf0aba87b4819181b211e6bd1c317c",
+      "status": "completed",
+      "call_id": "call_15a0c5eb9896472e92ed388f99562264",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 -B wf6-rerun-20261014-01/wf6-evidence/usage/record_command.py --stage S3 --cwd '<WORKSPACE>/wf6-rerun-20261014-01' --label S3-commit-browser-accepted-coexistence-source -- git -C mealie-wf6-coexist commit -m '[WF6-S3] Prove real Vue React navigation and session boundaries'\",\"yield_time_ms\":1000,\"max_output_tokens\":700}));\ntext(await tools.exec_command({cmd:\"python3 - <<'PY'\\nfrom pathlib import Path\\np=Path('wf6-rerun-20261014-01/wf6-evidence/usage/postcommit_s2.py');s=p.read_text().replace('from finish_s2 import SOURCE,EVALUATOR,STAGE,EVIDENCE,git,write','from finish_s2 import SOURCE,EVALUATOR,EVIDENCE,git,write\\\\nfrom finish_s3 import STAGE').replace('accepted S2','accepted S3').replace(\\\"stage_id='S2'\\\",\\\"stage_id='S3'\\\").replace('(`\\\\u005bWF6-S2\\\\u005d`)','(`[WF6-S3]`)').replace(\\\"'All-Vue S2 PASS, first acceptance, zero repairs. S1 partial usage and 318 FAIL diagnostics retained. Stop; S3 not executed.'\\\",\\\"'S3 coexistence skeleton PASS, zero shared source repair rounds used. Keep S1 partial and diagnostic FAIL. Stop; S4 not executed.'\\\")\\na=s.index('expected=[');b=s.index('\\\\nchanged=',a)\\ns=s[:a]+\\\"expected=['frontend-react-wf6/.gitignore','frontend-react-wf6/index.html','frontend-react-wf6/package.json','frontend-react-wf6/package-lock.json','frontend-react-wf6/src/main.tsx','frontend-react-wf6/tsconfig.json','frontend-react-wf6/vite.config.ts','frontend/app/middleware/wf6-boundary.global.ts','wf6/gateway.mjs','wf6/gateway.test.mjs','wf6/route-map.json','wf6/route-policy.mjs','wf6/route-policy.d.mts','wf6/route-policy.test.mjs','rewrite-evidence/workflows/WF6/S3-RESULT.md']\\\"+s[b:]\\ns=s.replace(\\\"assert hashlib.sha256((SOURCE/'wf6/route-map.json').read_bytes()).hexdigest()==served['route_map_sha256']\\\",\\\"assert hashlib.sha256((SOURCE/'wf6/route-map.json').read_bytes()).hexdigest()==served['route_map_sha256']\\\\nassert hashlib.sha256((SOURCE/'wf6/route-policy.mjs').read_bytes()).hexdigest()==served['route_policy_sha256']\\\\nfor record in json.loads((STAGE/'build-artifacts.json').read_text())['react_source_files']:\\\\n    assert hashlib.sha256((SOURCE/record['path']).read_bytes()).hexdigest()==record['sha256'], record['path']\\\")\\ns=s.replace('Vue build source HEAD remains its actual pre-S2 build SHA. Gateway/route-map byte hashes tested match committed files.','Both frontend build/source hashes remain their tested identities. All React source and gateway/map/policy byte hashes match the accepted commit.')\\nPath('wf6-rerun-20261014-01/wf6-evidence/usage/postcommit_s3.py').write_text(s)\\nPY\",\"max_output_tokens\":200}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+        "create_time": 1791953594.5327082
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2689,
+    "byte_offset": 7469798,
+    "timestamp": "2026-10-14T04:53:32.341Z",
+    "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a138c2-2e34-7670-9533-67a4c283e493",
+      "call_id": "call_15a0c5eb9896472e92ed388f99562264",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 1.3 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"714763\",\"wall_time_seconds\":1.000362189,\"session_id\":47872,\"original_token_count\":0,\"output\":\"\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"8f02fe\",\"wall_time_seconds\":0.000010386,\"exit_code\":0,\"original_token_count\":0,\"output\":\"\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+        "create_time": 1791953612.340964
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+✔ list search encodes real query/pagination; clear search removes the filter (1.264895ms)
+✔ ingredient display, original text, structured quantity/unit/food/note and zero fallback (0.119091ms)
+✔ recipe links encode group and slug rather than concatenating unsafe segments (0.073272ms)
+✔ list adapter verifies identity before requesting owned data (33.88568ms)
+✔ changed identity refuses recipe request rather than showing a new group (0.992091ms)
+✔ foreign recipe group is rejected even after a valid self response (1.051194ms)
+✔ detail slug is URL encoded and group ownership validated (1.042097ms)
+✔ 401 is a session failure and 404 remains an explicit detail error (0.61342ms)
+✔ comment submission trims input, rechecks ownership/disable policy, and returns only server-saved content (0.774317ms)
+✔ household or recipe comment-disable conditions refuse POST (0.714043ms)
+✔ closing the session cancels pending requests and excludes late responses and later writes (0.277381ms)
+✔ comment reading uses the slug endpoint, while returned comments retain the real recipe ID (0.29163ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 185.002188

@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3001,
+    "byte_offset": 8591846,
+    "timestamp": "2026-10-14T06:36:43.046Z",
+    "turn_id": "01a13905-d942-7e23-8387-48f7946bf050",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf22f8f35c8191a520af772a9963e3",
+      "status": "completed",
+      "call_id": "call_4d219e9a379e43c69736f596ee1011ba",
+      "name": "exec",
+      "input": "text(await tools.write_stdin({session_id:39001,chars:\"\",yield_time_ms:1000,max_output_tokens:2000}));\ntext(await tools.exec_command({cmd:\"sed -n '1,240p' wf6-rerun-20261014-01/wf6-evidence/usage/postcommit_s3.py\",\"max_output_tokens\":5000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13905-d942-7e23-8387-48f7946bf050",
+        "create_time": 1791959800.9763365
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3004,
+    "byte_offset": 8597930,
+    "timestamp": "2026-10-14T06:36:43.185Z",
+    "turn_id": "01a13905-d942-7e23-8387-48f7946bf050",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13920-a531-7c53-9e59-3ec0ab3fe2a8",
+      "call_id": "call_4d219e9a379e43c69736f596ee1011ba",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.1 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"8fcf65\",\"wall_time_seconds\":0.000012773,\"exit_code\":0,\"original_token_count\":214,\"output\":\"{\\\"command_id\\\": \\\"20261014T063400-d3e9b737\\\", \\\"stage_id\\\": \\\"S4\\\", \\\"label\\\": \\\"S4-commit-real-read-only-recipe-pilot\\\", \\\"argv\\\": [\\\"git\\\", \\\"-C\\\", \\\"mealie-wf6-coexist\\\", \\\"commit\\\", \\\"-m\\\", \\\"[WF6-S4] Implement and verify real scoped read-only recipes\\\"], \\\"cwd\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01\\\", \\\"start_utc\\\": \\\"2026-10-14T06:34:00.092100+00:00\\\", \\\"end_utc\\\": \\\"2026-10-14T06:34:01.546301+00:00\\\", \\\"duration_seconds\\\": 1.4542051200005517, \\\"exit_code\\\": 0, \\\"stdout\\\": \\\"steps/S4/logs/20261014T063400-d3e9b737.stdout.log\\\", \\\"stderr\\\": \\\"steps/S4/logs/20261014T063400-d3e9b737.stderr.log\\\", \\\"environment_overrides\\\": {}, \\\"permission\\\": \\\"workspace-write; network restricted; no escalation\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"674c83\",\"wall_time_seconds\":0.000010803,\"exit_code\":0,\"original_token_count\":896,\"output\":\"\\\"\\\"\\\"Capture only the accepted S3 implementation commit and clean final source states.\\\"\\\"\\\"\\nimport datetime as dt\\nimport hashlib\\nimport json\\nfrom pathlib import Path\\nfrom finish_s2 import SOURCE,EVALUATOR,EVIDENCE,git,write\\nfrom finish_s3 import STAGE\\n\\nstate_path=STAGE/'source-state.json';(STAGE/'source-state-before-commit.json').write_bytes(state_path.read_bytes())\\nstate=json.loads(state_path.read_text());head=git(SOURCE,'rev-parse','HEAD')\\nexpected=['frontend-react-wf6/.gitignore','frontend-react-wf6/index.html','frontend-react-wf6/package.json','frontend-react-wf6/package-lock.json','frontend-react-wf6/src/main.tsx','frontend-react-wf6/tsconfig.json','frontend-react-wf6/vite.config.ts','frontend/app/middleware/wf6-boundary.global.ts','wf6/gateway.mjs','wf6/gateway.test.mjs','wf6/route-map.json','wf6/route-policy.mjs','wf6/route-policy.d.mts','wf6/route-policy.test.mjs','rewrite-evidence/workflows/WF6/S3-RESULT.md']\\nchanged=git(SOURCE,'diff-tree','--no-commit-id','--name-only','-r',head).splitlines();assert sorted(changed)==sorted(expected)\\nserved=json.loads((STAGE/'served-build.json').read_text())\\nassert hashlib.sha256((SOURCE/'wf6/gateway.mjs').read_bytes()).hexdigest()==served['gateway_sha256']\\nassert hashlib.sha256((SOURCE/'wf6/route-map.json').read_bytes()).hexdigest()==served['route_map_sha256']\\nassert hashlib.sha256((SOURCE/'wf6/route-policy.mjs').read_bytes()).hexdigest()==served['route_policy_sha256']\\nfor record in json.loads((STAGE/'build-artifacts.json').read_text())['react_source_files']:\\n    assert hashlib.sha256((SOURCE/record['path']).read_bytes()).hexdigest()==record['sha256'], record['path']\\nfor role,repo in [('source',SOURCE),('evaluator',EVALUATOR)]:\\n    status=git(repo,'status','--porcelain=v1');assert not status\\n    state[role].update(actual_head=git(repo,'rev-parse','HEAD'),dirty=False,status_porcelain=status,untracked=[])\\nstate.update(postcommit_utc=dt.datetime.now(dt.timezone.utc).isoformat(),acceptance_commit=head,\\n    build_policy='Both frontend build/source hashes remain their tested identities. All React source and gateway/map/policy byte hashes match the accepted commit.')\\nwrite(state_path,state)\\nmanifest=json.loads((STAGE/'file-manifest.json').read_text());records={r['path']:r for r in manifest['source']}\\nfor name in expected:\\n    content=(SOURCE/name).read_bytes();records[name]=dict(path=name,bytes=len(content),sha256=hashlib.sha256(content).hexdigest(),symlink=False)\\nmanifest['source']=[records[k] for k in sorted(records)];manifest['postcommit_utc']=state['postcommit_utc'];write(STAGE/'file-manifest.json',manifest)\\n(STAGE/'diff-before-commit.patch').write_bytes((STAGE/'diff.patch').read_bytes())\\n(STAGE/'diff.patch').write_text('# Source tracked changes since pinned Vue input\\\\n'+git(SOURCE,'diff','--binary',state['source']['pinned_input_sha'],'HEAD')+'\\\\n# Final working source/evaluator diffs are empty.\\\\n')\\nresult=STAGE/'result.md';text=result.read_text().split('<!-- WF6-USAGE -->')[0].rstrip();result.write_text(text+f'\\\\n\\\\nAcceptance commit / 验收提交: `{head}` (`[WF6-S3]`). Gateway/map byte hashes match browser-tested inputs. Both checkouts clean; Vue/backend/evaluator frozen bytes unchanged.\\\\n')\\nwith (EVIDENCE/'decisions.jsonl').open('a') as f:f.write(json.dumps(dict(timestamp=state['postcommit_utc'],actor='agent',stage_id='S3',decision='S3 coexistence skeleton PASS, zero shared source repair rounds used. Keep S1 partial and diagnostic FAIL. Stop; S4 not executed.',commit=head))+'\\\\n')\\nprint(json.dumps(dict(commit=head,source_clean=True,evaluator_clean=True,committed_files=expected)))\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13905-d942-7e23-8387-48f7946bf050",
+        "create_time": 1791959803.1855798
+      }
+    }
+  }
+}

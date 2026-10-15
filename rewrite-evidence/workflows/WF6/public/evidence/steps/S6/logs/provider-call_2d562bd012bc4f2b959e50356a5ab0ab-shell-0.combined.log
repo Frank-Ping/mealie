@@ -1,0 +1,201 @@
+Warning: truncated output (original token count: 6717)
+Total output lines: 817
+
+[
+  {
+    "trace": "flows-auth-auth-flow-an-admin-is-offered-admin-pages-flows",
+    "documents": [
+      {
+        "url": "http://localhost:9106/login",
+        "status": 200,
+        "owner": "vue",
+        "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231"
+      },
+      {
+        "url": "http://localhost:9106/user/profile",
+        "status": 200,
+        "owner": "vue",
+        "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231"
+      },
+      {
+        "url": "http://localhost:9106/user/profile/edit",
+        "status": 200,
+        "owner": "vue",
+        "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231"
+      },
+      {
+        "url": "http://localhost:9106/user/profile/api-tokens",
+        "status": 200,
+        "owner": "vue",
+        "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231"
+      },
+      {
+        "url": "http://localhost:9106/shopping-lists",
+        "status": 200,
+        "owner": "vue",
+        "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231"
+      },
+      {
+        "url": "http://localhost:9106/reset-password",
+        "status": 200,
+        "owner": "vue",
+        "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231"
+      },
+      {
+        "url": "http://localhost:9106/register",
+        "status": 200,
+        "owner": "vue",
+        "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231"
+      },
+      {
+        "url": "http://localhost:9106/register/states",
+        "status": 200,
+        "owner": "vue",
+        "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231"
+      },
+      {
+        "url": "http://localhost:9106/login",
+        "status": 200,
+        "owner": "vue",
+        "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231"
+      },
+      {
+        "url": "http://localhost:9106/household",
+        "status": 200,
+        "owner": "vue",
+        "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231"
+      },
+      {
+        "url": "http://localhost:9106/household/webhooks",
+        "status": 200,
+        "owner": "vue",
+        "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231"
+      },
+      {
+        "url": "http://localhost:9106/household/notifiers",
+        "status": 200,
+        "owner": "vue",
+        "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231"
+      },
+      {
+        "url": "http://localhost:9106/household/members",
+        "status": 200,
+        "owner": "vue",
+        "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231"
+      },
+      {
+        "url": "http://localhost:9106/household/mealplan/settings",
+        "status": 200,
+        "owner": "vue",
+        "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231"
+      },
+      {
+        "url": "http://localhost:9106/household/mealplan/planner",
+        "status": 200,
+        "owner": "vue",
+        "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231"
+      },
+      {
+        "url": "http://local…5117 tokens truncated…1e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231"
+      },
+      {
+        "url": "http://localhost:9106/group/data/foods",
+        "status": 200,
+        "owner": "vue",
+        "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231"
+      },
+      {
+        "url": "http://localhost:9106/group/data/categories",
+        "status": 200,
+        "owner": "vue",
+        "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231"
+      },
+      {
+        "url": "http://localhost:9106/forgot-password",
+        "status": 200,
+        "owner": "vue",
+        "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231"
+      },
+      {
+        "url": "http://localhost:9106/admin",
+        "status": 200,
+        "owner": "vue",
+        "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231"
+      },
+      {
+        "url": "http://localhost:9106/admin/site-settings",
+        "status": 200,
+        "owner": "vue",
+        "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231"
+      },
+      {
+        "url": "http://localhost:9106/admin/setup",
+        "status": 200,
+        "owner": "vue",
+        "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231"
+      },
+      {
+        "url": "http://localhost:9106/admin/manage/users",
+        "status": 200,
+        "owner": "vue",
+        "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231"
+      },
+      {
+        "url": "http://localhost:9106/admin/manage/users/create",
+        "status": 200,
+        "owner": "vue",
+        "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231"
+      },
+      {
+        "url": "http://localhost:9106/admin/manage/households",
+        "status": 200,
+        "owner": "vue",
+        "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231"
+      },
+      {
+        "url": "http://localhost:9106/admin/manage/groups",
+        "status": 200,
+        "owner": "vue",
+        "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231"
+      },
+      {
+        "url": "http://localhost:9106/admin/maintenance",
+        "status": 200,
+        "owner": "vue",
+        "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231"
+      },
+      {
+        "url": "http://localhost:9106/admin/debug/parser",
+        "status": 200,
+        "owner": "vue",
+        "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231"
+      },
+      {
+        "url": "http://localhost:9106/admin/debug/openai",
+        "status": 200,
+        "owner": "vue",
+        "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231"
+      },
+      {
+        "url": "http://localhost:9106/admin/backups",
+        "status": 200,
+        "owner": "vue",
+        "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231"
+      }
+    ],
+    "self": [
+      {
+        "path": "/api/users/self",
+        "status": 200
+      },
+      {
+        "path": "/api/users/self",
+        "status": 200
+      },
+      {
+        "path": "/api/users/self",
+        "status": 200
+      }
+    ]
+  }
+]

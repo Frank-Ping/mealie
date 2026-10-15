@@ -1,0 +1,91 @@
+{
+  "updated_utc": "2026-10-14T10:03:22.644803+00:00",
+  "rows": [
+    {
+      "category": "Initialization / 初始化",
+      "status": "partial",
+      "known_usage": {
+        "input_tokens": 591306,
+        "cached_input_tokens": 504704,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 5217,
+        "reasoning_output_tokens": 737,
+        "total_tokens": 596523
+      },
+      "missing": "Unknown first cumulative boundary"
+    },
+    {
+      "category": "Extra discussion + dependency preparation / 额外讨论及依赖准备",
+      "status": "provisional",
+      "known_usage": {
+        "input_tokens": 12081364,
+        "cached_input_tokens": 11985664,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 45543,
+        "reasoning_output_tokens": 21079,
+        "total_tokens": 12126907
+      },
+      "missing": "Generic discussion export remains provisional; independently settled P1 is exact_reported. Same events, counted once."
+    },
+    {
+      "category": "S0_setup",
+      "status": "exact_reported",
+      "known_usage": {
+        "input_tokens": 3083201,
+        "cached_input_tokens": 3014528,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 37993,
+        "reasoning_output_tokens": 8014,
+        "total_tokens": 3121194
+      },
+      "missing_coverage": []
+    },
+    {
+      "category": "S1_baseline",
+      "status": "partial",
+      "known_usage": {
+        "input_tokens": 30194364,
+        "cached_input_tokens": 29885568,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 114262,
+        "reasoning_output_tokens": 61765,
+        "total_tokens": 30308626
+      },
+      "missing_coverage": [
+        "S1"
+      ]
+    },
+    {
+      "category": "S2_S6_experiment",
+      "status": "exact_reported",
+      "known_usage": {
+        "input_tokens": 63534882,
+        "cached_input_tokens": 62837760,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 262930,
+        "reasoning_output_tokens": 95238,
+        "total_tokens": 63797812
+      },
+      "missing_coverage": []
+    },
+    {
+      "category": "S7_reporting",
+      "status": "exact_reported",
+      "known_usage": {
+        "input_tokens": 3865318,
+        "cached_input_tokens": 3764480,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 21816,
+        "reasoning_output_tokens": 3555,
+        "total_tokens": 3887134
+      },
+      "missing_coverage": []
+    }
+  ],
+  "preparation_P1_status": "exact_reported",
+  "P1_already_in_extra_discussion": true,
+  "monetary_cost": null,
+  "human_review_time": null,
+  "React_or_mixed_application_coverage": null,
+  "rule": "Total=input+output; cached/reasoning are subsets. Known partial amounts are not exact totals. Old run and desktop troubleshooting are excluded; no aggregate claiming complete cost."
+}

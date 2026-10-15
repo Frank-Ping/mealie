@@ -1,0 +1,62 @@
+[
+  {
+    "sha": "06569c09ec71e75d4ecf066f0b3b5aada4da1728",
+    "subject": "[WF6-S6] Record real comment persistence and complete strict regression acceptance"
+  },
+  {
+    "sha": "6931fbd4c50cd17b0475424e01059ced5b183cfe",
+    "subject": "[WF6-S6] Separate pending drafts from server-saved comments in final authorized round"
+  },
+  {
+    "sha": "61d16716ac2699e68af20e9854aba9ca8daa00e6",
+    "subject": "[WF6-S6] Record limited extension gate failure after two repair rounds"
+  },
+  {
+    "sha": "c5f765adea3c1967d3e6326f9f328360831ab0c8",
+    "subject": "[WF6-S6] Correct comment GET slug and verify ID versus slug contract"
+  },
+  {
+    "sha": "ab032949b1375e01037842331894f72309dd80f0",
+    "subject": "[WF6-S6] Implement real logout role navigation and persisted comments"
+  },
+  {
+    "sha": "8cbba16f7b4d54e1d1c476814583197a3a40e253",
+    "subject": "[WF6-S6] Authorize limited auth navigation and comment scope extension"
+  },
+  {
+    "sha": "1d4f20c48d630474906b822c08fc713ec0234de2",
+    "subject": "[WF6-S6] Audit existing explicit Vue recovery and preserve frozen failures"
+  },
+  {
+    "sha": "e225779cadb9dde291a3aeaca1ef688c5a4905ec",
+    "subject": "[WF6-S6] Record rollback and full frozen regression with scope failures"
+  },
+  {
+    "sha": "a4487ac3e1331cd116d08dcca41cc8de23a5eb2b",
+    "subject": "[WF6-S5] Record verified journey boundaries and failure detection"
+  },
+  {
+    "sha": "b977deed0fec5de86bee28a5cacc5f99ed5ced53",
+    "subject": "[WF6-S4] Implement and verify real scoped read-only recipes"
+  },
+  {
+    "sha": "9cc5a51c34de3ef6cab4e8ff879722c4a90252e9",
+    "subject": "[WF6-S3] Prove real Vue React navigation and session boundaries"
+  },
+  {
+    "sha": "f2a2bd95327c91b85ff4c690811a4f0ab08f4c87",
+    "subject": "[WF6-S2] Add verified all-Vue same-origin gateway"
+  },
+  {
+    "sha": "f318d69d033e5269415f0b94d4beebd8d70a00dc",
+    "subject": "[WF6-S1] Record fresh frozen Vue baseline and preserved failures"
+  },
+  {
+    "sha": "955e790f86c9c4ff2d56e06b9e54d948cbf0e698",
+    "subject": "[WF6-S0] Freeze rerun inputs, coexistence contract and evidence pointers"
+  },
+  {
+    "sha": "4b9ca06b6581f7152e164ea0fd9d4da366975a79",
+    "subject": "[P0] Document measuring and let measure.sh grade apps in other checkouts"
+  }
+]

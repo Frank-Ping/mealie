@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "<WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/usage/run_s1.py", line 105, in <module>
+    if __name__=="__main__":main()
+                            ~~~~^^
+  File "<WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/usage/run_s1.py", line 81, in main
+    if args.action=="setup":setup();return
+                            ~~~~~^^
+  File "<WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/usage/run_s1.py", line 49, in setup
+    assert not (EVIDENCE/dirty["stdout"]).read_text().strip()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

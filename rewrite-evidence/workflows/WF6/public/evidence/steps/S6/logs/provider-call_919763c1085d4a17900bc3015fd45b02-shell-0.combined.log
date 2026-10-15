@@ -1,0 +1,128 @@
+{'routes': {'total': 66, 'passed': 66, 'failed': 0, 'skipped': 0, 'flaky': 0}, 'flows': {'total': 15, 'passed': 11, 'failed': 4, 'skipped': 0, 'flaky': 0}, 'guard': {'total': 1, 'passed': 1, 'failed': 0, 'skipped': 0, 'flaky': 0}}
+FAIL [flow] log out ends the session
+FAIL [flow] a regular member is not offered admin pages
+FAIL [flow] an admin is offered admin pages
+FAIL [flow] comment on a recipe and see it after reload
+flows-auth-auth-flow-a-reg-15752--is-not-offered-admin-pages-flows
+# Error details
+
+```
+Test timeout of 45000ms exceeded.
+```
+
+```
+Error: locator.click: Test timeout of 45000ms exceeded.
+Call log:
+  - waiting for getByText('Settings', { exact: true }).visible().first()
+
+```
+
+
+
+
+```yaml
+- main [ref=f2e3]:
+  - generic [ref=f2e5]:
+    - alert [ref=f2e6]:
+      - generic [ref=f2e10]: Read-only recipes. Editing and other features remain available through the Vue entry.
+    - generic [ref=f2e11]:
+      - paragraph [ref=f2e12]: Authenticated as E2E Member
+      - paragraph [ref=f2e13]: "Group: home"
+    - generic [ref=f2e14]:
+      - heading "Recipes" [level=1] [ref=f2e15]
+      - generic [ref=f2e16]:
+        - generic: Search...
+        - generic [ref=f2e17]:
+          - t
+flows-auth-auth-flow-an-admin-is-offered-admin-pages-flows
+# Error details
+
+```
+Test timeout of 45000ms exceeded.
+```
+
+```
+Error: locator.click: Test timeout of 45000ms exceeded.
+Call log:
+  - waiting for getByText('Settings', { exact: true }).visible().first()
+
+```
+
+
+
+
+```yaml
+- main [ref=f2e3]:
+  - generic [ref=f2e5]:
+    - alert [ref=f2e6]:
+      - generic [ref=f2e10]: Read-only recipes. Editing and other features remain available through the Vue entry.
+    - generic [ref=f2e11]:
+      - paragraph [ref=f2e12]: Authenticated as E2E Admin
+      - paragraph [ref=f2e13]: "Group: home"
+    - generic [ref=f2e14]:
+      - heading "Recipes" [level=1] [ref=f2e15]
+      - generic [ref=f2e16]:
+        - generic: Search...
+        - generic [ref=f2e17]:
+          - te
+flows-auth-auth-flow-log-out-ends-the-session-flows
+# Error details
+
+```
+Test timeout of 45000ms exceeded.
+```
+
+```
+Error: locator.click: Test timeout of 45000ms exceeded.
+Call log:
+  - waiting for getByRole('button', { name: 'Logout' })
+
+```
+
+
+
+
+```yaml
+- main [ref=f1e3]:
+  - generic [ref=f1e5]:
+    - alert [ref=f1e6]:
+      - generic [ref=f1e10]: Read-only recipes. Editing and other features remain available through the Vue entry.
+    - generic [ref=f1e11]:
+      - paragraph [ref=f1e12]: Authenticated as E2E Admin
+      - paragraph [ref=f1e13]: "Group: home"
+    - generic [ref=f1e14]:
+      - heading "Recipes" [level=1] [ref=f1e15]
+      - generic [ref=f1e16]:
+        - generic: Search...
+        - generic [ref=f1e17]:
+          - te
+flows-recipes-recipes-flow-a3d3d-ipe-and-see-it-after-reload-flows
+# Error details
+
+```
+Test timeout of 45000ms exceeded.
+```
+
+```
+Error: locator.fill: Test timeout of 45000ms exceeded.
+Call log:
+  - waiting for getByRole('textbox', { name: 'Join the Conversation' })
+
+```
+
+
+
+
+```yaml
+- main [ref=e3]:
+  - generic [ref=e5]:
+    - alert [ref=e6]:
+      - generic [ref=e10]: Read-only recipes. Editing and other features remain available through the Vue entry.
+    - generic [ref=e11]:
+      - paragraph [ref=e12]: Authenticated as E2E Admin
+      - paragraph [ref=e13]: "Group: home"
+    - generic [ref=e14]:
+      - link "Back" [ref=e15] [cursor=pointer]:
+        - /url: /g/home
+      - heading "E2E Garden Salad" [level=1] [ref=e16]
+      - heading "Ingredients" [level=2] 

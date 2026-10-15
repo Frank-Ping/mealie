@@ -1,0 +1,11 @@
+{
+  "created_utc": "2026-10-14T03:49:06.421585+00:00",
+  "run_id": "wf6-rerun-20261014-01",
+  "stage_id": "S1",
+  "native_root": "/tmp/wf6-rerun-20261014-01-S1-native2",
+  "static_dir": "/tmp/wf6-rerun-20261014-01-S1-native2/static",
+  "build_hash": "51e1fc21edd74fdb002a57a5e11b8085932a0898945685edb45177aece86d733",
+  "verified_files": 530,
+  "scope": "Identical accepted build bytes and fresh runtime outputs only. No application source or evaluator assertion changes.",
+  "hypothesis": "First traces show prolonged resource transfers and incomplete modules at frozen assertion deadlines. Native filesystem placement is an environment-only diagnostic, not a proven causal claim."
+}

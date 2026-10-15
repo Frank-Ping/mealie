@@ -1,0 +1,40 @@
+164:class UserIn(UserBase):
+165-    username: str
+166-    full_name: str
+167-    password: str
+168-
+169-
+170-class UserOut(UserBase):
+171-    id: UUID4
+172-    group: str
+173-    group_id: UUID4
+174-    group_slug: str
+175-    household: str
+176-    household_id: UUID4
+177-    household_slug: str
+178-    tokens: list[LongLiveTokenOut] | None = None
+179-    cache_key: str
+180-    model_config = ConfigDict(from_attributes=True)
+181-
+182-    @property
+183-    def is_default_user(self) -> bool:
+184-        return self.email == settings._DEFAULT_EMAIL.strip().lower()
+185-
+186-    @classmethod
+187-    def loader_options(cls) -> list[LoaderOption]:
+188-        return [joinedload(User.group), joinedload(User.household), joinedload(User.tokens)]
+189-
+190-
+191-class UserSummary(MealieModel):
+192-    id: UUID4
+193-    group_id: UUID4
+194-    household_id: UUID4
+195-    username: str
+196-    full_name: str
+error: unexpected argument '-1' found
+
+  tip: to pass '-1' as a value, use '-- -1'
+
+Usage: tail [FLAG]... [FILE]...
+
+For more information, try '--help'.

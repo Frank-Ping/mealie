@@ -1,0 +1,7 @@
+{
+  "source": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+  "turn_id": "01a1380b-3c88-7c01-a26b-59bb242a5d88",
+  "entries": 122,
+  "note": "Available original user, visible assistant and tool items only. No analysis/system/developer messages. Bootstrap exact tool events are retained; absent split stdout/stderr or UTC subprocess boundaries are not invented.",
+  "final_reply_included": true
+}

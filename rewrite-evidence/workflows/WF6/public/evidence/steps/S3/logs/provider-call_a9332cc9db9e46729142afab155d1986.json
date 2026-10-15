@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2696,
+    "byte_offset": 7484544,
+    "timestamp": "2026-10-14T04:54:03.658Z",
+    "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf0ae826b48191a67f47c27715c08d",
+      "status": "completed",
+      "call_id": "call_a9332cc9db9e46729142afab155d1986",
+      "name": "exec",
+      "input": "text(await tools.write_stdin({session_id:47872,chars:\"\",yield_time_ms:1000,max_output_tokens:750}));\ntext(await tools.exec_command({cmd:\"python3 -B wf6-rerun-20261014-01/wf6-evidence/usage/record_command.py --stage S3 --cwd '<WORKSPACE>/wf6-rerun-20261014-01' --label S3-verify-acceptance-commit-source-hashes-and-clean-checkouts -- python3 -B wf6-evidence/usage/postcommit_s3.py\",\"yield_time_ms\":1000,\"max_output_tokens\":700}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+        "create_time": 1791953640.154083
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2698,
+    "byte_offset": 7486349,
+    "timestamp": "2026-10-14T04:54:04.867Z",
+    "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a138c2-ad43-7952-bd6a-eef0c35c560a",
+      "call_id": "call_a9332cc9db9e46729142afab155d1986",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 1.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"31f77c\",\"wall_time_seconds\":0.00001111,\"exit_code\":0,\"original_token_count\":217,\"output\":\"{\\\"command_id\\\": \\\"20261014T045331-15de0a1c\\\", \\\"stage_id\\\": \\\"S3\\\", \\\"label\\\": \\\"S3-commit-browser-accepted-coexistence-source\\\", \\\"argv\\\": [\\\"git\\\", \\\"-C\\\", \\\"mealie-wf6-coexist\\\", \\\"commit\\\", \\\"-m\\\", \\\"[WF6-S3] Prove real Vue React navigation and session boundaries\\\"], \\\"cwd\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01\\\", \\\"start_utc\\\": \\\"2026-10-14T04:53:31.276295+00:00\\\", \\\"end_utc\\\": \\\"2026-10-14T04:53:32.717133+00:00\\\", \\\"duration_seconds\\\": 1.4408542730016052, \\\"exit_code\\\": 0, \\\"stdout\\\": \\\"steps/S3/logs/20261014T045331-15de0a1c.stdout.log\\\", \\\"stderr\\\": \\\"steps/S3/logs/20261014T045331-15de0a1c.stderr.log\\\", \\\"environment_overrides\\\": {}, \\\"permission\\\": \\\"workspace-write; network restricted; no escalation\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"fc0017\",\"wall_time_seconds\":1.001302094,\"session_id\":64989,\"original_token_count\":0,\"output\":\"\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+        "create_time": 1791953644.867495
+      }
+    }
+  }
+}

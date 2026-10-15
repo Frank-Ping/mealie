@@ -1,0 +1,16 @@
+commit 758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d
+Author:     Deeumiya Huang <Abyukuri@gmail.com>
+AuthorDate: Sat Oct 10 16:14:58 2026 +1300
+Commit:     Deeumiya Huang <Abyukuri@gmail.com>
+CommitDate: Sat Oct 10 16:14:58 2026 +1300
+
+    [eval] Translate Chinese passages in evidence into English
+    
+    The report is in English, so the Chinese parts of the WF1/WF2 transcripts
+    (human messages and the agent's replies) are translated, with a note at
+    the top of each affected file. "continue" stands for the Chinese keyword
+    the human typed; the WF2 prompt file and WORKFLOW_METRICS.md say so too.
+    Code, file names, commands and hashes are unchanged; three lines quoting
+    Mealie's own locale list keep the original language name.
+    
+    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>

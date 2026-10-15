@@ -1,0 +1,20 @@
+  id: string;
+}
+export interface GroupRecipeActionPayload {
+  action: GroupRecipeActionOut;
+  content: unknown;
+  recipeScale: number;
+}
+export interface HouseholdCreate {
+  groupId?: string | null;
+  name: string;
+}
+export interface HouseholdInDB {
+  groupId: string;
+  name: string;
+  id: string;
+  slug: string;
+  preferences?: ReadHouseholdPreferences | null;
+  group: string;
+  users?: HouseholdUserSummary[] | null;
+  webhooks?: ReadWebhook[];

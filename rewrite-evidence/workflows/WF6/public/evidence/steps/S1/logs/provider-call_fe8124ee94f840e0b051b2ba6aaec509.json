@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2039,
+    "byte_offset": 5811673,
+    "timestamp": "2026-10-14T03:57:58.587Z",
+    "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acefdc23fac81919e70d2e25e3f39e6",
+      "status": "completed",
+      "call_id": "call_fe8124ee94f840e0b051b2ba6aaec509",
+      "name": "exec",
+      "input": "text(await tools.write_stdin({session_id:14127,chars:\"\",yield_time_ms:1000,max_output_tokens:800}));\ntext(await tools.exec_command({cmd:\"python3 - <<'PY'\\nimport pathlib,json\\nb=pathlib.Path('wf6-rerun-20261014-01/wf6-evidence');s=json.loads((b/'steps/S1/token-usage.json').read_text());print(json.dumps({k:s[k] for k in ['status','input_tokens','cached_input_tokens','output_tokens','reasoning_output_tokens','total_tokens','final_reply_included','coverage_notes']}));print('index',json.loads((b/'usage/index-validation.json').read_text()));print('manifest', (b/'evidence-manifest.json').stat().st_mtime)\\nPY\",\"max_output_tokens\":1000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+        "create_time": 1791950274.2556376
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2042,
+    "byte_offset": 5815587,
+    "timestamp": "2026-10-14T03:57:58.775Z",
+    "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a1388f-5077-76c3-8923-7a50cc5af6ad",
+      "call_id": "call_fe8124ee94f840e0b051b2ba6aaec509",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"fd48a0\",\"wall_time_seconds\":0.000011227,\"exit_code\":0,\"original_token_count\":212,\"output\":\"{\\\"command_id\\\": \\\"20261014T035719-978cd37a\\\", \\\"stage_id\\\": \\\"S1\\\", \\\"label\\\": \\\"S1-final-provisional-provider-export\\\", \\\"argv\\\": [\\\"python3\\\", \\\"-B\\\", \\\"wf6-evidence/usage/collect_usage.py\\\", \\\"finalize\\\", \\\"--stage\\\", \\\"S1\\\", \\\"--wait-seconds\\\", \\\"0\\\"], \\\"cwd\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01\\\", \\\"start_utc\\\": \\\"2026-10-14T03:57:19.727897+00:00\\\", \\\"end_utc\\\": \\\"2026-10-14T03:57:33.436050+00:00\\\", \\\"duration_seconds\\\": 13.708162480001192, \\\"exit_code\\\": 0, \\\"stdout\\\": \\\"steps/S1/logs/20261014T035719-978cd37a.stdout.log\\\", \\\"stderr\\\": \\\"steps/S1/logs/20261014T035719-978cd37a.stderr.log\\\", \\\"environment_overrides\\\": {}, \\\"permission\\\": \\\"workspace-write; network restricted; no escalation\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"8fe033\",\"wall_time_seconds\":0.000013365,\"exit_code\":0,\"original_token_count\":82,\"output\":\"{\\\"status\\\": \\\"provisional\\\", \\\"input_tokens\\\": 29753795, \\\"cached_input_tokens\\\": 29447552, \\\"output_tokens\\\": 113344, \\\"reasoning_output_tokens\\\": 61569, \\\"total_tokens\\\": 29867139, \\\"final_reply_included\\\": false, \\\"coverage_notes\\\": []}\\nindex {'timestamp': '2026-10-14T03:57:20.676798+00:00', 'missing_links': []}\\nmanifest 1791950253.4239163\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+        "create_time": 1791950278.7752452
+      }
+    }
+  }
+}

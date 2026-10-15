@@ -1,0 +1,162 @@
+{
+  "stage_id": "S0",
+  "status": "provisional",
+  "session_id": "01a137ea-f571-70f0-8cf3-7b8560c420bf",
+  "turn_ids": [
+    "01a137f3-c2d3-7db0-9623-6d33961b39eb"
+  ],
+  "segments": [
+    {
+      "session_id": "01a137ea-f571-70f0-8cf3-7b8560c420bf",
+      "turn_id": "01a137f3-c2d3-7db0-9623-6d33961b39eb",
+      "boundary": {
+        "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+        "line": 104,
+        "byte_offset": 886375,
+        "stage_id": "S0",
+        "action": "START",
+        "session_id": "01a137ea-f571-70f0-8cf3-7b8560c420bf",
+        "turn_id": "01a137f3-c2d3-7db0-9623-6d33961b39eb",
+        "user_message_id": "msg_01a137f3-c308-7400-b27e-520081c5b978",
+        "actual_prompt": "[[WF6:S0:START]]\n\n正式启动 wf6-rerun-20261014-01 的 S0。\n按已读取的 S0 中文 prompt、共同契约和交接要求执行。\n\n本条实际请求为新 S0 token 起点；\n初始化 preparation 单列，保留旧失败证据和计量边界。\n\n先处理初始化发现的 Git 父对象缺失及 git show 报错，\n核实冻结来源与内容；验证完成前不得标记 gate 通过。\n\n保留原始日志，新增技术说明使用英文，\n阶段结果提供中英文对照，并建立独立 token collector。\n\n仅执行 S0，结束后停止，不自动进入 S1。",
+        "timestamp": "2026-10-14T01:08:04.488Z"
+      },
+      "start_event": {
+        "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+        "line": 94,
+        "byte_offset": 866364,
+        "timestamp": "2026-10-14T01:04:40.612Z",
+        "payload": {
+          "thread_id": "01a137ea-f571-70f0-8cf3-7b8560c420bf",
+          "turn_id": "01a137ee-6528-7671-a838-3b0c0ef54c8b",
+          "session_id": "01a137ea-f571-70f0-8cf3-7b8560c420bf",
+          "root_turn_id": "01a137ee-6528-7671-a838-3b0c0ef54c8b",
+          "response_id": "resp_0aed6ad8672e0512016aced507f1a881918ba4da0654a5b0e6",
+          "usage": {
+            "input_tokens": 97177,
+            "cached_input_tokens": 95232,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 1265,
+            "reasoning_output_tokens": 240,
+            "total_tokens": 98442
+          },
+          "turn_token_usage": {
+            "input_tokens": 591306,
+            "cached_input_tokens": 504704,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 5217,
+            "reasoning_output_tokens": 737,
+            "total_tokens": 596523
+          },
+          "thread_token_usage": {
+            "input_tokens": 591306,
+            "cached_input_tokens": 504704,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 5217,
+            "reasoning_output_tokens": 737,
+            "total_tokens": 596523
+          }
+        }
+      },
+      "end_event": {
+        "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+        "line": 279,
+        "byte_offset": 1528364,
+        "timestamp": "2026-10-14T01:24:15.500Z",
+        "payload": {
+          "thread_id": "01a137ea-f571-70f0-8cf3-7b8560c420bf",
+          "turn_id": "01a137f3-c2d3-7db0-9623-6d33961b39eb",
+          "session_id": "01a137ea-f571-70f0-8cf3-7b8560c420bf",
+          "root_turn_id": "01a137f3-c2d3-7db0-9623-6d33961b39eb",
+          "response_id": "resp_0aed6ad8672e0512016aced99c564881918608e70ea6ac8e5b",
+          "usage": {
+            "input_tokens": 160199,
+            "cached_input_tokens": 157696,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 1181,
+            "reasoning_output_tokens": 516,
+            "total_tokens": 161380
+          },
+          "turn_token_usage": {
+            "input_tokens": 2921248,
+            "cached_input_tokens": 2854528,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 37401,
+            "reasoning_output_tokens": 7846,
+            "total_tokens": 2958649
+          },
+          "thread_token_usage": {
+            "input_tokens": 3512554,
+            "cached_input_tokens": 3359232,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 42618,
+            "reasoning_output_tokens": 8583,
+            "total_tokens": 3555172
+          }
+        }
+      },
+      "cumulative_delta": {
+        "input_tokens": 2921248,
+        "cached_input_tokens": 2854528,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 37401,
+        "reasoning_output_tokens": 7846,
+        "total_tokens": 2958649
+      },
+      "usage": {
+        "input_tokens": 2921248,
+        "cached_input_tokens": 2854528,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 37401,
+        "reasoning_output_tokens": 7846,
+        "total_tokens": 2958649
+      },
+      "response_ids": [
+        "resp_0aed6ad8672e0512016aced5f47fd881918710d2ccef157b67",
+        "resp_0aed6ad8672e0512016aced604dd088191862b595958d7cdcf",
+        "resp_0aed6ad8672e0512016aced6164aa48191bdd65d5693bd7d57",
+        "resp_0aed6ad8672e0512016aced62e725081919759acdccad14f65",
+        "resp_0aed6ad8672e0512016aced648c4308191a5029754ecbd4ae7",
+        "resp_0aed6ad8672e0512016aced6814cb081918eb148d76817f222",
+        "resp_0aed6ad8672e0512016aced69e65a48191b615c764bd5b153d",
+        "resp_0aed6ad8672e0512016aced71dbce88191bddec60dbd170096",
+        "resp_0aed6ad8672e0512016aced73177b0819192a5957d78442568",
+        "resp_0aed6ad8672e0512016aced77cee10819184f6e4b73d191d69",
+        "resp_0aed6ad8672e0512016aced79a3cdc8191b58ba932b6da5056",
+        "resp_0aed6ad8672e0512016aced7a810448191b2eb2e3d9cbf204c",
+        "resp_0aed6ad8672e0512016aced7fa0c54819199d0b570728d8f0c",
+        "resp_0aed6ad8672e0512016aced8072d8881918141d51c105f3c39",
+        "resp_0aed6ad8672e0512016aced88753288191b394a5a3cb17def9",
+        "resp_0aed6ad8672e0512016aced8bb96088191b7de265f92b7102c",
+        "resp_0aed6ad8672e0512016aced8c5e5288191ba83b88dbece42d0",
+        "resp_0aed6ad8672e0512016aced8db93988191b9197ff9c0fe5c41",
+        "resp_0aed6ad8672e0512016aced8f22a7c8191b400931f3e6ec5bd",
+        "resp_0aed6ad8672e0512016aced940bdfc8191a000adf6d0fe8697",
+        "resp_0aed6ad8672e0512016aced96394ac8191a824a7b6fa31c2d8",
+        "resp_0aed6ad8672e0512016aced99c564881918608e70ea6ac8e5b"
+      ],
+      "final_reply_included": false,
+      "final_event": null,
+      "complete_event": null
+    }
+  ],
+  "input_tokens": 2921248,
+  "cached_input_tokens": 2854528,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 37401,
+  "reasoning_output_tokens": 7846,
+  "total_tokens": 2958649,
+  "known_partial_usage": {
+    "input_tokens": 2921248,
+    "cached_input_tokens": 2854528,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 37401,
+    "reasoning_output_tokens": 7846,
+    "total_tokens": 2958649
+  },
+  "final_reply_included": false,
+  "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+  "coverage_notes": [],
+  "cost": null,
+  "cache_write_semantics": "Observed separately; not added to total."
+}

@@ -1,0 +1,33 @@
+  ✘  15 [routes] › tests/routes.spec.ts:37:9 › admin › [route] admin/site-settings.vue (17.6s)
+  ✘  16 [routes] › tests/routes.spec.ts:37:9 › anonymous › [route] forgot-password.vue (16.1s)
+  ✘  17 [routes] › tests/routes.spec.ts:37:9 › anonymous › [route] login.vue (17.0s)
+  ✘  18 [routes] › tests/routes.spec.ts:37:9 › anonymous › [route] register/index.vue (18.2s)
+  ✘  19 [routes] › tests/routes.spec.ts:37:9 › anonymous › [route] reset-password.vue (15.6s)
+  ✘  20 [routes] › tests/routes.spec.ts:37:9 › anonymous › [route] g/[groupSlug]/shared/r/[id].vue (18.7s)
+  ✘  21 [routes] › tests/routes.spec.ts:37:9 › admin › [route] index.vue (13.5s)
+  ✘  22 [routes] › tests/routes.spec.ts:37:9 › admin › [route] g/[groupSlug]/index.vue (17.7s)
+13:3. S0 会要求建立 `WF6-CONTRACT.md`。S1–S7 每次先读它，再执行本步；因此不要跳过 S0。
+14:   S0 creates `WF6-CONTRACT.md`. S1–S7 read this contract before execution; do not skip S0.
+27:| S1 | 新环境 Vue baseline Fresh Vue baseline | 构建与冻结浏览器检查可复现；原有类型错误单列 |
+35:八步将原 `WF6-plan.md` 的阶段进一步拆开。S3/S4 属于原计划的 React 共存与实现阶段，共用最多两轮源码修复额度；不要因拆分 prompt 增加修复上限。S2–S6 的模型执行与工具等待时间合计最多三小时；依赖准备、S1 baseline、人工停顿和 S7 报告整理另列。此预算用于停止实验，不保证完成。
+37:The eight prompts expand the phases in `WF6-plan.md`. S3/S4 share the original React implementation phase's maximum of two source-repair rounds. Splitting prompts must not increase the repair allowance. S2–S6 share a three-hour execution budget including tool waits; dependency preparation, S1 baseline, pauses between user prompts and S7 reporting are recorded separately.
+41:S0 要将以下要求写入实验中的 `rewrite-evidence/workflows/WF6/WF6-CONTRACT.md`。S1–S7 的两种语言版本均引用同一份契约。
+43:S0 writes these requirements into the experiment's `rewrite-evidence/workflows/WF6/WF6-CONTRACT.md`. Both language versions of S1–S7 use the same contract.
+89:原始包和全局索引位于兄弟目录 `wf6-evidence/`，不能从实验 checkout 直接提交。可提交的 `BASELINE.md`、`comparison-baseline.json`、阶段小结、`WF6-RESULTS.md`、`WF6-REPORT-MATERIAL.md` 和索引指针放在 `mealie-wf6-coexist/rewrite-evidence/workflows/WF6/`，链接外部原始证据。`[WF6-Sn]` 提交只包含 checkout 内的实现与这些小型文件。不要为提交兄弟目录而在整个工作区根目录初始化 Git。
+91:Raw bundles and the global index live in sibling `wf6-evidence/`, outside the experiment checkout's commit scope. Put committable baseline/comparison documents, step summaries, WF6-RESULTS.md, WF6-REPORT-MATERIAL.md and index pointers under `mealie-wf6-coexist/rewrite-evidence/workflows/WF6/`, linking to external raw evidence. `[WF6-Sn]` commits include only checkout implementation and these small documents. Do not initialize Git in the parent workspace to capture sibling evidence.
+117:- 最终汇总按互不重叠的步骤和额外讨论区间计算；分别报告 S0 准备、S1 baseline、S2–S6 实验、S7 报告整理。已知部分与缺失部分分开。
+118:  Sum disjoint windows and separate preparation, baseline, experiment, reporting and any extra discussion. Report known usage and missing coverage separately.
+217:## S1 建立新的 Vue baseline Establish a fresh Vue baseline
+222:[[WF6:S1:START]]
+223:执行 S1。先读 WF6-CONTRACT.md，核实独立目录与输入，结算 S0 最后回复的
+226:在本 WF6 的独立环境中运行未修改 Vue baseline。记录 frozen install、Vue
+234:旧 baseline 的数字。覆盖率不可取得就写未提供，不补成零。
+236:baseline 无法运行时，保留环境失败和修复；不得改源码或削弱 evaluator。
+237:无法建立可信 baseline 时 gate 为 BLOCKED，停止依赖实现，可继续做 S7。
+238:如通过则写 BASELINE.md 和 comparison-baseline.json，并做 [WF6-S1] 证据提交。
+240:按共同要求整理完整 S1 证据包，记录本步 input/cached/output/reasoning/total
+242:报告 gate 后停止，结尾写 [[WF6:S1:END]]。
+248:[[WF6:S1:START]]
+249:Execute S1. Read WF6-CONTRACT.md, verify isolated paths and inputs, and settle S0's
+260:errors separately. Use observed results rather than copying an earlier baseline.
+264:the evaluator. If a credible baseline cannot be established, mark BLOCKED and stop

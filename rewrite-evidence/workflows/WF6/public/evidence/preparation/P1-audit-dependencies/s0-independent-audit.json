@@ -1,0 +1,103 @@
+{
+  "status": "exact_reported",
+  "final_reply_included": true,
+  "session_id": "01a137ea-f571-70f0-8cf3-7b8560c420bf",
+  "turn_id": "01a137f3-c2d3-7db0-9623-6d33961b39eb",
+  "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+  "source_prefix_bytes": 1778933,
+  "source_prefix_sha256": "f3f7623dbb9ddd8b54b2f70860dc6aa903c55b8a9fb53a4a962881df7d7fc1d5",
+  "start_request": {
+    "line": 104,
+    "byte_offset": 886375,
+    "timestamp": "2026-10-14T01:08:04.488Z"
+  },
+  "baseline_event": {
+    "line": 94,
+    "byte_offset": 866364,
+    "timestamp": "2026-10-14T01:04:40.612Z",
+    "thread_token_usage": {
+      "input_tokens": 591306,
+      "cached_input_tokens": 504704,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 5217,
+      "reasoning_output_tokens": 737,
+      "total_tokens": 596523
+    }
+  },
+  "final_message": {
+    "line": 286,
+    "byte_offset": 1545753,
+    "timestamp": "2026-10-14T01:24:41.690Z"
+  },
+  "final_usage": {
+    "line": 287,
+    "byte_offset": 1547791,
+    "timestamp": "2026-10-14T01:24:41.769Z",
+    "thread_token_usage": {
+      "input_tokens": 3674507,
+      "cached_input_tokens": 3519232,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 43210,
+      "reasoning_output_tokens": 8751,
+      "total_tokens": 3717717
+    }
+  },
+  "task_complete": {
+    "line": 289,
+    "byte_offset": 1549572,
+    "timestamp": "2026-10-14T01:24:41.777Z"
+  },
+  "unique_response_count": 23,
+  "duplicates": [],
+  "excluded_legacy_events": 23,
+  "foreign_turn_events": [],
+  "unique_response_sum": {
+    "input_tokens": 3083201,
+    "cached_input_tokens": 3014528,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 37993,
+    "reasoning_output_tokens": 8014,
+    "total_tokens": 3121194
+  },
+  "cumulative_difference": {
+    "input_tokens": 3083201,
+    "cached_input_tokens": 3014528,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 37993,
+    "reasoning_output_tokens": 8014,
+    "total_tokens": 3121194
+  },
+  "provider_turn_counter": {
+    "input_tokens": 3083201,
+    "cached_input_tokens": 3014528,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 37993,
+    "reasoning_output_tokens": 8014,
+    "total_tokens": 3121194
+  },
+  "original_pre_reply_snapshot": {
+    "input_tokens": 2921248,
+    "cached_input_tokens": 2854528,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 37401,
+    "reasoning_output_tokens": 7846,
+    "total_tokens": 2958649
+  },
+  "final_reply_addition": {
+    "input_tokens": 161953,
+    "cached_input_tokens": 160000,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 592,
+    "reasoning_output_tokens": 168,
+    "total_tokens": 162545
+  },
+  "input_per_response": {
+    "minimum": 99094,
+    "maximum": 161953,
+    "mean": 134052.21739130435
+  },
+  "noncached_input_tokens": 68673,
+  "cached_input_fraction": 0.9777267197305657,
+  "explanation": "Provider input counts repeated model context per response. Cached input is already included in input. These are not unique prompt/document tokens. Preparation counters are subtracted, legacy counters are excluded, and only unique attributed responses from the actual S0 turn are summed.",
+  "limitations": "Provider telemetry is audited, not independently measured billing. Costs are unavailable. This post-S0 audit turn is separately extra_discussion/preparation."
+}

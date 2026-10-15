@@ -1,0 +1,48 @@
+{"url": "http://127.0.0.1:9106/g/home?probe=auth", "method": "GET", "status": 200}
+{"url": "http://127.0.0.1:9106/api/users/self", "method": "GET", "status": 401}
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: s5-extra-tests.cjs >> [Boundary] anonymous and expired real 401 do not request recipe data
+- Location: ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S5/tests/s5-extra-tests.cjs:29:1
+
+# Error details
+
+```
+Test timeout of 45000ms exceeded.
+```
+
+```
+Error: page.waitForResponse: Test timeout of 45000ms exceeded.
+```
+
+# Page snapshot
+
+```yaml
+- main [ref=e3]:
+  - generic [ref=e5]:
+    - alert [ref=e6]:
+      - generic [ref=e10]: Read-only recipes. Editing and other features remain available through the Vue entry.
+    - alert [ref=e11]:
+      - generic [ref=e15]: Anonymous or expired session (401)
+    - link "Use explicit Vue entry" [ref=e16] [cursor=pointer]:
+      - /url: /g/home?probe=auth&wf6=vue#preserve
+    - link "Use Vue login" [ref=e17] [cursor=pointer]:
+      - /url: /login?redirect=%2Fg%2Fhome%3Fprobe%3Dauth%26wf6%3Dvue%23preserve
+```
+
+# Test source
+
+```ts
+  1  | const fs = require('node:fs');
+  2  | const path = require('node:path');
+  3  | const {test, expect} = require(process.env.WF6_PLAYWRIGHT_MODULE);
+  4  | const fixtures=()=>JSON.parse(fs.readFileSync(path.join(process.env.WF6_AUTH_DIR,'fixtures.json')));
+  5  | const save=r=>fs.appendFileSync(process.env.WF6_BROWSER_EVIDENCE,JSON.stringify(r)+'\n');
+  6  | async function login(page) {
+  7  |  await page.goto('/l

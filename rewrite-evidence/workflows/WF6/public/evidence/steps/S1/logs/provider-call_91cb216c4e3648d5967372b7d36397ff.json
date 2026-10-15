@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1207,
+    "byte_offset": 4063261,
+    "timestamp": "2026-10-14T03:01:31.033Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acef085e7048191a05681118f5a567d",
+      "status": "completed",
+      "call_id": "call_91cb216c4e3648d5967372b7d36397ff",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 -B wf6-rerun-20261014-01/wf6-evidence/usage/record_command.py --stage S1 --cwd '<WORKSPACE>/wf6-rerun-20261014-01' --label S1-Vue-actual-type-diagnostics-with-isolated-checker -- python3 -B wf6-evidence/usage/run_s1.py types\\npython3 -B wf6-rerun-20261014-01/wf6-evidence/usage/record_command.py --stage S1 --cwd '<WORKSPACE>/wf6-rerun-20261014-01' --label S1-frozen-test-listing -- python3 -B wf6-evidence/usage/run_s1.py inventory\",yield_time_ms:1000,max_output_tokens:1200}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791946885.9051595
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1209,
+    "byte_offset": 4065215,
+    "timestamp": "2026-10-14T03:01:32.208Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a1385b-a3b0-7a60-8b0c-8930c64b90b1",
+      "call_id": "call_91cb216c4e3648d5967372b7d36397ff",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 1.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"d798bc\",\"wall_time_seconds\":1.000906348,\"session_id\":64476,\"original_token_count\":0,\"output\":\"\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791946892.2088141
+      }
+    }
+  }
+}

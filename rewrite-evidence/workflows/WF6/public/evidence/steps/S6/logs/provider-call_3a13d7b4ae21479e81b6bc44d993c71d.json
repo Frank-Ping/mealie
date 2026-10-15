@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3844,
+    "byte_offset": 10958886,
+    "timestamp": "2026-10-14T08:14:51.650Z",
+    "turn_id": "01a13974-b942-7012-950c-89399b0de489",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf39f7a6148191a37d4f36daac8549",
+      "status": "completed",
+      "call_id": "call_3a13d7b4ae21479e81b6bc44d993c71d",
+      "name": "exec",
+      "input": "text(await tools.write_stdin({session_id:81345,chars:\"\",yield_time_ms:1000,max_output_tokens:1000}));\ntext(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nfrom pathlib import Path\\nimport json\\np=Path('wf6-rerun-20261014-01/wf6-evidence/steps/S6/continuation-01');print(json.loads((p/'browser/results.json').read_text())['stats']);print([{k:d.get(k) for k in ['feature','status','originalFrozenStatus','commentPostStatus','postLogout']} for d in map(json.loads,(p/'browser/requests-redacted.jsonl').read_text().splitlines())])\\nPY\",\"max_output_tokens\":1300}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13974-b942-7012-950c-89399b0de489",
+        "create_time": 1791965687.7206738
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3847,
+    "byte_offset": 10963157,
+    "timestamp": "2026-10-14T08:14:51.799Z",
+    "turn_id": "01a13974-b942-7012-950c-89399b0de489",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a1397a-7f97-7852-8a06-d0cae75ef8c4",
+      "call_id": "call_3a13d7b4ae21479e81b6bc44d993c71d",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.1 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"95dfd6\",\"wall_time_seconds\":0.000009547,\"exit_code\":0,\"original_token_count\":209,\"output\":\"{\\\"command_id\\\": \\\"20261014T081336-aedf83e6\\\", \\\"stage_id\\\": \\\"S6\\\", \\\"label\\\": \\\"S6-C1-four-existing-Vue-functions-real-browser\\\", \\\"argv\\\": [\\\"python3\\\", \\\"-B\\\", \\\"wf6-evidence/usage/run_s6_c1.py\\\"], \\\"cwd\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01\\\", \\\"start_utc\\\": \\\"2026-10-14T08:13:36.710844+00:00\\\", \\\"end_utc\\\": \\\"2026-10-14T08:14:31.386125+00:00\\\", \\\"duration_seconds\\\": 54.67528340800345, \\\"exit_code\\\": 0, \\\"stdout\\\": \\\"steps/S6/logs/20261014T081336-aedf83e6.stdout.log\\\", \\\"stderr\\\": \\\"steps/S6/logs/20261014T081336-aedf83e6.stderr.log\\\", \\\"environment_overrides\\\": {}, \\\"permission\\\": \\\"Approved bounded S6 continuation loopback backend/gateway/Chromium; sandbox retained\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"874b31\",\"wall_time_seconds\":0.000020036,\"exit_code\":0,\"original_token_count\":233,\"output\":\"{'startTime': '2026-10-14T08:14:15.699Z', 'duration': 13996.179000000002, 'expected': 4, 'skipped': 0, 'unexpected': 0, 'flaky': 0}\\n[{'feature': 'Logout', 'status': 'PASS', 'originalFrozenStatus': 'FAIL retained (no explicit entry step; expects automatic /login redirect)', 'commentPostStatus': None, 'postLogout': 'Actual Vue logout, then real React 401 and explicit Vue login; no recipe UI/no silent fallback'}, {'feature': 'Member Settings', 'status': 'PASS', 'originalFrozenStatus': 'FAIL retained (Settings queried on React list)', 'commentPostStatus': None, 'postLogout': None}, {'feature': 'Admin Settings', 'status': 'PASS', 'originalFrozenStatus': 'FAIL retained (Settings queried on React list)', 'commentPostStatus': None, 'postLogout': None}, {'feature': 'Comments', 'status': 'PASS', 'originalFrozenStatus': 'FAIL retained (textbox queried on read-only React detail)', 'commentPostStatus': 201, 'postLogout': None}]\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13974-b942-7012-950c-89399b0de489",
+        "create_time": 1791965691.7992158
+      }
+    }
+  }
+}

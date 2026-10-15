@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3688,
+    "byte_offset": 10584805,
+    "timestamp": "2026-10-14T08:04:03.861Z",
+    "turn_id": "01a13964-888e-7540-98b2-3abbc8e32d90",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf37696e4881919c4e3ff51395e7c1",
+      "status": "completed",
+      "call_id": "call_a56a6ea8d756473e9cca7a4c5346630a",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nfrom pathlib import Path\\nimport json\\np=Path('wf6-rerun-20261014-01/wf6-evidence/steps/S6');print(json.loads((p/'attribution-summary.json').read_text()));print('gate',json.loads((p/'measurements.json').read_text())['gate'])\\ntext=(p/'result.md').read_text();needle='Original exit code and failures remain unchanged; hybrid scores are not a React whole-system migration score.';rep=needle+' Frozen flows by path attribution: React 2 PASS / 1 FAIL, Vue 7 PASS / 0 FAIL, mixed 2 PASS / 3 FAIL. These disjoint counts total the 15 flows; Vue successes do not add React migrated features.\\\\n冻结 flow 按路径分列：React 2 通过/1 失败、Vue 7 通过/0 失败、混合 2 通过/3 失败，合计 15 项。';assert needle in text;(p/'result.md').write_text(text.replace(needle,rep))\\nassert json.loads((p.parent/'S5/repair-budget.json').read_text())==json.loads((p/'S5-repairs-retained.json').read_text())\\nPY\\npython3 -B wf6-rerun-20261014-01/wf6-evidence/usage/record_command.py --stage S6 --cwd '<WORKSPACE>/wf6-rerun-20261014-01' --label S6-stage-only-bilingual-result-summary -- git -C mealie-wf6-coexist add rewrite-evidence/workflows/WF6/S6-RESULT.md\",\"max_output_tokens\":1200}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13964-888e-7540-98b2-3abbc8e32d90",
+        "create_time": 1791965033.4335673
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3691,
+    "byte_offset": 10591855,
+    "timestamp": "2026-10-14T08:04:04.411Z",
+    "turn_id": "01a13964-888e-7540-98b2-3abbc8e32d90",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13970-9ebb-7951-946f-4a64d4792245",
+      "call_id": "call_a56a6ea8d756473e9cca7a4c5346630a",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.5 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"7ade1d\",\"wall_time_seconds\":0.352986208,\"exit_code\":0,\"original_token_count\":302,\"output\":\"{'flows': {'React': {'total': 3, 'passed': 2, 'failed': 1}, 'Vue': {'total': 7, 'passed': 7, 'failed': 0}, 'Mixed': {'total': 5, 'passed': 2, 'failed': 3}}, 'requested_document_owners': {'Vue': 64, 'React': 2}, 'mixed_root_index': True, 'policy': 'Vue and mixed successes are not React migration scores. Flow classification uses actual original paths and ownership.'}\\ngate FAIL\\n{\\\"command_id\\\": \\\"20261014T080404-c40360c2\\\", \\\"stage_id\\\": \\\"S6\\\", \\\"label\\\": \\\"S6-stage-only-bilingual-result-summary\\\", \\\"argv\\\": [\\\"git\\\", \\\"-C\\\", \\\"mealie-wf6-coexist\\\", \\\"add\\\", \\\"rewrite-evidence/workflows/WF6/S6-RESULT.md\\\"], \\\"cwd\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01\\\", \\\"start_utc\\\": \\\"2026-10-14T08:04:04.255544+00:00\\\", \\\"end_utc\\\": \\\"2026-10-14T08:04:04.375048+00:00\\\", \\\"duration_seconds\\\": 0.1195143509976333, \\\"exit_code\\\": 0, \\\"stdout\\\": \\\"steps/S6/logs/20261014T080404-c40360c2.stdout.log\\\", \\\"stderr\\\": \\\"steps/S6/logs/20261014T080404-c40360c2.stderr.log\\\", \\\"environment_overrides\\\": {}, \\\"permission\\\": \\\"workspace-write; network restricted; no escalation\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13964-888e-7540-98b2-3abbc8e32d90",
+        "create_time": 1791965044.411887
+      }
+    }
+  }
+}

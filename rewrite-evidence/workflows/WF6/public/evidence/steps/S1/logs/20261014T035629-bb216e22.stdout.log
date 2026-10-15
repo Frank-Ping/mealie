@@ -1,0 +1,4 @@
+[rewrite/wf6-route-coexistence f318d69] [WF6-S1] Record fresh frozen Vue baseline and preserved failures
+ 2 files changed, 121 insertions(+)
+ create mode 100644 rewrite-evidence/workflows/WF6/BASELINE.md
+ create mode 100644 rewrite-evidence/workflows/WF6/comparison-baseline.json

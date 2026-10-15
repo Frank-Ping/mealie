@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3283,
+    "byte_offset": 9538970,
+    "timestamp": "2026-10-14T07:39:21.683Z",
+    "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf319f426c8191a2feb01b826af1d0",
+      "status": "completed",
+      "call_id": "call_621220e7ea8f41529a67abb9f13cbad7",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nfrom pathlib import Path\\nimport json,datetime as dt\\np=Path('wf6-rerun-20261014-01/wf6-evidence');s=p/'steps/S5';rows=[json.loads(l) for l in (s/'commands.jsonl').read_text().splitlines()];assert not any(r['label'].startswith('S5-detection-') for r in rows)\\nf=p/'usage/s5-detection-probe.cjs';old=f.read_text();new=old.replace('// Frozen auth is localhost scoped, so this probe deliberately uses that exact origin.','// Use the same verified origin as this fresh auth state; cookies do not cross hostnames.').replace('`http://localhost:9106/g/${f.groupSlug}/r/${f.recipeSlug}`','`${process.env.WF6_GATEWAY_ORIGIN}/g/${f.groupSlug}/r/${f.recipeSlug}`');assert new!=old;f.write_text(new);Path('/tmp/wf6-rerun-20261014-01-S5-R1/tests/s5-detection-probe.cjs').write_text(new)\\nwith (s/'attempts.jsonl').open('a') as stream:stream.write(json.dumps(dict(timestamp=dt.datetime.now(dt.timezone.utc).isoformat(),classification='pre-execution_harness_origin_check',repair_round=1,scope='Unexecuted detection probe',observation='S5 fresh supplemental global setup auth cookie domain is 127.0.0.1, not localhost',fix='Probe uses WF6_GATEWAY_ORIGIN matching actual cookie domain; no credential values exported',not_an_application_failure=True))+'\\\\n')\\nPY\",\"max_output_tokens\":500}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+        "create_time": 1791963551.263016
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3286,
+    "byte_offset": 9544910,
+    "timestamp": "2026-10-14T07:39:21.915Z",
+    "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13959-ffbb-7361-bf7b-ee35d6a483ea",
+      "call_id": "call_621220e7ea8f41529a67abb9f13cbad7",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"a558cc\",\"wall_time_seconds\":0.047242178,\"exit_code\":1,\"original_token_count\":22,\"output\":\"Traceback (most recent call last):\\n  File \\\"<stdin>\\\", line 3, in <module>\\nAssertionError\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+        "create_time": 1791963561.91547
+      }
+    }
+  }
+}

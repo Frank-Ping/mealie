@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1577,
+    "byte_offset": 5038823,
+    "timestamp": "2026-10-14T03:33:05.668Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acef7f011d481918213b26bc05c87d0",
+      "status": "completed",
+      "call_id": "call_6e86a3fca0d146c088f95beb01da54c9",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"tail -2 wf6-rerun-20261014-01/wf6-evidence/steps/S1/logs/20261014T030622-9490b72b.stdout.log\",\"max_output_tokens\":400}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791948784.093544
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1580,
+    "byte_offset": 5041356,
+    "timestamp": "2026-10-14T03:33:05.798Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13878-8886-70e3-aa21-7082db07271c",
+      "call_id": "call_6e86a3fca0d146c088f95beb01da54c9",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.1 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"f3e937\",\"wall_time_seconds\":0.000016404,\"exit_code\":0,\"original_token_count\":54,\"output\":\"  ✓  70 [flows] › tests/flows/auth.spec.ts:16:7 › auth › [flow] a wrong password is rejected (35.0s)\\n  ✘  71 [flows] › tests/flows/auth.spec.ts:27:7 › auth › [flow] log out ends the session (46.2s)\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791948785.7980847
+      }
+    }
+  }
+}

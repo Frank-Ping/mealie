@@ -1,0 +1,2 @@
+  ✘  50 [routes] › tests/routes.spec.ts:37:9 › admin › [route] group/data/tags.vue (18.5s)
+  ✘  51 [routes] › tests/routes.spec.ts:37:9 › admin › [route] group/data/tools.vue (18.5s)

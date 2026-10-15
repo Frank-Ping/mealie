@@ -1,0 +1,12 @@
+ frontend-react-wf6/eslint.config.mjs        |   12 +
+ frontend-react-wf6/package-lock.json        | 1359 ++++++++++++++++++++++++++-
+ frontend-react-wf6/package.json             |   11 +-
+ frontend-react-wf6/src/api.ts               |   53 ++
+ frontend-react-wf6/src/business.test.ts     |   50 +
+ frontend-react-wf6/src/main.tsx             |   25 +-
+ frontend-react-wf6/src/model.ts             |   11 +
+ frontend-react-wf6/src/recipes.tsx          |   78 ++
+ frontend-react-wf6/src/strings.ts           |   14 +
+ frontend-react-wf6/tsconfig.json            |   30 +-
+ rewrite-evidence/workflows/WF6/S4-RESULT.md |    8 +
+ 11 files changed, 1624 insertions(+), 27 deletions(-)

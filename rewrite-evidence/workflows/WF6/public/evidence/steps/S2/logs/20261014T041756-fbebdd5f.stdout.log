@@ -1,0 +1,6 @@
+
+Running 1 test using 1 worker
+
+  ✓  1 ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S2/tests/s2-browser-tests.cjs:7:1 › real all-Vue gateway: login, list, detail, shopping list, direct URL and refresh (7.2s)
+
+  1 passed (15.6s)

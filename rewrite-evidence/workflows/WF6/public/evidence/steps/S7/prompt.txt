@@ -1,0 +1,33 @@
+[[WF6:S7:START]]
+
+执行 S7：核验现有证据，整理双语报告和最终计量。
+
+读取 AGENTS.md、WF6 契约及 S7 原始 prompt，先结算 S6
+continuation-03 最终回复的 tokens 和执行时间尾部。
+
+核对 S0–S6 的来源、提交、源码/build 哈希、原始测试和 trace、
+失败→修复→重测、实际人工决定、时间及 token 边界。
+重点记录：
+- 原 S6 FAIL、两轮修复用尽，以及明确授权追加第三轮后 PASS。
+- 评论真实 POST 201 和刷新 GET 200 的同一记录证据。
+- 完整冻结回归 66/66 routes、15/15 flows、1/1 guard。
+- React 实际迁移范围与 Vue 保留功能分别列出。
+- S1 partial、未知中断缺口及 318 条类型诊断 FAIL 保留。
+
+生成 WF6-RESULTS.md、WF6-REPORT-MATERIAL.md、
+EVIDENCE_INDEX.md 和 evidence-manifest.json。
+报告采用 Approach → What happened → Why → What we would change，
+中英文对照，关键结论链接 commit、日志或 trace。
+
+保留英文技术记录及原语言日志，不修改旧证据或原 Word 报告，
+不新增功能或实验。未提供的成本、coverage、人工审查时间
+明确标为未提供，不填零或推测。
+
+分别汇总准备、S1、S2–S6、S7 和额外讨论的用量。
+不重复累计 segments、cached 或 reasoning。
+提交 [WF6-S7] 报告与索引，检查证据链接和 manifest。
+
+回复前 S7 usage 保持 provisional，
+final_reply_included=false。
+返回实际可运行的 finalize --all 命令，然后停止。
+结束标记为 [[WF6:S7:END]]。

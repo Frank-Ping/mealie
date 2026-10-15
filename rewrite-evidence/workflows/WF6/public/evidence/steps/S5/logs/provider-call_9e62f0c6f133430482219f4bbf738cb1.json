@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3276,
+    "byte_offset": 9529466,
+    "timestamp": "2026-10-14T07:38:58.991Z",
+    "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf31902f9c8191a059e3f3a63435ab",
+      "status": "completed",
+      "call_id": "call_9e62f0c6f133430482219f4bbf738cb1",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nfrom pathlib import Path\\nimport json\\np=Path('/tmp/wf6-rerun-20261014-01-S5-R1/auth/admin.json');d=json.loads(p.read_text());print([{k:r.get(k) for k in ['name','domain','path']} for r in d['cookies']])\\nPY\",\"max_output_tokens\":500}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+        "create_time": 1791963536.1896207
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3279,
+    "byte_offset": 9532270,
+    "timestamp": "2026-10-14T07:38:59.139Z",
+    "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13959-a6c3-7a43-b54a-3588e7fb09b1",
+      "call_id": "call_9e62f0c6f133430482219f4bbf738cb1",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.1 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"a2669f\",\"wall_time_seconds\":0.000020956,\"exit_code\":0,\"original_token_count\":18,\"output\":\"[{'name': 'mealie.access_token', 'domain': '127.0.0.1', 'path': '/'}]\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+        "create_time": 1791963539.1391852
+      }
+    }
+  }
+}

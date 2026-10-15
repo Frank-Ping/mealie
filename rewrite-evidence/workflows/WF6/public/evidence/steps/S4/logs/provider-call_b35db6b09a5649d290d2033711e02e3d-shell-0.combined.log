@@ -1,0 +1,169 @@
+
+```text
+[[WF6:S4:START]]
+执行 S4。先读共同契约和 S3 结果，补齐 S3 tokens；只有共存 gate 通过才继续。
+
+在原 Vue 源码中检查两个路由及 API/types/locale 的依赖，记录源码对应关系。
+直接实现配置 group 的 React 食谱列表、搜索和只读详情。使用真实 /api/recipes
+及对应详情接口，核实用户 group；不能用当前用户数据冒充其他 group 内容。
+显示名称、配料、步骤、工具、分类、标签，并包含 loading/empty/error 状态。
+搜索必须影响真实结果，清空后恢复；食谱卡片用可键盘访问的 React Router Link。
+
+允许复用原始生成类型和确认与 Vue/Nuxt 无关的底层输入，原文件不改。
+自己实现 React 请求适配；不把 Nuxt composable 直接当 React hook，也不读取
+其他 workflow 的 React 代码。使用 en-US 原字符串，并记录未迁移模式与功能。
+编辑、评论等可以经显式 Vue 完整功能入口访问，但不能算 React 已迁移。
+
+运行 React strict types、lint、有意义的业务单元检查、build，以及冻结
+evaluator 的列表/详情 route 检查和 open/search 两个原始 flow。保存具体测试
+ID 和运行选择命令；不是整套 suite 的成绩。浏览器使用真实后端和 seeded data。
+如果原 evaluator 无法安全选择测试，完整运行并单列所需结果，不改原断言。
+
+保存原失败→修改→重测、源码对应表、移植/新增测试库存和缺失功能库存。
+S3/S4 合计最多两轮源码修复；用完即停，不降低验收标准。
+
+完成 [WF6-S4] 提交、证据和预算/token 记录；最后回复前标 provisional。
+报告业务 gate 后停止，结尾写 [[WF6:S4:END]]。
+```
+
+### English Prompt
+
+```text
+[[WF6:S4:START]]
+Execute S4. Read the common contract and S3 results, settle S3 tokens, and proceed
+only after the coexistence gate passes.
+
+Inspect the original Vue routes and API/type/locale dependencies and record the
+source-to-target mapping. Directly implement React list/search/read-only detail for
+the configured group using real /api/recipes and its detail API. Validate the user's
+group; never display their data as another group's content. Show names, ingredients,
+instructions, tools, categories and tags, with loading/empty/error states. Search
+must change real results and clear correctly. Use keyboard-accessible React Router Link components.
+
+Reuse unchanged original generated types and verified framework-independent inputs
+only. Write a React request adapter rather than treating Nuxt composables as hooks;
+do not read other workflows' React code. Use original en-US strings and inventory
+unmigrated functions/modes. Editing/commenting may use the explicit full-Vue entry,
+but must not count as React migration.
+
+Run strict React types, lint, meaningful business unit checks, build, the frozen
+list/detail route checks and the original open/search flows. Save test IDs and
+selection commands; these are selected results, not full-suite acceptance. Use the
+real backend and seeded data. If safe test selection is unavailable, run the whole
+suite and extract the relevant results without changing assertions.
+
+Preserve failure→repair→rerun evidence, source mapping, ported/new test inventory
+and missing features. S3/S4 share at most two source-repair rounds; stop at the
+import { useEffect, useState } from 'react';
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter, Link, useLocation } from 'react-router';
+import { Alert, Box, Button, Container, CssBaseline, Stack, Typography } from '@mui/material';
+import i18n from 'i18next';
+import { initReactI18next, useTranslation } from 'react-i18next';
+import { explicitVue, type RouteMap } from '../../wf6/route-policy.mjs';
+
+declare const __WF6_REACT_SOURCE__: string;
+interface Identity { id: string; groupSlug: string; fullName: string }
+type Session = { kind: 'loading' } | { kind: 'allowed'; user: Identity; map: RouteMap } | { kind: 'vue'; reason: string; map?: RouteMap };
+void i18n.use(initReactI18next).init({ lng: 'en', fallbackLng: 'en', interpolation: { escapeValue: false }, resources: { en: { translation: {
+  title: 'WF6 React coexistence probe', scope: 'Technical skeleton only. Recipe business pages are not implemented.',
+  loading: 'Checking the real session…', shopping: 'Open Vue shopping lists', list: 'Open React list probe', detail: 'Open React detail probe', vue: 'Use explicit Vue entry', login: 'Use Vue login',
+} } } });
+
+function App() {
+  const { t } = useTranslation();
+  const location = useLocation();
+  const target = location.pathname + location.search + location.hash;
+  const [session, setSession] = useState<Session>({ kind: 'loading' });
+  useEffect(() => {
+    const abort = new AbortController();
+    void (async () => {
+      const mapResponse = await fetch('/_wf6/route-map.json', { signal: abort.signal });
+      if (!mapResponse.ok) throw new Error('Route configuration unavailable');
+      const map = await mapResponse.json() as RouteMap;
+      const cookie = document.cookie.split(';').map(value => value.trim()).find(value => value.startsWith('mealie.access_token='));
+      const token = cookie ? decodeURIComponent(cookie.slice(cookie.indexOf('=') + 1)) : null;
+      const headers: HeadersInit = token ? { authorization: `Bearer ${token}` } : {};
+      const response = await fetch('/api/users/self', { headers, credentials: 'same-origin', signal: abort.signal });
+      if (response.status === 401) return setSession({ kind: 'vue', reason: 'Anonymous or expired session (401)', map });
+      if (!response.ok) return setSession({ kind: 'vue', reason: `Session API failed (${response.status})`, map });
+      const user = await response.json() as Identity;
+      if (!user.id || user.groupSlug !== map.groupSlug) return setSession({ kind: 'vue', reason: 'Session group does not match the configured pilot', map });
+      setSession({ kind: 'allowed', user, map });
+    })().catch(error => { if (!abort.signal.aborted) setSession({ kind: 'vue', reason: error instanceof Error ? error.message : 'Session unavailable' }); });
+    return () => abort.abort();
+  }, []);
+  const map = session.kind !== 'loading' && session.map ? session.map : { explicitVueQuery: { name: 'wf6', value: 'vue' }, takeoverEnabled: false, groupSlug: null, version: 1, excludedSlugs: [], vueModes: [] };
+  const vue = explicitVue(target, map);
+  return <Container component="main" maxWidth="sm" data-wf6-frontend="react" data-wf6-react-source={__WF6_REACT_SOURCE__}>
+    <CssBaseline /><Box sx={{ py: 4 }}><Stack spacing={2}>
+      <Typography variant="h4" component="h1">{t('title')}</Typography>
+      <Alert severity="info">{t('scope')}</Alert>
+      {session.kind === 'loading' && <Typography role="status">{t('loading')}</Typography>}
+      {session.kind === 'vue' && <Alert severity="warning" data-wf6-session="vue-required">{session.reason}</Alert>}
+      {session.kind === 'allowed' && <>
+        <Box data-wf6-session="authenticated" data-wf6-user-id={session.user.id} data-wf6-group={session.user.groupSlug}>
+          <Typography>Authenticated as {session.user.fullName}</Typography><Typography>Group: {session.user.groupSlug}</Typography>
+        </Box>
+        <Typography data-wf6-probe-route>{location.pathname.includes('/r/') ? 'Detail navigation probe' : 'List navigation probe'}</Typography>
+        <Button component={Link} to={`/g/${session.user.groupSlug}`}>{t('list')}</Button>
+        <Button component={Link} to={`/g/${session.user.groupSlug}/r/wf6-probe`}>{t('detail')}</Button>
+        <Button component="a" href="/shopping-lists?disableRedirect=true">{t('shopping')}</Button>
+      </>}
+      <Button component="a" href={vue}>{t('vue')}</Button>
+      {session.kind === 'vue' && <Button component="a" href={`/login?redirect=${encodeURIComponent(vue)}`}>{t('login')}</Button>}
+    </Stack></Box>
+  </Container>;
+}
+
+createRoot(document.getElementById('root')!).render(<BrowserRouter><App /></BrowserRouter>);
+{
+  "stages": [
+    "S3",
+    "S4"
+  ],
+  "limit": 2,
+  "used": 0,
+  "rounds": []
+}
+{
+  "limit_seconds": 10800,
+  "first_start_utc": "2026-10-14T04:01:41.937Z",
+  "stages": [
+    "S2",
+    "S3",
+    "S4",
+    "S5",
+    "S6"
+  ],
+  "segments": [
+    {
+      "stage": "S2",
+      "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+      "start_utc": "2026-10-14T04:01:41.937Z",
+      "end_utc": "2026-10-14T04:24:11.702Z",
+      "elapsed_seconds": 1349.765,
+      "status": "closed"
+    },
+    {
+      "stage": "S3",
+      "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+      "start_utc": "2026-10-14T04:31:30.756Z",
+      "end_utc": "2026-10-14T05:00:35.156Z",
+      "elapsed_seconds": 1744.4,
+      "status": "closed"
+    }
+  ],
+  "policy": "Only authorized model/tool execution segments. Exclude S0, preparation, S1, between-turn human pauses and S7. This first segment begins at the actual S2 request.",
+  "known_execution_seconds": 3094.165,
+  "remaining_seconds": 7705.835,
+  "excluded_between_turn_intervals": [
+    {
+      "start_utc": "2026-10-14T04:24:11.702Z",
+      "end_utc": "2026-10-14T04:31:30.756Z",
+      "elapsed_seconds": 439.054,
+      "category": "human_pause/between_authorized_turns",
+      "activity": "Not provided; elapsed gap is excluded from model/tool execution. Human review time is not inferred."
+    }
+  ]
+}

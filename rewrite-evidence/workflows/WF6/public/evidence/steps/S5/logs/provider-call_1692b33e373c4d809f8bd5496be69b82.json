@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3174,
+    "byte_offset": 9326092,
+    "timestamp": "2026-10-14T07:34:22.372Z",
+    "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf3078f1d88191840b1abc023bd040",
+      "status": "completed",
+      "call_id": "call_1692b33e373c4d809f8bd5496be69b82",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 -B wf6-rerun-20261014-01/wf6-evidence/usage/record_command.py --stage S5 --cwd '<WORKSPACE>/wf6-rerun-20261014-01' --label S5-isolated-browser-and-detection-negative --permission 'Approved bounded S5 loopback backend/gateway/Chromium; sandbox retained' -- python3 -B wf6-evidence/usage/run_s5.py\",\"sandbox_permissions\":\"require_escalated\",\"justification\":\"仅为已授权 S5 启动本 run 独立 SQLite 后端、localhost 网关和 Chromium，验证真实路径/异常及 React 资源缺失检测负例；只停止自身进程，保留默认沙箱。\",\"yield_time_ms\":1000,\"max_output_tokens\":1000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+        "create_time": 1791963256.953408
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3176,
+    "byte_offset": 9328114,
+    "timestamp": "2026-10-14T07:34:26.452Z",
+    "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13955-7d94-7381-96a3-e13c06b517aa",
+      "call_id": "call_1692b33e373c4d809f8bd5496be69b82",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 4.1 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"5ec241\",\"wall_time_seconds\":1.001064815,\"session_id\":61710,\"original_token_count\":0,\"output\":\"\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+        "create_time": 1791963266.4525259
+      }
+    }
+  }
+}

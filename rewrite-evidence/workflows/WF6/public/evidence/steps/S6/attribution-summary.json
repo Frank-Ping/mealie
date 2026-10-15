@@ -1,0 +1,25 @@
+{
+  "flows": {
+    "React": {
+      "total": 3,
+      "passed": 2,
+      "failed": 1
+    },
+    "Vue": {
+      "total": 7,
+      "passed": 7,
+      "failed": 0
+    },
+    "Mixed": {
+      "total": 5,
+      "passed": 2,
+      "failed": 3
+    }
+  },
+  "requested_document_owners": {
+    "Vue": 64,
+    "React": 2
+  },
+  "mixed_root_index": true,
+  "policy": "Vue and mixed successes are not React migration scores. Flow classification uses actual original paths and ownership."
+}

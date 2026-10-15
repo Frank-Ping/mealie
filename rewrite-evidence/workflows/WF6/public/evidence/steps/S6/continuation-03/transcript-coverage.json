@@ -1,0 +1,7 @@
+{
+  "source": "../visible-transcript.jsonl",
+  "turn_id": "01a139bb-53dc-7111-96d4-1398771bbfb1",
+  "entry_count": 37,
+  "coverage": "Available original user/visible assistant/tool items for this segment only; hidden reasoning and system/developer instructions excluded; before final reply",
+  "final_reply_included": false
+}

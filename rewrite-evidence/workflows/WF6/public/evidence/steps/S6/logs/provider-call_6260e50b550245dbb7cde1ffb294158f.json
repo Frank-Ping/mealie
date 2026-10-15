@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3986,
+    "byte_offset": 11443058,
+    "timestamp": "2026-10-14T08:55:05.362Z",
+    "turn_id": "01a13999-f4f9-78f2-8751-6c0a710636a0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf433abcc48191bb535ca163c8c364",
+      "status": "completed",
+      "call_id": "call_6260e50b550245dbb7cde1ffb294158f",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"rg -n 'logout' wf6-rerun-20261014-01/mealie-wf6-evaluator/mealie/routes/auth/*.py\\ncat > wf6-rerun-20261014-01/mealie-wf6-coexist/frontend-react-wf6/src/main.tsx <<'EOF'\\nimport { useCallback, useEffect, useMemo, useRef, useState } from 'react';\\nimport { createRoot } from 'react-dom/client';\\nimport { BrowserRouter, useLocation } from 'react-router';\\nimport { Alert, Box, Button, Container, CssBaseline, Menu, MenuItem, Stack, Typography } from '@mui/material';\\nimport i18n from 'i18next';\\nimport { initReactI18next, useTranslation } from 'react-i18next';\\nimport { explicitVue, ownsReact, type RouteMap } from '../../wf6/route-policy.mjs';\\nimport { accessToken, clearAccessToken, createRecipeApi, logoutRequest, SessionError, type Identity } from './api.ts';\\nimport { RecipePages } from './recipes.tsx';\\nimport { recipeStrings } from './strings.ts';\\ndeclare const __WF6_REACT_SOURCE__: string;\\ntype Session = { kind: 'loading' } | { kind: 'allowed'; user: Identity; map: RouteMap } | { kind: 'vue' | 'error'; reason: string; map?: RouteMap };\\nvoid i18n.use(initReactI18next).init({ lng: 'en', fallbackLng: 'en', interpolation: { escapeValue: false }, resources: { en: { translation: {\\n  ...recipeStrings, title: 'Recipes', scope: 'Recipes, search and comments are available here. Settings pages, editing and other features use Vue.',\\n  loading: 'Checking the real session…', shopping: 'Open Vue shopping lists', vue: 'Use explicit Vue entry', login: 'Use Vue login',\\n} } } });\\nfunction App() {\\n  const { t } = useTranslation(); const location = useLocation(); const target = location.pathname + location.search + location.hash;\\n  const [session, setSession] = useState<Session>({ kind: 'loading' }); const [settings, setSettings] = useState<HTMLElement | null>(null);\\n  const [signingOut, setSigningOut] = useState(false); const bootstrap = useRef<AbortController | null>(null);\\n  const login = useCallback(() => { clearAccessToken(); window.location.assign(`/login?redirect=${encodeURIComponent(target)}`); }, [target]);\\n  useEffect(() => {\\n    const abort = new AbortController(); bootstrap.current = abort;\\n    void (async () => {\\n      const mapResponse = await fetch('/_wf6/route-map.json', { signal: abort.signal, cache: 'no-store' });\\n      if (!mapResponse.ok) throw new Error(`Route configuration unavailable (${mapResponse.status})`);\\n      const map = await mapResponse.json() as RouteMap;\\n      const token = accessToken(); const headers: HeadersInit = token ? { authorization: `Bearer ${token}` } : {};\\n      const response = await fetch('/api/users/self', { headers, credentials: 'same-origin', signal: abort.signal, cache: 'no-store' });\\n      if (response.status === 401) { login(); return; }\\n      if (!response.ok) throw new Error(`Session API failed (${response.status})`);\\n      const user = await response.json() as Identity; abort.signal.throwIfAborted();\\n      if (!user.id || !user.groupId || user.groupSlug !== map.groupSlug) { setSession({ kind: 'vue', reason: 'Session group does not match the configured pilot', map }); return; }\\n      setSession({ kind: 'allowed', user, map });\\n    })().catch(error => { if (!abort.signal.aborted) setSession({ kind: 'error', reason: error instanceof Error ? error.message : 'Session unavailable' }); });\\n    return () => abort.abort();\\n    // Bootstrap belongs to this document, not each React Router navigation.\\n    // eslint-disable-next-line react-hooks/exhaustive-deps\\n  }, []);\\n  const map = session.kind !== 'loading' && session.map ? session.map : { explicitVueQuery: { name: 'wf6', value: 'vue' }, takeoverEnabled: false, groupSlug: null, version: 1, excludedSlugs: [], vueModes: [] };\\n  const vue = explicitVue(target, map); const user = session.kind === 'allowed' ? session.user : null;\\n  const api = useMemo(() => user ? createRecipeApi(user) : null, [user]);\\n  const sessionFailure = useCallback((error: SessionError) => {\\n    api?.cancel(); setSettings(null); setSession(current => ({ kind: error.status === 401 ? 'loading' : 'vue', reason: error.message, ...(current.kind !== 'loading' && current.map ? { map: current.map } : {}) }));\\n    if (error.status === 401) login();\\n  }, [api, login]);\\n  useEffect(() => { if (session.kind === 'allowed' && !ownsReact(target, session.map)) window.location.assign(target); }, [session, target]);\\n  async function logout() {\\n    if (signingOut) return;\\n    const token = accessToken(); setSigningOut(true); api?.cancel(); bootstrap.current?.abort(); setSettings(null); setSession({ kind: 'loading' });\\n    try { await logoutRequest(fetch, token); clearAccessToken(); window.location.assign('/login?direct=1'); }\\n    catch (error) { clearAccessToken(); setSigningOut(false); setSession({ kind: 'error', reason: error instanceof Error ? error.message : 'Logout failed; local session cleared' }); }\\n  }\\n  return <Container component=\\\"main\\\" maxWidth=\\\"md\\\" data-wf6-frontend=\\\"react\\\" data-wf6-react-source={__WF6_REACT_SOURCE__}>\\n    <CssBaseline /><Box sx={{ py: 4 }}><Stack spacing={2}>\\n      <Alert severity=\\\"info\\\">{t('scope')}</Alert>\\n      {session.kind === 'loading' && <Typography role=\\\"status\\\">{signingOut ? 'Signing out…' : t('loading')}</Typography>}\\n      {(session.kind === 'vue' || session.kind === 'error') && <Alert severity={session.kind === 'error' ? 'error' : 'warning'} data-wf6-session={session.kind === 'error' ? 'error' : 'vue-required'}>{session.reason}</Alert>}\\n      {session.kind === 'allowed' && <>\\n        <Box data-wf6-session=\\\"authenticated\\\" data-wf6-user-id={session.user.id} data-wf6-group={session.user.groupSlug}>\\n          <Typography>Authenticated as {session.user.fullName}</Typography><Typography>Group: {session.user.groupSlug}</Typography>\\n        </Box>\\n        <Stack direction=\\\"row\\\" spacing={2}><Button onClick={event => setSettings(event.currentTarget)}>Settings</Button><Button onClick={() => { void logout(); }} disabled={signingOut}>Logout</Button></Stack>\\n        <Menu anchorEl={settings} open={Boolean(settings)} onClose={() => setSettings(null)}>\\n          <MenuItem component=\\\"a\\\" href=\\\"/user/profile\\\">User Settings (Vue)</MenuItem>\\n          {session.user.householdId && <MenuItem component=\\\"a\\\" href=\\\"/household\\\">Household Settings (Vue)</MenuItem>}\\n          {session.user.canManage === true && <MenuItem component=\\\"a\\\" href=\\\"/group/data\\\">Data Management (Vue)</MenuItem>}\\n          {session.user.admin === true && <MenuItem component=\\\"a\\\" href=\\\"/admin/site-settings\\\">Admin Settings (Vue)</MenuItem>}\\n        </Menu>\\n        {api && ownsReact(target, session.map) && <RecipePages api={api} group={session.user.groupSlug} onSessionFailure={sessionFailure} />}\\n        <Button component=\\\"a\\\" href=\\\"/shopping-lists?disableRedirect=true\\\">{t('shopping')}</Button>\\n      </>}\\n      <Button component=\\\"a\\\" href={vue}>{t('vue')}</Button>\\n      {(session.kind === 'vue' || session.kind === 'error') && <Button component=\\\"a\\\" href={`/login?redirect=${encodeURIComponent(vue)}`}>{t('login')}</Button>}\\n    </Stack></Box>\\n  </Container>;\\n}\\ncreateRoot(document.getElementById('root')!).render(<BrowserRouter><App /></BrowserRouter>);\\nEOF\",\"max_output_tokens\":1000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13999-f4f9-78f2-8751-6c0a710636a0",
+        "create_time": 1791968058.7451913
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3989,
+    "byte_offset": 11467069,
+    "timestamp": "2026-10-14T08:55:05.540Z",
+    "turn_id": "01a13999-f4f9-78f2-8751-6c0a710636a0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a1399f-5444-7d43-b1f8-124049f468a2",
+      "call_id": "call_6260e50b550245dbb7cde1ffb294158f",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"775fa3\",\"wall_time_seconds\":0.000011339,\"exit_code\":0,\"original_token_count\":49,\"output\":\"wf6-rerun-20261014-01/mealie-wf6-evaluator/mealie/routes/auth/auth.py:332:@user_router.post(\\\"/logout\\\")\\nwf6-rerun-20261014-01/mealie-wf6-evaluator/mealie/routes/auth/auth.py:333:async def logout(\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13999-f4f9-78f2-8751-6c0a710636a0",
+        "create_time": 1791968105.5406697
+      }
+    }
+  }
+}

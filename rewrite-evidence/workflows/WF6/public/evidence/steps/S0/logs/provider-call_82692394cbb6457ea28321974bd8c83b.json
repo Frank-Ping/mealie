@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 123,
+    "byte_offset": 960857,
+    "timestamp": "2026-10-14T01:09:02.052Z",
+    "turn_id": "01a137f3-c2d3-7db0-9623-6d33961b39eb",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016aced62113308191ba62256d38cd8f86",
+      "status": "completed",
+      "call_id": "call_82692394cbb6457ea28321974bd8c83b",
+      "name": "exec",
+      "input": "text(await tools.apply_patch(\"*** Begin Patch\\n*** Add File: <WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/usage/record_command.py\\n+\\\"\\\"\\\"Run a command and preserve separate original streams and timing.\\\"\\\"\\\"\\n+import argparse\\n+import datetime as dt\\n+import json\\n+import os\\n+from pathlib import Path\\n+import subprocess\\n+import time\\n+import uuid\\n+\\n+ROOT = Path(__file__).resolve().parents[2]\\n+EVIDENCE = ROOT / \\\"wf6-evidence\\\"\\n+\\n+def run(argv, cwd, label, stage=\\\"S0\\\", env=None):\\n+    folder = EVIDENCE / \\\"steps\\\" / stage\\n+    logs = folder / \\\"logs\\\"\\n+    logs.mkdir(parents=True, exist_ok=True)\\n+    command_id = dt.datetime.now(dt.timezone.utc).strftime(\\\"%Y%m%dT%H%M%S\\\") + \\\"-\\\" + uuid.uuid4().hex[:8]\\n+    start = dt.datetime.now(dt.timezone.utc).isoformat()\\n+    timer = time.monotonic()\\n+    out = logs / (command_id + \\\".stdout.log\\\")\\n+    err = logs / (command_id + \\\".stderr.log\\\")\\n+    launch_error = None\\n+    with out.open(\\\"wb\\\") as stdout, err.open(\\\"wb\\\") as stderr:\\n+        try:\\n+            result = subprocess.run(argv, cwd=cwd, env={**os.environ, **(env or {})}, stdout=stdout, stderr=stderr)\\n+            code = result.returncode\\n+        except OSError as exc:\\n+            launch_error = str(exc)\\n+            stderr.write((str(exc) + \\\"\\\\n\\\").encode())\\n+            code = None\\n+    entry = dict(command_id=command_id, stage_id=stage, label=label, argv=argv, cwd=str(cwd),\\n+                 start_utc=start, end_utc=dt.datetime.now(dt.timezone.utc).isoformat(),\\n+                 duration_seconds=time.monotonic()-timer, exit_code=code,\\n+                 stdout=str(out.relative_to(EVIDENCE)), stderr=str(err.relative_to(EVIDENCE)),\\n+                 environment_overrides=env or {}, permission=\\\"workspace-write; network restricted; no escalation\\\",\\n+                 environment_capture=\\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\",\\n+                 launch_error=launch_error)\\n+    with (folder / \\\"commands.jsonl\\\").open(\\\"a\\\") as stream:\\n+        stream.write(json.dumps(entry) + \\\"\\\\n\\\")\\n+    if code != 0:\\n+        with (folder / \\\"attempts.jsonl\\\").open(\\\"a\\\") as stream:\\n+            stream.write(json.dumps(dict(timestamp=entry[\\\"end_utc\\\"], kind=\\\"command_failure\\\", command_id=command_id,\\n+                label=label, exit_code=code, stdout=entry[\\\"stdout\\\"], stderr=entry[\\\"stderr\\\"], repair_scope=\\\"S0 setup\\\")) + \\\"\\\\n\\\")\\n+    print(json.dumps(entry))\\n+    return entry\\n+\\n+if __name__ == \\\"__main__\\\":\\n+    parser = argparse.ArgumentParser()\\n+    parser.add_argument(\\\"--cwd\\\", required=True)\\n+    parser.add_argument(\\\"--label\\\", required=True)\\n+    parser.add_argument(\\\"--stage\\\", default=\\\"S0\\\")\\n+    parser.add_argument(\\\"command\\\", nargs=argparse.REMAINDER)\\n+    args = parser.parse_args()\\n+    argv = args.command[1:] if args.command[:1] == [\\\"--\\\"] else args.command\\n+    entry = run(argv, args.cwd, args.label, args.stage)\\n+    raise SystemExit(entry[\\\"exit_code\\\"] if entry[\\\"exit_code\\\"] is not None else 127)\\n*** End Patch\"));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a137f3-c2d3-7db0-9623-6d33961b39eb",
+        "create_time": 1791940129.0781562
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 126,
+    "byte_offset": 969093,
+    "timestamp": "2026-10-14T01:09:02.293Z",
+    "turn_id": "01a137f3-c2d3-7db0-9623-6d33961b39eb",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a137f4-a4d5-7ea1-b1d4-9b26af222e37",
+      "call_id": "call_82692394cbb6457ea28321974bd8c83b",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a137f3-c2d3-7db0-9623-6d33961b39eb",
+        "create_time": 1791940142.2930064
+      }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3349,
+    "byte_offset": 9700783,
+    "timestamp": "2026-10-14T07:44:27.899Z",
+    "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf32d7cb1481919461c5d8061fe72b",
+      "status": "completed",
+      "call_id": "call_f34d3538ad5245e5a6d8775f7582dd15",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nfrom pathlib import Path\\nimport json\\np=Path('wf6-rerun-20261014-01/wf6-evidence/steps/S5');print('negative',json.loads((p/'detection-negative.json').read_text()))\\nfor directory in ['browser','browser-r1','browser-r2']:\\n d=json.loads((p/directory/'results.json').read_text());print(directory,d['stats'])\\nPY\",\"max_output_tokens\":1500}));\ntext(await tools.write_stdin({session_id:64435,chars:\"\",yield_time_ms:1000,max_output_tokens:1000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+        "create_time": 1791963863.7967715
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3352,
+    "byte_offset": 9705238,
+    "timestamp": "2026-10-14T07:44:33.035Z",
+    "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a1395e-bf0b-7f70-a24e-e3c4257a67ce",
+      "call_id": "call_f34d3538ad5245e5a6d8775f7582dd15",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 5.1 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"df215e\",\"wall_time_seconds\":0.000010966,\"exit_code\":0,\"original_token_count\":326,\"output\":\"negative {'status': 'PASS', 'classification': 'expected_failure', 'takeoverEnabled': True, 'source_unchanged': True, 'mutation': 'Atomic rename of this S5 runtime copy assets only; restored byte hashes verified', 'outcomes': [{'phase': 'control', 'command_id': '20261014T074132-7102ef24', 'exit_code': 0, 'stats': {'startTime': '2026-10-14T07:41:35.072Z', 'duration': 2816.0710000000004, 'expected': 1, 'skipped': 0, 'unexpected': 0, 'flaky': 0}}, {'phase': 'expected_failure', 'command_id': '20261014T074137-0424d904', 'exit_code': 1, 'stats': {'startTime': '2026-10-14T07:41:40.676Z', 'duration': 7513.817999999999, 'expected': 0, 'skipped': 0, 'unexpected': 1, 'flaky': 0}}, {'phase': 'restored', 'command_id': '20261014T074148-9bbdf3ce', 'exit_code': 0, 'stats': {'startTime': '2026-10-14T07:41:50.741Z', 'duration': 2360.4799999999996, 'expected': 1, 'skipped': 0, 'unexpected': 0, 'flaky': 0}}]}\\nbrowser {'startTime': '2026-10-14T07:35:06.474Z', 'duration': 72975.714, 'expected': 7, 'skipped': 0, 'unexpected': 1, 'flaky': 0}\\nbrowser-r1 {'startTime': '2026-10-14T07:38:15.721Z', 'duration': 26112.362, 'expected': 8, 'skipped': 0, 'unexpected': 0, 'flaky': 0}\\nbrowser-r2 {'startTime': '2026-10-14T07:41:06.985Z', 'duration': 24879.514, 'expected': 8, 'skipped': 0, 'unexpected': 0, 'flaky': 0}\\n\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"8d3177\",\"wall_time_seconds\":5.00107087,\"session_id\":64435,\"original_token_count\":0,\"output\":\"\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+        "create_time": 1791963873.0359137
+      }
+    }
+  }
+}

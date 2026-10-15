@@ -1,0 +1,132 @@
+{
+  "snapshot_utc": "2026-10-14T03:54:53.852410+00:00",
+  "source": {
+    "path": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist",
+    "pinned_input_sha": "4b9ca06b6581f7152e164ea0fd9d4da366975a79",
+    "actual_head": "f318d69d033e5269415f0b94d4beebd8d70a00dc",
+    "dirty": false,
+    "status_porcelain": "",
+    "untracked": [],
+    "remotes": [],
+    "frozen_manifest_verified": true,
+    "verified_original_file_count": 1711,
+    "frozen_file_mismatches": [],
+    "served_build": "51e1fc21edd74fdb002a57a5e11b8085932a0898945685edb45177aece86d733"
+  },
+  "evaluator": {
+    "path": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator",
+    "pinned_input_sha": "758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d",
+    "actual_head": "758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d",
+    "dirty": false,
+    "status_porcelain": "",
+    "untracked": [],
+    "remotes": [],
+    "frozen_manifest_verified": true,
+    "verified_original_file_count": 1789,
+    "frozen_file_mismatches": [],
+    "served_build": "51e1fc21edd74fdb002a57a5e11b8085932a0898945685edb45177aece86d733"
+  },
+  "runtime": {
+    "auth_alias": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/.auth",
+    "auth_real_path": "/tmp/wf6-rerun-20261014-01-S1-native2/auth",
+    "auth_files": [
+      {
+        "path": "admin.json",
+        "bytes": 483,
+        "sha256": "9b93a7deb1ef894c393532839475525b4e8329591107dc65e602c964e9bc114d",
+        "symlink": false
+      },
+      {
+        "path": "fixtures.json",
+        "bytes": 649,
+        "sha256": "272737bf8a6797b941a1b7f12ed6649a8fe05e5a8ae6abfd98773b36bddf9dd9",
+        "symlink": false
+      }
+    ],
+    "credential_contents_in_this_snapshot": false,
+    "services_stopped": true,
+    "auth_attempts": [
+      {
+        "root": "<WORKSPACE>/wf6-rerun-20261014-01/runtime/S1/auth",
+        "files": [
+          {
+            "path": "admin.json",
+            "bytes": 483,
+            "sha256": "c1aaddf7e46ae289e8692a2b5d30a979517f2ff33531919f04ec4adc2a2b0db9",
+            "symlink": false
+          },
+          {
+            "path": "fixtures.json",
+            "bytes": 649,
+            "sha256": "6ca8aa062fdfe025106d706f89fea06d71244de069b20bbded164ec6c079c7f6",
+            "symlink": false
+          }
+        ]
+      },
+      {
+        "root": "/tmp/wf6-rerun-20261014-01-S1-native/auth",
+        "files": [
+          {
+            "path": "admin.json",
+            "bytes": 483,
+            "sha256": "d9ee8417e0ad87858e78cb28cdef33a5025ec462bec696acabf369ae5d32e3a6",
+            "symlink": false
+          },
+          {
+            "path": "fixtures.json",
+            "bytes": 649,
+            "sha256": "c130a6b1539215445c6a0e295b670dc1c4814152b3a5e0b151f6c1fcf5caf71d",
+            "symlink": false
+          }
+        ]
+      },
+      {
+        "root": "/tmp/wf6-rerun-20261014-01-S1-native2/auth",
+        "files": [
+          {
+            "path": "admin.json",
+            "bytes": 483,
+            "sha256": "9b93a7deb1ef894c393532839475525b4e8329591107dc65e602c964e9bc114d",
+            "symlink": false
+          },
+          {
+            "path": "fixtures.json",
+            "bytes": 649,
+            "sha256": "272737bf8a6797b941a1b7f12ed6649a8fe05e5a8ae6abfd98773b36bddf9dd9",
+            "symlink": false
+          }
+        ]
+      }
+    ],
+    "database_files": [
+      {
+        "root": "<WORKSPACE>/wf6-rerun-20261014-01/runtime/S1/disposable-data",
+        "path": "mealie.db",
+        "bytes": 1490944,
+        "sha256": "eb5f26a24b44ccea04ce43ee60c5e42e9f18e6380af8a69ea2ae715f4a61f837",
+        "symlink": false
+      },
+      {
+        "root": "/tmp/wf6-rerun-20261014-01-S1-native/disposable-data",
+        "path": "mealie.db",
+        "bytes": 1490944,
+        "sha256": "0e771e67656e083ba851093e5f3d14440c5e3908a0f16262b6ae5a13f43ba1f4",
+        "symlink": false
+      },
+      {
+        "root": "/tmp/wf6-rerun-20261014-01-S1-native2/disposable-data",
+        "path": "mealie.db",
+        "bytes": 1490944,
+        "sha256": "4481d413a6b9378f7fd43aa2866ba9d7c373dd959efae0408cf59ac6ae2b6776",
+        "symlink": false
+      }
+    ]
+  },
+  "postcommit_snapshot_utc": "2026-10-14T03:57:07.264363+00:00",
+  "evidence_commit": "f318d69d033e5269415f0b94d4beebd8d70a00dc",
+  "evidence_commit_files": [
+    "rewrite-evidence/workflows/WF6/BASELINE.md",
+    "rewrite-evidence/workflows/WF6/comparison-baseline.json"
+  ],
+  "build_identity_policy": "Accepted build was generated before the docs-only S1 commit; build-artifact source_head remains its actual build source HEAD."
+}

@@ -1,0 +1,23 @@
+{
+  "command_id": "20261014T042121-c249ca2c",
+  "stage_id": "S2",
+  "label": "S2-machine-verdict-and-bilingual-result",
+  "argv": [
+    "python3",
+    "-B",
+    "wf6-evidence/usage/finish_s2.py",
+    "report"
+  ],
+  "cwd": "<WORKSPACE>/wf6-rerun-20261014-01",
+  "start_utc": "2026-10-14T04:21:21.843242+00:00",
+  "end_utc": "2026-10-14T04:21:21.982058+00:00",
+  "duration_seconds": 0.13881861400295747,
+  "exit_code": 0,
+  "stdout": "steps/S2/logs/20261014T042121-c249ca2c.stdout.log",
+  "stderr": "steps/S2/logs/20261014T042121-c249ca2c.stderr.log",
+  "environment_overrides": {},
+  "permission": "workspace-write; network restricted; no escalation",
+  "environment_capture": "Only explicit non-secret overrides; inherited secrets are not exported.",
+  "launch_error": null,
+  "stdin_path": null
+}

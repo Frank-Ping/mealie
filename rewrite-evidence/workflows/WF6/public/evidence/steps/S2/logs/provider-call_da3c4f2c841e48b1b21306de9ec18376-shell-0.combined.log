@@ -1,0 +1,23 @@
+20261014T040216-410a5d63.stdout.log 306 ,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 114262,
+    "reasoning_output_tokens": 61765,
+    "total_tokens": 30308626,
+    "final_reply_included": false,
+    "coverage_notes": []
+  }
+}
+
+20261014T040503-c5a034a7.stdout.log 456 ,
+    "coverage_notes": [
+      "Earlier interrupted segment has no final END/completion; provider completeness is not certified. Known attributed usage retained, missing amount unknown."
+    ]
+  }
+}
+
+20261014T040533-43abd8a6.stdout.log 2313 oaded 655, added 37
+Progress: resolved 1231, reused 0, downloaded 683, added 39
+Progress: resolved 1231, reused 0, downloaded 723, added 43
+Progress: resolved 1231, reused 0, downloaded 763, added 46
+
+20261014T040533-785dfb0d.stdout.log 0 

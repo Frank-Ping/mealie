@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 4323,
+    "byte_offset": 12352915,
+    "timestamp": "2026-10-14T09:29:18.429Z",
+    "turn_id": "01a139bb-53dc-7111-96d4-1398771bbfb1",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf4b3cf9308191a4f83d6331f79c45",
+      "status": "completed",
+      "call_id": "call_08b1dd0334ed44689f9de1b697b276c4",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"cat > wf6-rerun-20261014-01/wf6-evidence/usage/s6-c3-persistence-tests.cjs <<'EOF'\\nconst fs=require('node:fs');const path=require('node:path');const {test,expect}=require(process.env.WF6_PLAYWRIGHT_MODULE);\\nconst fixtures=()=>JSON.parse(fs.readFileSync(path.join(process.env.WF6_AUTH_DIR,'fixtures.json')));\\nconst save=r=>fs.appendFileSync(process.env.WF6_BROWSER_EVIDENCE,JSON.stringify(r)+'\\\\n');\\nasync function login(page){await page.goto('/login');await page.getByRole('textbox',{name:'Email or Username'}).fill('e2e-admin@example.com');await page.getByRole('textbox',{name:'Password'}).fill('[REDACTED]');await page.getByRole('button',{name:'Login',exact:true}).click();await expect(page.getByRole('link',{name:'E2E Pancakes',exact:true})).toBeVisible();}\\ntest('real POST receipt and refreshed GET identify the same published comment; failed POST restores draft',async({page})=>{\\n await login(page);const f=fixtures();const readRecipe=page.waitForResponse(r=>new URL(r.url()).pathname===`/api/recipes/${f.recipe2Slug}`);await page.goto(`/g/${f.groupSlug}/r/${f.recipe2Slug}`);const recipe=await(await readRecipe).json();const field=page.getByRole('textbox',{name:'Join the Conversation',exact:true});await expect(field).toBeVisible();const published=page.locator('[data-wf6-published-comments=\\\"server-saved\\\"]');\\n const text='WF6 S6 C3 durable '+Date.now();await field.fill('   ');await expect(page.getByRole('button',{name:'Submit',exact:true})).toBeDisabled();await field.fill(text);\\n await page.route('**/api/comments',route=>route.fulfill({status:500,contentType:'application/json',body:'{\\\"detail\\\":\\\"isolated failure\\\"}'}));await page.getByRole('button',{name:'Submit',exact:true}).click();await expect(page.getByRole('alert').filter({hasText:'Recipe API request failed (500)'})).toBeVisible();await expect(field).toHaveValue(text);await expect(published.getByText(text,{exact:true})).toHaveCount(0);await page.unroute('**/api/comments');\\n let writes=0;page.on('request',r=>{if(new URL(r.url()).pathname==='/api/comments'&&r.method()==='POST')writes++;});const receipt=page.waitForResponse(r=>new URL(r.url()).pathname==='/api/comments'&&r.request().method()==='POST');await page.getByRole('button',{name:'Submit',exact:true}).click();const response=await receipt;expect(response.status()).toBe(201);expect(response.request().postDataJSON()).toEqual({recipeId:recipe.id,text});const saved=await response.json();expect(saved.id).toBeTruthy();expect(saved.recipeId).toBe(recipe.id);expect(saved.userId).toBe(f.adminId);expect(saved.text).toBe(text);await expect(published.getByText(text,{exact:true})).toBeVisible();expect(writes).toBe(1);\\n const reread=page.waitForResponse(r=>new URL(r.url()).pathname===`/api/recipes/${f.recipe2Slug}/comments`&&r.request().method()==='GET');await page.reload();const get=await reread;expect(get.status()).toBe(200);const items=await get.json();expect(items.some(c=>c.id===saved.id&&c.recipeId===recipe.id&&c.text===text&&c.userId===f.adminId)).toBe(true);await expect(published.getByText(text,{exact:true})).toBeVisible();await page.screenshot({path:path.join(process.env.WF6_SHOTS,'real-comment-persisted.png')});save({test:'real_comment_persistence',status:'PASS',actualPOST:201,actualGET:200,commentId:saved.id,recipeId:recipe.id,userId:saved.userId,text,sameServerRecordAfterRefresh:true,successRegion:'server-saved only',successfulWriteCount:writes,injectedFailureStatus:500,draftRestored:true});\\n});\\nEOF\\npython3 -B - <<'PY'\\nfrom pathlib import Path\\nimport json\\np=Path('wf6-rerun-20261014-01/wf6-evidence/usage');s=(p/'run_s6_c2_r2.py').read_text().replace('continuation-02','continuation-03').replace('S6-C2-R2','S6-C3').replace(\\\"Path('/tmp/wf6-rerun-20261014-01-S6-C2/auth')\\\",\\\"Path('/tmp/wf6-rerun-20261014-01-S6-C2-R2/auth')\\\")\\ns=s.replace(\\\"'s6-c2-boundary-tests.cjs'\\\",\\\"'s6-c3-persistence-tests.cjs'\\\")\\n# Target comment gate first, then independent persistence, then original four and broader suite.\\na=s.index(\\\"            if phase=='restored':\\\\n                four=\\\");b=s.index('            penv=',a);block=s[a:b]\\nblock=block.replace(\\\"four=r\\\\\\\"\\\\\\\\[flow\\\\\\\\] (?:log out ends the session|a regular member is not offered admin pages|an admin is offered admin pages|comment on a recipe and see it after reload)$\\\\\\\"\\\", \\\"four=r\\\\\\\"\\\\\\\\[flow\\\\\\\\] comment on a recipe and see it after reload$\\\\\\\"\\\")\\nblock=block.replace('four-original-results.json','comment-original-results.json').replace('four-original-html','comment-original-html').replace('four-original-test-results','comment-original-test-results').replace('four-original-frozen-FAIL-flows','original-comment-frozen-flow')\\ns=s[:a]+block+s[b:]\\n# Run the independent persistence case before the other restored supplementary cases.\\npos=s.index('            penv=')\\nextra=\\\"\\\"\\\"            if phase=='restored':\\n                persistence_config=configuration('persistence',['s6-c3-persistence-tests.cjs'])\\n                pv={**env,'PLAYWRIGHT_JSON_OUTPUT_NAME':str(RUNTIME/'browser/persistence-results.json'),'PLAYWRIGHT_HTML_OUTPUT_DIR':str(RUNTIME/'browser/persistence-html'),'WF6_BROWSER_EVIDENCE':str(RUNTIME/'browser/persistence-redacted.jsonl')}\\n                persisted=run(['node',str(EVALUATOR/'frontend-e2e/node_modules/@playwright/test/cli.js'),'test','--config='+str(persistence_config),'--output='+str(RUNTIME/'browser/persistence-test-results')],EVALUATOR/'frontend-e2e','S6-C3-independent-real-POST-GET-persistence',stage='S6',env=pv,permission=permission)\\n                if persisted['exit_code']!=0:raise SystemExit(persisted['exit_code'])\\n                four=r\\\"\\\\\\\\[flow\\\\\\\\] (?:log out ends the session|a regular member is not offered admin pages|an admin is offered admin pages|comment on a recipe and see it after reload)$\\\"\\n                tenv={**env,'E2E_PORT':'9106','E2E_REUSE_SERVER':'1','E2E_ROUTE_SCOPE':'all','E2E_ROUTE_CHECK':'strict','PLAYWRIGHT_JSON_OUTPUT_NAME':str(RUNTIME/'browser/four-original-results.json'),'PLAYWRIGHT_HTML_OUTPUT_DIR':str(RUNTIME/'browser/four-original-html')}\\n                four_result=run(['node',str(EVALUATOR/'frontend-e2e/node_modules/@playwright/test/cli.js'),'test','--grep',four,'--workers=1','--reporter=list,json,html','--output='+str(RUNTIME/'browser/four-original-test-results')],EVALUATOR/'frontend-e2e','S6-C3-four-original-frozen-flows',stage='S6',env=tenv,permission=permission)\\n                if four_result['exit_code']!=0:raise SystemExit(four_result['exit_code'])\\n\\\"\\\"\\\"\\ns=s[:pos]+extra+s[pos:];s=s.replace(\\\"['s6-restored-tests.cjs','s6-ownership-tests.cjs','s6-c3-persistence-tests.cjs']\\\",\\\"['s6-restored-tests.cjs','s6-ownership-tests.cjs']\\\");s=s.replace(\\\"destination=STAGE/'browser-r2'\\\",\\\"destination=STAGE/'browser'\\\").replace(\\\"STAGE/'supplemental-tests-r2'\\\",\\\"STAGE/'supplemental-tests'\\\")\\n(p/'run_s6_c3.py').write_text(s)\\nsource=Path('wf6-rerun-20261014-01/mealie-wf6-coexist/wf6/route-map.json');child=Path('wf6-rerun-20261014-01/wf6-evidence/steps/S6/continuation-03');(child/'route-map-restored.json').write_bytes(source.read_bytes());m=json.loads(source.read_text());m['takeoverEnabled']=False;m['activeReactRoutes']=[];(child/'route-map-rollback.json').write_text(json.dumps(m,indent=2)+'\\\\n')\\nPY\",\"max_output_tokens\":1000}));\ntext(await tools.write_stdin({session_id:60076,chars:\"\",yield_time_ms:1000,max_output_tokens:1000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a139bb-53dc-7111-96d4-1398771bbfb1",
+        "create_time": 1791970108.9769325
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 4326,
+    "byte_offset": 12377026,
+    "timestamp": "2026-10-14T09:29:18.801Z",
+    "turn_id": "01a139bb-53dc-7111-96d4-1398771bbfb1",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a139be-a8d1-7760-8c7a-2d965f039213",
+      "call_id": "call_08b1dd0334ed44689f9de1b697b276c4",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.3 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"1ebdc0\",\"wall_time_seconds\":0.133039903,\"exit_code\":0,\"original_token_count\":0,\"output\":\"\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"5c5030\",\"wall_time_seconds\":0.000011097,\"exit_code\":0,\"original_token_count\":199,\"output\":\"{\\\"command_id\\\": \\\"20261014T092754-f997f2cc\\\", \\\"stage_id\\\": \\\"S6\\\", \\\"label\\\": \\\"S6-C3-final-round-static-new-React-build\\\", \\\"argv\\\": [\\\"python3\\\", \\\"-B\\\", \\\"wf6-evidence/usage/build_s6_c3.py\\\"], \\\"cwd\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01\\\", \\\"start_utc\\\": \\\"2026-10-14T09:27:54.383725+00:00\\\", \\\"end_utc\\\": \\\"2026-10-14T09:28:31.741807+00:00\\\", \\\"duration_seconds\\\": 37.358088408000185, \\\"exit_code\\\": 0, \\\"stdout\\\": \\\"steps/S6/logs/20261014T092754-f997f2cc.stdout.log\\\", \\\"stderr\\\": \\\"steps/S6/logs/20261014T092754-f997f2cc.stderr.log\\\", \\\"environment_overrides\\\": {}, \\\"permission\\\": \\\"workspace-write; network restricted; no escalation\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a139bb-53dc-7111-96d4-1398771bbfb1",
+        "create_time": 1791970158.8013554
+      }
+    }
+  }
+}

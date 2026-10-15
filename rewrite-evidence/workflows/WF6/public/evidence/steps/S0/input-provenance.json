@@ -1,0 +1,64 @@
+[
+  {
+    "role": "source",
+    "pinned_sha": "4b9ca06b6581f7152e164ea0fd9d4da366975a79",
+    "tree_sha": "3f112110b1370583ea3dd4947791d48831b26c99",
+    "historical_origin_store": "<WORKSPACE>/mealie-wf4-rerun",
+    "immediate_read_only_store": "<WORKSPACE>/mealie-wf6-coexist",
+    "target": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist",
+    "old_verification": {
+      "object_count": 1941,
+      "all_object_ids_recomputed": true,
+      "raw_bytes_sha256": "1eb62558b7abf130ac3d6e7d546da4c16e424cf594c639fcf8004933b6524ef8",
+      "command_id": "20261014T011024-01a2bb68"
+    },
+    "origin_verification": {
+      "object_count": 1941,
+      "all_object_ids_recomputed": true,
+      "raw_bytes_sha256": "1eb62558b7abf130ac3d6e7d546da4c16e424cf594c639fcf8004933b6524ef8",
+      "command_id": "20261014T011026-39350e1d"
+    },
+    "new_verification": {
+      "object_count": 1941,
+      "all_object_ids_recomputed": true,
+      "raw_bytes_sha256": "1eb62558b7abf130ac3d6e7d546da4c16e424cf594c639fcf8004933b6524ef8",
+      "command_id": "20261014T011045-f8f1ee10"
+    },
+    "initial_dirty": false,
+    "remotes": [],
+    "shared_objects": false,
+    "history_policy": "Pinned snapshot is an explicit shallow root. Full ancestor history is unavailable and is not claimed.",
+    "access_scope": "Only specified pinned commit/tree/blob objects; no other workflow worktree implementation read."
+  },
+  {
+    "role": "evaluator",
+    "pinned_sha": "758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d",
+    "tree_sha": "52264040ae4af83ac3d3e49085f40a5c21fed1c6",
+    "historical_origin_store": "<WORKSPACE>/mealie-wf4-evaluator",
+    "immediate_read_only_store": "<WORKSPACE>/mealie-wf6-evaluator",
+    "target": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator",
+    "old_verification": {
+      "object_count": 2028,
+      "all_object_ids_recomputed": true,
+      "raw_bytes_sha256": "b827c1cdc1af7fa810b71e8d2b06cd9bd0b433e620fb492c36f130120caef924",
+      "command_id": "20261014T011055-c9a76aa6"
+    },
+    "origin_verification": {
+      "object_count": 2028,
+      "all_object_ids_recomputed": true,
+      "raw_bytes_sha256": "b827c1cdc1af7fa810b71e8d2b06cd9bd0b433e620fb492c36f130120caef924",
+      "command_id": "20261014T011057-89b3f1a8"
+    },
+    "new_verification": {
+      "object_count": 2028,
+      "all_object_ids_recomputed": true,
+      "raw_bytes_sha256": "b827c1cdc1af7fa810b71e8d2b06cd9bd0b433e620fb492c36f130120caef924",
+      "command_id": "20261014T011112-0307ea1d"
+    },
+    "initial_dirty": false,
+    "remotes": [],
+    "shared_objects": false,
+    "history_policy": "Pinned snapshot is an explicit shallow root. Full ancestor history is unavailable and is not claimed.",
+    "access_scope": "Only specified pinned commit/tree/blob objects; no other workflow worktree implementation read."
+  }
+]

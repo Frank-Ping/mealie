@@ -1,0 +1,1 @@
+{"evidence_commit": "f318d69d033e5269415f0b94d4beebd8d70a00dc", "changed": ["rewrite-evidence/workflows/WF6/BASELINE.md", "rewrite-evidence/workflows/WF6/comparison-baseline.json"], "source_clean": true, "evaluator_clean": true}

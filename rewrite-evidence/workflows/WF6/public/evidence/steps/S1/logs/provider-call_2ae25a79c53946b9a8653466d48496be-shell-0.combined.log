@@ -1,0 +1,16 @@
+test.trace types Counter({('after', None): 27, ('before', 'fixture'): 17, ('before', 'pw:api'): 5, ('before', 'hook'): 3, ('context-options', None): 1, ('before', 'expect'): 1, ('error', None): 1, ('before', 'test.attach'): 1})
+errors []
+1-trace.trace types Counter({('frame-snapshot', None): 4, ('after', None): 3, ('log', None): 3, ('screencast-frame', None): 3, ('context-options', None): 1, ('before', 'newPage'): 1, ('event', 'page'): 1, ('before', 'goto'): 1, ('before', 'expect'): 1})
+errors []
+asset {'url': 'http://localhost:9006/_nuxt/entry.CQVEe2cP.css', 'status': 200, 'content': {'size': 190653, 'mimeType': 'text/css; charset=utf-8', 'compression': 163492, '_file': 'resources/558ca6aff8bb72eebf48826dad13351f38dcea95.css'}, 'content-type': [{'name': 'content-type', 'value': 'text/css; charset=utf-8'}]}
+0-trace.trace types Counter({('context-options', None): 1})
+errors []
+10:from fastapi.staticfiles import StaticFiles
+35:class SPAStaticFiles(StaticFiles):
+45:        # StaticFiles(html=True) redirects directory URLs without a trailing slash (e.g. /login -> /login/)
+53:        # StaticFiles(html=True) serves 404.html (which IS the SPA shell) with
+60:        # Hashed assets (_nuxt/*) are safe to cache forever since new builds produce new filenames.
+63:        if path.startswith("_nuxt/"):
+278:    if not os.path.exists(__app_settings.STATIC_FILES):
+282:    __contents = pathlib.Path(__app_settings.STATIC_FILES).joinpath("index.html").read_text()
+287:    app.mount("/", SPAStaticFiles(directory=__app_settings.STATIC_FILES, html=True), name="spa")

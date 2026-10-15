@@ -1,0 +1,12 @@
+本次 S1 属于 wf6-rerun-20261014-01。
+先核实 P1 收尾结果，保持 preparation 与 S1 计量区间不重叠。
+
+仅测量冻结的未修改 Vue baseline。
+保留原始日志，技术说明使用英文，结果提供中英文对照。
+记录实际源码、构建与测试结果；未运行检查不得算通过。
+
+仅执行 S1，结束后停止，不自动进入 S2。
+
+
+Continuation after interrupted turn (actual text):
+Continue from where you stopped.

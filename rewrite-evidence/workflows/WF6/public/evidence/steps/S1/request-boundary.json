@@ -1,0 +1,11 @@
+{
+  "stage_id": "S1",
+  "action": "NATURAL_START",
+  "session_id": "01a137ea-f571-70f0-8cf3-7b8560c420bf",
+  "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+  "user_message_id": "msg_01a1382a-58f8-7de3-b1ea-8ca5ceac2207",
+  "line": 709,
+  "byte_offset": 2732151,
+  "actual_prompt": "本次 S1 属于 wf6-rerun-20261014-01。\n先核实 P1 收尾结果，保持 preparation 与 S1 计量区间不重叠。\n\n仅测量冻结的未修改 Vue baseline。\n保留原始日志，技术说明使用英文，结果提供中英文对照。\n记录实际源码、构建与测试结果；未运行检查不得算通过。\n\n仅执行 S1，结束后停止，不自动进入 S2。",
+  "timestamp": "2026-10-14T02:07:41.816Z"
+}

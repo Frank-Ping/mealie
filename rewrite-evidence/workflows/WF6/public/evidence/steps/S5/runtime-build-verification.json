@@ -1,0 +1,16 @@
+{
+  "react": {
+    "actual_served_directory": "/tmp/wf6-rerun-20261014-01-S5-R2/react",
+    "build_hash": "2b409d4deadf1bc17acc5a4a6634e638feca52550caec23a7d6f23f6dd1493f8",
+    "source_hash": "a29595c8ae1bce60b3db08a9185cbc40046c83fc224ece095bec30d2f487a7af",
+    "successful_build_command": "20261014T073114-e2b6a92a",
+    "all_file_hashes_match": true
+  },
+  "vue": {
+    "actual_served_directory": "/tmp/wf6-rerun-20261014-01-S5-R2/vue",
+    "build_hash": "cb2b9a5e0868eb5c5616d7c9996b5d57e7f59fa2297cf1ebeaaf1c655fd40b8c",
+    "source_hash": "46796953770e6ac0a549e9d38497ff1172e421cb863e2428b6075b28be1ae4a5",
+    "successful_build_command": "20261014T073114-43abd113",
+    "all_file_hashes_match": true
+  }
+}

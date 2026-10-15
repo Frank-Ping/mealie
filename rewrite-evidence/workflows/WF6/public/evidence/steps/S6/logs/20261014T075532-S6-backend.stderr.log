@@ -1,0 +1,6 @@
+WARNING  2026-10-14T07:55:40 - Secrets directory '/run/secrets' does not exist
+WARNING  2026-10-14T07:55:50 - Secrets directory '/run/secrets' does not exist
+ERROR    2026-10-14T07:55:55 - Incorrect username or password from 127.0.0.1
+ERROR    2026-10-14T07:56:01 - Incorrect username or password from 127.0.0.1
+ERROR    2026-10-14T07:56:41 - No Entry Found on recipe controller action
+ERROR    2026-10-14T07:58:12 - Incorrect username or password from 127.0.0.1

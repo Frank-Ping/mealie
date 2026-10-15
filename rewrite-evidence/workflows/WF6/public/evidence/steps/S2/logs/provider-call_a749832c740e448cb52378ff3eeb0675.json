@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2275,
+    "byte_offset": 6506260,
+    "timestamp": "2026-10-14T04:14:38.372Z",
+    "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf01ab51dc8191aa5b229925b55ccc",
+      "status": "completed",
+      "call_id": "call_a749832c740e448cb52378ff3eeb0675",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 -B wf6-rerun-20261014-01/wf6-evidence/usage/record_command.py --stage S2 --cwd '<WORKSPACE>/wf6-rerun-20261014-01' --label S2-preacceptance-collector-regression -- python3 -B -m unittest discover -s wf6-evidence/usage -p 'test*.py'\",\"yield_time_ms\":1000,\"max_output_tokens\":550}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+        "create_time": 1791951275.3224623
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2278,
+    "byte_offset": 6510129,
+    "timestamp": "2026-10-14T04:14:38.767Z",
+    "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a1389e-92af-7c02-a43a-a9417a2d3016",
+      "call_id": "call_a749832c740e448cb52378ff3eeb0675",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.4 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"ac9ab3\",\"wall_time_seconds\":0.209318839,\"exit_code\":0,\"original_token_count\":209,\"output\":\"{\\\"command_id\\\": \\\"20261014T041438-2011c583\\\", \\\"stage_id\\\": \\\"S2\\\", \\\"label\\\": \\\"S2-preacceptance-collector-regression\\\", \\\"argv\\\": [\\\"python3\\\", \\\"-B\\\", \\\"-m\\\", \\\"unittest\\\", \\\"discover\\\", \\\"-s\\\", \\\"wf6-evidence/usage\\\", \\\"-p\\\", \\\"test*.py\\\"], \\\"cwd\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01\\\", \\\"start_utc\\\": \\\"2026-10-14T04:14:38.576971+00:00\\\", \\\"end_utc\\\": \\\"2026-10-14T04:14:38.745877+00:00\\\", \\\"duration_seconds\\\": 0.16891043999930844, \\\"exit_code\\\": 0, \\\"stdout\\\": \\\"steps/S2/logs/20261014T041438-2011c583.stdout.log\\\", \\\"stderr\\\": \\\"steps/S2/logs/20261014T041438-2011c583.stderr.log\\\", \\\"environment_overrides\\\": {}, \\\"permission\\\": \\\"workspace-write; network restricted; no escalation\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+        "create_time": 1791951278.7671378
+      }
+    }
+  }
+}

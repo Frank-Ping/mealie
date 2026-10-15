@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1714,
+    "byte_offset": 5280726,
+    "timestamp": "2026-10-14T03:41:42.214Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acef9f3292881919409be5c4bf74c48",
+      "status": "completed",
+      "call_id": "call_6bb0b07d8a5948f389965eba0f64ffc3",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"cat wf6-rerun-20261014-01/wf6-evidence/steps/S1/logs/20261014T034132-0c97ac32.stdout.log; tail -2 wf6-rerun-20261014-01/wf6-evidence/steps/S1/service-events.jsonl; rg --files wf6-rerun-20261014-01/wf6-evidence/steps/S1/logs | rg '0341'\",\"max_output_tokens\":1200}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791949299.164437
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1717,
+    "byte_offset": 5284933,
+    "timestamp": "2026-10-14T03:41:42.434Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13880-6aa2-7852-8af8-20224aaceb11",
+      "call_id": "call_6bb0b07d8a5948f389965eba0f64ffc3",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"7dc897\",\"wall_time_seconds\":0.04703866,\"exit_code\":0,\"original_token_count\":335,\"output\":\"{\\\"attempt\\\": \\\"browser\\\", \\\"stats\\\": {\\\"startTime\\\": \\\"2026-10-14T03:06:27.047Z\\\", \\\"duration\\\": 2077048.733, \\\"expected\\\": 2, \\\"skipped\\\": 0, \\\"unexpected\\\": 80, \\\"flaky\\\": 0}, \\\"categories\\\": {\\\"routes\\\": {\\\"total\\\": 66, \\\"passed\\\": 0, \\\"failed\\\": 66, \\\"skipped\\\": 0, \\\"flaky\\\": 0}, \\\"flows\\\": {\\\"total\\\": 15, \\\"passed\\\": 1, \\\"failed\\\": 14, \\\"skipped\\\": 0, \\\"flaky\\\": 0}, \\\"guard\\\": {\\\"total\\\": 1, \\\"passed\\\": 1, \\\"failed\\\": 0, \\\"skipped\\\": 0, \\\"flaky\\\": 0}}, \\\"gate_checks\\\": {\\\"inventory\\\": true, \\\"routes_66\\\": true, \\\"flows_15\\\": true, \\\"guard_1\\\": true, \\\"all_passed\\\": false}}\\n{\\\"event\\\": \\\"owned_backend_started\\\", \\\"timestamp\\\": \\\"2026-10-14T03:05:31.960834+00:00\\\", \\\"pid\\\": 22712, \\\"process_group\\\": 22712, \\\"command_id\\\": \\\"20261014T030531-83618e54\\\", \\\"data_dir\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01/runtime/S1/disposable-data\\\"}\\n{\\\"event\\\": \\\"owned_backend_stopped\\\", \\\"timestamp\\\": \\\"2026-10-14T03:41:07.431732+00:00\\\", \\\"pid\\\": 22712, \\\"exit_code\\\": 143, \\\"command_id\\\": \\\"20261014T030531-83618e54\\\", \\\"planned_shutdown\\\": true}\\nwf6-rerun-20261014-01/wf6-evidence/steps/S1/logs/20261014T034136-38a0709e.stdout.log\\nwf6-rerun-20261014-01/wf6-evidence/steps/S1/logs/20261014T034136-38a0709e.stderr.log\\nwf6-rerun-20261014-01/wf6-evidence/steps/S1/logs/20261014T034132-0c97ac32.stdout.log\\nwf6-rerun-20261014-01/wf6-evidence/steps/S1/logs/20261014T034132-0c97ac32.stderr.log\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791949302.434315
+      }
+    }
+  }
+}

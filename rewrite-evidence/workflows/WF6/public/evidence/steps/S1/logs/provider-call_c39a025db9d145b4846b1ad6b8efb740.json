@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1897,
+    "byte_offset": 5632138,
+    "timestamp": "2026-10-14T03:52:41.647Z",
+    "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acefc85cb348191b3109808243c4de0",
+      "status": "completed",
+      "call_id": "call_c39a025db9d145b4846b1ad6b8efb740",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"tail -3 wf6-rerun-20261014-01/wf6-evidence/steps/S1/logs/20261014T035106-9353f711.stdout.log; python3 - <<'PY'\\nimport json,pathlib\\ns=json.loads(pathlib.Path('wf6-rerun-20261014-01/wf6-evidence/steps/S1/token-usage.json').read_text());print(s['status'],s['turn_ids'],s['coverage_notes'])\\nPY\",\"max_output_tokens\":900}));\ntext(await tools.write_stdin({session_id:89867,chars:\"\",yield_time_ms:1000,max_output_tokens:700}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+        "create_time": 1791949957.8009758
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1900,
+    "byte_offset": 5635560,
+    "timestamp": "2026-10-14T03:52:41.831Z",
+    "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a1388a-7a66-7212-9b24-c42c223d6521",
+      "call_id": "call_c39a025db9d145b4846b1ad6b8efb740",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"25e629\",\"wall_time_seconds\":0.000039776,\"exit_code\":0,\"original_token_count\":100,\"output\":\"  ✓  63 [routes] › tests/routes.spec.ts:37:9 › admin › [route] shopping-lists/[id].vue (1.1s)\\n  ✓  64 [routes] › tests/routes.spec.ts:37:9 › admin › [route] user/profile/index.vue (1.1s)\\n  ✓  65 [routes] › tests/routes.spec.ts:37:9 › admin › [route] user/profile/edit.vue (1.2s)\\nprovisional ['01a1382a-58bc-7f40-9ce8-5b97298b1cd0', '01a13885-24dd-7ff3-a6cc-b87a30d19d71'] []\\n\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"7ad579\",\"wall_time_seconds\":0.000012045,\"exit_code\":0,\"original_token_count\":213,\"output\":\"{\\\"command_id\\\": \\\"20261014T035150-96a8e6ac\\\", \\\"stage_id\\\": \\\"S1\\\", \\\"label\\\": \\\"S1-resumed-provider-usage-boundary-audit\\\", \\\"argv\\\": [\\\"python3\\\", \\\"-B\\\", \\\"wf6-evidence/usage/collect_usage.py\\\", \\\"finalize\\\", \\\"--stage\\\", \\\"S1\\\", \\\"--wait-seconds\\\", \\\"0\\\"], \\\"cwd\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01\\\", \\\"start_utc\\\": \\\"2026-10-14T03:51:50.475130+00:00\\\", \\\"end_utc\\\": \\\"2026-10-14T03:52:06.900255+00:00\\\", \\\"duration_seconds\\\": 16.42518152699995, \\\"exit_code\\\": 0, \\\"stdout\\\": \\\"steps/S1/logs/20261014T035150-96a8e6ac.stdout.log\\\", \\\"stderr\\\": \\\"steps/S1/logs/20261014T035150-96a8e6ac.stderr.log\\\", \\\"environment_overrides\\\": {}, \\\"permission\\\": \\\"workspace-write; network restricted; no escalation\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+        "create_time": 1791949961.8309848
+      }
+    }
+  }
+}

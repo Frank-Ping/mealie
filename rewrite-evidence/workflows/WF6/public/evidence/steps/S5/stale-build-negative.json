@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "classification": "expected_failure",
+  "failure_command": "20261014T073413-15979c92",
+  "actual_failure_exit_code": 1,
+  "old_dist_remained": true,
+  "old_dist_accepted_for_failed_attempt": false,
+  "accepted_success_build": "20261014T073114-e2b6a92a",
+  "scope": "Isolated invalid temporary config; S5 acceptance guard; not a product source failure or a source repair round"
+}

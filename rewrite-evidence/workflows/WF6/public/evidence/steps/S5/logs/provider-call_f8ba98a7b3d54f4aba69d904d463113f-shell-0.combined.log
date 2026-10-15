@@ -1,0 +1,159 @@
+rg: /tmp/snap-private-tmp: Permission denied (os error 13)
+rg: /tmp/systemd-private-1c5952bbf8924d93b6b546f773ec563c-chrony.service-S2YSmn: Permission denied (os error 13)
+rg: /tmp/systemd-private-1c5952bbf8924d93b6b546f773ec563c-systemd-logind.service-VrTWqy: Permission denied (os error 13)
+rg: /tmp/systemd-private-1c5952bbf8924d93b6b546f773ec563c-polkit.service-ZLt1Xv: Permission denied (os error 13)
+rg: /tmp/codex-daemon-1000: Permission denied (os error 13)
+rg: /tmp/systemd-private-1c5952bbf8924d93b6b546f773ec563c-wsl-pro.service-RojqI7: Permission denied (os error 13)
+/tmp/wf6-rerun-20261014-01-S1-native/static/robots.txt
+/tmp/wf6-rerun-20261014-01-S3/vue/robots.txt
+/tmp/wf6-rerun-20261014-01-S3/deps/node_modules/typescript/LICENSE.txt
+/tmp/wf6-rerun-20261014-01-S3/deps/node_modules/typescript/ThirdPartyNoticeText.txt
+/tmp/wf6-rerun-20261014-01-S1-native2/static/robots.txt
+/tmp/wf6-rerun-20261014-01-S3/deps/node_modules/jsesc/LICENSE-MIT.txt
+/tmp/wf6-rerun-20261014-01-S2/static/robots.txt
+/tmp/wf6-rerun-20261014-01-S4/deps/node_modules/punycode/LICENSE-MIT.txt
+/tmp/wf6-rerun-20261014-01-S4/vue/robots.txt
+/tmp/wf6-rerun-20261014-01-S4/deps/node_modules/esquery/license.txt
+/tmp/wf6-rerun-20261014-01-S4/deps/node_modules/eslint/lib/rules/operator-assignment.js
+/tmp/wf6-rerun-20261014-01-S4/deps/node_modules/eslint/lib/rules/no-useless-assignment.js
+/tmp/wf6-rerun-20261014-01-S4/deps/node_modules/eslint/lib/rules/logical-assignment-operators.js
+/tmp/wf6-rerun-20261014-01-S4/deps/node_modules/typescript/ThirdPartyNoticeText.txt
+/tmp/wf6-rerun-20261014-01-S4/deps/node_modules/typescript/LICENSE.txt
+/tmp/wf6-rerun-20261014-01-S4/deps/node_modules/@typescript-eslint/eslint-plugin/dist/rules/no-unnecessary-parameter-property-assignment.js
+/tmp/wf6-rerun-20261014-01-S4/deps/node_modules/@typescript-eslint/eslint-plugin/dist/rules/no-unsafe-assignment.js
+/tmp/wf6-rerun-20261014-01-S4/deps/node_modules/@typescript-eslint/eslint-plugin/dist/rules/no-unsafe-enum-assignment.js
+/tmp/wf6-rerun-20261014-01-S4/deps/node_modules/@typescript-eslint/eslint-plugin/dist/rules/no-useless-default-assignment.js
+/tmp/wf6-rerun-20261014-01-S4/deps/node_modules/@typescript-eslint/eslint-plugin/dist/rules/no-unnecessary-parameter-property-assignment.d.ts
+/tmp/wf6-rerun-20261014-01-S4/deps/node_modules/@typescript-eslint/eslint-plugin/dist/rules/no-unsafe-assignment.d.ts
+/tmp/wf6-rerun-20261014-01-S4/deps/node_modules/@typescript-eslint/eslint-plugin/dist/rules/no-unsafe-enum-assignment.d.ts
+/tmp/wf6-rerun-20261014-01-S4/deps/node_modules/@typescript-eslint/eslint-plugin/dist/rules/no-useless-default-assignment.d.ts
+/tmp/wf6-rerun-20261014-01-S4/deps/node_modules/jsesc/LICENSE-MIT.txt
+  // --- admin: second group/household, a non-admin member -----------------------------------------
+  const group2 = await api.getOrCreate("/api/admin/groups", "name", NAMES.group, () =>
+    api.post("/api/admin/groups", { name: NAMES.group }));
+  const household2 = await api.getOrCreate("/api/admin/households", "name", NAMES.household, () =>
+    api.post("/api/admin/households", { name: NAMES.household, groupId: self.groupId }));
+  const createUser = (user: typeof MEMBER) => api.getOrCreate("/api/admin/users", "email", user.email, () =>
+    api.post("/api/admin/users", { ...user, group: self.group, household: self.household, admin: false }));
+  const member = await createUser(MEMBER);
+  await createUser(PROFILE_USER);
+
+  await api.storageState(ADMIN_STATE);
+  await api.dispose();
+
+  const fixtures: Fixtures = {
+    groupSlug: self.groupSlug,
+    householdSlug: self.householdSlug,
+    adminId: self.id,
+    memberId: member.id,
+    recipeSlug: pancakes.slug,
+    recipeId: pancakes.id,
+    recipe2Slug: salad.slug,
+    cookbookSlug: cookbook.slug,
+    shoppingListId: list.id,
+    sharedRecipeToken: share.id,
+    reportId: report.id,
+    secondGroupId: group2.id,
+    secondHouseholdId: household2.id,
+    mealplanDate: date,
+  };
+  fs.writeFileSync(FIXTURES_FILE, JSON.stringify(fixtures, null, 2));
+}
+import fs from "node:fs";
+import path from "node:path";
+
+export const E2E_DIR = path.resolve(__dirname, "..");
+export const AUTH_DIR = path.join(E2E_DIR, ".auth");
+export const ADMIN_STATE = path.join(AUTH_DIR, "admin.json");
+export const FIXTURES_FILE = path.join(AUTH_DIR, "fixtures.json");
+
+export const ADMIN = {
+  email: "e2e-admin@example.com",
+  password: "[REDACTED]",
+  fullName: "E2E Admin",
+  username: "e2eadmin",
+};
+
+export const MEMBER = {
+  email: "e2e-member@example.com",
+  password: "[REDACTED]",
+  fullName: "E2E Member",
+  username: "e2emember",
+};
+
+/** Owned by the profile flow, which renames it; nothing else may assert on this user's name. */
+export const PROFILE_USER = {
+  email: "e2e-profile@example.com",
+  password: "E2e-Profile-Pass-123",
+  fullName: "E2E Profile User",
+  username: "e2eprofile",
+};
+
+/** Names of seeded data. All prefixed with "E2E" so assertions can't match stock UI text by accident. */
+export const NAMES = {
+  recipe: "E2E Pancakes",
+  recipe2: "E2E Garden Salad",
+  ingredient: "2 cups e2e flour",
+  instruction: "Whisk the e2e batter until smooth.",
+  category: "E2E Breakfast",
+  tag: "E2E Quick",
+  tool: "E2E Skillet",
+  cookbook: "E2E Cookbook",
+  shoppingList: "E2E Groceries",
+  shoppingList2: "E2E Hardware Store",
+  shoppingItems: ["E2E Milk", "E2E Eggs"],
+  food: "e2e flour",
+  unit: "e2e cup",
+  label: "E2E Dairy",
+  group: "E2E Second Group",
+  household: "E2E Second Household",
+  mealplanNote: "E2E Leftovers Night",
+  webhook: "E2E Webhook",
+  notifier: "E2E Notifier",
+  recipeAction: "E2E Recipe Action",
+  apiToken: "E2E Token",
+};
+
+export interface Fixtures {
+  groupSlug: string;
+  householdSlug: string;
+  adminId: string;
+  memberId: string;
+  recipeSlug: string;
+  recipeId: string;
+  recipe2Slug: string;
+  cookbookSlug: string;
+  shoppingListId: string;
+  sharedRecipeToken: string;
+  reportId: string;
+  secondGroupId: string;
+  secondHouseholdId: string;
+  /** ISO date (YYYY-MM-DD, UTC) of the seeded meal plan entries. */
+  mealplanDate: string;
+}
+
+export function loadFixtures(): Fixtures {
+  return JSON.parse(fs.readFileSync(FIXTURES_FILE, "utf-8")) as Fixtures;
+}
+    }
+  ],
+  "input_tokens": 6687491,
+  "cached_input_tokens": 6595328,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 46028,
+  "reasoning_output_tokens": 20539,
+  "total_tokens": 6733519,
+  "known_partial_usage": {
+    "input_tokens": 6687491,
+    "cached_input_tokens": 6595328,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 46028,
+    "reasoning_output_tokens": 20539,
+    "total_tokens": 6733519
+  },
+  "final_reply_included": true,
+  "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+  "coverage_notes": [],
+  "cost": null,
+  "cache_write_semantics": "Observed separately; not added to total."
+}

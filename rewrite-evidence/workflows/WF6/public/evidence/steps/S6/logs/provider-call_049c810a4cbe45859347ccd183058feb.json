@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3825,
+    "byte_offset": 10924458,
+    "timestamp": "2026-10-14T08:13:33.848Z",
+    "turn_id": "01a13974-b942-7012-950c-89399b0de489",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf39a88fc88191af10734befd47d8c",
+      "status": "completed",
+      "call_id": "call_049c810a4cbe45859347ccd183058feb",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 -B wf6-rerun-20261014-01/wf6-evidence/usage/record_command.py --stage S6 --cwd '<WORKSPACE>/wf6-rerun-20261014-01' --label S6-C1-four-existing-Vue-functions-real-browser --permission 'Approved bounded S6 continuation loopback backend/gateway/Chromium; sandbox retained' -- python3 -B wf6-evidence/usage/run_s6_c1.py\",\"sandbox_permissions\":\"require_escalated\",\"justification\":\"S6 CONTINUE 仅用新隔离 SQLite/auth/context 验证现有显式 Vue 入口后的 Logout、Settings、评论及返回 React；不改源码或冻结断言，不增加 React 写功能，保存真实 trace 并停止自身服务。\",\"yield_time_ms\":1000,\"max_output_tokens\":1000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13974-b942-7012-950c-89399b0de489",
+        "create_time": 1791965608.570273
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3827,
+    "byte_offset": 10926535,
+    "timestamp": "2026-10-14T08:13:37.704Z",
+    "turn_id": "01a13974-b942-7012-950c-89399b0de489",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13979-5e28-7cc3-a40c-fda18fb8b8a8",
+      "call_id": "call_049c810a4cbe45859347ccd183058feb",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 3.8 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"4b3534\",\"wall_time_seconds\":1.000844573,\"session_id\":81345,\"original_token_count\":0,\"output\":\"\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13974-b942-7012-950c-89399b0de489",
+        "create_time": 1791965617.7046375
+      }
+    }
+  }
+}

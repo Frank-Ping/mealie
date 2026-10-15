@@ -1,0 +1,24 @@
+{
+  "command_id": "20261014T081855-efd4b056",
+  "stage_id": "S6",
+  "label": "S6-C1-stage-only-explicit-Vue-audit-summary",
+  "argv": [
+    "git",
+    "-C",
+    "mealie-wf6-coexist",
+    "add",
+    "rewrite-evidence/workflows/WF6/S6-C1-RESULT.md"
+  ],
+  "cwd": "<WORKSPACE>/wf6-rerun-20261014-01",
+  "start_utc": "2026-10-14T08:18:55.181804+00:00",
+  "end_utc": "2026-10-14T08:18:55.221668+00:00",
+  "duration_seconds": 0.03987022300134413,
+  "exit_code": 0,
+  "stdout": "steps/S6/logs/20261014T081855-efd4b056.stdout.log",
+  "stderr": "steps/S6/logs/20261014T081855-efd4b056.stderr.log",
+  "environment_overrides": {},
+  "permission": "workspace-write; network restricted; no escalation",
+  "environment_capture": "Only explicit non-secret overrides; inherited secrets are not exported.",
+  "launch_error": null,
+  "stdin_path": null
+}

@@ -1,0 +1,57 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2707,
+    "byte_offset": 7518893,
+    "timestamp": "2026-10-14T04:55:23.714Z",
+    "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf0b35cc1c819181aeeeb8b9838622",
+      "status": "completed",
+      "call_id": "call_17f85b2effbd45229b8ed8e65bda0645",
+      "name": "exec",
+      "input": "text(await tools.write_stdin({session_id:64989,chars:\"\",yield_time_ms:1000,max_output_tokens:700}));\ntext(await tools.exec_command({cmd:\"python3 -B wf6-rerun-20261014-01/wf6-evidence/usage/record_command.py --stage S3 --cwd '<WORKSPACE>/wf6-rerun-20261014-01' --label S3-final-collector-regression -- python3 -B -m unittest discover -s wf6-evidence/usage -p 'test*.py'\",\"yield_time_ms\":1000,\"max_output_tokens\":650}));\ntext(await tools.exec_command({cmd:\"python3 -B wf6-rerun-20261014-01/wf6-evidence/usage/record_command.py --stage S3 --cwd '<WORKSPACE>/wf6-rerun-20261014-01' --label S3-provisional-provider-and-shared-budget-export -- python3 -B wf6-evidence/usage/collect_usage.py finalize --stage S3 --wait-seconds 0\",\"yield_time_ms\":1000,\"max_output_tokens\":700}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+        "create_time": 1791953717.7997115
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2710,
+    "byte_offset": 7523257,
+    "timestamp": "2026-10-14T04:55:25.366Z",
+    "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a138c3-e7b6-7980-88a2-f17a59ad0e64",
+      "call_id": "call_17f85b2effbd45229b8ed8e65bda0645",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 1.6 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"e76aa7\",\"wall_time_seconds\":0.000020359,\"exit_code\":0,\"original_token_count\":205,\"output\":\"{\\\"command_id\\\": \\\"20261014T045404-5ba5c4eb\\\", \\\"stage_id\\\": \\\"S3\\\", \\\"label\\\": \\\"S3-verify-acceptance-commit-source-hashes-and-clean-checkouts\\\", \\\"argv\\\": [\\\"python3\\\", \\\"-B\\\", \\\"wf6-evidence/usage/postcommit_s3.py\\\"], \\\"cwd\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01\\\", \\\"start_utc\\\": \\\"2026-10-14T04:54:04.087549+00:00\\\", \\\"end_utc\\\": \\\"2026-10-14T04:54:08.426686+00:00\\\", \\\"duration_seconds\\\": 4.338409074000083, \\\"exit_code\\\": 0, \\\"stdout\\\": \\\"steps/S3/logs/20261014T045404-5ba5c4eb.stdout.log\\\", \\\"stderr\\\": \\\"steps/S3/logs/20261014T045404-5ba5c4eb.stderr.log\\\", \\\"environment_overrides\\\": {}, \\\"permission\\\": \\\"workspace-write; network restricted; no escalation\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"2f6d08\",\"wall_time_seconds\":0.239410603,\"exit_code\":0,\"original_token_count\":207,\"output\":\"{\\\"command_id\\\": \\\"20261014T045523-3586a9d2\\\", \\\"stage_id\\\": \\\"S3\\\", \\\"label\\\": \\\"S3-final-collector-regression\\\", \\\"argv\\\": [\\\"python3\\\", \\\"-B\\\", \\\"-m\\\", \\\"unittest\\\", \\\"discover\\\", \\\"-s\\\", \\\"wf6-evidence/usage\\\", \\\"-p\\\", \\\"test*.py\\\"], \\\"cwd\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01\\\", \\\"start_utc\\\": \\\"2026-10-14T04:55:23.959186+00:00\\\", \\\"end_utc\\\": \\\"2026-10-14T04:55:24.140715+00:00\\\", \\\"duration_seconds\\\": 0.18152382799962652, \\\"exit_code\\\": 0, \\\"stdout\\\": \\\"steps/S3/logs/20261014T045523-3586a9d2.stdout.log\\\", \\\"stderr\\\": \\\"steps/S3/logs/20261014T045523-3586a9d2.stderr.log\\\", \\\"environment_overrides\\\": {}, \\\"permission\\\": \\\"workspace-write; network restricted; no escalation\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"9105a0\",\"wall_time_seconds\":1.001614749,\"session_id\":43589,\"original_token_count\":0,\"output\":\"\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+        "create_time": 1791953725.3660913
+      }
+    }
+  }
+}

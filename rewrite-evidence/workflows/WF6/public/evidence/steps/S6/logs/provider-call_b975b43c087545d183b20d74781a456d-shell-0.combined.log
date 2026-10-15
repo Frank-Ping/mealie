@@ -1,0 +1,155 @@
+{
+  "react_completed": [
+    "authenticated own-group list",
+    "server search and clear",
+    "keyboard-accessible real recipe links",
+    "read-only detail name/ingredients/steps/tools/categories/tags",
+    "loading/empty/error and retry",
+    "basic pagination UI (multi-page browser scenario not measured)"
+  ],
+  "vue_retained_or_not_migrated": [
+    "create/edit/delete",
+    "comments",
+    "cook/parse modes",
+    "shopping-list business",
+    "administration/settings",
+    "advanced filters/suggestions",
+    "full public/shared browsing",
+    "other-group pilot",
+    "nutrition/assets/images/rating/timeline",
+    "unit conversion and rich Markdown parity",
+    "complete non-en-US localization",
+    "whole-system/production deployment"
+  ],
+  "vue_retained_not_counted_as_react": true,
+  "recipe_write_requests_from_react": 0,
+  "full_frozen_suite": "not_executed",
+  "coverage": null,
+  "cost": null,
+  "human_review_time": null
+}
+/**
+ * Tier 1 of the yardstick: one entry per selected page in the migration test scope.
+ *
+ * A route passes when, after loading its URL in a real browser:
+ *   - it ends up at the expected URL (no bounce to /login, no unexpected redirect),
+ *   - every `texts` entry is visible (en-US UI strings + seeded fixture data, so an empty shell or a
+ *     placeholder page can't pass),
+ *   - every `values` entry is the current value of some form field (edit pages load real data),
+ *   - no uncaught page error or console error was raised and no API call answered 5xx,
+ *   - nothing on the page reads like a stub ("TODO", "Not implemented", "Coming soon", ...).
+ *
+ * The expectations were taken from the Vue app (the reference). Dynamic segments use seeded ids/slugs.
+ */
+import { ADMIN, MEMBER, NAMES, type Fixtures } from "./fixtures";
+
+export interface RouteCheck {
+  /** Page file relative to frontend/app/pages/ — the unit counted in route pass totals. */
+  file: string;
+  path: (f: Fixtures) => string;
+  /** Run without a session (public pages). Default: logged in as the seeded admin. */
+  anonymous?: boolean;
+  /** Where the browser must end up; default is `path` itself. Trailing slash is ignored. */
+  finalPath?: (f: Fixtures) => string | RegExp;
+  texts: (f: Fixtures) => string[];
+  values?: (f: Fixtures) => string[];
+}
+
+export type RouteScope = "all" | "core" | "extended";
+
+/** First day shown by the meal planner: the seeded date, formatted like the planner's day headers. */
+function plannerDay(f: Fixtures): string {
+  return new Date(`${f.mealplanDate}T00:00:00Z`).toLocaleDateString("en-US", {
+    weekday: "long",
+    month: "short",
+    day: "numeric",
+    timeZone: "UTC",
+  });
+}
+
+const g = (f: Fixtures) => `/g/${f.groupSlug}`;
+
+export const ROUTES: RouteCheck[] = [
+  // ---------------------------------------------------------------- admin
+  {
+    // Parent route with no index child: only guards (auth + admin-only) and the app shell.
+    file: "admin.vue",
+    path: () => "/admin",
+    finalPath: () => /^\/admin(\/.*)?$/,
+    texts: () => [ADMIN.fullName, "Settings"],
+  },
+  {
+    file: "admin/backups.vue",
+    path: () => "/admin/backups",
+    texts: () => ["Backups", "Create A Backup"],
+  },
+  {
+    file: "admin/debug/openai.vue",
+    path: () => "/admin/debug/openai",
+    texts: () => ["Debug OpenAI Services"],
+  },
+  {
+    file: "admin/debug/parser.vue",
+    path: () => "/admin/debug/parser",
+    texts: () => ["Ingredients Natural Language Processor", "Try an example"],
+  },
+  {
+    file: "admin/maintenance/index.vue",
+    path: () => "/admin/maintenance",
+    texts: () => ["Site Maintenance", "Summary", "Actions"],
+  },
+  {
+    file: "admin/manage/groups/[id].vue",
+    path: f => `/admin/manage/groups/${f.secondGroupId}`,
+    texts: () => ["Admin Group Management", "Group Preferences"],
+    values: () => [NAMES.group],
+  },
+  {
+    file: "admin/manage/groups/index.vue",
+    path: () => "/admin/manage/groups",
+    texts: () => ["Group Management", NAMES.group, "Home"],
+  },
+  {
+    file: "admin/manage/households/[id].vue",
+    path: f => `/admin/manage/households/${f.secondHouseholdId}`,
+    texts: () => ["Admin Household Management", "Household Preferences"],
+    values: () => [NAMES.household],
+  },
+  {
+    file: "admin/manage/households/index.vue",
+    path: () => "/admin/manage/households",
+    texts: () => ["Household Management", NAMES.household, "Family"],
+  },
+  {
+    file: "admin/manage/users/[id].vue",
+    path: f => `/admin/manage/users/${f.memberId}`,
+    texts: () => ["Admin User Management", "User Details", "Permissions"],
+    values: () => [MEMBER.email, MEMBER.fullName],
+  },
+  {
+    file: "admin/manage/users/create.vue",
+    path: () => "/admin/manage/users/create",
+    texts: () => ["Admin User Creation", "User Details", "Permissions"],
+  },
+  {
+    file: "admin/manage/users/index.vue",
+    path: () => "/admin/manage/users",
+    texts: () => ["User Management", MEMBER.email, ADMIN.email],
+  },
+  {
+    file: "admin/setup.vue",
+wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/tests/flows/auth.spec.ts:8:  test("[flow] log in with valid credentials and land on the recipe list", async ({ page }) => {
+wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/tests/flows/auth.spec.ts:16:  test("[flow] a wrong password is rejected", async ({ page }) => {
+wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/tests/flows/auth.spec.ts:27:  test("[flow] log out ends the session", async ({ page }) => {
+wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/tests/flows/auth.spec.ts:39:  test("[flow] a regular member is not offered admin pages", async ({ page }) => {
+wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/tests/flows/auth.spec.ts:50:  test("[flow] an admin is offered admin pages", async ({ page }) => {
+wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/tests/flows/shopping.spec.ts:6:  test("[flow] create a shopping list", async ({ page }) => {
+wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/tests/flows/shopping.spec.ts:19:  test("[flow] add an item and check it off", async ({ page }) => {
+wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/tests/flows/recipes.spec.ts:6:  test("[flow] open a recipe from the recipe list", async ({ page }) => {
+wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/tests/flows/recipes.spec.ts:15:  test("[flow] search narrows the recipe list", async ({ page }) => {
+wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/tests/flows/recipes.spec.ts:24:  test("[flow] create a recipe by name", async ({ page }) => {
+wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/tests/flows/recipes.spec.ts:36:  test("[flow] comment on a recipe and see it after reload", async ({ page }) => {
+wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/tests/flows/mealplan.spec.ts:12:  test("[flow] add a note to tomorrow's meal plan", async ({ page }) => {
+wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/tests/flows/profile.spec.ts:8:  test("[flow] a member updates their full name", async ({ page }) => {
+wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/tests/flows/admin.spec.ts:5:  test("[flow] create a user and find them in user management", async ({ page }) => {
+wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/tests/flows/organize.spec.ts:5:  test("[flow] create a tag in data management", async ({ page }) => {

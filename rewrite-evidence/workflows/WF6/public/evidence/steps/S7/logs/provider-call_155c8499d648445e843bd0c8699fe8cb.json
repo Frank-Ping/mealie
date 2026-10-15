@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 4547,
+    "byte_offset": 13562299,
+    "timestamp": "2026-10-14T09:54:53.339Z",
+    "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf515662b88191ac119fa627a4ffce",
+      "status": "completed",
+      "call_id": "call_155c8499d648445e843bd0c8699fe8cb",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"cat > wf6-evidence/usage/verify_s7.py <<'PY'\\n\\\"\\\"\\\"Verify report links, manifests, accounting partitions and documentation-only commit.\\\"\\\"\\\"\\nimport hashlib,json,os,re,subprocess,sys\\nfrom pathlib import Path\\nfrom finish_s7 import E,S,V,D,T,write,now,sha,git\\nfrom collect_usage import manifest\\n\\ndef validate_links():\\n bad=[];checked=0\\n for p in [E/'WF6-RESULTS.md',E/'WF6-REPORT-MATERIAL.md',E/'EVIDENCE_INDEX.md',T/'result.md',D/'WF6-RESULTS.md',D/'WF6-REPORT-MATERIAL.md',D/'EVIDENCE_INDEX.md']:\\n  for link in re.findall(r'\\\\]\\\\(([^)]+)\\\\)',p.read_text()):\\n   if re.match(r'https?://',link):continue\\n   checked+=1\\n   if not (p.parent/link.split('#')[0]).exists():bad.append(dict(file=str(p),link=link))\\n assert not bad,bad\\n return checked\\n\\ndef snapshot():\\n state={'timestamp':now(),'scope':'S7 documentation audit only; actual accepted application/build remains S6 C3; no new service started.','served_build':json.loads((E/'steps/S6/continuation-03/served-build.json').read_text())};inventory={}\\n for role,repo in [('source',S),('evaluator',V)]:\\n  rows=[]\\n  for name in git(repo,'ls-files').splitlines():\\n   p=repo/name\\n   if p.is_file():rows.append(dict(path=name,sha256=sha(p),bytes=len(os.readlink(p).encode()) if p.is_symlink() else p.stat().st_size,symlink=p.is_symlink()))\\n  inventory[role]=rows;state[role]=dict(head=git(repo,'rev-parse','HEAD'),status=git(repo,'status','--porcelain=v1'),untracked=git(repo,'ls-files','--others','--exclude-standard').splitlines(),remotes=git(repo,'remote','-v'))\\n write(T/'source-state.json',state);write(T/'file-manifest.json',inventory)\\n (T/'diff.patch').write_text(git(S,'diff','--binary','06569c09ec71e75d4ecf066f0b3b5aada4da1728','HEAD')+'\\\\n'+git(S,'diff','--binary','HEAD')+'\\\\n')\\n return state\\n\\nchecked=validate_links()\\nstate=snapshot()\\nif '--postcommit' in sys.argv:\\n head=state['source']['head'];files=git(S,'diff-tree','--no-commit-id','--name-only','-r',head).splitlines();assert sorted(files)==sorted(['rewrite-evidence/workflows/WF6/'+x for x in ['WF6-RESULTS.md','WF6-REPORT-MATERIAL.md','EVIDENCE_INDEX.md']]);assert not state['source']['status'] and not state['evaluator']['status'];state['report_commit']=head;write(T/'source-state.json',state)\\n manifest(E)\\n m=json.loads((E/'evidence-manifest.json').read_text());assert not m['self_included'];assert all(Path(r['path']).name!='evidence-manifest.json' for r in m['files'])\\n bad=[r['path'] for r in m['files'] if sha(E/r['path'])!=r['sha256']];assert not bad,bad\\n write(T/'manifest-validation.json',dict(timestamp=now(),verified_files=len(m['files']),mismatches=bad,self_included=False,report_links_checked=checked,note='Validation record and the containing recorder command require final manifest regeneration; external finalize regenerates after final usage.'))\\nprint(json.dumps(dict(report_links_checked=checked,source_state=state),ensure_ascii=False))\\nPY\",\"workdir\":\"<WORKSPACE>/wf6-rerun-20261014-01\",\"max_output_tokens\":100}));\ntext(await tools.write_stdin({session_id:68366,chars:\"\",yield_time_ms:1000,max_output_tokens:600}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+        "create_time": 1791971670.3883379
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 4550,
+    "byte_offset": 13573356,
+    "timestamp": "2026-10-14T09:54:53.492Z",
+    "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a139d6-13b4-7ae3-9217-6cbba334645e",
+      "call_id": "call_155c8499d648445e843bd0c8699fe8cb",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.1 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"f3c0cc\",\"wall_time_seconds\":0.000013269,\"exit_code\":0,\"original_token_count\":0,\"output\":\"\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"9eeab1\",\"wall_time_seconds\":0.000007956,\"exit_code\":0,\"original_token_count\":198,\"output\":\"{\\\"command_id\\\": \\\"20261014T095343-9b42949d\\\", \\\"stage_id\\\": \\\"S7\\\", \\\"label\\\": \\\"audit-correct-evaluator-object-owner\\\", \\\"argv\\\": [\\\"python3\\\", \\\"-B\\\", \\\"wf6-evidence/usage/finish_s7.py\\\"], \\\"cwd\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01\\\", \\\"start_utc\\\": \\\"2026-10-14T09:53:43.934873+00:00\\\", \\\"end_utc\\\": \\\"2026-10-14T09:54:26.567013+00:00\\\", \\\"duration_seconds\\\": 42.63214733300265, \\\"exit_code\\\": 0, \\\"stdout\\\": \\\"steps/S7/logs/20261014T095343-9b42949d.stdout.log\\\", \\\"stderr\\\": \\\"steps/S7/logs/20261014T095343-9b42949d.stderr.log\\\", \\\"environment_overrides\\\": {}, \\\"permission\\\": \\\"workspace-write; network restricted; no escalation\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+        "create_time": 1791971693.4922593
+      }
+    }
+  }
+}

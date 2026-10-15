@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1697,
+    "byte_offset": 5256030,
+    "timestamp": "2026-10-14T03:41:16.246Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acef9d7ff50819196f028ec83e017db",
+      "status": "completed",
+      "call_id": "call_12e47ec3e9904f5bb8974588a2a31e35",
+      "name": "exec",
+      "input": "text(await tools.write_stdin({session_id:94018,chars:\"\",yield_time_ms:1000,max_output_tokens:1800}));\ntext(await tools.exec_command({cmd:\"tail -9 wf6-rerun-20261014-01/wf6-evidence/steps/S1/logs/20261014T030622-9490b72b.stdout.log; tail -2 wf6-rerun-20261014-01/wf6-evidence/steps/S1/service-events.jsonl\",\"max_output_tokens\":1000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791949272.0058424
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1700,
+    "byte_offset": 5260138,
+    "timestamp": "2026-10-14T03:41:16.436Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13880-0513-78a0-8cd5-de41a282765d",
+      "call_id": "call_12e47ec3e9904f5bb8974588a2a31e35",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"04a7d7\",\"wall_time_seconds\":0.000012641,\"exit_code\":1,\"original_token_count\":218,\"output\":\"{\\\"command_id\\\": \\\"20261014T030529-57b03a35\\\", \\\"stage_id\\\": \\\"S1\\\", \\\"label\\\": \\\"S1-real-frozen-strict-browser-suite-approved-retry\\\", \\\"argv\\\": [\\\"python3\\\", \\\"-B\\\", \\\"wf6-evidence/usage/browser_s1.py\\\", \\\"--approved\\\"], \\\"cwd\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01\\\", \\\"start_utc\\\": \\\"2026-10-14T03:05:29.008107+00:00\\\", \\\"end_utc\\\": \\\"2026-10-14T03:41:07.446990+00:00\\\", \\\"duration_seconds\\\": 2138.438914289998, \\\"exit_code\\\": 1, \\\"stdout\\\": \\\"steps/S1/logs/20261014T030529-57b03a35.stdout.log\\\", \\\"stderr\\\": \\\"steps/S1/logs/20261014T030529-57b03a35.stderr.log\\\", \\\"environment_overrides\\\": {}, \\\"permission\\\": \\\"Approved fresh isolated localhost FastAPI/SQLite and frozen Chromium suite; no permanent sandbox changes\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"60f642\",\"wall_time_seconds\":0.004091399,\"exit_code\":0,\"original_token_count\":353,\"output\":\"    [flows] › tests/flows/organize.spec.ts:5:7 › organizing › [flow] create a tag in data management \\n    [flows] › tests/flows/profile.spec.ts:8:7 › profile › [flow] a member updates their full name ──\\n    [flows] › tests/flows/recipes.spec.ts:6:7 › recipes › [flow] open a recipe from the recipe list \\n    [flows] › tests/flows/recipes.spec.ts:15:7 › recipes › [flow] search narrows the recipe list ───\\n    [flows] › tests/flows/recipes.spec.ts:24:7 › recipes › [flow] create a recipe by name ──────────\\n    [flows] › tests/flows/recipes.spec.ts:36:7 › recipes › [flow] comment on a recipe and see it after reload \\n    [flows] › tests/flows/shopping.spec.ts:6:7 › shopping lists › [flow] create a shopping list ────\\n    [flows] › tests/flows/shopping.spec.ts:19:7 › shopping lists › [flow] add an item and check it off \\n  2 passed (34.6m)\\n{\\\"event\\\": \\\"owned_backend_started\\\", \\\"timestamp\\\": \\\"2026-10-14T03:05:31.960834+00:00\\\", \\\"pid\\\": 22712, \\\"process_group\\\": 22712, \\\"command_id\\\": \\\"20261014T030531-83618e54\\\", \\\"data_dir\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01/runtime/S1/disposable-data\\\"}\\n{\\\"event\\\": \\\"owned_backend_stopped\\\", \\\"timestamp\\\": \\\"2026-10-14T03:41:07.431732+00:00\\\", \\\"pid\\\": 22712, \\\"exit_code\\\": 143, \\\"command_id\\\": \\\"20261014T030531-83618e54\\\", \\\"planned_shutdown\\\": true}\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791949276.4359267
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "original_runtime": "/tmp/wf6-rerun-20261014-01-S1-native2/browser",
+  "evidence_copy": "<WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/steps/S1/browser-native",
+  "files": [
+    {
+      "path": "playwright-report/index.html",
+      "sha256": "336a5b778b9f1ebd88aa3c439411794125b659e06658ef56d5ec1308112caa4d",
+      "bytes": 565231
+    },
+    {
+      "path": "results.json",
+      "sha256": "47456b46f9b05e0d6ee468209b8fee8529481e123c0e8c90b1a30c19c0f99108",
+      "bytes": 101600
+    },
+    {
+      "path": "served-build.json",
+      "sha256": "90f5d0cdb990b678486e1b597d0ca219ead245fc7c2add3be4d210fa28598aa9",
+      "bytes": 1052
+    },
+    {
+      "path": "test-results/.last-run.json",
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903",
+      "bytes": 45
+    }
+  ]
+}

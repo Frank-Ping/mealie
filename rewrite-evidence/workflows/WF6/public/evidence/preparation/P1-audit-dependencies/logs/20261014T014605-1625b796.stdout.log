@@ -1,0 +1,6 @@
+{
+  "platform": "linux",
+  "arch": "x64",
+  "execPath": "<WORKSPACE>/wf6-rerun-20261014-01/runtime/tools/node-v24.21.0-linux-x64/bin/node",
+  "version": "v24.21.0"
+}

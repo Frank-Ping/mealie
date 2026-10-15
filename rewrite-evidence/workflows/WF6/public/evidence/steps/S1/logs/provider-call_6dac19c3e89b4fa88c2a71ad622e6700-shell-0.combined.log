@@ -1,0 +1,12 @@
+{"event": "owned_backend_started", "timestamp": "2026-10-14T03:50:46.813905+00:00", "pid": 35011, "process_group": 35011, "command_id": "20261014T035046-785b612e", "data_dir": "/tmp/wf6-rerun-20261014-01-S1-native2/disposable-data"}
+20261014T035042-44ac176d.stdout.log 
+20261014T035046-785b612e.backend.stdout.log WARNING  2026-10-14T03:50:55 - Secrets directory '/run/secrets' does not exist
+WARNING  2026-10-14T03:51:05 - Secrets directory '/run/secrets' does not exist
+ERROR    2026-10-14T03:51:10 - Incorrect username or password from 127.0.0.1
+
+20261014T035106-9353f711.stdout.log password.vue (884ms)
+  ✓  17 [routes] › tests/routes.spec.ts:37:9 › anonymous › [route] login.vue (920ms)
+  ✓  18 [routes] › tests/routes.spec.ts:37:9 › anonymous › [route] register/index.vue (894ms)
+  ✓  19 [routes] › tests/routes.spec.ts:37:9 › anonymous › [route] reset-password.vue (879ms)
+  ✓  20 [routes] › tests/routes.spec.ts:37:9 › anonymous › [route] g/[groupSlug]/shared/r/[id].vue (1.3s)
+

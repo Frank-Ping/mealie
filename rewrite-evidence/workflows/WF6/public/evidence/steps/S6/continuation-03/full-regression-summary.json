@@ -1,0 +1,1274 @@
+{
+  "source": "<WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/steps/S6/continuation-03/browser/restored-frozen-results.json",
+  "stats": {
+    "startTime": "2026-10-14T09:31:53.521Z",
+    "duration": 97585.553,
+    "expected": 82,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "categories": {
+    "routes": {
+      "total": 66,
+      "passed": 66,
+      "failed": 0,
+      "skipped": 0,
+      "flaky": 0
+    },
+    "flows": {
+      "total": 15,
+      "passed": 15,
+      "failed": 0,
+      "skipped": 0,
+      "flaky": 0
+    },
+    "guard": {
+      "total": 1,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0,
+      "flaky": 0
+    }
+  },
+  "cases": [
+    {
+      "category": "guard",
+      "title": "route table has unique entries",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 17,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] admin.vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 1208,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] admin/backups.vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 1007,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] admin/debug/openai.vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 968,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] admin/debug/parser.vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 966,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] admin/maintenance/index.vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 959,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] admin/manage/groups/[id].vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 1001,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] admin/manage/groups/index.vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 962,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] admin/manage/households/[id].vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 1016,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] admin/manage/households/index.vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 969,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] admin/manage/users/[id].vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 1026,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] admin/manage/users/create.vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 1016,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] admin/manage/users/index.vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 956,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] admin/setup.vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 903,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] admin/site-settings.vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 1033,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] index.vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 1129,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] g/[groupSlug]/index.vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 900,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] g/[groupSlug]/r/[slug]/index.vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 741,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] g/[groupSlug]/cookbooks/index.vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 992,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] g/[groupSlug]/cookbooks/[slug].vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 1038,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] g/[groupSlug]/r/create.vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 966,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] g/[groupSlug]/r/create/index.vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 1043,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] g/[groupSlug]/r/create/ai.vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 1052,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] g/[groupSlug]/r/create/bulk.vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 1037,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] g/[groupSlug]/r/create/debug.vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 1049,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] g/[groupSlug]/r/create/html.vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 1058,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] g/[groupSlug]/r/create/image.vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 1094,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] g/[groupSlug]/r/create/new.vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 984,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] g/[groupSlug]/r/create/url.vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 996,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] g/[groupSlug]/r/create/zip.vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 973,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] g/[groupSlug]/recipes/categories/index.vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 977,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] g/[groupSlug]/recipes/tags/index.vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 988,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] g/[groupSlug]/recipes/tools/index.vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 967,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] g/[groupSlug]/recipes/finder/index.vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 980,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] g/[groupSlug]/recipes/timeline.vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 1093,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] group/index.vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 1027,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] group/migrations.vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 1074,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] group/reports/[id].vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 966,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] group/data.vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 1020,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] group/data/index.vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 1079,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] group/data/foods.vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 1040,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] group/data/units.vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 1083,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] group/data/labels.vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 1038,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] group/data/categories.vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 1104,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] group/data/tags.vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 1094,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] group/data/tools.vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 1020,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] group/data/recipes.vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 1057,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] group/data/recipe-actions.vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 1035,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] household/index.vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 1007,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] household/members.vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 1044,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] household/notifiers.vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 984,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] household/webhooks.vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 978,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] household/mealplan/settings.vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 1059,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] household/mealplan/planner.vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 1000,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] household/mealplan/planner/view.vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 1076,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] household/mealplan/planner/edit.vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 1093,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] shopping-lists/index.vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 980,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] shopping-lists/[id].vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 1032,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] user/profile/index.vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 1028,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] user/profile/edit.vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 991,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] user/profile/api-tokens.vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 970,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] user/[id]/favorites.vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 1087,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] forgot-password.vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 825,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] login.vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 852,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] register/index.vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 796,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] reset-password.vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 782,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "routes",
+      "title": "[route] g/[groupSlug]/shared/r/[id].vue",
+      "file": "routes.spec.ts",
+      "project": "routes",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 1104,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "flows",
+      "title": "[flow] create a user and find them in user management",
+      "file": "flows/admin.spec.ts",
+      "project": "flows",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 2423,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "flows",
+      "title": "[flow] log in with valid credentials and land on the recipe list",
+      "file": "flows/auth.spec.ts",
+      "project": "flows",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 1025,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "flows",
+      "title": "[flow] a wrong password is rejected",
+      "file": "flows/auth.spec.ts",
+      "project": "flows",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 652,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "flows",
+      "title": "[flow] log out ends the session",
+      "file": "flows/auth.spec.ts",
+      "project": "flows",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 958,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "flows",
+      "title": "[flow] a regular member is not offered admin pages",
+      "file": "flows/auth.spec.ts",
+      "project": "flows",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 1163,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "flows",
+      "title": "[flow] an admin is offered admin pages",
+      "file": "flows/auth.spec.ts",
+      "project": "flows",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 1484,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "flows",
+      "title": "[flow] add a note to tomorrow's meal plan",
+      "file": "flows/mealplan.spec.ts",
+      "project": "flows",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 3814,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "flows",
+      "title": "[flow] create a tag in data management",
+      "file": "flows/organize.spec.ts",
+      "project": "flows",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 1450,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "flows",
+      "title": "[flow] a member updates their full name",
+      "file": "flows/profile.spec.ts",
+      "project": "flows",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 1395,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "flows",
+      "title": "[flow] open a recipe from the recipe list",
+      "file": "flows/recipes.spec.ts",
+      "project": "flows",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 543,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "flows",
+      "title": "[flow] search narrows the recipe list",
+      "file": "flows/recipes.spec.ts",
+      "project": "flows",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 781,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "flows",
+      "title": "[flow] create a recipe by name",
+      "file": "flows/recipes.spec.ts",
+      "project": "flows",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 1406,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "flows",
+      "title": "[flow] comment on a recipe and see it after reload",
+      "file": "flows/recipes.spec.ts",
+      "project": "flows",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 529,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "flows",
+      "title": "[flow] create a shopping list",
+      "file": "flows/shopping.spec.ts",
+      "project": "flows",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 1359,
+      "retries": [
+        0
+      ]
+    },
+    {
+      "category": "flows",
+      "title": "[flow] add an item and check it off",
+      "file": "flows/shopping.spec.ts",
+      "project": "flows",
+      "status": "expected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "passed"
+      ],
+      "duration_ms": 6552,
+      "retries": [
+        0
+      ]
+    }
+  ],
+  "gate_checks": {
+    "inventory": true,
+    "routes_66": true,
+    "flows_15": true,
+    "guard_1": true,
+    "all_passed": true
+  },
+  "runner_errors": []
+}

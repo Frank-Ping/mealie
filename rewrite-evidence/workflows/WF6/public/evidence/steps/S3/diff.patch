@@ -1,0 +1,2962 @@
+# Source tracked changes since pinned Vue input
+diff --git a/AGENTS.md b/AGENTS.md
+index a7ba28f..f0a5e7a 100644
+--- a/AGENTS.md
++++ b/AGENTS.md
+@@ -236,3 +236,8 @@ task docker:prod        # Build and run production Docker compose
+ - [Documentation](https://docs.mealie.io/)
+ - [Contributors Guide](https://nightly.mealie.io/contributors/developers-guide/code-contributions/)
+ - [Discord](https://discord.gg/QuStdQGSGK)
++
++
++# WF6 rerun experimental overlay
++
++For WF6 only, read rewrite-evidence/workflows/WF6/WF6-CONTRACT.md and the parent workspace AGENTS.md. One implementation agent, S0-S7 serial steps, explicit authorization and isolated runtime/evidence. Preserve the original conventions above.
+diff --git a/frontend-react-wf6/.gitignore b/frontend-react-wf6/.gitignore
+new file mode 100644
+index 0000000..cee5989
+--- /dev/null
++++ b/frontend-react-wf6/.gitignore
+@@ -0,0 +1,2 @@
++node_modules
++/dist/
+diff --git a/frontend-react-wf6/index.html b/frontend-react-wf6/index.html
+new file mode 100644
+index 0000000..b3a7919
+--- /dev/null
++++ b/frontend-react-wf6/index.html
+@@ -0,0 +1,2 @@
++<!doctype html>
++<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>WF6 coexistence probe</title></head><body><div id="root"></div><script type="module" src="/src/main.tsx"></script></body></html>
+diff --git a/frontend-react-wf6/package-lock.json b/frontend-react-wf6/package-lock.json
+new file mode 100644
+index 0000000..a95df7c
+--- /dev/null
++++ b/frontend-react-wf6/package-lock.json
+@@ -0,0 +1,2053 @@
++{
++  "name": "mealie-wf6-react-probe",
++  "version": "0.0.0",
++  "lockfileVersion": 3,
++  "requires": true,
++  "packages": {
++    "": {
++      "name": "mealie-wf6-react-probe",
++      "version": "0.0.0",
++      "dependencies": {
++        "@emotion/react": "11.14.0",
++        "@emotion/styled": "11.14.1",
++        "@mui/material": "7.3.11",
++        "i18next": "25.10.10",
++        "react": "19.3.0",
++        "react-dom": "19.3.0",
++        "react-i18next": "16.6.6",
++        "react-router": "7.18.4"
++      },
++      "devDependencies": {
++        "@types/node": "24.19.2",
++        "@types/react": "19.3.0",
++        "@types/react-dom": "19.3.0",
++        "@vitejs/plugin-react": "6.1.2",
++        "typescript": "5.9.3",
++        "vite": "8.3.4"
++      }
++    },
++    "node_modules/@babel/code-frame": {
++      "version": "7.29.7",
++      "resolved": "https://registry.npmjs.org/@babel/code-frame/-/code-frame-7.29.7.tgz",
++      "integrity": "sha512-Aup7aUOfpbAUg2ROOJN6Iw5f9DMBlzu0mIkm/malLQFN/YQgO48wCj0Kxa3sEHJvPVFg7siR+qRInwXd2qhQKw==",
++      "license": "MIT",
++      "dependencies": {
++        "@babel/helper-validator-identifier": "^7.29.7",
++        "js-tokens": "^4.0.0",
++        "picocolors": "^1.1.1"
++      },
++      "engines": {
++        "node": ">=6.9.0"
++      }
++    },
++    "node_modules/@babel/generator": {
++      "version": "7.29.8",
++      "resolved": "https://registry.npmjs.org/@babel/generator/-/generator-7.29.8.tgz",
++      "integrity": "sha512-gZbepsdh3WDtgZKWL+vTPh71LSBrm/Y4/QDZBVCcYfmeTEEuoOYwlSy+G1StfJg+/Zy550u/3TATbm7qDbbMtg==",
++      "license": "MIT",
++      "dependencies": {
++        "@babel/parser": "^7.29.8",
++        "@babel/types": "^7.29.8",
++        "@jridgewell/gen-mapping": "^0.3.12",
++        "@jridgewell/trace-mapping": "^0.3.28",
++        "jsesc": "^3.0.2"
++      },
++      "engines": {
++        "node": ">=6.9.0"
++      }
++    },
++    "node_modules/@babel/helper-globals": {
++      "version": "7.29.7",
++      "resolved": "https://registry.npmjs.org/@babel/helper-globals/-/helper-globals-7.29.7.tgz",
++      "integrity": "sha512-3nQVUAtvkKH9zahfWgw96Jc/uFOmjACE1kQz82E2lqWmHBgjzbNlsC22nuQTfahmWeQtTq5nQ/4Nnd2A1wj4zA==",
++      "license": "MIT",
++      "engines": {
++        "node": ">=6.9.0"
++      }
++    },
++    "node_modules/@babel/helper-module-imports": {
++      "version": "7.29.7",
++      "resolved": "https://registry.npmjs.org/@babel/helper-module-imports/-/helper-module-imports-7.29.7.tgz",
++      "integrity": "sha512-ejHwrQQYcm9xnTivShn2IDOlIzInN34AXskvq9QicvCtEzq1Vzclu/tKF8Jq1Cg8JG2GL6/EmjgsCT7lXepE3g==",
++      "license": "MIT",
++      "dependencies": {
++        "@babel/traverse": "^7.29.7",
++        "@babel/types": "^7.29.7"
++      },
++      "engines": {
++        "node": ">=6.9.0"
++      }
++    },
++    "node_modules/@babel/helper-string-parser": {
++      "version": "7.29.7",
++      "resolved": "https://registry.npmjs.org/@babel/helper-string-parser/-/helper-string-parser-7.29.7.tgz",
++      "integrity": "sha512-Pb5ijPrZ89GDH8223L4UP8i6QApWxs04RbPQJTeWDV0/keR2E36MeKnyr6LYmUUvqRRI+Iv87SuF1W6ErINzYw==",
++      "license": "MIT",
++      "engines": {
++        "node": ">=6.9.0"
++      }
++    },
++    "node_modules/@babel/helper-validator-identifier": {
++      "version": "7.29.7",
++      "resolved": "https://registry.npmjs.org/@babel/helper-validator-identifier/-/helper-validator-identifier-7.29.7.tgz",
++      "integrity": "sha512-qehxGkRj55h/ff8EMaJ+cYhyaKlHIxqYDn682wQD7RNp9UujOQsHog2uS0r2vzr4pW+sXf90NeeayjcNaX3fFg==",
++      "license": "MIT",
++      "engines": {
++        "node": ">=6.9.0"
++      }
++    },
++    "node_modules/@babel/parser": {
++      "version": "7.29.9",
++      "resolved": "https://registry.npmjs.org/@babel/parser/-/parser-7.29.9.tgz",
++      "integrity": "sha512-CjXrNHTnvqBVqHgdBysY3vk2T8tpJHb5/RMeHJBTyVa9xgugCB0CJTx/3oO8RV2QRQP391RWpB7D6hLjm8V9uA==",
++      "license": "MIT",
++      "dependencies": {
++        "@babel/types": "^7.29.8"
++      },
++      "bin": {
++        "parser": "bin/babel-parser.js"
++      },
++      "engines": {
++        "node": ">=6.0.0"
++      }
++    },
++    "node_modules/@babel/runtime": {
++      "version": "7.29.10",
++      "resolved": "https://registry.npmjs.org/@babel/runtime/-/runtime-7.29.10.tgz",
++      "integrity": "sha512-NpugTzbKgGrNe45Ui32cN8vCFFMxVtP/9rtfwv0nP5FRDAjvYBxJcLVpYA9mr1jxP6cnIT7x9LUzuDTbWYYNRA==",
++      "license": "MIT",
++      "engines": {
++        "node": ">=6.9.0"
++      }
++    },
++    "node_modules/@babel/template": {
++      "version": "7.29.7",
++      "resolved": "https://registry.npmjs.org/@babel/template/-/template-7.29.7.tgz",
++      "integrity": "sha512-puq+Gf35oI24FeN11LkoUQFqv9uwNeWpxXZi/Ji3rRIoKAzKnxRaZ+Gkj0vKS9ZCiTESfng1N9LyOyXvo+m+Gg==",
++      "license": "MIT",
++      "dependencies": {
++        "@babel/code-frame": "^7.29.7",
++        "@babel/parser": "^7.29.7",
++        "@babel/types": "^7.29.7"
++      },
++      "engines": {
++        "node": ">=6.9.0"
++      }
++    },
++    "node_modules/@babel/traverse": {
++      "version": "7.29.10",
++      "resolved": "https://registry.npmjs.org/@babel/traverse/-/traverse-7.29.10.tgz",
++      "integrity": "sha512-B3lYAs2nkKskbgQ1nfy8Ma9ao9Q1rntTAQHrzzyDuj+TSO+X3le6PfWwqDvodsb+OumE10eMFfuMCTQSQ5iuIQ==",
++      "license": "MIT",
++      "dependencies": {
++        "@babel/code-frame": "^7.29.7",
++        "@babel/generator": "^7.29.8",
++        "@babel/helper-globals": "^7.29.7",
++        "@babel/parser": "^7.29.9",
++        "@babel/template": "^7.29.7",
++        "@babel/types": "^7.29.8",
++        "debug": "^4.3.1"
++      },
++      "engines": {
++        "node": ">=6.9.0"
++      }
++    },
++    "node_modules/@babel/types": {
++      "version": "7.29.8",
++      "resolved": "https://registry.npmjs.org/@babel/types/-/types-7.29.8.tgz",
++      "integrity": "sha512-Vj1jF3cPfxg7OAfoI7QnVKLoILlm2JF9pnVHrX8qx7AHMiYWT+NDAA7jChlNgRS4WTLc/fD1lXLmPixluj+3Gg==",
++      "license": "MIT",
++      "dependencies": {
++        "@babel/helper-string-parser": "^7.29.7",
++        "@babel/helper-validator-identifier": "^7.29.7"
++      },
++      "engines": {
++        "node": ">=6.9.0"
++      }
++    },
++    "node_modules/@emotion/babel-plugin": {
++      "version": "11.13.5",
++      "resolved": "https://registry.npmjs.org/@emotion/babel-plugin/-/babel-plugin-11.13.5.tgz",
++      "integrity": "sha512-pxHCpT2ex+0q+HH91/zsdHkw/lXd468DIN2zvfvLtPKLLMo6gQj7oLObq8PhkrxOZb/gGCq03S3Z7PDhS8pduQ==",
++      "license": "MIT",
++      "dependencies": {
++        "@babel/helper-module-imports": "^7.16.7",
++        "@babel/runtime": "^7.18.3",
++        "@emotion/hash": "^0.9.2",
++        "@emotion/memoize": "^0.9.0",
++        "@emotion/serialize": "^1.3.3",
++        "babel-plugin-macros": "^3.1.0",
++        "convert-source-map": "^1.5.0",
++        "escape-string-regexp": "^4.0.0",
++        "find-root": "^1.1.0",
++        "source-map": "^0.5.7",
++        "stylis": "4.2.0"
++      }
++    },
++    "node_modules/@emotion/cache": {
++      "version": "11.14.0",
++      "resolved": "https://registry.npmjs.org/@emotion/cache/-/cache-11.14.0.tgz",
++      "integrity": "sha512-L/B1lc/TViYk4DcpGxtAVbx0ZyiKM5ktoIyafGkH6zg/tj+mA+NE//aPYKG0k8kCHSHVJrpLpcAlOBEXQ3SavA==",
++      "license": "MIT",
++      "dependencies": {
++        "@emotion/memoize": "^0.9.0",
++        "@emotion/sheet": "^1.4.0",
++        "@emotion/utils": "^1.4.2",
++        "@emotion/weak-memoize": "^0.4.0",
++        "stylis": "4.2.0"
++      }
++    },
++    "node_modules/@emotion/hash": {
++      "version": "0.9.2",
++      "resolved": "https://registry.npmjs.org/@emotion/hash/-/hash-0.9.2.tgz",
++      "integrity": "sha512-MyqliTZGuOm3+5ZRSaaBGP3USLw6+EGykkwZns2EPC5g8jJ4z9OrdZY9apkl3+UP9+sdz76YYkwCKP5gh8iY3g==",
++      "license": "MIT"
++    },
++    "node_modules/@emotion/is-prop-valid": {
++      "version": "1.4.0",
++      "resolved": "https://registry.npmjs.org/@emotion/is-prop-valid/-/is-prop-valid-1.4.0.tgz",
++      "integrity": "sha512-QgD4fyscGcbbKwJmqNvUMSE02OsHUa+lAWKdEUIJKgqe5IwRSKd7+KhibEWdaKwgjLj0DRSHA9biAIqGBk05lw==",
++      "license": "MIT",
++      "dependencies": {
++        "@emotion/memoize": "^0.9.0"
++      }
++    },
++    "node_modules/@emotion/memoize": {
++      "version": "0.9.0",
++      "resolved": "https://registry.npmjs.org/@emotion/memoize/-/memoize-0.9.0.tgz",
++      "integrity": "sha512-30FAj7/EoJ5mwVPOWhAyCX+FPfMDrVecJAM+Iw9NRoSl4BBAQeqj4cApHHUXOVvIPgLVDsCFoz/hGD+5QQD1GQ==",
++      "license": "MIT"
++    },
++    "node_modules/@emotion/react": {
++      "version": "11.14.0",
++      "resolved": "https://registry.npmjs.org/@emotion/react/-/react-11.14.0.tgz",
++      "integrity": "sha512-O000MLDBDdk/EohJPFUqvnp4qnHeYkVP5B0xEG0D/L7cOKP9kefu2DXn8dj74cQfsEzUqh+sr1RzFqiL1o+PpA==",
++      "license": "MIT",
++      "dependencies": {
++        "@babel/runtime": "^7.18.3",
++        "@emotion/babel-plugin": "^11.13.5",
++        "@emotion/cache": "^11.14.0",
++        "@emotion/serialize": "^1.3.3",
++        "@emotion/use-insertion-effect-with-fallbacks": "^1.2.0",
++        "@emotion/utils": "^1.4.2",
++        "@emotion/weak-memoize": "^0.4.0",
++        "hoist-non-react-statics": "^3.3.1"
++      },
++      "peerDependencies": {
++        "react": ">=16.8.0"
++      },
++      "peerDependenciesMeta": {
++        "@types/react": {
++          "optional": true
++        }
++      }
++    },
++    "node_modules/@emotion/serialize": {
++      "version": "1.3.3",
++      "resolved": "https://registry.npmjs.org/@emotion/serialize/-/serialize-1.3.3.tgz",
++      "integrity": "sha512-EISGqt7sSNWHGI76hC7x1CksiXPahbxEOrC5RjmFRJTqLyEK9/9hZvBbiYn70dw4wuwMKiEMCUlR6ZXTSWQqxA==",
++      "license": "MIT",
++      "dependencies": {
++        "@emotion/hash": "^0.9.2",
++        "@emotion/memoize": "^0.9.0",
++        "@emotion/unitless": "^0.10.0",
++        "@emotion/utils": "^1.4.2",
++        "csstype": "^3.0.2"
++      }
++    },
++    "node_modules/@emotion/sheet": {
++      "version": "1.4.0",
++      "resolved": "https://registry.npmjs.org/@emotion/sheet/-/sheet-1.4.0.tgz",
++      "integrity": "sha512-fTBW9/8r2w3dXWYM4HCB1Rdp8NLibOw2+XELH5m5+AkWiL/KqYX6dc0kKYlaYyKjrQ6ds33MCdMPEwgs2z1rqg==",
++      "license": "MIT"
++    },
++    "node_modules/@emotion/styled": {
++      "version": "11.14.1",
++      "resolved": "https://registry.npmjs.org/@emotion/styled/-/styled-11.14.1.tgz",
++      "integrity": "sha512-qEEJt42DuToa3gurlH4Qqc1kVpNq8wO8cJtDzU46TjlzWjDlsVyevtYCRijVq3SrHsROS+gVQ8Fnea108GnKzw==",
++      "license": "MIT",
++      "dependencies": {
++        "@babel/runtime": "^7.18.3",
++        "@emotion/babel-plugin": "^11.13.5",
++        "@emotion/is-prop-valid": "^1.3.0",
++        "@emotion/serialize": "^1.3.3",
++        "@emotion/use-insertion-effect-with-fallbacks": "^1.2.0",
++        "@emotion/utils": "^1.4.2"
++      },
++      "peerDependencies": {
++        "@emotion/react": "^11.0.0-rc.0",
++        "react": ">=16.8.0"
++      },
++      "peerDependenciesMeta": {
++        "@types/react": {
++          "optional": true
++        }
++      }
++    },
++    "node_modules/@emotion/unitless": {
++      "version": "0.10.0",
++      "resolved": "https://registry.npmjs.org/@emotion/unitless/-/unitless-0.10.0.tgz",
++      "integrity": "sha512-dFoMUuQA20zvtVTuxZww6OHoJYgrzfKM1t52mVySDJnMSEa08ruEvdYQbhvyu6soU+NeLVd3yKfTfT0NeV6qGg==",
++      "license": "MIT"
++    },
++    "node_modules/@emotion/use-insertion-effect-with-fallbacks": {
++      "version": "1.2.0",
++      "resolved": "https://registry.npmjs.org/@emotion/use-insertion-effect-with-fallbacks/-/use-insertion-effect-with-fallbacks-1.2.0.tgz",
++      "integrity": "sha512-yJMtVdH59sxi/aVJBpk9FQq+OR8ll5GT8oWd57UpeaKEVGab41JWaCFA7FRLoMLloOZF/c/wsPoe+bfGmRKgDg==",
++      "license": "MIT",
++      "peerDependencies": {
++        "react": ">=16.8.0"
++      }
++    },
++    "node_modules/@emotion/utils": {
++      "version": "1.4.2",
++      "resolved": "https://registry.npmjs.org/@emotion/utils/-/utils-1.4.2.tgz",
++      "integrity": "sha512-3vLclRofFziIa3J2wDh9jjbkUz9qk5Vi3IZ/FSTKViB0k+ef0fPV7dYrUIugbgupYDx7v9ud/SjrtEP8Y4xLoA==",
++      "license": "MIT"
++    },
++    "node_modules/@emotion/weak-memoize": {
++      "version": "0.4.0",
++      "resolved": "https://registry.npmjs.org/@emotion/weak-memoize/-/weak-memoize-0.4.0.tgz",
++      "integrity": "sha512-snKqtPW01tN0ui7yu9rGv69aJXr/a/Ywvl11sUjNtEcRc+ng/mQriFL0wLXMef74iHa/EkftbDzU9F8iFbH+zg==",
++      "license": "MIT"
++    },
++    "node_modules/@jridgewell/gen-mapping": {
++      "version": "0.3.13",
++      "resolved": "https://registry.npmjs.org/@jridgewell/gen-mapping/-/gen-mapping-0.3.13.tgz",
++      "integrity": "sha512-2kkt/7niJ6MgEPxF0bYdQ6etZaA+fQvDcLKckhy1yIQOzaoKjBBjSj63/aLVjYE3qhRt5dvM+uUyfCg6UKCBbA==",
++      "license": "MIT",
++      "dependencies": {
++        "@jridgewell/sourcemap-codec": "^1.5.0",
++        "@jridgewell/trace-mapping": "^0.3.24"
++      }
++    },
++    "node_modules/@jridgewell/resolve-uri": {
++      "version": "3.1.2",
++      "resolved": "https://registry.npmjs.org/@jridgewell/resolve-uri/-/resolve-uri-3.1.2.tgz",
++      "integrity": "sha512-bRISgCIjP20/tbWSPWMEi54QVPRZExkuD9lJL+UIxUKtwVJA8wW1Trb1jMs1RFXo1CBTNZ/5hpC9QvmKWdopKw==",
++      "license": "MIT",
++      "engines": {
++        "node": ">=6.0.0"
++      }
++    },
++    "node_modules/@jridgewell/sourcemap-codec": {
++      "version": "1.6.0",
++      "resolved": "https://registry.npmjs.org/@jridgewell/sourcemap-codec/-/sourcemap-codec-1.6.0.tgz",
++      "integrity": "sha512-T7jf+5zgsZHwNJ4lvQ7/aezbyk0nNX+zJVWpmHA7VYsEx7a7qr5Rg5IbtJFqkgze5Y2sruq1RUY8Q837Od7iFw==",
++      "license": "MIT"
++    },
++    "node_modules/@jridgewell/trace-mapping": {
++      "version": "0.3.31",
++      "resolved": "https://registry.npmjs.org/@jridgewell/trace-mapping/-/trace-mapping-0.3.31.tgz",
++      "integrity": "sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==",
++      "license": "MIT",
++      "dependencies": {
++        "@jridgewell/resolve-uri": "^3.1.0",
++        "@jridgewell/sourcemap-codec": "^1.4.14"
++      }
++    },
++    "node_modules/@mui/core-downloads-tracker": {
++      "version": "7.3.11",
++      "resolved": "https://registry.npmjs.org/@mui/core-downloads-tracker/-/core-downloads-tracker-7.3.11.tgz",
++      "integrity": "sha512-a7I/b/nBTdXYz2cOSlEmkQ9WWE1x8FHpqMhFPp+Y1VPFxcOw91G5ELOHARQAGSPy5V+UCgJua6K/1x70bAtQPw==",
++      "license": "MIT",
++      "funding": {
++        "type": "opencollective",
++        "url": "https://opencollective.com/mui-org"
++      }
++    },
++    "node_modules/@mui/material": {
++      "version": "7.3.11",
++      "resolved": "https://registry.npmjs.org/@mui/material/-/material-7.3.11.tgz",
++      "integrity": "sha512-yq8bPc3LxOwKRWpcjRgDkYFmpM6aKlARfESTmOQcvLYFeJwtHte2tw6hJDrb8sk8wcvpDprHEHVaoUU0MslIkw==",
++      "license": "MIT",
++      "dependencies": {
++        "@babel/runtime": "^7.28.6",
++        "@mui/core-downloads-tracker": "^7.3.11",
++        "@mui/system": "^7.3.11",
++        "@mui/types": "^7.4.12",
++        "@mui/utils": "^7.3.11",
++        "@popperjs/core": "^2.11.8",
++        "@types/react-transition-group": "^4.4.12",
++        "clsx": "^2.1.1",
++        "csstype": "^3.2.3",
++        "prop-types": "^15.8.1",
++        "react-is": "^19.2.3",
++        "react-transition-group": "^4.4.5"
++      },
++      "engines": {
++        "node": ">=14.0.0"
++      },
++      "funding": {
++        "type": "opencollective",
++        "url": "https://opencollective.com/mui-org"
++      },
++      "peerDependencies": {
++        "@emotion/react": "^11.5.0",
++        "@emotion/styled": "^11.3.0",
++        "@mui/material-pigment-css": "^7.3.11",
++        "@types/react": "^17.0.0 || ^18.0.0 || ^19.0.0",
++        "react": "^17.0.0 || ^18.0.0 || ^19.0.0",
++        "react-dom": "^17.0.0 || ^18.0.0 || ^19.0.0"
++      },
++      "peerDependenciesMeta": {
++        "@emotion/react": {
++          "optional": true
++        },
++        "@emotion/styled": {
++          "optional": true
++        },
++        "@mui/material-pigment-css": {
++          "optional": true
++        },
++        "@types/react": {
++          "optional": true
++        }
++      }
++    },
++    "node_modules/@mui/private-theming": {
++      "version": "7.3.11",
++      "resolved": "https://registry.npmjs.org/@mui/private-theming/-/private-theming-7.3.11.tgz",
++      "integrity": "sha512-9B+YKms0fRHbNrqp9tOT/DNbNnU5gyvJ1o3qAGXfq8GmZcbJnE3At9x07Zr/o0pkhzg4aDdwXVqe4+AcgtOCPA==",
++      "license": "MIT",
++      "dependencies": {
++        "@babel/runtime": "^7.28.6",
++        "@mui/utils": "^7.3.11",
++        "prop-types": "^15.8.1"
++      },
++      "engines": {
++        "node": ">=14.0.0"
++      },
++      "funding": {
++        "type": "opencollective",
++        "url": "https://opencollective.com/mui-org"
++      },
++      "peerDependencies": {
++        "@types/react": "^17.0.0 || ^18.0.0 || ^19.0.0",
++        "react": "^17.0.0 || ^18.0.0 || ^19.0.0"
++      },
++      "peerDependenciesMeta": {
++        "@types/react": {
++          "optional": true
++        }
++      }
++    },
++    "node_modules/@mui/styled-engine": {
++      "version": "7.3.10",
++      "resolved": "https://registry.npmjs.org/@mui/styled-engine/-/styled-engine-7.3.10.tgz",
++      "integrity": "sha512-WxE9SiF8xskAQqGjsp0poXCkCqsoXFEsSr0HBXfApmGHR+DBnXRp+z46Vsltg4gpPM4Z96DeAQRpeAOnhNg7Ng==",
++      "license": "MIT",
++      "dependencies": {
++        "@babel/runtime": "^7.28.6",
++        "@emotion/cache": "^11.14.0",
++        "@emotion/serialize": "^1.3.3",
++        "@emotion/sheet": "^1.4.0",
++        "csstype": "^3.2.3",
++        "prop-types": "^15.8.1"
++      },
++      "engines": {
++        "node": ">=14.0.0"
++      },
++      "funding": {
++        "type": "opencollective",
++        "url": "https://opencollective.com/mui-org"
++      },
++      "peerDependencies": {
++        "@emotion/react": "^11.4.1",
++        "@emotion/styled": "^11.3.0",
++        "react": "^17.0.0 || ^18.0.0 || ^19.0.0"
++      },
++      "peerDependenciesMeta": {
++        "@emotion/react": {
++          "optional": true
++        },
++        "@emotion/styled": {
++          "optional": true
++        }
++      }
++    },
++    "node_modules/@mui/system": {
++      "version": "7.3.11",
++      "resolved": "https://registry.npmjs.org/@mui/system/-/system-7.3.11.tgz",
++      "integrity": "sha512-7izwGWdNawAKpBKcRlx7f2gFnAAjmASBWvMcyX4YYEeLOFsbfGRbUYGInvnAcUeql3rPxI7F9Ft4oY2OLRz44g==",
++      "license": "MIT",
++      "dependencies": {
++        "@babel/runtime": "^7.28.6",
++        "@mui/private-theming": "^7.3.11",
++        "@mui/styled-engine": "^7.3.10",
++        "@mui/types": "^7.4.12",
++        "@mui/utils": "^7.3.11",
++        "clsx": "^2.1.1",
++        "csstype": "^3.2.3",
++        "prop-types": "^15.8.1"
++      },
++      "engines": {
++        "node": ">=14.0.0"
++      },
++      "funding": {
++        "type": "opencollective",
++        "url": "https://opencollective.com/mui-org"
++      },
++      "peerDependencies": {
++        "@emotion/react": "^11.5.0",
++        "@emotion/styled": "^11.3.0",
++        "@types/react": "^17.0.0 || ^18.0.0 || ^19.0.0",
++        "react": "^17.0.0 || ^18.0.0 || ^19.0.0"
++      },
++      "peerDependenciesMeta": {
++        "@emotion/react": {
++          "optional": true
++        },
++        "@emotion/styled": {
++          "optional": true
++        },
++        "@types/react": {
++          "optional": true
++        }
++      }
++    },
++    "node_modules/@mui/types": {
++      "version": "7.4.12",
++      "resolved": "https://registry.npmjs.org/@mui/types/-/types-7.4.12.tgz",
++      "integrity": "sha512-iKNAF2u9PzSIj40CjvKJWxFXJo122jXVdrmdh0hMYd+FR+NuJMkr/L88XwWLCRiJ5P1j+uyac25+Kp6YC4hu6w==",
++      "license": "MIT",
++      "dependencies": {
++        "@babel/runtime": "^7.28.6"
++      },
++      "peerDependencies": {
++        "@types/react": "^17.0.0 || ^18.0.0 || ^19.0.0"
++      },
++      "peerDependenciesMeta": {
++        "@types/react": {
++          "optional": true
++        }
++      }
++    },
++    "node_modules/@mui/utils": {
++      "version": "7.3.11",
++      "resolved": "https://registry.npmjs.org/@mui/utils/-/utils-7.3.11.tgz",
++      "integrity": "sha512-XTjGnifwteg71/ij+0e7Y7d+hwyntMYP5wPoA/g2drdGH+Flkvjwy0OfrVpKBbaOvofq4zU/LIyUZyKgmWu18g==",
++      "license": "MIT",
++      "dependencies": {
++        "@babel/runtime": "^7.28.6",
++        "@mui/types": "^7.4.12",
++        "@types/prop-types": "^15.7.15",
++        "clsx": "^2.1.1",
++        "prop-types": "^15.8.1",
++        "react-is": "^19.2.3"
++      },
++      "engines": {
++        "node": ">=14.0.0"
++      },
++      "funding": {
++        "type": "opencollective",
++        "url": "https://opencollective.com/mui-org"
++      },
++      "peerDependencies": {
++        "@types/react": "^17.0.0 || ^18.0.0 || ^19.0.0",
++        "react": "^17.0.0 || ^18.0.0 || ^19.0.0"
++      },
++      "peerDependenciesMeta": {
++        "@types/react": {
++          "optional": true
++        }
++      }
++    },
++    "node_modules/@oxc-project/types": {
++      "version": "0.153.0",
++      "resolved": "https://registry.npmjs.org/@oxc-project/types/-/types-0.153.0.tgz",
++      "integrity": "sha512-jSNrRIyvPVLL5E1z/tS5zLAprosGz/FuI1PWwEOz59j3E4TTTzSpqKb/RDGqJhhW0QHYISGXxq582wGx6T11Tw==",
++      "dev": true,
++      "license": "MIT",
++      "funding": {
++        "url": "https://github.com/sponsors/oxc-project"
++      }
++    },
++    "node_modules/@popperjs/core": {
++      "version": "2.11.8",
++      "resolved": "https://registry.npmjs.org/@popperjs/core/-/core-2.11.8.tgz",
++      "integrity": "sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==",
++      "license": "MIT",
++      "funding": {
++        "type": "opencollective",
++        "url": "https://opencollective.com/popperjs"
++      }
++    },
++    "node_modules/@rolldown/binding-android-arm-eabi": {
++      "version": "1.2.13",
++      "resolved": "https://registry.npmjs.org/@rolldown/binding-android-arm-eabi/-/binding-android-arm-eabi-1.2.13.tgz",
++      "integrity": "sha512-Vu/NICrgdRvUOeaJZIyB2FP63s6fO/4ud5l8dXmxDx9yDyn+mN0y+gsvsVviSli+T361Aqo0h46EuMoobrwawA==",
++      "cpu": [
++        "arm"
++      ],
++      "dev": true,
++      "license": "MIT",
++      "optional": true,
++      "os": [
++        "android"
++      ],
++      "engines": {
++        "node": "^20.19.0 || >=22.12.0"
++      }
++    },
++    "node_modules/@rolldown/binding-android-arm64": {
++      "version": "1.2.13",
++      "resolved": "https://registry.npmjs.org/@rolldown/binding-android-arm64/-/binding-android-arm64-1.2.13.tgz",
++      "integrity": "sha512-6LEoIrGy5vvCd2boNnv2soPSUZj/PRvhp8R/t9KlX+mIZxThIE/ZqxrGXxmuNX0FuvQFvLdZr7S4HrYpYBVhEQ==",
++      "cpu": [
++        "arm64"
++      ],
++      "dev": true,
++      "license": "MIT",
++      "optional": true,
++      "os": [
++        "android"
++      ],
++      "engines": {
++        "node": "^20.19.0 || >=22.12.0"
++      }
++    },
++    "node_modules/@rolldown/binding-darwin-arm64": {
++      "version": "1.2.13",
++      "resolved": "https://registry.npmjs.org/@rolldown/binding-darwin-arm64/-/binding-darwin-arm64-1.2.13.tgz",
++      "integrity": "sha512-CaJSRzlQ6Q+zkDMVA9OkVxBjVoPRCDEE3v0FSJ9kIQBgRjFApA3Si4ijhbNVUji7ZJt+PfO0e46qy4nPInHUPA==",
++      "cpu": [
++        "arm64"
++      ],
++      "dev": true,
++      "license": "MIT",
++      "optional": true,
++      "os": [
++        "darwin"
++      ],
++      "engines": {
++        "node": "^20.19.0 || >=22.12.0"
++      }
++    },
++    "node_modules/@rolldown/binding-darwin-x64": {
++      "version": "1.2.13",
++      "resolved": "https://registry.npmjs.org/@rolldown/binding-darwin-x64/-/binding-darwin-x64-1.2.13.tgz",
++      "integrity": "sha512-e4r340I5hxSzJkD3YJBxgzq/rJ3wwxwdLLb2FPt1Zpyem20nrQPT11DDEEkazwxaHumH8wpglsp/Ozgj/wT6mw==",
++      "cpu": [
++        "x64"
++      ],
++      "dev": true,
++      "license": "MIT",
++      "optional": true,
++      "os": [
++        "darwin"
++      ],
++      "engines": {
++        "node": "^20.19.0 || >=22.12.0"
++      }
++    },
++    "node_modules/@rolldown/binding-freebsd-x64": {
++      "version": "1.2.13",
++      "resolved": "https://registry.npmjs.org/@rolldown/binding-freebsd-x64/-/binding-freebsd-x64-1.2.13.tgz",
++      "integrity": "sha512-hoBWDZ4/K/mJKVMbsgUd1jfpA2DiOrJ54mpegObU9TBHBBrtX4FLIXJJQRDPZ/2Dn91GvPob+Z2hwKJzf4E5SQ==",
++      "cpu": [
++        "x64"
++      ],
++      "dev": true,
++      "license": "MIT",
++      "optional": true,
++      "os": [
++        "freebsd"
++      ],
++      "engines": {
++        "node": "^20.19.0 || >=22.12.0"
++      }
++    },
++    "node_modules/@rolldown/binding-linux-arm-gnueabihf": {
++      "version": "1.2.13",
++      "resolved": "https://registry.npmjs.org/@rolldown/binding-linux-arm-gnueabihf/-/binding-linux-arm-gnueabihf-1.2.13.tgz",
++      "integrity": "sha512-oF9fZu3vTWnTiVAkDFxU9PJLt1nh20K9RRpuHsR7ZnE2L7XookBbDBVLojCVSLGbvtSlxeUNnjAj6DbNsKyzbg==",
++      "cpu": [
++        "arm"
++      ],
++      "dev": true,
++      "license": "MIT",
++      "optional": true,
++      "os": [
++        "linux"
++      ],
++      "engines": {
++        "node": "^20.19.0 || >=22.12.0"
++      }
++    },
++    "node_modules/@rolldown/binding-linux-arm64-gnu": {
++      "version": "1.2.13",
++      "resolved": "https://registry.npmjs.org/@rolldown/binding-linux-arm64-gnu/-/binding-linux-arm64-gnu-1.2.13.tgz",
++      "integrity": "sha512-DTpb/+jMiqWMPgphn4ksW1zW+XLJ6dJJ9FMvnIk9I291LhCctMPhMYJrP5t9p6C9qa3KXadDdUEZHBaPh3kNxQ==",
++      "cpu": [
++        "arm64"
++      ],
++      "dev": true,
++      "libc": [
++        "glibc"
++      ],
++      "license": "MIT",
++      "optional": true,
++      "os": [
++        "linux"
++      ],
++      "engines": {
++        "node": "^20.19.0 || >=22.12.0"
++      }
++    },
++    "node_modules/@rolldown/binding-linux-arm64-musl": {
++      "version": "1.2.13",
++      "resolved": "https://registry.npmjs.org/@rolldown/binding-linux-arm64-musl/-/binding-linux-arm64-musl-1.2.13.tgz",
++      "integrity": "sha512-xU+Kvv9N2A3SY35zFh1FWWNjxbadE/BKeqnkXe7vScU4GZsw757BlVmDLITZEq8DPpk6m7uoDYkK7P+x/uU5Ow==",
++      "cpu": [
++        "arm64"
++      ],
++      "dev": true,
++      "libc": [
++        "musl"
++      ],
++      "license": "MIT",
++      "optional": true,
++      "os": [
++        "linux"
++      ],
++      "engines": {
++        "node": "^20.19.0 || >=22.12.0"
++      }
++    },
++    "node_modules/@rolldown/binding-linux-ppc64-gnu": {
++      "version": "1.2.13",
++      "resolved": "https://registry.npmjs.org/@rolldown/binding-linux-ppc64-gnu/-/binding-linux-ppc64-gnu-1.2.13.tgz",
++      "integrity": "sha512-XMk/hnhh25oQ756Lclb1Q11h4ll0xC0Esa5w4Vzp+mAE2S3AGJgeM0SonrIgY8fHhjarb6hcoTuwoFG0VVP2ig==",
++      "cpu": [
++        "ppc64"
++      ],
++      "dev": true,
++      "libc": [
++        "glibc"
++      ],
++      "license": "MIT",
++      "optional": true,
++      "os": [
++        "linux"
++      ],
++      "engines": {
++        "node": "^20.19.0 || >=22.12.0"
++      }
++    },
++    "node_modules/@rolldown/binding-linux-s390x-gnu": {
++      "version": "1.2.13",
++      "resolved": "https://registry.npmjs.org/@rolldown/binding-linux-s390x-gnu/-/binding-linux-s390x-gnu-1.2.13.tgz",
++      "integrity": "sha512-U1BoTHYmlywE2n3HUWjzZ+8EQsKr+OwpxYuDWaubx42tUL8QSL7nOqRz/NVHanibbFP3M1Rxuprz/wNcbMKjqw==",
++      "cpu": [
++        "s390x"
++      ],
++      "dev": true,
++      "libc": [
++        "glibc"
++      ],
++      "license": "MIT",
++      "optional": true,
++      "os": [
++        "linux"
++      ],
++      "engines": {
++        "node": "^20.19.0 || >=22.12.0"
++      }
++    },
++    "node_modules/@rolldown/binding-linux-x64-gnu": {
++      "version": "1.2.13",
++      "resolved": "https://registry.npmjs.org/@rolldown/binding-linux-x64-gnu/-/binding-linux-x64-gnu-1.2.13.tgz",
++      "integrity": "sha512-J4cm80Pc6wEwV5AZ42o62sIQgDk+Y7R2s646jIwuvO+4V46QB58N4vVuMPWCBaNgursXLpmUWJV//WQAkPvHBQ==",
++      "cpu": [
++        "x64"
++      ],
++      "dev": true,
++      "libc": [
++        "glibc"
++      ],
++      "license": "MIT",
++      "optional": true,
++      "os": [
++        "linux"
++      ],
++      "engines": {
++        "node": "^20.19.0 || >=22.12.0"
++      }
++    },
++    "node_modules/@rolldown/binding-linux-x64-musl": {
++      "version": "1.2.13",
++      "resolved": "https://registry.npmjs.org/@rolldown/binding-linux-x64-musl/-/binding-linux-x64-musl-1.2.13.tgz",
++      "integrity": "sha512-W0euZS40U4V6JkmEnVCIX9mcsL6cbXQ4X8c2w+MMOIjFg68TXUW+u3RT+2e1t1pv9mg/EP3pDtK3POXdQ7Rxyw==",
++      "cpu": [
++        "x64"
++      ],
++      "dev": true,
++      "libc": [
++        "musl"
++      ],
++      "license": "MIT",
++      "optional": true,
++      "os": [
++        "linux"
++      ],
++      "engines": {
++        "node": "^20.19.0 || >=22.12.0"
++      }
++    },
++    "node_modules/@rolldown/binding-openharmony-arm64": {
++      "version": "1.2.13",
++      "resolved": "https://registry.npmjs.org/@rolldown/binding-openharmony-arm64/-/binding-openharmony-arm64-1.2.13.tgz",
++      "integrity": "sha512-do/AF/4n9MRshia3a5aXoy8xM2c6mgfT6D7H/dY6my5z+hfCIR4ab7mk4IRj++nsEQpKy39kd0DQnDq+r692tw==",
++      "cpu": [
++        "arm64"
++      ],
++      "dev": true,
++      "license": "MIT",
++      "optional": true,
++      "os": [
++        "openharmony"
++      ],
++      "engines": {
++        "node": "^20.19.0 || >=22.12.0"
++      }
++    },
++    "node_modules/@rolldown/binding-win32-arm64-msvc": {
++      "version": "1.2.13",
++      "resolved": "https://registry.npmjs.org/@rolldown/binding-win32-arm64-msvc/-/binding-win32-arm64-msvc-1.2.13.tgz",
++      "integrity": "sha512-6FtUf2cJZobutJdxnGYX8z0vtbgqU0b2v8vfBhkXb9wp2MppMFtkunE+IaOntyi01rkIQoPW2GHABtfzsC0BRQ==",
++      "cpu": [
++        "arm64"
++      ],
++      "dev": true,
++      "license": "MIT",
++      "optional": true,
++      "os": [
++        "win32"
++      ],
++      "engines": {
++        "node": "^20.19.0 || >=22.12.0"
++      }
++    },
++    "node_modules/@rolldown/binding-win32-x64-msvc": {
++      "version": "1.2.13",
++      "resolved": "https://registry.npmjs.org/@rolldown/binding-win32-x64-msvc/-/binding-win32-x64-msvc-1.2.13.tgz",
++      "integrity": "sha512-UKhFaZTeTcbKrb3iU82m17jVcPEAoqDkCN5MBqgPyZSwp/cQmib21crTS0DdH7T1B7wZRWEI89YQAOJMet5yhg==",
++      "cpu": [
++        "x64"
++      ],
++      "dev": true,
++      "license": "MIT",
++      "optional": true,
++      "os": [
++        "win32"
++      ],
++      "engines": {
++        "node": "^20.19.0 || >=22.12.0"
++      }
++    },
++    "node_modules/@rolldown/pluginutils": {
++      "version": "1.0.1",
++      "resolved": "https://registry.npmjs.org/@rolldown/pluginutils/-/pluginutils-1.0.1.tgz",
++      "integrity": "sha512-2j9bGt5Jh8hj+vPtgzPtl72j0yRxHAyumoo6TNfAjsLB04UtpSvPbPcDcBMxz7n+9CYB0c1GxQFxYRg2jimqGw==",
++      "dev": true,
++      "license": "MIT"
++    },
++    "node_modules/@types/node": {
++      "version": "24.19.2",
++      "resolved": "https://registry.npmjs.org/@types/node/-/node-24.19.2.tgz",
++      "integrity": "sha512-93d49wCWJkCyN87MxLpNN6KXPCwFw7bVUg79mGUV1OS40JGWwVCr8n61DXCSqz7CV6/VfPkb7xec7uP2M+QHWQ==",
++      "dev": true,
++      "license": "MIT",
++      "dependencies": {
++        "undici-types": ">=7.24.0 <7.24.7"
++      }
++    },
++    "node_modules/@types/parse-json": {
++      "version": "4.0.2",
++      "resolved": "https://registry.npmjs.org/@types/parse-json/-/parse-json-4.0.2.tgz",
++      "integrity": "sha512-dISoDXWWQwUquiKsyZ4Ng+HX2KsPL7LyHKHQwgGFEA3IaKac4Obd+h2a/a6waisAoepJlBcx9paWqjA8/HVjCw==",
++      "license": "MIT"
++    },
++    "node_modules/@types/prop-types": {
++      "version": "15.7.15",
++      "resolved": "https://registry.npmjs.org/@types/prop-types/-/prop-types-15.7.15.tgz",
++      "integrity": "sha512-F6bEyamV9jKGAFBEmlQnesRPGOQqS2+Uwi0Em15xenOxHaf2hv6L8YCVn3rPdPJOiJfPiCnLIRyvwVaqMY3MIw==",
++      "license": "MIT"
++    },
++    "node_modules/@types/react": {
++      "version": "19.3.0",
++      "resolved": "https://registry.npmjs.org/@types/react/-/react-19.3.0.tgz",
++      "integrity": "sha512-N0rFCuH9YoxG9/m61l9MfpJKfmLOVU0em7ipIz6TRgSSkvReLB9vL85GB+yr8Bs5leqpvg96JSwF4ZS1s4viQg==",
++      "license": "MIT",
++      "dependencies": {
++        "csstype": "^3.2.2"
++      }
++    },
++    "node_modules/@types/react-dom": {
++      "version": "19.3.0",
++      "resolved": "https://registry.npmjs.org/@types/react-dom/-/react-dom-19.3.0.tgz",
++      "integrity": "sha512-ZI7bU42mZXXKHn/qNLEw2IrbiINU7X5+vfgdixBHkCNpYWXjKgfQ/P+uyGb5CjOLB9UcnTeg3rylQtV2hym44Q==",
++      "dev": true,
++      "license": "MIT",
++      "peerDependencies": {
++        "@types/react": "^19.3.0"
++      }
++    },
++    "node_modules/@types/react-transition-group": {
++      "version": "4.4.12",
++      "resolved": "https://registry.npmjs.org/@types/react-transition-group/-/react-transition-group-4.4.12.tgz",
++      "integrity": "sha512-8TV6R3h2j7a91c+1DXdJi3Syo69zzIZbz7Lg5tORM5LEJG7X/E6a1V3drRyBRZq7/utz7A+c4OgYLiLcYGHG6w==",
++      "license": "MIT",
++      "peerDependencies": {
++        "@types/react": "*"
++      }
++    },
++    "node_modules/@vitejs/plugin-react": {
++      "version": "6.1.2",
++      "resolved": "https://registry.npmjs.org/@vitejs/plugin-react/-/plugin-react-6.1.2.tgz",
++      "integrity": "sha512-fhJNGUdscQa4HkI0xFxwonWyhnVReCPDbXI7FH7jmzpnVCrFQI7PRrhWecO263610vOrs9tr2Y4xcf8uAdFxbw==",
++      "dev": true,
++      "license": "MIT",
++      "dependencies": {
++        "@rolldown/pluginutils": "^1.0.1"
++      },
++      "engines": {
++        "node": "^20.19.0 || >=22.12.0"
++      },
++      "peerDependencies": {
++        "@rolldown/plugin-babel": "^0.1.7 || ^0.2.0",
++        "babel-plugin-react-compiler": "^1.0.0",
++        "oxc-transform-react": "^0.152.0",
++        "vite": "^8.0.0"
++      },
++      "peerDependenciesMeta": {
++        "@rolldown/plugin-babel": {
++          "optional": true
++        },
++        "babel-plugin-react-compiler": {
++          "optional": true
++        },
++        "oxc-transform-react": {
++          "optional": true
++        }
++      }
++    },
++    "node_modules/babel-plugin-macros": {
++      "version": "3.1.0",
++      "resolved": "https://registry.npmjs.org/babel-plugin-macros/-/babel-plugin-macros-3.1.0.tgz",
++      "integrity": "sha512-Cg7TFGpIr01vOQNODXOOaGz2NpCU5gl8x1qJFbb6hbZxR7XrcE2vtbAsTAbJ7/xwJtUuJEw8K8Zr/AE0LHlesg==",
++      "license": "MIT",
++      "dependencies": {
++        "@babel/runtime": "^7.12.5",
++        "cosmiconfig": "^7.0.0",
++        "resolve": "^1.19.0"
++      },
++      "engines": {
++        "node": ">=10",
++        "npm": ">=6"
++      }
++    },
++    "node_modules/callsites": {
++      "version": "3.1.0",
++      "resolved": "https://registry.npmjs.org/callsites/-/callsites-3.1.0.tgz",
++      "integrity": "sha512-P8BjAsXvZS+VIDUI11hHCQEv74YT67YUi5JJFNWIqL235sBmjX4+qx9Muvls5ivyNENctx46xQLQ3aTuE7ssaQ==",
++      "license": "MIT",
++      "engines": {
++        "node": ">=6"
++      }
++    },
++    "node_modules/clsx": {
++      "version": "2.1.1",
++      "resolved": "https://registry.npmjs.org/clsx/-/clsx-2.1.1.tgz",
++      "integrity": "sha512-eYm0QWBtUrBWZWG0d386OGAw16Z995PiOVo2B7bjWSbHedGl5e0ZWaq65kOGgUSNesEIDkB9ISbTg/JK9dhCZA==",
++      "license": "MIT",
++      "engines": {
++        "node": ">=6"
++      }
++    },
++    "node_modules/convert-source-map": {
++      "version": "1.9.0",
++      "resolved": "https://registry.npmjs.org/convert-source-map/-/convert-source-map-1.9.0.tgz",
++      "integrity": "sha512-ASFBup0Mz1uyiIjANan1jzLQami9z1PoYSZCiiYW2FczPbenXc45FZdBZLzOT+r6+iciuEModtmCti+hjaAk0A==",
++      "license": "MIT"
++    },
++    "node_modules/cookie": {
++      "version": "1.1.1",
++      "resolved": "https://registry.npmjs.org/cookie/-/cookie-1.1.1.tgz",
++      "integrity": "sha512-ei8Aos7ja0weRpFzJnEA9UHJ/7XQmqglbRwnf2ATjcB9Wq874VKH9kfjjirM6UhU2/E5fFYadylyhFldcqSidQ==",
++      "license": "MIT",
++      "engines": {
++        "node": ">=18"
++      },
++      "funding": {
++        "type": "opencollective",
++        "url": "https://opencollective.com/express"
++      }
++    },
++    "node_modules/cosmiconfig": {
++      "version": "7.1.0",
++      "resolved": "https://registry.npmjs.org/cosmiconfig/-/cosmiconfig-7.1.0.tgz",
++      "integrity": "sha512-AdmX6xUzdNASswsFtmwSt7Vj8po9IuqXm0UXz7QKPuEUmPB4XyjGfaAr2PSuELMwkRMVH1EpIkX5bTZGRB3eCA==",
++      "license": "MIT",
++      "dependencies": {
++        "@types/parse-json": "^4.0.0",
++        "import-fresh": "^3.2.1",
++        "parse-json": "^5.0.0",
++        "path-type": "^4.0.0",
++        "yaml": "^1.10.0"
++      },
++      "engines": {
++        "node": ">=10"
++      }
++    },
++    "node_modules/cosmiconfig/node_modules/yaml": {
++      "version": "1.10.3",
++      "resolved": "https://registry.npmjs.org/yaml/-/yaml-1.10.3.tgz",
++      "integrity": "sha512-vIYeF1u3CjlhAFekPPAk2h/Kv4T3mAkMox5OymRiJQB0spDP10LHvt+K7G9Ny6NuuMAb25/6n1qyUjAcGNf/AA==",
++      "license": "ISC",
++      "engines": {
++        "node": ">= 6"
++      }
++    },
++    "node_modules/csstype": {
++      "version": "3.2.3",
++      "resolved": "https://registry.npmjs.org/csstype/-/csstype-3.2.3.tgz",
++      "integrity": "sha512-z1HGKcYy2xA8AGQfwrn0PAy+PB7X/GSj3UVJW9qKyn43xWa+gl5nXmU4qqLMRzWVLFC8KusUX8T/0kCiOYpAIQ==",
++      "license": "MIT"
++    },
++    "node_modules/debug": {
++      "version": "4.4.3",
++      "resolved": "https://registry.npmjs.org/debug/-/debug-4.4.3.tgz",
++      "integrity": "sha512-RGwwWnwQvkVfavKVt22FGLw+xYSdzARwm0ru6DhTVA3umU5hZc28V3kO4stgYryrTlLpuvgI9GiijltAjNbcqA==",
++      "license": "MIT",
++      "dependencies": {
++        "ms": "^2.1.3"
++      },
++      "engines": {
++        "node": ">=6.0"
++      },
++      "peerDependenciesMeta": {
++        "supports-color": {
++          "optional": true
++        }
++      }
++    },
++    "node_modules/detect-libc": {
++      "version": "2.1.2",
++      "resolved": "https://registry.npmjs.org/detect-libc/-/detect-libc-2.1.2.tgz",
++      "integrity": "sha512-Btj2BOOO83o3WyH59e8MgXsxEQVcarkUOpEYrubB0urwnN10yQ364rsiByU11nZlqWYZm05i/of7io4mzihBtQ==",
++      "dev": true,
++      "license": "Apache-2.0",
++      "engines": {
++        "node": ">=8"
++      }
++    },
++    "node_modules/dom-helpers": {
++      "version": "5.2.1",
++      "resolved": "https://registry.npmjs.org/dom-helpers/-/dom-helpers-5.2.1.tgz",
++      "integrity": "sha512-nRCa7CK3VTrM2NmGkIy4cbK7IZlgBE/PYMn55rrXefr5xXDP0LdtfPnblFDoVdcAfslJ7or6iqAUnx0CCGIWQA==",
++      "license": "MIT",
++      "dependencies": {
++        "@babel/runtime": "^7.8.7",
++        "csstype": "^3.0.2"
++      }
++    },
++    "node_modules/error-ex": {
++      "version": "1.3.4",
++      "resolved": "https://registry.npmjs.org/error-ex/-/error-ex-1.3.4.tgz",
++      "integrity": "sha512-sqQamAnR14VgCr1A618A3sGrygcpK+HEbenA/HiEAkkUwcZIIB/tgWqHFxWgOyDh4nB4JCRimh79dR5Ywc9MDQ==",
++      "license": "MIT",
++      "dependencies": {
++        "is-arrayish": "^0.2.1"
++      }
++    },
++    "node_modules/es-errors": {
++      "version": "1.3.0",
++      "resolved": "https://registry.npmjs.org/es-errors/-/es-errors-1.3.0.tgz",
++      "integrity": "sha512-Zf5H2Kxt2xjTvbJvP2ZWLEICxA6j+hAmMzIlypy4xcBg1vKVnx89Wy0GbS+kf5cwCVFFzdCFh2XSCFNULS6csw==",
++      "license": "MIT",
++      "engines": {
++        "node": ">= 0.4"
++      }
++    },
++    "node_modules/escape-string-regexp": {
++      "version": "4.0.0",
++      "resolved": "https://registry.npmjs.org/escape-string-regexp/-/escape-string-regexp-4.0.0.tgz",
++      "integrity": "sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==",
++      "license": "MIT",
++      "engines": {
++        "node": ">=10"
++      },
++      "funding": {
++        "url": "https://github.com/sponsors/sindresorhus"
++      }
++    },
++    "node_modules/fdir": {
++      "version": "6.5.0",
++      "resolved": "https://registry.npmjs.org/fdir/-/fdir-6.5.0.tgz",
++      "integrity": "sha512-tIbYtZbucOs0BRGqPJkshJUYdL+SDH7dVM8gjy+ERp3WAUjLEFJE+02kanyHtwjWOnwrKYBiwAmM0p4kLJAnXg==",
++      "dev": true,
++      "license": "MIT",
++      "engines": {
++        "node": ">=12.0.0"
++      },
++      "peerDependencies": {
++        "picomatch": "^3 || ^4"
++      },
++      "peerDependenciesMeta": {
++        "picomatch": {
++          "optional": true
++        }
++      }
++    },
++    "node_modules/find-root": {
++      "version": "1.1.0",
++      "resolved": "https://registry.npmjs.org/find-root/-/find-root-1.1.0.tgz",
++      "integrity": "sha512-NKfW6bec6GfKc0SGx1e07QZY9PE99u0Bft/0rzSD5k3sO/vwkVUpDUKVm5Gpp5Ue3YfShPFTX2070tDs5kB9Ng==",
++      "license": "MIT"
++    },
++    "node_modules/fsevents": {
++      "version": "2.3.3",
++      "resolved": "https://registry.npmjs.org/fsevents/-/fsevents-2.3.3.tgz",
++      "integrity": "sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==",
++      "dev": true,
++      "hasInstallScript": true,
++      "license": "MIT",
++      "optional": true,
++      "os": [
++        "darwin"
++      ],
++      "engines": {
++        "node": "^8.16.0 || ^10.6.0 || >=11.0.0"
++      }
++    },
++    "node_modules/function-bind": {
++      "version": "1.1.2",
++      "resolved": "https://registry.npmjs.org/function-bind/-/function-bind-1.1.2.tgz",
++      "integrity": "sha512-7XHNxH7qX9xG5mIwxkhumTox/MIRNcOgDrxWsMt2pAr23WHp6MrRlN7FBSFpCpr+oVO0F744iUgR82nJMfG2SA==",
++      "license": "MIT",
++      "funding": {
++        "url": "https://github.com/sponsors/ljharb"
++      }
++    },
++    "node_modules/hasown": {
++      "version": "2.0.4",
++      "resolved": "https://registry.npmjs.org/hasown/-/hasown-2.0.4.tgz",
++      "integrity": "sha512-T2UbfbBEF32wiepXIsMlTW9+dDYC6wMh/t/vYA4tuOMKqWz/n3vr1NFSxQiyP+zk2mXsoMA/i/7qV6LKut1t1A==",
++      "license": "MIT",
++      "dependencies": {
++        "function-bind": "^1.1.2"
++      },
++      "engines": {
++        "node": ">= 0.4"
++      }
++    },
++    "node_modules/hoist-non-react-statics": {
++      "version": "3.3.2",
++      "resolved": "https://registry.npmjs.org/hoist-non-react-statics/-/hoist-non-react-statics-3.3.2.tgz",
++      "integrity": "sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==",
++      "license": "BSD-3-Clause",
++      "dependencies": {
++        "react-is": "^16.7.0"
++      }
++    },
++    "node_modules/hoist-non-react-statics/node_modules/react-is": {
++      "version": "16.13.1",
++      "resolved": "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz",
++      "integrity": "sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==",
++      "license": "MIT"
++    },
++    "node_modules/html-parse-stringify": {
++      "version": "3.1.0",
++      "resolved": "https://registry.npmjs.org/html-parse-stringify/-/html-parse-stringify-3.1.0.tgz",
++      "integrity": "sha512-E0oAXcELOtsXe+BmpJ2EZyedbldPpriV5vICzEuo6xjC/D1lDukOI7KrpfQGF2Qc4wWEy0nk3bFORS2K5ZAhFQ==",
++      "license": "MIT",
++      "dependencies": {
++        "void-elements": "3.1.0"
++      }
++    },
++    "node_modules/i18next": {
++      "version": "25.10.10",
++      "resolved": "https://registry.npmjs.org/i18next/-/i18next-25.10.10.tgz",
++      "integrity": "sha512-cqUW2Z3EkRx7NqSyywjkgCLK7KLCL6IFVFcONG7nVYIJ3ekZ1/N5jUsihHV6Bq37NfhgtczxJcxduELtjTwkuQ==",
++      "funding": [
++        {
++          "type": "individual",
++          "url": "https://www.locize.com/i18next"
++        },
++        {
++          "type": "individual",
++          "url": "https://www.i18next.com/how-to/faq#i18next-is-awesome.-how-can-i-support-the-project"
++        },
++        {
++          "type": "individual",
++          "url": "https://www.locize.com"
++        }
++      ],
++      "license": "MIT",
++      "dependencies": {
++        "@babel/runtime": "^7.29.2"
++      },
++      "peerDependencies": {
++        "typescript": "^5 || ^6"
++      },
++      "peerDependenciesMeta": {
++        "typescript": {
++          "optional": true
++        }
++      }
++    },
++    "node_modules/import-fresh": {
++      "version": "3.3.1",
++      "resolved": "https://registry.npmjs.org/import-fresh/-/import-fresh-3.3.1.tgz",
++      "integrity": "sha512-TR3KfrTZTYLPB6jUjfx6MF9WcWrHL9su5TObK4ZkYgBdWKPOFoSoQIdEuTuR82pmtxH2spWG9h6etwfr1pLBqQ==",
++      "license": "MIT",
++      "dependencies": {
++        "parent-module": "^1.0.0",
++        "resolve-from": "^4.0.0"
++      },
++      "engines": {
++        "node": ">=6"
++      },
++      "funding": {
++        "url": "https://github.com/sponsors/sindresorhus"
++      }
++    },
++    "node_modules/is-arrayish": {
++      "version": "0.2.1",
++      "resolved": "https://registry.npmjs.org/is-arrayish/-/is-arrayish-0.2.1.tgz",
++      "integrity": "sha512-zz06S8t0ozoDXMG+ube26zeCTNXcKIPJZJi8hBrF4idCLms4CG9QtK7qBl1boi5ODzFpjswb5JPmHCbMpjaYzg==",
++      "license": "MIT"
++    },
++    "node_modules/is-core-module": {
++      "version": "2.17.0",
++      "resolved": "https://registry.npmjs.org/is-core-module/-/is-core-module-2.17.0.tgz",
++      "integrity": "sha512-J/vG0zBCbIKOQFfufSwyXdMrsohyJIUNkrnmo6WZGzoM7tr/lsbfW5b2BvisL6zsyMzK9UxV9L6c7AoFbyXHOA==",
++      "license": "MIT",
++      "dependencies": {
++        "hasown": "^2.0.4"
++      },
++      "engines": {
++        "node": ">= 0.4"
++      },
++      "funding": {
++        "url": "https://github.com/sponsors/ljharb"
++      }
++    },
++    "node_modules/js-tokens": {
++      "version": "4.0.0",
++      "resolved": "https://registry.npmjs.org/js-tokens/-/js-tokens-4.0.0.tgz",
++      "integrity": "sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==",
++      "license": "MIT"
++    },
++    "node_modules/jsesc": {
++      "version": "3.1.0",
++      "resolved": "https://registry.npmjs.org/jsesc/-/jsesc-3.1.0.tgz",
++      "integrity": "sha512-/sM3dO2FOzXjKQhJuo0Q173wf2KOo8t4I8vHy6lF9poUp7bKT0/NHE8fPX23PwfhnykfqnC2xRxOnVw5XuGIaA==",
++      "license": "MIT",
++      "bin": {
++        "jsesc": "bin/jsesc"
++      },
++      "engines": {
++        "node": ">=6"
++      }
++    },
++    "node_modules/json-parse-even-better-errors": {
++      "version": "2.3.1",
++      "resolved": "https://registry.npmjs.org/json-parse-even-better-errors/-/json-parse-even-better-errors-2.3.1.tgz",
++      "integrity": "sha512-xyFwyhro/JEof6Ghe2iz2NcXoj2sloNsWr/XsERDK/oiPCfaNhl5ONfp+jQdAZRQQ0IJWNzH9zIZF7li91kh2w==",
++      "license": "MIT"
++    },
++    "node_modules/lightningcss": {
++      "version": "1.33.0",
++      "resolved": "https://registry.npmjs.org/lightningcss/-/lightningcss-1.33.0.tgz",
++      "integrity": "sha512-WkUDrojuJs0xkgGf2udWxa3yGBRxPtxUkB79i6aCZLRgc7PM8fZe9TosfPDcvEpQZbuFASnHYmRLBLUbmLOIIA==",
++      "dev": true,
++      "license": "MPL-2.0",
++      "dependencies": {
++        "detect-libc": "^2.0.3"
++      },
++      "engines": {
++        "node": ">= 12.0.0"
++      },
++      "funding": {
++        "type": "opencollective",
++        "url": "https://opencollective.com/parcel"
++      },
++      "optionalDependencies": {
++        "lightningcss-android-arm64": "1.33.0",
++        "lightningcss-darwin-arm64": "1.33.0",
++        "lightningcss-darwin-x64": "1.33.0",
++        "lightningcss-freebsd-x64": "1.33.0",
++        "lightningcss-linux-arm-gnueabihf": "1.33.0",
++        "lightningcss-linux-arm64-gnu": "1.33.0",
++        "lightningcss-linux-arm64-musl": "1.33.0",
++        "lightningcss-linux-x64-gnu": "1.33.0",
++        "lightningcss-linux-x64-musl": "1.33.0",
++        "lightningcss-win32-arm64-msvc": "1.33.0",
++        "lightningcss-win32-x64-msvc": "1.33.0"
++      }
++    },
++    "node_modules/lightningcss-android-arm64": {
++      "version": "1.33.0",
++      "resolved": "https://registry.npmjs.org/lightningcss-android-arm64/-/lightningcss-android-arm64-1.33.0.tgz",
++      "integrity": "sha512-gEpRTalKdosp4Bb8qWtc2iOgE5SeIHlpS1up9bFq2wAyYhl1UdTObYiHe98zEM9SQvSoqQZ1IQD0JNpg3Ml5pg==",
++      "cpu": [
++        "arm64"
++      ],
++      "dev": true,
++      "license": "MPL-2.0",
++      "optional": true,
++      "os": [
++        "android"
++      ],
++      "engines": {
++        "node": ">= 12.0.0"
++      },
++      "funding": {
++        "type": "opencollective",
++        "url": "https://opencollective.com/parcel"
++      }
++    },
++    "node_modules/lightningcss-darwin-arm64": {
++      "version": "1.33.0",
++      "resolved": "https://registry.npmjs.org/lightningcss-darwin-arm64/-/lightningcss-darwin-arm64-1.33.0.tgz",
++      "integrity": "sha512-Sciaz8eenNTKn9b3t7+xr0ipTp9YxKQY4npwQ3mrRuL0BAVHBLyZxofhaKBAVtzmtRZ/zTyo0/to4B1uWG/Djg==",
++      "cpu": [
++        "arm64"
++      ],
++      "dev": true,
++      "license": "MPL-2.0",
++      "optional": true,
++      "os": [
++        "darwin"
++      ],
++      "engines": {
++        "node": ">= 12.0.0"
++      },
++      "funding": {
++        "type": "opencollective",
++        "url": "https://opencollective.com/parcel"
++      }
++    },
++    "node_modules/lightningcss-darwin-x64": {
++      "version": "1.33.0",
++      "resolved": "https://registry.npmjs.org/lightningcss-darwin-x64/-/lightningcss-darwin-x64-1.33.0.tgz",
++      "integrity": "sha512-Z5UPAxzrjlWNNyGy6i65cJzzvgJ5D3T6wMvs+gWpY9d7qRhANrxqAp6LhxIgZhWEw18RfJTGcRxjuLIBr+m8XQ==",
++      "cpu": [
++        "x64"
++      ],
++      "dev": true,
++      "license": "MPL-2.0",
++      "optional": true,
++      "os": [
++        "darwin"
++      ],
++      "engines": {
++        "node": ">= 12.0.0"
++      },
++      "funding": {
++        "type": "opencollective",
++        "url": "https://opencollective.com/parcel"
++      }
++    },
++    "node_modules/lightningcss-freebsd-x64": {
++      "version": "1.33.0",
++      "resolved": "https://registry.npmjs.org/lightningcss-freebsd-x64/-/lightningcss-freebsd-x64-1.33.0.tgz",
++      "integrity": "sha512-QQM/Ti/hQajJwCY+RiWuCZ9sdtI/XQk7nDK5vC8kkdwixezOlDgvDx7+RT+QjK6FcFT4MpsuoBnHIo/O3StRRg==",
++      "cpu": [
++        "x64"
++      ],
++      "dev": true,
++      "license": "MPL-2.0",
++      "optional": true,
++      "os": [
++        "freebsd"
++      ],
++      "engines": {
++        "node": ">= 12.0.0"
++      },
++      "funding": {
++        "type": "opencollective",
++        "url": "https://opencollective.com/parcel"
++      }
++    },
++    "node_modules/lightningcss-linux-arm-gnueabihf": {
++      "version": "1.33.0",
++      "resolved": "https://registry.npmjs.org/lightningcss-linux-arm-gnueabihf/-/lightningcss-linux-arm-gnueabihf-1.33.0.tgz",
++      "integrity": "sha512-N7FVBe6iS24MlM6R/4RBTxGhQheZGs7tiQ9U32UtF75NzP5Q7xWPRqLBCKxlRQRk3rY1jCIPLzx7WzOhuUIRLQ==",
++      "cpu": [
++        "arm"
++      ],
++      "dev": true,
++      "license": "MPL-2.0",
++      "optional": true,
++      "os": [
++        "linux"
++      ],
++      "engines": {
++        "node": ">= 12.0.0"
++      },
++      "funding": {
++        "type": "opencollective",
++        "url": "https://opencollective.com/parcel"
++      }
++    },
++    "node_modules/lightningcss-linux-arm64-gnu": {
++      "version": "1.33.0",
++      "resolved": "https://registry.npmjs.org/lightningcss-linux-arm64-gnu/-/lightningcss-linux-arm64-gnu-1.33.0.tgz",
++      "integrity": "sha512-j2v/itmy4HlNxlc6voKXYgBqNi0Ng2LShg4z7GufpEgs05P+2suBVyi9I6YHq5uoVFx9ETin3eCEhLVyXGQnKg==",
++      "cpu": [
++        "arm64"
++      ],
++      "dev": true,
++      "libc": [
++        "glibc"
++      ],
++      "license": "MPL-2.0",
++      "optional": true,
++      "os": [
++        "linux"
++      ],
++      "engines": {
++        "node": ">= 12.0.0"
++      },
++      "funding": {
++        "type": "opencollective",
++        "url": "https://opencollective.com/parcel"
++      }
++    },
++    "node_modules/lightningcss-linux-arm64-musl": {
++      "version": "1.33.0",
++      "resolved": "https://registry.npmjs.org/lightningcss-linux-arm64-musl/-/lightningcss-linux-arm64-musl-1.33.0.tgz",
++      "integrity": "sha512-yiO5ROMuYQgXbC60yjZU5CYSFZGKXL0HFATXt9mHJn1+zW55oCtMI9NfcVhYLMFDL7gV7oBPon/EmMMGg2OvtQ==",
++      "cpu": [
++        "arm64"
++      ],
++      "dev": true,
++      "libc": [
++        "musl"
++      ],
++      "license": "MPL-2.0",
++      "optional": true,
++      "os": [
++        "linux"
++      ],
++      "engines": {
++        "node": ">= 12.0.0"
++      },
++      "funding": {
++        "type": "opencollective",
++        "url": "https://opencollective.com/parcel"
++      }
++    },
++    "node_modules/lightningcss-linux-x64-gnu": {
++      "version": "1.33.0",
++      "resolved": "https://registry.npmjs.org/lightningcss-linux-x64-gnu/-/lightningcss-linux-x64-gnu-1.33.0.tgz",
++      "integrity": "sha512-ar+Ju7LmcN0Jo4FpL4hpFybwNG9/3A/Br5KW2n2jyODg3MEZXaDYADdemoNS+BDNfMgKvylJLj4S5tyRActuAg==",
++      "cpu": [
++        "x64"
++      ],
++      "dev": true,
++      "libc": [
++        "glibc"
++      ],
++      "license": "MPL-2.0",
++      "optional": true,
++      "os": [
++        "linux"
++      ],
++      "engines": {
++        "node": ">= 12.0.0"
++      },
++      "funding": {
++        "type": "opencollective",
++        "url": "https://opencollective.com/parcel"
++      }
++    },
++    "node_modules/lightningcss-linux-x64-musl": {
++      "version": "1.33.0",
++      "resolved": "https://registry.npmjs.org/lightningcss-linux-x64-musl/-/lightningcss-linux-x64-musl-1.33.0.tgz",
++      "integrity": "sha512-RYiYbkokw0trfKqqzfF55lginwEPrD3OJDfTuJzFs1MK6iFnDenaz1fqLLtX4ITG3OktJQXOeTaw1awrBAlZPw==",
++      "cpu": [
++        "x64"
++      ],
++      "dev": true,
++      "libc": [
++        "musl"
++      ],
++      "license": "MPL-2.0",
++      "optional": true,
++      "os": [
++        "linux"
++      ],
++      "engines": {
++        "node": ">= 12.0.0"
++      },
++      "funding": {
++        "type": "opencollective",
++        "url": "https://opencollective.com/parcel"
++      }
++    },
++    "node_modules/lightningcss-win32-arm64-msvc": {
++      "version": "1.33.0",
++      "resolved": "https://registry.npmjs.org/lightningcss-win32-arm64-msvc/-/lightningcss-win32-arm64-msvc-1.33.0.tgz",
++      "integrity": "sha512-1K+MPfLSFVpphzpdbfkhlWk6wBrTObBzS2T6db10PNOZgR9GoVsAWzwNyuhUYYbTp23j+4RrncfujZ4uAzXvwA==",
++      "cpu": [
++        "arm64"
++      ],
++      "dev": true,
++      "license": "MPL-2.0",
++      "optional": true,
++      "os": [
++        "win32"
++      ],
++      "engines": {
++        "node": ">= 12.0.0"
++      },
++      "funding": {
++        "type": "opencollective",
++        "url": "https://opencollective.com/parcel"
++      }
++    },
++    "node_modules/lightningcss-win32-x64-msvc": {
++      "version": "1.33.0",
++      "resolved": "https://registry.npmjs.org/lightningcss-win32-x64-msvc/-/lightningcss-win32-x64-msvc-1.33.0.tgz",
++      "integrity": "sha512-OlEICDx/Xl0FqSp4bry8zFnCvGpig3Gl4gCquvYwHuqJKEC1+n9NgDniFvqHGmMv1ZkqDJrDqKKSykTDX+ehuA==",
++      "cpu": [
++        "x64"
++      ],
++      "dev": true,
++      "license": "MPL-2.0",
++      "optional": true,
++      "os": [
++        "win32"
++      ],
++      "engines": {
++        "node": ">= 12.0.0"
++      },
++      "funding": {
++        "type": "opencollective",
++        "url": "https://opencollective.com/parcel"
++      }
++    },
++    "node_modules/lines-and-columns": {
++      "version": "1.2.4",
++      "resolved": "https://registry.npmjs.org/lines-and-columns/-/lines-and-columns-1.2.4.tgz",
++      "integrity": "sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==",
++      "license": "MIT"
++    },
++    "node_modules/loose-envify": {
++      "version": "1.4.0",
++      "resolved": "https://registry.npmjs.org/loose-envify/-/loose-envify-1.4.0.tgz",
++      "integrity": "sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==",
++      "license": "MIT",
++      "dependencies": {
++        "js-tokens": "^3.0.0 || ^4.0.0"
++      },
++      "bin": {
++        "loose-envify": "cli.js"
++      }
++    },
++    "node_modules/ms": {
++      "version": "2.1.3",
++      "resolved": "https://registry.npmjs.org/ms/-/ms-2.1.3.tgz",
++      "integrity": "sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==",
++      "license": "MIT"
++    },
++    "node_modules/nanoid": {
++      "version": "3.3.20",
++      "resolved": "https://registry.npmjs.org/nanoid/-/nanoid-3.3.20.tgz",
++      "integrity": "sha512-uKdg2G3GNCKQn9byYOpxbGqrT2fGO5KRt5J/8b3pok8rT6qxGWF6hxMyJiEYtAf+FVyYuD9hRaDqX5uPFYJ4ZQ==",
++      "dev": true,
++      "funding": [
++        {
++          "type": "github",
++          "url": "https://github.com/sponsors/ai"
++        }
++      ],
++      "license": "MIT",
++      "bin": {
++        "nanoid": "bin/nanoid.cjs"
++      },
++      "engines": {
++        "node": "^10 || ^12 || ^13.7 || ^14 || >=15.0.1"
++      }
++    },
++    "node_modules/object-assign": {
++      "version": "4.1.1",
++      "resolved": "https://registry.npmjs.org/object-assign/-/object-assign-4.1.1.tgz",
++      "integrity": "sha512-rJgTQnkUnH1sFw8yT6VSU3zD3sWmu6sZhIseY8VX+GRu3P6F7Fu+JNDoXfklElbLJSnc3FUQHVe4cU5hj+BcUg==",
++      "license": "MIT",
++      "engines": {
++        "node": ">=0.10.0"
++      }
++    },
++    "node_modules/parent-module": {
++      "version": "1.0.1",
++      "resolved": "https://registry.npmjs.org/parent-module/-/parent-module-1.0.1.tgz",
++      "integrity": "sha512-GQ2EWRpQV8/o+Aw8YqtfZZPfNRWZYkbidE9k5rpl/hC3vtHHBfGm2Ifi6qWV+coDGkrUKZAxE3Lot5kcsRlh+g==",
++      "license": "MIT",
++      "dependencies": {
++        "callsites": "^3.0.0"
++      },
++      "engines": {
++        "node": ">=6"
++      }
++    },
++    "node_modules/parse-json": {
++      "version": "5.2.0",
++      "resolved": "https://registry.npmjs.org/parse-json/-/parse-json-5.2.0.tgz",
++      "integrity": "sha512-ayCKvm/phCGxOkYRSCM82iDwct8/EonSEgCSxWxD7ve6jHggsFl4fZVQBPRNgQoKiuV/odhFrGzQXZwbifC8Rg==",
++      "license": "MIT",
++      "dependencies": {
++        "@babel/code-frame": "^7.0.0",
++        "error-ex": "^1.3.1",
++        "json-parse-even-better-errors": "^2.3.0",
++        "lines-and-columns": "^1.1.6"
++      },
++      "engines": {
++        "node": ">=8"
++      },
++      "funding": {
++        "url": "https://github.com/sponsors/sindresorhus"
++      }
++    },
++    "node_modules/path-parse": {
++      "version": "1.0.7",
++      "resolved": "https://registry.npmjs.org/path-parse/-/path-parse-1.0.7.tgz",
++      "integrity": "sha512-LDJzPVEEEPR+y48z93A0Ed0yXb8pAByGWo/k5YYdYgpY2/2EsOsksJrq7lOHxryrVOn1ejG6oAp8ahvOIQD8sw==",
++      "license": "MIT"
++    },
++    "node_modules/path-type": {
++      "version": "4.0.0",
++      "resolved": "https://registry.npmjs.org/path-type/-/path-type-4.0.0.tgz",
++      "integrity": "sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==",
++      "license": "MIT",
++      "engines": {
++        "node": ">=8"
++      }
++    },
++    "node_modules/picocolors": {
++      "version": "1.1.1",
++      "resolved": "https://registry.npmjs.org/picocolors/-/picocolors-1.1.1.tgz",
++      "integrity": "sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA==",
++      "license": "ISC"
++    },
++    "node_modules/picomatch": {
++      "version": "4.0.7",
++      "resolved": "https://registry.npmjs.org/picomatch/-/picomatch-4.0.7.tgz",
++      "integrity": "sha512-qcJu88Q2IWqJsDD529JKMdwGm/dvInW4HvQnRwiH9JtihJvzGOscDtHE3x1pBKeUOTysQ8kVmLnJ2kJu7yhcGA==",
++      "dev": true,
++      "license": "MIT",
++      "engines": {
++        "node": ">=12"
++      },
++      "funding": {
++        "url": "https://github.com/sponsors/jonschlinkert"
++      }
++    },
++    "node_modules/postcss": {
++      "version": "8.5.30",
++      "resolved": "https://registry.npmjs.org/postcss/-/postcss-8.5.30.tgz",
++      "integrity": "sha512-zkd+e9S1AQHhmaBKye9zlFHWjOwVgqXl1q3ECYy8561K7qxR2cREf/STLskulBFd78k6AOFeA+ff1TtEzk9bAA==",
++      "dev": true,
++      "funding": [
++        {
++          "type": "opencollective",
++          "url": "https://opencollective.com/postcss/"
++        },
++        {
++          "type": "tidelift",
++          "url": "https://tidelift.com/funding/github/npm/postcss"
++        },
++        {
++          "type": "github",
++          "url": "https://github.com/sponsors/ai"
++        }
++      ],
++      "license": "MIT",
++      "dependencies": {
++        "nanoid": "^3.3.20",
++        "picocolors": "^1.1.1",
++        "source-map-js": "^1.2.2"
++      },
++      "engines": {
++        "node": "^10 || ^12 || >=14"
++      }
++    },
++    "node_modules/prop-types": {
++      "version": "15.8.1",
++      "resolved": "https://registry.npmjs.org/prop-types/-/prop-types-15.8.1.tgz",
++      "integrity": "sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==",
++      "license": "MIT",
++      "dependencies": {
++        "loose-envify": "^1.4.0",
++        "object-assign": "^4.1.1",
++        "react-is": "^16.13.1"
++      }
++    },
++    "node_modules/prop-types/node_modules/react-is": {
++      "version": "16.13.1",
++      "resolved": "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz",
++      "integrity": "sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==",
++      "license": "MIT"
++    },
++    "node_modules/react": {
++      "version": "19.3.0",
++      "resolved": "https://registry.npmjs.org/react/-/react-19.3.0.tgz",
++      "integrity": "sha512-E8LUcbtBWt20bbl2YoHfx4ZDBdxVTfOKtCZn9cDSJ4l6/nuoApcpIBcj47t2wZoVX8g2ZHuMHbiShgCR1T5Sog==",
++      "license": "MIT",
++      "engines": {
++        "node": ">=0.10.0"
++      }
++    },
++    "node_modules/react-dom": {
++      "version": "19.3.0",
++      "resolved": "https://registry.npmjs.org/react-dom/-/react-dom-19.3.0.tgz",
++      "integrity": "sha512-JDk8dgif51OjFoDE70+OT9ICyYr+69HlmihNwp1+Nsfbna3t5sIiCa9ZJktDmQ4/1b/rn26hIAR2uYXDMr5r0Q==",
++      "license": "MIT",
++      "dependencies": {
++        "scheduler": "^0.28.0"
++      },
++      "peerDependencies": {
++        "react": "^19.3.0"
++      }
++    },
++    "node_modules/react-i18next": {
++      "version": "16.6.6",
++      "resolved": "https://registry.npmjs.org/react-i18next/-/react-i18next-16.6.6.tgz",
++      "integrity": "sha512-ZgL2HUoW34UKUkOV7uSQFE1CDnRPD+tCR3ywSuWH7u2iapnz86U8Bi3Vrs620qNDzCf1F47NxglCEkchCTDOHw==",
++      "license": "MIT",
++      "dependencies": {
++        "@babel/runtime": "^7.29.2",
++        "html-parse-stringify": "^3.0.1",
++        "use-sync-external-store": "^1.6.0"
++      },
++      "peerDependencies": {
++        "i18next": ">= 25.10.9",
++        "react": ">= 16.8.0",
++        "typescript": "^5 || ^6"
++      },
++      "peerDependenciesMeta": {
++        "react-dom": {
++          "optional": true
++        },
++        "react-native": {
++          "optional": true
++        },
++        "typescript": {
++          "optional": true
++        }
++      }
++    },
++    "node_modules/react-is": {
++      "version": "19.3.0",
++      "resolved": "https://registry.npmjs.org/react-is/-/react-is-19.3.0.tgz",
++      "integrity": "sha512-UpMYezM4v5/18F28aC66AEsjXIgE02kyEMH6yLdgLXu/UTfa1Ntwck/nNLrbqJsEXW7gPb0coNO9FQse9WTovA==",
++      "license": "MIT"
++    },
++    "node_modules/react-router": {
++      "version": "7.18.4",
++      "resolved": "https://registry.npmjs.org/react-router/-/react-router-7.18.4.tgz",
++      "integrity": "sha512-PUPQcMhMGRAslLcvtlPz/kmzBEWPhLdgLFrL7pLNepBL6dX0lWj4WD2cUYVgYCuT3jxvghYFg81cDTj44DhetQ==",
++      "license": "MIT",
++      "dependencies": {
++        "cookie": "[REDACTED]",
++        "set-cookie-parser": "^2.6.0"
++      },
++      "engines": {
++        "node": ">=20.0.0"
++      },
++      "peerDependencies": {
++        "react": ">=18",
++        "react-dom": ">=18"
++      },
++      "peerDependenciesMeta": {
++        "react-dom": {
++          "optional": true
++        }
++      }
++    },
++    "node_modules/react-transition-group": {
++      "version": "4.4.5",
++      "resolved": "https://registry.npmjs.org/react-transition-group/-/react-transition-group-4.4.5.tgz",
++      "integrity": "sha512-pZcd1MCJoiKiBR2NRxeCRg13uCXbydPnmB4EOeRrY7480qNWO8IIgQG6zlDkm6uRMsURXPuKq0GWtiM59a5Q6g==",
++      "license": "BSD-3-Clause",
++      "dependencies": {
++        "@babel/runtime": "^7.5.5",
++        "dom-helpers": "^5.0.1",
++        "loose-envify": "^1.4.0",
++        "prop-types": "^15.6.2"
++      },
++      "peerDependencies": {
++        "react": ">=16.6.0",
++        "react-dom": ">=16.6.0"
++      }
++    },
++    "node_modules/resolve": {
++      "version": "1.22.13",
++      "resolved": "https://registry.npmjs.org/resolve/-/resolve-1.22.13.tgz",
++      "integrity": "sha512-Dj/cW9zBV2aRj6XzCxuGIs3ESZKv02jixne3q6jFZYZ3/Tg09gHHviSMDL4kObh9pqSahdRHEnDoaP2gn8YLhA==",
++      "license": "MIT",
++      "dependencies": {
++        "es-errors": "^1.3.0",
++        "is-core-module": "^2.17.0",
++        "path-parse": "^1.0.7",
++        "supports-preserve-symlinks-flag": "^1.0.0"
++      },
++      "bin": {
++        "resolve": "bin/resolve"
++      },
++      "engines": {
++        "node": ">= 0.4"
++      },
++      "funding": {
++        "url": "https://github.com/sponsors/ljharb"
++      }
++    },
++    "node_modules/resolve-from": {
++      "version": "4.0.0",
++      "resolved": "https://registry.npmjs.org/resolve-from/-/resolve-from-4.0.0.tgz",
++      "integrity": "sha512-pb/MYmXstAkysRFx8piNI1tGFNQIFA3vkE3Gq4EuA1dF6gHp/+vgZqsCGJapvy8N3Q+4o7FwvquPJcnZ7RYy4g==",
++      "license": "MIT",
++      "engines": {
++        "node": ">=4"
++      }
++    },
++    "node_modules/rolldown": {
++      "version": "1.2.13",
++      "resolved": "https://registry.npmjs.org/rolldown/-/rolldown-1.2.13.tgz",
++      "integrity": "sha512-/5apOkwWxtACcQtZ5WlrAsKS4JwXVThQPJZ3RqIruRY9UG9M8e0VlXN068xum/JRKA4aIUoJ13ghe/kGCvidiQ==",
++      "dev": true,
++      "license": "MIT",
++      "dependencies": {
++        "@oxc-project/types": "=0.153.0",
++        "@rolldown/pluginutils": "^1.0.0"
++      },
++      "bin": {
++        "rolldown": "bin/cli.mjs"
++      },
++      "engines": {
++        "node": "^20.19.0 || >=22.12.0"
++      },
++      "optionalDependencies": {
++        "@rolldown/binding-android-arm-eabi": "1.2.13",
++        "@rolldown/binding-android-arm64": "1.2.13",
++        "@rolldown/binding-darwin-arm64": "1.2.13",
++        "@rolldown/binding-darwin-x64": "1.2.13",
++        "@rolldown/binding-freebsd-x64": "1.2.13",
++        "@rolldown/binding-linux-arm-gnueabihf": "1.2.13",
++        "@rolldown/binding-linux-arm64-gnu": "1.2.13",
++        "@rolldown/binding-linux-arm64-musl": "1.2.13",
++        "@rolldown/binding-linux-ppc64-gnu": "1.2.13",
++        "@rolldown/binding-linux-s390x-gnu": "1.2.13",
++        "@rolldown/binding-linux-x64-gnu": "1.2.13",
++        "@rolldown/binding-linux-x64-musl": "1.2.13",
++        "@rolldown/binding-openharmony-arm64": "1.2.13",
++        "@rolldown/binding-win32-arm64-msvc": "1.2.13",
++        "@rolldown/binding-win32-x64-msvc": "1.2.13"
++      }
++    },
++    "node_modules/scheduler": {
++      "version": "0.28.0",
++      "resolved": "https://registry.npmjs.org/scheduler/-/scheduler-0.28.0.tgz",
++      "integrity": "sha512-juorfCmIkIw8tT+p5BXSm6PJjQF/ycEYmKyzURCIt/RaZIhL+PulbQ9Yu2z1HdOJDdqDTlxA1+xKBmHXJsczAw==",
++      "license": "MIT"
++    },
++    "node_modules/set-cookie-parser": {
++      "version": "2.7.2",
++      "resolved": "https://registry.npmjs.org/set-cookie-parser/-/set-cookie-parser-2.7.2.tgz",
++      "integrity": "sha512-oeM1lpU/UvhTxw+g3cIfxXHyJRc/uidd3yK1P242gzHds0udQBYzs3y8j4gCCW+ZJ7ad0yctld8RYO+bdurlvw==",
++      "license": "MIT"
++    },
++    "node_modules/source-map": {
++      "version": "0.5.7",
++      "resolved": "https://registry.npmjs.org/source-map/-/source-map-0.5.7.tgz",
++      "integrity": "sha512-LbrmJOMUSdEVxIKvdcJzQC+nQhe8FUZQTXQy6+I75skNgn3OoQ0DZA8YnFa7gp8tqtL3KPf1kmo0R5DoApeSGQ==",
++      "license": "BSD-3-Clause",
++      "engines": {
++        "node": ">=0.10.0"
++      }
++    },
++    "node_modules/source-map-js": {
++      "version": "1.2.2",
++      "resolved": "https://registry.npmjs.org/source-map-js/-/source-map-js-1.2.2.tgz",
++      "integrity": "sha512-KGj/8Y43x35aZVDtt+J4mK1hoLGHULMYfSkODJNQjNDC3oW1PqPoxMwo0pLUsWM/UEGzON/NxeHywEfNXNP3Vw==",
++      "dev": true,
++      "license": "BSD-3-Clause",
++      "engines": {
++        "node": ">=0.10.0"
++      }
++    },
++    "node_modules/stylis": {
++      "version": "4.2.0",
++      "resolved": "https://registry.npmjs.org/stylis/-/stylis-4.2.0.tgz",
++      "integrity": "sha512-Orov6g6BB1sDfYgzWfTHDOxamtX1bE/zo104Dh9e6fqJ3PooipYyfJ0pUmrZO2wAvO8YbEyeFrkV91XTsGMSrw==",
++      "license": "MIT"
++    },
++    "node_modules/supports-preserve-symlinks-flag": {
++      "version": "1.0.0",
++      "resolved": "https://registry.npmjs.org/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz",
++      "integrity": "sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==",
++      "license": "MIT",
++      "engines": {
++        "node": ">= 0.4"
++      },
++      "funding": {
++        "url": "https://github.com/sponsors/ljharb"
++      }
++    },
++    "node_modules/tinyglobby": {
++      "version": "0.2.17",
++      "resolved": "https://registry.npmjs.org/tinyglobby/-/tinyglobby-0.2.17.tgz",
++      "integrity": "sha512-wXR/dYpcqKmfWpEdZjiKJOwCNFndD0DMnrW/cYjVGttEkBfVgcLFHoNrlj47mjOVic9yyNu65alsgF4NQyTa2g==",
++      "dev": true,
++      "license": "MIT",
++      "dependencies": {
++        "fdir": "^6.5.0",
++        "picomatch": "^4.0.4"
++      },
++      "engines": {
++        "node": ">=12.0.0"
++      },
++      "funding": {
++        "url": "https://github.com/sponsors/SuperchupuDev"
++      }
++    },
++    "node_modules/typescript": {
++      "version": "5.9.3",
++      "resolved": "https://registry.npmjs.org/typescript/-/typescript-5.9.3.tgz",
++      "integrity": "sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==",
++      "devOptional": true,
++      "license": "Apache-2.0",
++      "bin": {
++        "tsc": "bin/tsc",
++        "tsserver": "bin/tsserver"
++      },
++      "engines": {
++        "node": ">=14.17"
++      }
++    },
++    "node_modules/undici-types": {
++      "version": "7.24.6",
++      "resolved": "https://registry.npmjs.org/undici-types/-/undici-types-7.24.6.tgz",
++      "integrity": "sha512-WRNW+sJgj5OBN4/0JpHFqtqzhpbnV0GuB+OozA9gCL7a993SmU+1JBZCzLNxYsbMfIeDL+lTsphD5jN5N+n0zg==",
++      "dev": true,
++      "license": "MIT"
++    },
++    "node_modules/use-sync-external-store": {
++      "version": "1.7.0",
++      "resolved": "https://registry.npmjs.org/use-sync-external-store/-/use-sync-external-store-1.7.0.tgz",
++      "integrity": "sha512-6L+EeigHMQhdaIPNIFUKwfWJSwWFQ8gJbJ2DLOs5sDIegTwR9fRxvnM3uciHKjIZhFz+KAv2emhWMRvDmMcY8A==",
++      "license": "MIT",
++      "peerDependencies": {
++        "react": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
++      }
++    },
++    "node_modules/vite": {
++      "version": "8.3.4",
++      "resolved": "https://registry.npmjs.org/vite/-/vite-8.3.4.tgz",
++      "integrity": "sha512-IftLE8phJhdNRIGNEV4JCCvfNScoZQVfcXaN8TQropWGJtOHcu+iAB9pHcuGvmEb/kddw0LBe/jS8ztdC6xdiQ==",
++      "dev": true,
++      "license": "MIT",
++      "dependencies": {
++        "lightningcss": "^1.33.0",
++        "picomatch": "^4.0.7",
++        "postcss": "^8.5.29",
++        "rolldown": "~1.2.12",
++        "tinyglobby": "^0.2.17"
++      },
++      "bin": {
++        "vite": "bin/vite.js"
++      },
++      "engines": {
++        "node": "^20.19.0 || >=22.12.0"
++      },
++      "funding": {
++        "url": "https://github.com/vitejs/vite?sponsor=1"
++      },
++      "optionalDependencies": {
++        "fsevents": "~2.3.3"
++      },
++      "peerDependencies": {
++        "@types/node": "^20.19.0 || >=22.12.0",
++        "@vitejs/devtools": "^0.7.1",
++        "esbuild": "^0.27.0 || ^0.28.0",
++        "jiti": ">=1.21.0",
++        "less": "^4.0.0",
++        "sass": "^1.70.0",
++        "sass-embedded": "^1.70.0",
++        "stylus": ">=0.54.8",
++        "sugarss": "^5.0.0",
++        "terser": "^5.16.0",
++        "tsx": "^4.8.1",
++        "yaml": "^2.4.2"
++      },
++      "peerDependenciesMeta": {
++        "@types/node": {
++          "optional": true
++        },
++        "@vitejs/devtools": {
++          "optional": true
++        },
++        "esbuild": {
++          "optional": true
++        },
++        "jiti": {
++          "optional": true
++        },
++        "less": {
++          "optional": true
++        },
++        "sass": {
++          "optional": true
++        },
++        "sass-embedded": {
++          "optional": true
++        },
++        "stylus": {
++          "optional": true
++        },
++        "sugarss": {
++          "optional": true
++        },
++        "terser": {
++          "optional": true
++        },
++        "tsx": {
++          "optional": true
++        },
++        "yaml": {
++          "optional": true
++        }
++      }
++    },
++    "node_modules/void-elements": {
++      "version": "3.1.0",
++      "resolved": "https://registry.npmjs.org/void-elements/-/void-elements-3.1.0.tgz",
++      "integrity": "sha512-Dhxzh5HZuiHQhbvTW9AMetFfBHDMYpo23Uo9btPXgdYP+3T5S+p+jgNy7spra+veYhBP2dCSgxR/i2Y02h5/6w==",
++      "license": "MIT",
++      "engines": {
++        "node": ">=0.10.0"
++      }
++    },
++    "node_modules/yaml": {
++      "version": "2.9.1",
++      "resolved": "https://registry.npmjs.org/yaml/-/yaml-2.9.1.tgz",
++      "integrity": "sha512-3NxN8+78OdzbT7C/WjGsyfPAtJaN3FNDsWxv7Y7mcDsT/oOmgW8BpyQQFFBnvZE3j9Y2Sdz1ULFLezL7Eb2yFw==",
++      "extraneous": true,
++      "license": "ISC",
++      "bin": {
++        "yaml": "bin.mjs"
++      },
++      "engines": {
++        "node": ">= 14.6"
++      },
++      "funding": {
++        "url": "https://github.com/sponsors/eemeli"
++      }
++    }
++  }
++}
+diff --git a/frontend-react-wf6/package.json b/frontend-react-wf6/package.json
+new file mode 100644
+index 0000000..4d2eaa7
+--- /dev/null
++++ b/frontend-react-wf6/package.json
+@@ -0,0 +1,28 @@
++{
++  "name": "mealie-wf6-react-probe",
++  "version": "0.0.0",
++  "private": true,
++  "type": "module",
++  "scripts": {
++    "typecheck": "tsc --noEmit",
++    "build": "vite build"
++  },
++  "dependencies": {
++    "react": "19.3.0",
++    "react-dom": "19.3.0",
++    "react-router": "7.18.4",
++    "@mui/material": "7.3.11",
++    "@emotion/react": "11.14.0",
++    "@emotion/styled": "11.14.1",
++    "i18next": "25.10.10",
++    "react-i18next": "16.6.6"
++  },
++  "devDependencies": {
++    "vite": "8.3.4",
++    "@vitejs/plugin-react": "6.1.2",
++    "typescript": "5.9.3",
++    "@types/react": "19.3.0",
++    "@types/react-dom": "19.3.0",
++    "@types/node": "24.19.2"
++  }
++}
+diff --git a/frontend-react-wf6/src/main.tsx b/frontend-react-wf6/src/main.tsx
+new file mode 100644
+index 0000000..3683347
+--- /dev/null
++++ b/frontend-react-wf6/src/main.tsx
+@@ -0,0 +1,63 @@
++import { useEffect, useState } from 'react';
++import { createRoot } from 'react-dom/client';
++import { BrowserRouter, Link, useLocation } from 'react-router';
++import { Alert, Box, Button, Container, CssBaseline, Stack, Typography } from '@mui/material';
++import i18n from 'i18next';
++import { initReactI18next, useTranslation } from 'react-i18next';
++import { explicitVue, type RouteMap } from '../../wf6/route-policy.mjs';
++
++declare const __WF6_REACT_SOURCE__: string;
++interface Identity { id: string; groupSlug: string; fullName: string }
++type Session = { kind: 'loading' } | { kind: 'allowed'; user: Identity; map: RouteMap } | { kind: 'vue'; reason: string; map?: RouteMap };
++void i18n.use(initReactI18next).init({ lng: 'en', fallbackLng: 'en', interpolation: { escapeValue: false }, resources: { en: { translation: {
++  title: 'WF6 React coexistence probe', scope: 'Technical skeleton only. Recipe business pages are not implemented.',
++  loading: 'Checking the real session…', shopping: 'Open Vue shopping lists', list: 'Open React list probe', detail: 'Open React detail probe', vue: 'Use explicit Vue entry', login: 'Use Vue login',
++} } } });
++
++function App() {
++  const { t } = useTranslation();
++  const location = useLocation();
++  const target = location.pathname + location.search + location.hash;
++  const [session, setSession] = useState<Session>({ kind: 'loading' });
++  useEffect(() => {
++    const abort = new AbortController();
++    void (async () => {
++      const mapResponse = await fetch('/_wf6/route-map.json', { signal: abort.signal });
++      if (!mapResponse.ok) throw new Error('Route configuration unavailable');
++      const map = await mapResponse.json() as RouteMap;
++      const cookie = document.cookie.split(';').map(value => value.trim()).find(value => value.startsWith('mealie.access_token='));
++      const token = cookie ? decodeURIComponent(cookie.slice(cookie.indexOf('=') + 1)) : null;
++      const headers: HeadersInit = token ? { authorization: `Bearer ${token}` } : {};
++      const response = await fetch('/api/users/self', { headers, credentials: 'same-origin', signal: abort.signal });
++      if (response.status === 401) return setSession({ kind: 'vue', reason: 'Anonymous or expired session (401)', map });
++      if (!response.ok) return setSession({ kind: 'vue', reason: `Session API failed (${response.status})`, map });
++      const user = await response.json() as Identity;
++      if (!user.id || user.groupSlug !== map.groupSlug) return setSession({ kind: 'vue', reason: 'Session group does not match the configured pilot', map });
++      setSession({ kind: 'allowed', user, map });
++    })().catch(error => { if (!abort.signal.aborted) setSession({ kind: 'vue', reason: error instanceof Error ? error.message : 'Session unavailable' }); });
++    return () => abort.abort();
++  }, []);
++  const map = session.kind !== 'loading' && session.map ? session.map : { explicitVueQuery: { name: 'wf6', value: 'vue' }, takeoverEnabled: false, groupSlug: null, version: 1, excludedSlugs: [], vueModes: [] };
++  const vue = explicitVue(target, map);
++  return <Container component="main" maxWidth="sm" data-wf6-frontend="react" data-wf6-react-source={__WF6_REACT_SOURCE__}>
++    <CssBaseline /><Box sx={{ py: 4 }}><Stack spacing={2}>
++      <Typography variant="h4" component="h1">{t('title')}</Typography>
++      <Alert severity="info">{t('scope')}</Alert>
++      {session.kind === 'loading' && <Typography role="status">{t('loading')}</Typography>}
++      {session.kind === 'vue' && <Alert severity="warning" data-wf6-session="vue-required">{session.reason}</Alert>}
++      {session.kind === 'allowed' && <>
++        <Box data-wf6-session="authenticated" data-wf6-user-id={session.user.id} data-wf6-group={session.user.groupSlug}>
++          <Typography>Authenticated as {session.user.fullName}</Typography><Typography>Group: {session.user.groupSlug}</Typography>
++        </Box>
++        <Typography data-wf6-probe-route>{location.pathname.includes('/r/') ? 'Detail navigation probe' : 'List navigation probe'}</Typography>
++        <Button component={Link} to={`/g/${session.user.groupSlug}`}>{t('list')}</Button>
++        <Button component={Link} to={`/g/${session.user.groupSlug}/r/wf6-probe`}>{t('detail')}</Button>
++        <Button component="a" href="/shopping-lists?disableRedirect=true">{t('shopping')}</Button>
++      </>}
++      <Button component="a" href={vue}>{t('vue')}</Button>
++      {session.kind === 'vue' && <Button component="a" href={`/login?redirect=${encodeURIComponent(vue)}`}>{t('login')}</Button>}
++    </Stack></Box>
++  </Container>;
++}
++
++createRoot(document.getElementById('root')!).render(<BrowserRouter><App /></BrowserRouter>);
+diff --git a/frontend-react-wf6/tsconfig.json b/frontend-react-wf6/tsconfig.json
+new file mode 100644
+index 0000000..0f91c48
+--- /dev/null
++++ b/frontend-react-wf6/tsconfig.json
+@@ -0,0 +1,10 @@
++{
++  "compilerOptions": {
++    "target": "ES2022", "lib": ["ES2022", "DOM", "DOM.Iterable"],
++    "module": "ESNext", "moduleResolution": "Bundler", "jsx": "react-jsx",
++    "strict": true, "noUncheckedIndexedAccess": true, "noEmit": true,
++    "skipLibCheck": true, "esModuleInterop": true, "resolveJsonModule": true,
++    "types": ["vite/client", "node"]
++  },
++  "include": ["src", "vite.config.ts"]
++}
+diff --git a/frontend-react-wf6/vite.config.ts b/frontend-react-wf6/vite.config.ts
+new file mode 100644
+index 0000000..2dbe28e
+--- /dev/null
++++ b/frontend-react-wf6/vite.config.ts
+@@ -0,0 +1,8 @@
++import { defineConfig } from 'vite';
++import react from '@vitejs/plugin-react';
++
++export default defineConfig({
++  plugins: [react()],
++  base: '/_wf6/',
++  define: { __WF6_REACT_SOURCE__: JSON.stringify(process.env.WF6_REACT_SOURCE_HASH) },
++});
+diff --git a/frontend/app/middleware/wf6-boundary.global.ts b/frontend/app/middleware/wf6-boundary.global.ts
+new file mode 100644
+index 0000000..2db4eff
+--- /dev/null
++++ b/frontend/app/middleware/wf6-boundary.global.ts
+@@ -0,0 +1,11 @@
++import { ownsReact, type RouteMap } from "../../../wf6/route-policy.mjs";
++
++export default defineNuxtRouteMiddleware(async (to) => {
++  if (import.meta.server) return;
++  // One shared route map and predicate govern both the gateway and Vue navigation.
++  const map = await $fetch<RouteMap>("/_wf6/route-map.json");
++  if (ownsReact(to.fullPath, map)) {
++    window.location.assign(to.fullPath);
++    return abortNavigation();
++  }
++});
+diff --git a/rewrite-evidence/workflows/WF6/BASELINE.md b/rewrite-evidence/workflows/WF6/BASELINE.md
+new file mode 100644
+index 0000000..058c933
+--- /dev/null
++++ b/rewrite-evidence/workflows/WF6/BASELINE.md
+@@ -0,0 +1,18 @@
++# Fresh WF6 Vue baseline / 新 Vue 基线
++
++Gate: PASS. 原生目录完整重测通过，首轮失败保留。
++
++Vue `4b9ca06b6581f7152e164ea0fd9d4da366975a79`; evaluator `758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d`; build `51e1fc21edd74fdb002a57a5e11b8085932a0898945685edb45177aece86d733`.
++
++Unit 517/517; lint 521 files clean; type diagnostics 318 separately FAIL.
++
++| Category / 类别 | Mounted first attempt / 首轮 | Native runtime / 重测 |
++|---|---|---|
++| routes | 0/66 pass; 66 fail; 0 skip | 66/66 pass; 0 fail; 0 skip |
++| flows | 1/15 pass; 14 fail; 0 skip | 15/15 pass; 0 fail; 0 skip |
++| guard | 1/1 pass; 0 fail; 0 skip | 1/1 pass; 0 fail; 0 skip |
++
++Coverage: statements 15.1%, branches 12.89%, functions 7.9%, lines 15.09%.
++
++[Full bilingual result and raw evidence](../../../../wf6-evidence/steps/S1/result.md). Original logs, auth, databases and browser traces stay outside Git.
++完整双语结果与失败历史见兄弟证据目录；无 React 成果，未启动 S2。
+diff --git a/rewrite-evidence/workflows/WF6/S0-summary.md b/rewrite-evidence/workflows/WF6/S0-summary.md
+new file mode 100644
+index 0000000..9e316fc
+--- /dev/null
++++ b/rewrite-evidence/workflows/WF6/S0-summary.md
+@@ -0,0 +1,28 @@
++# WF6 S0 / 隔离与计量准备
++
++Run: wf6-rerun-20261014-01. Pinned source/evaluator snapshots are imported into
++independent Git stores with no remotes or alternates. All object IDs and frozen
++worktree bytes were verified against the historical origin stores. Explicit shallow
++roots resolve the old undeclared missing-parent errors; full ancestry is unavailable.
++新 run 独立 Git 存储无 remote 或 alternates；固定快照对象与文件逐一核实。
++显式 shallow 边界解决旧父对象缺失报错，但不宣称完整祖先历史已恢复。
++
++The actual request, handoff, failed commands, repairs, collector source/tests,
++environment, ports and provider boundaries live outside this checkout.
++实际请求、交接、失败及修复、collector、环境与计量边界保存于外部证据目录。
++
++This is preparation only. Application builds, dependencies, baseline, login, seeded
++database and browser acceptance were not run. No prior results count toward this run.
++仅完成准备；未构建应用、安装依赖、测 baseline、登录、建数据库或浏览器验收。
++
++Usage remains provisional before the final reply. See live external records;
++the committed summary does not embed a provisional number that changes afterward.
++回复前用量 provisional；提交小结链接外部实时记录，不固化尚未封账的数值。
++
++- [S0 result](../../../../wf6-evidence/steps/S0/result.md)
++- [Evidence index](../../../../wf6-evidence/EVIDENCE_INDEX.md)
++- [Source provenance](../../../../wf6-evidence/steps/S0/input-provenance.json)
++- [Collector acceptance](../../../../wf6-evidence/steps/S0/collector-acceptance.json)
++- [Usage](../../../../wf6-evidence/usage/USAGE.md)
++
++Next: await a separately authorized S1 / 等待单独授权 S1。
+diff --git a/rewrite-evidence/workflows/WF6/S2-RESULT.md b/rewrite-evidence/workflows/WF6/S2-RESULT.md
+new file mode 100644
+index 0000000..1ca9b2d
+--- /dev/null
++++ b/rewrite-evidence/workflows/WF6/S2-RESULT.md
+@@ -0,0 +1,7 @@
++# S2 all-Vue gateway / 全 Vue 网关
++
++Gate PASS. 真实同源 Vue 登录、食谱列表/详情、购物清单、直达与刷新通过；接管关闭，未进入 S3。
++
++Fresh Vue build `af9a32e7318fd2c82d289f49f335d13168ddb476bf3d0ec152834ebc6f14c914`. S1 type diagnostics remain FAIL: 318 vs historical 315, cause not established. S1 final reply covered; usage partial due to interrupted earlier segment.
++
++[Full bilingual result, commands, raw trace and usage](../../../../wf6-evidence/steps/S2/result.md). Raw evidence and credentials remain outside Git.
+diff --git a/rewrite-evidence/workflows/WF6/S3-RESULT.md b/rewrite-evidence/workflows/WF6/S3-RESULT.md
+new file mode 100644
+index 0000000..8aa01bf
+--- /dev/null
++++ b/rewrite-evidence/workflows/WF6/S3-RESULT.md
+@@ -0,0 +1,8 @@
++# S3 coexistence skeleton / 共存骨架
++
++Gate PASS. Strict React types, 34 route cases, two fresh builds and 4 real browser tests passed. Shared S3/S4 source repairs: 0/2.
++真实双向整页导航、会话/group、路由排除与匿名/过期/不同 group 回交通过；仅骨架，未迁移业务。
++
++Vue build `9376e691d1040f5d0d84ee162c24f76ec6395cd27845f494b21f0a7338a32a1a`; React build `12358dece70b9211cb1716bc409cce2c95b3ec058036c6accd61b522fb7c738a`.
++
++[Bilingual result and raw evidence](../../../../wf6-evidence/steps/S3/result.md). Raw traces/data/credentials remain outside Git. S1 stays partial; original Vue types 318 FAIL retained. Stop awaiting S4.
+diff --git a/rewrite-evidence/workflows/WF6/TYPE-DIAGNOSTICS.md b/rewrite-evidence/workflows/WF6/TYPE-DIAGNOSTICS.md
+new file mode 100644
+index 0000000..c67aadf
+--- /dev/null
++++ b/rewrite-evidence/workflows/WF6/TYPE-DIAGNOSTICS.md
+@@ -0,0 +1,9 @@
++# Vue diagnostic difference / Vue 类型诊断差异
++
++S1 remains FAIL with 318 diagnostics. Historical original Vue log has 315: net count +3. Exact first-line multiset comparison gives 10 current-only and 7 historical-only occurrences; duplicate occurrences are preserved (current 4, historical 2). This is not evidence of three new source bugs.
++S1 仍为 318 条、单列 FAIL；历史原始日志 315，净差 +3；逐行出现次数比较及重复行均保留，不表示三个新源码缺陷。
++
++The historical log reports Vue plugin load/create failures; the current checker uses Nuxt 4.5.2, TypeScript 5.9.3, vue-tsc 3.1.5. Tool/plugin/generated-environment differences are plausible factors; precise causality is not established. Frozen Vue/backend files were hash-verified unchanged before and after S2.
++历史日志记录 Vue 插件加载/创建失败；工具、插件及生成环境差异可能相关，但准确因果未建立。冻结源码未修改，不将差异归因于 S2 网关。
++
++[Raw log provenance, hashes, exact line comparisons](../../../../wf6-evidence/steps/S1/type-history-comparison.json) · [Bilingual explanation](../../../../wf6-evidence/steps/S1/type-history-comparison.md)
+diff --git a/rewrite-evidence/workflows/WF6/WF6-CONTRACT.md b/rewrite-evidence/workflows/WF6/WF6-CONTRACT.md
+new file mode 100644
+index 0000000..18acc0c
+--- /dev/null
++++ b/rewrite-evidence/workflows/WF6/WF6-CONTRACT.md
+@@ -0,0 +1,242 @@
++# WF6-CONTRACT — wf6-rerun-20261014-01
++
++S0–S7 numbering is authoritative. One implementation agent, serial work.
++
++## Common contract / 共同契约
++
++
++S0 要将以下要求写入实验中的 `rewrite-evidence/workflows/WF6/WF6-CONTRACT.md`。S1–S7 的两种语言版本均引用同一份契约。
++
++S0 writes these requirements into the experiment's `rewrite-evidence/workflows/WF6/WF6-CONTRACT.md`. Both language versions of S1–S7 use the same contract.
++
++### 实验边界 Experiment boundaries
++
++- Workflow：同一入口按路由运行 Vue 或 React，跨边界整页跳转，显式开关退回全 Vue。使用一个实施代理。
++  One implementation agent; route-level Vue/React coexistence at one entry point, document navigation across boundaries, and explicit all-Vue rollback.
++- 输入：原 Vue commit `4b9ca06b6581f7152e164ea0fd9d4da366975a79`；evaluator commit `758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d`。先验证对象存在与内容来源。
++  Verify and pin those source and evaluator commits before use.
++- 独立目录：`mealie-wf6-coexist/`、`mealie-wf6-evaluator/`、`wf6-evidence/`。创建前检查，不覆盖已有内容；存在已识别的 WF6 工作时核对后继续，不能重置。
++  Use separate directories. Inspect existing content and continue verified WF6 work without overwriting or resetting it.
++- 分支：`rewrite/wf6-route-coexistence`。不复制其他 workflow 的 React 实现、codemod 或语义适配；原始 Vue、生成类型、locale 和冻结测试是共享输入。
++  Use the dedicated branch. Do not copy another workflow's target implementation or converters; only frozen source resources and evaluator inputs are shared.
++- 不修改旧 workflow、原报告、后端 API/schema 或 evaluator 断言。Vue 只增加必要的边界 middleware；React 使用计划里的 target stack，代码注释用英文。
++  Preserve earlier experiments, reports, backend API/schema and evaluator assertions. Add only the necessary Vue boundary middleware. Use the planned React stack and English code comments.
++- 代理必须在 sandbox 中运行并记录工具权限，不向代理提供 upstream repository、package registry 或 production service 凭据。公开依赖使用匿名访问；只允许本实验隔离的测试账号凭据。
++  Run the agent in a sandbox and record tool permissions. Do not provide upstream-repository, package-registry or production-service credentials. Access public dependencies anonymously and use only isolated local test credentials.
++- 第一轮只迁移已认证用户所属配置 group 的列表、搜索、只读详情；其他领域和高级功能继续由 Vue 提供。
++  Limit the pilot to the configured user's group and the read-only recipe slice; other domains and advanced operations remain Vue-owned.
++- 数据库、测试账号、auth 文件、浏览器 context、端口、运行目录、输出和 token 窗口全部独立。cookie 不按 localhost 端口隔离，不能只换端口。
++  Isolate data, auth state, browser context, ports, runtime directories, outputs and accounting windows. Port changes alone do not isolate localhost cookies.
++
++### 每步证据包 Per-step evidence bundle
++
++每步 `wf6-evidence/steps/Sn/` 都至少包含下面项目，没运行或拿不到的项目写明原因：
++
++Each `wf6-evidence/steps/Sn/` contains the following, with an explicit reason for any unavailable item:
++
++1. `[REDACTED]`：实际收到的用户指令；可见追加消息、反馈和真实发生的人工决定也要保留。
++   Actual prompt and visible follow-ups; retain human feedback and decisions only when they occurred.
++2. `visible-transcript.jsonl`：可取得的用户、可见助手回复、工具调用和输出。标明覆盖范围；不导出隐藏思考或系统/开发者指令，不把人工重建记录称为逐字原始 transcript。
++   Available user/visible-assistant/tool transcript; disclose coverage and reconstruction. Exclude hidden reasoning and system/developer instructions.
++3. `commands.jsonl` 与 `logs/`：完整命令、cwd、必要且去敏的环境、开始/结束 UTC、退出码、耗时、原始 stdout/stderr 和结果报告。
++   Exact commands, cwd, relevant redacted environment, UTC timestamps, exit codes, durations, raw stdout/stderr and reports.
++4. `source-state.json`、`diff.patch`、`file-manifest.json`：source/evaluator commit、dirty 状态、所有已跟踪及未跟踪实现文件的 SHA256、必要 diff、实际服务的 build 标识。
++   Commit IDs, dirty state, SHA256 inventory including untracked implementation files, relevant diff and the build actually served.
++5. `attempts.jsonl`：每次失败、原因假设、具体修改及重测证据。失败原日志保留，不能只留下成功版本。
++   Failed attempts, cause hypotheses, exact repairs and reruns. Preserve failures instead of replacing them with green runs.
++6. `result.md`：本步范围、实际完成、检查结果、未验证项、gate PASS/FAIL/BLOCKED、后续可执行步骤、证据链接。
++   Scope, completed work, check results, limitations, gate decision, permissible next steps and evidence links.
++7. `token-usage.json`：本步 token、累计值边界、原始事件定位、覆盖状态、最后回复是否计入。
++   Token deltas, cumulative boundaries, raw-event locators, coverage status and final-reply inclusion.
++
++同时更新全局 `EVIDENCE_INDEX.md`、`PROGRESS.md`、`decisions.jsonl`、`timing.csv` 和 `usage/usage-ledger.csv`。实现提交按 `[WF6-Sn]` 标识；证据来自测量时的实际源码，不以起始 commit 冒充完整快照。可分享的证据移除密码、cookie 和 bearer 值，但保留接口、状态码与去敏说明。
++
++Maintain the global index, progress, actual decision log, timing and usage ledger. Prefix commits `[WF6-Sn]` and identify the measured source snapshot. Redact credentials and tokens from shareable evidence while preserving request paths, status codes and a redaction note.
++
++原始包和全局索引位于兄弟目录 `wf6-evidence/`，不能从实验 checkout 直接提交。可提交的 `BASELINE.md`、`comparison-baseline.json`、阶段小结、`WF6-RESULTS.md`、`WF6-REPORT-MATERIAL.md` 和索引指针放在 `mealie-wf6-coexist/rewrite-evidence/workflows/WF6/`，链接外部原始证据。`[WF6-Sn]` 提交只包含 checkout 内的实现与这些小型文件。不要为提交兄弟目录而在整个工作区根目录初始化 Git。
++
++Raw bundles and the global index live in sibling `wf6-evidence/`, outside the experiment checkout's commit scope. Put committable baseline/comparison documents, step summaries, WF6-RESULTS.md, WF6-REPORT-MATERIAL.md and index pointers under `mealie-wf6-coexist/rewrite-evidence/workflows/WF6/`, linking to external raw evidence. `[WF6-Sn]` commits include only checkout implementation and these small documents. Do not initialize Git in the parent workspace to capture sibling evidence.
++
++### Token 口径 Token accounting
++
++- 每步用用户消息标记 `[[WF6:S0:START]]` 至 `[[WF6:S7:START]]` 开始，以可见最终答复末尾 `[[WF6:Sn:END]]` 标明本步工作结束。
++  Use explicit user START markers and visible final-reply END markers for every step.
++- 明确记录 session ID、实际 turn ID、原日志路径、行号/byte offset、模型与设置、开始前累计计数和结束累计计数。
++  Record session/turn identity, log source and event locations, model/settings, and start/end cumulative counters.
++- `total = input + output`。cached input 是 input 的子集，reasoning output 是 output 的子集。若 provider 暴露 cache-write，单列其原始字段和语义；不重复相加。
++  Total equals input plus output. Cached input and reasoning output are subsets. Preserve any cache-write field separately without double counting.
++- 只计算累计计数的差额，不直接相加累计快照。不用账号用量百分比或保存文本的 token 估计冒充 provider usage；未知费用写“未提供”。
++  Sum non-overlapping deltas, never cumulative snapshots. Account percentages and text-volume estimates are not provider usage; unavailable monetary cost remains unavailable.
++- 开始边界取 START 用户消息之前、能确认身份的最后累计事件。无可靠边界不能假定为零；字段缺失写 null/未提供，未发送步骤记 not_executed。
++  Use the last verified cumulative event before START. Missing boundaries or fields remain null; an unsent step is not_executed, not a fabricated usage value.
++- 有重复事件、counter reset、compaction、fork、会话更换或跨步迟到事件时保留原始记录、分段、去重并标明质量。不能把负差额截为零或把继承历史重算。未能准确恢复的数据标 partial。
++  Preserve and audit duplicates, resets, compaction, forks, session changes and late events. Split counter epochs, avoid inherited-history duplication, and mark unrecoverable gaps partial.
++- prompt 已发送但步骤阻塞、失败或中断，仍计入该步真实 tokens。修复与澄清消息使用 `[[WF6:Sn:CONTINUE]]`，继续归入同一步；明确关闭步骤后的额外讨论单列。
++  Count blocked/failed/interrupted execution. CONTINUE messages retain the same step; discussion after explicit closure is tracked separately.
++- CONTINUE 重开已结算步骤时，collector 用 `segments[]` 保存互不重叠的区间，查找最新 CONTINUE 所属 turn 的最终 END 和对应 usage。保留旧统计版本，但用新的阶段合计替换当前行，不把新累计合计再加到旧结果。关闭与重开之间的额外讨论独立计量，不被首次 START 至最新 END 的整体差值吞入。
++  On CONTINUE after settlement, store disjoint segments[] and locate the latest CONTINUE turn's final END and matching usage. Preserve older exports but replace the current step total rather than adding the new cumulative total to the old one. Keep intervening discussion outside those segments.
++- 重复 START 必须按实际用户消息身份、时间和日志位置识别。先判定它是重复指令、续跑或明确新尝试；不得仅因相同标记出现而重置计量、丢掉失败或重复计算继承历史。
++  Identify repeated START messages by actual identity, time and log location, then distinguish duplicate instructions, continuation and explicit new attempts. Repeated marker text alone must not reset accounting, erase failures or duplicate inherited history.
++- 本步最后回复前，更新 provisional 数值，并明确 `final_reply_included=false`。下一步开始先结算上一步，或用户在终端 finalize。S7 最后回复后由用户运行 collector 收尾。
++  Before replying, write provisional usage with final_reply_included=false. Settle it at the next step or externally. Finalize S7 externally after its final reply.
++- collector 只能在确认最后答复与对应 usage 均已落盘、且无身份/边界歧义时标 exact_reported。稳定文件大小本身不证明最后事件已计入；不确定时继续 provisional/partial。
++  exact_reported requires both the final reply and its matching usage plus valid boundaries. A stable file size alone is insufficient.
++- 最终汇总按互不重叠的步骤和额外讨论区间计算；分别报告 S0 准备、S1 baseline、S2–S6 实验、S7 报告整理。已知部分与缺失部分分开。
++  Sum disjoint windows and separate preparation, baseline, experiment, reporting and any extra discussion. Report known usage and missing coverage separately.
++
++### 每步回复格式 Per-step reply format
++
++本步完成或停止时，回复应简洁列出：实际完成、gate、关键证据文件、失败/限制、input/cached/output/reasoning/total、provisional 或 exact 状态、下一步。结尾写对应 END 标记；不自动执行下一步。
++
++At completion or stop, report actual work, gate, key evidence, failures/limits, input/cached/output/reasoning/total usage, coverage status and next step. End with the step's END marker and do not execute the next step automatically.
++
++
++## Persistent workspace requirements / 工作区要求
++
++# WF6 实验要求
++
++## 适用范围
++
++本文件中的实验规则只适用于 **WF6 Route-level incremental coexistence** 的聊天、目录和文件。不要将这些限制或计量窗口套用于 WF1–WF5、历史报告或其他工作。直接的用户指令优先于本文件；用户明确修改实验范围、预算或步骤时，记录该决定后遵照执行。
++
++工作区根目录：`<WORKSPACE>`。
++
++执行前读取：
++
++1. `WF6-plan.md`。
++2. `WF6-step-prompts-bilingual.md`，特别是共同契约和当前步骤。
++3. `COMPX574 - Agentic Development.pdf` 中的 Workflows、Evidence log 和 Report Content。
++4. S0 创建之后的 `mealie-wf6-coexist/rewrite-evidence/workflows/WF6/WF6-CONTRACT.md` 与最新进度、结果和用量记录。
++
++步骤编号以 `WF6-step-prompts-bilingual.md` 的 S0–S7 为准；`WF6-plan.md` 中较早的 S0–S5 是阶段分组，不是另一个执行顺序。
++
++如果当前目录进入含独立 AGENTS.md 的 checkout，也读取其中的开发约定。WF6 专属的实验范围、阶段授权和计量规则继续有效；不要因切换目录丢失它们。保留原仓库 AGENTS.md，必要时仅在 WF6 checkout 中附加带明确标题的 WF6 规则，不编辑旧实验的文件。
++
++## 开始与分步执行
++
++- 新聊天名为 **WF6**。新建聊天后的首次初始化只读取这些文件并确认准备状态，等待用户发送 S0；不要因为聊天创建而执行实验。
++- 只有收到 `[[WF6:S0:START]]` 或用户明确要求开始 S0，才启动 WF6 的 S0 与正式 token 窗口。若用户用自然语言开始步骤，保存实际原文并建立明确阶段边界，不伪造用户发过标记。
++- 按 S0–S7 顺序，每次执行用户指定的一个步骤，结束后停止并返回验收结论。用户明确授权多个阶段时可按顺序执行并单独保存每阶段证据。
++- 前置 gate 未通过，不执行依赖步骤；失败后可执行 S7 整理现有证据。缺失或未运行的检查不等于通过。
++- 一个实施代理，串行完成。不启动并行实施或将 WF6 改造成 WF4。若用户另行授权审查代理，记录其任务、会话、独立用量与覆盖范围。
++- 代码注释使用英文；用户解释默认中文。报告素材中英文对照。每个 bilingual prompt 只执行用户实际发送的一个版本。
++
++| 步骤 | 任务 |
++| --- | --- |
++| S0 | 独立环境、冻结来源、契约、证据与计量工具 |
++| S1 | 重新测量未修改 Vue baseline |
++| S2 | 验证所有页面仍由 Vue 提供的同源网关 |
++| S3 | 先证明 Vue 与最小 React 骨架双向跳转及真实会话 |
++| S4 | 实现真实食谱列表、搜索和只读详情 |
++| S5 | 验证用户路径、边界、异常与检测负例 |
++| S6 | 显式回退、恢复接管、完整冻结回归 |
++| S7 | 证据审计、双语报告素材和用量收尾 |
++
++S2–S6 合计三小时模型执行与工具等待预算；依赖准备、S1 baseline、人工停顿和 S7 整理另列。S2、S5、S6 各最多两轮修复；S3/S4 共用最多两轮源码修复。达到限制时保留失败并停止，不降低门槛、不隐藏额外轮次。用户明确改变预算时记入决定日志。
++
++## 隔离与固定输入
++
++- 原 Vue commit：`4b9ca06b6581f7152e164ea0fd9d4da366975a79`。
++- evaluator commit：`758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d`。
++- 先核实 Git 对象、来源与内容；从固定原 Vue 建立独立 checkout，不从包含旧 React 工作的当前 HEAD 开始。
++- 独立目录：`mealie-wf6-coexist/`、`mealie-wf6-evaluator/`、`wf6-evidence/`。
++- 实验分支：`rewrite/wf6-route-coexistence`。
++- 创建前检查已有目录。可继续已验证的 WF6 工作，不覆盖、不重置、不清理其他实验。
++- 不读取或复制其他 workflow 的 React 实现、codemod 和语义适配。可以使用指定冻结 commit 中原 Vue、未修改生成类型、locale 和原 evaluator 输入。
++- SQLite、测试账号、auth 文件、浏览器 context/profile、端口、运行目录、输出和计量窗口全部独立。localhost cookie 不按端口隔离，不能只更换端口。
++- 运行在 sandbox 内并记录工具权限。不提供 upstream repository、package registry 或 production service 凭据；公开依赖匿名访问，只使用隔离本地测试凭据。
++- 不配置推送 remote，不向 upstream 开 PR，不修改其他 workflow、原 Word 报告、后端 API/schema 或冻结 evaluator 断言。
++- 本工作区根目录不是实验 Git 仓库，不在根目录初始化 Git。提交只在 WF6 checkout 内进行。
++
++## WF6 的独特机制与本轮范围
++
++同一个本地入口按路由提供 Vue 或 React；跨框架使用整页导航，显式开关可恢复全 Vue。这是真实运行共存实验。
++
++- 第一轮仅为已认证测试用户所属配置 group 接管 `/g/<testGroupSlug>` 与 `/g/<testGroupSlug>/r/<slug>` 的只读食谱功能。
++- React 实现真实 API 列表、搜索、真实链接、名称、配料、步骤、工具、分类、标签及 loading/empty/error 状态。
++- Vue 保留登录、创建、编辑、评论、购物清单、管理和其他尚未迁移功能。它们不计作 React 完成成果。
++- 新建 `frontend-react-wf6/`、`wf6/gateway.mjs` 与 `wf6/route-map.json`；Vue 只新增必要边界 middleware。
++- 准确排除创建及子路由、共享页面、其他 group 与 Vue-owned edit/parse/cook 模式，保留 query/hash，防止误接管和跳转循环。
++- React 启动后用真实 `/api/users/self` 核实身份与 group。匿名、401 或 group 不匹配使用明确 Vue 入口，不能展示错误 group 的数据。
++- 先证明最小共存，再实施业务页面。若边界失败，停止扩展，保留失败；不要退化为脱离 Vue 的独立 React 两页实现。
++- 目标栈：Vite、React 19、strict TypeScript、React Router、MUI、react-i18next。导航使用 React Router 的 `Link` 等实际 API；Nuxt composable 不能直接充当 React hook。
++- 构建成功后才进行相应浏览器验收，记录实际服务的源码/build hash。不用失败构建留下的旧 dist 冒充本轮结果。
++- 接管开启时 React 故障应被检查发现，不静默回退 Vue 掩盖失败。回退通过显式开关或明示旧前端入口发生。
++- 分别记录 React、Vue、混合路径、边界和回退成绩。混合应用通过 66 routes 不代表 React 已迁移 66 页；两页只读 pilot 不代表完整系统重写或生产就绪。
++
++## 每个步骤必须整理的证据
++
++`wf6-evidence/steps/Sn/` 保存以下文件或写明缺失原因：
++
++- `[REDACTED]`：实际用户 prompt 与可见续跑/澄清/反馈；记录真正发生的人工决定。
++- `visible-transcript.jsonl`：可取得的用户、可见助手、工具调用和输出，说明覆盖范围。不导出隐藏推理或系统/开发者指令，不把重建摘要称原始逐字 transcript。
++- `commands.jsonl` 与 `logs/`：完整命令、cwd、必要的去敏环境、开始/结束 UTC、退出码、耗时、原始 stdout/stderr、机器结果。分享副本移除密码、cookie 与 bearer 值。
++- `source-state.json`、`diff.patch`、`file-manifest.json`：source/evaluator SHA、dirty、实际修改与未跟踪实现文件、SHA256、服务的 build 标识。起始 commit 不冒充验收源码。
++- `attempts.jsonl`：失败、原因假设、具体修复、重测与原日志链接；成功后保留失败历史。
++- `result.md`：本步实际完成、PASS/FAIL/BLOCKED、测试成绩、未验证范围、证据链接与后续阶段。
++- `token-usage.json`：本步 token 原始来源、边界、差额、覆盖状态和最后回复计入情况。
++
++同步全局 `wf6-evidence/EVIDENCE_INDEX.md`、`PROGRESS.md`、`decisions.jsonl`、`timing.csv` 与 `usage/usage-ledger.csv`。coverage、人工 review 时间、费用无法取得就写未提供，不填零、不虚构。
++
++原始 logs/trace/usage 留在兄弟证据目录，不从实验 checkout 提交。可提交的小型 baseline、结果、报告素材、阶段小结和索引指针放在 `mealie-wf6-coexist/rewrite-evidence/workflows/WF6/`，链接原始证据。提交用 `[WF6-Sn]` 前缀，排除依赖、数据库和凭据。
++
++## 从 S0 开始记录 Token
++
++1. 正式起点是实际 S0 用户执行请求。S0 建立环境和记录器本身也计入；此前计划、prompt 编写和新聊天初始化单列为 preparation，不混入 S0–S7。
++2. 每步保存实际 session/turn ID、模型/设置、原日志与行号/offset、开始前及结束 provider 累计事件。缺失边界不能假设为零。
++3. `total_tokens = input_tokens + output_tokens`。cached input 已包含在 input，reasoning output 已包含在 output；字段单列，不重复相加。cache-write 若暴露则保留真实字段及语义。
++4. 累计快照只取差额。账号额度百分比与文本 token 估计不是 provider usage。费用无数据则未提供。
++5. 每步 `token-usage.json` 与 ledger 均有一行；失败、阻塞、修复和澄清都计入实际所属步骤。未执行为 `not_executed`，未提供字段为 null。
++6. 本步最终回复之前只能保存 `provisional` 且 `final_reply_included=false`。下一步开始结算上一阶段，或用户在回复结束后从终端运行 S0 建立的 collector。
++7. S7 最后回复后由用户运行 `collect_usage.py finalize --all --wait-seconds 30` 收尾，不再用额外模型 turn 声称已计入它自己的最终回复。
++8. 只有原始事件、身份、边界、最后回复覆盖与一致性都核实后标 `exact_reported`。否则保持 `provisional`、`partial` 或 `not_provided`；文件大小稳定本身不证明计数完整。
++9. `[[WF6:Sn:CONTINUE]]` 属于同一步。已结算步骤续跑用互不重叠 `segments[]`，取最新续跑 turn 的 END/usage，保留旧导出并替换当前合计，不把两版合计相加。期间额外讨论单列。
++10. 去重、counter reset、compaction、fork、跨 session/turn 迟到事件与重复 START 都按原始身份处理；不能截断负差额、重算继承历史或猜测缺口。无法还原则 partial。
++11. S0 创建独立 collector 与 `tracking-config.json`、`stage-boundaries.jsonl`、`raw-token-events.jsonl`、`usage-ledger.json/csv`、`USAGE.md`，实际核实日志 schema并验证关键失败路径，不复制旧 tracker 的窗口。
++12. 汇总分开列 S0准备、S1 baseline、S2–S6实验、S7报告与额外讨论。仅汇总不重叠区间，已知部分和缺失量分开。
++
++## 阶段结束与最终报告
++
++每步简洁回复：实际完成、gate、证据位置、失败/限制、input/cached/output/reasoning/total、计量状态和下一步。末尾用 `[[WF6:Sn:END]]`；用户只授权本步时不自动执行下一步。
++
++最终报告素材用 Approach → What happened → Why → What we would change，关键结论链接 commit、原始日志或 trace。说明源码因素、人工判断、成本、时间、验证负担和局限。不要把 mock、局部检查或 Vue 保留行为升级为完整 React/真实部署成果，也不按小范围耗时宣称优于整站 rewrite。Contribution summary 不包含本次 agentic rewrite。
++
++本文件只是持久化实验要求。它的创建不表示 S0 或 WF6 实验已经开始。
++
++## Approved rerun and CLI handoff / 已批准的新 run 与 CLI 交接
++
++Run ID: wf6-rerun-20261014-01. Use this run's nested mealie-wf6-coexist,
++mealie-wf6-evaluator and wf6-evidence directories. The user approved restarting
++S0; this supersedes earlier instructions not to repeat S0. Old records remain
++historical and unchanged. This run's actual START request is in external
++wf6-evidence/steps/S0/[REDACTED], with the original provider locator in tracking-config.
++The initialization turn is preparation; desktop migration troubleshooting has no
++imported original transcript and remains separately not_provided.
++
++用户已批准嵌套目录及从 S0 重启；旧 run 保留，新 run 不复用旧成绩或计量起点。
++本次真实 START 请求为 S0 起点；初始化属于 preparation，桌面排障单列。
++
++Original stdout/stderr, tools, logs and traces retain their original language.
++New code comments and technical/attempt explanations use English. Results,
++step summaries and report material are bilingual. Preserve actual user prompts.
++原始输出保持原文；新增技术说明与代码注释用英文；结果和报告素材中英文对照。
++
++Pinned snapshots are explicitly declared shallow roots in the new stores.
++All commit/tree/blob IDs and worktree bytes are verified against historical
++origin stores. Full ancestor history is unavailable and is not claimed.
++缺失父对象通过新 checkout 的显式 shallow 边界处理；完整祖先历史未恢复。
++
++The actual runtime is Ubuntu WSL2 Codex CLI. Use /usr/bin/python3 for the
++standalone evidence collector (not project backend execution). Revalidate
++models, permissions and usage schema at subsequent turns; do not assume desktop
++configuration or accounting windows. Unknown identity, resets, compaction gaps,
++forks and unresolved duplicate START remain partial. A new session must receive
++its own verified source configuration; never silently concatenate sessions.
++CLI 的 collector 使用核实的 Linux Python；新会话须显式绑定来源与边界。
++
++Finalize from Ubuntu after the final reply:
++python3 -B wf6-evidence/usage/collect_usage.py finalize --stage S0 --wait-seconds 30
++After S7, use finalize --all --wait-seconds 30 from this run root. No further model
++turn is needed to include its own final reply. Only original verified events may
++justify exact_reported; pre-reply records stay provisional.
++最终回复结束后从终端收尾；S7 使用 --all；回复前保持 provisional。
+diff --git a/rewrite-evidence/workflows/WF6/comparison-baseline.json b/rewrite-evidence/workflows/WF6/comparison-baseline.json
+new file mode 100644
+index 0000000..b8ae951
+--- /dev/null
++++ b/rewrite-evidence/workflows/WF6/comparison-baseline.json
+@@ -0,0 +1,103 @@
++{
++  "run_id": "wf6-rerun-20261014-01",
++  "gate": "PASS",
++  "source_pin": "4b9ca06b6581f7152e164ea0fd9d4da366975a79",
++  "evaluator_pin": "758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d",
++  "build_source_head": "955e790f86c9c4ff2d56e06b9e54d948cbf0e698",
++  "build_hash": "51e1fc21edd74fdb002a57a5e11b8085932a0898945685edb45177aece86d733",
++  "unit": {
++    "total": 517,
++    "passed": 517,
++    "failed": 0,
++    "skipped": 0,
++    "files": 48,
++    "distinct_measurements": "Coverage reruns the same unit tests; do not count twice."
++  },
++  "lint": {
++    "files": 521,
++    "errors": 0,
++    "warnings": 0
++  },
++  "coverage": {
++    "lines": {
++      "total": 12332,
++      "covered": 1861,
++      "skipped": 0,
++      "pct": 15.09
++    },
++    "statements": {
++      "total": 12968,
++      "covered": 1959,
++      "skipped": 0,
++      "pct": 15.1
++    },
++    "functions": {
++      "total": 5350,
++      "covered": 423,
++      "skipped": 0,
++      "pct": 7.9
++    },
++    "branches": {
++      "total": 7772,
++      "covered": 1002,
++      "skipped": 0,
++      "pct": 12.89
++    },
++    "branchesTrue": {
++      "total": 0,
++      "covered": 0,
++      "skipped": 0,
++      "pct": 100
++    }
++  },
++  "type_errors": 318,
++  "browser": {
++    "routes": {
++      "total": 66,
++      "passed": 66,
++      "failed": 0,
++      "skipped": 0,
++      "flaky": 0
++    },
++    "flows": {
++      "total": 15,
++      "passed": 15,
++      "failed": 0,
++      "skipped": 0,
++      "flaky": 0
++    },
++    "guard": {
++      "total": 1,
++      "passed": 1,
++      "failed": 0,
++      "skipped": 0,
++      "flaky": 0
++    }
++  },
++  "first_attempt": {
++    "routes": {
++      "total": 66,
++      "passed": 0,
++      "failed": 66,
++      "skipped": 0,
++      "flaky": 0
++    },
++    "flows": {
++      "total": 15,
++      "passed": 1,
++      "failed": 14,
++      "skipped": 0,
++      "flaky": 0
++    },
++    "guard": {
++      "total": 1,
++      "passed": 1,
++      "failed": 0,
++      "skipped": 0,
++      "flaky": 0
++    }
++  },
++  "evidence": "../../../../wf6-evidence/steps/S1/result.md",
++  "cost": null,
++  "human_review_time": null
++}
+diff --git a/wf6/gateway.mjs b/wf6/gateway.mjs
+new file mode 100644
+index 0000000..b044a17
+--- /dev/null
++++ b/wf6/gateway.mjs
+@@ -0,0 +1,92 @@
++import http from 'node:http';
++import { createReadStream } from 'node:fs';
++import { readFile, realpath, stat } from 'node:fs/promises';
++import path from 'node:path';
++import { fileURLToPath } from 'node:url';
++import { ownsReact } from './route-policy.mjs';
++
++const hopHeaders = new Set(['connection', 'keep-alive', 'proxy-authenticate', 'proxy-authorization', 'te', 'trailer', 'transfer-encoding', 'upgrade']);
++const mime = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.mjs': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.json': 'application/json; charset=utf-8', '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.webp': 'image/webp', '.ico': 'image/x-icon', '.woff': 'font/woff', '.woff2': 'font/woff2', '.txt': 'text/plain; charset=utf-8', '.webmanifest': 'application/manifest+json' };
++
++function cleanHeaders(headers) {
++  const excluded = new Set([...hopHeaders, ...String(headers.connection ?? '').split(',').map(x => x.trim().toLowerCase())]);
++  return Object.fromEntries(Object.entries(headers).filter(([key]) => !excluded.has(key.toLowerCase())));
++}
++
++export async function createGateway({ vueDir, reactDir, reactBuildHash, backendOrigin, routeMapPath = fileURLToPath(new URL('./route-map.json', import.meta.url)), buildHash }) {
++  const root = await realpath(vueDir);
++  const map = JSON.parse(await readFile(routeMapPath, 'utf8'));
++  if (map.defaultFrontend !== 'vue') throw new Error('Unowned routes must remain Vue-owned.');
++  const reactRoot = reactDir ? await realpath(reactDir) : null;
++  if (map.takeoverEnabled && (!reactRoot || !reactBuildHash || !map.groupSlug)) throw new Error('Enabled takeover requires the verified React build and configured group.');
++  if (map.takeoverEnabled) await stat(path.join(reactRoot, 'index.html'));
++  const backend = new URL(backendOrigin);
++  if (backend.protocol !== 'http:' || !['127.0.0.1', 'localhost'].includes(backend.hostname)) throw new Error('Backend must be an isolated loopback HTTP origin.');
++  if (!buildHash) throw new Error('A verified build hash is required.');
++  await stat(path.join(root, 'index.html'));
++  const server = http.createServer(async (req, res) => {
++    const fail = (code, message) => { if (!res.headersSent) res.writeHead(code, { 'content-type': 'text/plain; charset=utf-8', 'cache-control': 'no-store' }); res.end(message); };
++    try {
++      const url = new URL(req.url, 'http://localhost');
++      const pathname = decodeURIComponent(url.pathname);
++      if (pathname.includes('\0') || pathname.includes('\\') || pathname.split('/').some(x => x === '..')) return fail(400, 'Invalid path');
++      if (map.backendPrefixes.some(prefix => pathname === prefix || pathname.startsWith(prefix + '/'))) {
++        const headers = cleanHeaders(req.headers);
++        headers.host = backend.host;
++        headers['x-forwarded-host'] = req.headers.host;
++        headers['x-forwarded-proto'] = 'http';
++        const upstream = http.request(new URL(url.pathname + url.search, backend), { method: req.method, headers }, reply => {
++          const responseHeaders = cleanHeaders(reply.headers);
++          // Keep each Set-Cookie header separate; do not join or log credentials.
++          if (responseHeaders.location?.startsWith(backend.origin)) responseHeaders.location = responseHeaders.location.replace(backend.origin, `http://${req.headers.host}`);
++          responseHeaders['x-wf6-backend'] = 'isolated';
++          res.writeHead(reply.statusCode, responseHeaders);
++          reply.on('error', () => res.destroy());
++          reply.pipe(res);
++        });
++        upstream.setTimeout(30000, () => upstream.destroy(new Error('Upstream timeout')));
++        upstream.on('error', () => fail(502, 'Isolated backend unavailable'));
++        req.on('aborted', () => upstream.destroy());
++        req.pipe(upstream);
++        return;
++      }
++      if (!['GET', 'HEAD'].includes(req.method)) return fail(405, 'Method not allowed');
++      if (pathname === '/_wf6/route-map.json') {
++        res.writeHead(200, { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store' });
++        return res.end(req.method === 'HEAD' ? undefined : JSON.stringify(map));
++      }
++      if (pathname.split('/').some(part => part.startsWith('.'))) return fail(404, 'Not found');
++      // Decide HTML ownership before any backend metadata handling. React failure
++      // remains visible; enabled takeover never falls through to a Vue build.
++      const reactAsset = pathname.startsWith('/_wf6/');
++      const reactDocument = ownsReact(req.url, map);
++      if ((reactAsset || reactDocument) && !reactRoot) return fail(503, 'Verified React build unavailable');
++      const selectedRoot = reactAsset || reactDocument ? reactRoot : root;
++      let file = reactDocument ? path.join(selectedRoot, 'index.html') : path.resolve(selectedRoot, '.' + (reactAsset ? pathname.slice('/_wf6'.length) : pathname));
++      if (!file.startsWith(selectedRoot + path.sep) && file !== selectedRoot) return fail(400, 'Invalid path');
++      let info = await stat(file).catch(() => null);
++      if (info?.isDirectory()) { file = path.join(file, 'index.html'); info = await stat(file).catch(() => null); }
++      if (!info?.isFile()) {
++        // Missing assets are real 404s. Only document requests use history fallback.
++        const asset = pathname.startsWith('/_nuxt/') || pathname.startsWith('/_wf6/') || Boolean(path.extname(pathname));
++        if (asset || !String(req.headers.accept ?? '').includes('text/html')) return fail(404, 'Not found');
++        file = path.join(selectedRoot, 'index.html'); info = await stat(file);
++      }
++      const resolved = await realpath(file);
++      if (!resolved.startsWith(selectedRoot + path.sep)) return fail(404, 'Not found');
++      const type = mime[path.extname(file)] ?? 'application/octet-stream';
++      res.writeHead(200, { 'content-type': type, 'content-length': info.size, 'x-wf6-frontend': reactAsset || reactDocument ? 'react' : 'vue', 'x-wf6-build': reactAsset || reactDocument ? reactBuildHash : buildHash,
++        'cache-control': type.startsWith('text/html') ? 'no-store' : pathname.startsWith('/_nuxt/') ? 'public, max-age=31536000, immutable' : 'no-cache' });
++      if (req.method === 'HEAD') return res.end();
++      createReadStream(file).on('error', () => res.destroy()).pipe(res);
++    } catch { fail(400, 'Invalid request'); }
++  });
++  return server;
++}
++
++if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
++  const server = await createGateway({ vueDir: process.env.WF6_VUE_DIR, backendOrigin: process.env.WF6_BACKEND_ORIGIN,
++    buildHash: process.env.WF6_BUILD_HASH, reactDir: process.env.WF6_REACT_DIR, reactBuildHash: process.env.WF6_REACT_BUILD_HASH, routeMapPath: process.env.WF6_ROUTE_MAP });
++  server.listen(Number(process.env.WF6_PORT ?? 9106), '127.0.0.1', () => console.log(JSON.stringify({ event: 'gateway_ready', port: server.address().port, vueBuildHash: process.env.WF6_BUILD_HASH, reactBuildHash: process.env.WF6_REACT_BUILD_HASH })));
++  for (const signal of ['SIGTERM', 'SIGINT']) process.on(signal, () => server.close(() => process.exit(0)));
++}
+diff --git a/wf6/gateway.test.mjs b/wf6/gateway.test.mjs
+new file mode 100644
+index 0000000..fa6864d
+--- /dev/null
++++ b/wf6/gateway.test.mjs
+@@ -0,0 +1,43 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import http from 'node:http';
++import { mkdtemp, writeFile, mkdir } from 'node:fs/promises';
++import os from 'node:os';
++import path from 'node:path';
++import { createGateway } from './gateway.mjs';
++
++test('all-Vue transport preserves bodies/status/cookies and separates asset misses from history', async () => {
++  const root = await mkdtemp(path.join(os.tmpdir(), 'wf6-S2-gateway-test-'));
++  await writeFile(path.join(root, 'index.html'), '<html>Vue fixture</html>');
++  await mkdir(path.join(root, '_nuxt'));
++  await writeFile(path.join(root, '_nuxt/app.js'), 'window.fixture=true;');
++  const routeMapPath = path.join(root, 'map.json');
++  await writeFile(routeMapPath, JSON.stringify({ takeoverEnabled: false, groupSlug: null, defaultFrontend: 'vue', activeReactRoutes: [], explicitVueQuery: { name: 'wf6', value: 'vue' }, backendPrefixes: ['/api', '/media'] }));
++  const backend = http.createServer(async (req, res) => {
++    const chunks = []; for await (const chunk of req) chunks.push(chunk);
++    res.writeHead(418, { 'content-type': 'application/json', 'set-cookie': ['a=fixture; HttpOnly; Path=/', 'b=fixture; SameSite=Lax; Path=/'] });
++    res.end(JSON.stringify({ method: req.method, url: req.url, body: Buffer.concat(chunks).toString(), cookie: req.headers.cookie }));
++  });
++  await new Promise(resolve => backend.listen(0, '127.0.0.1', resolve));
++  const gateway = await createGateway({ vueDir: root, backendOrigin: `http://127.0.0.1:${backend.address().port}`, buildHash: 'fixture-only', routeMapPath });
++  await new Promise(resolve => gateway.listen(0, '127.0.0.1', resolve));
++  const origin = `http://127.0.0.1:${gateway.address().port}`;
++  try {
++    const proxy = await fetch(origin + '/api/echo?q=preserved', { method: 'POST', body: 'original-body', headers: { cookie: 'a=fixture', 'content-type': 'text/plain' } });
++    assert.equal(proxy.status, 418); assert.equal(proxy.headers.getSetCookie().length, 2);
++    assert.deepEqual(await proxy.json(), { method: 'POST', url: '/api/echo?q=preserved', body: 'original-body', cookie: 'a=fixture' });
++    const media = await fetch(origin + '/media/picture'); assert.equal(media.status, 418);
++    const document = await fetch(origin + '/g/group/r/recipe?wf6=vue', { headers: { accept: 'text/html' } });
++    assert.equal(document.status, 200); assert.equal(document.headers.get('x-wf6-frontend'), 'vue'); assert.equal(await document.text(), '<html>Vue fixture</html>');
++    const asset = await fetch(origin + '/_nuxt/app.js'); assert.match(asset.headers.get('content-type'), /javascript/); assert.equal(asset.headers.get('x-wf6-build'), 'fixture-only');
++    for (const missing of ['/_nuxt/missing.js', '/missing.css', '/missing.png', '/_nuxt/missing', '/.env']) {
++      const response = await fetch(origin + missing, { headers: { accept: 'text/html' } }); assert.equal(response.status, 404); assert.doesNotMatch(await response.text(), /Vue fixture/);
++    }
++    const head = await fetch(origin + '/login', { method: 'HEAD', headers: { accept: 'text/html' } }); assert.equal(head.status, 200); assert.equal(await head.text(), '');
++    const map = await (await fetch(origin + '/_wf6/route-map.json')).json(); assert.equal(map.takeoverEnabled, false); assert.deepEqual(map.activeReactRoutes, []);
++    const bad = await fetch(origin + '/%ZZ'); assert.equal(bad.status, 400);
++    console.log(JSON.stringify({ mock_transport_checks: 'PASS', scope: 'Local protocol fixture only, separate from real backend/browser acceptance' }));
++  } finally {
++    await Promise.all([new Promise(resolve => gateway.close(resolve)), new Promise(resolve => backend.close(resolve))]);
++  }
++});
+diff --git a/wf6/route-map.json b/wf6/route-map.json
+new file mode 100644
+index 0000000..5698db9
+--- /dev/null
++++ b/wf6/route-map.json
+@@ -0,0 +1,40 @@
++{
++  "version": 1,
++  "stage": "S3",
++  "takeoverEnabled": true,
++  "groupSlug": "home",
++  "defaultFrontend": "vue",
++  "explicitVueQuery": {
++    "name": "wf6",
++    "value": "vue"
++  },
++  "backendPrefixes": [
++    "/api",
++    "/media"
++  ],
++  "candidateReactRoutes": [
++    "/g/<testGroupSlug>",
++    "/g/<testGroupSlug>/r/<slug>"
++  ],
++  "vueOwnedExclusions": [
++    "create and all descendants",
++    "shared pages",
++    "other groups",
++    "edit/parse/cook modes",
++    "all non-pilot routes"
++  ],
++  "activeReactRoutes": [
++    "/g/<testGroupSlug>",
++    "/g/<testGroupSlug>/r/<slug>"
++  ],
++  "navigation": "React skeleton only. Vue/React boundary uses shared route-policy.mjs and document navigation; explicit wf6=vue suppresses takeover.",
++  "vueModes": [
++    "edit",
++    "parse",
++    "cook"
++  ],
++  "excludedSlugs": [
++    "create",
++    "shared"
++  ]
++}
+diff --git a/wf6/route-policy.d.mts b/wf6/route-policy.d.mts
+new file mode 100644
+index 0000000..88efdfc
+--- /dev/null
++++ b/wf6/route-policy.d.mts
+@@ -0,0 +1,10 @@
++export interface RouteMap {
++  version: number;
++  takeoverEnabled: boolean;
++  groupSlug: string | null;
++  explicitVueQuery: { name: string; value: string };
++  vueModes: string[];
++  excludedSlugs: string[];
++}
++export function ownsReact(target: string, map: RouteMap): boolean;
++export function explicitVue(target: string, map: RouteMap): string;
+diff --git a/wf6/route-policy.mjs b/wf6/route-policy.mjs
+new file mode 100644
+index 0000000..79c7fa7
+--- /dev/null
++++ b/wf6/route-policy.mjs
+@@ -0,0 +1,21 @@
++export function ownsReact(target, map) {
++  const url = new URL(target, 'http://wf6.local');
++  if (!map.takeoverEnabled || !map.groupSlug || url.searchParams.get(map.explicitVueQuery.name) === map.explicitVueQuery.value) return false;
++  const modes = new Set(map.vueModes);
++  for (const [key, value] of url.searchParams) {
++    if (modes.has(key) && !['', 'false', '0'].includes(value.toLowerCase())) return false;
++    if ((key === 'mode' || key === 'view') && modes.has(value.toLowerCase())) return false;
++  }
++  let parts;
++  try { parts = url.pathname.replace(/\/$/, '').split('/').slice(1).map(decodeURIComponent); } catch { return false; }
++  if (parts.some(part => !part || part.includes('/') || part.includes('\\'))) return false;
++  if (parts[0] !== 'g' || parts[1] !== map.groupSlug) return false;
++  if (parts.length === 2) return true;
++  return parts.length === 4 && parts[2] === 'r' && !map.excludedSlugs.includes(parts[3]);
++}
++
++export function explicitVue(target, map) {
++  const url = new URL(target, 'http://wf6.local');
++  url.searchParams.set(map.explicitVueQuery.name, map.explicitVueQuery.value);
++  return url.pathname + url.search + url.hash;
++}
+diff --git a/wf6/route-policy.test.mjs b/wf6/route-policy.test.mjs
+new file mode 100644
+index 0000000..cc84517
+--- /dev/null
++++ b/wf6/route-policy.test.mjs
+@@ -0,0 +1,23 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import { ownsReact, explicitVue } from './route-policy.mjs';
++import { readFile } from 'node:fs/promises';
++const map = JSON.parse(await readFile(new URL('./route-map.json', import.meta.url)));
++const cases = [
++  ['/g/home', true], ['/g/home/', true], ['/g/home/r/recipe', true], ['/g/home/r/recipe/', true],
++  ['/g/home?search=hello#section', true], ['/g/home/r/recipe?foo=1#ingredients', true],
++  ['/g/home?wf6=vue', false], ['/g/home/r/recipe?wf6=vue#ingredients', false],
++  ['/g/home/r/create', false], ['/g/home/r/create/', false], ['/g/home/r/create/new', false], ['/g/home/r/create/url?foo=1', false],
++  ['/g/home/shared/r/id', false], ['/g/home/r/shared', false], ['/g/other', false], ['/g/other/r/recipe', false],
++  ['/g/home/r/recipe?edit=true', false], ['/g/home/r/recipe?parse=true', false], ['/g/home/r/recipe?cook=true', false],
++  ['/g/home/r/recipe?mode=edit', false], ['/g/home/r/recipe?view=cook', false], ['/g/home/r/recipe?edit=false&edit=true', false],
++  ['/g/home/r/recipe?edit=false', true], ['/g/home/r/recipe?cook=0', true],
++  ['/g/home/r/recipe/edit', false], ['/g/home/r/recipe/cook', false], ['/login', false], ['/shopping-lists', false],
++  ['/g/home/r/%63reate', false], ['/g/home/r/a%2Fb', false], ['/g/home//', false], ['/g/home/r/%ZZ', false],
++];
++for (const [target, expected] of cases) test(`ownership ${target}`, () => assert.equal(ownsReact(target, map), expected));
++test('explicit Vue preserves query/hash and prevents ownership', () => {
++  const target = explicitVue('/g/home/r/recipe?foo=1#ingredients', map);
++  assert.equal(target, '/g/home/r/recipe?foo=1&wf6=vue#ingredients'); assert.equal(ownsReact(target, map), false);
++});
++test('disabled takeover returns all Vue', () => { for (const [target] of cases) assert.equal(ownsReact(target, { ...map, takeoverEnabled: false }), false); });
+# Final working source/evaluator diffs are empty.

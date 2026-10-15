@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1584,
+    "byte_offset": 5049347,
+    "timestamp": "2026-10-14T03:33:23.910Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acef801b178819183dcc305bd26a4db",
+      "status": "completed",
+      "call_id": "call_93c5a688ecf24324a257393e56cdc9eb",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"sed -n '84,129p' wf6-rerun-20261014-01/wf6-evidence/usage/collect_usage.py; sed -n '162,184p' wf6-rerun-20261014-01/wf6-evidence/usage/collect_usage.py\",\"max_output_tokens\":1800}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791948801.6967697
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1587,
+    "byte_offset": 5056974,
+    "timestamp": "2026-10-14T03:33:24.037Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13878-cfc5-7e73-9a29-d88071836572",
+      "call_id": "call_93c5a688ecf24324a257393e56cdc9eb",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.1 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"3b90db\",\"wall_time_seconds\":0.000010853,\"exit_code\":0,\"original_token_count\":1159,\"output\":\"def analyze(records, config, read_issues=None):\\n    session = config[\\\"session_id\\\"]\\n    issues = list(read_issues or [])\\n    metadata = [payload(r) for r in records if r[\\\"record\\\"].get(\\\"type\\\")==\\\"session_meta\\\"]\\n    if not metadata or metadata[0].get(\\\"id\\\")!=session:\\n        issues.append(\\\"Session metadata missing or mismatched.\\\")\\n    raw, unique, seen, users, finals, completions, visible, contexts = [], [], {}, [], [], [], [], []\\n    current_turn = None\\n    message_ids = {}\\n    for row in records:\\n        pl=payload(row); typ=row[\\\"record\\\"].get(\\\"type\\\")\\n        if typ==\\\"event_msg\\\" and pl.get(\\\"type\\\")==\\\"task_started\\\":\\n            current_turn=turn_of(pl)\\n        if typ==\\\"turn_context\\\":\\n            current_turn=turn_of(pl, current_turn)\\n            contexts.append({**locator(row), **{k:pl.get(k) for k in (\\\"turn_id\\\",\\\"model\\\",\\\"effort\\\",\\\"approval_policy\\\",\\\"sandbox_policy\\\",\\\"cwd\\\")}})\\n        if typ==\\\"token_usage_record\\\" or (typ==\\\"event_msg\\\" and pl.get(\\\"type\\\")==\\\"token_count\\\"):\\n            raw.append({**locator(row),\\\"timestamp\\\":row[\\\"record\\\"].get(\\\"timestamp\\\"),\\\"schema\\\":typ if typ==\\\"token_usage_record\\\" else \\\"legacy_token_count\\\",\\\"payload\\\":pl})\\n        if typ==\\\"token_usage_record\\\":\\n            if pl.get(\\\"session_id\\\")!=session or pl.get(\\\"thread_id\\\")!=session or not pl.get(\\\"turn_id\\\") or not pl.get(\\\"response_id\\\"):\\n                issues.append(f\\\"Foreign or unattributed usage at line {row['line']}; excluded.\\\")\\n                continue\\n            key=(session,pl[\\\"response_id\\\"])\\n            if key in seen:\\n                if seen[key]!=pl:issues.append(f\\\"Conflicting response duplicate at line {row['line']}.\\\")\\n                continue\\n            seen[key]=copy.deepcopy(pl);unique.append(row)\\n        if typ==\\\"response_item\\\":\\n            role=pl.get(\\\"role\\\");item_type=pl.get(\\\"type\\\")\\n            if item_type==\\\"message\\\" and role==\\\"user\\\":\\n                text=text_of(pl)\\n                if text.lstrip().startswith(\\\"<environment_context>\\\"):\\n                    continue\\n                turn=turn_of(pl,current_turn)\\n                identity=pl.get(\\\"id\\\")\\n                if identity in message_ids and identity is not None:\\n                    if message_ids[identity]!=text:issues.append(\\\"Conflicting duplicate user identity.\\\")\\n                    continue\\n                if identity:message_ids[identity]=text\\n                users.append(dict(row=row,text=text,turn_id=turn,message_id=identity))\\n                visible.append({**locator(row),\\\"turn_id\\\":turn,\\\"kind\\\":\\\"user\\\",\\\"message_id\\\":identity,\\\"text\\\":text})\\n            elif item_type==\\\"message\\\" and role==\\\"assistant\\\" and pl.get(\\\"phase\\\") in (\\\"commentary\\\",\\\"final_answer\\\",\\\"final\\\"):\\n                turn=turn_of(pl,current_turn)\\n                visible.append({**locator(row),\\\"turn_id\\\":turn,\\\"kind\\\":\\\"assistant\\\",\\\"phase\\\":pl.get(\\\"phase\\\"),\\\"text\\\":text_of(pl)})\\n                if pl.get(\\\"phase\\\") in (\\\"final_answer\\\",\\\"final\\\"):\\n                    finals.append(dict(row=row,text=text_of(pl),turn_id=turn))\\n            item=registered[0]\\n            if item.get(\\\"actual_prompt\\\")!=user[\\\"text\\\"] or item.get(\\\"turn_id\\\")!=user[\\\"turn_id\\\"] or item.get(\\\"line\\\")!=user[\\\"row\\\"][\\\"line\\\"]:\\n                issues.append(\\\"Registered natural-language request identity/text/line mismatch.\\\")\\n                continue\\n            stage=item[\\\"stage_id\\\"];action=\\\"NATURAL_START\\\"\\n        else:continue\\n        if user[\\\"row\\\"][\\\"line\\\"]<config[\\\"start_line\\\"]:continue\\n        if user[\\\"row\\\"][\\\"line\\\"]==config[\\\"start_line\\\"] and (user[\\\"turn_id\\\"]!=config.get(\\\"initial_turn_id\\\") or user[\\\"message_id\\\"]!=config.get(\\\"user_message_id\\\")):\\n            stage_issues[stage].append(\\\"Initial request identity disagrees with verified tracking configuration.\\\")\\n        if not user[\\\"turn_id\\\"]:\\n            stage_issues[stage].append(\\\"Missing request turn identity.\\\")\\n        existing=stage_segments[stage]\\n        if action in (\\\"START\\\",\\\"NATURAL_START\\\") and existing:\\n            stage_issues[stage].append(\\\"Repeated START requires explicit classification; earlier segments are preserved.\\\")\\n        if action==\\\"CONTINUE\\\" and not existing:\\n            stage_issues[stage].append(\\\"CONTINUE has no initial START in this source.\\\")\\n        if any(s[\\\"turn_id\\\"]==user[\\\"turn_id\\\"] for s in existing):\\n            stage_issues[stage].append(\\\"Multiple request boundaries in one turn are ambiguous; no overlapping sum.\\\")\\n            continue\\n        boundary={**locator(user[\\\"row\\\"]),\\\"stage_id\\\":stage,\\\"action\\\":action,\\\"session_id\\\":session,\\n                  \\\"turn_id\\\":user[\\\"turn_id\\\"],\\\"user_message_id\\\":user[\\\"message_id\\\"],\\\"actual_prompt\\\":user[\\\"text\\\"],\\n                  \\\"timestamp\\\":user[\\\"row\\\"][\\\"record\\\"].get(\\\"timestamp\\\")}\\n        boundaries.append(boundary)\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791948804.0378654
+      }
+    }
+  }
+}

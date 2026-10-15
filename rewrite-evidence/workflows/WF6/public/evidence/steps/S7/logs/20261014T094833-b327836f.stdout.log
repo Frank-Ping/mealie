@@ -1,0 +1,92 @@
+{
+  "S0": {
+    "status": "exact_reported",
+    "input_tokens": 3083201,
+    "cached_input_tokens": 3014528,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 37993,
+    "reasoning_output_tokens": 8014,
+    "total_tokens": 3121194,
+    "final_reply_included": true,
+    "coverage_notes": []
+  },
+  "S1": {
+    "status": "partial",
+    "input_tokens": null,
+    "cached_input_tokens": null,
+    "cache_write_input_tokens": null,
+    "output_tokens": null,
+    "reasoning_output_tokens": null,
+    "total_tokens": null,
+    "final_reply_included": true,
+    "coverage_notes": [
+      "Earlier interrupted segment has no final END/completion; provider completeness is not certified. Known attributed usage retained, missing amount unknown."
+    ]
+  },
+  "S2": {
+    "status": "exact_reported",
+    "input_tokens": 8195770,
+    "cached_input_tokens": 8108416,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 33264,
+    "reasoning_output_tokens": 8894,
+    "total_tokens": 8229034,
+    "final_reply_included": true,
+    "coverage_notes": []
+  },
+  "S3": {
+    "status": "exact_reported",
+    "input_tokens": 9453881,
+    "cached_input_tokens": 9373952,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 45946,
+    "reasoning_output_tokens": 22868,
+    "total_tokens": 9499827,
+    "final_reply_included": true,
+    "coverage_notes": []
+  },
+  "S4": {
+    "status": "exact_reported",
+    "input_tokens": 6687491,
+    "cached_input_tokens": 6595328,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 46028,
+    "reasoning_output_tokens": 20539,
+    "total_tokens": 6733519,
+    "final_reply_included": true,
+    "coverage_notes": []
+  },
+  "S5": {
+    "status": "exact_reported",
+    "input_tokens": 5656914,
+    "cached_input_tokens": 5552256,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 27523,
+    "reasoning_output_tokens": 7181,
+    "total_tokens": 5684437,
+    "final_reply_included": true,
+    "coverage_notes": []
+  },
+  "S6": {
+    "status": "exact_reported",
+    "input_tokens": 33540826,
+    "cached_input_tokens": 33207808,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 110169,
+    "reasoning_output_tokens": 35756,
+    "total_tokens": 33650995,
+    "final_reply_included": true,
+    "coverage_notes": []
+  },
+  "S7": {
+    "status": "provisional",
+    "input_tokens": 114887,
+    "cached_input_tokens": 77824,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 672,
+    "reasoning_output_tokens": 9,
+    "total_tokens": 115559,
+    "final_reply_included": false,
+    "coverage_notes": []
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 818,
+    "byte_offset": 3144192,
+    "timestamp": "2026-10-14T02:17:33.012Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acee639244481919788880203a25897",
+      "status": "completed",
+      "call_id": "call_9f66c474eaf84d2aa327dbfd30a3c69c",
+      "name": "exec",
+      "input": "text(await tools.write_stdin({session_id:48316,chars:\"\",yield_time_ms:1000,max_output_tokens:1400}));\ntext(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nfrom pathlib import Path\\nimport json\\ns=Path('wf6-rerun-20261014-01/wf6-evidence/steps/S1');p=s/'build-artifact.json';print('build_manifest_exists',p.exists());print('latest_commands')\\nfor l in (s/'commands.jsonl').read_text().splitlines()[-3:]:\\n d=json.loads(l);print(d['label'],d['exit_code'],d['duration_seconds'])\\nPY\",max_output_tokens:700}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791944249.1445348
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 821,
+    "byte_offset": 3147588,
+    "timestamp": "2026-10-14T02:17:38.177Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13833-7281-7af3-aff1-ed776cb61548",
+      "call_id": "call_9f66c474eaf84d2aa327dbfd30a3c69c",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 5.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"ad76fd\",\"wall_time_seconds\":5.001473516,\"session_id\":48316,\"original_token_count\":0,\"output\":\"\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"06f8c4\",\"wall_time_seconds\":0.000010829,\"exit_code\":0,\"original_token_count\":52,\"output\":\"build_manifest_exists False\\nlatest_commands\\nevaluator-S1-start-head 0 0.03294820500013884\\nevaluator-S1-start-dirty 0 2.732747740999912\\nS1-runtime-isolation-recheck-after-auth-alias-ignore 0 4.810241261000556\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791944258.1772983
+      }
+    }
+  }
+}

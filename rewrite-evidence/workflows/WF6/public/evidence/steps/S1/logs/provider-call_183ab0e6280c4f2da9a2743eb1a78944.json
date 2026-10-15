@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1413,
+    "byte_offset": 4812187,
+    "timestamp": "2026-10-14T03:19:25.638Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acef4bac348819185790aef6bb8e193",
+      "status": "completed",
+      "call_id": "call_183ab0e6280c4f2da9a2743eb1a78944",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"tail -3 wf6-rerun-20261014-01/wf6-evidence/steps/S1/logs/20261014T030622-9490b72b.stdout.log; cat wf6-rerun-20261014-01/wf6-evidence/steps/S1/logs/20261014T031657-f571afa1.stdout.log\",\"max_output_tokens\":1100}));\ntext(await tools.clock__curr_time({}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791947962.7662127
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1416,
+    "byte_offset": 4816108,
+    "timestamp": "2026-10-14T03:19:25.783Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a1386c-0557-7802-984c-5a406909e74b",
+      "call_id": "call_183ab0e6280c4f2da9a2743eb1a78944",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.1 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"264d17\",\"wall_time_seconds\":0.000010671,\"exit_code\":0,\"original_token_count\":309,\"output\":\"  ✘  37 [routes] › tests/routes.spec.ts:37:9 › admin › [route] g/[groupSlug]/recipes/tags/index.vue (16.8s)\\n  ✘  38 [routes] › tests/routes.spec.ts:37:9 › admin › [route] g/[groupSlug]/recipes/tools/index.vue (16.5s)\\n  ✘  39 [routes] › tests/routes.spec.ts:37:9 › admin › [route] g/[groupSlug]/recipes/finder/index.vue (18.6s)\\n{\\\"trace\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/steps/S1/browser/test-results/routes-admin-route-admin-vue-routes/trace.zip\\\", \\\"sha256\\\": \\\"f5dff6797fece902356c479643762b161f8a085b48a71e06492e4f89c5e3e9ef\\\", \\\"event_counts\\\": {\\\"context-options:\\\": 3, \\\"before:hook\\\": 3, \\\"before:fixture\\\": 17, \\\"before:pw:api\\\": 5, \\\"after:\\\": 30, \\\"before:expect\\\": 2, \\\"error:\\\": 1, \\\"before:test.attach\\\": 1, \\\"before:newPage\\\": 1, \\\"event:page\\\": 1, \\\"before:goto\\\": 1, \\\"frame-snapshot:\\\": 4, \\\"log:\\\": 3, \\\"screencast-frame:\\\": 3}, \\\"resource_count\\\": 121, \\\"pending_resources\\\": 48, \\\"resources_over_10_seconds\\\": 8, \\\"interpretation\\\": \\\"Observed blank page and unfinished resource requests at the assertion deadline. This trace alone does not prove a source defect or filesystem cause. Native runtime remeasurement preserves all frozen assertions and deadlines.\\\"}\\n\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"current_time\":\"2026-10-14 03:19:25 UTC\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791947965.7833354
+      }
+    }
+  }
+}

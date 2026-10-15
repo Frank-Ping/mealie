@@ -1,0 +1,57 @@
+$ nuxt generate --spa
+[warn] Could not fetch from `https://fonts.google.com/metadata/fonts`. Will retry in `1000ms`. `3` retries left.
+[warn] Could not fetch from `https://fonts.google.com/metadata/icons?key=material_symbols&incomplete=true`. Will retry in `1000ms`. `3` retries left.
+[warn] Could not fetch from `https://api.fontsource.org/v1/fonts`. Will retry in `1000ms`. `3` retries left.
+[warn] Could not fetch from `https://fonts.bunny.net/list`. Will retry in `1000ms`. `3` retries left.
+[warn] Could not fetch from `https://api.fontshare.com/v2/fonts?offset=0&limit=100`. Will retry in `1000ms`. `3` retries left.
+[warn] Could not fetch from `https://fonts.google.com/metadata/fonts`. Will retry in `1000ms`. `2` retries left.
+[warn] Could not fetch from `https://fonts.google.com/metadata/icons?key=material_symbols&incomplete=true`. Will retry in `1000ms`. `2` retries left.
+[warn] Could not fetch from `https://api.fontsource.org/v1/fonts`. Will retry in `1000ms`. `2` retries left.
+[warn] Could not fetch from `https://fonts.bunny.net/list`. Will retry in `1000ms`. `2` retries left.
+[warn] Could not fetch from `https://api.fontshare.com/v2/fonts?offset=0&limit=100`. Will retry in `1000ms`. `2` retries left.
+[warn] Could not fetch from `https://fonts.google.com/metadata/fonts`. Will retry in `1000ms`. `1` retries left.
+[warn] Could not fetch from `https://fonts.google.com/metadata/icons?key=material_symbols&incomplete=true`. Will retry in `1000ms`. `1` retries left.
+[warn] Could not fetch from `https://api.fontsource.org/v1/fonts`. Will retry in `1000ms`. `1` retries left.
+[warn] Could not fetch from `https://fonts.bunny.net/list`. Will retry in `1000ms`. `1` retries left.
+[warn] Could not fetch from `https://api.fontshare.com/v2/fonts?offset=0&limit=100`. Will retry in `1000ms`. `1` retries left.
+[error] Could not initialize provider `google`. `unifont` will not be able to process fonts provided by this provider. fetch failed
+  
+
+  [cause]: getaddrinfo EAI_AGAIN fonts.google.com
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:123:26)
+[error] Could not initialize provider `googleicons`. `unifont` will not be able to process fonts provided by this provider. fetch failed
+  
+
+  [cause]: getaddrinfo EAI_AGAIN fonts.google.com
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:123:26)
+[error] Could not initialize provider `fontsource`. `unifont` will not be able to process fonts provided by this provider. fetch failed
+  
+
+  [cause]: getaddrinfo EAI_AGAIN api.fontsource.org
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:123:26)
+[error] Could not initialize provider `bunny`. `unifont` will not be able to process fonts provided by this provider. fetch failed
+  
+
+  [cause]: getaddrinfo EAI_AGAIN fonts.bunny.net
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:123:26)
+[error] Could not initialize provider `fontshare`. `unifont` will not be able to process fonts provided by this provider. fetch failed
+  
+
+  [cause]: getaddrinfo EAI_AGAIN api.fontshare.com
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:123:26)
+[warn] [plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[warn] [33m[PLUGIN_TIMINGS] [0mJavaScript callbacks ran for 25.6s of this 29.2s build (88%).
+The slowest callbacks, timed inside each callback (the wait before a callback starts is excluded, the time it awaits is included):
+  - plugin nuxtjs:i18n-resource transform (35%, 10.3s, 43 calls)
+  - plugin vite:vue transform (33%, 9.6s, 577 calls)
+Additional callback time came from the callbacks below and from callbacks under 1s.
+2 callbacks are listed without a time. Their calls overlapped, so the time inside one call includes work from other calls. To find their cost, profile the build with `node --cpu-prof`:
+  - plugin nuxt:resolve-bare-imports resolveId (60 calls)
+  - plugin vite:css transform (161 calls)
+See https://rolldown.rs/reference/InputOptions.checks#bundlertimings for more details.
+
+[warn] "H3Error", "H3Event" and "deleteCookie" are imported from external module "file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/h3@1.15.11/node_modules/h3/dist/index.mjs" but never used in "node_modules/.pnpm/@nuxt+nitro-server@4.5.2_20f331c55d72b38bdbfca4c725bc167a/node_modules/@nuxt/nitro-server/dist/h3.mjs".

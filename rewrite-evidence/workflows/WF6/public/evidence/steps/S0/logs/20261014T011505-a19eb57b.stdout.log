@@ -1,0 +1,252 @@
+                                             
+        
+       Agentic Development Report 
+       This report should be written at a high level, targeted toward developers familiar with your 
+       project. You can assume the reader is familiar with programming topics and with your 
+       project but may not have exhaustive knowledge of all areas of the same. 
+       This is a technical report, and no formal academic referencing is required. Clearly state 
+       each group member’s full name, student ID number, and student email address on the 
+       first page. Divide the report into sections for each of the points listed below. The expected 
+       length is 6-10 pages of text, excluding front-matter, headers, figures, appendices, and 
+       tables; though this will vary if there are many or few items to report on. 
+       Submit the report as a PDF document through moodle prior to the due date listed on the 
+       moodle  submission  portal.  Late  submissions  will  not  be  accepted,  please  upload 
+       regular  draft  versions  of  your  report  (uploaded  without  clicking  the  final  submit  for 
+       grading button) to ensure that you do not miss the submission window. Only one member 
+       of your group needs to submit the report. 
+       Individual grades will be derived from the group grade, weighted by the peer review 
+       completed by other group members. 
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+                                             
+        
+                                                                                                                        
+                  
+                  
+                 Task Description 
+                 Using agentic development tools, attempt a large-scale rewrite of the open source 
+                 project you have been contributing to, and evaluate which workflows were effective for a 
+                 change of that size. Up to this point your work has been scoped to individual issues: small, 
+                 well-bounded changes that fit comfortably within a single session. This assessment asks 
+                 you to deliberately work at a scale where that no longer holds, and to find out what 
+                 changes when it doesn’t. 
+                 There is no expectation that you will complete the rewrite. You are assessed on the 
+                 quality of your experimentation and evaluation, not on how much of the codebase you 
+                 converted. 
+                  
+                 Choosing a rewrite 
+                 Your  rewrite  must  be  system-wide:  it  should  touch  a  substantial  proportion  of  the 
+                 codebase and cannot be completable as a sequence of independent, file-local edits. 
+                 Suitable examples include: 
+                     •   Migrating a backend or library from JavaScript to TypeScript (with meaningful 
+                         types, not blanket any). 
+                     •   Converting a frontend from one framework to another, such as React to Vue or 
+                         Angular to React. 
+                     •   Replacing a core dependency that the codebase is structured around, such as an 
+                         ORM, state-management library, or HTTP framework. 
+                     •   Crossing a major version boundary with widespread breaking changes, such as a 
+                         framework upgrade that requires architectural changes rather than find-and-
+                         replace. 
+                     •   Replacing the build, test, or packaging toolchain where the change reaches into 
+                         most modules. 
+                 Discuss your proposed changes with your lecturer at your usual meeting time, or via 
+                 email to ensure you have chosen something reasonable. 
+                  
+                 Working environment 
+                     •   Work on a fork or a dedicated branch. Your work is not expected to be merged 
+                         upstream. Do not open pull requests against the upstream for this work. 
+                                                                                                                        
+                  
+                                                                                                                        
+                  
+                     •   Establish a baseline before you start: record whether the project builds, the state 
+                         of the test suite (pass/fail counts and coverage where available), and any other 
+                         measures you will use to judge progress. 
+                     •   Run  agents  in  a  sandboxed  environment.  Do  not  give  them  credentials  for 
+                         upstream repositories, package registries, or production services, and review 
+                         what permissions each tool is granted. 
+                 Agentic tools 
+                 You may use any agentic coding tool, such as Claude Code, OpenAI Codex, Gemini CLI, 
+                 Cursor’s agent mode, or Aider. You may use more than one tool, and comparing tools on 
+                 the same task is encouraged but not required. 
+                  
+                 Workflows 
+                 You must attempt at least three meaningfully different workflows to approach the rewrite. 
+                 Workflows differ in how the problem is decomposed, how context is given to the agent, 
+                 and how results are verified. Rewording the same prompt is not a different workflow. 
+                 Approaches you might compare include: 
+                     •   A single high-level instruction to convert the whole project, as a baseline. 
+                     •   Having the agent produce a written migration plan first, reviewing it, and then 
+                         executing it in stages. 
+                     •   Incremental, module-by-module conversion using the existing test suite as the 
+                         acceptance check at each step. 
+                     •   Maintaining  a  project  context  file  (e.g.  CLAUDE.md  or  AGENTS.md)  with 
+                         conventions, decisions, and progress that persists across sessions. 
+                     •   Running  multiple  agents  or  sub-agents  in  parallel  on  separate  parts  of  the 
+                         codebase. 
+                     •   Incremental coexistence approaches where old and new code run side by side 
+                         while the system is migrated piece by piece. 
+                 You are free to design your own workflows; the list above is illustrative rather than 
+                 prescriptive. 
+                  
+                 Evidence log 
+                 Keep a record as you work. Your report will be marked on claims you can support. At a 
+                 minimum, retain: 
+                     •   Session transcripts or exported logs for each workflow, including your prompts. 
+                     •   Any plan documents, context files, or configuration you gave to the agent. 
+                                                                                                                        
+                  
+                                                                                                                        
+                  
+                     •   Frequent commits, with messages that make clear which workflow and session 
+                         produced them. 
+                     •   Build and test results at key points, so progress and regressions can be discussed. 
+                     •   Approximate time spent, and token usage or cost where the tool reports it. 
+                  
+                  
+                 Report Content 
+                 Produce a critical evaluation of how you approached a large-scale rewrite with agentic 
+                 tools, what worked, what did not, and why. This is not a tool review or a diary of your 
+                 sessions: you are forming an argued judgement about which workflows are effective for 
+                 large-scale  change,  grounded  in  evidence  from  your  own  attempts  and  in  the 
+                 characteristics of the codebase you were working in. 
+                 This report has been divided into sections, described below. 
+                     •   Scope and Baseline (3 points). Briefly establish the context for your evaluation: 
+                         how the project is architected at a high level, the rewrite you attempted and why 
+                         it is system-wide, the tools you used, and the baseline state of the project before 
+                         you started. State how you measured progress and summarise honestly how far 
+                         you got. 
+                          
+                                 Marking Notes: You have already covered the structure in detail in earlier 
+                                 reports, so keep this part brief. This section is just grounding the rest of the 
+                                 report  and  helps  for  framing  the  later  sections.  I  want  to  know  what 
+                                 “progress” means for your rewrite and what you measured it against. A 
+                                 clear statement such as “we converted 14 of 62 modules; the build passes 
+                                 but 23 of 410 tests fail, compared with 0 at baseline” is the sort of thing I’m 
+                                 looking for. 
+                                  
+                     •   Workflows and Evaluation (12 points). Describe and evaluate at least three 
+                         distinct workflows you used. For each workflow, explain what the approach was 
+                         in  concrete  terms:  how  you  decomposed  the  problem,  what  context  and 
+                         instructions you gave the agent, and how you verified its output. Then explain what 
+                         happened,  supported  by  evidence  from  your  log.  Explain  why  you  think  it 
+                         produced  those  results,  identifying  the  underlying  cause  rather  than  the 
+                         symptom; and what you would change if you ran it again. 
+                          
+                                                                                                                        
+                  
+                                                                                                                        
+                  
+                                 Marking Notes: Workflows should be genuinely different in structure, not 
+                                 variations in prompt wording. The strongest answers explain causes: “the 
+                                 agent  introduced  inconsistent  type  names  across  modules”  is  an 
+                                 observation; showing that this happened because each session started 
+                                 without  knowledge  of  decisions  made  in  earlier  sessions,  and  that  a 
+                                 persistent context file reduced it, is an analysis. I’m not looking for generic 
+                                 prompting tips or claims that a tool is “good” or “bad”.  
+                                  
+                                 Failed workflows are as valuable as successful ones and are often more 
+                                 instructive. Consider recurring failure modes where you saw them, such 
+                                 as  loss  of  context  over  long  sessions,  hallucinated  APIs,  tests  being 
+                                 weakened or deleted to make them pass, premature claims of completion, 
+                                 and drift from project conventions, along with what you did to detect and 
+                                 counter them.  
+                                  
+                                 Every claim should be locatable in your evidence via link to commits, 
+                                 transcripts,  or  log  excerpts  that  support  it.  Attach  your  evidence  as 
+                                 appendices, referring to them as needed. 
+                                  
+                     •   Codebase Factors (5 points). Identify properties of the project itself that made 
+                         agentic rewriting easier or harder. For each, explain the mechanism by which it 
+                         affected the agent’s behaviour or your ability to verify its work, referring to specific 
+                         files, modules, or tooling in the repository. 
+                          
+                                 Marking Notes: Draw on what you learned about the codebase in earlier 
+                                 assessments.  Relevant  factors  might  include  test  coverage  of  critical 
+                                 paths,  the  clarity  of  module  boundaries  and  coupling  between 
+                                 components,  consistency  of  conventions,  the  quality  of  existing  type 
+                                 information or documentation, build and CI speed, and how much implicit 
+                                 knowledge the code depends on.  
+                                  
+                                 “The project has tests, which helped” is an observation. I’m looking for 
+                                 specific links between a property of the code and a result you saw, for 
+                                 example showing that modules with high coupling to a shared global state 
+                                 were consistently where the agent’s conversions broke. 
+                                  
+                     •   Synthesis and Recommendations (5 points). If another team were about to 
+                         attempt a comparable rewrite on a comparable project using agentic tools, what 
+                         workflow would you recommend they use, and why? Justify your recommendation 
+                         by weighing what you observed against cost, time, risk, and the effort of human 
+                         review. Identify where in the process human judgement was needed and helpful, 
+                                                                                                                        
+                  
+                                                                                                                        
+                  
+                         and where it could safely be delegated. Finally, identify the circumstances under 
+                         which you would advise against using agentic tools for a change of this kind at all. 
+                          
+                                 Marking Notes: This section marks judgement, not coverage, and it should 
+                                 not restate the workflows described earlier. I’m looking for evidence that 
+                                 you  can  distinguish  what  generalises  from  what  was  specific  to  your 
+                                 project or tool, and that you recognise that a workflow producing a lot of 
+                                 code quickly is not automatically a good one if its output is costly to verify.  
+                                  
+                                 Consider the cost of review for the humans who would have to accept this 
+                                 work, including open source maintainers. Recognising the limits of your 
+                                 own evidence, such as a single project, a small number of runs, or a single 
+                                 tool, is part of a strong answer. 
+                                  
+                     •   Contribution summary (5 points). Provide a summary of your group contributions 
+                         to your project over the semester. You should not include your agentic rewrite 
+                         tasks in this section. This should include all tasks that you attempted, even if they 
+                         were abandoned For each item that has been provide a summary title of the 
+                         feature, a list of group members who worked on the feature, links to the relevant 
+                         issue(s) on the project issue tracker, and a link to your repository and branch 
+                         where the code addressing the issue can be found. If a pull request was opened, 
+                         provide a link for this as well. Summarise the issue and your approach(es) to 
+                         solving  them,  clearly  identifying  if  discussion/consultation  was  had  with  the 
+                         project maintainers or greater project community while developing your solution. 
+                         If the change was accepted/rejected by the project maintainers, or if development 
+                         was abandoned, provide a brief explanation/justification as to why. An example 
+                         of what each of these items might look like is shown below. 
+                      
+                                 Marking Notes: I’m looking to see an honest accounting of the tasks you 
+                                 accomplished this semester while working on your project. The relative 
+                                 size or workload associated with each task is not the critical component 
+                                 here, but instead being able to account for the work done and backing up 
+                                 the decisions you made.  
+                  
+                                                                                                                        
+                  
+                                                                                                                        
+                  
+                 Example contribution summary entry 
+                  
+                 Feature [ Cameron ]: Add “Scroll to Chapter” function in dual-pane view  
+                     •   Issue: https://example.com/user/project/issues/507 - Preview always refreshes 
+                         to top-of-document when re-rendering code 
+                     •   Repo: https://example.com/my-user/project/tree/feat-507 
+                     •   Pull Request: https://example.com/user/project/pull/1022 - Add “Scroll to active 
+                         chapter” feature for preview window 
+                 When editing a LaTeX document in the code pane, the preview pane live-reloads to 
+                 document changes, but it doesn’t automatically scroll to the position in the preview 
+                 where you have made your change. Ideally, we would scroll directly to the edit position 
+                 in the preview, but calculating this position is tricky and inaccurate due to document 
+                 reflowing stages. We can however easily detect which chapter, section, or subsection of 
+                 a  document  was  edited  and  scroll  to  that  position.  This  change  was  accepted  on 
+                 1970/01/01, with the requester and maintainers being satisfied with the compromise. 
+                 There is a wish to further investigate more accurate position tracking so the scrolling can 
+                 be more precise, and this has been documented under a new feature request (#562) and 
+                 added to the v4 roadmap as a stretch goal.  
+                                                                                                                        
+                  

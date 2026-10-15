@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 278,
+    "byte_offset": 1525569,
+    "timestamp": "2026-10-14T01:24:15.462Z",
+    "turn_id": "01a137f3-c2d3-7db0-9623-6d33961b39eb",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016aced9b2851c8191950d0aab5aa2b43e",
+      "status": "completed",
+      "call_id": "call_f191235c73de466ca71a76dc43c61d25",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nfrom pathlib import Path\\nimport json,sys,subprocess,re\\nr=Path.cwd()/'wf6-rerun-20261014-01';e=r/'wf6-evidence';s=e/'steps/S0'\\nsys.path.insert(0,str(e/'usage'))\\nfrom record_command import run\\nfrom collect_usage import collect\\nentry=run(['/usr/bin/python3','-B','wf6-evidence/usage/collect_usage.py','finalize','--all','--wait-seconds','0'],r,'final-pre-reply-collector-snapshot')\\nassert entry['exit_code']==0\\n# Refresh after the recorder closed its streams so the manifest hashes completed logs.\\nresult=collect(e/'usage/tracking-config.json')\\nusage=result['stages'][0]\\nassert usage['status']=='provisional' and not usage['final_reply_included'],usage['coverage_notes']\\nassert not json.loads((e/'usage/index-validation.json').read_text())['missing_links']\\nchecks=[]\\nfor folder in ['mealie-wf6-coexist','mealie-wf6-evaluator']:\\n p=r/folder\\n status=subprocess.run(['git','--no-optional-locks','-C',str(p),'status','--porcelain=v1'],capture_output=True,text=True,check=True).stdout\\n assert not status\\n checks.append({'checkout':folder,'clean':True})\\nmanifest=json.loads((e/'evidence-manifest.json').read_text())\\nrequired=['[REDACTED]','visible-transcript.jsonl','commands.jsonl','source-state.json','diff.patch','file-manifest.json','attempts.jsonl','result.md','token-usage.json']\\nassert all((s/name).exists() for name in required)\\nfor file in [r/'mealie-wf6-coexist/rewrite-evidence/workflows/WF6/S0-summary.md',r/'mealie-wf6-coexist/rewrite-evidence/workflows/WF6/WF6-CONTRACT.md']:\\n for link in re.findall(r'\\\\]\\\\(([^)]+)\\\\)',file.read_text()):\\n  if link.startswith('http'):continue\\n  assert (file.parent/link.split('#')[0]).exists(),link\\nprint(json.dumps({'gate':'PASS','checkouts':checks,'source_commit':json.loads((s/'source-state.json').read_text())['source']['actual_head'],\\n 'collector_tests':json.loads((s/'collector-acceptance.json').read_text())['tests'],'provider_shell_commands_recovered':sum(len(d['shell_commands']) for d in [json.loads(l) for l in (s/'provider-command-events.jsonl').read_text().splitlines()]),\\n 'manifest_files':len(manifest['files']),'usage':{k:usage[k] for k in ['status','input_tokens','cached_input_tokens','output_tokens','reasoning_output_tokens','total_tokens','final_reply_included']}},indent=2))\\nPY\",max_output_tokens:1900}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a137f3-c2d3-7db0-9623-6d33961b39eb",
+        "create_time": 1791941042.5229363
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 281,
+    "byte_offset": 1536076,
+    "timestamp": "2026-10-14T01:24:24.387Z",
+    "turn_id": "01a137f3-c2d3-7db0-9623-6d33961b39eb",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13802-b6c3-7b41-b662-af82b9f41a85",
+      "call_id": "call_f191235c73de466ca71a76dc43c61d25",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 8.9 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"e9f452\",\"wall_time_seconds\":8.753755988,\"exit_code\":0,\"original_token_count\":358,\"output\":\"{\\\"command_id\\\": \\\"20261014T012415-512697f8\\\", \\\"stage_id\\\": \\\"S0\\\", \\\"label\\\": \\\"final-pre-reply-collector-snapshot\\\", \\\"argv\\\": [\\\"/usr/bin/python3\\\", \\\"-B\\\", \\\"wf6-evidence/usage/collect_usage.py\\\", \\\"finalize\\\", \\\"--all\\\", \\\"--wait-seconds\\\", \\\"0\\\"], \\\"cwd\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01\\\", \\\"start_utc\\\": \\\"2026-10-14T01:24:15.671593+00:00\\\", \\\"end_utc\\\": \\\"2026-10-14T01:24:17.664939+00:00\\\", \\\"duration_seconds\\\": 1.9933443230002013, \\\"exit_code\\\": 0, \\\"stdout\\\": \\\"steps/S0/logs/20261014T012415-512697f8.stdout.log\\\", \\\"stderr\\\": \\\"steps/S0/logs/20261014T012415-512697f8.stderr.log\\\", \\\"environment_overrides\\\": {}, \\\"permission\\\": \\\"workspace-write; network restricted; no escalation\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n{\\n  \\\"gate\\\": \\\"PASS\\\",\\n  \\\"checkouts\\\": [\\n    {\\n      \\\"checkout\\\": \\\"mealie-wf6-coexist\\\",\\n      \\\"clean\\\": true\\n    },\\n    {\\n      \\\"checkout\\\": \\\"mealie-wf6-evaluator\\\",\\n      \\\"clean\\\": true\\n    }\\n  ],\\n  \\\"source_commit\\\": \\\"955e790f86c9c4ff2d56e06b9e54d948cbf0e698\\\",\\n  \\\"collector_tests\\\": 24,\\n  \\\"provider_shell_commands_recovered\\\": 22,\\n  \\\"manifest_files\\\": 244,\\n  \\\"usage\\\": {\\n    \\\"status\\\": \\\"provisional\\\",\\n    \\\"input_tokens\\\": 2921248,\\n    \\\"cached_input_tokens\\\": 2854528,\\n    \\\"output_tokens\\\": 37401,\\n    \\\"reasoning_output_tokens\\\": 7846,\\n    \\\"total_tokens\\\": 2958649,\\n    \\\"final_reply_included\\\": false\\n  }\\n}\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a137f3-c2d3-7db0-9623-6d33961b39eb",
+        "create_time": 1791941064.3875878
+      }
+    }
+  }
+}

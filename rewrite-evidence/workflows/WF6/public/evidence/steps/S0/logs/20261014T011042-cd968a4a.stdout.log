@@ -1,0 +1,16 @@
+commit 4b9ca06b6581f7152e164ea0fd9d4da366975a79
+Author:     Deeumiya Huang <Abyukuri@gmail.com>
+AuthorDate: Wed Sep 30 12:51:18 2026 +1300
+Commit:     Deeumiya Huang <Abyukuri@gmail.com>
+CommitDate: Wed Sep 30 12:51:18 2026 +1300
+
+    [P0] Document measuring and let measure.sh grade apps in other checkouts
+    
+    - rewrite-evidence/README.md: one-time setup, how to run measure.sh and the
+      E2E suite, what each metrics.csv column means, and how to keep the
+      yardstick away from a workflow (branch before it, --no-local single-branch
+      clone, since git rm and worktrees still expose it through git history).
+    - measure.sh --app now also takes a path to an app in another checkout;
+      branch/commit/dirty are read from that checkout.
+    
+    Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>

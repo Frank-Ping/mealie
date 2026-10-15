@@ -1,0 +1,15 @@
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Progress: resolved 12, reused 5, downloaded 6, added 0
+Packages: +21
++++++++++++++++++++++
+Packages are hard linked from the content-addressable store to the virtual store.
+  Content-addressable store is at: <WORKSPACE>/wf6-rerun-20261014-01/runtime/cache/pnpm/v11
+  Virtual store is at:             node_modules/.pnpm
+Progress: resolved 21, reused 12, downloaded 9, added 17
+Progress: resolved 21, reused 12, downloaded 9, added 21, done
+
+devDependencies:
++ typescript 5.9.3 (7.0.2 is available)
++ vue-tsc 3.1.5 (3.3.13 is available)
+
+Done in 3.8s using pnpm v11.23.0

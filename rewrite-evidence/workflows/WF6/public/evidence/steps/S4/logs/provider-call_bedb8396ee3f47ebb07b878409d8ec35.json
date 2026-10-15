@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2942,
+    "byte_offset": 8244112,
+    "timestamp": "2026-10-14T06:26:13.055Z",
+    "turn_id": "01a13905-d942-7e23-8387-48f7946bf050",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf2082133081918d3788a952ed5292",
+      "status": "completed",
+      "call_id": "call_bedb8396ee3f47ebb07b878409d8ec35",
+      "name": "exec",
+      "input": "text(await tools.write_stdin({session_id:26360,chars:\"\",yield_time_ms:1000,max_output_tokens:700}));\ntext(await tools.exec_command({cmd:\"python3 - <<'PY'\\nfrom pathlib import Path\\nfor p in sorted(Path('wf6-rerun-20261014-01/wf6-evidence/steps/S4/logs').glob('20261014T062[123]*log')):\\n if p.stat().st_size:print(p.name,p.read_text()[-500:])\\nPY\",\"max_output_tokens\":1600}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13905-d942-7e23-8387-48f7946bf050",
+        "create_time": 1791959170.0825963
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2945,
+    "byte_offset": 8246892,
+    "timestamp": "2026-10-14T06:26:13.200Z",
+    "turn_id": "01a13905-d942-7e23-8387-48f7946bf050",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13917-0850-7783-9456-af0c1881d182",
+      "call_id": "call_bedb8396ee3f47ebb07b878409d8ec35",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.1 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"69b572\",\"wall_time_seconds\":0.000010248,\"exit_code\":0,\"original_token_count\":215,\"output\":\"{\\\"command_id\\\": \\\"20261014T062410-3e796f1c\\\", \\\"stage_id\\\": \\\"S4\\\", \\\"label\\\": \\\"S4-real-frozen-and-supplemental-business-acceptance\\\", \\\"argv\\\": [\\\"python3\\\", \\\"-B\\\", \\\"wf6-evidence/usage/run_s4.py\\\"], \\\"cwd\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01\\\", \\\"start_utc\\\": \\\"2026-10-14T06:24:10.276601+00:00\\\", \\\"end_utc\\\": \\\"2026-10-14T06:25:05.431018+00:00\\\", \\\"duration_seconds\\\": 55.15442075899773, \\\"exit_code\\\": 0, \\\"stdout\\\": \\\"steps/S4/logs/20261014T062410-3e796f1c.stdout.log\\\", \\\"stderr\\\": \\\"steps/S4/logs/20261014T062410-3e796f1c.stderr.log\\\", \\\"environment_overrides\\\": {}, \\\"permission\\\": \\\"Approved isolated S4 backend/gateway/Chromium and unchanged frozen selected tests; default sandbox unchanged\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"261209\",\"wall_time_seconds\":0.000010638,\"exit_code\":0,\"original_token_count\":0,\"output\":\"\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13905-d942-7e23-8387-48f7946bf050",
+        "create_time": 1791959173.2001765
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 4662,
+    "byte_offset": 13781376,
+    "timestamp": "2026-10-14T10:00:08.371Z",
+    "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf52a71b408191a88fa9be4d351c1c",
+      "status": "completed",
+      "call_id": "call_adb3db398633496b8f583d67c169d697",
+      "name": "exec",
+      "input": "text(await tools.write_stdin({session_id:48222,chars:\"\",yield_time_ms:1000,max_output_tokens:350}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+        "create_time": 1791972007.1092489
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 4664,
+    "byte_offset": 13782788,
+    "timestamp": "2026-10-14T10:00:08.433Z",
+    "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a139da-e1f1-70b2-94b2-d2e84a3b18ff",
+      "call_id": "call_adb3db398633496b8f583d67c169d697",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.0 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"0ac614\",\"wall_time_seconds\":0.000009489,\"exit_code\":0,\"original_token_count\":213,\"output\":\"{\\\"command_id\\\": \\\"20261014T095938-ac58072a\\\", \\\"stage_id\\\": \\\"S7\\\", \\\"label\\\": \\\"final-provisional-S7-accounting-and-summary-sync\\\", \\\"argv\\\": [\\\"python3\\\", \\\"-B\\\", \\\"wf6-evidence/usage/collect_usage.py\\\", \\\"finalize\\\", \\\"--all\\\", \\\"--wait-seconds\\\", \\\"0\\\"], \\\"cwd\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01\\\", \\\"start_utc\\\": \\\"2026-10-14T09:59:38.160291+00:00\\\", \\\"end_utc\\\": \\\"2026-10-14T10:00:01.278624+00:00\\\", \\\"duration_seconds\\\": 23.118339490996732, \\\"exit_code\\\": 0, \\\"stdout\\\": \\\"steps/S7/logs/20261014T095938-ac58072a.stdout.log\\\", \\\"stderr\\\": \\\"steps/S7/logs/20261014T095938-ac58072a.stderr.log\\\", \\\"environment_overrides\\\": {}, \\\"permission\\\": \\\"workspace-write; network restricted; no escalation\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+        "create_time": 1791972008.4331338
+      }
+    }
+  }
+}

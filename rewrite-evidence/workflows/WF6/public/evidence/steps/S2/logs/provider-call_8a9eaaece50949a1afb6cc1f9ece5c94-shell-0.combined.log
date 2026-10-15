@@ -1,0 +1,80 @@
+"""Verify natural S1 authorization and disjoint preparation accounting."""
+import unittest
+from collect_usage import analyze
+from test_collect_usage import config,event,fixture,final,rows,usage,user
+
+class S1BoundaryTests(unittest.TestCase):
+    def test_verified_natural_request_excludes_preparation(self):
+        text="Measure only the unchanged S1 baseline."
+        data=fixture()+[usage("P1","prep-only",19,132),user("b",text,"natural-s1"),usage("b","s1-r1",2,134),
+            final("b","S1"),usage("b","s1-r2",3,137,5),event("event_msg",dict(type="task_complete",turn_id="b"))]
+        cfg=config();cfg["natural_requests"]=[dict(stage_id="S1",user_message_id="natural-s1",actual_prompt=text,turn_id="b",line=9)]
+        result=analyze(rows(data),cfg)
+        self.assertEqual(result["stages"][0]["total_tokens"],13)
+        self.assertEqual(result["stages"][1]["total_tokens"],5)
+        self.assertEqual(result["stages"][1]["status"],"exact_reported")
+        self.assertEqual(result["extra_discussion"]["known_usage"]["total_tokens"],19)
+        self.assertEqual(result["stages"][1]["segments"][0]["boundary"]["action"],"NATURAL_START")
+
+    def test_unregistered_natural_text_is_not_fabricated_marker(self):
+        result=analyze(rows(fixture()+[user("b","Discuss a future S1 baseline.","discussion")]),config())
+        self.assertEqual(result["stages"][1]["status"],"not_executed")
+        self.assertEqual(len(result["boundaries"]),1)
+
+if __name__=="__main__":unittest.main(verbosity=2)
+Progress: resolved 1231, reused 0, downloaded 1228, added 288
+Progress: resolved 1231, reused 0, downloaded 1228, added 308
+Progress: resolved 1231, reused 0, downloaded 1228, added 333
+Progress: resolved 1231, reused 0, downloaded 1228, added 358
+Progress: resolved 1231, reused 0, downloaded 1228, added 382
+Progress: resolved 1231, reused 0, downloaded 1228, added 398
+Progress: resolved 1231, reused 0, downloaded 1228, added 415
+Progress: resolved 1231, reused 0, downloaded 1228, added 421
+import { fileURLToPath } from "node:url";
+import { defineNuxtConfig } from "nuxt/config";
+
+const AUTH_TOKEN = "mealie.access_token";
+
+export default defineNuxtConfig({
+  // Global page headers: https://go.nuxtjs.dev/config-head
+  // target: "static",
+
+  modules: [
+    "@vite-pwa/nuxt",
+    "@nuxtjs/i18n",
+    "@nuxt/fonts",
+    "vuetify-nuxt-module",
+    "@nuxt/eslint",
+  ],
+  ssr: false,
+
+  components: [
+    {
+      path: "~/components",
+      pathPrefix: false,
+    },
+  ],
+  devtools: {
+    enabled: false,
+  },
+
+  app: {
+    baseURL: process.env.SUB_PATH || "/",
+
+    head: {
+      title: "Mealie",
+      meta: [
+        { property: "og:type", content: "website" },
+        { property: "og:title", content: "Mealie" },
+        { property: "og:site_name", content: "Mealie" },
+        {
+          property: "og:description",
+          content: "Mealie is a recipe management app for your kitchen.",
+        },
+        {
+          property: "og:image",
+          content:
+            "https://raw.githubusercontent.com/mealie-recipes/mealie/9571816ac4eed5beacfc0abf6c03eff1427fd0eb/frontend/static/icons/android-chrome-512x512.png",
+        },
+        { charset: "utf-8" },
+        { name: "viewport", content: "width=device-width, initial-scale=1" },

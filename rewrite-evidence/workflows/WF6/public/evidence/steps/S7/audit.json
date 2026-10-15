@@ -1,0 +1,739 @@
+{
+  "timestamp": "2026-10-14T09:54:26.268698+00:00",
+  "stages": [
+    {
+      "stage": "S0",
+      "missing_required": [],
+      "result_sha256": "dc42af71c343b6f1f14cedf8e971f3087607540c4ab372e935f6d9ab21c35265",
+      "commits_verified": [],
+      "command_count": 66,
+      "raw_command_streams_verified": 132,
+      "source_state": {
+        "snapshot_utc": "2026-10-14T01:20:39.775768+00:00",
+        "source": {
+          "path": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist",
+          "pinned_input_sha": "4b9ca06b6581f7152e164ea0fd9d4da366975a79",
+          "actual_head": "955e790f86c9c4ff2d56e06b9e54d948cbf0e698",
+          "dirty": false,
+          "untracked": [],
+          "remotes": [],
+          "shallow": "true",
+          "shared_objects": false,
+          "served_build": null,
+          "build_note": "No application build or service in S0."
+        },
+        "evaluator": {
+          "path": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator",
+          "pinned_input_sha": "758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d",
+          "actual_head": "758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d",
+          "dirty": false,
+          "untracked": [],
+          "remotes": [],
+          "shallow": "true",
+          "shared_objects": false,
+          "served_build": null,
+          "build_note": "No application build or service in S0."
+        }
+      },
+      "usage_status": "exact_reported",
+      "transcript_coverage": {
+        "source": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+        "turn_ids": [
+          "01a137f3-c2d3-7db0-9623-6d33961b39eb"
+        ],
+        "entry_count": 51,
+        "coverage": "Available original user/visible assistant/tool items only. Analysis, system/developer instructions and environment injection are excluded. Tool source may contain supplied user instructions.",
+        "raw_stream_policy": "Command stdout/stderr remain unchanged in logs; shareable transcript is redacted.",
+        "final_reply_included": true
+      }
+    },
+    {
+      "stage": "S1",
+      "missing_required": [],
+      "result_sha256": "0a79e3956bc0749d5a5daa1821918a9d5820531ab14981ae350e87d09bbe0c82",
+      "commits_verified": [
+        "4b9ca06b6581f7152e164ea0fd9d4da366975a79",
+        "758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d",
+        "955e790f86c9c4ff2d56e06b9e54d948cbf0e698",
+        "f318d69d033e5269415f0b94d4beebd8d70a00dc"
+      ],
+      "command_count": 61,
+      "raw_command_streams_verified": 122,
+      "source_state": {
+        "snapshot_utc": "2026-10-14T03:54:53.852410+00:00",
+        "source": {
+          "path": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist",
+          "pinned_input_sha": "4b9ca06b6581f7152e164ea0fd9d4da366975a79",
+          "actual_head": "f318d69d033e5269415f0b94d4beebd8d70a00dc",
+          "dirty": false,
+          "status_porcelain": "",
+          "untracked": [],
+          "remotes": [],
+          "frozen_manifest_verified": true,
+          "verified_original_file_count": 1711,
+          "frozen_file_mismatches": [],
+          "served_build": "51e1fc21edd74fdb002a57a5e11b8085932a0898945685edb45177aece86d733"
+        },
+        "evaluator": {
+          "path": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator",
+          "pinned_input_sha": "758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d",
+          "actual_head": "758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d",
+          "dirty": false,
+          "status_porcelain": "",
+          "untracked": [],
+          "remotes": [],
+          "frozen_manifest_verified": true,
+          "verified_original_file_count": 1789,
+          "frozen_file_mismatches": [],
+          "served_build": "51e1fc21edd74fdb002a57a5e11b8085932a0898945685edb45177aece86d733"
+        },
+        "runtime": {
+          "auth_alias": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/.auth",
+          "auth_real_path": "/tmp/wf6-rerun-20261014-01-S1-native2/auth",
+          "auth_files": [
+            {
+              "path": "admin.json",
+              "bytes": 483,
+              "sha256": "9b93a7deb1ef894c393532839475525b4e8329591107dc65e602c964e9bc114d",
+              "symlink": false
+            },
+            {
+              "path": "fixtures.json",
+              "bytes": 649,
+              "sha256": "272737bf8a6797b941a1b7f12ed6649a8fe05e5a8ae6abfd98773b36bddf9dd9",
+              "symlink": false
+            }
+          ],
+          "credential_contents_in_this_snapshot": false,
+          "services_stopped": true,
+          "auth_attempts": [
+            {
+              "root": "<WORKSPACE>/wf6-rerun-20261014-01/runtime/S1/auth",
+              "files": [
+                {
+                  "path": "admin.json",
+                  "bytes": 483,
+                  "sha256": "c1aaddf7e46ae289e8692a2b5d30a979517f2ff33531919f04ec4adc2a2b0db9",
+                  "symlink": false
+                },
+                {
+                  "path": "fixtures.json",
+                  "bytes": 649,
+                  "sha256": "6ca8aa062fdfe025106d706f89fea06d71244de069b20bbded164ec6c079c7f6",
+                  "symlink": false
+                }
+              ]
+            },
+            {
+              "root": "/tmp/wf6-rerun-20261014-01-S1-native/auth",
+              "files": [
+                {
+                  "path": "admin.json",
+                  "bytes": 483,
+                  "sha256": "d9ee8417e0ad87858e78cb28cdef33a5025ec462bec696acabf369ae5d32e3a6",
+                  "symlink": false
+                },
+                {
+                  "path": "fixtures.json",
+                  "bytes": 649,
+                  "sha256": "c130a6b1539215445c6a0e295b670dc1c4814152b3a5e0b151f6c1fcf5caf71d",
+                  "symlink": false
+                }
+              ]
+            },
+            {
+              "root": "/tmp/wf6-rerun-20261014-01-S1-native2/auth",
+              "files": [
+                {
+                  "path": "admin.json",
+                  "bytes": 483,
+                  "sha256": "9b93a7deb1ef894c393532839475525b4e8329591107dc65e602c964e9bc114d",
+                  "symlink": false
+                },
+                {
+                  "path": "fixtures.json",
+                  "bytes": 649,
+                  "sha256": "272737bf8a6797b941a1b7f12ed6649a8fe05e5a8ae6abfd98773b36bddf9dd9",
+                  "symlink": false
+                }
+              ]
+            }
+          ],
+          "database_files": [
+            {
+              "root": "<WORKSPACE>/wf6-rerun-20261014-01/runtime/S1/disposable-data",
+              "path": "mealie.db",
+              "bytes": 1490944,
+              "sha256": "eb5f26a24b44ccea04ce43ee60c5e42e9f18e6380af8a69ea2ae715f4a61f837",
+              "symlink": false
+            },
+            {
+              "root": "/tmp/wf6-rerun-20261014-01-S1-native/disposable-data",
+              "path": "mealie.db",
+              "bytes": 1490944,
+              "sha256": "0e771e67656e083ba851093e5f3d14440c5e3908a0f16262b6ae5a13f43ba1f4",
+              "symlink": false
+            },
+            {
+              "root": "/tmp/wf6-rerun-20261014-01-S1-native2/disposable-data",
+              "path": "mealie.db",
+              "bytes": 1490944,
+              "sha256": "4481d413a6b9378f7fd43aa2866ba9d7c373dd959efae0408cf59ac6ae2b6776",
+              "symlink": false
+            }
+          ]
+        },
+        "postcommit_snapshot_utc": "2026-10-14T03:57:07.264363+00:00",
+        "evidence_commit": "f318d69d033e5269415f0b94d4beebd8d70a00dc",
+        "evidence_commit_files": [
+          "rewrite-evidence/workflows/WF6/BASELINE.md",
+          "rewrite-evidence/workflows/WF6/comparison-baseline.json"
+        ],
+        "build_identity_policy": "Accepted build was generated before the docs-only S1 commit; build-artifact source_head remains its actual build source HEAD."
+      },
+      "usage_status": "partial",
+      "transcript_coverage": {
+        "source": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+        "turn_ids": [
+          "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+          "01a13885-24dd-7ff3-a6cc-b87a30d19d71"
+        ],
+        "entry_count": 388,
+        "coverage": "Available original user/visible assistant/tool items only. Analysis, system/developer instructions and environment injection are excluded. Tool source may contain supplied user instructions.",
+        "raw_stream_policy": "Command stdout/stderr remain unchanged in logs; shareable transcript is redacted.",
+        "final_reply_included": true
+      }
+    },
+    {
+      "stage": "S2",
+      "missing_required": [],
+      "result_sha256": "5fa9788f0747cbbbd60b9bfffb75757dac3f67f53645ae5493ecbe86c06ca4e7",
+      "commits_verified": [
+        "f318d69d033e5269415f0b94d4beebd8d70a00dc",
+        "f2a2bd95327c91b85ff4c690811a4f0ab08f4c87"
+      ],
+      "command_count": 17,
+      "raw_command_streams_verified": 34,
+      "source_state": {
+        "snapshot_utc": "2026-10-14T04:19:25.933963+00:00",
+        "source": {
+          "path": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist",
+          "pinned_input_sha": "4b9ca06b6581f7152e164ea0fd9d4da366975a79",
+          "actual_head": "f2a2bd95327c91b85ff4c690811a4f0ab08f4c87",
+          "dirty": false,
+          "status_porcelain": "",
+          "untracked": [],
+          "remotes": [],
+          "verified_original_file_count": 1711,
+          "frozen_file_mismatches": [],
+          "served_build_hash": "af9a32e7318fd2c82d289f49f335d13168ddb476bf3d0ec152834ebc6f14c914"
+        },
+        "evaluator": {
+          "path": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator",
+          "pinned_input_sha": "758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d",
+          "actual_head": "758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d",
+          "dirty": false,
+          "status_porcelain": "",
+          "untracked": [],
+          "remotes": [],
+          "verified_original_file_count": 1789,
+          "frozen_file_mismatches": [],
+          "served_build_hash": "af9a32e7318fd2c82d289f49f335d13168ddb476bf3d0ec152834ebc6f14c914"
+        },
+        "served_build": {
+          "build_hash": "af9a32e7318fd2c82d289f49f335d13168ddb476bf3d0ec152834ebc6f14c914",
+          "served_index_sha256": "690b9586db92b5c29ea0fccd364b52666ae097bc87616c8cb720a73e8120eeee",
+          "actual_static_dir": "/tmp/wf6-rerun-20261014-01-S2/static",
+          "source_head_at_build": "f318d69d033e5269415f0b94d4beebd8d70a00dc",
+          "gateway_sha256": "d6037d96885e7b0b60354f9b6873d60a7ac2413cbc4f88bb066e6e83d4c1412a",
+          "route_map_sha256": "46c3b002636494090fd778a8cad7a6113089ec8609dd16ce75bf01e3bb40ffe7",
+          "evaluator_sha": "758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d"
+        },
+        "postcommit_utc": "2026-10-14T04:23:12.253033+00:00",
+        "acceptance_commit": "f2a2bd95327c91b85ff4c690811a4f0ab08f4c87",
+        "build_policy": "Vue build source HEAD remains its actual pre-S2 build SHA. Gateway/route-map byte hashes tested match committed files."
+      },
+      "usage_status": "exact_reported",
+      "transcript_coverage": {
+        "source": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+        "turn_ids": [
+          "01a13892-b6c1-7071-9c17-b99219e2ebb6"
+        ],
+        "entry_count": 113,
+        "coverage": "Available original user/visible assistant/tool items only. Analysis, system/developer instructions and environment injection are excluded. Tool source may contain supplied user instructions.",
+        "raw_stream_policy": "Command stdout/stderr remain unchanged in logs; shareable transcript is redacted.",
+        "final_reply_included": true
+      }
+    },
+    {
+      "stage": "S3",
+      "missing_required": [],
+      "result_sha256": "cca5256429dd650c0a9675a87717b6f619debfc238a6868d145450724e6f4eb1",
+      "commits_verified": [
+        "9cc5a51c34de3ef6cab4e8ff879722c4a90252e9"
+      ],
+      "command_count": 37,
+      "raw_command_streams_verified": 74,
+      "source_state": {
+        "snapshot_utc": "2026-10-14T04:50:23.794207+00:00",
+        "source": {
+          "path": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist",
+          "pinned_input_sha": "4b9ca06b6581f7152e164ea0fd9d4da366975a79",
+          "actual_head": "9cc5a51c34de3ef6cab4e8ff879722c4a90252e9",
+          "dirty": false,
+          "status_porcelain": "",
+          "untracked": [],
+          "remotes": [],
+          "verified_original_file_count": 1711,
+          "frozen_file_mismatches": [],
+          "served_build_hash": "9376e691d1040f5d0d84ee162c24f76ec6395cd27845f494b21f0a7338a32a1a"
+        },
+        "evaluator": {
+          "path": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator",
+          "pinned_input_sha": "758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d",
+          "actual_head": "758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d",
+          "dirty": false,
+          "status_porcelain": "",
+          "untracked": [],
+          "remotes": [],
+          "verified_original_file_count": 1789,
+          "frozen_file_mismatches": [],
+          "served_build_hash": "9376e691d1040f5d0d84ee162c24f76ec6395cd27845f494b21f0a7338a32a1a"
+        },
+        "served_build": {
+          "build_hash": "9376e691d1040f5d0d84ee162c24f76ec6395cd27845f494b21f0a7338a32a1a",
+          "served_index_sha256": "6e3ec776be46d4a7b2372ccd7dba5124b48f33623ecc7ea30d5666ba192e329d",
+          "actual_static_dir": "/tmp/wf6-rerun-20261014-01-S3/vue",
+          "vue_boundary_source_hash": "46796953770e6ac0a549e9d38497ff1172e421cb863e2428b6075b28be1ae4a5",
+          "react_source_hash": "ec5e192c4cc84403218c4605cec99d693e8ec96568b2be95fef06da45949a66d",
+          "react_build_hash": "12358dece70b9211cb1716bc409cce2c95b3ec058036c6accd61b522fb7c738a",
+          "route_policy_sha256": "64c4555b6159822cba4ee2603b117811e0d65cf6dfdf001ef72ec18e70df23e2",
+          "gateway_sha256": "b2e452f7d0a2993629eb5ee20c0b6b697758da9378b340cbe500aebac74881e7",
+          "route_map_sha256": "c128c6e90489a5046ef3a63d48bb0c2e0f865ae52e057235fc43313741322369",
+          "evaluator_sha": "758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d"
+        },
+        "postcommit_utc": "2026-10-14T04:54:08.277160+00:00",
+        "acceptance_commit": "9cc5a51c34de3ef6cab4e8ff879722c4a90252e9",
+        "build_policy": "Both frontend build/source hashes remain their tested identities. All React source and gateway/map/policy byte hashes match the accepted commit."
+      },
+      "usage_status": "exact_reported",
+      "transcript_coverage": {
+        "source": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+        "turn_ids": [
+          "01a138ae-0211-7bd3-bb3e-6360185acb50"
+        ],
+        "entry_count": 93,
+        "coverage": "Available original user/visible assistant/tool items only. Analysis, system/developer instructions and environment injection are excluded. Tool source may contain supplied user instructions.",
+        "raw_stream_policy": "Command stdout/stderr remain unchanged in logs; shareable transcript is redacted.",
+        "final_reply_included": true
+      }
+    },
+    {
+      "stage": "S4",
+      "missing_required": [],
+      "result_sha256": "159c021e967d87dc9bf6ba842309be83448500817f0930bf2528c016489412f9",
+      "commits_verified": [
+        "b977deed0fec5de86bee28a5cacc5f99ed5ced53"
+      ],
+      "command_count": 29,
+      "raw_command_streams_verified": 58,
+      "source_state": {
+        "snapshot_utc": "2026-10-14T06:28:13.550142+00:00",
+        "source": {
+          "path": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist",
+          "pinned_input_sha": "4b9ca06b6581f7152e164ea0fd9d4da366975a79",
+          "actual_head": "b977deed0fec5de86bee28a5cacc5f99ed5ced53",
+          "dirty": false,
+          "status_porcelain": "",
+          "untracked": [],
+          "remotes": [],
+          "verified_original_file_count": 1711,
+          "frozen_file_mismatches": [],
+          "served_build_hash": "fbc34ee482a08eeb1d42e24054537674ab1ec6fc8afa51c5bed7e08d61114f66"
+        },
+        "evaluator": {
+          "path": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator",
+          "pinned_input_sha": "758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d",
+          "actual_head": "758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d",
+          "dirty": false,
+          "status_porcelain": "",
+          "untracked": [],
+          "remotes": [],
+          "verified_original_file_count": 1789,
+          "frozen_file_mismatches": [],
+          "served_build_hash": "fbc34ee482a08eeb1d42e24054537674ab1ec6fc8afa51c5bed7e08d61114f66"
+        },
+        "served_build": {
+          "build_hash": "fbc34ee482a08eeb1d42e24054537674ab1ec6fc8afa51c5bed7e08d61114f66",
+          "served_index_sha256": "e2969e4d3ba6c0db00d68f3c86b981042d316c853e509c49d3f3044d5cff2f0d",
+          "actual_static_dir": "/tmp/wf6-rerun-20261014-01-S4/vue",
+          "vue_boundary_source_hash": "46796953770e6ac0a549e9d38497ff1172e421cb863e2428b6075b28be1ae4a5",
+          "react_source_hash": "a29595c8ae1bce60b3db08a9185cbc40046c83fc224ece095bec30d2f487a7af",
+          "react_build_hash": "2b409d4deadf1bc17acc5a4a6634e638feca52550caec23a7d6f23f6dd1493f8",
+          "route_policy_sha256": "64c4555b6159822cba4ee2603b117811e0d65cf6dfdf001ef72ec18e70df23e2",
+          "gateway_sha256": "b2e452f7d0a2993629eb5ee20c0b6b697758da9378b340cbe500aebac74881e7",
+          "route_map_sha256": "c128c6e90489a5046ef3a63d48bb0c2e0f865ae52e057235fc43313741322369",
+          "evaluator_sha": "758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d"
+        },
+        "postcommit_utc": "2026-10-14T06:37:16.509479+00:00",
+        "acceptance_commit": "b977deed0fec5de86bee28a5cacc5f99ed5ced53",
+        "build_policy": "Both frontend build/source hashes remain their tested identities. All React source and gateway/map/policy byte hashes match the accepted commit."
+      },
+      "usage_status": "exact_reported",
+      "transcript_coverage": {
+        "source": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+        "turn_ids": [
+          "01a13905-d942-7e23-8387-48f7946bf050"
+        ],
+        "entry_count": 67,
+        "coverage": "Available original user/visible assistant/tool items only. Analysis, system/developer instructions and environment injection are excluded. Tool source may contain supplied user instructions.",
+        "raw_stream_policy": "Command stdout/stderr remain unchanged in logs; shareable transcript is redacted.",
+        "final_reply_included": true
+      }
+    },
+    {
+      "stage": "S5",
+      "missing_required": [],
+      "result_sha256": "11864b78985073ed58936404895bea84d1981542dff4f7fdc3d474fe4fcf5c81",
+      "commits_verified": [
+        "b977deed0fec5de86bee28a5cacc5f99ed5ced53",
+        "a4487ac3e1331cd116d08dcca41cc8de23a5eb2b"
+      ],
+      "command_count": 41,
+      "raw_command_streams_verified": 82,
+      "source_state": {
+        "snapshot_utc": "2026-10-14T07:43:56.892255+00:00",
+        "source": {
+          "path": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist",
+          "pinned_input_sha": "4b9ca06b6581f7152e164ea0fd9d4da366975a79",
+          "actual_head": "a4487ac3e1331cd116d08dcca41cc8de23a5eb2b",
+          "dirty": false,
+          "status_porcelain": "",
+          "untracked": [],
+          "remotes": [],
+          "verified_original_file_count": 1711,
+          "frozen_file_mismatches": [],
+          "served_build_hash": "cb2b9a5e0868eb5c5616d7c9996b5d57e7f59fa2297cf1ebeaaf1c655fd40b8c"
+        },
+        "evaluator": {
+          "path": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator",
+          "pinned_input_sha": "758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d",
+          "actual_head": "758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d",
+          "dirty": false,
+          "status_porcelain": "",
+          "untracked": [],
+          "remotes": [],
+          "verified_original_file_count": 1789,
+          "frozen_file_mismatches": [],
+          "served_build_hash": "cb2b9a5e0868eb5c5616d7c9996b5d57e7f59fa2297cf1ebeaaf1c655fd40b8c"
+        },
+        "served_build": {
+          "build_hash": "cb2b9a5e0868eb5c5616d7c9996b5d57e7f59fa2297cf1ebeaaf1c655fd40b8c",
+          "served_index_sha256": "bcdca804e64ed9b6fec7f158d941c1e04505662405d5d05a5aa4d075df0f1a47",
+          "actual_static_dir": "/tmp/wf6-rerun-20261014-01-S5-R2/vue",
+          "vue_boundary_source_hash": "46796953770e6ac0a549e9d38497ff1172e421cb863e2428b6075b28be1ae4a5",
+          "react_source_hash": "a29595c8ae1bce60b3db08a9185cbc40046c83fc224ece095bec30d2f487a7af",
+          "react_build_hash": "2b409d4deadf1bc17acc5a4a6634e638feca52550caec23a7d6f23f6dd1493f8",
+          "route_policy_sha256": "64c4555b6159822cba4ee2603b117811e0d65cf6dfdf001ef72ec18e70df23e2",
+          "gateway_sha256": "b2e452f7d0a2993629eb5ee20c0b6b697758da9378b340cbe500aebac74881e7",
+          "route_map_sha256": "c128c6e90489a5046ef3a63d48bb0c2e0f865ae52e057235fc43313741322369",
+          "evaluator_sha": "758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d"
+        },
+        "postcommit_utc": "2026-10-14T07:45:40.496664+00:00",
+        "acceptance_commit": "a4487ac3e1331cd116d08dcca41cc8de23a5eb2b",
+        "build_policy": "Both frontend build/source hashes remain their tested identities. All React source and gateway/map/policy byte hashes match the accepted commit."
+      },
+      "usage_status": "exact_reported",
+      "transcript_coverage": {
+        "source": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+        "turn_ids": [
+          "01a13950-206a-7bc2-bb38-6d6e5387c349"
+        ],
+        "entry_count": 112,
+        "coverage": "Available original user/visible assistant/tool items only. Analysis, system/developer instructions and environment injection are excluded. Tool source may contain supplied user instructions.",
+        "raw_stream_policy": "Command stdout/stderr remain unchanged in logs; shareable transcript is redacted.",
+        "final_reply_included": true
+      }
+    },
+    {
+      "stage": "S6",
+      "missing_required": [],
+      "result_sha256": "8b84177b85f708f0186347aaaac2dfcdc2d7195db6d6fd57941c8e7c4217ec69",
+      "commits_verified": [
+        "a4487ac3e1331cd116d08dcca41cc8de23a5eb2b",
+        "e225779cadb9dde291a3aeaca1ef688c5a4905ec",
+        "1d4f20c48d630474906b822c08fc713ec0234de2"
+      ],
+      "command_count": 107,
+      "raw_command_streams_verified": 214,
+      "source_state": {
+        "snapshot_utc": "2026-10-14T08:16:56.750537+00:00",
+        "source": {
+          "path": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist",
+          "pinned_input_sha": "4b9ca06b6581f7152e164ea0fd9d4da366975a79",
+          "actual_head": "1d4f20c48d630474906b822c08fc713ec0234de2",
+          "dirty": false,
+          "status_porcelain": "",
+          "untracked": [],
+          "remotes": [],
+          "verified_original_file_count": 1711,
+          "frozen_file_mismatches": [],
+          "served_build_hash": "65f086f03f54a76585c488e2b0631a9bf9301fc1f6deaa4b923d523ad1ed06dd"
+        },
+        "evaluator": {
+          "path": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator",
+          "pinned_input_sha": "758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d",
+          "actual_head": "758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d",
+          "dirty": false,
+          "status_porcelain": "",
+          "untracked": [],
+          "remotes": [],
+          "verified_original_file_count": 1789,
+          "frozen_file_mismatches": [],
+          "served_build_hash": "65f086f03f54a76585c488e2b0631a9bf9301fc1f6deaa4b923d523ad1ed06dd"
+        },
+        "served_build": {
+          "build_hash": "65f086f03f54a76585c488e2b0631a9bf9301fc1f6deaa4b923d523ad1ed06dd",
+          "served_index_sha256": "4e94c98f5d5028be9e2454b4decc076f89acb90ecc6de11491f9a80d4f6f9f53",
+          "actual_static_dir": "/tmp/wf6-rerun-20261014-01-S6-C1/vue",
+          "vue_boundary_source_hash": "46796953770e6ac0a549e9d38497ff1172e421cb863e2428b6075b28be1ae4a5",
+          "react_source_hash": "a29595c8ae1bce60b3db08a9185cbc40046c83fc224ece095bec30d2f487a7af",
+          "react_build_hash": "2b409d4deadf1bc17acc5a4a6634e638feca52550caec23a7d6f23f6dd1493f8",
+          "route_policy_sha256": "64c4555b6159822cba4ee2603b117811e0d65cf6dfdf001ef72ec18e70df23e2",
+          "gateway_sha256": "b2e452f7d0a2993629eb5ee20c0b6b697758da9378b340cbe500aebac74881e7",
+          "route_map_sha256": "c128c6e90489a5046ef3a63d48bb0c2e0f865ae52e057235fc43313741322369",
+          "evaluator_sha": "758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d"
+        },
+        "postcommit_utc": "2026-10-14T08:19:14.525887+00:00",
+        "acceptance_commit": "1d4f20c48d630474906b822c08fc713ec0234de2",
+        "build_policy": "Both frontend build/source hashes remain their tested identities. All React source and gateway/map/policy byte hashes match the accepted commit."
+      },
+      "usage_status": "exact_reported",
+      "transcript_coverage": {
+        "source": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+        "turn_ids": [
+          "01a13964-888e-7540-98b2-3abbc8e32d90",
+          "01a13974-b942-7012-950c-89399b0de489",
+          "01a13999-f4f9-78f2-8751-6c0a710636a0",
+          "01a139bb-53dc-7111-96d4-1398771bbfb1"
+        ],
+        "entry_count": 314,
+        "coverage": "Available original user/visible assistant/tool items only. Analysis, system/developer instructions and environment injection are excluded. Tool source may contain supplied user instructions.",
+        "raw_stream_policy": "Command stdout/stderr remain unchanged in logs; shareable transcript is redacted.",
+        "final_reply_included": true
+      }
+    }
+  ],
+  "frozen": {
+    "source": {
+      "verified": 1710,
+      "mismatches": [],
+      "head": "06569c09ec71e75d4ecf066f0b3b5aada4da1728",
+      "status": "",
+      "remotes": ""
+    },
+    "evaluator": {
+      "verified": 1789,
+      "mismatches": [],
+      "head": "758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d",
+      "status": "",
+      "remotes": ""
+    }
+  },
+  "contract_append_authorized": true,
+  "builds": {
+    "react": {
+      "hash": "dc187e2077b85fabe9738cc4b275ec6e19ba28d668c7c2393db095c7425d4b49",
+      "files": 2,
+      "mismatches": [],
+      "command_id": "20261014T092757-b778605c",
+      "policy": "Fresh React; successful prior Vue reused with exact byte verification"
+    },
+    "vue": {
+      "hash": "d5c6a8cc2db26452bcfb5d563b8a6a105303cffbf0c234a2ff846350c03d8d6c",
+      "files": 530,
+      "mismatches": [],
+      "command_id": "20261014T090540-7767d358",
+      "policy": "Fresh React; successful prior Vue reused with exact byte verification"
+    }
+  },
+  "served": {
+    "build_hash": "d5c6a8cc2db26452bcfb5d563b8a6a105303cffbf0c234a2ff846350c03d8d6c",
+    "served_index_sha256": "24c481431c443092ef2ced6a3ae757218c72cf4224f200d6ba4d6e794d9f808b",
+    "actual_static_dir": "/tmp/wf6-rerun-20261014-01-S6-C3/vue",
+    "vue_boundary_source_hash": "46796953770e6ac0a549e9d38497ff1172e421cb863e2428b6075b28be1ae4a5",
+    "react_source_hash": "a047cb4c06306e76a3cb7977f138844dfafd9644817fe100f7033f55780ee95e",
+    "react_build_hash": "dc187e2077b85fabe9738cc4b275ec6e19ba28d668c7c2393db095c7425d4b49",
+    "route_policy_sha256": "64c4555b6159822cba4ee2603b117811e0d65cf6dfdf001ef72ec18e70df23e2",
+    "gateway_sha256": "b2e452f7d0a2993629eb5ee20c0b6b697758da9378b340cbe500aebac74881e7",
+    "route_map_sha256": "c128c6e90489a5046ef3a63d48bb0c2e0f865ae52e057235fc43313741322369",
+    "evaluator_sha": "758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d"
+  },
+  "live_persistence": {
+    "test": "real_comment_persistence",
+    "status": "PASS",
+    "actualPOST": 201,
+    "actualGET": 200,
+    "commentId": "6f8d35ec-decc-4970-ba9d-63939357d526",
+    "recipeId": "bf06878b-82c4-40b7-b766-226a29198b2a",
+    "userId": "12873ccc-03b8-46a4-95cf-9910f9c2a0af",
+    "text": "WF6 S6 C3 durable 1791970277350",
+    "sameServerRecordAfterRefresh": true,
+    "successRegion": "server-saved only",
+    "successfulWriteCount": 1,
+    "injectedFailureStatus": 500,
+    "draftRestored": true
+  },
+  "full_regression_gate": {
+    "inventory": true,
+    "routes_66": true,
+    "flows_15": true,
+    "guard_1": true,
+    "all_passed": true
+  },
+  "old_S6_gate": {
+    "inventory": true,
+    "routes_66": true,
+    "flows_15": true,
+    "guard_1": true,
+    "all_passed": false
+  },
+  "old_C2_failure_audit": {
+    "classification": "implementation_and_rendering_timing_failure",
+    "gate": "FAIL",
+    "actual_original_four": "3 PASS / 1 FAIL",
+    "verified_network": "No /api/comments POST or 201 in original failure trace; pending recipe revalidation request was cancelled by reload",
+    "verified_DOM": "Original first text visibility expectation targeted a TEXTAREA holding draft text, not a saved server comment",
+    "targeted_textarea_snapshots": [
+      [
+        "TEXTAREA",
+        {
+          "__playwright_value_": "E2E comment mv7w58bjry",
+          "__playwright_target__": "",
+          "aria-invalid": "false",
+          "id": "_r_5_",
+          "class": "MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline css-s63k3s",
+          "style": "height: 23px; overflow: hidden;"
+        },
+        "E2E comment mv7w58bjry"
+      ],
+      [
+        "TEXTAREA",
+        {
+          "__playwright_value_": "E2E comment mv7w58bjry",
+          "__playwright_target__": "",
+          "aria-invalid": "false",
+          "id": "_r_5_",
+          "class": "MuiInputBase-input MuiOutlinedInput-input Mui-disabled MuiInputBase-inputMultiline css-s63k3s",
+          "style": "height: 23px; overflow: hidden;",
+          "disabled": ""
+        },
+        [
+          [
+            5,
+            4
+          ]
+        ]
+      ]
+    ],
+    "root_cause_limit": "No new experiment after repair budget exhausted; DOM/network evidence identifies early draft match and aborted pre-POST validation. Durable server comment creation not demonstrated.",
+    "proposed_change_not_applied": "Separate pending draft from persisted comment text matching and/or appropriate user navigation protection; requires further authorization/budget because S6 two rounds exhausted",
+    "original_trace": "browser-r2/four-original-test-results/flows-recipes-recipes-flow-a3d3d-ipe-and-see-it-after-reload-flows/trace.zip",
+    "no_more_repairs": true
+  },
+  "repair_limits": {
+    "prior": {
+      "stage": "S6",
+      "limit": 2,
+      "used": 2,
+      "rounds": [
+        {
+          "round": 1,
+          "segment": "continuation-02",
+          "scope": "User-authorized limited scope repair for four original frozen FAIL",
+          "authorization": "[REDACTED]",
+          "changes": [
+            "Real Logout and cancellation/401 login handoff",
+            "Self-based Settings Vue navigation",
+            "Server comment read/create/persistence respecting Vue disable conditions"
+          ],
+          "previous_failure": "full-regression-summary.json",
+          "status": "FAIL: original target four 3 PASS / 1 FAIL; comments GET incorrectly used ID, actual 500"
+        },
+        {
+          "round": 2,
+          "segment": "continuation-02",
+          "scope": "Correct comment GET API parameter from ID to slug",
+          "cause": "Frozen recipe/comments.py get_recipe_comments resolves slug; ID yielded None and original backend 500, proven by original trace/backend stderr",
+          "fix": "GET /api/recipes/{encoded slug}/comments; POST /api/comments still uses recipeId",
+          "diff": "continuation-02/repair-2-source.diff",
+          "failure_log": "logs/20261014T090237-376caeb9.stdout.log",
+          "failure_trace": "continuation-02/browser/four-original-test-results/flows-recipes-recipes-flow-a3d3d-ipe-and-see-it-after-reload-flows/trace.zip",
+          "status": "Final gate FAIL; no further repair allowed"
+        }
+      ]
+    },
+    "current": {
+      "stage": "S6",
+      "limit": 3,
+      "used": 3,
+      "rounds": [
+        {
+          "round": 1,
+          "segment": "continuation-02",
+          "scope": "User-authorized limited scope repair for four original frozen FAIL",
+          "authorization": "[REDACTED]",
+          "changes": [
+            "Real Logout and cancellation/401 login handoff",
+            "Self-based Settings Vue navigation",
+            "Server comment read/create/persistence respecting Vue disable conditions"
+          ],
+          "previous_failure": "full-regression-summary.json",
+          "status": "FAIL: original target four 3 PASS / 1 FAIL; comments GET incorrectly used ID, actual 500"
+        },
+        {
+          "round": 2,
+          "segment": "continuation-02",
+          "scope": "Correct comment GET API parameter from ID to slug",
+          "cause": "Frozen recipe/comments.py get_recipe_comments resolves slug; ID yielded None and original backend 500, proven by original trace/backend stderr",
+          "fix": "GET /api/recipes/{encoded slug}/comments; POST /api/comments still uses recipeId",
+          "diff": "continuation-02/repair-2-source.diff",
+          "failure_log": "logs/20261014T090237-376caeb9.stdout.log",
+          "failure_trace": "continuation-02/browser/four-original-test-results/flows-recipes-recipes-flow-a3d3d-ipe-and-see-it-after-reload-flows/trace.zip",
+          "status": "Final gate FAIL; no further repair allowed"
+        },
+        {
+          "round": 3,
+          "segment": "continuation-03",
+          "cause": "Draft textarea matched text assertion and early reload aborted pre-POST revalidation",
+          "fix": "Snapshot draft; hide/clear draft input while submitting; only saved server data renders in published region; restore draft on failure; synchronous duplicate-submit lock",
+          "status": "Final gate PASS; no fourth repair",
+          "authorization": "[REDACTED]"
+        }
+      ],
+      "limit_changes": [
+        {
+          "previous": 2,
+          "new": 3,
+          "actor": "user",
+          "authorization": "[REDACTED]",
+          "timestamp": "2026-10-14T09:25:40.675Z",
+          "policy": "Exactly one additional round; prior 2/2 FAIL snapshots remain untouched"
+        }
+      ]
+    }
+  },
+  "manifest_pre_audit_mismatches": [
+    "steps/S7/logs/20261014T094833-b327836f.stdout.log",
+    "usage/collect_usage.py"
+  ],
+  "manifest_note": "Recorder writes its stdout and command after collector manifest: expected dynamic entries must be checked in final regenerated manifest. No old raw failure evidence is overwritten.",
+  "limitations": [
+    "S1 interrupted segment has unknown usage gap",
+    "Initialization first cumulative boundary unavailable",
+    "Full ancestor history unavailable behind declared shallow roots",
+    "Bootstrap separate streams/UTC may be unavailable",
+    "Only available visible transcript, no hidden instructions/reasoning",
+    "Production, React/mixed coverage and review duration not provided"
+  ]
+}

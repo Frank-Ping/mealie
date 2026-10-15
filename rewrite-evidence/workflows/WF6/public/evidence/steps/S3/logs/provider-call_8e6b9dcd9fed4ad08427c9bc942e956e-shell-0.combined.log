@@ -1,0 +1,115 @@
+20261014T043207-de33cd3d.stdout.log 8894,
+    "total_tokens": 8229034,
+    "final_reply_included": true,
+    "coverage_notes": []
+  }
+}
+
+20261014T043707-ded4900f.stdout.log ",
+  "19.0.6",
+  "19.0.7",
+  "19.1.8",
+  "19.2.7",
+  "19.2.8",
+  "19.1.9",
+  "19.0.8",
+  "19.3.0"
+]
+
+20261014T043707-efad5416.stdout.log 
+20261014T043717-ff78ac22.stdout.log ",
+  "19.0.6",
+  "19.0.7",
+  "19.1.8",
+  "19.2.7",
+  "19.2.8",
+  "19.1.9",
+  "19.0.8",
+  "19.3.0"
+]
+
+20261014T043728-33494daf.stdout.log ",
+  "7.15.1",
+  "7.16.0",
+  "7.17.0",
+  "7.18.0",
+  "7.18.1",
+  "7.18.2",
+  "7.18.3",
+  "7.18.4"
+]
+
+20261014T043739-d6e75dae.stdout.log "7.3.3",
+  "7.3.4",
+  "7.3.5",
+  "7.3.6",
+  "7.3.7",
+  "7.3.8",
+  "7.3.9",
+  "7.3.10",
+  "7.3.11"
+]
+
+20261014T043749-63762d44.stdout.log .11.1",
+  "11.11.3",
+  "11.11.4",
+  "11.12.0",
+  "11.13.0",
+  "11.13.3",
+  "11.13.5",
+  "11.14.0"
+]
+
+20261014T043759-c0d4e068.stdout.log .10.8",
+  "11.11.0",
+  "11.11.5",
+  "11.12.0",
+  "11.13.0",
+  "11.13.5",
+  "11.14.0",
+  "11.14.1"
+]
+
+20261014T043810-822028de.stdout.log 
+    can_invite: bool = False
+    can_manage: bool = False
+    can_manage_household: bool = False
+    can_organize: bool = False
+    model_config = ConfigDict(
+        from_attributes=True,
+        json_schema_extra={
+            "example": {
+                "username": "ChangeMe",
+                "fullName": "Change Me",
+                "email": "changeme@example.com",
+                "group": settings.DEFAULT_GROUP,
+                "household": settings.DEFAULT_HOUSEHOLD,
+                "admin": "false",
+            }
+        },
+    )
+
+    @field_validator("group", mode="before")
+    def convert_group_to_name(cls, v):
+        if not v or isinstance(v, str):
+            return v
+
+        try:
+            return v.name
+        except AttributeError:
+            return v
+
+    @field_validator("household", mode="before")
+    def convert_household_to_name(cls, v):
+        if not v or isinstance(v, str):
+            return v
+
+        try:
+            return v.name
+        except AttributeError:
+            return v
+
+
+class UserIn(UserBase):
+    username: str
+    full_name: str

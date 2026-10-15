@@ -1,0 +1,460 @@
+{
+  "config": {
+    "argv": [
+      "<WORKSPACE>/wf6-rerun-20261014-01/runtime/tools/node-v24.21.0-linux-x64/bin/node",
+      "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/node_modules/@playwright/test/cli.js",
+      "test",
+      "--config=/tmp/wf6-rerun-20261014-01-S5-R1/tests/playwright.config.cjs",
+      "--output=/tmp/wf6-rerun-20261014-01-S5-R1/browser/test-results"
+    ],
+    "configFile": "/tmp/wf6-rerun-20261014-01-S5-R1/tests/playwright.config.cjs",
+    "rootDir": "/tmp/wf6-rerun-20261014-01-S5-R1/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": true,
+    "fullyParallel": false,
+    "globalSetup": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/global-setup.ts",
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/tmp/wf6-rerun-20261014-01-S5-R1/browser/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "/tmp/wf6-rerun-20261014-01-S5-R1/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "s5-browser-tests.cjs",
+          "s5-extra-tests.cjs"
+        ],
+        "timeout": 45000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        null
+      ],
+      [
+        "html",
+        {
+          "open": "never"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "s5-browser-tests.cjs",
+      "file": "s5-browser-tests.cjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "real read-only recipe UI, keyboard link, direct refresh and retained Vue round trip",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3413,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-14T07:38:18.812Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/tmp/wf6-rerun-20261014-01-S5-R1/browser/test-results/s5-browser-tests.cjs-real--a6fce-and-retained-Vue-round-trip/test-finished-1.png"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/tmp/wf6-rerun-20261014-01-S5-R1/browser/test-results/s5-browser-tests.cjs-real--a6fce-and-retained-Vue-round-trip/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fbf2ec6ae892affa3bc4-1c1a26fb42d9ab95a069",
+          "file": "s5-browser-tests.cjs",
+          "line": 15,
+          "column": 1
+        },
+        {
+          "title": "loading, real empty search, clear restoration and real missing-detail error",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4873,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-14T07:38:22.958Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/tmp/wf6-rerun-20261014-01-S5-R1/browser/test-results/s5-browser-tests.cjs-loadi-ec533-d-real-missing-detail-error/test-finished-1.png"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/tmp/wf6-rerun-20261014-01-S5-R1/browser/test-results/s5-browser-tests.cjs-loadi-ec533-d-real-missing-detail-error/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fbf2ec6ae892affa3bc4-0ab025941cbae8bd2609",
+          "file": "s5-browser-tests.cjs",
+          "line": 35,
+          "column": 1
+        },
+        {
+          "title": "business rendering retains explicit Vue/mode/group boundaries",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1207,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-14T07:38:28.384Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/tmp/wf6-rerun-20261014-01-S5-R1/browser/test-results/s5-browser-tests.cjs-busin-6d9a2-t-Vue-mode-group-boundaries/test-finished-1.png"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/tmp/wf6-rerun-20261014-01-S5-R1/browser/test-results/s5-browser-tests.cjs-busin-6d9a2-t-Vue-mode-group-boundaries/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fbf2ec6ae892affa3bc4-deaa6b2cc9142ae9ba2c",
+          "file": "s5-browser-tests.cjs",
+          "line": 51,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "s5-extra-tests.cjs",
+      "file": "s5-extra-tests.cjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "[Mixed] login search detail Vue shopping return and browser history",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3091,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-14T07:38:29.864Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/tmp/wf6-rerun-20261014-01-S5-R1/browser/test-results/s5-extra-tests.cjs--Mixed--ea604--return-and-browser-history/test-finished-1.png"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/tmp/wf6-rerun-20261014-01-S5-R1/browser/test-results/s5-extra-tests.cjs--Mixed--ea604--return-and-browser-history/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "71c5231a2261a14ae457-18c834f67717561f7488",
+          "file": "s5-extra-tests.cjs",
+          "line": 10,
+          "column": 1
+        },
+        {
+          "title": "[Boundary] complete route matrix and missing assets are real 404",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2353,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-14T07:38:33.420Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/tmp/wf6-rerun-20261014-01-S5-R1/browser/test-results/s5-extra-tests.cjs--Bounda-68425-missing-assets-are-real-404/test-finished-1.png"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/tmp/wf6-rerun-20261014-01-S5-R1/browser/test-results/s5-extra-tests.cjs--Bounda-68425-missing-assets-are-real-404/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "71c5231a2261a14ae457-1f94803d425e8c7dd266",
+          "file": "s5-extra-tests.cjs",
+          "line": 22,
+          "column": 1
+        },
+        {
+          "title": "[Boundary] anonymous and expired real 401 do not request recipe data",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 415,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-14T07:38:36.149Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/tmp/wf6-rerun-20261014-01-S5-R1/browser/test-results/s5-extra-tests.cjs--Bounda-27bde--do-not-request-recipe-data/test-finished-1.png"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/tmp/wf6-rerun-20261014-01-S5-R1/browser/test-results/s5-extra-tests.cjs--Bounda-27bde--do-not-request-recipe-data/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "71c5231a2261a14ae457-855e48b404a8f8713219",
+          "file": "s5-extra-tests.cjs",
+          "line": 29,
+          "column": 1
+        },
+        {
+          "title": "[Boundary] real second-group user cannot read pilot data",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2145,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-14T07:38:36.587Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/tmp/wf6-rerun-20261014-01-S5-R1/browser/test-results/s5-extra-tests.cjs--Bounda-780dd-user-cannot-read-pilot-data/test-finished-1.png"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/tmp/wf6-rerun-20261014-01-S5-R1/browser/test-results/s5-extra-tests.cjs--Bounda-780dd-user-cannot-read-pilot-data/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "71c5231a2261a14ae457-69b5e4a42f774622cbb6",
+          "file": "s5-extra-tests.cjs",
+          "line": 34,
+          "column": 1
+        },
+        {
+          "title": "[React] injected API 500 stays visible and Retry restores real backend",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2307,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-14T07:38:39.091Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/tmp/wf6-rerun-20261014-01-S5-R1/browser/test-results/s5-extra-tests.cjs--React--74f34-Retry-restores-real-backend/test-finished-1.png"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/tmp/wf6-rerun-20261014-01-S5-R1/browser/test-results/s5-extra-tests.cjs--React--74f34-Retry-restores-real-backend/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "71c5231a2261a14ae457-a02989266178db68cc2b",
+          "file": "s5-extra-tests.cjs",
+          "line": 41,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-14T07:38:15.721Z",
+    "duration": 26112.362,
+    "expected": 8,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

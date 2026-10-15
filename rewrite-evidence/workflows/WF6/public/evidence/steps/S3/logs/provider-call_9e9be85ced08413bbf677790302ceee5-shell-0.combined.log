@@ -1,0 +1,6 @@
+artifacts False
+S3-React-strict-TypeScript 0 1.3569806339983188
+S3-shared-route-policy-matrix 0 0.3512189800021588
+S3-React-production-build 0 0.8074961230013287
+S3-Vue-boundary-production-build 0 137.59994197900232
+latest logs [('20261014T044206-0736e1ab.stdout.log', 288), ('20261014T044207-521d01ad.stdout.log', 59159), ('20261014T044442-cf078779.stdout.log', 0)]

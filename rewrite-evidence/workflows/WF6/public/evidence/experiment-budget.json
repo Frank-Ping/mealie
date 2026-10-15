@@ -1,0 +1,134 @@
+{
+  "limit_seconds": 10800,
+  "first_start_utc": "2026-10-14T04:01:41.937Z",
+  "stages": [
+    "S2",
+    "S3",
+    "S4",
+    "S5",
+    "S6"
+  ],
+  "segments": [
+    {
+      "stage": "S2",
+      "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+      "start_utc": "2026-10-14T04:01:41.937Z",
+      "end_utc": "2026-10-14T04:24:11.702Z",
+      "elapsed_seconds": 1349.765,
+      "status": "closed"
+    },
+    {
+      "stage": "S3",
+      "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+      "start_utc": "2026-10-14T04:31:30.756Z",
+      "end_utc": "2026-10-14T05:00:35.156Z",
+      "elapsed_seconds": 1744.4,
+      "status": "closed"
+    },
+    {
+      "stage": "S4",
+      "turn_id": "01a13905-d942-7e23-8387-48f7946bf050",
+      "start_utc": "2026-10-14T06:07:27.424Z",
+      "end_utc": "2026-10-14T06:38:39.154Z",
+      "elapsed_seconds": 1871.73,
+      "status": "closed"
+    },
+    {
+      "stage": "S5",
+      "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+      "start_utc": "2026-10-14T07:28:35.317Z",
+      "end_utc": "2026-10-14T07:47:33.347Z",
+      "elapsed_seconds": 1138.03,
+      "status": "closed"
+    },
+    {
+      "stage": "S6",
+      "turn_id": "01a13964-888e-7540-98b2-3abbc8e32d90",
+      "start_utc": "2026-10-14T07:50:52.793Z",
+      "end_utc": "2026-10-14T08:06:25.982Z",
+      "elapsed_seconds": 933.189,
+      "status": "closed"
+    },
+    {
+      "stage": "S6",
+      "turn_id": "01a13974-b942-7012-950c-89399b0de489",
+      "start_utc": "2026-10-14T08:08:33.639Z",
+      "end_utc": "2026-10-14T08:21:43.133Z",
+      "elapsed_seconds": 789.494,
+      "status": "closed",
+      "action": "CONTINUE"
+    },
+    {
+      "stage": "S6",
+      "turn_id": "01a13999-f4f9-78f2-8751-6c0a710636a0",
+      "start_utc": "2026-10-14T08:49:13.845Z",
+      "end_utc": "2026-10-14T09:21:49.740Z",
+      "elapsed_seconds": 1955.895,
+      "status": "closed",
+      "action": "CONTINUE"
+    },
+    {
+      "stage": "S6",
+      "turn_id": "01a139bb-53dc-7111-96d4-1398771bbfb1",
+      "start_utc": "2026-10-14T09:25:40.675Z",
+      "end_utc": "2026-10-14T09:40:04.473Z",
+      "elapsed_seconds": 863.798,
+      "status": "closed",
+      "action": "CONTINUE"
+    }
+  ],
+  "policy": "Only authorized model/tool execution segments. Exclude S0, preparation, S1, between-turn human pauses and S7. This first segment begins at the actual S2 request.",
+  "known_execution_seconds": 10646.301,
+  "remaining_seconds": 153.69900000000052,
+  "excluded_between_turn_intervals": [
+    {
+      "start_utc": "2026-10-14T04:24:11.702Z",
+      "end_utc": "2026-10-14T04:31:30.756Z",
+      "elapsed_seconds": 439.054,
+      "category": "human_pause/between_authorized_turns",
+      "activity": "Not provided; elapsed gap is excluded from model/tool execution. Human review time is not inferred."
+    },
+    {
+      "start_utc": "2026-10-14T05:00:35.156Z",
+      "end_utc": "2026-10-14T06:07:27.424Z",
+      "elapsed_seconds": 4012.268,
+      "category": "human_pause/between_authorized_turns",
+      "activity": "Not provided; excluded elapsed gap, not inferred review activity."
+    },
+    {
+      "start_utc": "2026-10-14T06:38:39.154Z",
+      "end_utc": "2026-10-14T07:28:35.317Z",
+      "elapsed_seconds": 2996.163,
+      "category": "human_pause/between_authorized_turns",
+      "activity": "Not provided; excluded elapsed gap is not inferred review activity."
+    },
+    {
+      "start_utc": "2026-10-14T07:47:33.347Z",
+      "end_utc": "2026-10-14T07:50:52.793Z",
+      "elapsed_seconds": 199.446,
+      "category": "human_pause/between_authorized_turns",
+      "activity": "Not provided; excluded gap is not inferred human review."
+    },
+    {
+      "start_utc": "2026-10-14T08:06:25.982Z",
+      "end_utc": "2026-10-14T08:08:33.639Z",
+      "elapsed_seconds": 127.657,
+      "category": "human_pause/between_authorized_turns",
+      "activity": "Not provided; excluded closed/CONTINUE gap is not inferred review duration."
+    },
+    {
+      "start_utc": "2026-10-14T08:21:43.133Z",
+      "end_utc": "2026-10-14T08:49:13.845Z",
+      "elapsed_seconds": 1650.712,
+      "category": "human_pause/between_authorized_turns",
+      "activity": "Not provided; excluded pause does not infer review time."
+    },
+    {
+      "start_utc": "2026-10-14T09:21:49.740Z",
+      "end_utc": "2026-10-14T09:25:40.675Z",
+      "elapsed_seconds": 230.935,
+      "category": "human_pause/between_authorized_turns",
+      "activity": "Not provided; excluded wait does not infer review time."
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "checked_utc": "2026-10-14T03:51:06.372846+00:00",
+  "base_url": "http://127.0.0.1:9006",
+  "served_index_sha256": "5686316bf50d35319671cd85193d88195c5eb08c817e4eb42d5b2ffa3f99051f",
+  "build_hash": "51e1fc21edd74fdb002a57a5e11b8085932a0898945685edb45177aece86d733",
+  "build_command_id": "20261014T021853-1d788840",
+  "about_status": 200,
+  "about_response_sha256": "d53f4334142d6594241cb82ff783d2aa66788830f7e08fbd74adda44c08c73b3",
+  "backend_pid": 35011,
+  "source_frontend_path": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/.output/public",
+  "actual_static_path": "/tmp/wf6-rerun-20261014-01-S1-native2/static",
+  "backend_checkout": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator",
+  "orchestration": "Frozen launcher starts a fresh isolated backend; original Playwright reuse option avoids a second launch. Assertions, seeded globalSetup, projects, retries=0 and strict/all modes unchanged."
+}

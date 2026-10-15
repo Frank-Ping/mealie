@@ -1,0 +1,210 @@
+Warning: truncated output (original token count: 3504)
+Total output lines: 241
+
+18:MARKER = re.compile(r"^\[\[WF6:(S[0-7]):(START|CONTINUE)\]\]$")
+158:        registered=[item for item in config.get("natural_requests",[]) if item.get("user_message_id")==user["message_id"]]
+166:            stage=item["stage_id"];action=item.get("action","NATURAL_START")
+174:        if action in ("START","NATURAL_START") and existing:
+175:            stage_issues[stage].append("Repeated START requires explicit classification; earlier segments are preserved.")
+176:        if action=="CONTINUE" and not existing:
+177:            stage_issues[stage].append("CONTINUE has no initial START in this source.")
+188:        boundary=dict(stage_id="S0",action="START",session_id=session,turn_id=config.get("initial_turn_id"),
+        try:
+            if not line.endswith(b"\n"):
+                issues.append(f"Incomplete tail at line {number}; excluded.")
+                break
+            data = json.loads(line)
+            records.append(dict(line=number, byte_offset=offset, record=data, source_log=str(path)))
+        except (json.JSONDecodeError, UnicodeDecodeError):
+            issues.append(f"Invalid JSON at line {number}; excluded.")
+        offset += len(line)
+    return records, issues
+
+def payload(row):
+    return row["record"].get("payload", {})
+
+def text_of(pl):
+    return "".join(c.get("text", "") for c in pl.get("content", []) if isinstance(c, dict) and c.get("type") in ("input_text", "output_text", "text"))
+
+def locator(row):
+    return {k:row[k] for k in ("source_log", "line", "byte_offset")}
+
+def original_shell_commands(original_input):
+    if not isinstance(original_input,str):return []
+    candidates=[original_input]
+    try:candidates.append(json.loads('"'+original_input.replace('\n','\\n').replace('\r','\\r')+'"'))
+    except json.JSONDecodeError:pass
+    for code in candidates:
+        found=[]
+        for match in re.finditer(r'\bcmd\s*:\s*("(?:\\.|[^"\\])*")',code):
+            try:found.append(json.loads(match.group(1)))
+            except json.JSONDecodeError:pass
+        if found:return found
+    return []
+
+def turn_of(pl, fallback=None):
+    return pl.get("turn_id") or pl.get("internal_chat_message_metadata_passthrough", {}).get("turn_id") or fallback
+
+def valid_usage(data):
+    return isinstance(data, dict) and all(isinstance(data.get(k), int) and not isinstance(data.get(k), bool) and data[k] >= 0 for k in FIELDS)
+
+def sums(events):
+    return {k:sum(payload(e).get("usage", {}).get(k, 0) for e in events)
+            if all(isinstance(payload(e).get("usage", {}).get(k), int) for e in events) else None for k in FIELDS}
+
+def redact(value):
+    # Shareable copies are redacted; raw command streams remain outside Git.
+    if isinstance(value, dict):
+        return {k:("<redacted>" if re.search(r"^(password|passwd|authorization|cookie|set-cookie|access_token|refresh_token|api_key)$", k, re.I) else redact(v)) for k,v in value.items()}
+    if isinstance(value, list):
+        return [redact(v) for v in value]
+    if isinstance(value, str):
+        value = re.sub(r"(?i)\bBearer\s+[A-Za-z0-9._~+/=-]+", "Bearer <redacted>", value)
+        value = re.sub(r"(?i)((?:password|passwd|access_token|refresh_token|api_key)\s*[=:]\s*)[^\s,;]+", r"\1<redacted>", value)
+    return value
+
+def analyze(records, config, read_issues=None):
+    session = config["session_id"]
+    issues = list(read_issues or [])
+    metadata = [payload(r) for r in records if r["record"].get("type")=="session_meta"]
+    if not metadata or metadata[0].get("id")!=session:
+        issues.append("Session metadata missing or mismatched.")
+    raw, unique, seen, users, finals, completions, visible, contexts = [], [], {}, [], [], [], [], []
+    current_turn = None
+    message_ids = {}
+    for row in records:
+        pl=payload(row); typ=row["record"].get("type")
+        if typ=="event_msg" and pl.get("type")=="task_started":
+            current_turn=turn_of(pl)
+        if typ=="turn_context":
+            current_turn=turn_of(pl, current_turn)
+            contexts.append({**locator(row), **{k:pl.get(k) for k in ("turn_id","model","effort","approval_policy","sandbox_policy","cwd")}})
+        if typ=="token_usage_record" or (typ=="event_msg" and pl.get("type")=="token_count"):
+            raw.append({**locator(row),"timestamp":row["record"].get("timestamp"),"schema":typ if typ=="token_usage_record" else "legacy_token_count","payload":pl})
+        if typ=="token_usage_record":
+            if pl.get("session_id")!=session or pl.get("thread_id")!=session or not pl.get("turn_id") or not pl.get("response_id"):
+                issues.append(f"Foreign or unattributed usage at line {row['line']}; excluded.")
+                continue
+            key=(session,pl["response_id"])
+            if key in seen:
+                if seen[key]!=pl:issues.append(f"Conflicting response duplicate at line {row['line']}.")
+                continue
+            seen[key]=copy.deepcopy(pl);unique.append(row)
+        if typ=="response_item":
+            role=pl.get("role");item_type=pl.get("type")
+            if item_type=="message" and role=="user":
+                text=text_of(pl)
+                if text.lstrip().startswith("<environment_context>"):
+                    continue
+                turn=turn_of(pl,current_turn)
+                identity=pl.get("id")
+                if identity in message_ids and identity is not None:
+                    if message_ids[identity]!=text:issues.append("Conflicting duplicate user identity.")
+                    continue
+                if identity:message_ids[identity]=text
+                users.append(dict(row=row,text=text,turn_id=turn,message_id=identity))
+                visible.append({**locator(row),"turn_id":turn,"kind":"user","message_id":identity,"text":text})
+            elif item_type=="message" and role=="assistant" and pl.get("phase") in ("commentary","final_answer","final"):
+                turn=turn_of(pl,current_turn)
+                visible.append({**locator(row),"turn_id":turn,"kind":"assistant","phas…504 tokens truncated…ogout\" }).click();\n     |                                                        ^\n  31 |     await expect(page).toHaveURL(/\\/login\\/?/);\n  32 |     await page.goto(`/g/${f.groupSlug}/r/${f.recipeSlug}`);\n  33 |     await expect(page).toHaveURL(/\\/login\\/?/);\n    at <WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/tests/flows/auth.spec.ts:30:56"
+      ],
+      "scope_repair_performed": false
+    },
+    {
+      "category": "flows",
+      "title": "[flow] a regular member is not offered admin pages",
+      "file": "flows/auth.spec.ts",
+      "project": "flows",
+      "status": "unexpected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "timedOut"
+      ],
+      "duration_ms": 45496,
+      "retries": [
+        0
+      ],
+      "classification": "scope_gap",
+      "reason": "React pilot has no Settings menu/household navigation expected by original flow.",
+      "raw_errors": [
+        "\u001b[31mTest timeout of 45000ms exceeded.\u001b[39m",
+        "Error: locator.click: Test timeout of 45000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByText('Settings', { exact: true }).visible().first()\u001b[22m\n\n\n  43 |     await expect(visibleText(page, MEMBER.fullName)).toBeVisible();\n  44 |     await expect(visibleText(page, NAMES.recipe)).toBeVisible();\n> 45 |     await page.getByText(\"Settings\", { exact: true }).filter({ visible: true }).first().click();\n     |                                                                                         ^\n  46 |     await expect(page.locator('a[href^=\"/household\"]').filter({ visible: true }).first()).toBeVisible();\n  47 |     await expect(page.locator('a[href^=\"/admin\"]').filter({ visible: true })).toHaveCount(0);\n  48 |   });\n    at <WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/tests/flows/auth.spec.ts:45:89"
+      ],
+      "scope_repair_performed": false
+    },
+    {
+      "category": "flows",
+      "title": "[flow] an admin is offered admin pages",
+      "file": "flows/auth.spec.ts",
+      "project": "flows",
+      "status": "unexpected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "timedOut"
+      ],
+      "duration_ms": 45521,
+      "retries": [
+        0
+      ],
+      "classification": "scope_gap",
+      "reason": "React pilot has no Settings menu/admin navigation expected by original flow.",
+      "raw_errors": [
+        "\u001b[31mTest timeout of 45000ms exceeded.\u001b[39m",
+        "Error: locator.click: Test timeout of 45000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByText('Settings', { exact: true }).visible().first()\u001b[22m\n\n\n  52 |     await loginViaUi(page, ADMIN.email, ADMIN.password);\n  53 |     await page.goto(`/g/${f.groupSlug}`);\n> 54 |     await page.getByText(\"Settings\", { exact: true }).filter({ visible: true }).first().click();\n     |                                                                                         ^\n  55 |     await page.locator('a[href=\"/admin/site-settings\"]').filter({ visible: true }).first().click();\n  56 |     await expect(page.getByRole(\"heading\", { name: \"Site Settings\" })).toBeVisible();\n  57 |   });\n    at <WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/tests/flows/auth.spec.ts:54:89"
+      ],
+      "scope_repair_performed": false
+    },
+    {
+      "category": "flows",
+      "title": "[flow] comment on a recipe and see it after reload",
+      "file": "flows/recipes.spec.ts",
+      "project": "flows",
+      "status": "unexpected",
+      "expected_status": "passed",
+      "actual_statuses": [
+        "timedOut"
+      ],
+      "duration_ms": 45077,
+      "retries": [
+136:const showAIImport = computed(() => group.value?.aiProviderSettings?.aiEnabled);
+import { ownsReact, type RouteMap } from "../../../wf6/route-policy.mjs";
+
+export default defineNuxtRouteMiddleware(async (to) => {
+  if (import.meta.server) return;
+  // One shared route map and predicate govern both the gateway and Vue navigation.
+  const map = await $fetch<RouteMap>("/_wf6/route-map.json");
+  if (ownsReact(to.fullPath, map)) {
+    window.location.assign(to.fullPath);
+    return abortNavigation();
+  }
+});
+## S6 验证回退与完整回归 Verify rollback and full regression
+
+### 中文 Prompt
+
+```text
+[[WF6:S6:START]]
+执行 S6。读共同契约与已完成的 gates，结算 S5 tokens。正常验收依赖前置通过；
+前置失败时可保存已能执行的显式回退检查，但不得称整条 workflow 通过。
+
+保持同一输入和可比较的 seeded data，先关闭接管开关，证明目标 URL 真正
+返回 Vue，登录与原用户路径可运行；再恢复开关，证明两条目标路由重新由
+React 承担。检查 middleware 不造成循环。保存开关配置、hash和来源证据。
+
+恢复接管后执行全部冻结 66 routes、15 flows 与 guard，保存实际 pass/fail/skip、
+原始 JSON 和日志。不能把 smoke 说成 strict，不能把重复测量模式算新增覆盖。
+原断言不改、不删、不跳过。评论等未迁移行为可能失败，必须保留并分别归类为
+范围缺失、实现回归、环境问题或检查问题，无法判定则写原因未确定。
+
+回退状态和接管状态分别记录 Vue 与 React 的 build/types/lint/unit 测试库存。
+建立 route-ownership.csv 与 feature-inventory.csv，明确 React 只读范围、
+Vue 保留功能、混合路径、未验证项。混合应用 66/66 不等于 React 迁移 66 页。
+
+本步不扩展业务范围。若有边界回归，最多两轮修复并重测受影响结果；保持失败
+历史和预算。保存 [WF6-S6] 快照、全部证据与本步 token/provisional 状态。
+报告回退和完整回归两类结论后停止，结尾写 [[WF6:S6:END]]。
+```
+
+### English Prompt
+
+```text

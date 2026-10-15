@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2539,
+    "byte_offset": 7131664,
+    "timestamp": "2026-10-14T04:41:48.938Z",
+    "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf07fe7b408191be20b16aab27009b",
+      "status": "completed",
+      "call_id": "call_06d5e9aabd0547849d694cd03e60c1fe",
+      "name": "exec",
+      "input": "text(await tools.write_stdin({session_id:51905,chars:\"\",yield_time_ms:1000,max_output_tokens:800}));\ntext(await tools.exec_command({cmd:\"python3 - <<'PY'\\nfrom pathlib import Path\\np=Path('wf6-rerun-20261014-01/wf6-evidence/usage/run_s2.py');s=p.read_text().replace(\\\"'steps/S2'\\\",\\\"'steps/S3'\\\").replace(\\\"/tmp/wf6-rerun-20261014-01-S2\\\",\\\"/tmp/wf6-rerun-20261014-01-S3\\\").replace(\\\"stage='S2'\\\",\\\"stage='S3'\\\").replace(\\\"'S2-\\\",\\\"'S3-\\\").replace(\\\"-S2-\\\",\\\"-S3-\\\").replace(\\\"bounded S2\\\",\\\"bounded S3\\\").replace(\\\"=='S2'\\\",\\\"=='S3'\\\").replace(\\\"S1-native2/auth\\\",\\\"S2/auth\\\")\\ns=s.replace(\\\"build=json.loads((STAGE/'build-artifact.json').read_text());assert build['exit_code']==0 and build['browser_acceptance_allowed']\\\", \\\"artifacts=json.loads((STAGE/'build-artifacts.json').read_text());build=artifacts['vue'];react=artifacts['react'];assert build['exit_code']==0 and react['exit_code']==0 and build['browser_acceptance_allowed'] and react['browser_acceptance_allowed']\\\")\\ns=s.replace(\\\" and identity['build_hash']==build['build_hash']\\\", \\\" and identity['run_id']==ROOT.name\\\")\\ns=s.replace(\\\"RUNTIME/'static'\\\", \\\"RUNTIME/'vue'\\\")\\ns=s.replace(\\\"WF6_PLAYWRIGHT_MODULE=str\\\", \\\"WF6_REACT_DIR=str(RUNTIME/'react'),WF6_REACT_BUILD_HASH=react['build_hash'],WF6_REACT_SOURCE_HASH=react['source_hash'],WF6_PLAYWRIGHT_MODULE=str\\\")\\ns=s.replace(\\\"WF6_BROWSER_EVIDENCE=str(RUNTIME/'browser/requests-redacted.json')\\\", \\\"WF6_BROWSER_EVIDENCE=str(RUNTIME/'browser/requests-redacted.jsonl')\\\")\\ns=s.replace(\\\"s2-browser-tests.cjs\\\", \\\"s3-browser-tests.cjs\\\")\\ns=s.replace(\\\"source_head_at_build=build['source_head']\\\", \\\"vue_boundary_source_hash=build['source_hash'],react_source_hash=react['source_hash'],react_build_hash=react['build_hash'],route_policy_sha256=hashlib.sha256((SOURCE/'wf6/route-policy.mjs').read_bytes()).hexdigest()\\\")\\ns=s.replace(\\\"    for item in build['files']:assert\\\", \\\"    for item in react['files']:assert hashlib.sha256((RUNTIME/'react'/item['path']).read_bytes()).hexdigest()==item['sha256']\\\\n    for item in build['files']:assert\\\")\\ns=s.replace(\\\"'S3-real-all-Vue-same-origin-browser'\\\", \\\"'S3-real-dual-frontend-session-boundary-browser'\\\")\\nPath('wf6-rerun-20261014-01/wf6-evidence/usage/run_s3.py').write_text(s)\\nPY\",\"max_output_tokens\":600}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+        "create_time": 1791952894.48411
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2542,
+    "byte_offset": 7140301,
+    "timestamp": "2026-10-14T04:41:49.150Z",
+    "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a138b7-735e-7fc2-ac78-5942b1cf7045",
+      "call_id": "call_06d5e9aabd0547849d694cd03e60c1fe",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"16dd81\",\"wall_time_seconds\":0.000027432,\"exit_code\":0,\"original_token_count\":205,\"output\":\"{\\\"command_id\\\": \\\"20261014T043707-efad5416\\\", \\\"stage_id\\\": \\\"S3\\\", \\\"label\\\": \\\"S3-freeze-and-install-React-target-stack\\\", \\\"argv\\\": [\\\"python3\\\", \\\"-B\\\", \\\"wf6-evidence/usage/prepare_s3.py\\\"], \\\"cwd\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01\\\", \\\"start_utc\\\": \\\"2026-10-14T04:37:07.618306+00:00\\\", \\\"end_utc\\\": \\\"2026-10-14T04:40:01.286913+00:00\\\", \\\"duration_seconds\\\": 173.66863544300213, \\\"exit_code\\\": 0, \\\"stdout\\\": \\\"steps/S3/logs/20261014T043707-efad5416.stdout.log\\\", \\\"stderr\\\": \\\"steps/S3/logs/20261014T043707-efad5416.stderr.log\\\", \\\"environment_overrides\\\": {}, \\\"permission\\\": \\\"Approved anonymous React dependency metadata/install in native S3 directory\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"431516\",\"wall_time_seconds\":0.000009986,\"exit_code\":0,\"original_token_count\":0,\"output\":\"\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+        "create_time": 1791952909.150915
+      }
+    }
+  }
+}

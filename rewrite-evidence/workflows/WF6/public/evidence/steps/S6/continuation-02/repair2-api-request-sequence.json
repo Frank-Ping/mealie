@@ -1,0 +1,100 @@
+[
+  {
+    "path": "/api/users/self",
+    "method": "GET",
+    "status": 200,
+    "started": "2026-10-14T09:11:57.621Z",
+    "failure": null
+  },
+  {
+    "path": "/api/users/self",
+    "method": "GET",
+    "status": 200,
+    "started": "2026-10-14T09:11:57.638Z",
+    "failure": null
+  },
+  {
+    "path": "/api/recipes/e2e-garden-salad",
+    "method": "GET",
+    "status": 200,
+    "started": "2026-10-14T09:11:57.645Z",
+    "failure": null
+  },
+  {
+    "path": "/api/users/self",
+    "method": "GET",
+    "status": 200,
+    "started": "2026-10-14T09:11:57.668Z",
+    "failure": null
+  },
+  {
+    "path": "/api/households/self",
+    "method": "GET",
+    "status": 200,
+    "started": "2026-10-14T09:11:57.674Z",
+    "failure": null
+  },
+  {
+    "path": "/api/recipes/e2e-garden-salad/comments",
+    "method": "GET",
+    "status": 200,
+    "started": "2026-10-14T09:11:57.683Z",
+    "failure": null
+  },
+  {
+    "path": "/api/users/self",
+    "method": "GET",
+    "status": 200,
+    "started": "2026-10-14T09:11:57.874Z",
+    "failure": null
+  },
+  {
+    "path": "/api/users/self",
+    "method": "GET",
+    "status": 200,
+    "started": "2026-10-14T09:11:57.937Z",
+    "failure": null
+  },
+  {
+    "path": "/api/users/self",
+    "method": "GET",
+    "status": 200,
+    "started": "2026-10-14T09:11:57.951Z",
+    "failure": null
+  },
+  {
+    "path": "/api/recipes/e2e-garden-salad",
+    "method": "GET",
+    "status": 200,
+    "started": "2026-10-14T09:11:57.959Z",
+    "failure": null
+  },
+  {
+    "path": "/api/users/self",
+    "method": "GET",
+    "status": 200,
+    "started": "2026-10-14T09:11:57.977Z",
+    "failure": null
+  },
+  {
+    "path": "/api/households/self",
+    "method": "GET",
+    "status": 200,
+    "started": "2026-10-14T09:11:57.986Z",
+    "failure": null
+  },
+  {
+    "path": "/api/recipes/e2e-garden-salad/comments",
+    "method": "GET",
+    "status": 200,
+    "started": "2026-10-14T09:11:57.995Z",
+    "failure": null
+  },
+  {
+    "path": "/api/recipes/e2e-garden-salad",
+    "method": "GET",
+    "status": -1,
+    "started": "2026-10-14T09:11:57.882Z",
+    "failure": null
+  }
+]

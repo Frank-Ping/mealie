@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1958,
+    "byte_offset": 5711551,
+    "timestamp": "2026-10-14T03:55:12.241Z",
+    "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acefd15819c819180bef3e0d47f5bf5",
+      "status": "completed",
+      "call_id": "call_1db7b56f40fb4fb3a2e9cc0571c32bb1",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 - <<'PY'\\nimport json,datetime,pathlib\\ns=pathlib.Path('wf6-rerun-20261014-01/wf6-evidence/steps/S1');now=datetime.datetime.now(datetime.timezone.utc).isoformat()\\nwith (s/'attempts.jsonl').open('a') as f:f.write(json.dumps({'timestamp':now,'kind':'symlink_manifest_audit_helper_failure','cause':'New audit dereferenced CLAUDE.md, while S0 manifest hashes the symlink target string. The actual original AGENTS.md link string and SHA match S0.','repair':'Compare symlink identity and link-string SHA with original manifest semantics; rerun full file audit. No tracked file changed.','original':'logs/20261014T035350-7c508fa5.stderr.log'})+'\\\\n')\\nr=s/'result.md';text=r.read_text();text=text.replace('## Evidence / 证据','Intermediate native measurement was interrupted after 72 passing log entries and has no complete result or original exit status; it is excluded from acceptance. Its owned backend was verified and stopped before native2. Resume also preserved a transient port failure, case-alias helper failure and symlink-audit helper failure. Missing command timestamps/exit codes remain null in recovered records.\\\\n中断轮次仅有前 72 项通过日志，没有完整结果或原始退出码，不作为验收；后端核实停止后才重测 native2。端口、大小写目录及 symlink 审计脚本失败均保留，缺失字段不补造。\\\\n\\\\n## Evidence / 证据');r.write_text(text)\\nPY\",\"max_output_tokens\":300}));\ntext(await tools.write_stdin({session_id:80454,chars:\"\",yield_time_ms:1000,max_output_tokens:800}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+        "create_time": 1791950101.5088573
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1961,
+    "byte_offset": 5717954,
+    "timestamp": "2026-10-14T03:55:17.400Z",
+    "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a1388c-da18-7461-923d-6ee75d17bb4c",
+      "call_id": "call_1db7b56f40fb4fb3a2e9cc0571c32bb1",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 5.1 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"38e9b4\",\"wall_time_seconds\":0.00001422,\"exit_code\":0,\"original_token_count\":0,\"output\":\"\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"98cd6a\",\"wall_time_seconds\":5.001303284,\"session_id\":80454,\"original_token_count\":0,\"output\":\"\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+        "create_time": 1791950117.400729
+      }
+    }
+  }
+}

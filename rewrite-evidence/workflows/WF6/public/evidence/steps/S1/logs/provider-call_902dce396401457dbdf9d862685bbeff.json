@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2010,
+    "byte_offset": 5774624,
+    "timestamp": "2026-10-14T03:57:02.071Z",
+    "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acefd7a59b48191bf71e71ab878df62",
+      "status": "completed",
+      "call_id": "call_902dce396401457dbdf9d862685bbeff",
+      "name": "exec",
+      "input": "text(await tools.apply_patch(\"*** Begin Patch\\n*** Add File: <WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/usage/postcommit_s1.py\\n+\\\"\\\"\\\"Capture the docs-only evidence commit without changing accepted build identity.\\\"\\\"\\\"\\n+import datetime as dt\\n+import json\\n+from finish_s1 import git,write\\n+from run_s1 import SOURCE,EVALUATOR,STAGE,EVIDENCE\\n+\\n+path=STAGE/'source-state.json'\\n+(STAGE/'source-state-before-evidence-commit.json').write_bytes(path.read_bytes())\\n+state=json.loads(path.read_text())\\n+head=git(SOURCE,'rev-parse','HEAD')\\n+changed=git(SOURCE,'diff-tree','--no-commit-id','--name-only','-r',head).splitlines()\\n+assert sorted(changed)==['rewrite-evidence/workflows/WF6/BASELINE.md','rewrite-evidence/workflows/WF6/comparison-baseline.json']\\n+for role,repo in [('source',SOURCE),('evaluator',EVALUATOR)]:\\n+    status=git(repo,'status','--porcelain=v1')\\n+    assert not status, role+' checkout is dirty'\\n+    state[role].update(actual_head=git(repo,'rev-parse','HEAD'),dirty=False,status_porcelain=status,untracked=[],remotes=git(repo,'remote','-v').splitlines())\\n+state.update(postcommit_snapshot_utc=dt.datetime.now(dt.timezone.utc).isoformat(),evidence_commit=head,\\n+    evidence_commit_files=changed,build_identity_policy='Accepted build was generated before the docs-only S1 commit; build-artifact source_head remains its actual build source HEAD.')\\n+write(path,state)\\n+(STAGE/'diff.patch').write_text('# Source: tracked changes since pinned input; only S0/S1 evidence documents\\\\n'+git(SOURCE,'diff','--binary',state['source']['pinned_input_sha'],'HEAD')+'\\\\n\\\\n# Source and evaluator working diffs are empty.\\\\n')\\n+result=STAGE/'result.md'\\n+with result.open('a') as file:file.write(f'\\\\nEvidence-only commit / 仅证据提交: `{head}` (`[WF6-S1]`). Both checkouts are clean; all 1711 source and 1789 evaluator original manifest entries match. 实际 build HEAD 保持构建时 SHA，提交仅包含两个 baseline 文档。\\\\n')\\n+with (EVIDENCE/'decisions.jsonl').open('a') as file:file.write(json.dumps(dict(timestamp=state['postcommit_snapshot_utc'],actor='agent',stage_id='S1',decision='S1 PASS from full native2 frozen suite. Preserve mounted failures and interrupted measurement. Stop; S2-S6 budget remains unstarted.',evidence_commit=head))+'\\\\n')\\n+print(json.dumps(dict(evidence_commit=head,changed=changed,source_clean=True,evaluator_clean=True)))\\n*** End Patch\"));\ntext(await tools.exec_command({cmd:\"python3 -B wf6-rerun-20261014-01/wf6-evidence/usage/record_command.py --stage S1 --cwd '<WORKSPACE>/wf6-rerun-20261014-01' --label S1-verify-docs-only-commit-and-clean-checkouts -- python3 -B wf6-evidence/usage/postcommit_s1.py\",\"yield_time_ms\":1000,\"max_output_tokens\":600}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+        "create_time": 1791950202.3589122
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2013,
+    "byte_offset": 5781815,
+    "timestamp": "2026-10-14T03:57:03.961Z",
+    "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a1388e-7a59-7fb1-af89-eb94355434f9",
+      "call_id": "call_902dce396401457dbdf9d862685bbeff",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 1.9 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"d07f27\",\"wall_time_seconds\":1.000501588,\"session_id\":34893,\"original_token_count\":0,\"output\":\"\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+        "create_time": 1791950223.9614272
+      }
+    }
+  }
+}

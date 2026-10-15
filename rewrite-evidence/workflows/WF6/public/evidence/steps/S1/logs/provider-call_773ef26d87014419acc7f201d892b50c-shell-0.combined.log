@@ -1,0 +1,134 @@
+"""Run a command and preserve separate original streams and timing."""
+import argparse
+import datetime as dt
+import json
+import os
+from pathlib import Path
+import subprocess
+import time
+import uuid
+
+ROOT = Path(__file__).resolve().parents[2]
+EVIDENCE = ROOT / "wf6-evidence"
+
+def run(argv, cwd, label, stage="S0", env=None, stdin_path=None, permission="workspace-write; network restricted; no escalation"):
+    folder = EVIDENCE / "steps" / stage
+    logs = folder / "logs"
+    logs.mkdir(parents=True, exist_ok=True)
+    command_id = dt.datetime.now(dt.timezone.utc).strftime("%Y%m%dT%H%M%S") + "-" + uuid.uuid4().hex[:8]
+    start = dt.datetime.now(dt.timezone.utc).isoformat()
+    timer = time.monotonic()
+    out = logs / (command_id + ".stdout.log")
+    err = logs / (command_id + ".stderr.log")
+    launch_error = None
+    with out.open("wb") as stdout, err.open("wb") as stderr:
+        try:
+            with open(stdin_path or os.devnull, "rb") as stdin:
+                result = subprocess.run(argv, cwd=cwd, env={**os.environ, **(env or {})}, stdin=stdin, stdout=stdout, stderr=stderr)
+            code = result.returncode
+        except OSError as exc:
+            launch_error = str(exc)
+            stderr.write((str(exc) + "\n").encode())
+            code = None
+    entry = dict(command_id=command_id, stage_id=stage, label=label, argv=argv, cwd=str(cwd),
+                 start_utc=start, end_utc=dt.datetime.now(dt.timezone.utc).isoformat(),
+                 duration_seconds=time.monotonic()-timer, exit_code=code,
+                 stdout=str(out.relative_to(EVIDENCE)), stderr=str(err.relative_to(EVIDENCE)),
+                 environment_overrides=env or {}, permission=permission,
+                 environment_capture="Only explicit non-secret overrides; inherited secrets are not exported.",
+                 launch_error=launch_error)
+    entry["stdin_path"] = str(stdin_path) if stdin_path else None
+    with (folder / "commands.jsonl").open("a") as stream:
+        stream.write(json.dumps(entry) + "\n")
+    if code != 0:
+        with (folder / "attempts.jsonl").open("a") as stream:
+            stream.write(json.dumps(dict(timestamp=entry["end_utc"], kind="command_failure", command_id=command_id,
+                label=label, exit_code=code, stdout=entry["stdout"], stderr=entry["stderr"], repair_scope="S0 setup")) + "\n")
+    print(json.dumps(entry))
+    return entry
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--cwd", required=True)
+    parser.add_argument("--label", required=True)
+    parser.add_argument("--stage", default="S0")
+    parser.add_argument("--permission", default="workspace-write; network restricted; no escalation")
+    parser.add_argument("command", nargs=argparse.REMAINDER)
+    args = parser.parse_args()
+    argv = args.command[1:] if args.command[:1] == ["--"] else args.command
+    entry = run(argv, args.cwd, args.label, args.stage, permission=args.permission)
+    raise SystemExit(entry["exit_code"] if entry["exit_code"] is not None else 127)
+{"timestamp": "2026-10-14T02:13:10.101992+00:00", "kind": "command_failure", "command_id": "20261014T021306-3a8032e7", "label": "S1-verify-runtime-and-cleanup-isolation", "exit_code": 1, "stdout": "steps/S1/logs/20261014T021306-3a8032e7.stdout.log", "stderr": "steps/S1/logs/20261014T021306-3a8032e7.stderr.log", "repair_scope": "S0 setup"}
+{"timestamp": "2026-10-14T02:14:44.468158+00:00", "kind": "runtime_alias_status_failure", "cause": "Upstream directory-only .auth ignore does not ignore an isolated .auth symlink, so the preflight clean-status assertion failed.", "repair": "Keep the verified empty S1 auth alias, add its exact path to new evaluator local .git/info/exclude only, and rerun isolation checks. No frozen tracked file or assertion changed.", "original": "logs/20261014T021306-3a8032e7.stderr.log", "scope": "S1 environment preparation"}
+{"kind": "public_font_provider_sandbox_errors", "cause": "First Vue generation returned exit 0 but font provider initialization logged sandbox DNS EAI_AGAIN errors.", "repair": "Preserve its build inventory and raw logs. Regenerate the same frozen inputs under a specific reviewed public-font network action before browser acceptance.", "original": "logs/20261014T021444-bb4f44fd.stderr.log", "rerun": "logs/20261014T021853-1d788840.stdout.log", "timestamp": "2026-10-14T02:22:18.907795+00:00"}
+{"kind": "recorder_permission_annotation", "cause": "Outer S1 build recorder used its default permission string even though the original tool approval and nested command recorded reviewed execution.", "repair": "Archive the original commands JSONL and clarify this one outer record; raw stdout/stderr and provider tool events remain unchanged. Add an explicit recorder permission option for later actions.", "original": "commands-before-permission-clarification.jsonl", "timestamp": "2026-10-14T02:22:18.907844+00:00"}
+{"timestamp": "2026-10-14T03:00:20.257922+00:00", "kind": "command_failure", "command_id": "20261014T025933-120c29bb", "label": "S1-Vue-type-diagnostics", "exit_code": 1, "stdout": "steps/S1/logs/20261014T025933-120c29bb.stdout.log", "stderr": "steps/S1/logs/20261014T025933-120c29bb.stderr.log", "repair_scope": "S0 setup"}
+{"timestamp": "2026-10-14T03:00:20.345631+00:00", "kind": "command_failure", "command_id": "20261014T025932-b8c14105", "label": "S1-original-typecheck-tool-availability-diagnostic", "exit_code": 1, "stdout": "steps/S1/logs/20261014T025932-b8c14105.stdout.log", "stderr": "steps/S1/logs/20261014T025932-b8c14105.stderr.log", "repair_scope": "S0 setup"}
+{"timestamp": "2026-10-14T03:03:10.033273+00:00", "kind": "command_failure", "command_id": "20261014T030131-d1583192", "label": "S1-Vue-type-diagnostics", "exit_code": 2, "stdout": "steps/S1/logs/20261014T030131-d1583192.stdout.log", "stderr": "steps/S1/logs/20261014T030131-d1583192.stderr.log", "repair_scope": "S0 setup"}
+{"timestamp": "2026-10-14T03:03:10.166723+00:00", "kind": "command_failure", "command_id": "20261014T030131-8bacdefa", "label": "S1-Vue-actual-type-diagnostics-with-isolated-checker", "exit_code": 1, "stdout": "steps/S1/logs/20261014T030131-8bacdefa.stdout.log", "stderr": "steps/S1/logs/20261014T030131-8bacdefa.stderr.log", "repair_scope": "S0 setup"}
+{"timestamp": "2026-10-14T03:04:44.782503+00:00", "kind": "command_failure", "command_id": "20261014T030440-8f8bd6e5", "label": "S1-real-backend-browser-sandbox-capability-attempt", "exit_code": 1, "stdout": "steps/S1/logs/20261014T030440-8f8bd6e5.stdout.log", "stderr": "steps/S1/logs/20261014T030440-8f8bd6e5.stderr.log", "repair_scope": "S0 setup"}
+import fs from "node:fs";
+import path from "node:path";
+
+export const E2E_DIR = path.resolve(__dirname, "..");
+export const AUTH_DIR = path.join(E2E_DIR, ".auth");
+export const ADMIN_STATE = path.join(AUTH_DIR, "admin.json");
+export const FIXTURES_FILE = path.join(AUTH_DIR, "fixtures.json");
+
+export const ADMIN = {
+  email: "e2e-admin@example.com",
+  password: "[REDACTED]",
+  fullName: "E2E Admin",
+  username: "e2eadmin",
+};
+
+export const MEMBER = {
+  email: "e2e-member@example.com",
+  password: "[REDACTED]",
+  fullName: "E2E Member",
+  username: "e2emember",
+};
+
+/** Owned by the profile flow, which renames it; nothing else may assert on this user's name. */
+export const PROFILE_USER = {
+  email: "e2e-profile@example.com",
+  password: "E2e-Profile-Pass-123",
+  fullName: "E2E Profile User",
+  username: "e2eprofile",
+};
+
+/** Names of seeded data. All prefixed with "E2E" so assertions can't match stock UI text by accident. */
+export const NAMES = {
+  recipe: "E2E Pancakes",
+  recipe2: "E2E Garden Salad",
+  ingredient: "2 cups e2e flour",
+  instruction: "Whisk the e2e batter until smooth.",
+  category: "E2E Breakfast",
+  tag: "E2E Quick",
+  tool: "E2E Skillet",
+  cookbook: "E2E Cookbook",
+  shoppingList: "E2E Groceries",
+  shoppingList2: "E2E Hardware Store",
+  shoppingItems: ["E2E Milk", "E2E Eggs"],
+  food: "e2e flour",
+  unit: "e2e cup",
+  label: "E2E Dairy",
+  group: "E2E Second Group",
+  household: "E2E Second Household",
+  mealplanNote: "E2E Leftovers Night",
+  webhook: "E2E Webhook",
+  notifier: "E2E Notifier",
+  recipeAction: "E2E Recipe Action",
+  apiToken: "E2E Token",
+};
+
+export interface Fixtures {
+  groupSlug: string;
+  householdSlug: string;
+  adminId: string;
+  memberId: string;
+  recipeSlug: string;
+  recipeId: string;
+  recipe2Slug: string;
+  cookbookSlug: string;
+  shoppingListId: string;

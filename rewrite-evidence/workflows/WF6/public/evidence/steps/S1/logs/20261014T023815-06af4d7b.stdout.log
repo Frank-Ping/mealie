@@ -1,0 +1,179 @@
+
+ RUN  v4.1.11 <WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend
+      Coverage enabled with v8
+
+ ✓ app/plugins/__tests__/axios.test.ts (20 tests) 2419ms
+     ✓ refreshes and replays the original request  2394ms
+stdout | app/composables/shopping-list-page/sub-composables/__tests__/use-shopping-list-data.test.ts
+Invalid queue object in local storage; resetting queue.
+
+stdout | app/composables/shopping-list-page/sub-composables/__tests__/use-shopping-list-data.test.ts > use-shopping-list-data > refreshes > only update the list with the new value if we're not loading, to prevent UI jitter
+Error processing queue items of type create: TypeError: Cannot read properties of undefined (reading 'then')
+    at processQueueItems (<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/shopping-list-page/sub-composables/use-shopping-list-item-actions.ts:215:35)
+    at Object.process (<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/shopping-list-page/sub-composables/use-shopping-list-item-actions.ts:248:17)
+    at processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at refresh (<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/shopping-list-page/sub-composables/use-shopping-list-data.ts:26:7)
+    at <WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/shopping-list-page/sub-composables/__tests__/use-shopping-list-data.test.ts:106:7
+    at file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+runner@4.1.11/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20
+
+ ✓ app/composables/shopping-list-page/sub-composables/__tests__/use-shopping-list-data.test.ts (13 tests) 267ms
+ ✓ app/pages/register/index.test.ts (6 tests) 90ms
+ ✓ app/composables/__tests__/use-auth-backend.test.ts (12 tests) 83ms
+ ✓ app/components/Domain/Recipe/RecipeDialogSearch.test.ts (5 tests) 66ms
+ ✓ app/composables/__tests__/use-mealplan-rules.test.ts (12 tests) 58ms
+stdout | app/composables/recipes/__tests__/use-parse-ingredients-dialog.test.ts > useParseIngredientsDialog > nextIngredient > steps through the ingredients
+Checking if ingredient needs review (input="undefined)": { ingredient: {}, confidence: { average: 0.5 } }
+Needs review due to low confidence: 0.5
+Checking if ingredient needs review (input="undefined)": { ingredient: {} }
+Needs review due to low confidence: undefined
+Checking if ingredient needs review (input="undefined)": {
+  ingredient: { food: { id: '', name: 'fuwud' } },
+  confidence: { average: 0.99 }
+}
+Needs review due to missing food ID: { id: '', name: 'fuwud' }
+Checking if ingredient needs review (input="undefined)": {
+  ingredient: { unit: { id: '', name: 'uwunit' } },
+  confidence: { average: 0.99 }
+}
+Needs review due to missing unit ID: { id: '', name: 'uwunit' }
+showing info
+
+stdout | app/composables/recipes/__tests__/use-parse-ingredients-dialog.test.ts > useParseIngredientsDialog > nextIngredient > skips over ingredients that don't need to be reviewed
+Checking if ingredient needs review (input="undefined)": { ingredient: {}, confidence: { average: 0.5 } }
+Needs review due to low confidence: 0.5
+Checking if ingredient needs review (input="undefined)": { ingredient: {}, confidence: { average: 0.99 } }
+No review needed
+Checking if ingredient needs review (input="undefined)": { ingredient: { referencedRecipe: {} }, confidence: { average: 0.5 } }
+No review needed for sub-recipe ingredient
+Checking if ingredient needs review (input="undefined)": { ingredient: {}, confidence: { average: 0.5 } }
+Needs review due to low confidence: 0.5
+Checking if ingredient needs review (input="undefined)": { ingredient: {}, confidence: { average: 0.5 } }
+Needs review due to low confidence: 0.5
+Checking if ingredient needs review (input="undefined)": { ingredient: {}, confidence: { average: 0.99 } }
+No review needed
+Checking if ingredient needs review (input="undefined)": { ingredient: { referencedRecipe: {} }, confidence: { average: 0.5 } }
+No review needed for sub-recipe ingredient
+Checking if ingredient needs review (input="undefined)": { ingredient: {}, confidence: { average: 0.5 } }
+Needs review due to low confidence: 0.5
+showing info
+
+stdout | app/composables/recipes/__tests__/use-parse-ingredients-dialog.test.ts > useParseIngredientsDialog > nextIngredient > skips over deleted ingredients properly
+Checking if ingredient needs review (input="undefined)": { ingredient: {}, confidence: { average: 0.5 } }
+Needs review due to low confidence: 0.5
+Checking if ingredient needs review (input="undefined)": { ingredient: {}, confidence: { average: 0.5 } }
+Needs review due to low confidence: 0.5
+Checking if ingredient needs review (input="undefined)": { ingredient: {}, confidence: { average: 0.5 } }
+Needs review due to low confidence: 0.5
+showing info
+
+stdout | app/composables/recipes/__tests__/use-parse-ingredients-dialog.test.ts > useParseIngredientsDialog > nextIngredient > pulls from cache when it can
+Checking if ingredient needs review (input="undefined)": { ingredient: {}, confidence: { average: 0.5 } }
+Needs review due to low confidence: 0.5
+Checking if ingredient needs review (input="undefined)": { ingredient: {} }
+Needs review due to low confidence: undefined
+Checking if ingredient needs review (input="undefined)": {
+  ingredient: { food: { id: '', name: 'fuwud' } },
+  confidence: { average: 0.99 }
+}
+Needs review due to missing food ID: { id: '', name: 'fuwud' }
+Checking if ingredient needs review (input="undefined)": {
+  ingredient: { unit: { id: '', name: 'uwunit' } },
+  confidence: { average: 0.99 }
+}
+Needs review due to missing unit ID: { id: '', name: 'uwunit' }
+showing info
+
+stdout | app/composables/recipes/__tests__/use-parse-ingredients-dialog.test.ts > useParseIngredientsDialog > nextStep > walks through the workflow
+showing info
+
+stdout | app/composables/recipes/__tests__/use-parse-ingredients-dialog.test.ts > useParseIngredientsDialog > nextStep > skips the parse page if nothing to confirm
+showing info
+
+stdout | app/composables/recipes/__tests__/use-parse-ingredients-dialog.test.ts > useParseIngredientsDialog > parseIngredients > parses ingredients
+Checking if ingredient needs review (input="undefined)": { ingredient: { title: '' } }
+Needs review due to low confidence: undefined
+showing info
+
+stdout | app/composables/recipes/__tests__/use-parse-ingredients-dialog.test.ts > useParseIngredientsDialog > parseIngredients > only makes one call at a time
+Checking if ingredient needs review (input="undefined)": { ingredient: { title: '' } }
+Needs review due to low confidence: undefined
+showing info
+
+stdout | app/composables/recipes/__tests__/use-parse-ingredients-dialog.test.ts > useParseIngredientsDialog > parseIngredients > doesn't parse from an empty list
+showing info
+
+stdout | app/composables/recipes/__tests__/use-parse-ingredients-dialog.test.ts > useParseIngredientsDialog > parseIngredients > handles errors gracefully
+showing info
+
+stdout | app/composables/recipes/__tests__/use-parse-ingredients-dialog.test.ts > useParseIngredientsDialog > parseIngredients > handles errors gracefully
+showing info
+
+ ✓ app/composables/recipes/__tests__/use-parse-ingredients-dialog.test.ts (41 tests) 61ms
+ ✓ app/components/Domain/Recipe/RecipeDataAliasManagerDialog.test.ts (2 tests) 52ms
+ ✓ app/components/Domain/Group/GroupAIProviderDialog.test.ts (1 test) 53ms
+ ✓ app/components/Domain/Recipe/RecipeIngredients.test.ts (1 test) 47ms
+ ✓ app/composables/recipes/__tests__/use-recipe-time.test.ts (17 tests) 34ms
+ ✓ app/middleware/__tests__/auth.test.ts (2 tests) 41ms
+ ✓ app/components/global/DropZone.test.ts (14 tests) 26ms
+ ✓ app/composables/shopping-list-page/sub-composables/__tests__/use-shopping-list-copy.test.ts (9 tests) 24ms
+ ✓ app/composables/recipes/__tests__/use-recipe-ingredients.test.ts (30 tests) 21ms
+ ✓ app/lib/sanitize/markdown.test.ts (10 tests) 18ms
+ ✓ app/composables/shopping-list-page/sub-composables/use-shopping-list-search.test.ts (14 tests) 14ms
+ ✓ app/composables/use-search.test.ts (11 tests) 13ms
+stdout | app/composables/shopping-list-page/sub-composables/__tests__/use-shopping-list-item-actions.test.ts
+Invalid queue object in local storage; resetting queue.
+
+stdout | app/composables/shopping-list-page/sub-composables/__tests__/use-shopping-list-item-actions.test.ts > useShoppingListItemActions > process processes the queue > clears the queue if there was an error merging
+Error processing queue items of type delete: 💥 Woe, exception be upon ye 💥
+
+stdout | app/composables/shopping-list-page/sub-composables/__tests__/use-shopping-list-item-actions.test.ts > useShoppingListItemActions > process processes the queue > clears the queue if there was an error merging
+Error processing queue items of type update: 💥 Woe, exception be upon ye 💥
+
+stdout | app/composables/shopping-list-page/sub-composables/__tests__/use-shopping-list-item-actions.test.ts > useShoppingListItemActions > process processes the queue > clears the queue if there was an error merging
+Error processing queue items of type create: 💥 Woe, exception be upon ye 💥
+
+ ✓ app/composables/shopping-list-page/sub-composables/__tests__/use-shopping-list-item-actions.test.ts (12 tests) 15ms
+ ✓ app/composables/recipes/__tests__/use-unit-conversion.test.ts (34 tests) 21ms
+ ✓ app/composables/shopping-list-page/__tests__/use-shopping-list-page.test.ts (24 tests) 11ms
+ ✓ app/composables/recipe-page/__tests__/use-extract-ingredient-references.test.ts (22 tests) 11ms
+ ✓ app/composables/__tests__/use-token-cookie.test.ts (19 tests) 9ms
+ ✓ app/composables/shopping-list-page/sub-composables/__tests__/use-shopping-list-crud.test.ts (23 tests) 10ms
+ ✓ app/composables/shopping-list-page/sub-composables/__tests__/use-shopping-list-state.test.ts (6 tests) 7ms
+ ✓ app/composables/recipes/__tests__/use-unit-system.test.ts (6 tests) 6ms
+ ✓ app/composables/shopping-list-page/sub-composables/__tests__/use-shopping-list-sorting.test.ts (14 tests) 8ms
+ ✓ app/composables/shopping-list-page/sub-composables/__tests__/use-shopping-list-labels.test.ts (3 tests) 7ms
+ ✓ app/composables/__tests__/use-passwords.test.ts (2 tests) 5ms
+ ✓ app/composables/recipes/__tests__/use-ingredient-substitutions.test.ts (13 tests) 5ms
+ ✓ app/composables/__tests__/use-utils.test.ts (5 tests) 4ms
+ ✓ app/composables/shopping-list-page/__tests__/use-shopping-list-item-editor.test.ts (10 tests) 4ms
+ ✓ app/composables/partials/__tests__/use-actions-factory.test.ts (5 tests) 4ms
+ ✓ app/composables/recipe-page/use-cook-mode-query.test.ts (7 tests) 4ms
+ ✓ app/composables/shopping-list-page/sub-composables/__tests__/use-shopping-list-recipes.test.ts (8 tests) 4ms
+ ✓ app/composables/__tests__/use-query-filter-builder.test.ts (8 tests) 4ms
+ ✓ app/composables/recipes/__tests__/use-scaled-amount.test.ts (10 tests) 4ms
+ ✓ app/lib/validators/inputs.test.ts (6 tests) 4ms
+ ✓ app/lib/sanitize/text.test.ts (5 tests) 4ms
+ ✓ app/composables/recipes/__tests__/use-recipe-permissions.test.ts (11 tests) 3ms
+ ✓ app/lib/recipe/recipe-visibility.test.ts (10 tests) 3ms
+ ✓ app/components/Domain/Announcement/Announcements/announcements.test.ts (4 tests) 3ms
+ ✓ app/composables/recipes/__tests__/use-recipe-nutrition.test.ts (10 tests) 3ms
+ ✓ app/lib/validators/redirect.test.ts (5 tests) 3ms
+ ✓ app/lib/validators/password.test.ts (5 tests) 3ms
+ ✓ app/lib/api/base/routes.test.ts (4 tests) 3ms
+ ✓ app/composables/__tests__/use-toast.test.ts (3 tests) 3ms
+ ✓ app/lib/recipe/recipe-finder.test.ts (3 tests) 2ms
+
+ Test Files  48 passed (48)
+      Tests  517 passed (517)
+   Start at  15:38:37
+   Duration  937.42s (transform 16.49s, setup 93.80s, import 29.29s, tests 3.56s, environment 673.08s)
+
+JSON report written to <WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/steps/S1/machine/coverage-unit-results.json
+ % Coverage report from v8
+
+=============================== Coverage summary ===============================
+Statements   : 15.1% ( 1959/12968 )
+Branches     : 12.89% ( 1002/7772 )
+Functions    : 7.9% ( 423/5350 )
+Lines        : 15.09% ( 1861/12332 )
+================================================================================

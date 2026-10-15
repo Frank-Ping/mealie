@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 4238,
+    "byte_offset": 12117168,
+    "timestamp": "2026-10-14T09:17:20.628Z",
+    "turn_id": "01a13999-f4f9-78f2-8751-6c0a710636a0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf4898987c8191a535d66cb64e6b02",
+      "status": "completed",
+      "call_id": "call_147ffdac763f42ad87b7674db256ac2e",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nfrom pathlib import Path\\np=Path('wf6-rerun-20261014-01/wf6-evidence/usage');s=(p/'postcommit_s6.py').read_text().replace('from finish_s6 import STAGE','from finish_s6_c2 import STAGE').replace(\\\"expected=['rewrite-evidence/workflows/WF6/S6-RESULT.md']\\\",\\\"expected=['rewrite-evidence/workflows/WF6/S6-C2-RESULT.md']\\\")\\ns=s.replace(\\\"decision='S6 explicit rollback and restored ownership PASS; full frozen regression FAIL (4 scope gaps). S6 repairs 0/2; S5 2/2 retained; application unchanged. Keep S1 partial and diagnostic FAIL. Stop; S7 not executed.'\\\",\\\"decision='S6 limited user-authorized expansion ends FAIL after 2/2 repairs: original four 3 PASS/1 FAIL (comment refresh persistence). Explicit Vue rollback passed, restored protected/login/role controls passed; dependent boundary/full suite not executed. Original FAILs and S1 partial/318 diagnostics retained; stop, no S7.'\\\")\\n(p/'postcommit_s6_c2.py').write_text(s)\\nPY\",\"max_output_tokens\":500}));\ntext(await tools.write_stdin({session_id:9495,chars:\"\",yield_time_ms:1000,max_output_tokens:1000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13999-f4f9-78f2-8751-6c0a710636a0",
+        "create_time": 1791969432.5992286
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 4241,
+    "byte_offset": 12122206,
+    "timestamp": "2026-10-14T09:17:20.779Z",
+    "turn_id": "01a13999-f4f9-78f2-8751-6c0a710636a0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a139b3-b40b-7663-8b91-5d7439b171dc",
+      "call_id": "call_147ffdac763f42ad87b7674db256ac2e",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.1 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"0e21d5\",\"wall_time_seconds\":0.000012697,\"exit_code\":0,\"original_token_count\":0,\"output\":\"\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"af1912\",\"wall_time_seconds\":0.000008659,\"exit_code\":0,\"original_token_count\":200,\"output\":\"{\\\"command_id\\\": \\\"20261014T091600-5850dba2\\\", \\\"stage_id\\\": \\\"S6\\\", \\\"label\\\": \\\"S6-C2-final-failed-gate-source-build-audit\\\", \\\"argv\\\": [\\\"python3\\\", \\\"-B\\\", \\\"wf6-evidence/usage/finish_s6_c2.py\\\"], \\\"cwd\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01\\\", \\\"start_utc\\\": \\\"2026-10-14T09:16:00.395632+00:00\\\", \\\"end_utc\\\": \\\"2026-10-14T09:16:54.252508+00:00\\\", \\\"duration_seconds\\\": 53.85687822299951, \\\"exit_code\\\": 0, \\\"stdout\\\": \\\"steps/S6/logs/20261014T091600-5850dba2.stdout.log\\\", \\\"stderr\\\": \\\"steps/S6/logs/20261014T091600-5850dba2.stderr.log\\\", \\\"environment_overrides\\\": {}, \\\"permission\\\": \\\"workspace-write; network restricted; no escalation\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13999-f4f9-78f2-8751-6c0a710636a0",
+        "create_time": 1791969440.7794757
+      }
+    }
+  }
+}

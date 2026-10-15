@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 4059,
+    "byte_offset": 11650225,
+    "timestamp": "2026-10-14T09:01:50.886Z",
+    "turn_id": "01a13999-f4f9-78f2-8751-6c0a710636a0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf44fabfb08191a67d6b4a0b31bc93",
+      "status": "completed",
+      "call_id": "call_1c7138ef6b734787b25d78cfe28cc47c",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nfrom pathlib import Path\\nimport json\\np=Path('wf6-rerun-20261014-01/wf6-evidence');d=json.loads((p/'steps/S0/file-manifest.json').read_text());print([x['path'] for x in d['source'] if 'WF6' in x['path'] or x['path']=='AGENTS.md']);print('scope', [x for x in map(json.loads,(p/'steps/S6/commands.jsonl').read_text().splitlines()) if x['label']=='S6-C2-commit-scope-amendment'][0]['stdout'])\\nPY\",\"max_output_tokens\":500}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13999-f4f9-78f2-8751-6c0a710636a0",
+        "create_time": 1791968506.7514298
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 4062,
+    "byte_offset": 11653689,
+    "timestamp": "2026-10-14T09:01:51.054Z",
+    "turn_id": "01a13999-f4f9-78f2-8751-6c0a710636a0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a139a5-844e-7db1-ae67-f5fb0822a2dd",
+      "call_id": "call_1c7138ef6b734787b25d78cfe28cc47c",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"ea8a80\",\"wall_time_seconds\":0.000010919,\"exit_code\":0,\"original_token_count\":42,\"output\":\"['AGENTS.md', 'rewrite-evidence/workflows/WF6/S0-summary.md', 'rewrite-evidence/workflows/WF6/WF6-CONTRACT.md']\\nscope steps/S6/logs/20261014T085236-11f2af81.stdout.log\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13999-f4f9-78f2-8751-6c0a710636a0",
+        "create_time": 1791968511.054432
+      }
+    }
+  }
+}

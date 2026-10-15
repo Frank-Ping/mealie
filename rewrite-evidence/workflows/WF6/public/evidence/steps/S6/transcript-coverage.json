@@ -1,0 +1,13 @@
+{
+  "source": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+  "turn_ids": [
+    "01a13964-888e-7540-98b2-3abbc8e32d90",
+    "01a13974-b942-7012-950c-89399b0de489",
+    "01a13999-f4f9-78f2-8751-6c0a710636a0",
+    "01a139bb-53dc-7111-96d4-1398771bbfb1"
+  ],
+  "entry_count": 314,
+  "coverage": "Available original user/visible assistant/tool items only. Analysis, system/developer instructions and environment injection are excluded. Tool source may contain supplied user instructions.",
+  "raw_stream_policy": "Command stdout/stderr remain unchanged in logs; shareable transcript is redacted.",
+  "final_reply_included": true
+}

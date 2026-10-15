@@ -1,0 +1,55 @@
+{
+  "files": [
+    {
+      "path": "<WORKSPACE>/AGENTS.md",
+      "sha256": "335a3aa4648e0c7f1e18ebaf52c86e15d85d16c65880b960b958bd885f9c18dd",
+      "coverage": "Full WF6 instructions; available user-supplied instructions authoritative"
+    },
+    {
+      "path": "<WORKSPACE>/WF6-plan.md",
+      "sha256": "000353245d7282ad27d58f274c56405f292f4e23afce0867fac83e27cc11d9cd",
+      "coverage": "Full plan previously read; S0-S5 grouping is superseded by S0-S7"
+    },
+    {
+      "path": "<WORKSPACE>/WF6-step-prompts-bilingual.md",
+      "sha256": "4f0145629a56116d1611d934e876a63b89286f8adc55de33558b3873d61fc452",
+      "coverage": "Common contract and S6 Chinese prompt; no fabricated START marker"
+    },
+    {
+      "path": "<WORKSPACE>/COMPX574 - Agentic Development.pdf",
+      "sha256": "cc414bf2633fe3bf1b95e01d03c94e96f0a7cdd5eeb226653915ae867238b219",
+      "coverage": "Ghostscript text output Workflows, Evidence log, Report Content; previously read"
+    },
+    {
+      "path": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/AGENTS.md",
+      "sha256": "6c954f4e4df2c78f8d94d224c8549f87bd2e64f2bd320dd3710441d863c30d70",
+      "coverage": "Checkout conventions read; unchanged"
+    },
+    {
+      "path": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator/AGENTS.md",
+      "sha256": "990a5d474d7971b7d35c04a72f369daa982ac6c4bc225f49945773e78e1d98a7",
+      "coverage": "Frozen evaluator checkout conventions read previously"
+    },
+    {
+      "path": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/rewrite-evidence/workflows/WF6/WF6-CONTRACT.md",
+      "sha256": "ef29136f060a25d2f7c2a69bb713ebe3826bed52f59059487814d5974490dbc0",
+      "coverage": "Common rules and approved rerun overlay previously read"
+    },
+    {
+      "path": "<WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/steps/S5/result.md",
+      "sha256": "11864b78985073ed58936404895bea84d1981542dff4f7fdc3d474fe4fcf5c81",
+      "coverage": "Latest gate and actual scope/failures"
+    },
+    {
+      "path": "<WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/steps/S6/S5-settlement.json",
+      "sha256": "ed7fa63f941660c95029a70ca3bc59384d987b2601255142c792b71092e637f7",
+      "coverage": "Verified provider identity/end/final/counter closure"
+    },
+    {
+      "path": "<WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/steps/S6/S5-repairs-retained.json",
+      "sha256": "dd0c808107b1daab83f24ba9030d1658665efe076b2dd87852cc3e488a5ffcbe",
+      "coverage": "Both prior test harness repairs retained; no allowance reset"
+    }
+  ],
+  "other_workflow_implementation_read": false
+}

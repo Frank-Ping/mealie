@@ -1,0 +1,411 @@
+(!) Your Vite config uses features that are unsupported by `configLoader: 'native'`, which is planned to become the default in a future major version of Vite:
+  - ESM syntax in a file loaded as CommonJS (vitest.config.js:1:1). Use a `.mjs` extension or set `"type": "module"` in the closest package.json
+Set `VITE_CONFIG_NATIVE_IGNORE_WARNING=true` to suppress this warning.
+Loaded  vitest@4.1.11  and  @vitest/coverage-v8@4.1.10 .
+Running mixed versions is not supported and may lead into bugs
+Update your dependencies and make sure the versions match.
+stderr | app/plugins/__tests__/axios.test.ts
+[intlify] Legacy API mode has been deprecated in v11. Use Composition API mode instead.
+About how to use the Composition API mode, see https://vue-i18n.intlify.dev/guide/advanced/composition.html
+
+stderr | app/composables/shopping-list-page/sub-composables/__tests__/use-shopping-list-data.test.ts
+[intlify] Legacy API mode has been deprecated in v11. Use Composition API mode instead.
+About how to use the Composition API mode, see https://vue-i18n.intlify.dev/guide/advanced/composition.html
+
+stderr | app/composables/shopping-list-page/sub-composables/__tests__/use-shopping-list-data.test.ts > use-shopping-list-data > refreshes > does not overwrite the list when there's an error
+Error: 💥Woe, exception be upon ye💥
+    at <WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/shopping-list-page/sub-composables/__tests__/use-shopping-list-data.test.ts:90:28
+    at file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+runner@4.1.11/node_modules/@vitest/runner/dist/chunk-artifact.js:302:11
+    at file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+runner@4.1.11/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:26
+    at file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+runner@4.1.11/node_modules/@vitest/runner/dist/chunk-artifact.js:2326:20
+    at new Promise (<anonymous>)
+    at runWithCancel (file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+runner@4.1.11/node_modules/@vitest/runner/dist/chunk-artifact.js:2323:10)
+    at file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+runner@4.1.11/node_modules/@vitest/runner/dist/chunk-artifact.js:2305:20
+    at new Promise (<anonymous>)
+    at runWithTimeout (file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+runner@4.1.11/node_modules/@vitest/runner/dist/chunk-artifact.js:2272:10)
+    at file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+runner@4.1.11/node_modules/@vitest/runner/dist/chunk-artifact.js:2956:64
+
+stderr | app/composables/shopping-list-page/sub-composables/__tests__/use-shopping-list-data.test.ts > use-shopping-list-data > refreshes > logs an error if processing fails
+Error: 💥Woe, exception be upon ye💥
+    at <WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/shopping-list-page/sub-composables/__tests__/use-shopping-list-data.test.ts:97:28
+    at file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+runner@4.1.11/node_modules/@vitest/runner/dist/chunk-artifact.js:302:11
+    at file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+runner@4.1.11/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:26
+    at file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+runner@4.1.11/node_modules/@vitest/runner/dist/chunk-artifact.js:2326:20
+    at new Promise (<anonymous>)
+    at runWithCancel (file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+runner@4.1.11/node_modules/@vitest/runner/dist/chunk-artifact.js:2323:10)
+    at file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+runner@4.1.11/node_modules/@vitest/runner/dist/chunk-artifact.js:2305:20
+    at new Promise (<anonymous>)
+    at runWithTimeout (file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+runner@4.1.11/node_modules/@vitest/runner/dist/chunk-artifact.js:2272:10)
+    at file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+runner@4.1.11/node_modules/@vitest/runner/dist/chunk-artifact.js:2956:64
+
+stderr | app/composables/shopping-list-page/sub-composables/__tests__/use-shopping-list-data.test.ts > use-shopping-list-data > polling > gives up after max attempts 1
+Error: 💥Woe, exception be upon ye💥
+    at <WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/shopping-list-page/sub-composables/__tests__/use-shopping-list-data.test.ts:136:24
+    at file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+runner@4.1.11/node_modules/@vitest/runner/dist/chunk-artifact.js:302:11
+    at file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+runner@4.1.11/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:26
+    at file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+runner@4.1.11/node_modules/@vitest/runner/dist/chunk-artifact.js:2326:20
+    at new Promise (<anonymous>)
+    at runWithCancel (file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+runner@4.1.11/node_modules/@vitest/runner/dist/chunk-artifact.js:2323:10)
+    at file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+runner@4.1.11/node_modules/@vitest/runner/dist/chunk-artifact.js:2305:20
+    at new Promise (<anonymous>)
+    at runWithTimeout (file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+runner@4.1.11/node_modules/@vitest/runner/dist/chunk-artifact.js:2272:10)
+    at file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+runner@4.1.11/node_modules/@vitest/runner/dist/chunk-artifact.js:2956:64
+
+stderr | app/composables/shopping-list-page/sub-composables/__tests__/use-shopping-list-data.test.ts > use-shopping-list-data > polling > gives up after max attempts 1
+Error: 💥Woe, exception be upon ye💥
+    at <WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/shopping-list-page/sub-composables/__tests__/use-shopping-list-data.test.ts:136:24
+    at file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+runner@4.1.11/node_modules/@vitest/runner/dist/chunk-artifact.js:302:11
+    at file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+runner@4.1.11/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:26
+    at file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+runner@4.1.11/node_modules/@vitest/runner/dist/chunk-artifact.js:2326:20
+    at new Promise (<anonymous>)
+    at runWithCancel (file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+runner@4.1.11/node_modules/@vitest/runner/dist/chunk-artifact.js:2323:10)
+    at file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+runner@4.1.11/node_modules/@vitest/runner/dist/chunk-artifact.js:2305:20
+    at new Promise (<anonymous>)
+    at runWithTimeout (file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+runner@4.1.11/node_modules/@vitest/runner/dist/chunk-artifact.js:2272:10)
+    at file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+runner@4.1.11/node_modules/@vitest/runner/dist/chunk-artifact.js:2956:64
+
+stderr | app/composables/shopping-list-page/sub-composables/__tests__/use-shopping-list-data.test.ts > use-shopping-list-data > polling > gives up after max attempts 2
+Error: 💥Woe, exception be upon ye💥
+    at <WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/shopping-list-page/sub-composables/__tests__/use-shopping-list-data.test.ts:143:24
+    at file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+runner@4.1.11/node_modules/@vitest/runner/dist/chunk-artifact.js:302:11
+    at file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+runner@4.1.11/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:26
+    at file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+runner@4.1.11/node_modules/@vitest/runner/dist/chunk-artifact.js:2326:20
+    at new Promise (<anonymous>)
+    at runWithCancel (file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+runner@4.1.11/node_modules/@vitest/runner/dist/chunk-artifact.js:2323:10)
+    at file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+runner@4.1.11/node_modules/@vitest/runner/dist/chunk-artifact.js:2305:20
+    at new Promise (<anonymous>)
+    at runWithTimeout (file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+runner@4.1.11/node_modules/@vitest/runner/dist/chunk-artifact.js:2272:10)
+    at file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+runner@4.1.11/node_modules/@vitest/runner/dist/chunk-artifact.js:2956:64
+
+stderr | app/composables/shopping-list-page/sub-composables/__tests__/use-shopping-list-data.test.ts > use-shopping-list-data > polling > gives up after max attempts 2
+Error: 💥Woe, exception be upon ye💥
+    at <WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/shopping-list-page/sub-composables/__tests__/use-shopping-list-data.test.ts:143:24
+    at file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+runner@4.1.11/node_modules/@vitest/runner/dist/chunk-artifact.js:302:11
+    at file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+runner@4.1.11/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:26
+    at file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+runner@4.1.11/node_modules/@vitest/runner/dist/chunk-artifact.js:2326:20
+    at new Promise (<anonymous>)
+    at runWithCancel (file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+runner@4.1.11/node_modules/@vitest/runner/dist/chunk-artifact.js:2323:10)
+    at file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+runner@4.1.11/node_modules/@vitest/runner/dist/chunk-artifact.js:2305:20
+    at new Promise (<anonymous>)
+    at runWithTimeout (file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+runner@4.1.11/node_modules/@vitest/runner/dist/chunk-artifact.js:2272:10)
+    at file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+runner@4.1.11/node_modules/@vitest/runner/dist/chunk-artifact.js:2956:64
+
+stderr | app/pages/register/index.test.ts
+[intlify] Legacy API mode has been deprecated in v11. Use Composition API mode instead.
+About how to use the Composition API mode, see https://vue-i18n.intlify.dev/guide/advanced/composition.html
+
+stderr | app/composables/__tests__/use-auth-backend.test.ts
+[intlify] Legacy API mode has been deprecated in v11. Use Composition API mode instead.
+About how to use the Composition API mode, see https://vue-i18n.intlify.dev/guide/advanced/composition.html
+
+stderr | app/composables/__tests__/use-auth-backend.test.ts > signOut > clears the session even when the logout call fails
+Logout API call failed: Error: Unauthorized
+    at unauthorized (<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/__tests__/use-auth-backend.test.ts:24:24)
+    at <WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/__tests__/use-auth-backend.test.ts:194:38
+    at file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+runner@4.1.11/node_modules/@vitest/runner/dist/chunk-artifact.js:302:11
+    at file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+runner@4.1.11/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:26
+    at file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+runner@4.1.11/node_modules/@vitest/runner/dist/chunk-artifact.js:2326:20
+    at new Promise (<anonymous>)
+    at runWithCancel (file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+runner@4.1.11/node_modules/@vitest/runner/dist/chunk-artifact.js:2323:10)
+    at file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+runner@4.1.11/node_modules/@vitest/runner/dist/chunk-artifact.js:2305:20
+    at new Promise (<anonymous>)
+    at runWithTimeout (file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+runner@4.1.11/node_modules/@vitest/runner/dist/chunk-artifact.js:2272:10) {
+  response: { status: 401 }
+}
+
+stderr | app/components/Domain/Recipe/RecipeDialogSearch.test.ts
+[intlify] Legacy API mode has been deprecated in v11. Use Composition API mode instead.
+About how to use the Composition API mode, see https://vue-i18n.intlify.dev/guide/advanced/composition.html
+
+stderr | app/composables/__tests__/use-mealplan-rules.test.ts
+[intlify] Legacy API mode has been deprecated in v11. Use Composition API mode instead.
+About how to use the Composition API mode, see https://vue-i18n.intlify.dev/guide/advanced/composition.html
+
+stderr | app/composables/recipes/__tests__/use-parse-ingredients-dialog.test.ts
+[intlify] Legacy API mode has been deprecated in v11. Use Composition API mode instead.
+About how to use the Composition API mode, see https://vue-i18n.intlify.dev/guide/advanced/composition.html
+
+stderr | app/composables/recipes/__tests__/use-parse-ingredients-dialog.test.ts > useParseIngredientsDialog > parseIngredients > handles errors gracefully
+Error parsing ingredients: 💥 Woe, exception be upon ye 💥
+
+stderr | app/composables/recipes/__tests__/use-parse-ingredients-dialog.test.ts > useParseIngredientsDialog > parseIngredients > handles errors gracefully
+Error parsing ingredients: Error: Failed to parse ingredients
+    at parseIngredients (<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/recipes/use-parse-ingredients-dialog.ts:234:15)
+    at processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at <WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/recipes/__tests__/use-parse-ingredients-dialog.test.ts:455:7
+
+stderr | app/components/Domain/Recipe/RecipeDataAliasManagerDialog.test.ts
+[intlify] Legacy API mode has been deprecated in v11. Use Composition API mode instead.
+About how to use the Composition API mode, see https://vue-i18n.intlify.dev/guide/advanced/composition.html
+
+stderr | app/components/Domain/Group/GroupAIProviderDialog.test.ts
+[intlify] Legacy API mode has been deprecated in v11. Use Composition API mode instead.
+About how to use the Composition API mode, see https://vue-i18n.intlify.dev/guide/advanced/composition.html
+
+stderr | app/components/Domain/Group/GroupAIProviderDialog.test.ts > groupAIProviderDialog > a stale fetch for a previously-selected provider does not clobber the form after switching providers
+[Vue warn]: Failed to resolve component: v-card-text
+If this is a native custom element, make sure to exclude it from component resolution via compilerOptions.isCustomElement. 
+  at <GroupAIProviderDialog modelValue=true providerId="provider-a" ref="VTU_COMPONENT" > 
+  at <VTUROOT>
+[Vue warn]: Failed to resolve directive: no-autofill 
+  at <GroupAIProviderDialog modelValue=true providerId="provider-a" ref="VTU_COMPONENT" > 
+  at <VTUROOT>
+
+stderr | app/components/Domain/Group/GroupAIProviderDialog.test.ts > groupAIProviderDialog > a stale fetch for a previously-selected provider does not clobber the form after switching providers
+[Vue warn]: Failed to resolve component: v-card-text
+If this is a native custom element, make sure to exclude it from component resolution via compilerOptions.isCustomElement. 
+  at <GroupAIProviderDialog modelValue=true providerId="provider-b" ref="VTU_COMPONENT" > 
+  at <VTUROOT>
+[Vue warn]: Failed to resolve directive: no-autofill 
+  at <GroupAIProviderDialog modelValue=true providerId="provider-b" ref="VTU_COMPONENT" > 
+  at <VTUROOT>
+
+stderr | app/components/Domain/Group/GroupAIProviderDialog.test.ts > groupAIProviderDialog > a stale fetch for a previously-selected provider does not clobber the form after switching providers
+[Vue warn]: Failed to resolve component: v-card-text
+If this is a native custom element, make sure to exclude it from component resolution via compilerOptions.isCustomElement. 
+  at <GroupAIProviderDialog modelValue=true providerId="provider-b" ref="VTU_COMPONENT" > 
+  at <VTUROOT>
+[Vue warn]: Failed to resolve directive: no-autofill 
+  at <GroupAIProviderDialog modelValue=true providerId="provider-b" ref="VTU_COMPONENT" > 
+  at <VTUROOT>
+
+stderr | app/components/Domain/Recipe/RecipeIngredients.test.ts
+[intlify] Legacy API mode has been deprecated in v11. Use Composition API mode instead.
+About how to use the Composition API mode, see https://vue-i18n.intlify.dev/guide/advanced/composition.html
+
+stderr | app/composables/recipes/__tests__/use-recipe-time.test.ts
+[intlify] Legacy API mode has been deprecated in v11. Use Composition API mode instead.
+About how to use the Composition API mode, see https://vue-i18n.intlify.dev/guide/advanced/composition.html
+
+stderr | app/middleware/__tests__/auth.test.ts
+[intlify] Legacy API mode has been deprecated in v11. Use Composition API mode instead.
+About how to use the Composition API mode, see https://vue-i18n.intlify.dev/guide/advanced/composition.html
+
+stderr | app/components/global/DropZone.test.ts
+[intlify] Legacy API mode has been deprecated in v11. Use Composition API mode instead.
+About how to use the Composition API mode, see https://vue-i18n.intlify.dev/guide/advanced/composition.html
+
+stderr | app/composables/shopping-list-page/sub-composables/__tests__/use-shopping-list-copy.test.ts
+[intlify] Legacy API mode has been deprecated in v11. Use Composition API mode instead.
+About how to use the Composition API mode, see https://vue-i18n.intlify.dev/guide/advanced/composition.html
+
+stderr | app/composables/recipes/__tests__/use-recipe-ingredients.test.ts
+[intlify] Legacy API mode has been deprecated in v11. Use Composition API mode instead.
+About how to use the Composition API mode, see https://vue-i18n.intlify.dev/guide/advanced/composition.html
+
+stderr | app/lib/sanitize/markdown.test.ts
+[intlify] Legacy API mode has been deprecated in v11. Use Composition API mode instead.
+About how to use the Composition API mode, see https://vue-i18n.intlify.dev/guide/advanced/composition.html
+
+stderr | app/composables/shopping-list-page/sub-composables/use-shopping-list-search.test.ts
+[intlify] Legacy API mode has been deprecated in v11. Use Composition API mode instead.
+About how to use the Composition API mode, see https://vue-i18n.intlify.dev/guide/advanced/composition.html
+
+stderr | app/composables/use-search.test.ts
+[intlify] Legacy API mode has been deprecated in v11. Use Composition API mode instead.
+About how to use the Composition API mode, see https://vue-i18n.intlify.dev/guide/advanced/composition.html
+
+stderr | app/composables/shopping-list-page/sub-composables/__tests__/use-shopping-list-item-actions.test.ts
+[intlify] Legacy API mode has been deprecated in v11. Use Composition API mode instead.
+About how to use the Composition API mode, see https://vue-i18n.intlify.dev/guide/advanced/composition.html
+
+stderr | app/composables/recipes/__tests__/use-unit-conversion.test.ts
+[intlify] Legacy API mode has been deprecated in v11. Use Composition API mode instead.
+About how to use the Composition API mode, see https://vue-i18n.intlify.dev/guide/advanced/composition.html
+
+stderr | app/composables/shopping-list-page/__tests__/use-shopping-list-page.test.ts
+[intlify] Legacy API mode has been deprecated in v11. Use Composition API mode instead.
+About how to use the Composition API mode, see https://vue-i18n.intlify.dev/guide/advanced/composition.html
+
+stderr | app/composables/recipe-page/__tests__/use-extract-ingredient-references.test.ts
+[intlify] Legacy API mode has been deprecated in v11. Use Composition API mode instead.
+About how to use the Composition API mode, see https://vue-i18n.intlify.dev/guide/advanced/composition.html
+
+stderr | app/composables/__tests__/use-token-cookie.test.ts
+[intlify] Legacy API mode has been deprecated in v11. Use Composition API mode instead.
+About how to use the Composition API mode, see https://vue-i18n.intlify.dev/guide/advanced/composition.html
+
+stderr | app/composables/shopping-list-page/sub-composables/__tests__/use-shopping-list-crud.test.ts
+[intlify] Legacy API mode has been deprecated in v11. Use Composition API mode instead.
+About how to use the Composition API mode, see https://vue-i18n.intlify.dev/guide/advanced/composition.html
+
+stderr | app/composables/shopping-list-page/sub-composables/__tests__/use-shopping-list-state.test.ts
+[intlify] Legacy API mode has been deprecated in v11. Use Composition API mode instead.
+About how to use the Composition API mode, see https://vue-i18n.intlify.dev/guide/advanced/composition.html
+
+stderr | app/composables/recipes/__tests__/use-unit-system.test.ts
+[intlify] Legacy API mode has been deprecated in v11. Use Composition API mode instead.
+About how to use the Composition API mode, see https://vue-i18n.intlify.dev/guide/advanced/composition.html
+
+stderr | app/composables/shopping-list-page/sub-composables/__tests__/use-shopping-list-sorting.test.ts
+[intlify] Legacy API mode has been deprecated in v11. Use Composition API mode instead.
+About how to use the Composition API mode, see https://vue-i18n.intlify.dev/guide/advanced/composition.html
+
+stderr | app/composables/shopping-list-page/sub-composables/__tests__/use-shopping-list-labels.test.ts
+[intlify] Legacy API mode has been deprecated in v11. Use Composition API mode instead.
+About how to use the Composition API mode, see https://vue-i18n.intlify.dev/guide/advanced/composition.html
+
+stderr | app/composables/__tests__/use-passwords.test.ts
+[intlify] Legacy API mode has been deprecated in v11. Use Composition API mode instead.
+About how to use the Composition API mode, see https://vue-i18n.intlify.dev/guide/advanced/composition.html
+
+stderr | app/composables/recipes/__tests__/use-ingredient-substitutions.test.ts
+[intlify] Legacy API mode has been deprecated in v11. Use Composition API mode instead.
+About how to use the Composition API mode, see https://vue-i18n.intlify.dev/guide/advanced/composition.html
+
+stderr | app/composables/__tests__/use-utils.test.ts
+[intlify] Legacy API mode has been deprecated in v11. Use Composition API mode instead.
+About how to use the Composition API mode, see https://vue-i18n.intlify.dev/guide/advanced/composition.html
+
+stderr | app/composables/shopping-list-page/__tests__/use-shopping-list-item-editor.test.ts
+[intlify] Legacy API mode has been deprecated in v11. Use Composition API mode instead.
+About how to use the Composition API mode, see https://vue-i18n.intlify.dev/guide/advanced/composition.html
+
+stderr | app/composables/partials/__tests__/use-actions-factory.test.ts
+[intlify] Legacy API mode has been deprecated in v11. Use Composition API mode instead.
+About how to use the Composition API mode, see https://vue-i18n.intlify.dev/guide/advanced/composition.html
+
+stderr | app/composables/recipe-page/use-cook-mode-query.test.ts
+[intlify] Legacy API mode has been deprecated in v11. Use Composition API mode instead.
+About how to use the Composition API mode, see https://vue-i18n.intlify.dev/guide/advanced/composition.html
+
+stderr | app/composables/shopping-list-page/sub-composables/__tests__/use-shopping-list-recipes.test.ts
+[intlify] Legacy API mode has been deprecated in v11. Use Composition API mode instead.
+About how to use the Composition API mode, see https://vue-i18n.intlify.dev/guide/advanced/composition.html
+
+stderr | app/composables/__tests__/use-query-filter-builder.test.ts
+[intlify] Legacy API mode has been deprecated in v11. Use Composition API mode instead.
+About how to use the Composition API mode, see https://vue-i18n.intlify.dev/guide/advanced/composition.html
+
+stderr | app/composables/recipes/__tests__/use-scaled-amount.test.ts
+[intlify] Legacy API mode has been deprecated in v11. Use Composition API mode instead.
+About how to use the Composition API mode, see https://vue-i18n.intlify.dev/guide/advanced/composition.html
+
+stderr | app/lib/validators/inputs.test.ts
+[intlify] Legacy API mode has been deprecated in v11. Use Composition API mode instead.
+About how to use the Composition API mode, see https://vue-i18n.intlify.dev/guide/advanced/composition.html
+
+stderr | app/lib/sanitize/text.test.ts
+[intlify] Legacy API mode has been deprecated in v11. Use Composition API mode instead.
+About how to use the Composition API mode, see https://vue-i18n.intlify.dev/guide/advanced/composition.html
+
+stderr | app/composables/recipes/__tests__/use-recipe-permissions.test.ts
+[intlify] Legacy API mode has been deprecated in v11. Use Composition API mode instead.
+About how to use the Composition API mode, see https://vue-i18n.intlify.dev/guide/advanced/composition.html
+
+stderr | app/lib/recipe/recipe-visibility.test.ts
+[intlify] Legacy API mode has been deprecated in v11. Use Composition API mode instead.
+About how to use the Composition API mode, see https://vue-i18n.intlify.dev/guide/advanced/composition.html
+
+stderr | app/components/Domain/Announcement/Announcements/announcements.test.ts
+[intlify] Legacy API mode has been deprecated in v11. Use Composition API mode instead.
+About how to use the Composition API mode, see https://vue-i18n.intlify.dev/guide/advanced/composition.html
+
+stderr | app/composables/recipes/__tests__/use-recipe-nutrition.test.ts
+[intlify] Legacy API mode has been deprecated in v11. Use Composition API mode instead.
+About how to use the Composition API mode, see https://vue-i18n.intlify.dev/guide/advanced/composition.html
+
+stderr | app/lib/validators/redirect.test.ts
+[intlify] Legacy API mode has been deprecated in v11. Use Composition API mode instead.
+About how to use the Composition API mode, see https://vue-i18n.intlify.dev/guide/advanced/composition.html
+
+stderr | app/lib/validators/password.test.ts
+[intlify] Legacy API mode has been deprecated in v11. Use Composition API mode instead.
+About how to use the Composition API mode, see https://vue-i18n.intlify.dev/guide/advanced/composition.html
+
+stderr | app/lib/api/base/routes.test.ts
+[intlify] Legacy API mode has been deprecated in v11. Use Composition API mode instead.
+About how to use the Composition API mode, see https://vue-i18n.intlify.dev/guide/advanced/composition.html
+
+stderr | app/composables/__tests__/use-toast.test.ts
+[intlify] Legacy API mode has been deprecated in v11. Use Composition API mode instead.
+About how to use the Composition API mode, see https://vue-i18n.intlify.dev/guide/advanced/composition.html
+
+stderr | app/lib/recipe/recipe-finder.test.ts
+[intlify] Legacy API mode has been deprecated in v11. Use Composition API mode instead.
+About how to use the Composition API mode, see https://vue-i18n.intlify.dev/guide/advanced/composition.html
+
+Failed to parse file://<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeIngredientEditor.vue. Excluding it from coverage.
+ Error [RolldownError]: Parse failed with 1 error:
+Unexpected JSX expression
+1: <template>
+   ^
+2:   <div>
+3:     <v-text-field
+    at error (file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/rolldown@1.2.11/node_modules/rolldown/dist/shared/logs-D6uA606S.mjs:166:24)
+    at normalizeParseError (file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/rolldown@1.2.11/node_modules/rolldown/dist/parse-ast-index.mjs:25:9)
+    at wrap (file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/rolldown@1.2.11/node_modules/rolldown/dist/parse-ast-index.mjs:5:39)
+    at parseAstAsync (file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/rolldown@1.2.11/node_modules/rolldown/dist/parse-ast-index.mjs:54:9)
+    at V8CoverageProvider.remapCoverage (file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+coverage-v8@4.1.10_vitest@4.1.11/node_modules/@vitest/coverage-v8/dist/provider.js:133:10)
+    at file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+coverage-v8@4.1.10_vitest@4.1.11/node_modules/@vitest/coverage-v8/dist/provider.js:119:23
+    at async Promise.all (index 8)
+    at V8CoverageProvider.getCoverageMapForUncoveredFiles (file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+coverage-v8@4.1.10_vitest@4.1.11/node_modules/@vitest/coverage-v8/dist/provider.js:109:4)
+    at V8CoverageProvider.generateCoverage (file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+coverage-v8@4.1.10_vitest@4.1.11/node_modules/@vitest/coverage-v8/dist/provider.js:56:29)
+    at file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/vitest@4.1.11_@types+node@25.9.8_@vitest+coverage-v8@4.1.10_@vitest+ui@4.1.10_jsdom@30._9d9ecb6935fcc84f8b0fec69cda3399e/node_modules/vitest/dist/chunks/cli-api.CnMVyzaz.js:13671:23 {
+  code: 'PARSE_ERROR',
+  id: undefined,
+  pos: 0
+}
+Failed to parse file://<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeSettingsSwitches.vue. Excluding it from coverage.
+ Error [RolldownError]: Parse failed with 1 error:
+Unexpected JSX expression
+1: <template>
+   ^
+2:   <div>
+3:     <v-switch
+    at error (file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/rolldown@1.2.11/node_modules/rolldown/dist/shared/logs-D6uA606S.mjs:166:24)
+    at normalizeParseError (file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/rolldown@1.2.11/node_modules/rolldown/dist/parse-ast-index.mjs:25:9)
+    at wrap (file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/rolldown@1.2.11/node_modules/rolldown/dist/parse-ast-index.mjs:5:39)
+    at parseAstAsync (file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/rolldown@1.2.11/node_modules/rolldown/dist/parse-ast-index.mjs:54:9)
+    at V8CoverageProvider.remapCoverage (file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+coverage-v8@4.1.10_vitest@4.1.11/node_modules/@vitest/coverage-v8/dist/provider.js:133:10)
+    at file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+coverage-v8@4.1.10_vitest@4.1.11/node_modules/@vitest/coverage-v8/dist/provider.js:119:23
+    at async Promise.all (index 9)
+    at V8CoverageProvider.getCoverageMapForUncoveredFiles (file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+coverage-v8@4.1.10_vitest@4.1.11/node_modules/@vitest/coverage-v8/dist/provider.js:109:4)
+    at V8CoverageProvider.generateCoverage (file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+coverage-v8@4.1.10_vitest@4.1.11/node_modules/@vitest/coverage-v8/dist/provider.js:56:29)
+    at file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/vitest@4.1.11_@types+node@25.9.8_@vitest+coverage-v8@4.1.10_@vitest+ui@4.1.10_jsdom@30._9d9ecb6935fcc84f8b0fec69cda3399e/node_modules/vitest/dist/chunks/cli-api.CnMVyzaz.js:13671:23 {
+  code: 'PARSE_ERROR',
+  id: undefined,
+  pos: 0
+}
+Failed to parse file://<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipeTimelineContextMenu.vue. Excluding it from coverage.
+ Error [RolldownError]: Parse failed with 1 error:
+Unexpected JSX expression
+1: <template>
+   ^
+2:   <div class="text-center">
+3:     <BaseDialog
+    at error (file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/rolldown@1.2.11/node_modules/rolldown/dist/shared/logs-D6uA606S.mjs:166:24)
+    at normalizeParseError (file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/rolldown@1.2.11/node_modules/rolldown/dist/parse-ast-index.mjs:25:9)
+    at wrap (file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/rolldown@1.2.11/node_modules/rolldown/dist/parse-ast-index.mjs:5:39)
+    at parseAstAsync (file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/rolldown@1.2.11/node_modules/rolldown/dist/parse-ast-index.mjs:54:9)
+    at V8CoverageProvider.remapCoverage (file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+coverage-v8@4.1.10_vitest@4.1.11/node_modules/@vitest/coverage-v8/dist/provider.js:133:10)
+    at file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+coverage-v8@4.1.10_vitest@4.1.11/node_modules/@vitest/coverage-v8/dist/provider.js:119:23
+    at async Promise.all (index 15)
+    at V8CoverageProvider.getCoverageMapForUncoveredFiles (file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+coverage-v8@4.1.10_vitest@4.1.11/node_modules/@vitest/coverage-v8/dist/provider.js:109:4)
+    at V8CoverageProvider.generateCoverage (file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+coverage-v8@4.1.10_vitest@4.1.11/node_modules/@vitest/coverage-v8/dist/provider.js:56:29)
+    at file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/vitest@4.1.11_@types+node@25.9.8_@vitest+coverage-v8@4.1.10_@vitest+ui@4.1.10_jsdom@30._9d9ecb6935fcc84f8b0fec69cda3399e/node_modules/vitest/dist/chunks/cli-api.CnMVyzaz.js:13671:23 {
+  code: 'PARSE_ERROR',
+  id: undefined,
+  pos: 0
+}
+Failed to parse file://<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Layout/LayoutParts/TheSnackbar.vue. Excluding it from coverage.
+ Error [RolldownError]: Parse failed with 1 error:
+Unexpected JSX expression
+1: <template>
+   ^
+2:   <div class="text-center">
+3:     <v-snackbar
+    at error (file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/rolldown@1.2.11/node_modules/rolldown/dist/shared/logs-D6uA606S.mjs:166:24)
+    at normalizeParseError (file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/rolldown@1.2.11/node_modules/rolldown/dist/parse-ast-index.mjs:25:9)
+    at wrap (file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/rolldown@1.2.11/node_modules/rolldown/dist/parse-ast-index.mjs:5:39)
+    at parseAstAsync (file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/rolldown@1.2.11/node_modules/rolldown/dist/parse-ast-index.mjs:54:9)
+    at V8CoverageProvider.remapCoverage (file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+coverage-v8@4.1.10_vitest@4.1.11/node_modules/@vitest/coverage-v8/dist/provider.js:133:10)
+    at file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+coverage-v8@4.1.10_vitest@4.1.11/node_modules/@vitest/coverage-v8/dist/provider.js:119:23
+    at async Promise.all (index 2)
+    at V8CoverageProvider.getCoverageMapForUncoveredFiles (file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+coverage-v8@4.1.10_vitest@4.1.11/node_modules/@vitest/coverage-v8/dist/provider.js:109:4)
+    at V8CoverageProvider.generateCoverage (file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@vitest+coverage-v8@4.1.10_vitest@4.1.11/node_modules/@vitest/coverage-v8/dist/provider.js:56:29)
+    at file:///mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic%20development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/vitest@4.1.11_@types+node@25.9.8_@vitest+coverage-v8@4.1.10_@vitest+ui@4.1.10_jsdom@30._9d9ecb6935fcc84f8b0fec69cda3399e/node_modules/vitest/dist/chunks/cli-api.CnMVyzaz.js:13671:23 {
+  code: 'PARSE_ERROR',
+  id: undefined,
+  pos: 0
+}

@@ -1,0 +1,26 @@
+{
+  "command_id": "20261014T063359-9d0400c8",
+  "stage_id": "S4",
+  "label": "S4-stage-only-recipe-pilot-and-summary",
+  "argv": [
+    "git",
+    "-C",
+    "mealie-wf6-coexist",
+    "add",
+    "--",
+    "frontend-react-wf6",
+    "rewrite-evidence/workflows/WF6/S4-RESULT.md"
+  ],
+  "cwd": "<WORKSPACE>/wf6-rerun-20261014-01",
+  "start_utc": "2026-10-14T06:33:59.289575+00:00",
+  "end_utc": "2026-10-14T06:33:59.494025+00:00",
+  "duration_seconds": 0.20445629299865686,
+  "exit_code": 0,
+  "stdout": "steps/S4/logs/20261014T063359-9d0400c8.stdout.log",
+  "stderr": "steps/S4/logs/20261014T063359-9d0400c8.stderr.log",
+  "environment_overrides": {},
+  "permission": "workspace-write; network restricted; no escalation",
+  "environment_capture": "Only explicit non-secret overrides; inherited secrets are not exported.",
+  "launch_error": null,
+  "stdin_path": null
+}

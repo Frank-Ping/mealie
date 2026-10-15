@@ -1,0 +1,63 @@
+{
+  "states": [
+    {
+      "phase": "rollback",
+      "frontend": "vue",
+      "active_pages": true,
+      "build_status": "PASS",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "types": "S1 318 FAIL retained; whole checker not rerun S6",
+      "lint": "S6 boundary middleware targeted PASS; whole Vue lint not rerun",
+      "units": "S1 517/517 retained; not new S6 unit measurement",
+      "coverage": null
+    },
+    {
+      "phase": "rollback",
+      "frontend": "react",
+      "active_pages": false,
+      "build_status": "PASS",
+      "build": "2b409d4deadf1bc17acc5a4a6634e638feca52550caec23a7d6f23f6dd1493f8",
+      "types": "S6 strict PASS",
+      "lint": "S6 full React PASS",
+      "units": "S6 business 8/8",
+      "coverage": null
+    },
+    {
+      "phase": "restored",
+      "frontend": "vue",
+      "active_pages": true,
+      "build_status": "PASS",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "types": "S1 318 FAIL retained; whole checker not rerun S6",
+      "lint": "S6 boundary middleware targeted PASS; whole Vue lint not rerun",
+      "units": "S1 517/517 retained; not new S6 unit measurement",
+      "coverage": null
+    },
+    {
+      "phase": "restored",
+      "frontend": "react",
+      "active_pages": true,
+      "build_status": "PASS",
+      "build": "2b409d4deadf1bc17acc5a4a6634e638feca52550caec23a7d6f23f6dd1493f8",
+      "types": "S6 strict PASS",
+      "lint": "S6 full React PASS",
+      "units": "S6 business 8/8",
+      "coverage": null
+    }
+  ],
+  "route_policy": "S6 34/34",
+  "Vue_baseline_lint": {
+    "files": 521,
+    "errors": 0,
+    "warnings": 0
+  },
+  "Vue_baseline_unit": {
+    "total": 517,
+    "passed": 517,
+    "failed": 0,
+    "skipped": 0,
+    "files": 48,
+    "distinct_measurements": "Coverage reruns the same unit tests; do not count twice."
+  },
+  "warning": "Historical baseline values are clearly dated; no new whole-Vue static success claimed."
+}

@@ -1,0 +1,23 @@
+{
+  "command_id": "20261014T045157-91353296",
+  "stage_id": "S3",
+  "label": "S3-bilingual-measured-result-and-gate",
+  "argv": [
+    "python3",
+    "-B",
+    "wf6-evidence/usage/finish_s3.py",
+    "report"
+  ],
+  "cwd": "<WORKSPACE>/wf6-rerun-20261014-01",
+  "start_utc": "2026-10-14T04:51:57.065143+00:00",
+  "end_utc": "2026-10-14T04:51:57.171658+00:00",
+  "duration_seconds": 0.10651673300162656,
+  "exit_code": 0,
+  "stdout": "steps/S3/logs/20261014T045157-91353296.stdout.log",
+  "stderr": "steps/S3/logs/20261014T045157-91353296.stderr.log",
+  "environment_overrides": {},
+  "permission": "workspace-write; network restricted; no escalation",
+  "environment_capture": "Only explicit non-secret overrides; inherited secrets are not exported.",
+  "launch_error": null,
+  "stdin_path": null
+}

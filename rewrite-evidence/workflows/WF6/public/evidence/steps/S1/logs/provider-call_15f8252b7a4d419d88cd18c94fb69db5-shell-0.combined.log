@@ -1,0 +1,14 @@
+{'success': True, 'numTotalTestSuites': 173, 'numPassedTestSuites': 173, 'numFailedTestSuites': 0, 'numTotalTests': 517, 'numPassedTests': 517, 'numFailedTests': 0, 'numPendingTests': 0, 'startTime': 1791944556586}
+s
+ ✓ app/composables/__tests__/use-passwords.test.ts (2 tests) 4ms
+ ✓ app/lib/api/base/routes.test.ts (4 tests) 2ms
+ ✓ app/lib/recipe/recipe-finder.test.ts (3 tests) 2ms
+ ✓ app/composables/recipes/__tests__/use-recipe-nutrition.test.ts (10 tests) 2ms
+
+ Test Files  48 passed (48)
+      Tests  517 passed (517)
+   Start at  15:22:36
+   Duration  927.51s (transform 18.25s, setup 92.91s, import 30.66s, tests 3.48s, environment 690.73s)
+
+JSON report written to <WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/steps/S1/machine/unit-results.json
+

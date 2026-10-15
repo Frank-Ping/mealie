@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 226,
+    "byte_offset": 1380418,
+    "timestamp": "2026-10-14T01:20:04.559Z",
+    "turn_id": "01a137f3-c2d3-7db0-9623-6d33961b39eb",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016aced8c1d42481919cc28fa020870c8f",
+      "status": "completed",
+      "call_id": "call_518e3ee2bbca4251b92ce8823c5b470d",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 -B wf6-rerun-20261014-01/wf6-evidence/usage/record_command.py --cwd '<WORKSPACE>/wf6-rerun-20261014-01' --label s0-commit-source-snapshot-and-evidence-audit -- python3 -B wf6-evidence/usage/finish_s0.py --commit\",yield_time_ms:1000,max_output_tokens:1000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a137f3-c2d3-7db0-9623-6d33961b39eb",
+        "create_time": 1791940801.8311675
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 228,
+    "byte_offset": 1382080,
+    "timestamp": "2026-10-14T01:20:05.734Z",
+    "turn_id": "01a137f3-c2d3-7db0-9623-6d33961b39eb",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a137fe-c466-72f1-b8b4-9754fadf2442",
+      "call_id": "call_518e3ee2bbca4251b92ce8823c5b470d",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 1.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"01c4c6\",\"wall_time_seconds\":1.000738718,\"session_id\":78948,\"original_token_count\":0,\"output\":\"\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a137f3-c2d3-7db0-9623-6d33961b39eb",
+        "create_time": 1791940805.7341058
+      }
+    }
+  }
+}

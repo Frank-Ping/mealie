@@ -1,0 +1,15 @@
+{
+  "S1": {
+    "status": "partial",
+    "input_tokens": null,
+    "cached_input_tokens": null,
+    "cache_write_input_tokens": null,
+    "output_tokens": null,
+    "reasoning_output_tokens": null,
+    "total_tokens": null,
+    "final_reply_included": true,
+    "coverage_notes": [
+      "Earlier interrupted segment has no final END/completion; provider completeness is not certified. Known attributed usage retained, missing amount unknown."
+    ]
+  }
+}

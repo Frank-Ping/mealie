@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "folder": "<WORKSPACE>/wf6-rerun-20261014-01/runtime/S1/typechecker",
+  "typescript": "5.9.3",
+  "vue_tsc": "3.1.5",
+  "application_manifests_unchanged": true,
+  "preparation_command_id": "20261014T030041-eca7ef22",
+  "compatibility": "Frozen Nuxt declares vue-tsc ~2.2.10 || ^3.0.0. Supplemental vue-tsc 3.1.5 satisfies that peer; TypeScript matches frozen resolved 5.9.3.",
+  "note": "Diagnostic tooling outside the application lock; observed versions are recorded, not claimed as frozen application dependencies."
+}

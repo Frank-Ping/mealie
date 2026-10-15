@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 4700,
+    "byte_offset": 13833362,
+    "timestamp": "2026-10-14T10:01:32.985Z",
+    "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf52fbb7d88191a7051ad644dc0faa",
+      "status": "completed",
+      "call_id": "call_a84824aa7bd9458e88bb4e44e3aa42ba",
+      "name": "exec",
+      "input": "text(await tools.write_stdin({session_id:88851,chars:\"\",yield_time_ms:1000,max_output_tokens:1000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+        "create_time": 1791972091.7208889
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 4702,
+    "byte_offset": 13834775,
+    "timestamp": "2026-10-14T10:01:33.050Z",
+    "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a139dc-2c7a-7113-a3e8-7008b16c5cec",
+      "call_id": "call_a84824aa7bd9458e88bb4e44e3aa42ba",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.0 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"a4ff3e\",\"wall_time_seconds\":0.000009032,\"exit_code\":0,\"original_token_count\":705,\"output\":\"{\\\"report_links_checked\\\": 301, \\\"source_state\\\": {\\\"timestamp\\\": \\\"2026-10-14T10:00:21.045527+00:00\\\", \\\"scope\\\": \\\"S7 documentation audit only; actual accepted application/build remains S6 C3; no new service started.\\\", \\\"served_build\\\": {\\\"build_hash\\\": \\\"d5c6a8cc2db26452bcfb5d563b8a6a105303cffbf0c234a2ff846350c03d8d6c\\\", \\\"served_index_sha256\\\": \\\"24c481431c443092ef2ced6a3ae757218c72cf4224f200d6ba4d6e794d9f808b\\\", \\\"actual_static_dir\\\": \\\"/tmp/wf6-rerun-20261014-01-S6-C3/vue\\\", \\\"vue_boundary_source_hash\\\": \\\"46796953770e6ac0a549e9d38497ff1172e421cb863e2428b6075b28be1ae4a5\\\", \\\"react_source_hash\\\": \\\"a047cb4c06306e76a3cb7977f138844dfafd9644817fe100f7033f55780ee95e\\\", \\\"react_build_hash\\\": \\\"dc187e2077b85fabe9738cc4b275ec6e19ba28d668c7c2393db095c7425d4b49\\\", \\\"route_policy_sha256\\\": \\\"64c4555b6159822cba4ee2603b117811e0d65cf6dfdf001ef72ec18e70df23e2\\\", \\\"gateway_sha256\\\": \\\"b2e452f7d0a2993629eb5ee20c0b6b697758da9378b340cbe500aebac74881e7\\\", \\\"route_map_sha256\\\": \\\"c128c6e90489a5046ef3a63d48bb0c2e0f865ae52e057235fc43313741322369\\\", \\\"evaluator_sha\\\": \\\"758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d\\\"}, \\\"source\\\": {\\\"head\\\": \\\"565351c0f9daa1b5757baa6d30fb482db177a8da\\\", \\\"status\\\": \\\"\\\", \\\"untracked\\\": [], \\\"remotes\\\": \\\"\\\"}, \\\"evaluator\\\": {\\\"head\\\": \\\"758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d\\\", \\\"status\\\": \\\"\\\", \\\"untracked\\\": [], \\\"remotes\\\": \\\"\\\"}}}\\n{\\\"S7_status\\\": \\\"provisional\\\", \\\"S7_usage\\\": {\\\"input_tokens\\\": 2476858, \\\"cached_input_tokens\\\": 2383744, \\\"cache_write_input_tokens\\\": 0, \\\"output_tokens\\\": 18603, \\\"reasoning_output_tokens\\\": 2290, \\\"total_tokens\\\": 2495461}, \\\"final_reply_included\\\": false, \\\"categories\\\": {\\\"S0_setup\\\": {\\\"stage_ids\\\": [\\\"S0\\\"], \\\"status\\\": \\\"exact_reported\\\", \\\"known_usage\\\": {\\\"input_tokens\\\": 3083201, \\\"cached_input_tokens\\\": 3014528, \\\"cache_write_input_tokens\\\": 0, \\\"output_tokens\\\": 37993, \\\"reasoning_output_tokens\\\": 8014, \\\"total_tokens\\\": 3121194}, \\\"missing_coverage\\\": [], \\\"cost\\\": null}, \\\"S1_baseline\\\": {\\\"stage_ids\\\": [\\\"S1\\\"], \\\"status\\\": \\\"partial\\\", \\\"known_usage\\\": {\\\"input_tokens\\\": 30194364, \\\"cached_input_tokens\\\": 29885568, \\\"cache_write_input_tokens\\\": 0, \\\"output_tokens\\\": 114262, \\\"reasoning_output_tokens\\\": 61765, \\\"total_tokens\\\": 30308626}, \\\"missing_coverage\\\": [\\\"S1\\\"], \\\"cost\\\": null}, \\\"S2_S6_experiment\\\": {\\\"stage_ids\\\": [\\\"S2\\\", \\\"S3\\\", \\\"S4\\\", \\\"S5\\\", \\\"S6\\\"], \\\"status\\\": \\\"exact_reported\\\", \\\"known_usage\\\": {\\\"input_tokens\\\": 63534882, \\\"cached_input_tokens\\\": 62837760, \\\"cache_write_input_tokens\\\": 0, \\\"output_tokens\\\": 262930, \\\"reasoning_output_tokens\\\": 95238, \\\"total_tokens\\\": 63797812}, \\\"missing_coverage\\\": [], \\\"cost\\\": null}, \\\"S7_reporting\\\": {\\\"stage_ids\\\": [\\\"S7\\\"], \\\"status\\\": \\\"provisional\\\", \\\"known_usage\\\": {\\\"input_tokens\\\": 2476858, \\\"cached_input_tokens\\\": 2383744, \\\"cache_write_input_tokens\\\": 0, \\\"output_tokens\\\": 18603, \\\"reasoning_output_tokens\\\": 2290, \\\"total_tokens\\\": 2495461}, \\\"missing_coverage\\\": [], \\\"cost\\\": null}}, \\\"manifest_files\\\": 4209, \\\"mismatches\\\": [], \\\"links\\\": 301, \\\"index_missing\\\": []}\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+        "create_time": 1791972093.0507236
+      }
+    }
+  }
+}

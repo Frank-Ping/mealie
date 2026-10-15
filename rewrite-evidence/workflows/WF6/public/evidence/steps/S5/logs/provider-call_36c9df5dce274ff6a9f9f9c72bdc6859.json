@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3297,
+    "byte_offset": 9558354,
+    "timestamp": "2026-10-14T07:39:43.679Z",
+    "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf31ba3be48191b3abd3e15160fa17",
+      "status": "completed",
+      "call_id": "call_36c9df5dce274ff6a9f9f9c72bdc6859",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"tail -60 wf6-rerun-20261014-01/wf6-evidence/steps/S5/logs/20261014T073842-d7eb55e2.stdout.log\\npython3 -B - <<'PY'\\nfrom pathlib import Path\\nimport zipfile,json\\np=Path('wf6-rerun-20261014-01/wf6-evidence/steps/S5/browser-r1/probe-control');z=next(p.rglob('trace.zip'))\\nwith zipfile.ZipFile(z) as f:\\n for name in f.namelist():\\n  if name.endswith('.network'):\\n   for line in f.read(name).splitlines():\\n    d=json.loads(line);s=d.get('snapshot',{});q=s.get('request',{});r=s.get('response',{});url=q.get('url','')\\n    if '/api/users/self' in url:print(json.dumps(dict(url=url,status=r.get('status'))))\\nPY\",\"max_output_tokens\":1400}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+        "create_time": 1791963578.2453964
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3300,
+    "byte_offset": 9565941,
+    "timestamp": "2026-10-14T07:39:43.848Z",
+    "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a1395a-5568-7021-b011-c460ac675e23",
+      "call_id": "call_36c9df5dce274ff6a9f9f9c72bdc6859",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"546abf\",\"wall_time_seconds\":0.000021196,\"exit_code\":0,\"original_token_count\":912,\"output\":\"\\nRunning 1 test using 1 worker\\n\\n  ✘  1 ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S5-R1/tests/s5-detection-probe.cjs:2:1 › target real recipe detail business acceptance (5.5s)\\n\\n\\n  1) ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S5-R1/tests/s5-detection-probe.cjs:2:1 › target real recipe detail business acceptance \\n\\n    Error: expect(locator).toBeVisible() failed\\n\\n    Locator: getByRole('heading', { name: 'E2E Pancakes', exact: true })\\n    Expected: visible\\n    Timeout: 5000ms\\n    Error: element(s) not found\\n\\n    Call log:\\n      - Expect \\\"toBeVisible\\\" getByRole('heading', { name: 'E2E Pancakes', exact: true }) with timeout 5000ms\\n      - waiting for getByRole('heading', { name: 'E2E Pancakes', exact: true })\\n\\n\\n      4 |  const auth=JSON.parse(fs.readFileSync(path.join(process.env.WF6_AUTH_DIR,'admin.json')));await page.context().addCookies(auth.cookies);\\n      5 |  // Frozen auth is localhost scoped, so this probe deliberately uses that exact origin.\\n    > 6 |  const response=await page.goto(`http://localhost:9106/g/${f.groupSlug}/r/${f.recipeSlug}`);expect(response.headers()['x-wf6-frontend']).toBe('react');await expect(page.getByRole('heading',{name:'E2E Pancakes',exact:true})).toBeVisible({timeout:5000});await expect(page.getByText('2 cups e2e flour',{exact:true})).toBeVisible();\\n        |                                                                                                                                                                                                                                 ^\\n      7 | });\\n      8 |\\n        at /tmp/wf6-rerun-20261014-01-S5-R1/tests/s5-detection-probe.cjs:6:225\\n\\n    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────\\n    ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S5-R1/browser/probe-control/s5-detection-probe.cjs-tar-c4bb3--detail-business-acceptance/test-failed-1.png\\n    ────────────────────────────────────────────────────────────────────────────────────────────────\\n\\n    Error Context: ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S5-R1/browser/probe-control/s5-detection-probe.cjs-tar-c4bb3--detail-business-acceptance/error-context.md\\n\\n    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────\\n    ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S5-R1/browser/probe-control/s5-detection-probe.cjs-tar-c4bb3--detail-business-acceptance/trace.zip\\n    Usage:\\n\\n        npx playwright show-trace ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S5-R1/browser/probe-control/s5-detection-probe.cjs-tar-c4bb3--detail-business-acceptance/trace.zip\\n\\n    ────────────────────────────────────────────────────────────────────────────────────────────────\\n\\n  1 failed\\n    ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S5-R1/tests/s5-detection-probe.cjs:2:1 › target real recipe detail business acceptance \\n{\\\"url\\\": \\\"http://localhost:9106/api/users/self\\\", \\\"status\\\": 401}\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+        "create_time": 1791963583.848501
+      }
+    }
+  }
+}

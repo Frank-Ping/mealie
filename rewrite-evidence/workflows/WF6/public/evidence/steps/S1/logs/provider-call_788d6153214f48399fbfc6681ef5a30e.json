@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1561,
+    "byte_offset": 5015409,
+    "timestamp": "2026-10-14T03:31:33.819Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acef7944ec08191bcc329abd8369e88",
+      "status": "completed",
+      "call_id": "call_788d6153214f48399fbfc6681ef5a30e",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"tail -2 wf6-rerun-20261014-01/wf6-evidence/steps/S1/logs/20261014T030622-9490b72b.stdout.log\",\"max_output_tokens\":400}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791948692.3192132
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1564,
+    "byte_offset": 5017975,
+    "timestamp": "2026-10-14T03:31:33.949Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13877-21bd-7020-b339-6375e7269245",
+      "call_id": "call_788d6153214f48399fbfc6681ef5a30e",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.1 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"d71f59\",\"wall_time_seconds\":0.000011651,\"exit_code\":0,\"original_token_count\":62,\"output\":\"  ✘  69 [flows] › tests/flows/auth.spec.ts:8:7 › auth › [flow] log in with valid credentials and land on the recipe list (46.4s)\\n  ✓  70 [flows] › tests/flows/auth.spec.ts:16:7 › auth › [flow] a wrong password is rejected (35.0s)\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791948693.9493382
+      }
+    }
+  }
+}

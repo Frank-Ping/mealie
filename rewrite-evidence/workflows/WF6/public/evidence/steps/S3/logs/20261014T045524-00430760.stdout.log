@@ -1,0 +1,13 @@
+{
+  "S3": {
+    "status": "provisional",
+    "input_tokens": 7647596,
+    "cached_input_tokens": 7579904,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 38798,
+    "reasoning_output_tokens": 17362,
+    "total_tokens": 7686394,
+    "final_reply_included": false,
+    "coverage_notes": []
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1366,
+    "byte_offset": 4683365,
+    "timestamp": "2026-10-14T03:15:41.550Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acef3c263d48191a0fdbd8522cd5879",
+      "status": "completed",
+      "call_id": "call_0767a9a846e343d4ae1c8cd019f05f05",
+      "name": "exec",
+      "input": "text(await tools.apply_patch(\"*** Begin Patch\\n*** Update File: <WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/usage/browser_s1.py\\n@@\\n import signal\\n import socket\\n+import shutil\\n@@\\n-def main(approved=False):\\n+def main(approved=False,native=False):\\n@@\\n     with socket.socket() as check:check.bind((\\\"127.0.0.1\\\",9006))\\n@@\\n     env=environment();env[\\\"E2E_REUSE_SERVER\\\"]=\\\"1\\\"\\n     assert env[\\\"E2E_DATA_DIR\\\"]==str(data)\\n+    browser_evidence=STAGE/'browser'\\n+    native_root=None\\n+    if native:\\n+        identity=json.loads((STAGE/'native-runtime.json').read_text())\\n+        native_root=Path(identity['native_root'])\\n+        assert native_root==Path('/tmp/wf6-rerun-20261014-01-S1-native') and not native_root.is_symlink()\\n+        assert json.loads((native_root/'identity.json').read_text())==identity\\n+        assert not (native_root/'disposable-data').exists(), 'Refuse to reset populated native data.'\\n+        for item in build['files']:\\n+            assert hashlib.sha256((native_root/'static'/item['path']).read_bytes()).hexdigest()==item['sha256']\\n+        auth=EVALUATOR/'frontend-e2e/.auth'\\n+        assert auth.is_symlink() and auth.resolve()==(RUNTIME/'auth').resolve()\\n+        assert not any((native_root/'auth').iterdir())\\n+        auth.unlink();auth.symlink_to(native_root/'auth',target_is_directory=True)\\n+        data=native_root/'disposable-data'\\n+        env.update(E2E_DATA_DIR=str(data),E2E_STATIC_DIR=str(native_root/'static'),TMPDIR=str(native_root/'tmp'),\\n+            PLAYWRIGHT_JSON_OUTPUT_NAME=str(native_root/'browser/results.json'),PLAYWRIGHT_HTML_OUTPUT_DIR=str(native_root/'browser/playwright-report'))\\n+        browser_evidence=STAGE/'browser-native'\\n+        assert not browser_evidence.exists(), 'Preserve every prior browser attempt.'\\n+        browser_evidence.mkdir()\\n+    output_dir=(native_root/'browser/test-results') if native else (STAGE/'browser/test-results')\\n@@\\n-            (STAGE/\\\"browser/served-build.json\\\").write_text(json.dumps(dict(checked_utc=dt.datetime.now(dt.timezone.utc).isoformat(),\\n+            (browser_evidence/\\\"served-build.json\\\").write_text(json.dumps(dict(checked_utc=dt.datetime.now(dt.timezone.utc).isoformat(),\\n@@\\n-                source_frontend_path=build[\\\"real_path\\\"],backend_checkout=str(EVALUATOR),\\n+                source_frontend_path=build[\\\"real_path\\\"],actual_static_path=env['E2E_STATIC_DIR'],backend_checkout=str(EVALUATOR),\\n@@\\n-            result=run([\\\"pnpm\\\",\\\"exec\\\",\\\"playwright\\\",\\\"test\\\",\\\"--workers=1\\\",\\\"--reporter=list,json,html\\\",\\\"--output=\\\"+str(STAGE/\\\"browser/test-results\\\")],\\n-                EVALUATOR/\\\"frontend-e2e\\\",\\\"S1-frozen-all-routes-flows-guard-strict\\\",stage=\\\"S1\\\",env=env,permission=permission)\\n+            result=run([\\\"pnpm\\\",\\\"exec\\\",\\\"playwright\\\",\\\"test\\\",\\\"--workers=1\\\",\\\"--reporter=list,json,html\\\",\\\"--output=\\\"+str(output_dir)],\\n+                EVALUATOR/\\\"frontend-e2e\\\",\\\"S1-frozen-all-routes-flows-guard-strict\\\"+('-native-runtime' if native else ''),stage=\\\"S1\\\",env=env,permission=permission)\\n@@\\n             with (STAGE/\\\"commands.jsonl\\\").open(\\\"a\\\") as file:file.write(json.dumps(entry)+\\\"\\\\n\\\")\\n+            if native:\\n+                for item in (native_root/'browser').iterdir():\\n+                    if item.is_dir():shutil.copytree(item,browser_evidence/item.name)\\n+                    else:shutil.copy2(item,browser_evidence/item.name)\\n+                copied=[]\\n+                for item in sorted(browser_evidence.rglob('*')):\\n+                    if item.is_file():copied.append(dict(path=str(item.relative_to(browser_evidence)),sha256=hashlib.sha256(item.read_bytes()).hexdigest(),bytes=item.stat().st_size))\\n+                (STAGE/'native-output-manifest.json').write_text(json.dumps(dict(original_runtime=str(native_root/'browser'),evidence_copy=str(browser_evidence),files=copied),indent=2)+'\\\\n')\\n@@\\n-    parser=argparse.ArgumentParser();parser.add_argument(\\\"--approved\\\",action=\\\"store_true\\\");args=parser.parse_args();main(args.approved)\\n+    parser=argparse.ArgumentParser();parser.add_argument(\\\"--approved\\\",action=\\\"store_true\\\");parser.add_argument(\\\"--native\\\",action=\\\"store_true\\\");args=parser.parse_args();main(args.approved,args.native)\\n*** End Patch\"));\ntext(await tools.exec_command({cmd:\"tail -3 wf6-rerun-20261014-01/wf6-evidence/steps/S1/logs/20261014T030622-9490b72b.stdout.log\",\"max_output_tokens\":600}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791947714.3929439
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1370,
+    "byte_offset": 4696392,
+    "timestamp": "2026-10-14T03:15:41.774Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13868-9a4e-74c3-a0a1-1aed4722f788",
+      "call_id": "call_0767a9a846e343d4ae1c8cd019f05f05",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"e503fc\",\"wall_time_seconds\":0.000012462,\"exit_code\":0,\"original_token_count\":82,\"output\":\"  ✘  26 [routes] › tests/routes.spec.ts:37:9 › admin › [route] g/[groupSlug]/r/create.vue (16.7s)\\n  ✘  27 [routes] › tests/routes.spec.ts:37:9 › admin › [route] g/[groupSlug]/r/create/index.vue (16.0s)\\n  ✘  28 [routes] › tests/routes.spec.ts:37:9 › admin › [route] g/[groupSlug]/r/create/ai.vue (19.1s)\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791947741.774092
+      }
+    }
+  }
+}

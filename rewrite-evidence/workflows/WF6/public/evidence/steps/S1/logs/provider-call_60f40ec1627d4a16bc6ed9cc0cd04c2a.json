@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 910,
+    "byte_offset": 3378829,
+    "timestamp": "2026-10-14T02:26:47.829Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acee864f43c8191b4045a7c96901080",
+      "status": "completed",
+      "call_id": "call_60f40ec1627d4a16bc6ed9cc0cd04c2a",
+      "name": "exec",
+      "input": "text(await tools.write_stdin({session_id:34209,chars:\"\",yield_time_ms:1000,max_output_tokens:1400}));\ntext(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nfrom pathlib import Path\\ns=Path('wf6-rerun-20261014-01/wf6-evidence/steps/S1/logs');print((s/'20261014T022219-9342196b.stdout.log').read_text()[-850:])\\nPY\",max_output_tokens:1000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791944804.9612048
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 913,
+    "byte_offset": 3382392,
+    "timestamp": "2026-10-14T02:26:52.988Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a1383b-e9bc-7123-89bb-e7dd2cd9165b",
+      "call_id": "call_60f40ec1627d4a16bc6ed9cc0cd04c2a",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 5.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"682673\",\"wall_time_seconds\":5.001429845,\"session_id\":34209,\"original_token_count\":0,\"output\":\"\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"876693\",\"wall_time_seconds\":0.000012212,\"exit_code\":0,\"original_token_count\":218,\"output\":\"sion.test.ts (34 tests) 12ms\\n ✓ app/composables/shopping-list-page/sub-composables/__tests__/use-shopping-list-crud.test.ts (23 tests) 8ms\\n ✓ app/plugins/__tests__/axios.test.ts (20 tests) 2455ms\\n     ✓ refreshes and replays the original request  2433ms\\n ✓ app/composables/shopping-list-page/__tests__/use-shopping-list-page.test.ts (24 tests) 9ms\\n ✓ app/composables/__tests__/use-auth-backend.test.ts (12 tests) 76ms\\n ✓ app/composables/shopping-list-page/sub-composables/use-shopping-list-search.test.ts (14 tests) 13ms\\n ✓ app/composables/shopping-list-page/sub-composables/__tests__/use-shopping-list-sorting.test.ts (14 tests) 6ms\\n ✓ app/composables/__tests__/use-token-cookie.test.ts (19 tests) 8ms\\n ✓ app/composables/recipes/__tests__/use-ingredient-substitutions.test.ts (13 tests) 4ms\\n ✓ app/components/global/DropZone.test.ts (14 tests) 25ms\\n\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791944812.9886885
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2329,
+    "byte_offset": 6577848,
+    "timestamp": "2026-10-14T04:17:47.971Z",
+    "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf026909c0819193d1b63245a56b27",
+      "status": "completed",
+      "call_id": "call_d6b46fe0d8ec43f2a1b6351a3acc477e",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 - <<'PY'\\nfrom pathlib import Path\\nimport json\\ns=Path('wf6-rerun-20261014-01/wf6-evidence/steps/S2');print('buildhash',json.loads((s/'build-artifact.json').read_text())['build_hash'])\\nfor p in sorted((s/'logs').glob('20261014T0417*log')):print(p.name,p.read_text()[-350:])\\nPY\",\"max_output_tokens\":1100}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+        "create_time": 1791951465.0463915
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2332,
+    "byte_offset": 6581388,
+    "timestamp": "2026-10-14T04:17:48.171Z",
+    "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a138a1-768b-7550-9120-d0ac043947e0",
+      "call_id": "call_d6b46fe0d8ec43f2a1b6351a3acc477e",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"adc0c1\",\"wall_time_seconds\":0.017098854,\"exit_code\":0,\"original_token_count\":151,\"output\":\"buildhash af9a32e7318fd2c82d289f49f335d13168ddb476bf3d0ec152834ebc6f14c914\\n20261014T041728-1e840165.stderr.log \\n20261014T041728-1e840165.stdout.log \\n20261014T041728-S2-backend.stderr.log WARNING  2026-10-14T04:17:40 - Secrets directory '/run/secrets' does not exist\\n\\n20261014T041728-S2-backend.stdout.log WARNING  2026-10-14T04:17:40 - Secrets directory '/run/secrets' does not exist\\n\\n20261014T041728-S2-gateway.stderr.log \\n20261014T041728-S2-gateway.stdout.log {\\\"event\\\":\\\"gateway_ready\\\",\\\"port\\\":9106,\\\"takeoverEnabled\\\":false,\\\"buildHash\\\":\\\"af9a32e7318fd2c82d289f49f335d13168ddb476bf3d0ec152834ebc6f14c914\\\"}\\n\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+        "create_time": 1791951468.1713657
+      }
+    }
+  }
+}

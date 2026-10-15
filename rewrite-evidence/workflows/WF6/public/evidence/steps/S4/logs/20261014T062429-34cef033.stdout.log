@@ -1,0 +1,6 @@
+Listing tests:
+  [routes] › routes.spec.ts:37:9 › admin › [route] g/[groupSlug]/index.vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] g/[groupSlug]/r/[slug]/index.vue
+  [flows] › flows/recipes.spec.ts:6:7 › recipes › [flow] open a recipe from the recipe list
+  [flows] › flows/recipes.spec.ts:15:7 › recipes › [flow] search narrows the recipe list
+Total: 4 tests in 2 files

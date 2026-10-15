@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 4254,
+    "byte_offset": 12156827,
+    "timestamp": "2026-10-14T09:18:43.089Z",
+    "turn_id": "01a13999-f4f9-78f2-8751-6c0a710636a0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf48ef091c8191bd60f175b49cc9dc",
+      "status": "completed",
+      "call_id": "call_ef301382fc4f4f34ac10564516dca8a9",
+      "name": "exec",
+      "input": "text(await tools.write_stdin({session_id:7763,chars:\"\",yield_time_ms:1000,max_output_tokens:1000}));\ntext(await tools.exec_command({cmd:\"python3 -B wf6-rerun-20261014-01/wf6-evidence/usage/record_command.py --stage S6 --cwd '<WORKSPACE>/wf6-rerun-20261014-01' --label S6-C2-postcommit-tested-source-build-hashes -- python3 -B wf6-evidence/usage/postcommit_s6_c2.py\",\"yield_time_ms\":1000,\"max_output_tokens\":1000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13999-f4f9-78f2-8751-6c0a710636a0",
+        "create_time": 1791969519.0394208
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 4256,
+    "byte_offset": 12158625,
+    "timestamp": "2026-10-14T09:18:44.287Z",
+    "turn_id": "01a13999-f4f9-78f2-8751-6c0a710636a0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a139b4-fa3f-7950-8918-f7d4217acfc1",
+      "call_id": "call_ef301382fc4f4f34ac10564516dca8a9",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 1.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"77cfa0\",\"wall_time_seconds\":0.000011883,\"exit_code\":0,\"original_token_count\":217,\"output\":\"{\\\"command_id\\\": \\\"20261014T091810-a0708333\\\", \\\"stage_id\\\": \\\"S6\\\", \\\"label\\\": \\\"S6-C2-commit-failed-acceptance-and-stop\\\", \\\"argv\\\": [\\\"git\\\", \\\"-C\\\", \\\"mealie-wf6-coexist\\\", \\\"commit\\\", \\\"-m\\\", \\\"[WF6-S6] Record limited extension gate failure after two repair rounds\\\"], \\\"cwd\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01\\\", \\\"start_utc\\\": \\\"2026-10-14T09:18:10.715186+00:00\\\", \\\"end_utc\\\": \\\"2026-10-14T09:18:11.985133+00:00\\\", \\\"duration_seconds\\\": 1.269950006993895, \\\"exit_code\\\": 0, \\\"stdout\\\": \\\"steps/S6/logs/20261014T091810-a0708333.stdout.log\\\", \\\"stderr\\\": \\\"steps/S6/logs/20261014T091810-a0708333.stderr.log\\\", \\\"environment_overrides\\\": {}, \\\"permission\\\": \\\"workspace-write; network restricted; no escalation\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"754603\",\"wall_time_seconds\":1.001233441,\"session_id\":72978,\"original_token_count\":0,\"output\":\"\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13999-f4f9-78f2-8751-6c0a710636a0",
+        "create_time": 1791969524.2877321
+      }
+    }
+  }
+}

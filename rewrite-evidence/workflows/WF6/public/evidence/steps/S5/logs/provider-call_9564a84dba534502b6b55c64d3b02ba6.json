@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3162,
+    "byte_offset": 9305474,
+    "timestamp": "2026-10-14T07:34:03.500Z",
+    "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf305a706c8191a2fde8c587d417db",
+      "status": "completed",
+      "call_id": "call_9564a84dba534502b6b55c64d3b02ba6",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"cat > wf6-rerun-20261014-01/wf6-evidence/usage/s5_build_guard.py <<'PY'\\n\\\"\\\"\\\"Reject a failed build attempt even when an earlier dist remains on disk.\\\"\\\"\\\"\\nimport hashlib,json\\nfrom pathlib import Path\\nfrom record_command import ROOT,EVIDENCE,run\\nfrom run_s1 import SOURCE,environment\\nRUNTIME=Path('/tmp/wf6-rerun-20261014-01-S5');STAGE=EVIDENCE/'steps/S5'\\ndef allowed(artifact,attempt):\\n    return artifact.get('exit_code')==0 and artifact.get('browser_acceptance_allowed') is True and attempt.get('exit_code')==0 and artifact.get('command_id')==attempt.get('command_id')\\ndef main():\\n    artifact=json.loads((STAGE/'build-artifacts.json').read_text())['react'];entries=[json.loads(l) for l in (STAGE/'commands.jsonl').read_text().splitlines()];good=next(r for r in entries if r['command_id']==artifact['command_id']);assert allowed(artifact,good)\\n    dist=SOURCE/'frontend-react-wf6/dist';before={str(p.relative_to(dist)):hashlib.sha256(p.read_bytes()).hexdigest() for p in dist.rglob('*') if p.is_file()}\\n    bad=RUNTIME/'tests/intentional-invalid-vite.config.mjs';bad.write_text('export default { WF6_EXPECTED_SYNTAX_FAILURE: ; };\\\\n')\\n    attempt=run(['node',str(SOURCE/'frontend-react-wf6/node_modules/vite/bin/vite.js'),'build','--config',str(bad)],SOURCE/'frontend-react-wf6','S5-expected-failure-stale-build-guard',stage='S5',env=environment())\\n    assert attempt['exit_code']!=0;assert not allowed(artifact,attempt)\\n    after={str(p.relative_to(dist)):hashlib.sha256(p.read_bytes()).hexdigest() for p in dist.rglob('*') if p.is_file()};assert before==after\\n    result=dict(status='PASS',classification='expected_failure',failure_command=attempt['command_id'],actual_failure_exit_code=attempt['exit_code'],old_dist_remained=True,old_dist_accepted_for_failed_attempt=False,accepted_success_build=good['command_id'],scope='Isolated invalid temporary config; S5 acceptance guard; not a product source failure or a source repair round')\\n    (STAGE/'stale-build-negative.json').write_text(json.dumps(result,indent=2)+'\\\\n')\\n    with (STAGE/'attempts.jsonl').open('a') as f:f.write(json.dumps(result)+'\\\\n')\\n    print(json.dumps(result))\\nif __name__=='__main__':main()\\nPY\",\"max_output_tokens\":1000}));\ntext(await tools.write_stdin({session_id:6920,chars:\"\",yield_time_ms:1000,max_output_tokens:1000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+        "create_time": 1791963226.4420767
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3165,
+    "byte_offset": 9314244,
+    "timestamp": "2026-10-14T07:34:03.702Z",
+    "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13955-24b6-7bd1-b3da-01f9d6828a01",
+      "call_id": "call_9564a84dba534502b6b55c64d3b02ba6",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"64a95b\",\"wall_time_seconds\":0.000013127,\"exit_code\":0,\"original_token_count\":0,\"output\":\"\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"fd393b\",\"wall_time_seconds\":0.000008779,\"exit_code\":0,\"original_token_count\":196,\"output\":\"{\\\"command_id\\\": \\\"20261014T073110-95e80066\\\", \\\"stage_id\\\": \\\"S5\\\", \\\"label\\\": \\\"S5-fresh-static-and-build\\\", \\\"argv\\\": [\\\"python3\\\", \\\"-B\\\", \\\"wf6-evidence/usage/build_s5.py\\\"], \\\"cwd\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01\\\", \\\"start_utc\\\": \\\"2026-10-14T07:31:10.801436+00:00\\\", \\\"end_utc\\\": \\\"2026-10-14T07:33:56.511255+00:00\\\", \\\"duration_seconds\\\": 165.7098278480007, \\\"exit_code\\\": 0, \\\"stdout\\\": \\\"steps/S5/logs/20261014T073110-95e80066.stdout.log\\\", \\\"stderr\\\": \\\"steps/S5/logs/20261014T073110-95e80066.stderr.log\\\", \\\"environment_overrides\\\": {}, \\\"permission\\\": \\\"Approved anonymous font/build access; sandbox retained\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+        "create_time": 1791963243.702638
+      }
+    }
+  }
+}

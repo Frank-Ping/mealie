@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 4603,
+    "byte_offset": 13671601,
+    "timestamp": "2026-10-14T09:57:07.323Z",
+    "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf51ec7514819199385b0e41481600",
+      "status": "completed",
+      "call_id": "call_2146e43b23c24aa4bd37b4600d1fb459",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 - <<'PY'\\np='wf6-evidence/usage/audit_s7_raw.py';s=open(p).read().replace(\\\"resource=content.get('_sha1')\\\",\\\"resource=content.get('_file') or ('resources/'+content['_sha1'] if content.get('_sha1') else None)\\\").replace(\\\"'resources/'+resource in z.namelist()\\\",\\\"resource in z.namelist()\\\").replace(\\\"z.read('resources/'+resource)\\\",\\\"z.read(resource)\\\");open(p,'w').write(s)\\nPY\\npython3 -B wf6-evidence/usage/record_command.py --stage S7 --cwd \\\"$PWD\\\" --label verify-trace-file-schema-and-live-receipt -- python3 -B wf6-evidence/usage/audit_s7_raw.py\\npython3 -B wf6-evidence/usage/record_command.py --stage S7 --cwd \\\"$PWD\\\" --label update-S7-summary-before-report-commit -- python3 -B wf6-evidence/usage/collect_usage.py finalize --all --wait-seconds 0\",\"workdir\":\"<WORKSPACE>/wf6-rerun-20261014-01\",\"yield_time_ms\":1000,\"max_output_tokens\":550}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+        "create_time": 1791971820.4648988
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 4605,
+    "byte_offset": 13673913,
+    "timestamp": "2026-10-14T09:57:08.511Z",
+    "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a139d8-231f-7671-9fa3-35572a084531",
+      "call_id": "call_2146e43b23c24aa4bd37b4600d1fb459",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 1.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"06393f\",\"wall_time_seconds\":1.000750779,\"session_id\":27100,\"original_token_count\":200,\"output\":\"{\\\"command_id\\\": \\\"20261014T095707-495e0f76\\\", \\\"stage_id\\\": \\\"S7\\\", \\\"label\\\": \\\"verify-trace-file-schema-and-live-receipt\\\", \\\"argv\\\": [\\\"python3\\\", \\\"-B\\\", \\\"wf6-evidence/usage/audit_s7_raw.py\\\"], \\\"cwd\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01\\\", \\\"start_utc\\\": \\\"2026-10-14T09:57:07.501396+00:00\\\", \\\"end_utc\\\": \\\"2026-10-14T09:57:07.622428+00:00\\\", \\\"duration_seconds\\\": 0.12103561699768761, \\\"exit_code\\\": 0, \\\"stdout\\\": \\\"steps/S7/logs/20261014T095707-495e0f76.stdout.log\\\", \\\"stderr\\\": \\\"steps/S7/logs/20261014T095707-495e0f76.stderr.log\\\", \\\"environment_overrides\\\": {}, \\\"permission\\\": \\\"workspace-write; network restricted; no escalation\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+        "create_time": 1791971828.5110326
+      }
+    }
+  }
+}

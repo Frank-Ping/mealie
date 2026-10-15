@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3011,
+    "byte_offset": 8635509,
+    "timestamp": "2026-10-14T06:37:12.233Z",
+    "turn_id": "01a13905-d942-7e23-8387-48f7946bf050",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf230fa4ac81919cb7c10c4e12234e",
+      "status": "completed",
+      "call_id": "call_e608e14468b04e4ebb192040f44d3794",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nfrom pathlib import Path\\np=Path('wf6-rerun-20261014-01/wf6-evidence/usage')\\ns=(p/'postcommit_s3.py').read_text().replace('S3','S4').replace('from finish_s3 import STAGE','from finish_s4 import STAGE')\\na=s.index('expected=');b=s.index('\\\\nchanged=',a)\\nnames=['frontend-react-wf6/eslint.config.mjs','frontend-react-wf6/package-lock.json','frontend-react-wf6/package.json','frontend-react-wf6/src/api.ts','frontend-react-wf6/src/business.test.ts','frontend-react-wf6/src/main.tsx','frontend-react-wf6/src/model.ts','frontend-react-wf6/src/recipes.tsx','frontend-react-wf6/src/strings.ts','frontend-react-wf6/tsconfig.json','rewrite-evidence/workflows/WF6/S4-RESULT.md']\\ns=s[:a]+'expected='+repr(names)+s[b:]\\ns=s.replace('S4 coexistence skeleton PASS','S4 real scoped read-only recipe pilot PASS').replace('Stop; S4 not executed.','Stop; S5 not executed.')\\n(p/'postcommit_s4.py').write_text(s)\\nPY\\npython3 -B wf6-rerun-20261014-01/wf6-evidence/usage/record_command.py --stage S4 --cwd '<WORKSPACE>/wf6-rerun-20261014-01' --label S4-postcommit-provenance-audit -- python3 -B wf6-evidence/usage/postcommit_s4.py\",\"yield_time_ms\":1000,\"max_output_tokens\":1000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13905-d942-7e23-8387-48f7946bf050",
+        "create_time": 1791959823.65018
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3013,
+    "byte_offset": 8638109,
+    "timestamp": "2026-10-14T06:37:13.413Z",
+    "turn_id": "01a13905-d942-7e23-8387-48f7946bf050",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13921-1b45-7d43-9c5f-82824407abef",
+      "call_id": "call_e608e14468b04e4ebb192040f44d3794",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 1.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"7d88fc\",\"wall_time_seconds\":1.001558865,\"session_id\":27879,\"original_token_count\":0,\"output\":\"\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13905-d942-7e23-8387-48f7946bf050",
+        "create_time": 1791959833.4138265
+      }
+    }
+  }
+}

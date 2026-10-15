@@ -1,0 +1,60 @@
+{
+  "run_id": "wf6-rerun-20261014-01",
+  "stage_id": "S1",
+  "validated_utc": "2026-10-14T02:14:35.248706+00:00",
+  "frozen_launcher": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/scripts/start-backend.sh",
+  "launcher_sha256": "8fd9652aae79dc39ff0ada7cb40b56f305d388c64b06523dcaa57fc190f3cb92",
+  "destructive_target": "<WORKSPACE>/wf6-rerun-20261014-01/runtime/S1/disposable-data",
+  "destructive_scope": "Frozen launcher removes only this explicitly selected S1 disposable directory.",
+  "auth_alias": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/.auth",
+  "auth_real_target": "<WORKSPACE>/wf6-rerun-20261014-01/runtime/S1/auth",
+  "temporary_profiles": "<WORKSPACE>/wf6-rerun-20261014-01/runtime/S1/tmp",
+  "browser_outputs": "<WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/steps/S1/browser",
+  "port": 9006,
+  "source_states": [
+    {
+      "role": "source",
+      "head": "955e790f86c9c4ff2d56e06b9e54d948cbf0e698",
+      "clean": true
+    },
+    {
+      "role": "evaluator",
+      "head": "758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d",
+      "clean": true
+    }
+  ],
+  "environment": {
+    "PATH": "<WORKSPACE>/wf6-rerun-20261014-01/runtime/tools/bin:/usr/local/bin:/usr/bin:/bin",
+    "UV_PYTHON": "/usr/bin/python3",
+    "UV_FROZEN": "1",
+    "UV_NO_CONFIG": "1",
+    "UV_CACHE_DIR": "<WORKSPACE>/wf6-rerun-20261014-01/runtime/cache/uv",
+    "UV_PROJECT_ENVIRONMENT": "<WORKSPACE>/wf6-rerun-20261014-01/runtime/env/backend",
+    "UV_PYTHON_INSTALL_DIR": "<WORKSPACE>/wf6-rerun-20261014-01/runtime/tools/python",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "NPM_CONFIG_USERCONFIG": "<WORKSPACE>/wf6-rerun-20261014-01/runtime/npm-userconfig",
+    "NPM_CONFIG_GLOBALCONFIG": "<WORKSPACE>/wf6-rerun-20261014-01/runtime/npm-globalconfig",
+    "NPM_CONFIG_CACHE": "<WORKSPACE>/wf6-rerun-20261014-01/runtime/cache/npm",
+    "PNPM_HOME": "<WORKSPACE>/wf6-rerun-20261014-01/runtime/tools/bin",
+    "npm_config_store_dir": "<WORKSPACE>/wf6-rerun-20261014-01/runtime/cache/pnpm",
+    "npm_config_registry": "https://registry.npmjs.org/",
+    "PLAYWRIGHT_BROWSERS_PATH": "<WORKSPACE>/wf6-rerun-20261014-01/runtime/browser-binaries",
+    "TMPDIR": "<WORKSPACE>/wf6-rerun-20261014-01/runtime/S1/tmp",
+    "UV_SYSTEM_CERTS": "1",
+    "CI": "1",
+    "NUXT_TELEMETRY_DISABLED": "1",
+    "DO_NOT_TRACK": "1",
+    "UV_HTTP_RETRIES": "0",
+    "E2E_PORT": "9006",
+    "E2E_WORKERS": "1",
+    "E2E_ROUTE_SCOPE": "all",
+    "E2E_ROUTE_CHECK": "strict",
+    "E2E_REUSE_SERVER": "0",
+    "E2E_DATA_DIR": "<WORKSPACE>/wf6-rerun-20261014-01/runtime/S1/disposable-data",
+    "E2E_STATIC_DIR": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/dist",
+    "PLAYWRIGHT_JSON_OUTPUT_NAME": "<WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/steps/S1/browser/results.json",
+    "PLAYWRIGHT_HTML_OUTPUT_DIR": "<WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/steps/S1/browser/playwright-report"
+  },
+  "account_policy": "Frozen fixture constants unchanged; accounts are newly seeded into this independent SQLite database.",
+  "preexisting_build": false
+}

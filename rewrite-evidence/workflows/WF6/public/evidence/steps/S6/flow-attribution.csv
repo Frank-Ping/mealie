@@ -1,0 +1,16 @@
+title,owner,result,classification,attribution_basis
+[flow] create a user and find them in user management,Vue,passed,Original frozen business assertion,Frozen flow source paths and measured route ownership; failure transitions backed by original trace
+[flow] log in with valid credentials and land on the recipe list,Mixed,passed,Original frozen business assertion,Frozen flow source paths and measured route ownership; failure transitions backed by original trace
+[flow] a wrong password is rejected,Vue,passed,Original frozen business assertion,Frozen flow source paths and measured route ownership; failure transitions backed by original trace
+[flow] log out ends the session,Mixed,timedOut,scope_gap,Frozen flow source paths and measured route ownership; failure transitions backed by original trace
+[flow] a regular member is not offered admin pages,Mixed,timedOut,scope_gap,Frozen flow source paths and measured route ownership; failure transitions backed by original trace
+[flow] an admin is offered admin pages,Mixed,timedOut,scope_gap,Frozen flow source paths and measured route ownership; failure transitions backed by original trace
+[flow] add a note to tomorrow's meal plan,Vue,passed,Original frozen business assertion,Frozen flow source paths and measured route ownership; failure transitions backed by original trace
+[flow] create a tag in data management,Vue,passed,Original frozen business assertion,Frozen flow source paths and measured route ownership; failure transitions backed by original trace
+[flow] a member updates their full name,Vue,passed,Original frozen business assertion,Frozen flow source paths and measured route ownership; failure transitions backed by original trace
+[flow] open a recipe from the recipe list,React,passed,Original frozen business assertion,Frozen flow source paths and measured route ownership; failure transitions backed by original trace
+[flow] search narrows the recipe list,React,passed,Original frozen business assertion,Frozen flow source paths and measured route ownership; failure transitions backed by original trace
+[flow] create a recipe by name,Mixed,passed,Original frozen business assertion,Frozen flow source paths and measured route ownership; failure transitions backed by original trace
+[flow] comment on a recipe and see it after reload,React,timedOut,scope_gap,Frozen flow source paths and measured route ownership; failure transitions backed by original trace
+[flow] create a shopping list,Vue,passed,Original frozen business assertion,Frozen flow source paths and measured route ownership; failure transitions backed by original trace
+[flow] add an item and check it off,Vue,passed,Original frozen business assertion,Frozen flow source paths and measured route ownership; failure transitions backed by original trace

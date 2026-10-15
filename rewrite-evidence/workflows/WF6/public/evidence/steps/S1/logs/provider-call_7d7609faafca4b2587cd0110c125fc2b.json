@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1932,
+    "byte_offset": 5675016,
+    "timestamp": "2026-10-14T03:54:16.528Z",
+    "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acefcd5d0608191baeb682d6a668db3",
+      "status": "completed",
+      "call_id": "call_7d7609faafca4b2587cd0110c125fc2b",
+      "name": "exec",
+      "input": "text(await tools.write_stdin({session_id:81048,chars:\"\",yield_time_ms:1000,max_output_tokens:800}));\ntext(await tools.exec_command({cmd:\"python3 - <<'PY'\\nfrom pathlib import Path\\nimport json,datetime,hashlib\\ns=Path('wf6-rerun-20261014-01/wf6-evidence/steps/S1');now=datetime.datetime.now(datetime.timezone.utc).isoformat();known={json.loads(l)['command_id'] for l in (s/'commands.jsonl').read_text().splitlines()}\\nrows=[('20261014T034340-307c4b6c','S1-interrupted-native-browser-orchestration',['python3','-B','wf6-evidence/usage/browser_s1.py','--approved','--native'],'2026-10-14T03:43:40+00:00'),('20261014T034404-03bc7101','S1-interrupted-native-frozen-browser',['pnpm','exec','playwright','test','--workers=1','--reporter=list,json,html','--output=/tmp/wf6-rerun-20261014-01-S1-native/browser/test-results'],None)]\\nfor cid,label,argv,start in rows:\\n if cid not in known:\\n  with (s/'commands.jsonl').open('a') as f:f.write(json.dumps({'command_id':cid,'stage_id':'S1','label':label,'argv':argv,'cwd':'<WORKSPACE>/wf6-rerun-20261014-01'+('/mealie-wf6-evaluator/frontend-e2e' if cid.endswith('7101') else ''),'start_utc':None,'end_utc':None,'exit_code':None,'duration_seconds':None,'stdout':'steps/S1/logs/'+cid+'.stdout.log','stderr':'steps/S1/logs/'+cid+'.stderr.log','permission':'Original approved native localhost action','coverage':'Recovered helper argv and existing raw streams after user-interrupted runner. Exact command boundaries and exit code unavailable; command ID timestamp is not asserted as exact start UTC.'})+'\\\\n')\\nwith (s/'attempts.jsonl').open('a') as f:f.write(json.dumps({'timestamp':now,'kind':'final_native_full_remeasurement_pass','cause':'Mounted first complete suite failed 80 cases; intermediate native suite was interrupted and cannot supply a complete result.','repair':'Fresh native2 identical asset/runtime full suite completed: 66 routes, 15 flows, 1 guard passed; retries=0, no skips. All prior failures retained.','retest':'browser-native/results.json','original':'browser/results.json','interrupted':'browser-native-interrupted/','scope':'Environment-only remeasurement; no application or evaluator assertion repair.'})+'\\\\n')\\nmanifest=[{'path':str(p.relative_to(s/'browser-native-interrupted')),'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'bytes':p.stat().st_size} for p in sorted((s/'browser-native-interrupted').rglob('*')) if p.is_file()]\\n(s/'interrupted-output-manifest.json').write_text(json.dumps({'coverage':'Partial outputs preserved; no results.json or final command status. Not acceptance.','files':manifest},indent=2)+'\\\\n')\\nPY\",\"max_output_tokens\":500}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+        "create_time": 1791950037.8172731
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1934,
+    "byte_offset": 5679031,
+    "timestamp": "2026-10-14T03:54:26.716Z",
+    "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a1388c-141c-7bf1-8214-f2da935c8570",
+      "call_id": "call_7d7609faafca4b2587cd0110c125fc2b",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 10.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"f60979\",\"wall_time_seconds\":0.000011426,\"exit_code\":1,\"original_token_count\":202,\"output\":\"{\\\"command_id\\\": \\\"20261014T035350-7c508fa5\\\", \\\"stage_id\\\": \\\"S1\\\", \\\"label\\\": \\\"S1-final-frozen-byte-and-source-state-audit\\\", \\\"argv\\\": [\\\"python3\\\", \\\"-B\\\", \\\"wf6-evidence/usage/finish_s1.py\\\", \\\"snapshot\\\"], \\\"cwd\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01\\\", \\\"start_utc\\\": \\\"2026-10-14T03:53:50.643149+00:00\\\", \\\"end_utc\\\": \\\"2026-10-14T03:53:59.255397+00:00\\\", \\\"duration_seconds\\\": 8.612251881997508, \\\"exit_code\\\": 1, \\\"stdout\\\": \\\"steps/S1/logs/20261014T035350-7c508fa5.stdout.log\\\", \\\"stderr\\\": \\\"steps/S1/logs/20261014T035350-7c508fa5.stderr.log\\\", \\\"environment_overrides\\\": {}, \\\"permission\\\": \\\"workspace-write; network restricted; no escalation\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"f9b9fe\",\"wall_time_seconds\":10.001865966,\"session_id\":21324,\"original_token_count\":0,\"output\":\"\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+        "create_time": 1791950066.716759
+      }
+    }
+  }
+}

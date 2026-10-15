@@ -1,0 +1,3 @@
+  ✘  26 [routes] › tests/routes.spec.ts:37:9 › admin › [route] g/[groupSlug]/r/create.vue (16.7s)
+  ✘  27 [routes] › tests/routes.spec.ts:37:9 › admin › [route] g/[groupSlug]/r/create/index.vue (16.0s)
+  ✘  28 [routes] › tests/routes.spec.ts:37:9 › admin › [route] g/[groupSlug]/r/create/ai.vue (19.1s)

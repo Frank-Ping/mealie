@@ -1,0 +1,229 @@
+{
+  "stage_id": "S1",
+  "status": "provisional",
+  "session_id": "01a137ea-f571-70f0-8cf3-7b8560c420bf",
+  "turn_ids": [
+    "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "01a13885-24dd-7ff3-a6cc-b87a30d19d71"
+  ],
+  "segments": [
+    {
+      "session_id": "01a137ea-f571-70f0-8cf3-7b8560c420bf",
+      "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+      "boundary": {
+        "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+        "line": 709,
+        "byte_offset": 2732151,
+        "stage_id": "S1",
+        "action": "NATURAL_START",
+        "session_id": "01a137ea-f571-70f0-8cf3-7b8560c420bf",
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "user_message_id": "msg_01a1382a-58f8-7de3-b1ea-8ca5ceac2207",
+        "actual_prompt": "本次 S1 属于 wf6-rerun-20261014-01。\n先核实 P1 收尾结果，保持 preparation 与 S1 计量区间不重叠。\n\n仅测量冻结的未修改 Vue baseline。\n保留原始日志，技术说明使用英文，结果提供中英文对照。\n记录实际源码、构建与测试结果；未运行检查不得算通过。\n\n仅执行 S1，结束后停止，不自动进入 S2。",
+/**
+ * Framework-agnostic UI helpers for the flow tests. Everything here goes through what a user can
+ * perceive (roles, accessible names, visible text, tooltips) and never through CSS classes or
+ * component names, so the same flows can drive the Vue app and its React rewrite.
+ */
+import { expect, type Locator, type Page } from "@playwright/test";
+
+/** A name no other test (or earlier run against a reused server) will have used. */
+export function uniqueName(prefix: string): string {
+  return `${prefix} ${Date.now().toString(36)}${Math.floor(Math.random() * 1296).toString(36)}`;
+}
+
+export function visibleText(scope: Page | Locator, text: string | RegExp, exact = false): Locator {
+  return scope.getByText(text, { exact }).filter({ visible: true }).first();
+}
+
+export async function loginViaUi(page: Page, email: string, password: string) {
+  await page.goto("/login");
+  await page.getByRole("textbox", { name: "Email or Username" }).fill(email);
+  await page.getByRole("textbox", { name: "Password" }).fill(password);
+  await page.getByRole("button", { name: "Login" }).click();
+  await expect(page).not.toHaveURL(/\/login\/?$/);
+}
+
+/**
+ * Click the button called `name` inside `scope`. Icon-only buttons in the reference app expose their
+ * name only as a hover tooltip, so if no button has that accessible name, hover each unnamed button
+ * until one shows `name` and click that one. Either way the user-visible contract is the same.
+ */
+export async function clickButton(page: Page, scope: Locator, name: string) {
+  await scope.getByRole("button").filter({ visible: true }).first().waitFor();
+  const named = scope.getByRole("button", { name, exact: true }).filter({ visible: true });
+  if (await named.count()) {
+    await named.first().click();
+    return;
+  }
+  const tooltip = page.getByRole("tooltip").filter({ visible: true })
+    .filter({ hasText: new RegExp(`^\\s*${escapeRegExp(name)}\\s*$`) });
+  for (const button of await scope.getByRole("button").filter({ visible: true }).all()) {
+    const unnamed = await button.evaluate(el => !el.getAttribute("aria-label") && !(el.textContent ?? "").trim());
+    if (!unnamed) {
+      continue;
+    }
+    // Make sure a tooltip still fading out from an earlier hover can't be mistaken for this one's.
+    await page.mouse.move(0, 0);
+    await tooltip.first().waitFor({ state: "hidden", timeout: 2_000 }).catch(() => {});
+    await button.hover();
+    if (await tooltip.first().waitFor({ state: "visible", timeout: 1_000 }).then(() => true, () => false)) {
+      await button.click();
+      return;
+    }
+  }
+  throw new Error(`no button named or tooltipped "${name}"`);
+}
+
+/**
+ * Open a select/autocomplete labelled `label` and pick `option`. Clicks the field at its position
+ * (not the inner input) because component libraries often overlay the input with a styled element.
+ */
+export async function selectOption(page: Page, label: string, option: string) {
+  // The options list can be re-rendered (and closed) while the page is still loading its data, so
+  // retry opening it until the option can actually be picked.
+  await expect(async () => {
+    await page.getByRole("combobox", { name: label }).click({ force: true });
+    await page.getByRole("option", { name: option, exact: true }).click({ timeout: 2_000 });
+  }).toPass({ timeout: 15_000 });
+}
+
+/** Accepted labels for the button that submits a create/edit dialog. */
+export const SUBMIT = /^(Create|Confirm|Save|Submit|Add)$/;
+
+/** The smallest element that contains `text` and a checkbox (a list row / card). */
+export function checkboxRowOf(scope: Page | Locator, text: string): Locator {
+  return visibleText(scope, text, true)
+    .locator("xpath=ancestor::*[.//input[@type='checkbox'] or .//*[@role='checkbox']][1]");
+}
+
+/** The dialog that is currently open (the topmost visible one). */
+export function openDialog(page: Page): Locator {
+  return page.getByRole("dialog").filter({ visible: true }).last();
+import { expect, test } from "@playwright/test";
+import { NAMES } from "../../lib/fixtures";
+import { checkboxRowOf, openDialog, SUBMIT, uniqueName, visibleText } from "../../lib/ui";
+
+test.describe("shopping lists", () => {
+  test("[flow] create a shopping list", async ({ page }) => {
+    const name = uniqueName("E2E Flow List");
+    await page.goto("/shopping-lists");
+    await expect(visibleText(page, NAMES.shoppingList)).toBeVisible();
+    await page.getByRole("main").getByRole("button", { name: "Create", exact: true }).click();
+    const dialog = openDialog(page);
+    await dialog.getByRole("textbox", { name: "New List" }).fill(name);
+    await dialog.getByRole("button", { name: SUBMIT }).click();
+    await expect(page.getByRole("link", { name })).toBeVisible();
+    await page.reload();
+    await expect(page.getByRole("link", { name })).toBeVisible();
+  });
+
+  test("[flow] add an item and check it off", async ({ page }) => {
+    test.setTimeout(90_000);
+    const item = uniqueName("E2E Hammer");
+    // A list of its own, so "One item checked" holds however often the flow runs on one database.
+    const listName = uniqueName("E2E Flow Checklist");
+    await page.goto("/shopping-lists?disableRedirect=true");
+    await page.getByRole("main").getByRole("button", { name: "Create", exact: true }).click();
+    const dialog = openDialog(page);
+    await dialog.getByRole("textbox", { name: "New List" }).fill(listName);
+    await dialog.getByRole("button", { name: SUBMIT }).click();
+    await page.getByRole("link", { name: listName }).click();
+    await expect(page.getByRole("heading", { name: listName })).toBeVisible();
+
+    await page.waitForLoadState("networkidle");
+    const created = page.waitForResponse(r => r.url().includes("/api/households/shopping/items")
+      && r.request().method() === "POST" && r.ok());
+    // The Vue reference polls the list every 5 s and queues new items locally before sending them;
+    // now and then a poll lands mid-add and the typed item is lost. A user would simply add it
+    // again, so the flow does the same (bounded), instead of failing on the reference app.
+    await expect(async () => {
+      const note = page.getByRole("main").getByRole("textbox", { name: "Note" });
+      if (!(await note.isVisible())) {
+        await page.getByRole("combobox", { name: "Add item" }).click({ force: true });
+      }
+      await note.fill(item);
+      await expect(note).toHaveValue(item);
+      await note.press("Enter");
+      await expect(checkboxRowOf(page, item)).toBeVisible({ timeout: 7_000 });
+    }).toPass({ timeout: 30_000 });
+    await created;
+    const row = checkboxRowOf(page, item);
+
+    // Checking is saved in the background; wait for the backend to accept it before reloading.
+    const saved = page.waitForResponse(r => r.url().includes("/api/households/shopping/items")
+      && ["PUT", "PATCH"].includes(r.request().method()) && r.ok());
+    await row.getByRole("checkbox").first().check();
+    await expect(visibleText(page, "One item checked")).toBeVisible();
+    await saved;
+
+    await page.reload();
+    await expect(visibleText(page, "One item checked")).toBeVisible();
+  });
+});
+import { expect, test } from "@playwright/test";
+import { loadFixtures, NAMES } from "../../lib/fixtures";
+import { uniqueName, visibleText } from "../../lib/ui";
+
+test.describe("recipes", () => {
+  test("[flow] open a recipe from the recipe list", async ({ page }) => {
+    const f = loadFixtures();
+    await page.goto(`/g/${f.groupSlug}`);
+    await page.getByRole("link", { name: NAMES.recipe }).first().click();
+    await expect(page).toHaveURL(new RegExp(`/g/${f.groupSlug}/r/${f.recipeSlug}/?$`));
+    await expect(visibleText(page, NAMES.ingredient)).toBeVisible();
+    await expect(visibleText(page, NAMES.instruction)).toBeVisible();
+  });
+
+  test("[flow] search narrows the recipe list", async ({ page }) => {
+    const f = loadFixtures();
+    await page.goto(`/g/${f.groupSlug}`);
+    await expect(page.getByRole("link", { name: NAMES.recipe })).toBeVisible();
+    await page.getByRole("textbox", { name: "Search..." }).fill("Garden Salad");
+    await expect(page.getByRole("link", { name: NAMES.recipe2 })).toBeVisible();
+    await expect(page.getByRole("link", { name: NAMES.recipe })).toHaveCount(0);
+  });
+
+  test("[flow] create a recipe by name", async ({ page }) => {
+    const f = loadFixtures();
+    const name = uniqueName("E2E Flow Soup");
+/**
+ * Seeds a fresh backend with everything the route and flow tests need, via the REST API only.
+ * Writes the admin session (cookies) and the ids/slugs of the seeded data into .auth/.
+ * Safe to re-run against an already-seeded backend (E2E_REUSE_SERVER=1): lookups before creates.
+ */
+import fs from "node:fs";
+import type { FullConfig } from "@playwright/test";
+import { DEFAULT_ADMIN, MealieApi } from "./lib/api";
+import { ADMIN, ADMIN_STATE, AUTH_DIR, FIXTURES_FILE, MEMBER, NAMES, PROFILE_USER, type Fixtures } from "./lib/fixtures";
+
+// A valid, empty zip archive (just the end-of-central-directory record).
+const EMPTY_ZIP = Buffer.from([0x50, 0x4B, 0x05, 0x06, ...Array.from({ length: 18 }, () => 0)]);
+
+async function adminSession(baseURL: string): Promise<MealieApi> {
+  const existing = await MealieApi.tryLogin(baseURL, ADMIN.email, ADMIN.password);
+  if (existing) {
+    return existing;
+  }
+
+  // First run on an empty database: take over the seeded default admin. Changing its email also
+  // clears the backend's "first login" flag, so the SPA doesn't bounce every visit to /admin/setup.
+  const api = await MealieApi.login(baseURL, DEFAULT_ADMIN.email, DEFAULT_ADMIN.password);
+  const self = await api.get("/api/users/self");
+  await api.put(`/api/users/${self.id}`, {
+    ...self,
+    email: ADMIN.email,
+    username: ADMIN.username,
+    fullName: ADMIN.fullName,
+  });
+  await api.put("/api/users/password", { currentPassword: DEFAULT_ADMIN.password, newPassword: ADMIN.password });
+  await api.dispose();
+  return MealieApi.login(baseURL, ADMIN.email, ADMIN.password);
+}
+
+function todayUtc(): string {
+  return new Date().toISOString().slice(0, 10);
+}
+
+export default async function globalSetup(config: FullConfig) {
+  const baseURL = config.projects[0]!.use.baseURL!;

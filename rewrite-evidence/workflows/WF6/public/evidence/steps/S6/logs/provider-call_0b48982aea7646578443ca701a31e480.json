@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3956,
+    "byte_offset": 11323716,
+    "timestamp": "2026-10-14T08:50:39.903Z",
+    "turn_id": "01a13999-f4f9-78f2-8751-6c0a710636a0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf425aea2c8191b64cd2f8b0c45a3c",
+      "status": "completed",
+      "call_id": "call_0b48982aea7646578443ca701a31e480",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"rg -n 'self|preferences' wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/use-household-self.ts wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/user/households/*.ts\\ncat wf6-rerun-20261014-01/mealie-wf6-coexist/frontend-react-wf6/src/business.test.ts\\nsed -n '1,80p' wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/types/household.ts\\nrg -n 'canManage|admin|householdId' wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/types/user.ts\",\"max_output_tokens\":2600}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13999-f4f9-78f2-8751-6c0a710636a0",
+        "create_time": 1791967834.9309294
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3959,
+    "byte_offset": 11334337,
+    "timestamp": "2026-10-14T08:50:40.088Z",
+    "turn_id": "01a13999-f4f9-78f2-8751-6c0a710636a0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a1399b-4758-73f2-8805-4f53f6b2932f",
+      "call_id": "call_0b48982aea7646578443ca701a31e480",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"bca1ab\",\"wall_time_seconds\":0.000247637,\"exit_code\":0,\"original_token_count\":1737,\"output\":\"rg: wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/use-household-self.ts: No such file or directory (os error 2)\\nrg: wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/user/households/*.ts: No such file or directory (os error 2)\\nimport test from 'node:test';\\nimport assert from 'node:assert/strict';\\nimport { createRecipeApi, recipeListUrl, SessionError, ApiError, type Identity } from './api.ts';\\nimport { ingredientText, recipeLink } from './model.ts';\\n\\nconst identity: Identity = { id: 'user', groupId: 'group', groupSlug: 'home', fullName: 'Test' };\\nconst signal = () => new AbortController().signal;\\nfunction transport(answer: (url: string) => Response): typeof fetch {\\n  return async (input, init) => {\\n    assert.equal((init?.headers as Record<string, string>).authorization, 'Bearer unit-token');\\n    return answer(String(input));\\n  };\\n}\\nconst json = (value: unknown, status = 200) => new Response(JSON.stringify(value), { status, headers: { 'content-type': 'application/json' } });\\n\\ntest('list search encodes real query/pagination; clear search removes the filter', () => {\\n  assert.equal(new URL(recipeListUrl('Garden Salad'), 'http://local').searchParams.get('search'), 'Garden Salad');\\n  assert.equal(new URL(recipeListUrl(''), 'http://local').searchParams.has('search'), false);\\n  assert.equal(new URL(recipeListUrl('salt & pepper', 2), 'http://local').searchParams.get('page'), '2');\\n});\\ntest('ingredient display, original text, structured quantity/unit/food/note and zero fallback', () => {\\n  assert.equal(ingredientText({ display: '2 cups flour', originalText: 'original' }), '2 cups flour');\\n  assert.equal(ingredientText({ originalText: 'original' }), 'original');\\n  assert.equal(ingredientText({ quantity: 2, unit: { name: 'cups', id: 'u' }, food: { name: 'flour', id: 'f' }, note: 'sifted' }), '2 cups flour sifted');\\n  assert.equal(ingredientText({ quantity: 0, note: 'to taste' }), 'to taste');\\n});\\ntest('recipe links encode group and slug rather than concatenating unsafe segments', () => assert.equal(recipeLink('home', 'salt & pepper'), '/g/home/r/salt%20%26%20pepper'));\\ntest('list adapter verifies identity before requesting owned data', async () => {\\n  const calls: string[] = [];\\n  const api = createRecipeApi(identity, () => 'unit-token', transport(url => { calls.push(url); return json(url === '/api/users/self' ? identity : { items: [{ groupId: 'group', slug: 'pancakes', name: 'Pancakes' }], total: 1, total_pages: 1, page: 1 }); }));\\n  const page = await api.list('Pancakes', 1, signal()); assert.equal(page.items[0]?.slug, 'pancakes'); assert.equal(calls[0], '/api/users/self');\\n});\\ntest('changed identity refuses recipe request rather than showing a new group', async () => {\\n  const calls: string[] = [];\\n  const api = createRecipeApi(identity, () => 'unit-token', transport(url => { calls.push(url); return json({ ...identity, groupId: 'different' }); }));\\n  await assert.rejects(api.list('', 1, signal()), SessionError); assert.deepEqual(calls, ['/api/users/self']);\\n});\\ntest('foreign recipe group is rejected even after a valid self response', async () => {\\n  const api = createRecipeApi(identity, () => 'unit-token', transport(url => json(url === '/api/users/self' ? identity : { items: [{ groupId: 'different', slug: 'foreign' }] })));\\n  await assert.rejects(api.list('', 1, signal()), SessionError);\\n});\\ntest('detail slug is URL encoded and group ownership validated', async () => {\\n  const calls: string[] = []; const api = createRecipeApi(identity, () => 'unit-token', transport(url => { calls.push(url); return json(url === '/api/users/self' ? identity : { groupId: 'group', name: 'Real response', slug: 'salt & pepper' }); }));\\n  assert.equal((await api.detail('salt & pepper', signal())).name, 'Real response'); assert.equal(calls[1], '/api/recipes/salt%20%26%20pepper');\\n});\\ntest('401 is a session failure and 404 remains an explicit detail error', async () => {\\n  const expired = createRecipeApi(identity, () => 'unit-token', transport(() => json({}, 401))); await assert.rejects(expired.list('', 1, signal()), SessionError);\\n  const missing = createRecipeApi(identity, () => 'unit-token', transport(url => url === '/api/users/self' ? json(identity) : json({}, 404)));\\n  await assert.rejects(missing.detail('missing', signal()), (error: unknown) => error instanceof ApiError && error.status === 404);\\n});\\n/* tslint:disable */\\n\\n/**\\n/* This file was automatically generated from pydantic models by running pydantic2ts.\\n/* Do not modify it by hand - just update the pydantic models and then re-run the script\\n*/\\n\\nexport type GroupRecipeActionType = \\\"link\\\" | \\\"post\\\";\\nexport type WebhookType = \\\"mealplan\\\";\\n\\nexport interface CreateGroupRecipeAction {\\n  actionType: GroupRecipeActionType;\\n  title: string;\\n  url: string;\\n}\\nexport interface CreateHouseholdPreferences {\\n  privateHousehold?: boolean;\\n  showAnnouncements?: boolean;\\n  lockRecipeEditsFromOtherHouseholds?: boolean;\\n  firstDayOfWeek?: number;\\n  recipePublic?: boolean;\\n  recipeShowNutrition?: boolean;\\n  recipeShowAssets?: boolean;\\n  recipeLandscapeView?: boolean;\\n  recipeDisableComments?: boolean;\\n}\\nexport interface CreateInviteToken {\\n  uses: number;\\n  groupId?: string | null;\\n  householdId?: string | null;\\n}\\nexport interface CreateWebhook {\\n  enabled?: boolean;\\n  name?: string;\\n  url?: string;\\n  webhookType?: WebhookType;\\n  scheduledTime: string;\\n}\\nexport interface EmailInitationResponse {\\n  success: boolean;\\n  error?: string | null;\\n}\\nexport interface EmailInvitation {\\n  email: string;\\n  token: string;\\n}\\nexport interface GroupEventNotifierCreate {\\n  name: string;\\n  appriseUrl?: string | null;\\n}\\nexport interface GroupEventNotifierOptions {\\n  testMessage?: boolean;\\n  webhookTask?: boolean;\\n  recipeCreated?: boolean;\\n  recipeUpdated?: boolean;\\n  recipeDeleted?: boolean;\\n  userSignup?: boolean;\\n  dataMigrations?: boolean;\\n  dataExport?: boolean;\\n  dataImport?: boolean;\\n  mealplanEntryCreated?: boolean;\\n  mealplanEntryUpdated?: boolean;\\n  mealplanEntryDeleted?: boolean;\\n  shoppingListCreated?: boolean;\\n  shoppingListUpdated?: boolean;\\n  shoppingListDeleted?: boolean;\\n  cookbookCreated?: boolean;\\n  cookbookUpdated?: boolean;\\n  cookbookDeleted?: boolean;\\n  tagCreated?: boolean;\\n  tagUpdated?: boolean;\\n  tagDeleted?: boolean;\\n  categoryCreated?: boolean;\\n  categoryUpdated?: boolean;\\n  categoryDeleted?: boolean;\\n  labelCreated?: boolean;\\n  labelUpdated?: boolean;\\n  labelDeleted?: boolean;\\n}\\nexport interface GroupEventNotifierOptionsOut {\\n77:  householdId: string;\\n83:  householdId: string;\\n137:  admin?: boolean;\\n144:  canManage?: boolean;\\n145:  canManageHousehold?: boolean;\\n149:  householdId: string;\\n224:  admin?: boolean;\\n231:  canManage?: boolean;\\n232:  canManageHousehold?: boolean;\\n241:  admin?: boolean;\\n248:  canManage?: boolean;\\n249:  canManageHousehold?: boolean;\\n259:  admin?: boolean;\\n266:  canManage?: boolean;\\n267:  canManageHousehold?: boolean;\\n271:  householdId: string;\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13999-f4f9-78f2-8751-6c0a710636a0",
+        "create_time": 1791967840.0880952
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3804,
+    "byte_offset": 10873388,
+    "timestamp": "2026-10-14T08:12:30.503Z",
+    "turn_id": "01a13974-b942-7012-950c-89399b0de489",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf396a737c8191958a9dbcfecbcf94",
+      "status": "completed",
+      "call_id": "call_2dc365324def4b3f899557cd39b9132c",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"rg -n 'logout|Logout' wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Layout wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/global wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables\\ncat wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/user/recipes/recipe-comments.ts\\nsed -n '1,150p' wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageComments.vue\",\"max_output_tokens\":2300}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13974-b942-7012-950c-89399b0de489",
+        "create_time": 1791965546.4543874
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3807,
+    "byte_offset": 10883061,
+    "timestamp": "2026-10-14T08:12:30.686Z",
+    "turn_id": "01a13974-b942-7012-950c-89399b0de489",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13978-585e-7af2-819c-1b56101ac9ee",
+      "call_id": "call_2dc365324def4b3f899557cd39b9132c",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"f8b397\",\"wall_time_seconds\":0.005564735,\"exit_code\":0,\"original_token_count\":1386,\"output\":\"wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/use-token-cookie.ts:4: * The server sets the cookie; the client only ever removes it, on logout or a dead session. A cookie\\nwf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/use-auth-backend.ts:159:      await $axios.post(\\\"/api/auth/logout\\\");\\nwf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/use-auth-backend.ts:162:      // Continue with logout even if API call fails\\nwf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/use-auth-backend.ts:163:      console.warn(\\\"Logout API call failed:\\\", error);\\nwf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/use-auth-backend.ts:196:    // during boot, turning a recoverable 401 into a logout.\\nwf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/__tests__/use-auth-backend.test.ts:6:// Pulled in by use-auth-backend purely to wipe cached data on logout. They drag in most of the\\nwf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/__tests__/use-auth-backend.test.ts:187:  test(\\\"clears the session even when the logout call fails\\\", async () => {\\nwf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Layout/LayoutParts/AppHeader.vue:65:        @click=\\\"logout()\\\"\\nwf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Layout/LayoutParts/AppHeader.vue:68:          {{ $globals.icons.logout }}\\nwf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Layout/LayoutParts/AppHeader.vue:70:        {{ smAndUp ? $t(\\\"user.logout\\\") : \\\"\\\" }}\\nwf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Layout/LayoutParts/AppHeader.vue:126:async function logout() {\\nimport { BaseCRUDAPI } from \\\"../../base/base-clients\\\";\\nimport type { RecipeCommentCreate, RecipeCommentOut, RecipeCommentUpdate } from \\\"~/lib/api/types/recipe\\\";\\n\\nconst prefix = \\\"/api\\\";\\n\\nconst routes = {\\n  comment: `${prefix}/comments`,\\n  byRecipe: (id: string) => `${prefix}/recipes/${id}/comments`,\\n  commentsId: (id: string) => `${prefix}/comments/${id}`,\\n};\\n\\nexport class CommentsApi extends BaseCRUDAPI<RecipeCommentCreate, RecipeCommentOut, RecipeCommentUpdate> {\\n  baseRoute: string = routes.comment;\\n  itemRoute = routes.commentsId;\\n\\n  async byRecipe(slug: string) {\\n    return await this.requests.get<RecipeCommentOut[]>(routes.byRecipe(slug));\\n  }\\n}\\n<template>\\n  <div>\\n    <v-card-title class=\\\"headline pb-3\\\">\\n      <v-icon class=\\\"mr-2\\\">\\n        {{ $globals.icons.commentTextMultipleOutline }}\\n      </v-icon>\\n      {{ $t(\\\"recipe.comments\\\") }}\\n    </v-card-title>\\n    <v-divider class=\\\"mx-2\\\" />\\n    <div\\n      v-if=\\\"user.id\\\"\\n      class=\\\"d-flex flex-column\\\"\\n    >\\n      <div\\n        class=\\\"d-flex mt-3\\\"\\n        style=\\\"gap: 10px\\\"\\n      >\\n        <UserAvatar\\n          :tooltip=\\\"false\\\"\\n          size=\\\"40\\\"\\n          :user-id=\\\"user.id\\\"\\n        />\\n\\n        <v-textarea\\n          v-model=\\\"comment\\\"\\n          hide-details\\n          density=\\\"compact\\\"\\n          single-line\\n          variant=\\\"outlined\\\"\\n          auto-grow\\n          rows=\\\"2\\\"\\n          :placeholder=\\\"$t('recipe.join-the-conversation')\\\"\\n        />\\n      </div>\\n      <div class=\\\"ml-auto mt-1\\\">\\n        <BaseButton\\n          size=\\\"small\\\"\\n          :disabled=\\\"!comment.trim()\\\"\\n          @click=\\\"submitComment\\\"\\n        >\\n          <template #icon>\\n            {{ $globals.icons.check }}\\n          </template>\\n          {{ $t(\\\"general.submit\\\") }}\\n        </BaseButton>\\n      </div>\\n    </div>\\n    <div\\n      v-for=\\\"recipeComment in recipe.comments\\\"\\n      :key=\\\"recipeComment.id\\\"\\n      class=\\\"d-flex my-2\\\"\\n      style=\\\"gap: 10px\\\"\\n    >\\n      <UserAvatar\\n        :tooltip=\\\"false\\\"\\n        size=\\\"40\\\"\\n        :user-id=\\\"recipeComment.userId\\\"\\n      />\\n      <v-card\\n        variant=\\\"outlined\\\"\\n        class=\\\"flex-grow-1\\\"\\n      >\\n        <v-card-text class=\\\"pa-3 pb-0\\\">\\n          <p class=\\\"\\\">\\n            {{ recipeComment.user.fullName }} • {{ $d(Date.parse(recipeComment.createdAt), \\\"medium\\\") }}\\n          </p>\\n          <SafeMarkdown :source=\\\"recipeComment.text\\\" />\\n        </v-card-text>\\n        <v-card-actions class=\\\"justify-end mt-0 pt-0\\\">\\n          <v-btn\\n            v-if=\\\"user.id == recipeComment.user.id || user.admin\\\"\\n            color=\\\"error\\\"\\n            variant=\\\"text\\\"\\n            size=\\\"x-small\\\"\\n            @click=\\\"deleteComment(recipeComment.id)\\\"\\n          >\\n            {{ $t(\\\"general.delete\\\") }}\\n          </v-btn>\\n        </v-card-actions>\\n      </v-card>\\n    </div>\\n  </div>\\n</template>\\n\\n<script setup lang=\\\"ts\\\">\\nimport { useUserApi } from \\\"~/composables/api\\\";\\nimport type { Recipe } from \\\"~/lib/api/types/recipe\\\";\\nimport UserAvatar from \\\"~/components/Domain/User/UserAvatar.vue\\\";\\nimport type { NoUndefinedField } from \\\"~/lib/api/types/non-generated\\\";\\nimport { usePageUser } from \\\"~/composables/recipe-page/shared-state\\\";\\nimport SafeMarkdown from \\\"~/components/global/SafeMarkdown.vue\\\";\\n\\nconst recipe = defineModel<NoUndefinedField<Recipe>>({ required: true });\\nconst api = useUserApi();\\nconst { user } = usePageUser();\\nconst comment = ref(\\\"\\\");\\n\\nasync function submitComment() {\\n  const text = comment.value.trim();\\n  if (!text) {\\n    return;\\n  }\\n  const { data } = await api.recipes.comments.createOne({\\n    recipeId: recipe.value.id,\\n    text,\\n  });\\n\\n  if (data) {\\n    recipe.value.comments.push(data);\\n  }\\n\\n  comment.value = \\\"\\\";\\n}\\n\\nasync function deleteComment(id: string) {\\n  const { response } = await api.recipes.comments.deleteOne(id);\\n\\n  if (response?.status === 200) {\\n    recipe.value.comments = recipe.value.comments.filter(comment => comment.id !== id);\\n  }\\n}\\n</script>\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13974-b942-7012-950c-89399b0de489",
+        "create_time": 1791965550.6863139
+      }
+    }
+  }
+}

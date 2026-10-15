@@ -1,0 +1,25 @@
+{
+  "stage": "S5",
+  "limit": 2,
+  "used": 2,
+  "rounds": [
+    {
+      "round": 1,
+      "scope": "Supplemental test navigation; application bytes unchanged",
+      "cause": "Second goto of identical URL with same fragment did not load a new document; initial trace confirms real anonymous 401.",
+      "fix": "Distinct case query per anonymous/expired document request; keep all assertions and timeouts.",
+      "failure_log": "logs/20261014T073502-06a4994d.stdout.log",
+      "failure_trace": "browser/test-results/s5-extra-tests.cjs--Bounda-27bde--do-not-request-recipe-data/trace.zip",
+      "diff": "repair-1-test.diff"
+    },
+    {
+      "round": 2,
+      "scope": "Detection control test origin; application unchanged",
+      "cause": "Fresh auth cookie domain 127.0.0.1 but control probe targeted localhost; trace proves real self 401.",
+      "fix": "Use WF6_GATEWAY_ORIGIN matching this auth state. Preserve all business/ownership assertions and timeout.",
+      "failure_log": "logs/20261014T073842-d7eb55e2.stdout.log",
+      "failure_trace": "browser-r1/probe-control/s5-detection-probe.cjs-tar-c4bb3--detail-business-acceptance/trace.zip",
+      "diff": "repair-2-test.diff"
+    }
+  ]
+}

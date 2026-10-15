@@ -1,0 +1,12 @@
+{
+  "experiment_seconds_limit": 10800,
+  "experiment_seconds_used": 0,
+  "experiment_budget_started": false,
+  "repair_rounds": {
+    "S2": 0,
+    "S3_S4": 0,
+    "S5": 0,
+    "S6": 0
+  },
+  "note": "S2-S6 not executed; zero denotes an unstarted budget, not missing token/cost telemetry."
+}

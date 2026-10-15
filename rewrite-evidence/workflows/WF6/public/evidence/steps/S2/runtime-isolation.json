@@ -1,0 +1,35 @@
+{
+  "identity": {
+    "run_id": "wf6-rerun-20261014-01",
+    "stage_id": "S2",
+    "build_hash": "af9a32e7318fd2c82d289f49f335d13168ddb476bf3d0ec152834ebc6f14c914",
+    "disposable_data": "/tmp/wf6-rerun-20261014-01-S2/disposable-data",
+    "port_backend": 9006,
+    "port_gateway": 9106
+  },
+  "auth_real_target": "/tmp/wf6-rerun-20261014-01-S2/auth",
+  "backend_launcher_sha256": "8fd9652aae79dc39ff0ada7cb40b56f305d388c64b06523dcaa57fc190f3cb92",
+  "default_sandbox_unchanged": true,
+  "credentials_exported_in_summary": false,
+  "service_lifecycles_closed": true,
+  "database_files": [
+    {
+      "path": "disposable-data/mealie.db",
+      "bytes": 1490944,
+      "sha256": "7e51fb45d58501af582d326d5e0072091a44133c34a26915882ccce0a40d96b5"
+    }
+  ],
+  "auth_file_hashes": [
+    {
+      "path": "admin.json",
+      "bytes": 483,
+      "sha256": "4c0b700c4560e5db9da97559b7ff0092b194bd559c336c69eb7dee328f03664b"
+    },
+    {
+      "path": "fixtures.json",
+      "bytes": 649,
+      "sha256": "17a012ce14472aa088bc3116e7251e600ea94d24a3dea4901eecdbe996951649"
+    }
+  ],
+  "browser_raw_policy": "Original trace includes isolated login/session details and is private; redacted shareable summary contains no request/response bodies or cookie/bearer/password values."
+}

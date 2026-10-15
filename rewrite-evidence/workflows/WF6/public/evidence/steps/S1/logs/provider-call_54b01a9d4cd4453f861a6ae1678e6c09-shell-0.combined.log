@@ -1,0 +1,2 @@
+  ✘  77 [flows] › tests/flows/recipes.spec.ts:6:7 › recipes › [flow] open a recipe from the recipe list (46.1s)
+  ✘  78 [flows] › tests/flows/recipes.spec.ts:15:7 › recipes › [flow] search narrows the recipe list (20.2s)

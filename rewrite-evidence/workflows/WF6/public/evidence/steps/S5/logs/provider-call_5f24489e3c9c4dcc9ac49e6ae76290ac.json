@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3404,
+    "byte_offset": 9796195,
+    "timestamp": "2026-10-14T07:46:56.764Z",
+    "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf3368e6bc8191aee7c2c9dc0db4b8",
+      "status": "completed",
+      "call_id": "call_5f24489e3c9c4dcc9ac49e6ae76290ac",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nfrom pathlib import Path\\nimport sys,json\\np=Path('wf6-rerun-20261014-01/wf6-evidence').resolve();s=p/'steps/S5';sys.path.insert(0,str(p/'usage'));import collect_usage\\nfor name in ['[REDACTED]','visible-transcript.jsonl','commands.jsonl','logs','source-state.json','diff.patch','file-manifest.json','attempts.jsonl','result.md','token-usage.json']:assert (s/name).exists(),name\\nassert json.loads((p/'steps/S1/token-usage.json').read_text())['status']=='partial'\\nassert json.loads((p/'steps/S4/token-usage.json').read_text())['final_reply_included'] is True\\nassert json.loads((s/'token-usage.json').read_text())['status']=='provisional'\\nassert json.loads((s/'token-usage.json').read_text())['final_reply_included'] is False\\nassert not json.loads((p/'usage/index-validation.json').read_text())['missing_links']\\nstate=json.loads((s/'source-state.json').read_text());assert not state['source']['dirty'] and not state['evaluator']['dirty']\\ncollect_usage.manifest(p)\\nprint('S5 bundle and clean accepted states verified; S1 partial and S4 final coverage retained; S5 final reply not yet included.')\\nPY\",\"yield_time_ms\":1000,\"max_output_tokens\":500}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+        "create_time": 1791964008.9873834
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3406,
+    "byte_offset": 9798733,
+    "timestamp": "2026-10-14T07:46:57.958Z",
+    "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13960-f526-7532-ad61-5776805a91a8",
+      "call_id": "call_5f24489e3c9c4dcc9ac49e6ae76290ac",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 1.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"ebfff4\",\"wall_time_seconds\":1.000875543,\"session_id\":57154,\"original_token_count\":0,\"output\":\"\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+        "create_time": 1791964017.9585598
+      }
+    }
+  }
+}

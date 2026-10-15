@@ -1,0 +1,107 @@
+{
+  "versions": {
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "react-router": "7.18.4",
+    "@mui/material": "7.3.11",
+    "@emotion/react": "11.14.0",
+    "@emotion/styled": "11.14.1",
+    "i18next": "25.10.10",
+    "react-i18next": "16.6.6",
+    "vite": "8.3.4",
+    "@vitejs/plugin-react": "6.1.2",
+    "typescript": "5.9.3",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@types/node": "24.19.2"
+  },
+  "metadata_sources": [
+    {
+      "package": "react",
+      "requested_range": "19",
+      "pinned_version": "19.3.0",
+      "command_id": "20261014T043707-ded4900f"
+    },
+    {
+      "package": "react-dom",
+      "requested_range": "19",
+      "pinned_version": "19.3.0",
+      "command_id": "20261014T043717-ff78ac22"
+    },
+    {
+      "package": "react-router",
+      "requested_range": "7",
+      "pinned_version": "7.18.4",
+      "command_id": "20261014T043728-33494daf"
+    },
+    {
+      "package": "@mui/material",
+      "requested_range": "7",
+      "pinned_version": "7.3.11",
+      "command_id": "20261014T043739-d6e75dae"
+    },
+    {
+      "package": "@emotion/react",
+      "requested_range": "11",
+      "pinned_version": "11.14.0",
+      "command_id": "20261014T043749-63762d44"
+    },
+    {
+      "package": "@emotion/styled",
+      "requested_range": "11",
+      "pinned_version": "11.14.1",
+      "command_id": "20261014T043759-c0d4e068"
+    },
+    {
+      "package": "i18next",
+      "requested_range": "25",
+      "pinned_version": "25.10.10",
+      "command_id": "20261014T043810-822028de"
+    },
+    {
+      "package": "react-i18next",
+      "requested_range": "16",
+      "pinned_version": "16.6.6",
+      "command_id": "20261014T043821-c914cb21"
+    },
+    {
+      "package": "vite",
+      "requested_range": "8",
+      "pinned_version": "8.3.4",
+      "command_id": "20261014T043829-f2e90f64"
+    },
+    {
+      "package": "@vitejs/plugin-react",
+      "requested_range": "latest",
+      "pinned_version": "6.1.2",
+      "command_id": "20261014T043840-4e7ee64e"
+    },
+    {
+      "package": "typescript",
+      "requested_range": "5.9",
+      "pinned_version": "5.9.3",
+      "command_id": "20261014T043850-691f6ba0"
+    },
+    {
+      "package": "@types/react",
+      "requested_range": "19",
+      "pinned_version": "19.3.0",
+      "command_id": "20261014T043903-88d60395"
+    },
+    {
+      "package": "@types/react-dom",
+      "requested_range": "19",
+      "pinned_version": "19.3.0",
+      "command_id": "20261014T043913-d9f9961b"
+    },
+    {
+      "package": "@types/node",
+      "requested_range": "24",
+      "pinned_version": "24.19.2",
+      "command_id": "20261014T043923-a1ce7547"
+    }
+  ],
+  "linux_native_target": "/tmp/wf6-rerun-20261014-01-S3/deps",
+  "lock_sha256": "1f3437e51650e32383d9a8db3f61df61e99a1641b95efd78669ca0c03c7991d9",
+  "ignored_install_scripts": true
+}

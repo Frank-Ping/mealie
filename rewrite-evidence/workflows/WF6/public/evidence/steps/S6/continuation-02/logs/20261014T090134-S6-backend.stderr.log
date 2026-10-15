@@ -1,0 +1,100 @@
+WARNING  2026-10-14T09:01:44 - Secrets directory '/run/secrets' does not exist
+WARNING  2026-10-14T09:01:56 - Secrets directory '/run/secrets' does not exist
+ERROR    2026-10-14T09:02:02 - Incorrect username or password from 127.0.0.1
+ERROR    2026-10-14T09:02:09 - Incorrect username or password from 127.0.0.1
+ERROR    2026-10-14T09:02:49 - Exception in ASGI application
+Traceback (most recent call last):
+  File "<WORKSPACE>/wf6-rerun-20261014-01/runtime/env/backend/lib/python3.14/site-packages/uvicorn/protocols/http/httptools_impl.py", line 422, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        self.scope, self.receive, self.send
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "<WORKSPACE>/wf6-rerun-20261014-01/runtime/env/backend/lib/python3.14/site-packages/uvicorn/middleware/proxy_headers.py", line 63, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>/wf6-rerun-20261014-01/runtime/env/backend/lib/python3.14/site-packages/fastapi/applications.py", line 1163, in __call__
+    await super().__call__(scope, receive, send)
+  File "<WORKSPACE>/wf6-rerun-20261014-01/runtime/env/backend/lib/python3.14/site-packages/starlette/applications.py", line 96, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "<WORKSPACE>/wf6-rerun-20261014-01/runtime/env/backend/lib/python3.14/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "<WORKSPACE>/wf6-rerun-20261014-01/runtime/env/backend/lib/python3.14/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "<WORKSPACE>/wf6-rerun-20261014-01/runtime/env/backend/lib/python3.14/site-packages/starlette/middleware/base.py", line 193, in __call__
+    response = await self.dispatch_func(request, call_next)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator/mealie/middleware/locale_context.py", line 21, in dispatch
+    response = await call_next(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>/wf6-rerun-20261014-01/runtime/env/backend/lib/python3.14/site-packages/starlette/middleware/base.py", line 168, in call_next
+    raise app_exc from app_exc.__cause__ or app_exc.__context__
+  File "<WORKSPACE>/wf6-rerun-20261014-01/runtime/env/backend/lib/python3.14/site-packages/starlette/middleware/base.py", line 144, in coro
+    await self.app(scope, receive_or_disconnect, send_no_error)
+  File "<WORKSPACE>/wf6-rerun-20261014-01/runtime/env/backend/lib/python3.14/site-packages/starlette/middleware/sessions.py", line 88, in __call__
+    await self.app(scope, receive, send_wrapper)
+  File "<WORKSPACE>/wf6-rerun-20261014-01/runtime/env/backend/lib/python3.14/site-packages/starlette/middleware/gzip.py", line 78, in __call__
+    await responder(scope, receive, send)
+  File "<WORKSPACE>/wf6-rerun-20261014-01/runtime/env/backend/lib/python3.14/site-packages/starlette/middleware/gzip.py", line 103, in __call__
+    await self.app(scope, receive, self.send_with_compression)
+  File "<WORKSPACE>/wf6-rerun-20261014-01/runtime/env/backend/lib/python3.14/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "<WORKSPACE>/wf6-rerun-20261014-01/runtime/env/backend/lib/python3.14/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "<WORKSPACE>/wf6-rerun-20261014-01/runtime/env/backend/lib/python3.14/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "<WORKSPACE>/wf6-rerun-20261014-01/runtime/env/backend/lib/python3.14/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "<WORKSPACE>/wf6-rerun-20261014-01/runtime/env/backend/lib/python3.14/site-packages/starlette/routing.py", line 670, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "<WORKSPACE>/wf6-rerun-20261014-01/runtime/env/backend/lib/python3.14/site-packages/fastapi/routing.py", line 2734, in app
+    await route.handle(scope, receive, send)
+  File "<WORKSPACE>/wf6-rerun-20261014-01/runtime/env/backend/lib/python3.14/site-packages/fastapi/routing.py", line 1780, in handle
+    await self.original_router.handle(scope, receive, send)
+  File "<WORKSPACE>/wf6-rerun-20261014-01/runtime/env/backend/lib/python3.14/site-packages/fastapi/routing.py", line 2789, in handle
+    await included_router._handle_selected(scope, receive, send)
+  File "<WORKSPACE>/wf6-rerun-20261014-01/runtime/env/backend/lib/python3.14/site-packages/fastapi/routing.py", line 1791, in _handle_selected
+    await route.handle(scope, receive, send)
+  File "<WORKSPACE>/wf6-rerun-20261014-01/runtime/env/backend/lib/python3.14/site-packages/fastapi/routing.py", line 1780, in handle
+    await self.original_router.handle(scope, receive, send)
+  File "<WORKSPACE>/wf6-rerun-20261014-01/runtime/env/backend/lib/python3.14/site-packages/fastapi/routing.py", line 2789, in handle
+    await included_router._handle_selected(scope, receive, send)
+  File "<WORKSPACE>/wf6-rerun-20261014-01/runtime/env/backend/lib/python3.14/site-packages/fastapi/routing.py", line 1791, in _handle_selected
+    await route.handle(scope, receive, send)
+  File "<WORKSPACE>/wf6-rerun-20261014-01/runtime/env/backend/lib/python3.14/site-packages/fastapi/routing.py", line 1780, in handle
+    await self.original_router.handle(scope, receive, send)
+  File "<WORKSPACE>/wf6-rerun-20261014-01/runtime/env/backend/lib/python3.14/site-packages/fastapi/routing.py", line 2789, in handle
+    await included_router._handle_selected(scope, receive, send)
+  File "<WORKSPACE>/wf6-rerun-20261014-01/runtime/env/backend/lib/python3.14/site-packages/fastapi/routing.py", line 1791, in _handle_selected
+    await route.handle(scope, receive, send)
+  File "<WORKSPACE>/wf6-rerun-20261014-01/runtime/env/backend/lib/python3.14/site-packages/fastapi/routing.py", line 1780, in handle
+    await self.original_router.handle(scope, receive, send)
+  File "<WORKSPACE>/wf6-rerun-20261014-01/runtime/env/backend/lib/python3.14/site-packages/fastapi/routing.py", line 2789, in handle
+    await included_router._handle_selected(scope, receive, send)
+  File "<WORKSPACE>/wf6-rerun-20261014-01/runtime/env/backend/lib/python3.14/site-packages/fastapi/routing.py", line 1800, in _handle_selected
+    await original_route.handle(scope, receive, send)
+  File "<WORKSPACE>/wf6-rerun-20261014-01/runtime/env/backend/lib/python3.14/site-packages/fastapi/routing.py", line 1279, in handle
+    await app(scope, receive, send)
+  File "<WORKSPACE>/wf6-rerun-20261014-01/runtime/env/backend/lib/python3.14/site-packages/fastapi/routing.py", line 158, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "<WORKSPACE>/wf6-rerun-20261014-01/runtime/env/backend/lib/python3.14/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "<WORKSPACE>/wf6-rerun-20261014-01/runtime/env/backend/lib/python3.14/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "<WORKSPACE>/wf6-rerun-20261014-01/runtime/env/backend/lib/python3.14/site-packages/fastapi/routing.py", line 144, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>/wf6-rerun-20261014-01/runtime/env/backend/lib/python3.14/site-packages/fastapi/routing.py", line 706, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "<WORKSPACE>/wf6-rerun-20261014-01/runtime/env/backend/lib/python3.14/site-packages/fastapi/routing.py", line 352, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator/mealie/routes/recipe/comments.py", line 14, in get_recipe_comments
+    return self.repos.comments.multi_query({"recipe_id": recipe.id})
+                                                         ^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'id'

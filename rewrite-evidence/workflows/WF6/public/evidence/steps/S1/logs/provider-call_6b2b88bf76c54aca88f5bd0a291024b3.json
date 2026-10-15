@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1797,
+    "byte_offset": 5505996,
+    "timestamp": "2026-10-14T03:47:32.594Z",
+    "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acefb4fec9c8191a3fd57f0b8e9f550",
+      "status": "completed",
+      "call_id": "call_6b2b88bf76c54aca88f5bd0a291024b3",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 - <<'PY'\\nimport pathlib,json,os\\nprint('old_pid_visible',pathlib.Path('/proc/32542').exists())\\nprint('native reports',list(pathlib.Path('/tmp/wf6-rerun-20261014-01-S1-native/browser').glob('*')))\\nprint('case aliases',os.path.samefile('<WORKSPACE>','.'))\\np=pathlib.Path('<WSL_HOME>/.codex/sessions/2026/10/14')\\nfor f in sorted(p.glob('*')):\\n if '01a137ea' in f.name:print('log',f)\\nPY\",\"max_output_tokens\":600}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+        "create_time": 1791949647.9435792
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1800,
+    "byte_offset": 5509662,
+    "timestamp": "2026-10-14T03:47:32.786Z",
+    "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13885-c332-7e32-b2b2-dbb9e1aabf91",
+      "call_id": "call_6b2b88bf76c54aca88f5bd0a291024b3",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"5d949e\",\"wall_time_seconds\":0.000010735,\"exit_code\":0,\"original_token_count\":61,\"output\":\"old_pid_visible False\\nnative reports [PosixPath('/tmp/wf6-rerun-20261014-01-S1-native/browser/test-results')]\\ncase aliases True\\nlog <WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+        "create_time": 1791949652.7864866
+      }
+    }
+  }
+}

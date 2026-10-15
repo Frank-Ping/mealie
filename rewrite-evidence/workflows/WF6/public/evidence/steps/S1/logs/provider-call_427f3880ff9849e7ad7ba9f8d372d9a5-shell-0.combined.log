@@ -1,0 +1,92 @@
+#!/usr/bin/env bash
+# Start a throwaway Mealie backend that serves a pre-built SPA, for the E2E yardstick.
+#
+#   E2E_STATIC_DIR  built SPA to serve (default: frontend/dist, i.e. `pnpm generate` output of the Vue app).
+#                   Point this at the React build later to run the exact same suite against it.
+#   E2E_PORT        port to listen on (default 9091, so it never collides with `task py` on 9000)
+#   E2E_DATA_DIR    data dir; wiped on every start so each run begins from an empty database
+set -euo pipefail
+
+REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
+STATIC_DIR="$(realpath "${E2E_STATIC_DIR:-$REPO_ROOT/frontend/dist}")"
+PORT="${E2E_PORT:-9091}"
+DATA_DIR="${E2E_DATA_DIR:-$REPO_ROOT/frontend-e2e/.data}"
+
+if [[ ! -f "$STATIC_DIR/index.html" ]]; then
+  echo "No built SPA at $STATIC_DIR (missing index.html). Build the frontend first." >&2
+  exit 1
+fi
+
+rm -rf "$DATA_DIR"
+mkdir -p "$DATA_DIR"
+
+cd "$REPO_ROOT"
+export PRODUCTION=true TESTING=false
+export DATA_DIR STATIC_FILES="$STATIC_DIR" API_PORT="$PORT" BASE_URL="http://localhost:$PORT"
+export DB_ENGINE=sqlite ALLOW_SIGNUP=true LOG_LEVEL=warning TZ=UTC
+exec uv run --frozen uvicorn mealie.app:app --host 127.0.0.1 --port "$PORT" --workers 1 --log-level warning
+import { defineConfig, devices } from "@playwright/test";
+import { ADMIN_STATE } from "./lib/fixtures";
+
+const PORT = Number(process.env.E2E_PORT ?? 9091);
+const baseURL = `http://localhost:${PORT}`;
+
+export default defineConfig({
+  testDir: "./tests",
+  // The dev box has 3.8 GB RAM and shares it with the backend: keep the browser count low.
+  workers: Number(process.env.E2E_WORKERS ?? 2),
+  fullyParallel: false,
+  // Flakes must be fixed, not retried away: a retry would hide them from the yardstick.
+  retries: 0,
+  forbidOnly: true,
+  timeout: 45_000,
+  expect: { timeout: 10_000 },
+  reporter: [
+    ["list"],
+    ["json", { outputFile: "test-results/results.json" }],
+    ["html", { outputFolder: "playwright-report", open: "never" }],
+  ],
+  globalSetup: "./global-setup.ts",
+  use: {
+    baseURL,
+    locale: "en-US",
+    timezoneId: "UTC",
+    viewport: { width: 1440, height: 900 },
+    trace: "retain-on-failure",
+    screenshot: "only-on-failure",
+  },
+  projects: [
+    {
+      name: "routes",
+      testMatch: /routes\.spec\.ts/,
+      use: { ...devices["Desktop Chrome"], viewport: { width: 1440, height: 900 }, storageState: ADMIN_STATE },
+    },
+    {
+      name: "flows",
+      testMatch: /flows\/.*\.spec\.ts/,
+      use: { ...devices["Desktop Chrome"], viewport: { width: 1440, height: 900 }, storageState: ADMIN_STATE },
+    },
+  ],
+  webServer: {
+    command: "./scripts/start-backend.sh",
+    url: `${baseURL}/api/app/about`,
+    // Fresh database every run unless explicitly asked to reuse (handy while writing tests only).
+    reuseExistingServer: process.env.E2E_REUSE_SERVER === "1",
+    timeout: 180_000,
+    stdout: "ignore",
+    stderr: "pipe",
+    env: { E2E_PORT: String(PORT) },
+  },
+});
+# WF6 progress / 进度
+
+Run: wf6-rerun-20261014-01. S0 PASS; usage exact_reported with final reply included.
+S0 准备通过且最终回复用量已核实封账。
+
+P1 post-S0 audit/dependency preparation PASS; separate extra_discussion/preparation.
+P1 审计与 Linux 依赖准备通过，单列额外讨论/preparation；最后回复计量待收尾。
+
+S1–S7 not executed. S2–S6 budget unstarted. Default sandbox unchanged; network/socket runtime actions require concrete approvals.
+S1–S7 未执行；三小时预算未启动；默认 sandbox 不变，网络/socket 操作须具体审批。
+
+[Preparation result](preparation/P1-audit-dependencies/result.md) · [Live usage](usage/USAGE.md)

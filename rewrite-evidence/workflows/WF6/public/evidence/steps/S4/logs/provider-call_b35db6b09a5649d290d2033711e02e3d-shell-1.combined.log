@@ -1,0 +1,11 @@
+wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/g/[groupSlug]/r/[slug]/index.vue:40:    const { data, error } = await api.explore.recipes.getOne(slug);
+wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/pages/g/[groupSlug]/r/[slug]/index.vue:43:      router.push({ path: `/g/${groupSlug.value}`, query: { redirect: route.fullPath } });
+rg: wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/recipes/recipes.ts: IO error for operation on wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/recipes/recipes.ts: No such file or directory (os error 2)
+wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/types/recipe.ts
+wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/user/group-recipe-actions.ts
+wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/user/recipe-foods.ts
+wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/user/recipe-bulk-actions.ts
+wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/user/recipe-units.ts
+wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/public/explore/recipes.ts
+wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/user/recipes/recipe-comments.ts
+wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/user/recipes/index.ts

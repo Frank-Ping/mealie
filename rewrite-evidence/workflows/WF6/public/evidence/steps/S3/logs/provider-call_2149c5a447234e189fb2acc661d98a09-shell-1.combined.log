@@ -1,0 +1,90 @@
+61-              <v-list-item
+62-                v-if="!item.restricted || isOwnGroup"
+63-                :key="item.title"
+64:                :to="item.to"
+65-                exact
+66-                class="my-1"
+67-              >
+--
+96-<script setup lang="ts">
+97-import { useLoggedInState } from "~/composables/use-logged-in-state";
+98-import type { SideBarLink } from "~/types/application-types";
+99:import { useGroupSelf } from "~/composables/use-groups";
+100-import { useCookbookPreferences } from "~/composables/use-users/preferences";
+101-import { useCookbookStore, usePublicCookbookStore } from "~/composables/store/use-cookbook-store";
+102-import type { ReadCookBook } from "~/lib/api/types/cookbook";
+--
+106-const display = useDisplay();
+107-const auth = useMealieAuth();
+108-const { isOwnGroup } = useLoggedInState();
+109:const { group } = useGroupSelf();
+110-
+111-const route = useRoute();
+112:const groupSlug = computed(() => route.params.groupSlug as string || auth.user.value?.groupSlug || "");
+113-
+114-const cookbookPreferences = useCookbookPreferences();
+115-const ownCookbookStore = computed(() => isOwnGroup.value ? useCookbookStore(i18n) : null);
+--
+126-  if (ownCookbookStore.value) {
+127-    return ownCookbookStore.value.store.value;
+128-  }
+129:  else if (groupSlug.value) {
+130:    const publicStore = getPublicCookbookStore(groupSlug.value);
+131-    return unref(publicStore.store);
+132-  }
+133-  return [];
+134-});
+135-
+136:const showAIImport = computed(() => group.value?.aiProviderSettings?.aiEnabled);
+137-
+138-const sidebar = ref<boolean>(false);
+139-onMounted(() => {
+--
+145-    key: cookbook.slug || "",
+146-    icon: $globals.icons.pages,
+147-    title: cookbook.name,
+148:    to: `/g/${groupSlug.value}/cookbooks/${cookbook.slug || ""}`,
+149-    restricted: false,
+150-  };
+151-}
+--
+199-    icon: $globals.icons.link,
+200-    title: i18n.t("general.import"),
+201-    subtitle: i18n.t("new-recipe.import-by-url"),
+202:    to: `/g/${groupSlug.value}/r/create/url`,
+203-    restricted: true,
+204-    hide: false,
+205-  },
+--
+208-    icon: $globals.icons.autoFix,
+209-    title: i18n.t("recipe.import-with-ai"),
+210-    subtitle: i18n.t("recipe.import-with-ai-subtitle"),
+211:    to: `/g/${groupSlug.value}/r/create/ai`,
+212-    restricted: true,
+213-    hide: !showAIImport.value,
+214-  },
+--
+217-    icon: $globals.icons.edit,
+218-    title: i18n.t("general.create"),
+219-    subtitle: i18n.t("new-recipe.create-manually"),
+220:    to: `/g/${groupSlug.value}/r/create/new`,
+221-    restricted: true,
+222-    hide: false,
+223-  },
+--
+226-const topLinks = computed<SideBarLink[]>(() => [
+227-  {
+228-    icon: $globals.icons.silverwareForkKnife,
+229:    to: `/g/${groupSlug.value}`,
+230-    title: i18n.t("general.recipes"),
+231-    restricted: false,
+43:      router.push({ path: `/g/${groupSlug.value}`, query: { redirect: route.fullPath } });
+wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/middleware/can-manage-only.ts
+wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/middleware/can-manage-household-only.ts
+wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/middleware/auth.ts
+wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/middleware/advanced-only.ts
+wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/middleware/admin-only.ts
+wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/middleware/group-only.ts
+wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/middleware/can-organize-only.ts
+wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/middleware/pwa-share-target-redirect.global.ts
+wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/middleware/__tests__/auth.test.ts

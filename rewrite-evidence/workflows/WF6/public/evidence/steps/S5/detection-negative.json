@@ -1,0 +1,50 @@
+{
+  "status": "PASS",
+  "classification": "expected_failure",
+  "takeoverEnabled": true,
+  "source_unchanged": true,
+  "mutation": "Atomic rename of this S5 runtime copy assets only; restored byte hashes verified",
+  "outcomes": [
+    {
+      "phase": "control",
+      "command_id": "20261014T074132-7102ef24",
+      "exit_code": 0,
+      "stats": {
+        "startTime": "2026-10-14T07:41:35.072Z",
+        "duration": 2816.0710000000004,
+        "expected": 1,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    {
+      "phase": "expected_failure",
+      "command_id": "20261014T074137-0424d904",
+      "exit_code": 1,
+      "stats": {
+        "startTime": "2026-10-14T07:41:40.676Z",
+        "duration": 7513.817999999999,
+        "expected": 0,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      }
+    },
+    {
+      "phase": "restored",
+      "command_id": "20261014T074148-9bbdf3ce",
+      "exit_code": 0,
+      "stats": {
+        "startTime": "2026-10-14T07:41:50.741Z",
+        "duration": 2360.4799999999996,
+        "expected": 1,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    }
+  ],
+  "failure_reason_verified": "Missing E2E Pancakes heading under React-owned HTML while assets were unavailable; identical business assertion passes before and after",
+  "raw_playwright_status_policy": "Playwright unexpected=1 is retained untouched; experiment classifies this intentional injection as expected_failure, not ordinary regression"
+}

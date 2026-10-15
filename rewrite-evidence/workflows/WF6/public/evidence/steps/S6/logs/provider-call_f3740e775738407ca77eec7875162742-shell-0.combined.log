@@ -1,0 +1,21 @@
+20261014T093150-8d816cc7.stdout.log
+pi-tokens.vue (970ms)
+  ✓  67 [routes] › tests/routes.spec.ts:37:9 › admin › [route] user/[id]/favorites.vue (1.1s)
+  ✓  68 [flows] › tests/flows/admin.spec.ts:5:7 › admin › [flow] create a user and find them in user management (2.4s)
+  ✓  69 [flows] › tests/flows/auth.spec.ts:8:7 › auth › [flow] log in with valid credentials and land on the recipe list (1.0s)
+  ✓  70 [flows] › tests/flows/auth.spec.ts:16:7 › auth › [flow] a wrong password is rejected (652ms)
+  ✓  71 [flows] › tests/flows/auth.spec.ts:27:7 › auth › [flow] log out ends the session (958ms)
+  ✓  72 [flows] › tests/flows/auth.spec.ts:39:7 › auth › [flow] a regular member is not offered admin pages (1.2s)
+  ✓  73 [flows] › tests/flows/auth.spec.ts:50:7 › auth › [flow] an admin is offered admin pages (1.5s)
+  ✓  74 [flows] › tests/flows/mealplan.spec.ts:12:7 › meal plan › [flow] add a note to tomorrow's meal plan (3.8s)
+  ✓  75 [flows] › tests/flows/organize.spec.ts:5:7 › organizing › [flow] create a tag in data management (1.4s)
+  ✓  76 [flows] › tests/flows/profile.spec.ts:8:7 › profile › [flow] a member updates their full name (1.4s)
+  ✓  77 [flows] › tests/flows/recipes.spec.ts:6:7 › recipes › [flow] open a recipe from the recipe list (543ms)
+  ✓  78 [flows] › tests/flows/recipes.spec.ts:15:7 › recipes › [flow] search narrows the recipe list (781ms)
+  ✓  79 [flows] › tests/flows/recipes.spec.ts:24:7 › recipes › [flow] create a recipe by name (1.4s)
+  ✓  80 [flows] › tests/flows/recipes.spec.ts:36:7 › recipes › [flow] comment on a recipe and see it after reload (529ms)
+  ✓  81 [flows] › tests/flows/shopping.spec.ts:6:7 › shopping lists › [flow] create a shopping list (1.4s)
+  ✓  82 [flows] › tests/flows/shopping.spec.ts:19:7 › shopping lists › [flow] add an item and check it off (6.6s)
+
+  82 passed (1.6m)
+

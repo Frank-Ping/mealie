@@ -1,0 +1,3 @@
+[rewrite/wf6-route-coexistence a4487ac] [WF6-S5] Record verified journey boundaries and failure detection
+ 1 file changed, 12 insertions(+)
+ create mode 100644 rewrite-evidence/workflows/WF6/S5-RESULT.md

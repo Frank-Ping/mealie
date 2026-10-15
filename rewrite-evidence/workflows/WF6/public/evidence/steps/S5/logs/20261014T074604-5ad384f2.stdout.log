@@ -1,0 +1,13 @@
+{
+  "S5": {
+    "status": "provisional",
+    "input_tokens": 4978051,
+    "cached_input_tokens": 4877568,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 25627,
+    "reasoning_output_tokens": 6463,
+    "total_tokens": 5003678,
+    "final_reply_included": false,
+    "coverage_notes": []
+  }
+}

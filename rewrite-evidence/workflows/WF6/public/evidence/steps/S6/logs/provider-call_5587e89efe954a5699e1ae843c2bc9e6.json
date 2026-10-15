@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3775,
+    "byte_offset": 10805177,
+    "timestamp": "2026-10-14T08:10:36.162Z",
+    "turn_id": "01a13974-b942-7012-950c-89399b0de489",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf38e5c4108191b8a76b4fa60c0669",
+      "status": "completed",
+      "call_id": "call_5587e89efe954a5699e1ae843c2bc9e6",
+      "name": "exec",
+      "input": "text(await tools.write_stdin({session_id:21841,chars:\"\",yield_time_ms:1000,max_output_tokens:1000}));\ntext(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nfrom pathlib import Path\\nimport json,datetime as dt,shutil\\np=Path('wf6-rerun-20261014-01/wf6-evidence');s=p/'steps/S6/continuation-01';b=json.loads((s/'request-boundary.json').read_text());u=json.loads((s.parent/'token-usage.json').read_text());assert len(u['segments'])==2 and u['segments'][0]['final_reply_included'];(s/'previous-segment-settlement.json').write_text(json.dumps(u['segments'][0],indent=2)+'\\\\n');budget=json.loads((p/'experiment-budget.json').read_text());prev=budget['segments'][-1];assert prev['status']=='closed';gap=(dt.datetime.fromisoformat(b['timestamp'].replace('Z','+00:00'))-dt.datetime.fromisoformat(prev['end_utc'].replace('Z','+00:00'))).total_seconds();budget['excluded_between_turn_intervals'].append(dict(start_utc=prev['end_utc'],end_utc=b['timestamp'],elapsed_seconds=gap,category='human_pause/between_authorized_turns',activity='Not provided; excluded closed/CONTINUE gap is not inferred review duration.'));budget['segments'].append(dict(stage='S6',turn_id=b['turn_id'],start_utc=b['timestamp'],end_utc=None,elapsed_seconds=None,status='active',action='CONTINUE'));(p/'experiment-budget.json').write_text(json.dumps(budget,indent=2)+'\\\\n');print('Previous S6 final covered',u['segments'][0]['usage']);print('closed budget seconds',sum(x['elapsed_seconds'] for x in budget['segments'] if x['status']=='closed'))\\nr=Path('/tmp/wf6-rerun-20261014-01-S6-C1');assert not r.exists();r.mkdir(mode=0o700)\\nfor x in ['auth','tmp','browser','tests','react','vue']:(r/x).mkdir(mode=0o700)\\n(r/'identity.json').write_text(json.dumps(dict(run_id='wf6-rerun-20261014-01',stage_id='S6',segment='continuation-01',data_dir=str(r/'disposable-data'),ports=[9006,9106]),indent=2)+'\\\\n');shutil.copy2(p/'steps/S4/dependency-versions.json',s/'dependency-versions.json')\\nf=p/'usage/build_s6.py';src=f.read_text().replace(\\\"RUNTIME=Path('/tmp/wf6-rerun-20261014-01-S6')\\\",\\\"RUNTIME=Path('/tmp/wf6-rerun-20261014-01-S6-C1')\\\").replace(\\\"STAGE=EVIDENCE/'steps/S6'\\\",\\\"STAGE=EVIDENCE/'steps/S6/continuation-01'\\\");src=src.replace(\\\"'S6-\\\", \\\"'S6-C1-\\\");(p/'usage/build_s6_c1.py').write_text(src)\\nPY\\npython3 -B wf6-rerun-20261014-01/wf6-evidence/usage/record_command.py --stage S6 --cwd '<WORKSPACE>/wf6-rerun-20261014-01' --label S6-C1-fresh-build-existing-inputs --permission 'Approved bounded anonymous font/build access; sandbox retained' -- python3 -B wf6-evidence/usage/build_s6_c1.py\",\"sandbox_permissions\":\"require_escalated\",\"justification\":\"S6 续跑核实已有显式 Vue 功能前，从未修改源码生成独立续跑 build，仅公开字体访问；保留前一 build/失败和默认沙箱。\",\"yield_time_ms\":1000,\"max_output_tokens\":1000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13974-b942-7012-950c-89399b0de489",
+        "create_time": 1791965413.7712498
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3777,
+    "byte_offset": 10809428,
+    "timestamp": "2026-10-14T08:10:40.052Z",
+    "turn_id": "01a13974-b942-7012-950c-89399b0de489",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13976-a834-7f23-8850-4f40e1d6bf11",
+      "call_id": "call_5587e89efe954a5699e1ae843c2bc9e6",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 3.9 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"f96093\",\"wall_time_seconds\":0.000019717,\"exit_code\":0,\"original_token_count\":213,\"output\":\"{\\\"command_id\\\": \\\"20261014T080947-68cc8717\\\", \\\"stage_id\\\": \\\"S6\\\", \\\"label\\\": \\\"S6-continue-settle-previous-segment-final\\\", \\\"argv\\\": [\\\"python3\\\", \\\"-B\\\", \\\"wf6-evidence/usage/collect_usage.py\\\", \\\"finalize\\\", \\\"--stage\\\", \\\"S6\\\", \\\"--wait-seconds\\\", \\\"0\\\"], \\\"cwd\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01\\\", \\\"start_utc\\\": \\\"2026-10-14T08:09:47.530009+00:00\\\", \\\"end_utc\\\": \\\"2026-10-14T08:10:03.607622+00:00\\\", \\\"duration_seconds\\\": 16.077616963004402, \\\"exit_code\\\": 0, \\\"stdout\\\": \\\"steps/S6/logs/20261014T080947-68cc8717.stdout.log\\\", \\\"stderr\\\": \\\"steps/S6/logs/20261014T080947-68cc8717.stderr.log\\\", \\\"environment_overrides\\\": {}, \\\"permission\\\": \\\"workspace-write; network restricted; no escalation\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"51715d\",\"wall_time_seconds\":1.000934603,\"session_id\":98359,\"original_token_count\":60,\"output\":\"Previous S6 final covered {'input_tokens': 7688116, 'cached_input_tokens': 7523712, 'cache_write_input_tokens': 0, 'output_tokens': 23179, 'reasoning_output_tokens': 4054, 'total_tokens': 7711295}\\nclosed budget seconds 7037.1140000000005\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13974-b942-7012-950c-89399b0de489",
+        "create_time": 1791965440.052745
+      }
+    }
+  }
+}

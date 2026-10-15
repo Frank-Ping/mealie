@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2132,
+    "byte_offset": 6227530,
+    "timestamp": "2026-10-14T04:06:09.044Z",
+    "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016aceff9705c881918db6cacefedcea24",
+      "status": "completed",
+      "call_id": "call_9a47c3da5cf04650b0a00ce26a2ba02d",
+      "name": "exec",
+      "input": "text(await tools.apply_patch(\"*** Begin Patch\\n*** Add File: <WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/wf6/gateway.test.mjs\\n+import test from 'node:test';\\n+import assert from 'node:assert/strict';\\n+import http from 'node:http';\\n+import { mkdtemp, writeFile, mkdir } from 'node:fs/promises';\\n+import os from 'node:os';\\n+import path from 'node:path';\\n+import { createGateway } from './gateway.mjs';\\n+\\n+test('all-Vue transport preserves bodies/status/cookies and separates asset misses from history', async () => {\\n+  const root = await mkdtemp(path.join(os.tmpdir(), 'wf6-S2-gateway-test-'));\\n+  await writeFile(path.join(root, 'index.html'), '<html>Vue fixture</html>');\\n+  await mkdir(path.join(root, '_nuxt'));\\n+  await writeFile(path.join(root, '_nuxt/app.js'), 'window.fixture=true;');\\n+  const backend = http.createServer(async (req, res) => {\\n+    const chunks = []; for await (const chunk of req) chunks.push(chunk);\\n+    res.writeHead(418, { 'content-type': 'application/json', 'set-cookie': ['a=fixture; HttpOnly; Path=/', 'b=fixture; SameSite=Lax; Path=/'] });\\n+    res.end(JSON.stringify({ method: req.method, url: req.url, body: Buffer.concat(chunks).toString(), cookie: req.headers.cookie }));\\n+  });\\n+  await new Promise(resolve => backend.listen(0, '127.0.0.1', resolve));\\n+  const gateway = await createGateway({ vueDir: root, backendOrigin: `http://127.0.0.1:${backend.address().port}`, buildHash: 'fixture-only' });\\n+  await new Promise(resolve => gateway.listen(0, '127.0.0.1', resolve));\\n+  const origin = `http://127.0.0.1:${gateway.address().port}`;\\n+  try {\\n+    const proxy = await fetch(origin + '/api/echo?q=preserved', { method: 'POST', body: 'original-body', headers: { cookie: 'a=fixture', 'content-type': 'text/plain' } });\\n+    assert.equal(proxy.status, 418); assert.equal(proxy.headers.getSetCookie().length, 2);\\n+    assert.deepEqual(await proxy.json(), { method: 'POST', url: '/api/echo?q=preserved', body: 'original-body', cookie: 'a=fixture' });\\n+    const media = await fetch(origin + '/media/picture'); assert.equal(media.status, 418);\\n+    const document = await fetch(origin + '/g/group/r/recipe?wf6=vue', { headers: { accept: 'text/html' } });\\n+    assert.equal(document.status, 200); assert.equal(document.headers.get('x-wf6-frontend'), 'vue'); assert.equal(await document.text(), '<html>Vue fixture</html>');\\n+    const asset = await fetch(origin + '/_nuxt/app.js'); assert.match(asset.headers.get('content-type'), /javascript/); assert.equal(asset.headers.get('x-wf6-build'), 'fixture-only');\\n+    for (const missing of ['/_nuxt/missing.js', '/missing.css', '/missing.png', '/_nuxt/missing', '/.env']) {\\n+      const response = await fetch(origin + missing, { headers: { accept: 'text/html' } }); assert.equal(response.status, 404); assert.doesNotMatch(await response.text(), /Vue fixture/);\\n+    }\\n+    const head = await fetch(origin + '/login', { method: 'HEAD', headers: { accept: 'text/html' } }); assert.equal(head.status, 200); assert.equal(await head.text(), '');\\n+    const map = await (await fetch(origin + '/_wf6/route-map.json')).json(); assert.equal(map.takeoverEnabled, false); assert.deepEqual(map.activeReactRoutes, []);\\n+    const bad = await fetch(origin + '/%ZZ'); assert.equal(bad.status, 400);\\n+    console.log(JSON.stringify({ mock_transport_checks: 'PASS', scope: 'Local protocol fixture only, separate from real backend/browser acceptance' }));\\n+  } finally {\\n+    await Promise.all([new Promise(resolve => gateway.close(resolve)), new Promise(resolve => backend.close(resolve))]);\\n+  }\\n+});\\n*** End Patch\"));\ntext(await tools.exec_command({cmd:\"python3 - <<'PY'\\nimport pathlib,json\\nb=pathlib.Path('wf6-rerun-20261014-01/wf6-evidence');s=json.loads((b/'steps/S1/token-usage.json').read_text());print(s['status'],s['final_reply_included'],s['known_partial_usage']);print(json.loads((b/'steps/S1/type-history-comparison.json').read_text())['current_only_diagnostic_lines'][:3])\\nPY\",\"max_output_tokens\":700}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+        "create_time": 1791950743.0263073
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2136,
+    "byte_offset": 6239027,
+    "timestamp": "2026-10-14T04:06:09.365Z",
+    "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13896-ccd5-7b02-837d-e1607482e5eb",
+      "call_id": "call_9a47c3da5cf04650b0a00ce26a2ba02d",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.3 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"616a08\",\"wall_time_seconds\":0.000031489,\"exit_code\":0,\"original_token_count\":130,\"output\":\"partial True {'input_tokens': 30194364, 'cached_input_tokens': 29885568, 'cache_write_input_tokens': 0, 'output_tokens': 114262, 'reasoning_output_tokens': 61765, 'total_tokens': 30308626}\\n[\\\"app/components/Domain/Recipe/RecipeAssets.vue(114,16): error TS2532: Object is possibly 'undefined'.\\\", \\\"app/components/Domain/Recipe/RecipeAssets.vue(127,30): error TS2532: Object is possibly 'undefined'.\\\", \\\"app/components/Domain/Recipe/RecipeDialogAddToShoppingList.vue(140,27): error TS2532: Object is possibly 'undefined'.\\\"]\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+        "create_time": 1791950769.3651621
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1232,
+    "byte_offset": 4135439,
+    "timestamp": "2026-10-14T03:04:40.199Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acef13cc3f88191927340826a248643",
+      "status": "completed",
+      "call_id": "call_f851eb78476f457da0d4fbe5dccb20e2",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nfrom pathlib import Path\\nimport json,re,collections\\ns=Path('wf6-rerun-20261014-01/wf6-evidence/steps/S1');text=(s/'logs/20261014T030131-d1583192.stdout.log').read_text();lines=[x for x in text.splitlines() if re.search(r'error TS\\\\d+:',x)];codes=collections.Counter(re.findall(r'error (TS\\\\d+):',text));(s/'machine/type-diagnostics.json').write_text(json.dumps(dict(status='FAIL',exit_code=1,error_count=len(lines),codes=dict(codes),diagnostics=lines,source='logs/20261014T030131-d1583192.stdout.log',scope='Unmodified frozen Vue under Nuxt 4.5.2, TypeScript 5.9.3 and supplemental vue-tsc 3.1.5; not introduced by a WF6 implementation.'),indent=2)+'\\\\n');print('Type diagnostics',len(lines),dict(codes))\\np=s/'machine/test-inventory.json';print('Inventory file',p.exists())\\nif p.exists():\\n d=json.loads(p.read_text());specs=[]\\n def walk(suites):\\n  for item in suites:\\n   specs.extend(item.get('specs',[]));walk(item.get('suites',[]))\\n walk(d.get('suites',[]));counts=collections.Counter('route' if spec['title'].startswith('[route]') else 'flow' if spec['title'].startswith('[flow]') else 'guard' if spec['title']=='route table has unique entries' else 'other' for spec in specs);print('Listed frozen inventory',dict(counts))\\nPY\\npython3 -B wf6-rerun-20261014-01/wf6-evidence/usage/record_command.py --stage S1 --cwd '<WORKSPACE>/wf6-rerun-20261014-01' --label S1-real-backend-browser-sandbox-capability-attempt -- python3 -B wf6-evidence/usage/browser_s1.py\",yield_time_ms:1000,max_output_tokens:1500}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791947068.77094
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1234,
+    "byte_offset": 4138399,
+    "timestamp": "2026-10-14T03:04:41.367Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a1385e-8697-73f1-b143-8e4db5704f30",
+      "call_id": "call_f851eb78476f457da0d4fbe5dccb20e2",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 1.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"891faa\",\"wall_time_seconds\":1.000766809,\"session_id\":65102,\"original_token_count\":87,\"output\":\"Type diagnostics 318 {'TS2322': 64, 'TS2532': 78, 'TS2345': 31, 'TS18048': 25, 'TS2769': 7, 'TS2540': 2, 'TS2554': 25, 'TS2339': 18, 'TS2307': 1, 'TS2739': 4, 'TS4114': 48, 'TS2353': 4, 'TS2558': 1, 'TS2741': 1, 'TS2538': 3, 'TS2304': 1, 'TS2551': 3, 'TS18047': 2}\\nInventory file True\\nListed frozen inventory {'guard': 1, 'route': 66, 'flow': 15}\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791947081.3678937
+      }
+    }
+  }
+}

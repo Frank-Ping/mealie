@@ -1,0 +1,73 @@
+"""Audit existing explicit Vue recovery without rewriting frozen failure history."""
+import datetime as dt,hashlib,json
+from pathlib import Path
+from record_command import ROOT,EVIDENCE
+from run_s1 import SOURCE,EVALUATOR
+import finish_s2
+STAGE=EVIDENCE/'steps/S6/continuation-01';PARENT=STAGE.parent
+
+def main():
+    builds=json.loads((STAGE/'build-artifacts.json').read_text());frozen=json.loads((STAGE/'browser/frozen-results.json').read_text());machine=json.loads((STAGE/'browser/results.json').read_text());requests=[json.loads(l) for l in (STAGE/'browser/requests-redacted.jsonl').read_text().splitlines()]
+    for d in [frozen,machine]:assert d['stats']['expected']==4 and d['stats']['unexpected']==0 and d['stats']['skipped']==0 and d['stats']['flaky']==0
+    assert len(requests)==4 and all(r['status']=='PASS' for r in requests);assert next(r for r in requests if r['feature']=='Comments')['commentPostStatus']==201
+    assert json.loads((PARENT/'repair-budget.json').read_text())['used']==0
+    review=json.loads((STAGE/'original-trace-review.json').read_text());assert len(review)==4
+    for r in review:assert hashlib.sha256((PARENT/r['trace']).read_bytes()).hexdigest()==r['sha256'] and r['explicit_vue_link_in_snapshot']
+    for r in builds['react_source_files']:assert hashlib.sha256((SOURCE/r['path']).read_bytes()).hexdigest()==r['sha256']
+    runtime=Path('/tmp/wf6-rerun-20261014-01-S6-C1')
+    for role in ['react','vue']:
+        for r in builds[role]['files']:assert hashlib.sha256((runtime/role/r['path']).read_bytes()).hexdigest()==r['sha256']
+    (STAGE/'build-artifact.json').write_text(json.dumps(builds['vue'],indent=2)+'\n');finish_s2.STAGE=STAGE;finish_s2.snapshot()
+    manifests=[]
+    for file in sorted((STAGE/'browser').rglob('*')):
+        if file.is_file():manifests.append(dict(path=str(file.relative_to(STAGE)),bytes=file.stat().st_size,sha256=hashlib.sha256(file.read_bytes()).hexdigest()))
+    (STAGE/'browser-manifest.json').write_text(json.dumps(dict(private_raw=True,original_bytes_preserved=True,files=manifests),indent=2)+'\n')
+    metrics=dict(stage='S6',segment='continuation-01',overall_gate='FAIL',explicit_Vue_functions_gate='PASS',selected_frozen='4/4',supplemental='4/4',original_full_regression='66/66 routes,11/15 flows,1/1 guard; four FAIL retained, not rerun full suite in this segment',repairs_used=0,limit=2,application_changes=False,evaluator_changes=False,source_at_acceptance=finish_s2.git(SOURCE,'rev-parse','HEAD'),vue_build=builds['vue']['build_hash'],react_build=builds['react']['build_hash'],react_source=builds['react']['source_hash'],coverage=None,cost=None,human_review_time=None)
+    (STAGE/'measurements.json').write_text(json.dumps(metrics,indent=2)+'\n')
+    text=f'''# S6 CONTINUE 01: existing explicit Vue recovery / 已有显式 Vue 功能核查
+
+S6 overall gate **FAIL retained**. Explicit recovery checks **4/4 PASS**, selected unchanged read-only frozen checks **4/4 PASS**. Application source unchanged; S6 repair counter remains **0/2**, S5 **2/2** unchanged. No S7 executed.
+S6 总 gate **仍为 FAIL**；已有显式 Vue 功能补充 **4/4**、冻结只读选择 **4/4** 通过。应用未改，S6 修复仍 **0/2**、S5 **2/2** 保留；未执行 S7。
+
+## Approach → What happened → Why → What we would change
+
+Inspect each original failure trace byte-for-byte, its failed action, actual Vue-login/React document responses and visible snapshot. All four traces contain the existing explicit Vue entry, but the original frozen flow never selects it before waiting for Logout, Settings or comment controls on React. Trace SHA256 and document/action locators are in original-trace-review.json. Prior commit `e225779cadb9dde291a3aeaca1ef688c5a4905ec`, original full report/4 failures and logs remain unmodified; pre-continuation top-level exports are preserved here under prior-* filenames.
+逐项核对四个原 trace、失败动作和快照；已有入口均在页面，但冻结 flow 没有点击它。原 trace、四项失败、原提交及原报告保留，续跑前导出单独保存。
+
+With a fresh isolated S6-C1 backend/database/auth/context, build the same unchanged application, then exercise the existing general-purpose explicit Vue link. Each transition has a real document response identifying Vue and its build, Nuxt runtime visible, React runtime absent and a new document identity. No test-specific routing, automatic fallback, evaluator modification or new React write UI is used.
+新建独立续跑后端/数据库/auth/context，从未改应用构建；通用显式入口有实际 Vue document/build、新文档与 Nuxt 执行证据，无测试特殊分流、静默回退或新 React 写功能。
+
+| Original failure / 原失败 | Existing functionality checked / 已有功能实测 | Frozen status / 冻结成绩 |
+|---|---|---|
+| Logout | Explicit entry → existing Vue Logout → actual login URL; later React detail gets real 401, no recipe data, then explicit Vue login | FAIL retained: original flow expects Logout on React and automatic login redirect on later direct URL |
+| Member Settings | Explicit entry → Vue Settings; household link visible, admin links absent for real member identity | FAIL retained: original flow looks for Settings directly on React list |
+| Admin Settings | Explicit entry → Vue Settings → real Site Settings heading | FAIL retained: original flow looks for Settings directly on React list |
+| Comments | Explicit detail entry preserves query/hash → original Vue textbox/Submit → actual POST 201 → visible comment after reload → existing group link returns React | FAIL retained: original flow expects a comment textbox on read-only React detail |
+
+These results refine the scope diagnosis: capabilities remain usable in Vue through a deliberate user action; the whole frozen flow is not equivalent on the React URL. Supplying comments directly on React would expand write scope. Making the original logout/Settings expectations pass requires new React authentication/full-layout behavior or changing the original path, rather than repairing the already-working boundary. Neither is authorized as a boundary repair here. A navigation-only new link would not replace the required original menu or logout assertions. The existing explicit Vue paths are therefore recorded as supplemental PASS, not substituted into evaluator results. We would agree explicit migration/navigation scope and future parity requirements before extending the pilot.
+这些功能并未从混合应用丢失：需要用户明确进入 Vue。补充路径通过不等于原 React URL flow 等价。评论直接写入 React 超出范围；Logout/Settings 原断言要求新增 React 认证/完整布局行为或修改原执行路径，不是修复已通过的边界。本次不擅自扩展、不把新导航链接替换原菜单/退出断言，也不把补充 PASS 替换冻结 FAIL；未来扩展前应明确布局/认证范围。
+
+Fresh strict React types/lint, business units **8/8**, shared route policy **34/34**, targeted Vue middleware lint and both builds passed before browser checks. Actual source `{metrics['source_at_acceptance']}`, React source `{metrics['react_source']}`, React build `{metrics['react_build']}`, Vue build `{metrics['vue_build']}`. Every served file and application source hash matched. Original Vue/backend/evaluator manifest files remain unchanged. No source repair was needed and no full 82-test repeat was run: initial S6 strict result remains **66 routes PASS, 11 flows PASS / 4 FAIL, guard PASS** on its original build. This segment's new build has the separately measured four read-only and four explicit Vue checks; it is not assigned the old full-suite score as a new run.
+先静态检查及两套新构建成功，再测浏览器；所有服务字节和源码哈希核实，冻结原 Vue/后端/断言未改。无需源码修复；未把旧 82 项成绩套到新 build，旧全回归仍 66/11/1 与四 FAIL，本段仅测四项只读与四项显式 Vue 功能。
+
+Original first S6 final reply is provider-covered and its exact segment total is **7,711,295**. CONTINUE has its own verified request/turn identity and disjoint segment; the closed-to-CONTINUE wait is excluded from the three-hour budget, not treated as review time. Old exports remain historical and are not added to the replacement current total. Current final reply/usage remains provisional and final_reply_included=false until external reconciliation. S1 stays partial with unknown interruption gap and original **318 diagnostics FAIL**; S5 failures/repair counts remain. Costs, coverage and review duration are not provided.
+上一 S6 最终回复覆盖已核实；CONTINUE 单独身份和不重叠 segment，等待另列、旧导出不重复相加。回复前当前累计 provisional；S1 partial/中断缺口/318 FAIL 和 S5 失败额度均不改。费用/coverage/review 未提供。
+
+## Evidence / 证据
+
+- [Actual continuation request](request-boundary.json), [Prior exact segment](previous-segment-settlement.json), [Original traces individually reviewed](original-trace-review.json)
+- [Four real existing functions](browser/results.json), [Request/transition summary](browser/requests-redacted.jsonl), [Raw traces/screenshots](browser-manifest.json)
+- [Selected frozen business checks](browser/frozen-results.json), [Fresh builds](build-artifacts.json), [Actual served build](served-build.json), [Original source mapping](source-audit-inputs.json)
+- [Source state](source-state.json), [Hashes](file-manifest.json), [Diff](diff.patch), [Runtime isolation](runtime-isolation.json)
+- [Original full result](../full-regression-summary.json), [Original failures](../failure-classification.json), [Repair allowance](../repair-budget.json), [All S6 commands](../commands.jsonl), [All S6 usage](../token-usage.json)
+
+Stop after S6 CONTINUE. No S7. / S6 续跑后停止，不进入 S7。
+'''
+    (STAGE/'result.md').write_text(text)
+    parent=PARENT/'result.md';old=parent.read_text().split('<!-- WF6-USAGE -->')[0].rstrip();parent.write_text(old+'\n\n## CONTINUE 01 / 本步续跑\n\nExisting explicit Vue Logout/member Settings/admin Settings/comment persistence **4/4 PASS**; selected read-only frozen **4/4 PASS** on a new verified build. No application source changes or repair round. Original full strict result and overall S6 **FAIL remain**; the original flows omit explicit Vue entry and request non-pilot React controls. No new full-suite score claimed.\n已有显式 Vue 功能可用，但不替换原冻结四项 FAIL；S6 gate 仍 FAIL，修复仍 0/2。\n\n[Continuation bilingual result/build/trace audit](continuation-01/result.md). Current S6 usage uses two non-overlapping segments; earlier exports preserved, not added twice.\n')
+    (SOURCE/'rewrite-evidence/workflows/WF6/S6-C1-RESULT.md').write_text('# S6 CONTINUE 01 / 已有显式 Vue 核查\n\nS6 gate FAIL retained. Existing explicit Vue Logout, member/admin Settings and real persisted comment: 4/4 PASS. Selected read-only frozen 4/4 PASS; no application/evaluator change or source repair, S6 remains 0/2.\nS6 原冻结四项 FAIL 保留；已有显式 Vue 功能 4/4 通过，未改应用/断言或修复额度。\n\nOriginal full regression 66/66 routes,11/15 flows,1/1 guard is historical for its actual build; no new full-suite run claimed. Both S6 token segments are disjoint; final reply pending settlement. S1 partial and 318 type diagnostics FAIL retained. Stop; no S7.\n不把旧全回归计为新 build 成绩；计量两段不重叠，S1 缺口保留，停止。\n\n[Full bilingual result](../../../../wf6-evidence/steps/S6/continuation-01/result.md)\n')
+    progress=EVIDENCE/'PROGRESS.md';progress.write_text(progress.read_text()+'\nS6 CONTINUE 01: explicit existing Vue recovery 4/4 and selected frozen read-only 4/4 PASS; overall S6 FAIL retained, no source changes, repairs still 0/2.\nS6 续跑补充通过，原全回归 FAIL 保留；不进入 S7。\n[Continuation](steps/S6/continuation-01/result.md)\n')
+    index=EVIDENCE/'EVIDENCE_INDEX.md';index.write_text(index.read_text()+'\n- S6 continuation 01: [existing explicit Vue function audit](steps/S6/continuation-01/result.md), [four original traces](steps/S6/continuation-01/original-trace-review.json).\n')
+    with (PARENT/'attempts.jsonl').open('a') as f:f.write(json.dumps(dict(timestamp=dt.datetime.now(dt.timezone.utc).isoformat(),kind='continuation_scope_audit',original_four_failures='retained',explicit_existing_Vue_functions='4/4 PASS',repair_round_used=False,S6_repairs_used=0,source_changes=False,evaluator_changes=False,overall_gate='FAIL',result='continuation-01/result.md'))+'\n')
+    print(json.dumps(metrics))
+if __name__=='__main__':main()

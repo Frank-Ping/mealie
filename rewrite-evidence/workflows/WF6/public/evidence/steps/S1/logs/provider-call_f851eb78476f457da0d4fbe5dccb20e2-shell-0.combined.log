@@ -1,0 +1,3 @@
+Type diagnostics 318 {'TS2322': 64, 'TS2532': 78, 'TS2345': 31, 'TS18048': 25, 'TS2769': 7, 'TS2540': 2, 'TS2554': 25, 'TS2339': 18, 'TS2307': 1, 'TS2739': 4, 'TS4114': 48, 'TS2353': 4, 'TS2558': 1, 'TS2741': 1, 'TS2538': 3, 'TS2304': 1, 'TS2551': 3, 'TS18047': 2}
+Inventory file True
+Listed frozen inventory {'guard': 1, 'route': 66, 'flow': 15}

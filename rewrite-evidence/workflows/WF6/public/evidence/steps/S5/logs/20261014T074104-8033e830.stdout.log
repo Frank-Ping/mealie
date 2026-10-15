@@ -1,0 +1,13 @@
+
+Running 8 tests using 1 worker
+
+  ✓  1 ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S5-R2/tests/s5-browser-tests.cjs:15:1 › real read-only recipe UI, keyboard link, direct refresh and retained Vue round trip (3.3s)
+  ✓  2 ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S5-R2/tests/s5-browser-tests.cjs:35:1 › loading, real empty search, clear restoration and real missing-detail error (4.8s)
+  ✓  3 ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S5-R2/tests/s5-browser-tests.cjs:51:1 › business rendering retains explicit Vue/mode/group boundaries (1.1s)
+  ✓  4 ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S5-R2/tests/s5-extra-tests.cjs:10:1 › [Mixed] login search detail Vue shopping return and browser history (3.1s)
+  ✓  5 ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S5-R2/tests/s5-extra-tests.cjs:22:1 › [Boundary] complete route matrix and missing assets are real 404 (2.3s)
+  ✓  6 ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S5-R2/tests/s5-extra-tests.cjs:29:1 › [Boundary] anonymous and expired real 401 do not request recipe data (389ms)
+  ✓  7 ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S5-R2/tests/s5-extra-tests.cjs:34:1 › [Boundary] real second-group user cannot read pilot data (2.2s)
+  ✓  8 ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S5-R2/tests/s5-extra-tests.cjs:41:1 › [React] injected API 500 stays visible and Retry restores real backend (2.3s)
+
+  8 passed (24.9s)

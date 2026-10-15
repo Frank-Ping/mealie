@@ -1,0 +1,3 @@
+[rewrite/wf6-route-coexistence e225779] [WF6-S6] Record rollback and full frozen regression with scope failures
+ 1 file changed, 12 insertions(+)
+ create mode 100644 rewrite-evidence/workflows/WF6/S6-RESULT.md

@@ -1,0 +1,76 @@
+"""Own the isolated real backend/gateway and preserve raw outputs and browser artifacts."""
+import datetime as dt
+import hashlib
+import json
+import os
+from pathlib import Path
+import shutil
+import signal
+import socket
+import subprocess
+import time
+import urllib.request
+from record_command import ROOT,EVIDENCE,run
+from run_s1 import SOURCE,EVALUATOR,environment
+
+STAGE=EVIDENCE/'steps/S2';RUNTIME=Path('/tmp/wf6-rerun-20261014-01-S2')
+
+def main():
+    build=json.loads((STAGE/'build-artifact.json').read_text());assert build['exit_code']==0 and build['browser_acceptance_allowed']
+    identity=json.loads((RUNTIME/'identity.json').read_text());assert identity['stage_id']=='S2' and identity['build_hash']==build['build_hash']
+    assert not (RUNTIME/'disposable-data').exists(), 'No preexisting data may be erased.'
+    for item in build['files']:assert hashlib.sha256((RUNTIME/'static'/item['path']).read_bytes()).hexdigest()==item['sha256']
+    for port in [9006,9106]:
+        with socket.socket() as probe:probe.bind(('127.0.0.1',port))
+    auth=EVALUATOR/'frontend-e2e/.auth';assert auth.is_symlink() and auth.resolve()==Path('/tmp/wf6-rerun-20261014-01-S1-native2/auth')
+    auth.unlink();auth.symlink_to(RUNTIME/'auth',target_is_directory=True)
+    env=environment();env.update(TMPDIR=str(RUNTIME/'tmp'),E2E_PORT='9006',E2E_DATA_DIR=str(RUNTIME/'disposable-data'),E2E_STATIC_DIR=str(RUNTIME/'static'),
+        WF6_VUE_DIR=str(RUNTIME/'static'),WF6_BACKEND_ORIGIN='http://127.0.0.1:9006',WF6_PORT='9106',WF6_BUILD_HASH=build['build_hash'],
+        WF6_PLAYWRIGHT_MODULE=str(EVALUATOR/'frontend-e2e/node_modules/@playwright/test'),WF6_AUTH_DIR=str(RUNTIME/'auth'),WF6_GATEWAY_ORIGIN='http://127.0.0.1:9106',
+        WF6_BROWSER_EVIDENCE=str(RUNTIME/'browser/requests-redacted.json'),PLAYWRIGHT_JSON_OUTPUT_NAME=str(RUNTIME/'browser/results.json'),PLAYWRIGHT_HTML_OUTPUT_DIR=str(RUNTIME/'browser/html'))
+    assert Path(env['E2E_DATA_DIR']).parent==RUNTIME and not Path(env['E2E_DATA_DIR']).is_symlink()
+    config=RUNTIME/'tests/playwright.config.cjs'
+    config.write_text("const {defineConfig}=require(process.env.WF6_PLAYWRIGHT_MODULE); module.exports=defineConfig({testDir:__dirname, testMatch:'s2-browser-tests.cjs', workers:1,retries:0,forbidOnly:true,timeout:45000,expect:{timeout:10000},globalSetup:"+json.dumps(str(EVALUATOR/'frontend-e2e/global-setup.ts'))+",reporter:[['list'],['json'],['html',{open:'never'}]],use:{baseURL:process.env.WF6_GATEWAY_ORIGIN,locale:'en-US',timezoneId:'UTC',viewport:{width:1440,height:900},trace:'on',screenshot:'only-on-failure'}});\n")
+    shutil.copy2(EVIDENCE/'usage/s2-browser-tests.cjs',RUNTIME/'tests/s2-browser-tests.cjs')
+    processes=[];streams=[];permission='Approved bounded S2 loopback backend/gateway/Chromium; default sandbox unchanged'
+    try:
+        for label,argv in [('backend',[str(EVALUATOR/'frontend-e2e/scripts/start-backend.sh')]),('gateway',['node',str(SOURCE/'wf6/gateway.mjs')])]:
+            cid=dt.datetime.now(dt.timezone.utc).strftime('%Y%m%dT%H%M%S')+'-S2-'+label
+            out=STAGE/'logs'/(cid+'.stdout.log');err=STAGE/'logs'/(cid+'.stderr.log');streams.extend([out.open('wb'),err.open('wb')])
+            start=dt.datetime.now(dt.timezone.utc).isoformat();timer=time.monotonic()
+            p=subprocess.Popen(argv,cwd=EVALUATOR/'frontend-e2e',env={**os.environ,**env},stdout=streams[-2],stderr=streams[-1],start_new_session=True)
+            processes.append((p,dict(command_id=cid,stage_id='S2',label='S2-owned-'+label,argv=argv,cwd=str(EVALUATOR/'frontend-e2e'),start_utc=start,environment_overrides=env,permission=permission,stdout=str(out.relative_to(EVIDENCE)),stderr=str(err.relative_to(EVIDENCE)),aggregation='Service lifetime overlaps acceptance; do not sum durations'),timer))
+            with (STAGE/'service-events.jsonl').open('a') as f:f.write(json.dumps(dict(event='owned_service_started',service=label,pid=p.pid,group=p.pid,start_utc=start,command_id=cid))+'\n')
+        base=env['WF6_GATEWAY_ORIGIN'];deadline=time.monotonic()+180
+        while time.monotonic()<deadline:
+            assert all(p.poll() is None for p,_,_ in processes), 'Owned service exited before readiness'
+            try:
+                with urllib.request.urlopen(base+'/api/app/about',timeout=2) as r:assert r.status==200
+                break
+            except OSError:time.sleep(1)
+        else:raise RuntimeError('Gateway/backend readiness timed out')
+        with urllib.request.urlopen(urllib.request.Request(base+'/login',headers={'Accept':'text/html'})) as r:
+            data=r.read();assert r.headers['x-wf6-build']==build['build_hash'];assert hashlib.sha256(data).hexdigest()==hashlib.sha256((RUNTIME/'static/login/index.html').read_bytes()).hexdigest()
+        (STAGE/'served-build.json').write_text(json.dumps(dict(build_hash=build['build_hash'],served_index_sha256=hashlib.sha256(data).hexdigest(),actual_static_dir=str(RUNTIME/'static'),source_head_at_build=build['source_head'],gateway_sha256=hashlib.sha256((SOURCE/'wf6/gateway.mjs').read_bytes()).hexdigest(),route_map_sha256=hashlib.sha256((SOURCE/'wf6/route-map.json').read_bytes()).hexdigest(),evaluator_sha='758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d'),indent=2)+'\n')
+        wire=run(['node','--test',str(SOURCE/'wf6/gateway.test.mjs')],SOURCE,'S2-gateway-protocol-fixture',stage='S2',env=env,permission=permission)
+        if wire['exit_code']!=0:raise SystemExit(wire['exit_code'])
+        result=run(['node',str(EVALUATOR/'frontend-e2e/node_modules/@playwright/test/cli.js'),'test','--config='+str(config),'--output='+str(RUNTIME/'browser/test-results')],EVALUATOR/'frontend-e2e','S2-real-all-Vue-same-origin-browser',stage='S2',env=env,permission=permission)
+        if result['exit_code']!=0:raise SystemExit(result['exit_code'])
+    finally:
+        for p,entry,timer in reversed(processes):
+            if p.poll() is None:
+                os.killpg(p.pid,signal.SIGTERM)
+                try:p.wait(timeout=15)
+                except subprocess.TimeoutExpired:os.killpg(p.pid,signal.SIGKILL);p.wait(timeout=5)
+            entry.update(end_utc=dt.datetime.now(dt.timezone.utc).isoformat(),duration_seconds=time.monotonic()-timer,exit_code=p.returncode,planned_shutdown=True)
+            with (STAGE/'commands.jsonl').open('a') as f:f.write(json.dumps(entry)+'\n')
+            with (STAGE/'service-events.jsonl').open('a') as f:f.write(json.dumps(dict(event='owned_service_stopped',pid=p.pid,command_id=entry['command_id'],end_utc=entry['end_utc'],exit_code=p.returncode))+'\n')
+        for stream in streams:stream.close()
+        destination=STAGE/'browser';destination.mkdir(exist_ok=True)
+        for item in (RUNTIME/'browser').iterdir():
+            if item.is_dir():shutil.copytree(item,destination/item.name)
+            else:shutil.copy2(item,destination/item.name)
+        shutil.copytree(RUNTIME/'tests',STAGE/'supplemental-tests')
+        (STAGE/'runtime-isolation.json').write_text(json.dumps(dict(identity=identity,auth_real_target=str(auth.resolve()),backend_launcher_sha256=hashlib.sha256((EVALUATOR/'frontend-e2e/scripts/start-backend.sh').read_bytes()).hexdigest(),default_sandbox_unchanged=True,credentials_exported_in_summary=False,service_lifecycles_closed=True),indent=2)+'\n')
+
+if __name__=='__main__':main()

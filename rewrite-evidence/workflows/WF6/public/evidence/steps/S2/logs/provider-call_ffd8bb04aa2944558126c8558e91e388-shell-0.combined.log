@@ -1,0 +1,28 @@
+{
+  "command_id": "20261014T040918-dd59c549",
+  "stage_id": "S2",
+  "label": "S2-collector-interrupted-tail-regression-check",
+  "argv": [
+    "python3",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "wf6-evidence/usage",
+    "-p",
+    "test*.py"
+  ],
+  "cwd": "<WORKSPACE>/wf6-rerun-20261014-01",
+  "start_utc": "2026-10-14T04:09:18.880461+00:00",
+  "end_utc": "2026-10-14T04:09:19.145932+00:00",
+  "duration_seconds": 0.2654544329998316,
+  "exit_code": 0,
+  "stdout": "steps/S2/logs/20261014T040918-dd59c549.stdout.log",
+  "stderr": "steps/S2/logs/20261014T040918-dd59c549.stderr.log",
+  "environment_overrides": {},
+  "permission": "workspace-write; network restricted; no escalation",
+  "environment_capture": "Only explicit non-secret overrides; inherited secrets are not exported.",
+  "launch_error": null,
+  "stdin_path": null
+}

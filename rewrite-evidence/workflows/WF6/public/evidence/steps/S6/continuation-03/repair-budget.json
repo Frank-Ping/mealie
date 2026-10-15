@@ -1,0 +1,49 @@
+{
+  "stage": "S6",
+  "limit": 3,
+  "used": 3,
+  "rounds": [
+    {
+      "round": 1,
+      "segment": "continuation-02",
+      "scope": "User-authorized limited scope repair for four original frozen FAIL",
+      "authorization": "[REDACTED]",
+      "changes": [
+        "Real Logout and cancellation/401 login handoff",
+        "Self-based Settings Vue navigation",
+        "Server comment read/create/persistence respecting Vue disable conditions"
+      ],
+      "previous_failure": "full-regression-summary.json",
+      "status": "FAIL: original target four 3 PASS / 1 FAIL; comments GET incorrectly used ID, actual 500"
+    },
+    {
+      "round": 2,
+      "segment": "continuation-02",
+      "scope": "Correct comment GET API parameter from ID to slug",
+      "cause": "Frozen recipe/comments.py get_recipe_comments resolves slug; ID yielded None and original backend 500, proven by original trace/backend stderr",
+      "fix": "GET /api/recipes/{encoded slug}/comments; POST /api/comments still uses recipeId",
+      "diff": "continuation-02/repair-2-source.diff",
+      "failure_log": "logs/20261014T090237-376caeb9.stdout.log",
+      "failure_trace": "continuation-02/browser/four-original-test-results/flows-recipes-recipes-flow-a3d3d-ipe-and-see-it-after-reload-flows/trace.zip",
+      "status": "Final gate FAIL; no further repair allowed"
+    },
+    {
+      "round": 3,
+      "segment": "continuation-03",
+      "cause": "Draft textarea matched text assertion and early reload aborted pre-POST revalidation",
+      "fix": "Snapshot draft; hide/clear draft input while submitting; only saved server data renders in published region; restore draft on failure; synchronous duplicate-submit lock",
+      "status": "Final gate PASS; no fourth repair",
+      "authorization": "[REDACTED]"
+    }
+  ],
+  "limit_changes": [
+    {
+      "previous": 2,
+      "new": 3,
+      "actor": "user",
+      "authorization": "[REDACTED]",
+      "timestamp": "2026-10-14T09:25:40.675Z",
+      "policy": "Exactly one additional round; prior 2/2 FAIL snapshots remain untouched"
+    }
+  ]
+}

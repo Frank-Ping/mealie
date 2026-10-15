@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2373,
+    "byte_offset": 6658674,
+    "timestamp": "2026-10-14T04:21:16.363Z",
+    "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf033690e4819192b720f567e86a89",
+      "status": "completed",
+      "call_id": "call_ae1d763280be4fd8acdff3047cfa5754",
+      "name": "exec",
+      "input": "text(await tools.write_stdin({session_id:75974,chars:\"\",yield_time_ms:1000,max_output_tokens:800}));\ntext(await tools.exec_command({cmd:\"python3 - <<'PY'\\nfrom pathlib import Path\\np=Path('wf6-rerun-20261014-01/wf6-evidence/usage/finish_s2.py');s=p.read_text().replace('under a changed case alias and restored','after the changed case alias and restored').replace('The wait is charged to S2, not preparation.','The trigger for recreation was not independently proven; path/config differences are a hypothesis. The wait is charged to S2, not preparation.').replace('构建工具因目录大小写别名自动重建依赖','目录大小写变化后，构建工具自动重建依赖（准确触发原因未独立证实）');p.write_text(s)\\nPY\",\"max_output_tokens\":300}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+        "create_time": 1791951670.569055
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2376,
+    "byte_offset": 6662633,
+    "timestamp": "2026-10-14T04:21:16.566Z",
+    "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a138a4-a496-70f0-9374-454c02d4c3e9",
+      "call_id": "call_ae1d763280be4fd8acdff3047cfa5754",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"dcd698\",\"wall_time_seconds\":0.000014941,\"exit_code\":0,\"original_token_count\":203,\"output\":\"{\\\"command_id\\\": \\\"20261014T041925-ea593780\\\", \\\"stage_id\\\": \\\"S2\\\", \\\"label\\\": \\\"S2-final-frozen-input-and-gateway-state-audit\\\", \\\"argv\\\": [\\\"python3\\\", \\\"-B\\\", \\\"wf6-evidence/usage/finish_s2.py\\\", \\\"snapshot\\\"], \\\"cwd\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01\\\", \\\"start_utc\\\": \\\"2026-10-14T04:19:25.811631+00:00\\\", \\\"end_utc\\\": \\\"2026-10-14T04:21:05.262731+00:00\\\", \\\"duration_seconds\\\": 99.4511341000034, \\\"exit_code\\\": 0, \\\"stdout\\\": \\\"steps/S2/logs/20261014T041925-ea593780.stdout.log\\\", \\\"stderr\\\": \\\"steps/S2/logs/20261014T041925-ea593780.stderr.log\\\", \\\"environment_overrides\\\": {}, \\\"permission\\\": \\\"workspace-write; network restricted; no escalation\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"d28776\",\"wall_time_seconds\":0.000206247,\"exit_code\":0,\"original_token_count\":0,\"output\":\"\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+        "create_time": 1791951676.5666404
+      }
+    }
+  }
+}

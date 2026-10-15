@@ -1,0 +1,2 @@
+S5 settled {'status': 'exact_reported', 'final_reply_included': True, 'input_tokens': 5656914, 'cached_input_tokens': 5552256, 'output_tokens': 27523, 'reasoning_output_tokens': 7181, 'total_tokens': 5684437}
+closed experiment seconds 6103.925

@@ -1,0 +1,42 @@
+{
+  "snapshot_utc": "2026-10-14T08:02:29.971193+00:00",
+  "source": {
+    "path": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist",
+    "pinned_input_sha": "4b9ca06b6581f7152e164ea0fd9d4da366975a79",
+    "actual_head": "e225779cadb9dde291a3aeaca1ef688c5a4905ec",
+    "dirty": false,
+    "status_porcelain": "",
+    "untracked": [],
+    "remotes": [],
+    "verified_original_file_count": 1711,
+    "frozen_file_mismatches": [],
+    "served_build_hash": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231"
+  },
+  "evaluator": {
+    "path": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator",
+    "pinned_input_sha": "758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d",
+    "actual_head": "758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d",
+    "dirty": false,
+    "status_porcelain": "",
+    "untracked": [],
+    "remotes": [],
+    "verified_original_file_count": 1789,
+    "frozen_file_mismatches": [],
+    "served_build_hash": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231"
+  },
+  "served_build": {
+    "build_hash": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+    "served_index_sha256": "fd372c3c0bd5a448d1466cd2f00e62bc6435e6362d6d1a988f0a1104bf0cfe30",
+    "actual_static_dir": "/tmp/wf6-rerun-20261014-01-S6/vue",
+    "vue_boundary_source_hash": "46796953770e6ac0a549e9d38497ff1172e421cb863e2428b6075b28be1ae4a5",
+    "react_source_hash": "a29595c8ae1bce60b3db08a9185cbc40046c83fc224ece095bec30d2f487a7af",
+    "react_build_hash": "2b409d4deadf1bc17acc5a4a6634e638feca52550caec23a7d6f23f6dd1493f8",
+    "route_policy_sha256": "64c4555b6159822cba4ee2603b117811e0d65cf6dfdf001ef72ec18e70df23e2",
+    "gateway_sha256": "b2e452f7d0a2993629eb5ee20c0b6b697758da9378b340cbe500aebac74881e7",
+    "route_map_sha256": "c128c6e90489a5046ef3a63d48bb0c2e0f865ae52e057235fc43313741322369",
+    "evaluator_sha": "758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d"
+  },
+  "postcommit_utc": "2026-10-14T08:04:41.686817+00:00",
+  "acceptance_commit": "e225779cadb9dde291a3aeaca1ef688c5a4905ec",
+  "build_policy": "Both frontend build/source hashes remain their tested identities. All React source and gateway/map/policy byte hashes match the accepted commit."
+}

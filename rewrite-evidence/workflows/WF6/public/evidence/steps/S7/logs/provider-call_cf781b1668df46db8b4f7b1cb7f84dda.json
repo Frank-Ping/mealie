@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 4721,
+    "byte_offset": 13862702,
+    "timestamp": "2026-10-14T10:02:13.318Z",
+    "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf53240e508191b7d4778eb72ad7c4",
+      "status": "completed",
+      "call_id": "call_cf781b1668df46db8b4f7b1cb7f84dda",
+      "name": "exec",
+      "input": "text(await tools.write_stdin({session_id:82665,chars:\"\",yield_time_ms:1000,max_output_tokens:180}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+        "create_time": 1791972132.0594375
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 4723,
+    "byte_offset": 13864113,
+    "timestamp": "2026-10-14T10:02:13.363Z",
+    "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a139dc-c9f3-7e31-a757-06bca6fbbd03",
+      "call_id": "call_cf781b1668df46db8b4f7b1cb7f84dda",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.0 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"be61a2\",\"wall_time_seconds\":0.0000083,\"exit_code\":0,\"original_token_count\":64,\"output\":\"{\\\"report_commit\\\": \\\"565351c0f9daa1b5757baa6d30fb482db177a8da\\\", \\\"missing_links\\\": [], \\\"manifest_self_included\\\": false, \\\"S7_final_reply_included\\\": false, \\\"finalize_command\\\": \\\"python3 -B wf6-evidence/usage/collect_usage.py finalize --all --wait-seconds 30\\\"}\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+        "create_time": 1791972133.3632483
+      }
+    }
+  }
+}

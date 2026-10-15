@@ -1,0 +1,2 @@
+Original Vue/backend/evaluator tracked file hashes match; S2 gateway snapshot captured.
+{"gate": "FAIL", "counts": {"routes": {"total": 66, "passed": 66, "failed": 0, "skipped": 0, "flaky": 0}, "flows": {"total": 15, "passed": 11, "failed": 4, "skipped": 0, "flaky": 0}, "guard": {"total": 1, "passed": 1, "failed": 0, "skipped": 0, "flaky": 0}}, "failures": ["[flow] log out ends the session", "[flow] a regular member is not offered admin pages", "[flow] an admin is offered admin pages", "[flow] comment on a recipe and see it after reload"], "repairs": 0}

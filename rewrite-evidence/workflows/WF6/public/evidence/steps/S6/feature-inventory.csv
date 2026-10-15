@@ -1,0 +1,13 @@
+feature,owner_or_status,measured_result,limitation
+own-group list/server search,React,PASS frozen open/search + supplement,Read-only configured group
+read-only detail fields,React,PASS frozen detail + supplement,Name/ingredients/steps/tools/categories/tags
+login and invalid password,Vue / mixed,See full regression and rollback,Vue login enters React when enabled
+shopping lists,Vue,See frozen shopping flows / rollback,Vue business; not migrated
+create recipe,Vue then React detail/list,See frozen create flow,Write UI remains Vue; read-only result can enter React
+Logout/Settings from React list,Missing React layout navigation,FAIL if original flow requires these controls,Explicit Vue entry exists but does not satisfy original assertions
+comments at target detail URL,Not migrated on React,FAIL original comment flow if control absent,Explicit Vue can provide comments; no silent fallback
+edit/parse/cook,Vue retained,Routing ownership from S5; full mode business not measured,No expansion
+anonymous/other group,Vue required or Vue-owned,S5 real 401/group guards; not all public parity,No wrong-group recipe read
+full system/production/long-lived auth,Unverified,not_provided,No production readiness
+React multi-page pagination,React UI present,not_executed multi-page browser,Existing limitation
+coverage/cost/human review,Unavailable this stage,not_provided,Not filled with zero

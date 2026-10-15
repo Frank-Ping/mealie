@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 4577,
+    "byte_offset": 13628019,
+    "timestamp": "2026-10-14T09:56:20.554Z",
+    "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf51bd502481918c8ba6b92643c942",
+      "status": "completed",
+      "call_id": "call_2c7a5acb82044222bdc3c4373e101b8f",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 - <<'PY'\\nfrom pathlib import Path\\nimport json,zipfile\\np=Path('wf6-evidence/steps/S6/continuation-03/browser');print([str(x) for x in p.glob('persistence-test-results/**/trace.zip')]);f=next(p.glob('persistence-test-results/**/trace.zip'));z=zipfile.ZipFile(f);print([n for n in z.namelist() if n.endswith('.network')]);n=next(n for n in z.namelist() if n.endswith('.network'));r=json.loads(z.read(n).splitlines()[0]);print(r.keys());print(str(r)[:450])\\nfor f in [Path('wf6-evidence/steps/S1/browser-native/results.json'),Path('wf6-evidence/steps/S6/browser/restored-frozen-results.json'),p/'restored-frozen-results.json']: d=json.loads(f.read_text());print(str(f),d['stats'],len(d.get('errors',[])))\\nPY\",\"workdir\":\"<WORKSPACE>/wf6-rerun-20261014-01\",\"max_output_tokens\":1000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+        "create_time": 1791971773.3189356
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 4580,
+    "byte_offset": 13633588,
+    "timestamp": "2026-10-14T09:56:20.773Z",
+    "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a139d7-68a5-75c2-83e1-a978e452af44",
+      "call_id": "call_2c7a5acb82044222bdc3c4373e101b8f",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"778a85\",\"wall_time_seconds\":0.000020182,\"exit_code\":0,\"original_token_count\":308,\"output\":\"['wf6-evidence/steps/S6/continuation-03/browser/persistence-test-results/s6-c3-persistence-tests.cj-d7f2f--failed-POST-restores-draft/trace.zip']\\n['1-trace.network', '0-trace.network']\\ndict_keys(['type', 'snapshot'])\\n{'type': 'resource-snapshot', 'snapshot': {'pageref': 'page@98a4565457491c94c8f841ae432b9f2b', 'startedDateTime': '2026-10-14T09:31:15.855Z', 'time': 8.216999999999999, 'request': {'method': 'GET', 'url': 'http://127.0.0.1:9106/_nuxt/entry.CQVEe2cP.css', 'httpVersion': 'HTTP/1.1', 'cookies': [], 'headers': [{'name': 'Accept', 'value': 'text/css,*/*;q=0.1'}, {'name': 'Accept-Encoding', 'value': 'gzip, deflate, br, zstd'}, {'name': 'Accept-Language\\nwf6-evidence/steps/S1/browser-native/results.json {'startTime': '2026-10-14T03:51:10.531Z', 'duration': 131050.429, 'expected': 82, 'skipped': 0, 'unexpected': 0, 'flaky': 0} 0\\nwf6-evidence/steps/S6/browser/restored-frozen-results.json {'startTime': '2026-10-14T07:56:49.870Z', 'duration': 294472.485, 'expected': 78, 'skipped': 0, 'unexpected': 4, 'flaky': 0} 0\\nwf6-evidence/steps/S6/continuation-03/browser/restored-frozen-results.json {'startTime': '2026-10-14T09:31:53.521Z', 'duration': 97585.553, 'expected': 82, 'skipped': 0, 'unexpected': 0, 'flaky': 0} 0\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+        "create_time": 1791971780.773836
+      }
+    }
+  }
+}

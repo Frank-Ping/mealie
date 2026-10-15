@@ -1,0 +1,111 @@
+"""Audit S2 source and report the measured all-Vue gateway, preserving limitations."""
+import datetime as dt
+import hashlib
+import json
+import os
+from pathlib import Path
+import subprocess
+from record_command import ROOT,EVIDENCE
+from run_s1 import SOURCE,EVALUATOR
+
+STAGE=EVIDENCE/'steps/S2'
+
+def git(repo,*args):return subprocess.check_output(['git','--no-optional-locks','-C',str(repo),*args],text=True).strip()
+def write(path,data):path.write_text(json.dumps(data,indent=2,ensure_ascii=False)+'\n')
+def snapshot():
+    original=json.loads((EVIDENCE/'steps/S0/file-manifest.json').read_text());state=dict(snapshot_utc=dt.datetime.now(dt.timezone.utc).isoformat())
+    inventory={};patches=[]
+    build=json.loads((STAGE/'build-artifact.json').read_text());served=json.loads((STAGE/'served-build.json').read_text())
+    for role,repo,pin in [('source',SOURCE,'4b9ca06b6581f7152e164ea0fd9d4da366975a79'),('evaluator',EVALUATOR,'758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d')]:
+        mismatch=[]
+        for item in original[role]:
+            p=repo/item['path'];content=os.readlink(p).encode() if p.is_symlink() else p.read_bytes() if p.is_file() else None
+            if content is None or hashlib.sha256(content).hexdigest()!=item['sha256'] or p.is_symlink()!=item['symlink']:mismatch.append(item['path'])
+        assert not mismatch, 'Frozen files changed: '+str(mismatch)
+        untracked=git(repo,'ls-files','--others','--exclude-standard').splitlines();status=git(repo,'status','--porcelain=v1')
+        state[role]=dict(path=str(repo),pinned_input_sha=pin,actual_head=git(repo,'rev-parse','HEAD'),dirty=bool(status),status_porcelain=status,untracked=untracked,
+            remotes=git(repo,'remote','-v').splitlines(),verified_original_file_count=len(original[role]),frozen_file_mismatches=mismatch,served_build_hash=build['build_hash'])
+        assert not state[role]['remotes']
+        records=[]
+        for name in sorted(set(git(repo,'ls-files').splitlines()+untracked)):
+            p=repo/name
+            if p.is_file():
+                content=os.readlink(p).encode() if p.is_symlink() else p.read_bytes();records.append(dict(path=name,bytes=len(content),sha256=hashlib.sha256(content).hexdigest(),symlink=p.is_symlink()))
+        inventory[role]=records
+        patches.append('# '+role+' tracked changes since pin\n'+git(repo,'diff','--binary',pin,'HEAD')+'\n'+git(repo,'diff','--binary','HEAD'))
+        for name in untracked:
+            result=subprocess.run(['git','diff','--no-index','--binary','/dev/null',str(repo/name)],capture_output=True,text=True)
+            patches.append(result.stdout)
+    assert not state['evaluator']['dirty']
+    state['served_build']=served
+    write(STAGE/'source-state.json',state);write(STAGE/'file-manifest.json',dict(snapshot_utc=state['snapshot_utc'],**inventory));(STAGE/'diff.patch').write_text('\n'.join(patches))
+    print('Original Vue/backend/evaluator tracked file hashes match; S2 gateway snapshot captured.')
+
+def report():
+    machine=json.loads((STAGE/'browser/results.json').read_text());requests=json.loads((STAGE/'browser/requests-redacted.json').read_text());build=json.loads((STAGE/'build-artifact.json').read_text())
+    assert machine['stats']['expected']==1 and machine['stats']['unexpected']==0 and machine['stats']['skipped']==0 and machine['stats']['flaky']==0
+    assert requests['status']=='PASS'
+    commands=[json.loads(l) for l in (STAGE/'commands.jsonl').read_text().splitlines()]
+    assert any(c['label']=='S2-gateway-protocol-fixture' and c['exit_code']==0 for c in commands)
+    state=json.loads((STAGE/'source-state.json').read_text());assert all(not state[r]['frozen_file_mismatches'] for r in ['source','evaluator'])
+    closure=json.loads((EVIDENCE/'steps/S1/token-usage.json').read_text())
+    metrics=dict(run_id=ROOT.name,stage_id='S2',gate='PASS',takeover_enabled=False,frontend='Vue only',build_hash=build['build_hash'],build_source_head=build['source_head'],
+        gateway_tested_sha256=json.loads((STAGE/'served-build.json').read_text())['gateway_sha256'],
+        real_browser=machine['stats'],checks=['real /api/app/about','disabled route map','missing JS/CSS/image 404','invalid login 401','real Vue UI login','real /api/users/self identity/group','recipe list link/details/content','shopping list page','direct URL/query/hash','refresh','same origin assets/API/documents','fresh Vue build attribution'],
+        protocol_fixture=dict(status='PASS',scope='Independent mock transport: method/body/query/cookie, two Set-Cookie headers, status 418, media forwarding, HEAD, fallback, asset 404; not real-backend browser evidence'),
+        repairs=0,type_diagnostics=dict(status='FAIL',current=318,historical=315,difference=3,causal_explanation='Not established'),
+        S1_usage_status=closure['status'],S1_final_reply_included=closure['final_reply_included'],S1_known_usage=closure['known_partial_usage'],
+        not_executed=['S2 full frozen 66-route/15-flow yardstick (not required for targeted S2 gate)','React','Vue boundary middleware','S3-S7','production/TLS/WebSocket deployment'],cost=None,human_review_time=None)
+    write(STAGE/'measurements.json',metrics)
+    text=f'''# S2 all-Vue gateway / 全 Vue 同源网关
+
+Run `{ROOT.name}`. Gate **PASS**. React takeover disabled; no React build or middleware installed. All page routing remains Vue-owned.
+Gate **PASS**；React 接管关闭，未安装 React 或 Vue 边界 middleware，全部页面仍由 Vue 提供。
+
+## Approach → What happened → Why → What we would change
+
+Write a loopback Node HTTP gateway and one route map. Stream API/media requests to a fresh isolated FastAPI/SQLite backend. Serve the fresh unchanged Vue build, preserve proxy status/method/body/query/cookies and separate Set-Cookie headers, and distinguish missing assets from document history fallback. HTML/asset headers identify Vue and the verified build. The gateway refuses enabled React configuration in S2 rather than accepting unimplemented ownership.
+新增 Node 网关与统一 route map；API/媒体流式转发，Vue 静态资源与 HTML fallback 分开；配置拒绝尚未实现的 React 接管。状态、请求体及会话透传均验证。
+
+Fresh Vue generation passed before browser acceptance. Build SHA256 `{build['build_hash']}`; actual build HEAD `{build['source_head']}`. Assets were copied byte-for-byte to `/tmp/wf6-rerun-20261014-01-S2/static`. Git source/evaluator original manifest files remain unchanged; actual gateway hash is in served-build.json. Independent ports 9106/9006 were bind-checked before startup. SQLite, auth, browser context/profile and output are independent of S1 and older runs. Only verified owned process groups are stopped.
+先完成新构建并逐文件核实原生目录副本，再启动浏览器。端口启动前检查；数据库、auth、context/profile 与输出均独立，源码和 evaluator 冻结文件未变。
+
+The actual Chromium acceptance test passed, with zero skips/retries. It performed real UI login and /api/users/self identity/group checks, recipe list/card/detail with seeded ingredients/instructions/tool/category/tag, Vue shopping-list index/detail, direct detail URL plus preserved query/hash, refresh, and return to the recipe list. All observed document/asset requests identify Vue and the fresh build, and browser application requests share one gateway origin. Supplemental transport checks passed with a separate synthetic backend, including POST bodies, cookie forwarding, two Set-Cookie headers, status 418, HEAD and missing JS/CSS/image 404. Synthetic checks are not counted as real browser/API acceptance.
+真实 Chromium 测试通过，无跳过或重试；经 Vue 登录验证真实身份/group、食谱与购物清单、直达与刷新、query/hash 保留及同源请求。补充传输 fixture 单列，不冒充真实后端验收。
+
+S1 latest final reply is covered, but the earlier interrupted segment has no final END/completion, so phase-wide usage stays **partial**, missing quantity unknown. Known reported S1 usage: {closure['known_partial_usage']}. Provider response deduplication and disjoint turn accounting remain; snapshots/old exports are not added. Original 318 Vue type diagnostics remain **FAIL**; historical raw log has 315 (+3 difference), cause not established. Exact first-line sets and hashes are retained separately. These diagnostic differences precede any S2 application changes and cannot be called gateway regressions.
+S1 最新最终回复覆盖已核实，早前中断段完整性未认证，所以总账保持 **partial**，缺失量未知。318 类型诊断仍单列 **FAIL**；历史原始日志 315，差 +3，准确原因未建立，不能认定网关引入回归。
+
+Build tooling automatically recreated Linux node_modules after the changed case alias and restored dependencies from the existing lockfile; raw logs remain. Package manifests/lockfile stayed frozen. The trigger for recreation was not independently proven; path/config differences are a hypothesis. The wait is charged to S2, not preparation. No S2 application repair round was needed by the accepted tests. Future stages must explicitly authorize ownership changes and verify real cross-framework navigation/session behavior.
+目录大小写变化后，构建工具自动重建依赖（准确触发原因未独立证实），原始日志保留，冻结 manifest/lockfile 未变；等待计入 S2。验收未使用源码修复轮次；跨框架行为留待单独授权步骤。
+
+The three-hour S2-S6 model/tool budget starts at actual request 2026-10-14T04:01:41.937Z; experiment-budget.json tracks only execution segments and excludes S0/preparation/S1 and between-turn human pauses. Before this final reply, budget and S2 usage are provisional. Costs/human review time not provided. Targeted S2 tests do not claim a new 66-route/15-flow suite run, React migration, production/TLS/WebSocket readiness or S3 completion.
+预算从本次实际请求起算，排除先前步骤及人工停顿；回复前时间与用量均暂存。未重跑的完整冻结 suite 不算通过，无 React 成果或生产就绪结论。
+
+## Evidence / 证据
+
+- [Actual request/boundary](request-boundary.json), [S1 settlement](S1-settlement.json)
+- [Fresh build](build-artifact.json), [Served build/source attribution](served-build.json)
+- [Commands and original English logs](commands.jsonl), [Attempts](attempts.jsonl)
+- [Browser machine report](browser/results.json), [Redacted request/session summary](browser/requests-redacted.json), [Original trace](browser/test-results/)
+- [Supplemental test source/config](supplemental-tests/), [Runtime isolation](runtime-isolation.json)
+- [Source state](source-state.json), [Actual diff](diff.patch), [Hashes](file-manifest.json)
+- [Type difference](../S1/type-history-comparison.md), [Raw diagnostic comparison](../S1/type-history-comparison.json)
+- [Visible transcript coverage](transcript-coverage.json), [Usage](token-usage.json), [Budget](../../experiment-budget.json)
+
+Stop after S2; await a separate S3 prompt. S2 final_reply_included=false until terminal/next-step settlement.
+S2 后停止，等待单独 S3 指令；本步最终回复待终端或下步核实。
+'''
+    (STAGE/'result.md').write_text(text)
+    docs=SOURCE/'rewrite-evidence/workflows/WF6';(docs/'S2-RESULT.md').write_text('# S2 all-Vue gateway / 全 Vue 网关\n\nGate PASS. 真实同源 Vue 登录、食谱列表/详情、购物清单、直达与刷新通过；接管关闭，未进入 S3。\n\n'+
+        f"Fresh Vue build `{build['build_hash']}`. S1 type diagnostics remain FAIL: 318 vs historical 315, cause not established. S1 final reply covered; usage partial due to interrupted earlier segment.\n\n"+
+        '[Full bilingual result, commands, raw trace and usage](../../../../wf6-evidence/steps/S2/result.md). Raw evidence and credentials remain outside Git.\n')
+    (EVIDENCE/'PROGRESS.md').write_text('# WF6 progress / 进度\n\nS0 PASS; P1 preparation PASS. S1 PASS, types 318 FAIL separately; latest final reply covered, usage partial for earlier interruption.\nS1 类型错误单列，计量缺失保留。\n\nS2 PASS: all-Vue same-origin gateway and targeted real-browser checks. React disabled. S3-S7 not executed. Stop awaiting S3 authorization.\nS2 全 Vue 网关通过，停止等待 S3 单独授权。\n\n[Result](steps/S2/result.md) · [Budget](experiment-budget.json) · [Usage](usage/USAGE.md)\n')
+    index=EVIDENCE/'EVIDENCE_INDEX.md';text=index.read_text().split('\n## S2 all-Vue gateway')[0].rstrip();index.write_text(text+'\n\n## S2 all-Vue gateway / 全 Vue 网关\n\n'+
+        '\n'.join(f'- [{name}](steps/S2/{file})' for name,file in [('Result','result.md'),('Prompt','[REDACTED]'),('Request/budget boundary','request-boundary.json'),('S1 settlement','S1-settlement.json'),('Commands','commands.jsonl'),('Attempts','attempts.jsonl'),('Build','build-artifact.json'),('Served build','served-build.json'),('Browser report','browser/results.json'),('Redacted requests','browser/requests-redacted.json'),('Source snapshot','source-state.json'),('Diff','diff.patch'),('Files','file-manifest.json'),('Transcript','visible-transcript.jsonl'),('Transcript coverage','transcript-coverage.json'),('Provider commands','provider-command-events.jsonl'),('Usage','token-usage.json')])+'\n')
+    print(json.dumps(dict(gate='PASS',browser=machine['stats'],build_hash=build['build_hash'],repairs=0)))
+
+if __name__=='__main__':
+    import sys
+    if sys.argv[1]=='snapshot':snapshot()
+    elif sys.argv[1]=='report':report()

@@ -1,0 +1,22 @@
+{
+  "command_id": "20261014T011641-0dbdddd5",
+  "stage_id": "S0",
+  "label": "prepare-contract-environment-and-runtime",
+  "argv": [
+    "python3",
+    "-B",
+    "wf6-evidence/usage/prepare_documents.py"
+  ],
+  "cwd": "<WORKSPACE>/wf6-rerun-20261014-01",
+  "start_utc": "2026-10-14T01:16:41.627579+00:00",
+  "end_utc": "2026-10-14T01:16:42.034788+00:00",
+  "duration_seconds": 0.4072105870000087,
+  "exit_code": 0,
+  "stdout": "steps/S0/logs/20261014T011641-0dbdddd5.stdout.log",
+  "stderr": "steps/S0/logs/20261014T011641-0dbdddd5.stderr.log",
+  "environment_overrides": {},
+  "permission": "workspace-write; network restricted; no escalation",
+  "environment_capture": "Only explicit non-secret overrides; inherited secrets are not exported.",
+  "launch_error": null,
+  "stdin_path": null
+}

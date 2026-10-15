@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1937,
+    "byte_offset": 5687454,
+    "timestamp": "2026-10-14T03:54:30.538Z",
+    "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acefcf461c08191b2a23721569144e0",
+      "status": "completed",
+      "call_id": "call_b6ccb5d99ba546b5a2aca1d8cb45aac9",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"tail -12 wf6-rerun-20261014-01/wf6-evidence/steps/S1/logs/20261014T035350-7c508fa5.stderr.log\",\"max_output_tokens\":1000}));\ntext(await tools.write_stdin({session_id:21324,chars:\"\",yield_time_ms:1000,max_output_tokens:300}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+        "create_time": 1791950068.411751
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1940,
+    "byte_offset": 5690525,
+    "timestamp": "2026-10-14T03:54:30.682Z",
+    "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a1388c-239a-79a3-9352-86240a52afd1",
+      "call_id": "call_b6ccb5d99ba546b5a2aca1d8cb45aac9",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.1 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"0819b2\",\"wall_time_seconds\":0.000010077,\"exit_code\":0,\"original_token_count\":160,\"output\":\"Traceback (most recent call last):\\n  File \\\"<WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/usage/finish_s1.py\\\", line 172, in <module>\\n    else:source_snapshot();print('Frozen bytes and final source/evaluator states captured.')\\n         ~~~~~~~~~~~~~~~^^\\n  File \\\"<WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/usage/finish_s1.py\\\", line 31, in source_snapshot\\n    assert not mismatches, 'Frozen tracked bytes changed: '+str(mismatches)\\n           ^^^^^^^^^^^^^^\\nAssertionError: Frozen tracked bytes changed: ['CLAUDE.md']\\n\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"e3dcc8\",\"wall_time_seconds\":0.000008714,\"exit_code\":0,\"original_token_count\":0,\"output\":\"\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+        "create_time": 1791950070.682937
+      }
+    }
+  }
+}

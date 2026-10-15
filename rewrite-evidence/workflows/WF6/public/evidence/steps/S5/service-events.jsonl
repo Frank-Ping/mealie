@@ -1,0 +1,12 @@
+{"event": "owned_service_started", "service": "backend", "pid": 50489, "group": 50489, "start_utc": "2026-10-14T07:34:25.537949+00:00", "command_id": "20261014T073425-S5-backend"}
+{"event": "owned_service_started", "service": "gateway", "pid": 50490, "group": 50490, "start_utc": "2026-10-14T07:34:25.544070+00:00", "command_id": "20261014T073425-S5-gateway"}
+{"event": "owned_service_stopped", "pid": 50490, "command_id": "20261014T073425-S5-gateway", "end_utc": "2026-10-14T07:36:19.679342+00:00", "exit_code": 0}
+{"event": "owned_service_stopped", "pid": 50489, "command_id": "20261014T073425-S5-backend", "end_utc": "2026-10-14T07:36:19.896247+00:00", "exit_code": 143}
+{"event": "owned_service_started", "service": "backend", "pid": 51306, "group": 51306, "start_utc": "2026-10-14T07:37:35.195773+00:00", "command_id": "20261014T073735-S5-backend"}
+{"event": "owned_service_started", "service": "gateway", "pid": 51307, "group": 51307, "start_utc": "2026-10-14T07:37:35.200361+00:00", "command_id": "20261014T073735-S5-gateway"}
+{"event": "owned_service_stopped", "pid": 51307, "command_id": "20261014T073735-S5-gateway", "end_utc": "2026-10-14T07:38:52.508332+00:00", "exit_code": 0}
+{"event": "owned_service_stopped", "pid": 51306, "command_id": "20261014T073735-S5-backend", "end_utc": "2026-10-14T07:38:52.776320+00:00", "exit_code": 143}
+{"event": "owned_service_started", "service": "backend", "pid": 52103, "group": 52103, "start_utc": "2026-10-14T07:40:30.113639+00:00", "command_id": "20261014T074030-S5-backend"}
+{"event": "owned_service_started", "service": "gateway", "pid": 52104, "group": 52104, "start_utc": "2026-10-14T07:40:30.123448+00:00", "command_id": "20261014T074030-S5-gateway"}
+{"event": "owned_service_stopped", "pid": 52104, "command_id": "20261014T074030-S5-gateway", "end_utc": "2026-10-14T07:41:53.134045+00:00", "exit_code": 0}
+{"event": "owned_service_stopped", "pid": 52103, "command_id": "20261014T074030-S5-backend", "end_utc": "2026-10-14T07:41:53.302367+00:00", "exit_code": 143}

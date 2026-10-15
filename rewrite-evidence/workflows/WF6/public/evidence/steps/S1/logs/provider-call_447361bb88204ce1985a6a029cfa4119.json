@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1383,
+    "byte_offset": 4721558,
+    "timestamp": "2026-10-14T03:16:40.091Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acef4054d808191ac670e3e6a504a8f",
+      "status": "completed",
+      "call_id": "call_447361bb88204ce1985a6a029cfa4119",
+      "name": "exec",
+      "input": "text(await tools.apply_patch(\"*** Begin Patch\\n*** Add File: <WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/usage/summarize_s1_browser.py\\n+\\\"\\\"\\\"Summarize actual frozen Playwright machine results without weakening assertions.\\\"\\\"\\\"\\n+import json\\n+from pathlib import Path\\n+from run_s1 import STAGE\\n+\\n+def summarize(path):\\n+    report=json.loads(path.read_text())\\n+    cases=[]\\n+    def visit(suite):\\n+        for spec in suite.get('specs',[]):\\n+            for test in spec.get('tests',[]):\\n+                category='flows' if '/flows/' in '/'+spec.get('file','') else 'routes' if spec.get('title','').startswith('[route]') else 'guard'\\n+                cases.append(dict(category=category,title=spec['title'],file=spec.get('file'),project=test.get('projectName'),\\n+                    status=test['status'],expected_status=test.get('expectedStatus'),\\n+                    actual_statuses=[r.get('status') for r in test.get('results',[])],\\n+                    duration_ms=sum(r.get('duration',0) for r in test.get('results',[])),retries=[r.get('retry') for r in test.get('results',[])]))\\n+        for child in suite.get('suites',[]):visit(child)\\n+    for suite in report.get('suites',[]):visit(suite)\\n+    counts={}\\n+    for category in ('routes','flows','guard'):\\n+        selected=[c for c in cases if c['category']==category]\\n+        counts[category]=dict(total=len(selected),passed=sum(c['status']=='expected' and c['actual_statuses']==['passed'] for c in selected),\\n+            failed=sum(c['status']=='unexpected' for c in selected),skipped=sum(c['status']=='skipped' for c in selected),flaky=sum(c['status']=='flaky' for c in selected))\\n+    return dict(source=str(path),stats=report.get('stats'),categories=counts,cases=cases,\\n+        gate_checks=dict(inventory=len(cases)==82,routes_66=counts['routes']['total']==66,flows_15=counts['flows']['total']==15,guard_1=counts['guard']['total']==1,\\n+            all_passed=all(c['status']=='expected' and c['actual_statuses']==['passed'] and c['retries']==[0] for c in cases) and not report.get('errors')),\\n+        runner_errors=report.get('errors'))\\n+\\n+if __name__=='__main__':\\n+    for name in ('browser','browser-native'):\\n+        path=STAGE/name/'results.json'\\n+        if path.exists():\\n+            result=summarize(path)\\n+            (STAGE/'machine'/(name+'-summary.json')).write_text(json.dumps(result,indent=2)+'\\\\n')\\n+            print(json.dumps(dict(attempt=name,stats=result['stats'],categories=result['categories'],gate_checks=result['gate_checks'])))\\n*** End Patch\"));\ntext(await tools.exec_command({cmd:\"tail -3 wf6-rerun-20261014-01/wf6-evidence/steps/S1/logs/20261014T030622-9490b72b.stdout.log; cat wf6-rerun-20261014-01/wf6-evidence/steps/S1/logs/20261014T031607-3fd86ec3.stderr.log\",\"max_output_tokens\":1000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791947781.3054988
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1387,
+    "byte_offset": 4730447,
+    "timestamp": "2026-10-14T03:16:40.320Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13869-7f00-7ca0-ba06-3af92b3f554f",
+      "call_id": "call_447361bb88204ce1985a6a029cfa4119",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"53a92e\",\"wall_time_seconds\":0.000010549,\"exit_code\":0,\"original_token_count\":115,\"output\":\"  ✘  29 [routes] › tests/routes.spec.ts:37:9 › admin › [route] g/[groupSlug]/r/create/bulk.vue (18.5s)\\n  ✘  30 [routes] › tests/routes.spec.ts:37:9 › admin › [route] g/[groupSlug]/r/create/debug.vue (16.8s)\\n  ✘  31 [routes] › tests/routes.spec.ts:37:9 › admin › [route] g/[groupSlug]/r/create/html.vue (17.4s)\\n..........................\\n----------------------------------------------------------------------\\nRan 26 tests in 0.012s\\n\\nOK\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791947800.3204112
+      }
+    }
+  }
+}

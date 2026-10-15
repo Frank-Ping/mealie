@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2125,
+    "byte_offset": 6213508,
+    "timestamp": "2026-10-14T04:05:30.018Z",
+    "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016aceff73603c8191ace41f28ea5912d2",
+      "status": "completed",
+      "call_id": "call_09f63ab3dbe84cf0b0f967ced39de687",
+      "name": "exec",
+      "input": "text(await tools.apply_patch(\"*** Begin Patch\\n*** Add File: <WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/usage/build_s2.py\\n+\\\"\\\"\\\"Generate a fresh frozen Vue build and copy verified bytes to isolated S2 runtime.\\\"\\\"\\\"\\n+import hashlib\\n+import json\\n+from pathlib import Path\\n+import shutil\\n+from record_command import run,EVIDENCE,ROOT\\n+from run_s1 import SOURCE,environment\\n+\\n+STAGE=EVIDENCE/'steps/S2'\\n+RUNTIME=Path('/tmp/wf6-rerun-20261014-01-S2')\\n+\\n+def main():\\n+    assert not RUNTIME.exists(), 'Refuse to overwrite any existing S2 runtime.'\\n+    RUNTIME.mkdir(mode=0o700)\\n+    for name in ('auth','tmp','browser','static','tests'):(RUNTIME/name).mkdir(mode=0o700)\\n+    env=environment();env['TMPDIR']=str(RUNTIME/'tmp')\\n+    entry=run(['pnpm','generate'],SOURCE/'frontend','S2-fresh-Vue-build',stage='S2',env=env,\\n+        permission='Approved public-font build network; default sandbox unchanged')\\n+    if entry['exit_code']!=0:\\n+        (STAGE/'build-artifact.json').write_text(json.dumps(dict(exit_code=entry['exit_code'],command_id=entry['command_id'],browser_acceptance_allowed=False))+'\\\\n')\\n+        raise SystemExit(entry['exit_code'])\\n+    files=[]\\n+    for source in sorted((SOURCE/'frontend/dist').rglob('*')):\\n+        if source.is_file():\\n+            relative=source.relative_to(SOURCE/'frontend/dist');target=RUNTIME/'static'/relative;target.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(source,target)\\n+            digest=hashlib.sha256(source.read_bytes()).hexdigest();assert hashlib.sha256(target.read_bytes()).hexdigest()==digest\\n+            files.append(dict(path=str(relative),sha256=digest,bytes=source.stat().st_size))\\n+    import subprocess\\n+    head=subprocess.check_output(['git','-C',str(SOURCE),'rev-parse','HEAD'],text=True).strip()\\n+    artifact=dict(exit_code=0,command_id=entry['command_id'],build_utc=entry['end_utc'],source_head=head,\\n+        build_hash=hashlib.sha256(json.dumps(files,sort_keys=True).encode()).hexdigest(),files=files,served_path=str(RUNTIME/'static'),browser_acceptance_allowed=True,\\n+        scope='Unchanged frozen Vue build; S2 gateway source tracked separately. No React build.')\\n+    (STAGE/'build-artifact.json').write_text(json.dumps(artifact,indent=2)+'\\\\n')\\n+    (RUNTIME/'identity.json').write_text(json.dumps(dict(run_id=ROOT.name,stage_id='S2',build_hash=artifact['build_hash'],disposable_data=str(RUNTIME/'disposable-data'),port_backend=9006,port_gateway=9106),indent=2)+'\\\\n')\\n+    print(json.dumps(dict(build_hash=artifact['build_hash'],files=len(files),runtime=str(RUNTIME))))\\n+\\n+if __name__=='__main__':main()\\n*** End Patch\"));\ntext(await tools.exec_command({cmd:\"python3 -B wf6-rerun-20261014-01/wf6-evidence/usage/record_command.py --stage S2 --permission 'Approved frozen Vue generation and anonymous public font access; sandbox configuration unchanged' --cwd '<WORKSPACE>/wf6-rerun-20261014-01' --label S2-fresh-build-and-native-byte-manifest -- python3 -B wf6-evidence/usage/build_s2.py\",\"sandbox_permissions\":\"require_escalated\",\"justification\":\"S2 需要从未修改 Vue 重新构建；此前字体初始化需要公开网络访问。此操作仅生成新 build 并复制核实字节到独立 /tmp S2 目录，不安装新应用依赖或修改冻结源码。\",\"yield_time_ms\":1000,\"max_output_tokens\":700}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+        "create_time": 1791950707.3789115
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2128,
+    "byte_offset": 6221545,
+    "timestamp": "2026-10-14T04:05:34.048Z",
+    "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13896-42e0-7413-8d97-11e34a71041d",
+      "call_id": "call_09f63ab3dbe84cf0b0f967ced39de687",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 4.0 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"6ffbd4\",\"wall_time_seconds\":1.000897094,\"session_id\":18534,\"original_token_count\":0,\"output\":\"\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+        "create_time": 1791950734.0486436
+      }
+    }
+  }
+}

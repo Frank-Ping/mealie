@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "<WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/preparation/P1-audit-dependencies/prepare_dependencies.py", line 60, in <module>
+    if __name__=="__main__":main()
+                            ~~~~^^
+  File "<WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/preparation/P1-audit-dependencies/prepare_dependencies.py", line 42, in main
+    command(["pnpm","install","--frozen-lockfile","--store-dir",str(ROOT/"runtime/cache/pnpm"),"--reporter","append-only"],source/"frontend","frozen-Vue-dependency-install")
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/preparation/P1-audit-dependencies/prepare_dependencies.py", line 23, in command
+    if result["exit_code"]!=0:raise RuntimeError(label+" failed; original log "+result["stderr"])
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: frozen-Vue-dependency-install failed; original log logs/20261014T014620-23f06bee.stderr.log

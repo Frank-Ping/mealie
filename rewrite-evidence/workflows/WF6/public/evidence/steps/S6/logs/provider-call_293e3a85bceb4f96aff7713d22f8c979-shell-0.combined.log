@@ -1,0 +1,26 @@
+
+
+@user_router.post("/logout")
+async def logout(
+    request: Request,
+    response: Response,
+    accept_language: Annotated[str | None, Header()] = None,
+):
+    # Clearing a cookie only works when the attributes match the ones it was set with, which the old
+    # bare delete_cookie() call didn't manage for embedded (partitioned, SameSite=None) deployments.
+    response.set_cookie(SESSION_COOKIE_NAME, "", max_age=0, expires=0, **session_cookie_attrs(request))
+
+    translator = get_locale_provider(accept_language)
+    return {"message": translator.t("notifications.logged-out")}
+196:  preferences?: ReadHouseholdPreferences | null;
+213:export interface HouseholdUserSummary {
+227:export interface HouseholdRecipeBase {
+230:export interface HouseholdRecipeCreate {
+235:export interface HouseholdRecipeOut {
+241:export interface HouseholdRecipeSummary {
+245:export interface HouseholdRecipeUpdate {
+248:export interface HouseholdSave {
+252:export interface HouseholdStatistics {
+259:export interface HouseholdSummary {
+264:  preferences?: ReadHouseholdPreferences | null;
+807:  preferences?: UpdateHouseholdPreferences | null;

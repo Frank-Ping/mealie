@@ -1,0 +1,36 @@
+{
+  "timestamp": "2026-10-14T01:38:52.415426+00:00",
+  "probes": [
+    {
+      "host": "127.0.0.1",
+      "port": 9006,
+      "reserved": false,
+      "bindable": false,
+      "error": "[Errno 1] Operation not permitted"
+    },
+    {
+      "host": "127.0.0.1",
+      "port": 9106,
+      "reserved": false,
+      "bindable": false,
+      "error": "[Errno 1] Operation not permitted"
+    },
+    {
+      "host": "127.0.0.1",
+      "port": 9107,
+      "reserved": false,
+      "bindable": false,
+      "error": "[Errno 1] Operation not permitted"
+    },
+    {
+      "host": "127.0.0.1",
+      "port": 9108,
+      "reserved": false,
+      "bindable": false,
+      "error": "[Errno 1] Operation not permitted"
+    }
+  ],
+  "loopback_roundtrip": false,
+  "error": "[Errno 1] Operation not permitted",
+  "scope": "Preparation socket capability only. Every socket closed; no application server, account or database initialized."
+}

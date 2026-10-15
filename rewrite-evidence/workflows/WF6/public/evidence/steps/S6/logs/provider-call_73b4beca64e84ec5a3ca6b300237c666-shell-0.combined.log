@@ -1,0 +1,312 @@
+<WORKSPACE>
+{
+  "version": 1,
+  "run_id": "wf6-rerun-20261014-01",
+  "run_root": "<WORKSPACE>/wf6-rerun-20261014-01",
+  "workspace_root": "<WORKSPACE>",
+  "session_id": "01a137ea-f571-70f0-8cf3-7b8560c420bf",
+  "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+  "initial_turn_id": "01a137f3-c2d3-7db0-9623-6d33961b39eb",
+  "start_line": 104,
+  "start_byte_offset": 886375,
+  "user_message_id": "msg_01a137f3-c308-7400-b27e-520081c5b978",
+  "created_utc": "2026-10-14T01:09:28.572645+00:00",
+  "accounting_policy": "Attributed response records only; legacy token_count retained but never added. No inherited-history recount.",
+  "final_reply_policy": "Latest END + matching subsequent usage + task_complete + identity/boundary/counter reconciliation.",
+  "python_executable": "/usr/bin/python3",
+  "actual_prompt": "[[WF6:S0:START]]\n\n正式启动 wf6-rerun-20261014-01 的 S0。\n按已读取的 S0 中文 prompt、共同契约和交接要求执行。\n\n本条实际请求为新 S0 token 起点；\n初始化 preparation 单列，保留旧失败证据和计量边界。\n\n先处理初始化发现的 Git 父对象缺失及 git show 报错，\n核实冻结来源与内容；验证完成前不得标记 gate 通过。\n\n保留原始日志，新增技术说明使用英文，\n阶段结果提供中英文对照，并建立独立 token collector。\n\n仅执行 S0，结束后停止，不自动进入 S1。",
+  "natural_requests": [
+    {
+      "stage_id": "S1",
+      "action": "NATURAL_START",
+      "session_id": "01a137ea-f571-70f0-8cf3-7b8560c420bf",
+      "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+      "user_message_id": "msg_01a1382a-58f8-7de3-b1ea-8ca5ceac2207",
+      "line": 709,
+      "byte_offset": 2732151,
+      "actual_prompt": "本次 S1 属于 wf6-rerun-20261014-01。\n先核实 P1 收尾结果，保持 preparation 与 S1 计量区间不重叠。\n\n仅测量冻结的未修改 Vue baseline。\n保留原始日志，技术说明使用英文，结果提供中英文对照。\n记录实际源码、构建与测试结果；未运行检查不得算通过。\n\n仅执行 S1，结束后停止，不自动进入 S2。",
+      "timestamp": "2026-10-14T02:07:41.816Z"
+    },
+    {
+      "stage_id": "S1",
+      "action": "CONTINUE",
+      "session_id": "01a137ea-f571-70f0-8cf3-7b8560c420bf",
+      "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+      "user_message_id": "msg_01a13885-2703-78a0-872b-b4ddbb366bfd",
+      "line": 1774,
+      "actual_prompt": "Continue from where you stopped.",
+      "timestamp": "2026-10-14T03:46:52.804Z"
+    },
+    {
+      "stage_id": "S2",
+      "action": "NATURAL_START",
+      "session_id": "01a137ea-f571-70f0-8cf3-7b8560c420bf",
+      "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+      "user_message_id": "msg_01a13892-b831-78a2-ba0a-a36c62966306",
+      "line": 2054,
+      "byte_offset": 5837631,
+      "actual_prompt": "先核实 S1 最终用量收尾，并保留 318 条类型诊断的单列 FAIL\n及其与历史 315 条的差异说明。\n\n仅执行 S2，保持所有页面仍由 Vue 提供。\n从实际 S2 开始请求建立 S2–S6 三小时预算边界，\n不混入 S0、preparation、S1 和人工停顿。\n\n保留原始英文日志、失败历史、Git 提交和 token 记录，\n结果中英文对照。结束后停止，不自动进入 S3。",
+      "timestamp": "2026-10-14T04:01:41.937Z"
+    },
+    {
+      "stage_id": "S3",
+      "action": "NATURAL_START",
+      "session_id": "01a137ea-f571-70f0-8cf3-7b8560c420bf",
+      "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+      "user_message_id": "msg_01a138ae-03c4-7242-8376-67377a9cf25a",
+      "line": 2428,
+      "byte_offset": 6775151,
+      "actual_prompt": "先核实 S2 最终回复的用量覆盖。\n保持 S1 partial 和中断段缺口，不补零、不改标 exact_reported。\n\n仅执行 S3：验证 Vue 与最小 React 骨架的双向整页导航、\n真实登录会话、/api/users/self 身份/group，以及路由边界。\n本步不扩展 S4 的业务页面。\n\n延续 S2–S6 三小时预算；人工等待另列，不重置预算。\nS3/S4 共用最多两轮源码修复，明确记录每轮。\n\n保留英文技术记录、双语结果、失败证据和验收源码 commit。\n结束后停止，不自动进入 S4。",
+      "timestamp": "2026-10-14T04:31:30.756Z"
+    },
+    {
+      "stage_id": "S4",
+      "action": "NATURAL_START",
+      "session_id": "01a137ea-f571-70f0-8cf3-7b8560c420bf",
+      "turn_id": "01a13905-d942-7e23-8387-48f7946bf050",
+      "user_message_id": "msg_01a13905-dac0-7e92-833c-c7990f055109",
+      "line": 2777,
+      "byte_offset": 7687878,
+      "actual_prompt": "先核实 S3 最终回复用量覆盖，并结算实际预算尾部。\n保持 S1 partial、中断缺口和 318 条类型诊断 FAIL。\n\n仅接管测试用户所属 group 的食谱列表、搜索及只读详情。\n使用真实 API，呈现配料、步骤、工具、分类、标签，\n以及 loading/empty/error 状态。\n\n延续 S3 已验证的身份、路由边界和显式 Vue 入口。\nS3/S4 共用两轮源码修复，当前已使用 0/2。\n先构建成功，再进行浏览器验收，记录实际源码与 build hash。\n\n保留英文技术记录、双语结果、失败历史和提交记录。\n仅执行 S4，结束后停止，不自动进入 S5。",
+      "timestamp": "2026-10-14T06:07:27.424Z"
+    },
+    {
+      "stage_id": "S5",
+      "action": "NATURAL_START",
+      "session_id": "01a137ea-f571-70f0-8cf3-7b8560c420bf",
+      "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+      "user_message_id": "msg_01a13950-21f5-78d1-b83c-465ef67aeb81",
+      "line": 3058,
+      "byte_offset": 8732529,
+      "actual_prompt": "先核实 S4 最终回复用量覆盖并结算预算尾部。\n保留 S1 partial、中断缺口及 318 条类型诊断 FAIL。\n\n仅执行 S5，验证真实用户路径、路由边界、异常状态和检测负例。\n证明 React 接管开启时，故障能被检测，不能静默回退 Vue。\n分别报告 React、Vue、混合路径和边界检查成绩。\n\n延续三小时预算；截图中的剩余 98分20秒为临时值，\n人工等待另列。S5 最多两轮修复，保留全部失败历史。\n\n保留英文技术记录、双语结果和实际验收源码/build 标识。\n结束后停止，不自动进入 S6。",
+      "timestamp": "2026-10-14T07:28:35.317Z"
+    },
+    {
+      "stage_id": "S6",
+      "action": "NATURAL_START",
+      "session_id": "01a137ea-f571-70f0-8cf3-7b8560c420bf",
+      "turn_id": "01a13964-888e-7540-98b2-3abbc8e32d90",
+      "user_message_id": "msg_01a13964-8a79-78f3-a827-757694b24ce0",
+      "line": 3432,
+      "byte_offset": 9842001,
+      "actual_prompt": "先核实 S5 最终回复用量覆盖，结算预算尾部。\n保留 S5 两轮修复及全部失败历史，不重置其额度；\nS6 使用自己的最多两轮修复额度。\n\n仅执行 S6：显式关闭接管并验证全 Vue，\n随后恢复 React 接管，执行完整冻结 evaluator 回归。\n分别报告全 Vue 回退与恢复接管的成绩，\n记录各次实际服务的源码/build 标识，不修改冻结断言。\n\n延续三小时预算，人工等待另列。\n剩余约 79分43秒是截图快照，以收尾后的 timing 为准。\n保留 S1 partial、中断缺口及 318 条类型诊断 FAIL。\n\n保留英文技术记录、双语结果、失败日志和提交记录。\n结束后停止，不自动进入 S7。",
+      "timestamp": "2026-10-14T07:50:52.793Z"
+    }
+  ]
+}
+{
+  "stage": "S6",
+  "limit": 2,
+  "used": 0,
+  "rounds": []
+}
+{
+  "limit_seconds": 10800,
+  "first_start_utc": "2026-10-14T04:01:41.937Z",
+  "stages": [
+    "S2",
+    "S3",
+    "S4",
+    "S5",
+    "S6"
+  ],
+  "segments": [
+    {
+      "stage": "S2",
+      "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+      "start_utc": "2026-10-14T04:01:41.937Z",
+      "end_utc": "2026-10-14T04:24:11.702Z",
+      "elapsed_seconds": 1349.765,
+      "status": "closed"
+    },
+    {
+      "stage": "S3",
+      "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+      "start_utc": "2026-10-14T04:31:30.756Z",
+      "end_utc": "2026-10-14T05:00:35.156Z",
+      "elapsed_seconds": 1744.4,
+      "status": "closed"
+    },
+    {
+      "stage": "S4",
+      "turn_id": "01a13905-d942-7e23-8387-48f7946bf050",
+      "start_utc": "2026-10-14T06:07:27.424Z",
+      "end_utc": "2026-10-14T06:38:39.154Z",
+      "elapsed_seconds": 1871.73,
+      "status": "closed"
+    },
+    {
+      "stage": "S5",
+      "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+      "start_utc": "2026-10-14T07:28:35.317Z",
+      "end_utc": "2026-10-14T07:47:33.347Z",
+      "elapsed_seconds": 1138.03,
+      "status": "closed"
+    },
+    {
+      "stage": "S6",
+      "turn_id": "01a13964-888e-7540-98b2-3abbc8e32d90",
+      "start_utc": "2026-10-14T07:50:52.793Z",
+      "end_utc": "2026-10-14T08:04:49.676982+00:00",
+      "elapsed_seconds": 836.883982,
+      "status": "provisional_active"
+    }
+  ],
+  "policy": "Only authorized model/tool execution segments. Exclude S0, preparation, S1, between-turn human pauses and S7. This first segment begins at the actual S2 request.",
+  "known_execution_seconds": 6940.8089820000005,
+  "remaining_seconds": 3859.1910179999995,
+  "excluded_between_turn_intervals": [
+    {
+      "start_utc": "2026-10-14T04:24:11.702Z",
+      "end_utc": "2026-10-14T04:31:30.756Z",
+      "elapsed_seconds": 439.054,
+      "category": "human_pause/between_authorized_turns",
+      "activity": "Not provided; elapsed gap is excluded from model/tool execution. Human review time is not inferred."
+    },
+    {
+      "start_utc": "2026-10-14T05:00:35.156Z",
+      "end_utc": "2026-10-14T06:07:27.424Z",
+      "elapsed_seconds": 4012.268,
+      "category": "human_pause/between_authorized_turns",
+      "activity": "Not provided; excluded elapsed gap, not inferred review activity."
+    },
+    {
+      "start_utc": "2026-10-14T06:38:39.154Z",
+      "end_utc": "2026-10-14T07:28:35.317Z",
+      "elapsed_seconds": 2996.163,
+      "category": "human_pause/between_authorized_turns",
+      "activity": "Not provided; excluded elapsed gap is not inferred review activity."
+    },
+    {
+      "start_utc": "2026-10-14T07:47:33.347Z",
+      "end_utc": "2026-10-14T07:50:52.793Z",
+      "elapsed_seconds": 199.446,
+      "category": "human_pause/between_authorized_turns",
+      "activity": "Not provided; excluded gap is not inferred human review."
+    }
+  ]
+}
+import { useCallback, useEffect, useMemo, useState } from 'react';
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter, useLocation } from 'react-router';
+import { Alert, Box, Button, Container, CssBaseline, Stack, Typography } from '@mui/material';
+import i18n from 'i18next';
+import { initReactI18next, useTranslation } from 'react-i18next';
+import { explicitVue, ownsReact, type RouteMap } from '../../wf6/route-policy.mjs';
+
+declare const __WF6_REACT_SOURCE__: string;
+import { createRecipeApi, type Identity } from './api.ts';
+import { RecipePages } from './recipes.tsx';
+import { recipeStrings } from './strings.ts';
+type Session = { kind: 'loading' } | { kind: 'allowed'; user: Identity; map: RouteMap } | { kind: 'vue'; reason: string; map?: RouteMap };
+void i18n.use(initReactI18next).init({ lng: 'en', fallbackLng: 'en', interpolation: { escapeValue: false }, resources: { en: { translation: {
+  ...recipeStrings, title: 'Recipes', scope: 'Read-only recipes. Editing and other features remain available through the Vue entry.',
+  loading: 'Checking the real session…', shopping: 'Open Vue shopping lists', list: 'Open React list probe', detail: 'Open React detail probe', vue: 'Use explicit Vue entry', login: 'Use Vue login',
+} } } });
+
+function App() {
+  const { t } = useTranslation();
+  const location = useLocation();
+  const target = location.pathname + location.search + location.hash;
+  const [session, setSession] = useState<Session>({ kind: 'loading' });
+  useEffect(() => {
+    const abort = new AbortController();
+    void (async () => {
+      const mapResponse = await fetch('/_wf6/route-map.json', { signal: abort.signal });
+      if (!mapResponse.ok) throw new Error('Route configuration unavailable');
+      const map = await mapResponse.json() as RouteMap;
+      const cookie = document.cookie.split(';').map(value => value.trim()).find(value => value.startsWith('mealie.access_token='));
+      const token = cookie ? decodeURIComponent(cookie.slice(cookie.indexOf('=') + 1)) : null;
+      const headers: HeadersInit = token ? { authorization: `Bearer ${token}` } : {};
+      const response = await fetch('/api/users/self', { headers, credentials: 'same-origin', signal: abort.signal });
+      if (response.status === 401) return setSession({ kind: 'vue', reason: 'Anonymous or expired session (401)', map });
+      if (!response.ok) return setSession({ kind: 'vue', reason: `Session API failed (${response.status})`, map });
+      const user = await response.json() as Identity;
+      if (!user.id || !user.groupId || user.groupSlug !== map.groupSlug) return setSession({ kind: 'vue', reason: 'Session group does not match the configured pilot', map });
+      setSession({ kind: 'allowed', user, map });
+    })().catch(error => { if (!abort.signal.aborted) setSession({ kind: 'vue', reason: error instanceof Error ? error.message : 'Session unavailable' }); });
+    return () => abort.abort();
+  }, []);
+  const map = session.kind !== 'loading' && session.map ? session.map : { explicitVueQuery: { name: 'wf6', value: 'vue' }, takeoverEnabled: false, groupSlug: null, version: 1, excludedSlugs: [], vueModes: [] };
+  const vue = explicitVue(target, map);
+  const user = session.kind === 'allowed' ? session.user : null;
+  const api = useMemo(() => user ? createRecipeApi(user) : null, [user]);
+  const sessionFailure = useCallback((reason: string) => setSession(current => ({ kind: 'vue', reason, ...(current.kind !== 'loading' && current.map ? { map: current.map } : {}) })), []);
+  useEffect(() => { if (session.kind === 'allowed' && !ownsReact(target, session.map)) window.location.assign(target); }, [session, target]);
+  return <Container component="main" maxWidth="md" data-wf6-frontend="react" data-wf6-react-source={__WF6_REACT_SOURCE__}>
+    <CssBaseline /><Box sx={{ py: 4 }}><Stack spacing={2}>
+      <Alert severity="info">{t('scope')}</Alert>
+      {session.kind === 'loading' && <Typography role="status">{t('loading')}</Typography>}
+      {session.kind === 'vue' && <Alert severity="warning" data-wf6-session="vue-required">{session.reason}</Alert>}
+      {session.kind === 'allowed' && <>
+        <Box data-wf6-session="authenticated" data-wf6-user-id={session.user.id} data-wf6-group={session.user.groupSlug}>
+          <Typography>Authenticated as {session.user.fullName}</Typography><Typography>Group: {session.user.groupSlug}</Typography>
+        </Box>
+        {api && ownsReact(target, session.map) && <RecipePages api={api} group={session.user.groupSlug} onSessionFailure={sessionFailure} />}
+        <Button component="a" href="/shopping-lists?disableRedirect=true">{t('shopping')}</Button>
+      </>}
+      <Button component="a" href={vue}>{t('vue')}</Button>
+      {session.kind === 'vue' && <Button component="a" href={`/login?redirect=${encodeURIComponent(vue)}`}>{t('login')}</Button>}
+    </Stack></Box>
+  </Container>;
+}
+
+createRoot(document.getElementById('root')!).render(<BrowserRouter><App /></BrowserRouter>);
+import { expect, test } from "@playwright/test";
+import { ADMIN, loadFixtures, MEMBER, NAMES } from "../../lib/fixtures";
+import { loginViaUi, visibleText } from "../../lib/ui";
+
+test.describe("auth", () => {
+  test.use({ storageState: { cookies: [], origins: [] } });
+
+  test("[flow] log in with valid credentials and land on the recipe list", async ({ page }) => {
+    const f = loadFixtures();
+    await loginViaUi(page, ADMIN.email, ADMIN.password);
+    await expect(page).toHaveURL(new RegExp(`/g/${f.groupSlug}/?$`));
+    await expect(visibleText(page, NAMES.recipe)).toBeVisible();
+    await expect(visibleText(page, ADMIN.fullName)).toBeVisible();
+  });
+
+  test("[flow] a wrong password is rejected", async ({ page }) => {
+    await page.goto("/login");
+    await page.getByRole("textbox", { name: "Email or Username" }).fill(ADMIN.email);
+    await page.getByRole("textbox", { name: "Password" }).fill("definitely-not-the-password");
+    const answer = page.waitForResponse(r => r.url().includes("/api/auth/token"));
+    await page.getByRole("button", { name: "Login" }).click();
+    expect((await answer).status()).toBe(401);
+    await expect(visibleText(page, /invalid|incorrect/i)).toBeVisible();
+    await expect(page).toHaveURL(/\/login\/?$/);
+  });
+
+  test("[flow] log out ends the session", async ({ page }) => {
+    const f = loadFixtures();
+    await loginViaUi(page, ADMIN.email, ADMIN.password);
+    await page.getByRole("button", { name: "Logout" }).click();
+    await expect(page).toHaveURL(/\/login\/?/);
+    await page.goto(`/g/${f.groupSlug}/r/${f.recipeSlug}`);
+    await expect(page).toHaveURL(/\/login\/?/);
+  });
+
+  // Admin pages are only reachable through admin navigation. (Note: in the Vue reference, a member who
+  // types an /admin URL directly still gets the page shell with every admin API call answering 403;
+  // the backend is the real guard, so the yardstick checks what the member is offered, not that.)
+  test("[flow] a regular member is not offered admin pages", async ({ page }) => {
+    const f = loadFixtures();
+    await loginViaUi(page, MEMBER.email, MEMBER.password);
+    await page.goto(`/g/${f.groupSlug}`);
+    await expect(visibleText(page, MEMBER.fullName)).toBeVisible();
+    await expect(visibleText(page, NAMES.recipe)).toBeVisible();
+    await page.getByText("Settings", { exact: true }).filter({ visible: true }).first().click();
+    await expect(page.locator('a[href^="/household"]').filter({ visible: true }).first()).toBeVisible();
+    await expect(page.locator('a[href^="/admin"]').filter({ visible: true })).toHaveCount(0);
+  });
+
+  test("[flow] an admin is offered admin pages", async ({ page }) => {
+    const f = loadFixtures();
+    await loginViaUi(page, ADMIN.email, ADMIN.password);
+    await page.goto(`/g/${f.groupSlug}`);
+    await page.getByText("Settings", { exact: true }).filter({ visible: true }).first().click();
+    await page.locator('a[href="/admin/site-settings"]').filter({ visible: true }).first().click();
+    await expect(page.getByRole("heading", { name: "Site Settings" })).toBeVisible();
+  });
+});

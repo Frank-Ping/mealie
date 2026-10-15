@@ -1,0 +1,42 @@
+{
+  "node": {
+    "executable": "<WORKSPACE>/wf6-rerun-20261014-01/runtime/tools/bin/node",
+    "resolved_path": "<WORKSPACE>/wf6-rerun-20261014-01/runtime/tools/node-v24.21.0-linux-x64/bin/node",
+    "version": "v24.21.0",
+    "command_id": "20261014T014603-5cb9fc8e",
+    "native_platform": {
+      "platform": "linux",
+      "arch": "x64",
+      "execPath": "<WORKSPACE>/wf6-rerun-20261014-01/runtime/tools/node-v24.21.0-linux-x64/bin/node",
+      "version": "v24.21.0"
+    }
+  },
+  "npm": {
+    "executable": "<WORKSPACE>/wf6-rerun-20261014-01/runtime/tools/bin/npm",
+    "resolved_path": "<WORKSPACE>/wf6-rerun-20261014-01/runtime/tools/node-v24.21.0-linux-x64/lib/node_modules/npm/bin/npm-cli.js",
+    "version": "11.19.0",
+    "command_id": "20261014T014603-3451ea89"
+  },
+  "pnpm": {
+    "executable": "<WORKSPACE>/wf6-rerun-20261014-01/runtime/tools/bin/pnpm",
+    "resolved_path": "<WORKSPACE>/wf6-rerun-20261014-01/runtime/tools/bin/pnpm",
+    "version": "11.23.0",
+    "command_id": "20261014T014604-483cf834"
+  },
+  "uv": {
+    "executable": "<WORKSPACE>/wf6-rerun-20261014-01/runtime/tools/bin/uv",
+    "resolved_path": "<WORKSPACE>/wf6-rerun-20261014-01/runtime/tools/bin/uv",
+    "version": "uv 0.13.0 (x86_64-unknown-linux-gnu)",
+    "command_id": "20261014T014605-9c36e4af"
+  },
+  "task": {
+    "executable": "<WORKSPACE>/wf6-rerun-20261014-01/runtime/tools/bin/task",
+    "resolved_path": "<WORKSPACE>/wf6-rerun-20261014-01/runtime/tools/bin/task",
+    "version": "3.54.0",
+    "command_id": "20261014T014605-4b49b9af"
+  },
+  "python": {
+    "executable": "/usr/bin/python3",
+    "version": "Python 3.14.4"
+  }
+}

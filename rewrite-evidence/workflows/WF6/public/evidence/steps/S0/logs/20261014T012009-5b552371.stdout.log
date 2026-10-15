@@ -1,0 +1,4 @@
+[rewrite/wf6-route-coexistence 955e790] [WF6-S0] Freeze rerun inputs, coexistence contract and evidence pointers
+ 3 files changed, 275 insertions(+)
+ create mode 100644 rewrite-evidence/workflows/WF6/S0-summary.md
+ create mode 100644 rewrite-evidence/workflows/WF6/WF6-CONTRACT.md

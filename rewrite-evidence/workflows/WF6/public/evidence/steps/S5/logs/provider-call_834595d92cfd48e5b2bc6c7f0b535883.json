@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3217,
+    "byte_offset": 9386335,
+    "timestamp": "2026-10-14T07:36:16.330Z",
+    "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf30ee0840819194cde01cc89a8b6c",
+      "status": "completed",
+      "call_id": "call_834595d92cfd48e5b2bc6c7f0b535883",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"cat wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/AGENTS.md\",\"max_output_tokens\":1000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+        "create_time": 1791963374.0380867
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3220,
+    "byte_offset": 9388774,
+    "timestamp": "2026-10-14T07:36:16.468Z",
+    "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13957-2b54-7b53-a3d3-f84b9cdbb3e4",
+      "call_id": "call_834595d92cfd48e5b2bc6c7f0b535883",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.1 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"d98a1c\",\"wall_time_seconds\":0.000010327,\"exit_code\":1,\"original_token_count\":25,\"output\":\"cat: wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/AGENTS.md: No such file or directory\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+        "create_time": 1791963376.4689436
+      }
+    }
+  }
+}

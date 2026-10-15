@@ -1,0 +1,11 @@
+{
+  "stage_id": "S4",
+  "action": "NATURAL_START",
+  "session_id": "01a137ea-f571-70f0-8cf3-7b8560c420bf",
+  "turn_id": "01a13905-d942-7e23-8387-48f7946bf050",
+  "user_message_id": "msg_01a13905-dac0-7e92-833c-c7990f055109",
+  "line": 2777,
+  "byte_offset": 7687878,
+  "actual_prompt": "先核实 S3 最终回复用量覆盖，并结算实际预算尾部。\n保持 S1 partial、中断缺口和 318 条类型诊断 FAIL。\n\n仅接管测试用户所属 group 的食谱列表、搜索及只读详情。\n使用真实 API，呈现配料、步骤、工具、分类、标签，\n以及 loading/empty/error 状态。\n\n延续 S3 已验证的身份、路由边界和显式 Vue 入口。\nS3/S4 共用两轮源码修复，当前已使用 0/2。\n先构建成功，再进行浏览器验收，记录实际源码与 build hash。\n\n保留英文技术记录、双语结果、失败历史和提交记录。\n仅执行 S4，结束后停止，不自动进入 S5。",
+  "timestamp": "2026-10-14T06:07:27.424Z"
+}

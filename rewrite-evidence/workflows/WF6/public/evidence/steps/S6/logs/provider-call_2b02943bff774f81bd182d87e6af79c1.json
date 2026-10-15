@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3679,
+    "byte_offset": 10573027,
+    "timestamp": "2026-10-14T08:03:44.067Z",
+    "turn_id": "01a13964-888e-7540-98b2-3abbc8e32d90",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf375a47488191a5f3e7b4d842d43e",
+      "status": "completed",
+      "call_id": "call_2b02943bff774f81bd182d87e6af79c1",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nfrom pathlib import Path\\np=Path('wf6-rerun-20261014-01/wf6-evidence/usage');s=(p/'postcommit_s5.py').read_text().replace('S5','S6').replace('from finish_s5 import STAGE','from finish_s6 import STAGE');s=s.replace(\\\"decision='S6 journey/boundaries/detection PASS; two S6 harness repairs used, application unchanged. Keep S1 partial and diagnostic FAIL. Stop; S6 not executed.'\\\",\\\"decision='S6 explicit rollback and restored ownership PASS; full frozen regression FAIL (4 scope gaps). S6 repairs 0/2; S5 2/2 retained; application unchanged. Keep S1 partial and diagnostic FAIL. Stop; S7 not executed.'\\\")\\n(p/'postcommit_s6.py').write_text(s)\\nPY\",\"max_output_tokens\":500}));\ntext(await tools.write_stdin({session_id:85022,chars:\"\",yield_time_ms:1000,max_output_tokens:1000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13964-888e-7540-98b2-3abbc8e32d90",
+        "create_time": 1791965018.2818706
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3682,
+    "byte_offset": 10577190,
+    "timestamp": "2026-10-14T08:03:44.276Z",
+    "turn_id": "01a13964-888e-7540-98b2-3abbc8e32d90",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13970-5014-7631-a0c8-79625f60b151",
+      "call_id": "call_2b02943bff774f81bd182d87e6af79c1",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"dc11b3\",\"wall_time_seconds\":0.000014571,\"exit_code\":0,\"original_token_count\":0,\"output\":\"\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"0521e9\",\"wall_time_seconds\":0.000010818,\"exit_code\":0,\"original_token_count\":200,\"output\":\"{\\\"command_id\\\": \\\"20261014T080229-b1ad9f67\\\", \\\"stage_id\\\": \\\"S6\\\", \\\"label\\\": \\\"S6-audit-build-source-classify-full-failures\\\", \\\"argv\\\": [\\\"python3\\\", \\\"-B\\\", \\\"wf6-evidence/usage/finish_s6.py\\\"], \\\"cwd\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01\\\", \\\"start_utc\\\": \\\"2026-10-14T08:02:29.829919+00:00\\\", \\\"end_utc\\\": \\\"2026-10-14T08:03:31.888746+00:00\\\", \\\"duration_seconds\\\": 62.05882909700085, \\\"exit_code\\\": 0, \\\"stdout\\\": \\\"steps/S6/logs/20261014T080229-b1ad9f67.stdout.log\\\", \\\"stderr\\\": \\\"steps/S6/logs/20261014T080229-b1ad9f67.stderr.log\\\", \\\"environment_overrides\\\": {}, \\\"permission\\\": \\\"workspace-write; network restricted; no escalation\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13964-888e-7540-98b2-3abbc8e32d90",
+        "create_time": 1791965024.2762568
+      }
+    }
+  }
+}

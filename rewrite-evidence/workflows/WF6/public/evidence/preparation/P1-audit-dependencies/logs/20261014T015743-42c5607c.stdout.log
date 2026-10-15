@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "platform": "linux",
+  "executable": "<WORKSPACE>/wf6-rerun-20261014-01/runtime/browser-binaries/chromium-1243/chrome-linux64/chrome",
+  "browserVersion": "153.0.8010.12",
+  "fixtureUrl": "about:blank",
+  "scope": "Dependency capability only; no Mealie application, backend, account, seeded data or evaluator assertion was exercised."
+}

@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3494,
+    "byte_offset": 10088604,
+    "timestamp": "2026-10-14T07:54:39.124Z",
+    "turn_id": "01a13964-888e-7540-98b2-3abbc8e32d90",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf353c10bc8191a4f32795ae4a1871",
+      "status": "completed",
+      "call_id": "call_d8f1e696c18547588459763e69374a44",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nfrom pathlib import Path\\np=Path('wf6-rerun-20261014-01/wf6-evidence/usage/run_s6.py');s=p.read_text().replace('environment_overrides=env,permission=permission','environment_overrides=dict(env),permission=permission');p.write_text(s)\\nPY\",\"max_output_tokens\":500}));\ntext(await tools.write_stdin({session_id:19546,chars:\"\",yield_time_ms:1000,max_output_tokens:1000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13964-888e-7540-98b2-3abbc8e32d90",
+        "create_time": 1791964476.0685942
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3497,
+    "byte_offset": 10091529,
+    "timestamp": "2026-10-14T07:54:44.311Z",
+    "turn_id": "01a13964-888e-7540-98b2-3abbc8e32d90",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13968-12d7-7922-b224-1f3e08139f2e",
+      "call_id": "call_d8f1e696c18547588459763e69374a44",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 5.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"355471\",\"wall_time_seconds\":0.000011011,\"exit_code\":0,\"original_token_count\":0,\"output\":\"\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"9f11af\",\"wall_time_seconds\":5.000575222,\"session_id\":19546,\"original_token_count\":0,\"output\":\"\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13964-888e-7540-98b2-3abbc8e32d90",
+        "create_time": 1791964484.311815
+      }
+    }
+  }
+}

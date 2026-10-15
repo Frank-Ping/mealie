@@ -1,0 +1,27 @@
+{
+  "snapshot_utc": "2026-10-14T01:20:39.775768+00:00",
+  "source": {
+    "path": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist",
+    "pinned_input_sha": "4b9ca06b6581f7152e164ea0fd9d4da366975a79",
+    "actual_head": "955e790f86c9c4ff2d56e06b9e54d948cbf0e698",
+    "dirty": false,
+    "untracked": [],
+    "remotes": [],
+    "shallow": "true",
+    "shared_objects": false,
+    "served_build": null,
+    "build_note": "No application build or service in S0."
+  },
+  "evaluator": {
+    "path": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator",
+    "pinned_input_sha": "758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d",
+    "actual_head": "758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d",
+    "dirty": false,
+    "untracked": [],
+    "remotes": [],
+    "shallow": "true",
+    "shared_objects": false,
+    "served_build": null,
+    "build_note": "No application build or service in S0."
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "timestamp": "2026-10-14T01:39:06.298263+00:00",
+  "probes": [
+    {
+      "host": "127.0.0.1",
+      "port": 9006,
+      "reserved": false,
+      "bindable": true
+    },
+    {
+      "host": "127.0.0.1",
+      "port": 9106,
+      "reserved": false,
+      "bindable": true
+    },
+    {
+      "host": "127.0.0.1",
+      "port": 9107,
+      "reserved": false,
+      "bindable": true
+    },
+    {
+      "host": "127.0.0.1",
+      "port": 9108,
+      "reserved": false,
+      "bindable": true
+    }
+  ],
+  "loopback_roundtrip": true,
+  "error": null,
+  "scope": "Preparation socket capability only. Every socket closed; no application server, account or database initialized."
+}

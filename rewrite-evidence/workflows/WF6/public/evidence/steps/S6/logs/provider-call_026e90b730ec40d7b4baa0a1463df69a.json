@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 4008,
+    "byte_offset": 11511892,
+    "timestamp": "2026-10-14T08:57:12.820Z",
+    "turn_id": "01a13999-f4f9-78f2-8751-6c0a710636a0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf43e3e7e88191b19b1942272ff2bf",
+      "status": "completed",
+      "call_id": "call_026e90b730ec40d7b4baa0a1463df69a",
+      "name": "exec",
+      "input": "text(await tools.write_stdin({session_id:12409,chars:\"\",yield_time_ms:1000,max_output_tokens:1000}));\ntext(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nfrom pathlib import Path\\nimport json\\np=Path('wf6-rerun-20261014-01/wf6-evidence/steps/S6');rows=[json.loads(x) for x in (p/'commands.jsonl').read_text().splitlines()];print([(r['label'],r['exit_code']) for r in rows][-8:])\\nfor r in rows[-8:]:\\n if r['exit_code'] not in [0,None]:print((p.parent.parent/r['stdout']).read_text()[-2500:])\\nPY\",\"max_output_tokens\":2200}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13999-f4f9-78f2-8751-6c0a710636a0",
+        "create_time": 1791968227.9561453
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 4011,
+    "byte_offset": 11515430,
+    "timestamp": "2026-10-14T08:57:17.975Z",
+    "turn_id": "01a13999-f4f9-78f2-8751-6c0a710636a0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a139a1-5997-7fd1-982f-3d48dcaf926a",
+      "call_id": "call_026e90b730ec40d7b4baa0a1463df69a",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 5.1 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"b5d5d7\",\"wall_time_seconds\":5.002024624,\"session_id\":12409,\"original_token_count\":0,\"output\":\"\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"ded386\",\"wall_time_seconds\":0.000012716,\"exit_code\":0,\"original_token_count\":73,\"output\":\"[('S6-C2-settle-prior-final-segment', 0), ('S6-C2-stage-scope-amendment', 0), ('S6-C2-commit-scope-amendment', 0), ('S6-C2-React-strict-TypeScript', 0), ('S6-C2-React-lint', 0), ('S6-C2-business-unit-checks', 0), ('S6-C2-shared-route-policy-matrix', 0), ('S6-C2-React-production-build', 0)]\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13999-f4f9-78f2-8751-6c0a710636a0",
+        "create_time": 1791968237.975672
+      }
+    }
+  }
+}

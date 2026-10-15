@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2926,
+    "byte_offset": 8206473,
+    "timestamp": "2026-10-14T06:24:08.028Z",
+    "turn_id": "01a13905-d942-7e23-8387-48f7946bf050",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf2001d77081919b6a6ca19d4a2c2a",
+      "status": "completed",
+      "call_id": "call_3edeb2e32baf488b8ecf3348b99b5748",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 -B wf6-rerun-20261014-01/wf6-evidence/usage/record_command.py --stage S4 --permission 'Approved isolated S4 backend/gateway/Chromium and unchanged frozen selected tests; default sandbox unchanged' --cwd '<WORKSPACE>/wf6-rerun-20261014-01' --label S4-real-frozen-and-supplemental-business-acceptance -- python3 -B wf6-evidence/usage/run_s4.py\",\"sandbox_permissions\":\"require_escalated\",\"justification\":\"所有 S4 static/build 检查已通过；现在在新 S4 SQLite/auth/context/输出中启动本地服务与 Chromium，运行未修改 evaluator 的精准四项选择及补充真实业务/states验收，核实前先保存选择库存，不降低断言。\",\"yield_time_ms\":1000,\"max_output_tokens\":700}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13905-d942-7e23-8387-48f7946bf050",
+        "create_time": 1791959041.8444674
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2928,
+    "byte_offset": 8208605,
+    "timestamp": "2026-10-14T06:24:11.331Z",
+    "turn_id": "01a13905-d942-7e23-8387-48f7946bf050",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13915-2c43-7cc1-b6d7-377a9ec1b928",
+      "call_id": "call_3edeb2e32baf488b8ecf3348b99b5748",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 3.3 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"31c22a\",\"wall_time_seconds\":1.000248708,\"session_id\":26360,\"original_token_count\":0,\"output\":\"\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13905-d942-7e23-8387-48f7946bf050",
+        "create_time": 1791959051.3317554
+      }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 4639,
+    "byte_offset": 13745892,
+    "timestamp": "2026-10-14T09:59:10.256Z",
+    "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf526a82608191b9eebdffdfe83c95",
+      "status": "completed",
+      "call_id": "call_3f523d1b8d6b408fb5f30b38749f4c05",
+      "name": "exec",
+      "input": "text(await tools.write_stdin({session_id:17035,chars:\"\",yield_time_ms:1000,max_output_tokens:350}));\ntext(await tools.exec_command({cmd:\"python3 - <<'PY'\\nimport pathlib,json\\np=pathlib.Path('wf6-evidence/steps/S7');print('postcommit',json.loads((p/'source-state.json').read_text()).get('report_commit'));print('manifestvalidation',json.loads((p/'manifest-validation.json').read_text()))\\nPY\",\"workdir\":\"<WORKSPACE>/wf6-rerun-20261014-01\",\"max_output_tokens\":400}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+        "create_time": 1791971946.512381
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 4643,
+    "byte_offset": 13751244,
+    "timestamp": "2026-10-14T09:59:13.710Z",
+    "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a139da-0c2e-7060-be30-7fc741508f52",
+      "call_id": "call_3f523d1b8d6b408fb5f30b38749f4c05",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 3.4 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"4c7611\",\"wall_time_seconds\":3.287859148,\"exit_code\":0,\"original_token_count\":203,\"output\":\"{\\\"command_id\\\": \\\"20261014T095801-76a27804\\\", \\\"stage_id\\\": \\\"S7\\\", \\\"label\\\": \\\"postcommit-links-hashes-manifest-validation\\\", \\\"argv\\\": [\\\"python3\\\", \\\"-B\\\", \\\"wf6-evidence/usage/verify_s7.py\\\", \\\"--postcommit\\\"], \\\"cwd\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01\\\", \\\"start_utc\\\": \\\"2026-10-14T09:58:01.718941+00:00\\\", \\\"end_utc\\\": \\\"2026-10-14T09:59:13.532432+00:00\\\", \\\"duration_seconds\\\": 71.81349206499726, \\\"exit_code\\\": 0, \\\"stdout\\\": \\\"steps/S7/logs/20261014T095801-76a27804.stdout.log\\\", \\\"stderr\\\": \\\"steps/S7/logs/20261014T095801-76a27804.stderr.log\\\", \\\"environment_overrides\\\": {}, \\\"permission\\\": \\\"workspace-write; network restricted; no escalation\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"4d7ed0\",\"wall_time_seconds\":0.000017104,\"exit_code\":0,\"original_token_count\":92,\"output\":\"postcommit 565351c0f9daa1b5757baa6d30fb482db177a8da\\nmanifestvalidation {'timestamp': '2026-10-14T09:59:13.521978+00:00', 'verified_files': 4197, 'mismatches': [], 'self_included': False, 'report_links_checked': 294, 'note': 'Validation record and the containing recorder command require final manifest regeneration; external finalize regenerates after final usage.'}\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+        "create_time": 1791971953.7107487
+      }
+    }
+  }
+}

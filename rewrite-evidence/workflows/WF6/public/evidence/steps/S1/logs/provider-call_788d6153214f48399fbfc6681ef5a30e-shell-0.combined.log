@@ -1,0 +1,2 @@
+  ✘  69 [flows] › tests/flows/auth.spec.ts:8:7 › auth › [flow] log in with valid credentials and land on the recipe list (46.4s)
+  ✓  70 [flows] › tests/flows/auth.spec.ts:16:7 › auth › [flow] a wrong password is rejected (35.0s)

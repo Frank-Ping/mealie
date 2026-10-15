@@ -1,0 +1,221 @@
+
+Running 82 tests using 1 worker
+
+  ✓   1 [routes] › tests/routes.spec.ts:23:5 › route table has unique entries (25ms)
+  ✓   2 [routes] › tests/routes.spec.ts:37:9 › admin › [route] admin.vue (1.3s)
+  ✓   3 [routes] › tests/routes.spec.ts:37:9 › admin › [route] admin/backups.vue (1.0s)
+  ✓   4 [routes] › tests/routes.spec.ts:37:9 › admin › [route] admin/debug/openai.vue (952ms)
+  ✓   5 [routes] › tests/routes.spec.ts:37:9 › admin › [route] admin/debug/parser.vue (959ms)
+  ✓   6 [routes] › tests/routes.spec.ts:37:9 › admin › [route] admin/maintenance/index.vue (973ms)
+  ✓   7 [routes] › tests/routes.spec.ts:37:9 › admin › [route] admin/manage/groups/[id].vue (1.0s)
+  ✓   8 [routes] › tests/routes.spec.ts:37:9 › admin › [route] admin/manage/groups/index.vue (966ms)
+  ✓   9 [routes] › tests/routes.spec.ts:37:9 › admin › [route] admin/manage/households/[id].vue (1.0s)
+  ✓  10 [routes] › tests/routes.spec.ts:37:9 › admin › [route] admin/manage/households/index.vue (971ms)
+  ✓  11 [routes] › tests/routes.spec.ts:37:9 › admin › [route] admin/manage/users/[id].vue (1.0s)
+  ✓  12 [routes] › tests/routes.spec.ts:37:9 › admin › [route] admin/manage/users/create.vue (1.0s)
+  ✓  13 [routes] › tests/routes.spec.ts:37:9 › admin › [route] admin/manage/users/index.vue (968ms)
+  ✓  14 [routes] › tests/routes.spec.ts:37:9 › admin › [route] admin/setup.vue (906ms)
+  ✓  15 [routes] › tests/routes.spec.ts:37:9 › admin › [route] admin/site-settings.vue (5.4s)
+  ✓  16 [routes] › tests/routes.spec.ts:37:9 › anonymous › [route] forgot-password.vue (808ms)
+  ✓  17 [routes] › tests/routes.spec.ts:37:9 › anonymous › [route] login.vue (830ms)
+  ✓  18 [routes] › tests/routes.spec.ts:37:9 › anonymous › [route] register/index.vue (803ms)
+  ✓  19 [routes] › tests/routes.spec.ts:37:9 › anonymous › [route] reset-password.vue (791ms)
+  ✓  20 [routes] › tests/routes.spec.ts:37:9 › anonymous › [route] g/[groupSlug]/shared/r/[id].vue (1.1s)
+  ✓  21 [routes] › tests/routes.spec.ts:37:9 › admin › [route] index.vue (1.1s)
+  ✓  22 [routes] › tests/routes.spec.ts:37:9 › admin › [route] g/[groupSlug]/index.vue (903ms)
+  ✓  23 [routes] › tests/routes.spec.ts:37:9 › admin › [route] g/[groupSlug]/r/[slug]/index.vue (699ms)
+  ✓  24 [routes] › tests/routes.spec.ts:37:9 › admin › [route] g/[groupSlug]/cookbooks/index.vue (985ms)
+  ✓  25 [routes] › tests/routes.spec.ts:37:9 › admin › [route] g/[groupSlug]/cookbooks/[slug].vue (1.0s)
+  ✓  26 [routes] › tests/routes.spec.ts:37:9 › admin › [route] g/[groupSlug]/r/create.vue (963ms)
+  ✓  27 [routes] › tests/routes.spec.ts:37:9 › admin › [route] g/[groupSlug]/r/create/index.vue (1.0s)
+  ✓  28 [routes] › tests/routes.spec.ts:37:9 › admin › [route] g/[groupSlug]/r/create/ai.vue (1.1s)
+  ✓  29 [routes] › tests/routes.spec.ts:37:9 › admin › [route] g/[groupSlug]/r/create/bulk.vue (1.0s)
+  ✓  30 [routes] › tests/routes.spec.ts:37:9 › admin › [route] g/[groupSlug]/r/create/debug.vue (1.1s)
+  ✓  31 [routes] › tests/routes.spec.ts:37:9 › admin › [route] g/[groupSlug]/r/create/html.vue (1.1s)
+  ✓  32 [routes] › tests/routes.spec.ts:37:9 › admin › [route] g/[groupSlug]/r/create/image.vue (1.1s)
+  ✓  33 [routes] › tests/routes.spec.ts:37:9 › admin › [route] g/[groupSlug]/r/create/new.vue (978ms)
+  ✓  34 [routes] › tests/routes.spec.ts:37:9 › admin › [route] g/[groupSlug]/r/create/url.vue (989ms)
+  ✓  35 [routes] › tests/routes.spec.ts:37:9 › admin › [route] g/[groupSlug]/r/create/zip.vue (960ms)
+  ✓  36 [routes] › tests/routes.spec.ts:37:9 › admin › [route] g/[groupSlug]/recipes/categories/index.vue (1.0s)
+  ✓  37 [routes] › tests/routes.spec.ts:37:9 › admin › [route] g/[groupSlug]/recipes/tags/index.vue (1.0s)
+  ✓  38 [routes] › tests/routes.spec.ts:37:9 › admin › [route] g/[groupSlug]/recipes/tools/index.vue (985ms)
+  ✓  39 [routes] › tests/routes.spec.ts:37:9 › admin › [route] g/[groupSlug]/recipes/finder/index.vue (1.0s)
+  ✓  40 [routes] › tests/routes.spec.ts:37:9 › admin › [route] g/[groupSlug]/recipes/timeline.vue (1.1s)
+  ✓  41 [routes] › tests/routes.spec.ts:37:9 › admin › [route] group/index.vue (1.0s)
+  ✓  42 [routes] › tests/routes.spec.ts:37:9 › admin › [route] group/migrations.vue (1.1s)
+  ✓  43 [routes] › tests/routes.spec.ts:37:9 › admin › [route] group/reports/[id].vue (993ms)
+  ✓  44 [routes] › tests/routes.spec.ts:37:9 › admin › [route] group/data.vue (1.1s)
+  ✓  45 [routes] › tests/routes.spec.ts:37:9 › admin › [route] group/data/index.vue (1.1s)
+  ✓  46 [routes] › tests/routes.spec.ts:37:9 › admin › [route] group/data/foods.vue (1.1s)
+  ✓  47 [routes] › tests/routes.spec.ts:37:9 › admin › [route] group/data/units.vue (1.1s)
+  ✓  48 [routes] › tests/routes.spec.ts:37:9 › admin › [route] group/data/labels.vue (1.0s)
+  ✓  49 [routes] › tests/routes.spec.ts:37:9 › admin › [route] group/data/categories.vue (1.1s)
+  ✓  50 [routes] › tests/routes.spec.ts:37:9 › admin › [route] group/data/tags.vue (1.2s)
+  ✓  51 [routes] › tests/routes.spec.ts:37:9 › admin › [route] group/data/tools.vue (1.2s)
+  ✓  52 [routes] › tests/routes.spec.ts:37:9 › admin › [route] group/data/recipes.vue (1.2s)
+  ✓  53 [routes] › tests/routes.spec.ts:37:9 › admin › [route] group/data/recipe-actions.vue (1.1s)
+  ✓  54 [routes] › tests/routes.spec.ts:37:9 › admin › [route] household/index.vue (1.1s)
+  ✓  55 [routes] › tests/routes.spec.ts:37:9 › admin › [route] household/members.vue (1.1s)
+  ✓  56 [routes] › tests/routes.spec.ts:37:9 › admin › [route] household/notifiers.vue (1.1s)
+  ✓  57 [routes] › tests/routes.spec.ts:37:9 › admin › [route] household/webhooks.vue (1.1s)
+  ✓  58 [routes] › tests/routes.spec.ts:37:9 › admin › [route] household/mealplan/settings.vue (1.1s)
+  ✓  59 [routes] › tests/routes.spec.ts:37:9 › admin › [route] household/mealplan/planner.vue (1.0s)
+  ✓  60 [routes] › tests/routes.spec.ts:37:9 › admin › [route] household/mealplan/planner/view.vue (1.1s)
+  ✓  61 [routes] › tests/routes.spec.ts:37:9 › admin › [route] household/mealplan/planner/edit.vue (1.1s)
+  ✓  62 [routes] › tests/routes.spec.ts:37:9 › admin › [route] shopping-lists/index.vue (977ms)
+  ✓  63 [routes] › tests/routes.spec.ts:37:9 › admin › [route] shopping-lists/[id].vue (1.1s)
+  ✓  64 [routes] › tests/routes.spec.ts:37:9 › admin › [route] user/profile/index.vue (1.0s)
+  ✓  65 [routes] › tests/routes.spec.ts:37:9 › admin › [route] user/profile/edit.vue (992ms)
+  ✓  66 [routes] › tests/routes.spec.ts:37:9 › admin › [route] user/profile/api-tokens.vue (990ms)
+  ✓  67 [routes] › tests/routes.spec.ts:37:9 › admin › [route] user/[id]/favorites.vue (1.0s)
+  ✓  68 [flows] › tests/flows/admin.spec.ts:5:7 › admin › [flow] create a user and find them in user management (2.7s)
+  ✓  69 [flows] › tests/flows/auth.spec.ts:8:7 › auth › [flow] log in with valid credentials and land on the recipe list (1.1s)
+  ✓  70 [flows] › tests/flows/auth.spec.ts:16:7 › auth › [flow] a wrong password is rejected (683ms)
+  ✘  71 [flows] › tests/flows/auth.spec.ts:27:7 › auth › [flow] log out ends the session (45.5s)
+  ✘  72 [flows] › tests/flows/auth.spec.ts:39:7 › auth › [flow] a regular member is not offered admin pages (45.5s)
+  ✘  73 [flows] › tests/flows/auth.spec.ts:50:7 › auth › [flow] an admin is offered admin pages (45.5s)
+  ✓  74 [flows] › tests/flows/mealplan.spec.ts:12:7 › meal plan › [flow] add a note to tomorrow's meal plan (4.1s)
+  ✓  75 [flows] › tests/flows/organize.spec.ts:5:7 › organizing › [flow] create a tag in data management (1.4s)
+  ✓  76 [flows] › tests/flows/profile.spec.ts:8:7 › profile › [flow] a member updates their full name (1.5s)
+  ✓  77 [flows] › tests/flows/recipes.spec.ts:6:7 › recipes › [flow] open a recipe from the recipe list (525ms)
+  ✓  78 [flows] › tests/flows/recipes.spec.ts:15:7 › recipes › [flow] search narrows the recipe list (775ms)
+  ✓  79 [flows] › tests/flows/recipes.spec.ts:24:7 › recipes › [flow] create a recipe by name (1.5s)
+  ✘  80 [flows] › tests/flows/recipes.spec.ts:36:7 › recipes › [flow] comment on a recipe and see it after reload (45.1s)
+  ✓  81 [flows] › tests/flows/shopping.spec.ts:6:7 › shopping lists › [flow] create a shopping list (1.7s)
+  ✓  82 [flows] › tests/flows/shopping.spec.ts:19:7 › shopping lists › [flow] add an item and check it off (7.1s)
+
+
+  1) [flows] › tests/flows/auth.spec.ts:27:7 › auth › [flow] log out ends the session ──────────────
+
+    Test timeout of 45000ms exceeded.
+
+    Error: locator.click: Test timeout of 45000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: 'Logout' })
+
+
+      28 |     const f = loadFixtures();
+      29 |     await loginViaUi(page, ADMIN.email, ADMIN.password);
+    > 30 |     await page.getByRole("button", { name: "Logout" }).click();
+         |                                                        ^
+      31 |     await expect(page).toHaveURL(/\/login\/?/);
+      32 |     await page.goto(`/g/${f.groupSlug}/r/${f.recipeSlug}`);
+      33 |     await expect(page).toHaveURL(/\/login\/?/);
+        at <WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/tests/flows/auth.spec.ts:30:56
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S6/browser/restored-frozen-test-results/flows-auth-auth-flow-log-out-ends-the-session-flows/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S6/browser/restored-frozen-test-results/flows-auth-auth-flow-log-out-ends-the-session-flows/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S6/browser/restored-frozen-test-results/flows-auth-auth-flow-log-out-ends-the-session-flows/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S6/browser/restored-frozen-test-results/flows-auth-auth-flow-log-out-ends-the-session-flows/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [flows] › tests/flows/auth.spec.ts:39:7 › auth › [flow] a regular member is not offered admin pages 
+
+    Test timeout of 45000ms exceeded.
+
+    Error: locator.click: Test timeout of 45000ms exceeded.
+    Call log:
+      - waiting for getByText('Settings', { exact: true }).visible().first()
+
+
+      43 |     await expect(visibleText(page, MEMBER.fullName)).toBeVisible();
+      44 |     await expect(visibleText(page, NAMES.recipe)).toBeVisible();
+    > 45 |     await page.getByText("Settings", { exact: true }).filter({ visible: true }).first().click();
+         |                                                                                         ^
+      46 |     await expect(page.locator('a[href^="/household"]').filter({ visible: true }).first()).toBeVisible();
+      47 |     await expect(page.locator('a[href^="/admin"]').filter({ visible: true })).toHaveCount(0);
+      48 |   });
+        at <WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/tests/flows/auth.spec.ts:45:89
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S6/browser/restored-frozen-test-results/flows-auth-auth-flow-a-reg-15752--is-not-offered-admin-pages-flows/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S6/browser/restored-frozen-test-results/flows-auth-auth-flow-a-reg-15752--is-not-offered-admin-pages-flows/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S6/browser/restored-frozen-test-results/flows-auth-auth-flow-a-reg-15752--is-not-offered-admin-pages-flows/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S6/browser/restored-frozen-test-results/flows-auth-auth-flow-a-reg-15752--is-not-offered-admin-pages-flows/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [flows] › tests/flows/auth.spec.ts:50:7 › auth › [flow] an admin is offered admin pages ───────
+
+    Test timeout of 45000ms exceeded.
+
+    Error: locator.click: Test timeout of 45000ms exceeded.
+    Call log:
+      - waiting for getByText('Settings', { exact: true }).visible().first()
+
+
+      52 |     await loginViaUi(page, ADMIN.email, ADMIN.password);
+      53 |     await page.goto(`/g/${f.groupSlug}`);
+    > 54 |     await page.getByText("Settings", { exact: true }).filter({ visible: true }).first().click();
+         |                                                                                         ^
+      55 |     await page.locator('a[href="/admin/site-settings"]').filter({ visible: true }).first().click();
+      56 |     await expect(page.getByRole("heading", { name: "Site Settings" })).toBeVisible();
+      57 |   });
+        at <WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/tests/flows/auth.spec.ts:54:89
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S6/browser/restored-frozen-test-results/flows-auth-auth-flow-an-admin-is-offered-admin-pages-flows/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S6/browser/restored-frozen-test-results/flows-auth-auth-flow-an-admin-is-offered-admin-pages-flows/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S6/browser/restored-frozen-test-results/flows-auth-auth-flow-an-admin-is-offered-admin-pages-flows/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S6/browser/restored-frozen-test-results/flows-auth-auth-flow-an-admin-is-offered-admin-pages-flows/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) [flows] › tests/flows/recipes.spec.ts:36:7 › recipes › [flow] comment on a recipe and see it after reload 
+
+    Test timeout of 45000ms exceeded.
+
+    Error: locator.fill: Test timeout of 45000ms exceeded.
+    Call log:
+      - waiting for getByRole('textbox', { name: 'Join the Conversation' })
+
+
+      38 |     const comment = uniqueName("E2E comment");
+      39 |     await page.goto(`/g/${f.groupSlug}/r/${f.recipe2Slug}`);
+    > 40 |     await page.getByRole("textbox", { name: "Join the Conversation" }).fill(comment);
+         |                                                                        ^
+      41 |     await page.getByRole("button", { name: "Submit" }).click();
+      42 |     await expect(visibleText(page, comment)).toBeVisible();
+      43 |     await page.reload();
+        at <WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/tests/flows/recipes.spec.ts:40:72
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S6/browser/restored-frozen-test-results/flows-recipes-recipes-flow-a3d3d-ipe-and-see-it-after-reload-flows/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S6/browser/restored-frozen-test-results/flows-recipes-recipes-flow-a3d3d-ipe-and-see-it-after-reload-flows/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S6/browser/restored-frozen-test-results/flows-recipes-recipes-flow-a3d3d-ipe-and-see-it-after-reload-flows/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S6/browser/restored-frozen-test-results/flows-recipes-recipes-flow-a3d3d-ipe-and-see-it-after-reload-flows/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4 failed
+    [flows] › tests/flows/auth.spec.ts:27:7 › auth › [flow] log out ends the session ───────────────
+    [flows] › tests/flows/auth.spec.ts:39:7 › auth › [flow] a regular member is not offered admin pages 
+    [flows] › tests/flows/auth.spec.ts:50:7 › auth › [flow] an admin is offered admin pages ────────
+    [flows] › tests/flows/recipes.spec.ts:36:7 › recipes › [flow] comment on a recipe and see it after reload 
+  78 passed (4.9m)

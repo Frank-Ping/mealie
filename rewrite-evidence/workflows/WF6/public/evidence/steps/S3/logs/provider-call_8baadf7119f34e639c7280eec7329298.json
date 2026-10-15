@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2752,
+    "byte_offset": 7654390,
+    "timestamp": "2026-10-14T05:00:04.680Z",
+    "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf0c4cfa2081918b62fcf192aa4474",
+      "status": "completed",
+      "call_id": "call_8baadf7119f34e639c7280eec7329298",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 - <<'PY'\\nfrom pathlib import Path\\nimport sys,csv,json\\nb=Path('wf6-rerun-20261014-01/wf6-evidence').resolve();sys.path.insert(0,str(b/'usage'));from collect_usage import manifest\\nfields=['category','stage_id','command_id','label','start_utc','end_utc','duration_seconds','exit_code','aggregation']\\nrows=[]\\nfor p in sorted((b/'steps').glob('S[0-7]/commands.jsonl'))+sorted((b/'preparation').glob('*/commands.jsonl')):\\n for line in p.read_text().splitlines():\\n  r=json.loads(line);stage=r.get('stage_id');category=r.get('category') or ('S0_setup' if stage=='S0' else 'S1_baseline' if stage=='S1' else 'S2_S6_experiment' if stage in ['S2','S3','S4','S5','S6'] else 'S7_reporting');row={k:r.get(k) for k in fields};row.update(category=category,stage_id=r.get('preparation_id') or stage,aggregation='Nested/service durations overlap; do not sum blindly.');rows.append(row)\\nwith (b/'timing.csv').open('w',newline='') as f:\\n w=csv.DictWriter(f,fieldnames=fields);w.writeheader();w.writerows(rows)\\nmanifest(b)\\nprint('Final metadata/timing hash inventory refreshed. Usage remains provisional; final response excluded.')\\nPY\",\"yield_time_ms\":1000,\"max_output_tokens\":350}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+        "create_time": 1791953996.9826503
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2754,
+    "byte_offset": 7656937,
+    "timestamp": "2026-10-14T05:00:05.867Z",
+    "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a138c8-2f6b-7cb2-ad6b-709ac12dd913",
+      "call_id": "call_8baadf7119f34e639c7280eec7329298",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 1.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"effcee\",\"wall_time_seconds\":1.00129037,\"session_id\":29945,\"original_token_count\":0,\"output\":\"\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+        "create_time": 1791954005.8673122
+      }
+    }
+  }
+}

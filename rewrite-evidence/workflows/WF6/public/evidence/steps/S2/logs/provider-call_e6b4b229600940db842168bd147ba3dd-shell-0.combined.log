@@ -1,0 +1,6 @@
+newkeys ['status', 'exit_code', 'error_count', 'codes', 'diagnostics', 'source', 'scope', 'diagnostic_command_exit_code', 'orchestration_exit_code', 'exit_code_note'] oldcount 315 cur 318
+oldbegin [Vue] Load plugin failed: vue-router/volar/sfc-route-blocks
+[Vue] Failed to create plugin TypeError: plugin is not a function
+    at /home/deeumiya/mealie/rewrite-evidence/.tools/vuetsc/node_modules/@vue/language-core/lib/plugins.js:53:30
+    at Array.flatMap (<anonymous>)
+    at createPlugins (/hom

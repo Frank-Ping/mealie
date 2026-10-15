@@ -1,0 +1,4 @@
+32542 exists True
+args [b'uv', b'run', b'--frozen', b'uvicorn', b'mealie.app:app', b'--host']
+32622 exists False
+34203 exists False

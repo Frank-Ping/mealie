@@ -1,0 +1,61 @@
+{
+  "original_input_sha": "4b9ca06b6581f7152e164ea0fd9d4da366975a79",
+  "sources": [
+    {
+      "path": "frontend/app/pages/g/[groupSlug]/index.vue",
+      "sha256": "06d916c64ab1ec1b69c5ed80814e82ffddf7d4c09f8f291c37151ee9c962fa37"
+    },
+    {
+      "path": "frontend/app/pages/g/[groupSlug]/r/[slug]/index.vue",
+      "sha256": "a316d229eb43d56804c396ecb13b9e6fe3de1dd59e6d6f93d6bd7b81b4022461"
+    },
+    {
+      "path": "frontend/app/components/Domain/Recipe/RecipeExplorerPage/RecipeExplorerPage.vue",
+      "sha256": "9431864ed43ec9d942fa5d1d9767c812d09d8fd27b7d1b9e9c1223e875cbcd03"
+    },
+    {
+      "path": "frontend/app/composables/use-recipe-explorer-search.ts",
+      "sha256": "810e5a1ee6ca8d157d8d19ae07db70945dbc0ce421d0636c075b4b263b90a3fc"
+    },
+    {
+      "path": "frontend/app/lib/api/user/recipes/recipe.ts",
+      "sha256": "b7de7cbd7370c9661ff002fac20d6fb72aa22cbd4313342a28b8fb7c33264796"
+    },
+    {
+      "path": "frontend/app/lib/api/types/recipe.ts",
+      "sha256": "0c119c14d13eb11ba83da57785cf1ebca3d5cbcfc3c49f1280debe7ac39a904c"
+    },
+    {
+      "path": "frontend/app/lang/messages/en-US.json",
+      "sha256": "1584ade0ddfe6d6f0eaadd853edeec9ededeb73f38410a6d3eecf712e0b12d3d"
+    }
+  ],
+  "mappings": [
+    {
+      "original": "frontend/app/pages/g/[groupSlug]/index.vue",
+      "target": "frontend-react-wf6/src/recipes.tsx:RecipeList",
+      "scope": "Authenticated configured group; real server search and pagination"
+    },
+    {
+      "original": "frontend/app/pages/g/[groupSlug]/r/[slug]/index.vue",
+      "target": "frontend-react-wf6/src/recipes.tsx:RecipeDetail",
+      "scope": "Read-only name/ingredients/instructions/tools/categories/tags"
+    },
+    {
+      "original": "frontend/app/lib/api/user/recipes/recipe.ts",
+      "target": "frontend-react-wf6/src/api.ts",
+      "scope": "Independent fetch adapter; /api/users/self revalidated before private /api/recipes read calls"
+    },
+    {
+      "original": "frontend/app/lib/api/types/recipe.ts",
+      "target": "frontend-react-wf6/src/api.ts/model.ts/recipes.tsx",
+      "scope": "Unmodified generated type-only imports; no Nuxt/Vue runtime imported"
+    },
+    {
+      "original": "frontend/app/lang/messages/en-US.json",
+      "target": "frontend-react-wf6/src/strings.ts",
+      "scope": "11 selected exact original en-US labels; additional explicit error/navigation text is WF6 English UI"
+    }
+  ],
+  "excluded": "Public/shared/other-group APIs and all Nuxt composables remain Vue-owned; no other workflow React/converter source read/copied"
+}

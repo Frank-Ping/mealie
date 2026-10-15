@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 917,
+    "byte_offset": 3393804,
+    "timestamp": "2026-10-14T02:27:54.581Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acee88753108191b7f252ab06fa5e42",
+      "status": "completed",
+      "call_id": "call_519c7430ae8247f18100b36011073428",
+      "name": "exec",
+      "input": "text(await tools.apply_patch(\"*** Begin Patch\\n*** Add File: <WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/usage/browser_s1.py\\n+\\\"\\\"\\\"Run the frozen suite against one fresh owned backend, preserving both server streams.\\\"\\\"\\\"\\n+import datetime as dt\\n+import hashlib\\n+import json\\n+import os\\n+from pathlib import Path\\n+import signal\\n+import socket\\n+import subprocess\\n+import time\\n+import urllib.request\\n+import uuid\\n+from record_command import ROOT,EVIDENCE,run\\n+from run_s1 import environment,SOURCE,EVALUATOR,STAGE,RUNTIME\\n+\\n+def main(approved=False):\\n+    build=json.loads((STAGE/\\\"build-artifact.json\\\").read_text())\\n+    assert build[\\\"exit_code\\\"]==0 and build[\\\"browser_acceptance_allowed\\\"]\\n+    isolation=json.loads((STAGE/\\\"runtime-isolation.json\\\").read_text())\\n+    data=Path(isolation[\\\"destructive_target\\\"])\\n+    assert data.resolve()==(RUNTIME/\\\"disposable-data\\\").resolve() and not data.is_symlink()\\n+    assert data.resolve().is_relative_to(RUNTIME.resolve())\\n+    with socket.socket() as check:check.bind((\\\"127.0.0.1\\\",9006))\\n+    permission=\\\"Approved bounded local S1 backend/browser suite; default sandbox unchanged.\\\" if approved else \\\"workspace-write; restricted network/socket; no escalation\\\"\\n+    env=environment();env[\\\"E2E_REUSE_SERVER\\\"]=\\\"1\\\"\\n+    assert env[\\\"E2E_DATA_DIR\\\"]==str(data)\\n+    launcher=EVALUATOR/\\\"frontend-e2e/scripts/start-backend.sh\\\"\\n+    assert hashlib.sha256(launcher.read_bytes()).hexdigest()==isolation[\\\"launcher_sha256\\\"]\\n+    cid=dt.datetime.now(dt.timezone.utc).strftime(\\\"%Y%m%dT%H%M%S\\\")+\\\"-\\\"+uuid.uuid4().hex[:8]\\n+    stdout=STAGE/\\\"logs\\\"/(cid+\\\".backend.stdout.log\\\");stderr=STAGE/\\\"logs\\\"/(cid+\\\".backend.stderr.log\\\")\\n+    start=dt.datetime.now(dt.timezone.utc).isoformat();timer=time.monotonic();process=None;exit_code=None\\n+    events=STAGE/\\\"service-events.jsonl\\\"\\n+    result=None\\n+    with stdout.open(\\\"wb\\\") as out,stderr.open(\\\"wb\\\") as err:\\n+        try:\\n+            process=subprocess.Popen([str(launcher)],cwd=EVALUATOR/\\\"frontend-e2e\\\",env={**os.environ,**env},stdout=out,stderr=err,start_new_session=True)\\n+            with events.open(\\\"a\\\") as file:file.write(json.dumps(dict(event=\\\"owned_backend_started\\\",timestamp=start,pid=process.pid,process_group=process.pid,command_id=cid,data_dir=str(data)))+\\\"\\\\n\\\")\\n+            deadline=time.monotonic()+180\\n+            base=\\\"http://127.0.0.1:9006\\\"\\n+            while time.monotonic()<deadline:\\n+                if process.poll() is not None:raise RuntimeError(\\\"Fresh owned backend exited before readiness; inspect original backend streams.\\\")\\n+                try:\\n+                    with urllib.request.urlopen(base+\\\"/api/app/about\\\",timeout=2) as response:\\n+                        about=response.read();assert response.status==200\\n+                    break\\n+                except OSError:time.sleep(1)\\n+            else:raise RuntimeError(\\\"Fresh owned backend readiness timed out.\\\")\\n+            with urllib.request.urlopen(base+\\\"/login\\\",timeout=10) as response:\\n+                served=response.read();assert response.status==200\\n+            index=SOURCE/\\\"frontend/dist/index.html\\\"\\n+            assert hashlib.sha256(served).hexdigest()==hashlib.sha256(index.read_bytes()).hexdigest(),\\\"Served document differs from accepted Vue build.\\\"\\n+            (STAGE/\\\"browser/served-build.json\\\").write_text(json.dumps(dict(checked_utc=dt.datetime.now(dt.timezone.utc).isoformat(),\\n+                base_url=base,served_index_sha256=hashlib.sha256(served).hexdigest(),build_hash=build[\\\"build_hash\\\"],build_command_id=build[\\\"command_id\\\"],\\n+                about_status=200,about_response_sha256=hashlib.sha256(about).hexdigest(),backend_pid=process.pid,\\n+                source_frontend_path=build[\\\"real_path\\\"],backend_checkout=str(EVALUATOR),\\n+                orchestration=\\\"Frozen launcher starts a fresh isolated backend; original Playwright reuse option avoids a second launch. Assertions, seeded globalSetup, projects, retries=0 and strict/all modes unchanged.\\\"),indent=2)+\\\"\\\\n\\\")\\n+            result=run([\\\"pnpm\\\",\\\"exec\\\",\\\"playwright\\\",\\\"test\\\",\\\"--workers=1\\\",\\\"--reporter=list,json,html\\\",\\\"--output=\\\"+str(STAGE/\\\"browser/test-results\\\")],\\n+                EVALUATOR/\\\"frontend-e2e\\\",\\\"S1-frozen-all-routes-flows-guard-strict\\\",stage=\\\"S1\\\",env=env,permission=permission)\\n+        finally:\\n+            if process is not None:\\n+                if process.poll() is None:\\n+                    os.killpg(process.pid,signal.SIGTERM)\\n+                    try:process.wait(timeout=15)\\n+                    except subprocess.TimeoutExpired:os.killpg(process.pid,signal.SIGKILL);process.wait(timeout=5)\\n+                exit_code=process.returncode\\n+                with events.open(\\\"a\\\") as file:file.write(json.dumps(dict(event=\\\"owned_backend_stopped\\\",timestamp=dt.datetime.now(dt.timezone.utc).isoformat(),pid=process.pid,exit_code=exit_code,command_id=cid,planned_shutdown=True))+\\\"\\\\n\\\")\\n+            entry=dict(stage_id=\\\"S1\\\",label=\\\"S1-owned-frozen-backend-lifecycle\\\",command_id=cid,argv=[str(launcher)],cwd=str(EVALUATOR/\\\"frontend-e2e\\\"),\\n+                start_utc=start,end_utc=dt.datetime.now(dt.timezone.utc).isoformat(),duration_seconds=time.monotonic()-timer,exit_code=exit_code,\\n+                stdout=str(stdout.relative_to(EVIDENCE)),stderr=str(stderr.relative_to(EVIDENCE)),environment_overrides=env,permission=permission,\\n+                planned_shutdown=True,aggregation=\\\"Backend lifecycle overlaps the browser suite; do not sum these durations.\\\")\\n+            with (STAGE/\\\"commands.jsonl\\\").open(\\\"a\\\") as file:file.write(json.dumps(entry)+\\\"\\\\n\\\")\\n+    if result is None or result[\\\"exit_code\\\"]!=0:raise SystemExit(result[\\\"exit_code\\\"] if result else 1)\\n+\\n+if __name__==\\\"__main__\\\":\\n+    import argparse\\n+    parser=argparse.ArgumentParser();parser.add_argument(\\\"--approved\\\",action=\\\"store_true\\\");args=parser.parse_args();main(args.approved)\\n*** End Patch\"));\ntext(await tools.write_stdin({session_id:34209,chars:\"\",yield_time_ms:1000,max_output_tokens:1400}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791944839.327448
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 920,
+    "byte_offset": 3408203,
+    "timestamp": "2026-10-14T02:27:59.675Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a1383c-ee3b-7801-91c3-465fbdb4fec6",
+      "call_id": "call_519c7430ae8247f18100b36011073428",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 5.1 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"c1289c\",\"wall_time_seconds\":5.000816221,\"session_id\":34209,\"original_token_count\":0,\"output\":\"\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791944879.6757011
+      }
+    }
+  }
+}

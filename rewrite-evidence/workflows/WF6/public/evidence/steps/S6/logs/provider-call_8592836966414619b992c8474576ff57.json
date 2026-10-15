@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3533,
+    "byte_offset": 10154036,
+    "timestamp": "2026-10-14T07:55:54.479Z",
+    "turn_id": "01a13964-888e-7540-98b2-3abbc8e32d90",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf35859d848191aad983c51ccffd36",
+      "status": "completed",
+      "call_id": "call_8592836966414619b992c8474576ff57",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"cat wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/tests/flows/auth.spec.ts\\npython3 -B - <<'PY'\\nfrom pathlib import Path\\nimport json\\np=Path('wf6-rerun-20261014-01/wf6-evidence/steps/S6');print([(r['label'],r['exit_code']) for r in map(json.loads,(p/'commands.jsonl').read_text().splitlines())][-5:]);f=max((p/'logs').glob('*.stdout.log'),key=lambda x:x.stat().st_mtime);print(f.name);print(f.read_text()[-2200:])\\nPY\",\"max_output_tokens\":2300}));\ntext(await tools.write_stdin({session_id:11492,chars:\"\",yield_time_ms:1000,max_output_tokens:1000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13964-888e-7540-98b2-3abbc8e32d90",
+        "create_time": 1791964549.6185758
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3536,
+    "byte_offset": 10160897,
+    "timestamp": "2026-10-14T07:55:59.648Z",
+    "turn_id": "01a13964-888e-7540-98b2-3abbc8e32d90",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13969-3920-7c30-aa40-61be47b3032c",
+      "call_id": "call_8592836966414619b992c8474576ff57",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 5.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"8d1c87\",\"wall_time_seconds\":0.000013682,\"exit_code\":0,\"original_token_count\":825,\"output\":\"import { expect, test } from \\\"@playwright/test\\\";\\nimport { ADMIN, loadFixtures, MEMBER, NAMES } from \\\"../../lib/fixtures\\\";\\nimport { loginViaUi, visibleText } from \\\"../../lib/ui\\\";\\n\\ntest.describe(\\\"auth\\\", () => {\\n  test.use({ storageState: { cookies: [], origins: [] } });\\n\\n  test(\\\"[flow] log in with valid credentials and land on the recipe list\\\", async ({ page }) => {\\n    const f = loadFixtures();\\n    await loginViaUi(page, ADMIN.email, ADMIN.password);\\n    await expect(page).toHaveURL(new RegExp(`/g/${f.groupSlug}/?$`));\\n    await expect(visibleText(page, NAMES.recipe)).toBeVisible();\\n    await expect(visibleText(page, ADMIN.fullName)).toBeVisible();\\n  });\\n\\n  test(\\\"[flow] a wrong password is rejected\\\", async ({ page }) => {\\n    await page.goto(\\\"/login\\\");\\n    await page.getByRole(\\\"textbox\\\", { name: \\\"Email or Username\\\" }).fill(ADMIN.email);\\n    await page.getByRole(\\\"textbox\\\", { name: \\\"Password\\\" }).fill(\\\"definitely-not-the-password\\\");\\n    const answer = page.waitForResponse(r => r.url().includes(\\\"/api/auth/token\\\"));\\n    await page.getByRole(\\\"button\\\", { name: \\\"Login\\\" }).click();\\n    expect((await answer).status()).toBe(401);\\n    await expect(visibleText(page, /invalid|incorrect/i)).toBeVisible();\\n    await expect(page).toHaveURL(/\\\\/login\\\\/?$/);\\n  });\\n\\n  test(\\\"[flow] log out ends the session\\\", async ({ page }) => {\\n    const f = loadFixtures();\\n    await loginViaUi(page, ADMIN.email, ADMIN.password);\\n    await page.getByRole(\\\"button\\\", { name: \\\"Logout\\\" }).click();\\n    await expect(page).toHaveURL(/\\\\/login\\\\/?/);\\n    await page.goto(`/g/${f.groupSlug}/r/${f.recipeSlug}`);\\n    await expect(page).toHaveURL(/\\\\/login\\\\/?/);\\n  });\\n\\n  // Admin pages are only reachable through admin navigation. (Note: in the Vue reference, a member who\\n  // types an /admin URL directly still gets the page shell with every admin API call answering 403;\\n  // the backend is the real guard, so the yardstick checks what the member is offered, not that.)\\n  test(\\\"[flow] a regular member is not offered admin pages\\\", async ({ page }) => {\\n    const f = loadFixtures();\\n    await loginViaUi(page, MEMBER.email, MEMBER.password);\\n    await page.goto(`/g/${f.groupSlug}`);\\n    await expect(visibleText(page, MEMBER.fullName)).toBeVisible();\\n    await expect(visibleText(page, NAMES.recipe)).toBeVisible();\\n    await page.getByText(\\\"Settings\\\", { exact: true }).filter({ visible: true }).first().click();\\n    await expect(page.locator('a[href^=\\\"/household\\\"]').filter({ visible: true }).first()).toBeVisible();\\n    await expect(page.locator('a[href^=\\\"/admin\\\"]').filter({ visible: true })).toHaveCount(0);\\n  });\\n\\n  test(\\\"[flow] an admin is offered admin pages\\\", async ({ page }) => {\\n    const f = loadFixtures();\\n    await loginViaUi(page, ADMIN.email, ADMIN.password);\\n    await page.goto(`/g/${f.groupSlug}`);\\n    await page.getByText(\\\"Settings\\\", { exact: true }).filter({ visible: true }).first().click();\\n    await page.locator('a[href=\\\"/admin/site-settings\\\"]').filter({ visible: true }).first().click();\\n    await expect(page.getByRole(\\\"heading\\\", { name: \\\"Site Settings\\\" })).toBeVisible();\\n  });\\n});\\n[('S6-React-production-build', 0), ('S6-Vue-boundary-production-build', 0), ('S6-Vue-boundary-targeted-lint', 0), ('S6-fresh-static-and-build', 0), ('S6-owned-gateway', 0)]\\n20261014T075551-e76215df.stdout.log\\n\\n\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"08e3d8\",\"wall_time_seconds\":5.001000515,\"session_id\":11492,\"original_token_count\":0,\"output\":\"\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13964-888e-7540-98b2-3abbc8e32d90",
+        "create_time": 1791964559.6483443
+      }
+    }
+  }
+}

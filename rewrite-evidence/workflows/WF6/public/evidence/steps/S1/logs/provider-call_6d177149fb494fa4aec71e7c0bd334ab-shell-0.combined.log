@@ -1,0 +1,69 @@
+{"stage_id": "S1", "action": "NATURAL_START", "session_id": "01a137ea-f571-70f0-8cf3-7b8560c420bf", "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0", "user_message_id": "msg_01a1382a-58f8-7de3-b1ea-8ca5ceac2207", "line": 709, "byte_offset": 2732151, "actual_prompt": "本次 S1 属于 wf6-rerun-20261014-01。\n先核实 P1 收尾结果，保持 preparation 与 S1 计量区间不重叠。\n\n仅测量冻结的未修改 Vue baseline。\n保留原始日志，技术说明使用英文，结果提供中英文对照。\n记录实际源码、构建与测试结果；未运行检查不得算通过。\n\n仅执行 S1，结束后停止，不自动进入 S2。", "timestamp": "2026-10-14T02:07:41.816Z"}
+wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/tests/routes.spec.ts:23:test("route table has unique entries", () => {
+wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/lib/routes.ts:45:    // Parent route with no index child: only guards (auth + admin-only) and the app shell.
+  },
+
+  compatibilityDate: "2026-04-08",
+
+  nitro: {
+    baseURL: process.env.SUB_PATH || "",
+  },
+
+  vite: {
+    server: {
+      fs: {
+        // app/lang/locales/*.ts import the seeded unit names from mealie/, which is outside
+        // this project. Vite's fs.allow *replaces* its default rather than extending it, and
+        // the default here resolves to frontend/ itself — there's no pnpm-workspace.yaml or
+        // root package.json for vite to detect — so the project root has to be listed too.
+        allow: [
+          fileURLToPath(new URL(".", import.meta.url)),
+          fileURLToPath(new URL("../mealie/repos/seed/resources/units/locales", import.meta.url)),
+        ],
+      },
+    },
+  },
+
+  // eslint rules
+  eslint: {
+    config: {
+      formatters: true,
+      stylistic: {
+        indent: 2,
+        semi: true,
+        quotes: "double",
+        commaDangle: "always-multiline",
+      },
+    },
+  },
+  fonts: {
+    defaults: {
+      weights: ["100 900"],
+      styles: ["normal", "italic"],
+      subsets: ["cyrillic-ext", "cyrillic", "greek-ext", "greek", "vietnamese", "latin-ext", "latin"],
+    },
+  },
+
+  i18n: {
+    locales: [
+      // CODE_GEN_ID: MESSAGE_LOCALES
+      { code: "af-ZA", file: "af-ZA.ts", dir: "ltr" },
+      { code: "ar-SA", file: "ar-SA.ts", dir: "rtl" },
+      { code: "bg-BG", file: "bg-BG.ts", dir: "ltr" },
+      { code: "ca-ES", file: "ca-ES.ts", dir: "ltr" },
+      { code: "cs-CZ", file: "cs-CZ.ts", dir: "ltr" },
+      { code: "da-DK", file: "da-DK.ts", dir: "ltr" },
+      { code: "de-DE", file: "de-DE.ts", dir: "ltr" },
+      { code: "el-GR", file: "el-GR.ts", dir: "ltr" },
+      { code: "en-GB", file: "en-GB.ts", dir: "ltr" },
+      { code: "en-US", file: "en-US.ts", dir: "ltr" },
+      { code: "es-ES", file: "es-ES.ts", dir: "ltr" },
+      { code: "et-EE", file: "et-EE.ts", dir: "ltr" },
+      { code: "fi-FI", file: "fi-FI.ts", dir: "ltr" },
+      { code: "fr-BE", file: "fr-BE.ts", dir: "ltr" },
+      { code: "fr-CA", file: "fr-CA.ts", dir: "ltr" },
+      { code: "fr-FR", file: "fr-FR.ts", dir: "ltr" },
+      { code: "gl-ES", file: "gl-ES.ts", dir: "ltr" },
+      { code: "he-IL", file: "he-IL.ts", dir: "rtl" },
+      { code: "hr-HR", file: "hr-HR.ts", dir: "ltr" },
+      { code: "hu-HU", file: "hu-HU.ts", dir: "ltr" },

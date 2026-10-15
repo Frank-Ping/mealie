@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2955,
+    "byte_offset": 8279668,
+    "timestamp": "2026-10-14T06:28:12.364Z",
+    "turn_id": "01a13905-d942-7e23-8387-48f7946bf050",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf20d771e881918678682594711b9b",
+      "status": "completed",
+      "call_id": "call_a9cf90fe1c8543a491229750b82d4abe",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 - <<'PY'\\nfrom pathlib import Path\\nimport json,hashlib,datetime\\nb=Path('wf6-rerun-20261014-01');ev=b/'wf6-evidence';s=ev/'steps/S4';src=b/'mealie-wf6-coexist';now=datetime.datetime.now(datetime.timezone.utc).isoformat()\\na=json.loads((s/'build-artifacts.json').read_text());(s/'build-artifact.json').write_text(json.dumps({**a['vue'],'artifact_role':'Vue companion; React identity in build-artifacts.json'},indent=2)+'\\\\n')\\npaths=['frontend/app/pages/g/[groupSlug]/index.vue','frontend/app/pages/g/[groupSlug]/r/[slug]/index.vue','frontend/app/components/Domain/Recipe/RecipeExplorerPage/RecipeExplorerPage.vue','frontend/app/composables/use-recipe-explorer-search.ts','frontend/app/lib/api/user/recipes/recipe.ts','frontend/app/lib/api/types/recipe.ts','frontend/app/lang/messages/en-US.json']\\nrecords=[dict(path=p,sha256=hashlib.sha256((src/p).read_bytes()).hexdigest()) for p in paths]\\nmap=dict(original_input_sha='4b9ca06b6581f7152e164ea0fd9d4da366975a79',sources=records,mappings=[dict(original=paths[0],target='frontend-react-wf6/src/recipes.tsx:RecipeList',scope='Authenticated configured group; real server search and pagination'),dict(original=paths[1],target='frontend-react-wf6/src/recipes.tsx:RecipeDetail',scope='Read-only name/ingredients/instructions/tools/categories/tags'),dict(original=paths[4],target='frontend-react-wf6/src/api.ts',scope='Independent fetch adapter; /api/users/self revalidated before private /api/recipes read calls'),dict(original=paths[5],target='frontend-react-wf6/src/api.ts/model.ts/recipes.tsx',scope='Unmodified generated type-only imports; no Nuxt/Vue runtime imported'),dict(original=paths[6],target='frontend-react-wf6/src/strings.ts',scope='11 selected exact original en-US labels; additional explicit error/navigation text is WF6 English UI')],excluded='Public/shared/other-group APIs and all Nuxt composables remain Vue-owned; no other workflow React/converter source read/copied')\\n(s/'source-mapping.json').write_text(json.dumps(map,indent=2)+'\\\\n')\\nmissing=['create/edit/delete','comments','cook/parse modes','shopping-list business','administration/settings','advanced filters/suggestions','full public/shared browsing','other-group pilot','nutrition/assets/images/rating/timeline','unit conversion and rich Markdown parity','complete non-en-US localization','whole-system/production deployment']\\n(s/'feature-inventory.json').write_text(json.dumps(dict(react_completed=['authenticated own-group list','server search and clear','keyboard-accessible real recipe links','read-only detail name/ingredients/steps/tools/categories/tags','loading/empty/error and retry','basic pagination UI (multi-page browser scenario not measured)'],vue_retained_or_not_migrated=missing,vue_retained_not_counted_as_react=True,recipe_write_requests_from_react=0,full_frozen_suite='not_executed',coverage=None,cost=None,human_review_time=None),indent=2)+'\\\\n')\\n(s/'test-inventory.json').write_text(json.dumps(dict(ported_vue_units=0,new_business_unit_cases=8,shared_policy_cases=34,protocol_fixture_cases=1,frozen_selected=json.loads((s/'frozen-selection.json').read_text()),new_supplemental_browser_cases=3,full_frozen_suite='not_executed'),indent=2)+'\\\\n')\\nwith (s/'attempts.jsonl').open('a') as f:f.write(json.dumps(dict(timestamp=now,kind='accepted_initial_S4_measurement',result='Strict types/lint/8 business units/34 policy cases/builds, four unchanged frozen selected tests and three supplemental browser tests passed; no source repair round.',shared_source_repairs_used=0,frozen_results='browser/frozen-results.json',supplemental_results='browser/results.json',nonfatal_build_warning='React minified chunk exceeds 500 kB; original warning retained, threshold unchanged.'))+'\\\\n')\\nrows=[dict(path=str(p.relative_to(s/'browser')),bytes=p.stat().st_size,sha256=hashlib.sha256(p.read_bytes()).hexdigest()) for p in sorted((s/'browser').rglob('*')) if p.is_file()];(s/'browser-manifest.json').write_text(json.dumps(dict(files=rows,policy='Original private traces byte-preserved; redacted request/session summaries exclude credentials.'),indent=2)+'\\\\n')\\niso=s/'runtime-isolation.json';d=json.loads(iso.read_text());r=Path('/tmp/wf6-rerun-20261014-01-S4');d.update(database_files=[dict(path=str(p.relative_to(r)),sha256=hashlib.sha256(p.read_bytes()).hexdigest(),bytes=p.stat().st_size) for p in r.rglob('*.db')],auth_file_hashes=[dict(path=p.name,sha256=hashlib.sha256(p.read_bytes()).hexdigest(),bytes=p.stat().st_size) for p in (r/'auth').iterdir() if p.is_file()],browser_trace_policy='Original trace private; separate shareable JSONL excludes cookie/bearer/password and request/response bodies.');iso.write_text(json.dumps(d,indent=2)+'\\\\n')\\nPY\",\"yield_time_ms\":1000,\"max_output_tokens\":500}));\ntext(await tools.exec_command({cmd:\"python3 -B wf6-rerun-20261014-01/wf6-evidence/usage/record_command.py --stage S4 --cwd '<WORKSPACE>/wf6-rerun-20261014-01' --label S4-frozen-file-and-accepted-source-audit -- python3 -B -c 'import sys; sys.path.insert(0,\\\"wf6-evidence/usage\\\"); import finish_s2; from record_command import EVIDENCE; finish_s2.STAGE=EVIDENCE/\\\"steps/S4\\\"; finish_s2.snapshot()'\",\"yield_time_ms\":1000,\"max_output_tokens\":700}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13905-d942-7e23-8387-48f7946bf050",
+        "create_time": 1791959255.4474828
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2958,
+    "byte_offset": 8296399,
+    "timestamp": "2026-10-14T06:28:14.441Z",
+    "turn_id": "01a13905-d942-7e23-8387-48f7946bf050",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13918-e1e9-72c3-989a-1fead77c793f",
+      "call_id": "call_a9cf90fe1c8543a491229750b82d4abe",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 2.1 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"cd4c5a\",\"wall_time_seconds\":0.707583735,\"exit_code\":0,\"original_token_count\":0,\"output\":\"\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"a7a332\",\"wall_time_seconds\":1.001619823,\"session_id\":40829,\"original_token_count\":0,\"output\":\"\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13905-d942-7e23-8387-48f7946bf050",
+        "create_time": 1791959294.441057
+      }
+    }
+  }
+}

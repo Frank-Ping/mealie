@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 4653,
+    "byte_offset": 13768523,
+    "timestamp": "2026-10-14T09:59:50.756Z",
+    "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf5295789c8191975edb3f386a4499",
+      "status": "completed",
+      "call_id": "call_1696f189cdf6442185ac3d30d09263a5",
+      "name": "exec",
+      "input": "text(await tools.write_stdin({session_id:48222,chars:\"\",yield_time_ms:1000,max_output_tokens:350}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+        "create_time": 1791971989.474296
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 4655,
+    "byte_offset": 13769935,
+    "timestamp": "2026-10-14T09:59:55.767Z",
+    "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a139da-b077-7210-aac9-fab2edd50ad7",
+      "call_id": "call_1696f189cdf6442185ac3d30d09263a5",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 5.0 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"99704a\",\"wall_time_seconds\":5.001105744,\"session_id\":48222,\"original_token_count\":0,\"output\":\"\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+        "create_time": 1791971995.7674778
+      }
+    }
+  }
+}

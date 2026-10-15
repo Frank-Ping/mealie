@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2483,
+    "byte_offset": 6975795,
+    "timestamp": "2026-10-14T04:37:03.232Z",
+    "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf06d47760819192917c0716e33a25",
+      "status": "completed",
+      "call_id": "call_892dd721479a403ca29b90a75694cc1b",
+      "name": "exec",
+      "input": "text(await tools.apply_patch(\"*** Begin Patch\\n*** Update File: <WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend-react-wf6/tsconfig.json\\n@@\\n-    \\\"types\\\": [\\\"vite/client\\\"]\\n+    \\\"types\\\": [\\\"vite/client\\\", \\\"node\\\"]\\n*** Add File: <WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/usage/prepare_s3.py\\n+\\\"\\\"\\\"Freeze anonymous registry metadata and install only independent Linux React tools.\\\"\\\"\\\"\\n+import hashlib\\n+import json\\n+from pathlib import Path\\n+import shutil\\n+from record_command import ROOT,EVIDENCE,run\\n+from run_s1 import SOURCE,environment\\n+\\n+STAGE=EVIDENCE/'steps/S3';RUNTIME=Path('/tmp/wf6-rerun-20261014-01-S3');REACT=SOURCE/'frontend-react-wf6'\\n+\\n+def main():\\n+    assert not RUNTIME.exists(), 'Refuse to overwrite any existing S3 runtime.'\\n+    RUNTIME.mkdir(mode=0o700)\\n+    for name in ['deps','auth','tmp','browser','tests','vue','react']:(RUNTIME/name).mkdir(mode=0o700)\\n+    env=environment();env['TMPDIR']=str(RUNTIME/'tmp')\\n+    specs={'react':'19','react-dom':'19','react-router':'7','@mui/material':'7','@emotion/react':'11','@emotion/styled':'11','i18next':'25','react-i18next':'16',\\n+        'vite':'8','@vitejs/plugin-react':'latest','typescript':'5.9','@types/react':'19','@types/react-dom':'19','@types/node':'24'}\\n+    versions={};sources=[]\\n+    for name,version in specs.items():\\n+        result=run(['npm','view',name+'@'+version,'version','--json'],REACT,'S3-public-registry-version-'+name,stage='S3',env=env,permission='Approved anonymous npm metadata and isolated dependency preparation')\\n+        assert result['exit_code']==0\\n+        raw=json.loads((EVIDENCE/result['stdout']).read_text());versions[name]=raw[-1] if isinstance(raw,list) else raw\\n+        sources.append(dict(package=name,requested_range=version,pinned_version=versions[name],command_id=result['command_id']))\\n+    dev=set(['vite','@vitejs/plugin-react','typescript','@types/react','@types/react-dom','@types/node'])\\n+    package=dict(name='mealie-wf6-react-probe',version='0.0.0',private=True,type='module',scripts={'typecheck':'tsc --noEmit','build':'vite build'},\\n+        dependencies={k:v for k,v in versions.items() if k not in dev},devDependencies={k:v for k,v in versions.items() if k in dev})\\n+    content=json.dumps(package,indent=2)+'\\\\n';(REACT/'package.json').write_text(content);(RUNTIME/'deps/package.json').write_text(content)\\n+    result=run(['npm','install','--ignore-scripts','--no-audit','--no-fund'],RUNTIME/'deps','S3-native-React-dependency-install',stage='S3',env=env,permission='Approved anonymous npm dependency install into owned native runtime; no credentials')\\n+    assert result['exit_code']==0\\n+    shutil.copy2(RUNTIME/'deps/package-lock.json',REACT/'package-lock.json')\\n+    assert not (REACT/'node_modules').exists();(REACT/'node_modules').symlink_to(RUNTIME/'deps/node_modules',target_is_directory=True)\\n+    gitignore=REACT/'.gitignore';gitignore.write_text('node_modules\\\\n/dist/\\\\n')\\n+    (STAGE/'dependency-versions.json').write_text(json.dumps(dict(versions=versions,metadata_sources=sources,linux_native_target=str(RUNTIME/'deps'),lock_sha256=hashlib.sha256((REACT/'package-lock.json').read_bytes()).hexdigest(),ignored_install_scripts=True),indent=2)+'\\\\n')\\n+    (RUNTIME/'identity.json').write_text(json.dumps(dict(run_id=ROOT.name,stage_id='S3',data_dir=str(RUNTIME/'disposable-data'),auth_dir=str(RUNTIME/'auth'),ports=[9006,9106]),indent=2)+'\\\\n')\\n+    print(json.dumps(dict(versions=versions,runtime=str(RUNTIME))))\\n+\\n+if __name__=='__main__':main()\\n*** End Patch\"));\ntext(await tools.exec_command({cmd:\"python3 -B wf6-rerun-20261014-01/wf6-evidence/usage/record_command.py --stage S3 --permission 'Approved anonymous React dependency metadata/install in native S3 directory' --cwd '<WORKSPACE>/wf6-rerun-20261014-01' --label S3-freeze-and-install-React-target-stack -- python3 -B wf6-evidence/usage/prepare_s3.py\",\"sandbox_permissions\":\"require_escalated\",\"justification\":\"S3 明确授权最小 React target stack；需要匿名读取 npm 公共版本并将固定依赖安装到新的独立 Linux /tmp S3 目录，保存 lockfile 与原始日志，不提供凭据或修改旧依赖。\",\"yield_time_ms\":1000,\"max_output_tokens\":600}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+        "create_time": 1791952596.487396
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2486,
+    "byte_offset": 6986097,
+    "timestamp": "2026-10-14T04:37:08.637Z",
+    "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a138b3-2b9d-7f52-9377-5db1c987839a",
+      "call_id": "call_892dd721479a403ca29b90a75694cc1b",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 5.4 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"229ea9\",\"wall_time_seconds\":1.001415385,\"session_id\":51905,\"original_token_count\":0,\"output\":\"\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+        "create_time": 1791952628.6372
+      }
+    }
+  }
+}

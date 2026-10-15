@@ -1,0 +1,45 @@
+{
+  "scope": "S0 accounting fault injection only",
+  "tests": 24,
+  "pass_count": 24,
+  "fail_count": 0,
+  "error_count": 0,
+  "skip_count": 0,
+  "passed": true,
+  "failures": [],
+  "cli_interfaces": [
+    {
+      "label": "actual-cli-collector-stage-interface",
+      "command_id": "20261014T011653-7edb4d08",
+      "argv": [
+        "python3",
+        "-B",
+        "wf6-evidence/usage/collect_usage.py",
+        "finalize",
+        "--stage",
+        "S0",
+        "--wait-seconds",
+        "0"
+      ],
+      "exit_code": 0,
+      "stdout": "steps/S0/logs/20261014T011653-7edb4d08.stdout.log",
+      "stderr": "steps/S0/logs/20261014T011653-7edb4d08.stderr.log"
+    },
+    {
+      "label": "actual-cli-collector-all-interface",
+      "command_id": "20261014T011954-14d6bfb4",
+      "argv": [
+        "python3",
+        "-B",
+        "wf6-evidence/usage/collect_usage.py",
+        "finalize",
+        "--all",
+        "--wait-seconds",
+        "0"
+      ],
+      "exit_code": 0,
+      "stdout": "steps/S0/logs/20261014T011954-14d6bfb4.stdout.log",
+      "stderr": "steps/S0/logs/20261014T011954-14d6bfb4.stderr.log"
+    }
+  ]
+}

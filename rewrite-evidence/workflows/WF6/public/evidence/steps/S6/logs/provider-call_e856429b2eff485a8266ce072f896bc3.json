@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 4044,
+    "byte_offset": 11623643,
+    "timestamp": "2026-10-14T09:01:08.237Z",
+    "turn_id": "01a13999-f4f9-78f2-8751-6c0a710636a0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf44ccf7d881919025912540ac0592",
+      "status": "completed",
+      "call_id": "call_e856429b2eff485a8266ce072f896bc3",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"rg -n 'penv=|frozen_env=|args=|if phase|four=|listed=|result=run' wf6-rerun-20261014-01/wf6-evidence/usage/run_s6_c2.py\\npython3 -B - <<'PY'\\nfrom pathlib import Path\\np=Path('wf6-rerun-20261014-01/wf6-evidence/usage/run_s6_c2.py');s=p.read_text();a=s.index(\\\"            if phase=='restored':\\\\n                four=\\\");b=s.index('            listed=run(',a);block=s[a:b];s=s[:a]+s[b:];pos=s.index('            penv=');block=block.replace(\\\"tenv={**frozen_env,\\\", \\\"tenv={**env,'E2E_PORT':'9106','E2E_REUSE_SERVER':'1','E2E_ROUTE_SCOPE':'all','E2E_ROUTE_CHECK':'strict',\\\").replace('target=run(args+','target=run([\\\\'node\\\\',str(EVALUATOR/\\\\'frontend-e2e/node_modules/@playwright/test/cli.js\\\\'),\\\\'test\\\\']+')\\ns=s[:pos]+block+s[pos:];p.write_text(s)\\nPY\",\"max_output_tokens\":1400}));\ntext(await tools.write_stdin({session_id:85797,chars:\"\",yield_time_ms:1000,max_output_tokens:1000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13999-f4f9-78f2-8751-6c0a710636a0",
+        "create_time": 1791968460.9719894
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 4047,
+    "byte_offset": 11630742,
+    "timestamp": "2026-10-14T09:01:08.456Z",
+    "turn_id": "01a13999-f4f9-78f2-8751-6c0a710636a0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a139a4-dde8-7790-96c8-6330477db37c",
+      "call_id": "call_e856429b2eff485a8266ce072f896bc3",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"302a8c\",\"wall_time_seconds\":0.030596567,\"exit_code\":0,\"original_token_count\":657,\"output\":\"83:            penv={**env,'PLAYWRIGHT_JSON_OUTPUT_NAME':str(RUNTIME/'browser'/(phase+'-supplemental.json')),'PLAYWRIGHT_HTML_OUTPUT_DIR':str(RUNTIME/'browser'/(phase+'-html')),'WF6_BROWSER_EVIDENCE':str(RUNTIME/'browser'/(phase+'-requests-redacted.'+('json' if phase=='rollback' else 'jsonl')))}\\n84:            result=run(['node',str(EVALUATOR/'frontend-e2e/node_modules/@playwright/test/cli.js'),'test','--config='+str(config),'--output='+str(RUNTIME/'browser'/(phase+'-test-results'))],EVALUATOR/'frontend-e2e','S6-C2-'+phase+'-real-browser-and-ownership',stage='S6',env=penv,permission=permission)\\n87:            if phase=='restored':assert fixtures==json.loads((STAGE/'rollback-seeded-identities.json').read_text()),'Comparable seed identities changed across switch'\\n88:            frozen_env={**env,'E2E_PORT':'9106','E2E_REUSE_SERVER':'1','E2E_ROUTE_SCOPE':'all','E2E_ROUTE_CHECK':'strict','PLAYWRIGHT_JSON_OUTPUT_NAME':str(RUNTIME/'browser'/(phase+'-frozen-inventory.json'))}\\n89:            args=['node',str(EVALUATOR/'frontend-e2e/node_modules/@playwright/test/cli.js'),'test'];select=['--grep',selection] if phase=='rollback' else []\\n90:            if phase=='restored':\\n91:                four=r\\\"\\\\[flow\\\\] (?:log out ends the session|a regular member is not offered admin pages|an admin is offered admin pages|comment on a recipe and see it after reload)$\\\"\\n95:            listed=run(args+['--list',*select,'--reporter=json'],EVALUATOR/'frontend-e2e','S6-C2-'+phase+'-frozen-inventory',stage='S6',env=frozen_env,permission=permission);assert listed['exit_code']==0\\n101:            assert len(specs)==(4 if phase=='rollback' else 82)\\n102:            if phase=='restored':assert sum(x['title'].startswith('[route]') for x in specs)==66 and sum(x['title'].startswith('[flow]') for x in specs)==15 and sum(x['title']=='route table has unique entries' for x in specs)==1\\n104:            measured=run(args+[*select,'--workers=1','--reporter=list,json,html','--output='+str(RUNTIME/'browser'/(phase+'-frozen-test-results'))],EVALUATOR/'frontend-e2e','S6-C2-'+phase+'-frozen-'+('selected-four' if phase=='rollback' else 'all66routes15flowsguard-strict'),stage='S6',env=frozen_env,permission=permission)\\n105:            (STAGE/(phase+'-frozen-outcome.json')).write_text(json.dumps(dict(command_id=measured['command_id'],exit_code=measured['exit_code'],inventory_count=len(specs),assertions_unchanged=True,scope='Selected four rollback' if phase=='rollback' else 'Full strict all 66 routes,15 flows,guard'),indent=2)+'\\\\n')\\n106:            if phase=='rollback' and measured['exit_code']!=0:raise SystemExit(measured['exit_code'])\\n\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"186203\",\"wall_time_seconds\":0.000011848,\"exit_code\":0,\"original_token_count\":216,\"output\":\"{\\\"command_id\\\": \\\"20261014T090048-bc7f94c9\\\", \\\"stage_id\\\": \\\"S6\\\", \\\"label\\\": \\\"S6-C2-commit-limited-implementation\\\", \\\"argv\\\": [\\\"git\\\", \\\"-C\\\", \\\"mealie-wf6-coexist\\\", \\\"commit\\\", \\\"-m\\\", \\\"[WF6-S6] Implement real logout role navigation and persisted comments\\\"], \\\"cwd\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01\\\", \\\"start_utc\\\": \\\"2026-10-14T09:00:48.532364+00:00\\\", \\\"end_utc\\\": \\\"2026-10-14T09:00:50.137542+00:00\\\", \\\"duration_seconds\\\": 1.6051841319931555, \\\"exit_code\\\": 0, \\\"stdout\\\": \\\"steps/S6/logs/20261014T090048-bc7f94c9.stdout.log\\\", \\\"stderr\\\": \\\"steps/S6/logs/20261014T090048-bc7f94c9.stderr.log\\\", \\\"environment_overrides\\\": {}, \\\"permission\\\": \\\"workspace-write; network restricted; no escalation\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13999-f4f9-78f2-8751-6c0a710636a0",
+        "create_time": 1791968468.4562519
+      }
+    }
+  }
+}

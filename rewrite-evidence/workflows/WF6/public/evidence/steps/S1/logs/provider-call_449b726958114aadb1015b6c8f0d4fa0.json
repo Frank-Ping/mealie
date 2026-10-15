@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1502,
+    "byte_offset": 4940680,
+    "timestamp": "2026-10-14T03:26:17.245Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acef655c0c48191bdee4e1f6f564e84",
+      "status": "completed",
+      "call_id": "call_449b726958114aadb1015b6c8f0d4fa0",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 -B wf6-rerun-20261014-01/wf6-evidence/usage/record_command.py --stage S1 --cwd '<WORKSPACE>/wf6-rerun-20261014-01' --label S1-verify-native-and-mounted-filesystem-types -- stat -f -c '%n %T' /tmp/wf6-rerun-20261014-01-S1-native .\",\"yield_time_ms\":1000,\"max_output_tokens\":650}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791948373.7559018
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1505,
+    "byte_offset": 4944528,
+    "timestamp": "2026-10-14T03:26:17.428Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13872-4d54-72c1-b739-6c2f0ba8a645",
+      "call_id": "call_449b726958114aadb1015b6c8f0d4fa0",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"0a960b\",\"wall_time_seconds\":0.012776319,\"exit_code\":0,\"original_token_count\":206,\"output\":\"{\\\"command_id\\\": \\\"20261014T032617-c9f83d46\\\", \\\"stage_id\\\": \\\"S1\\\", \\\"label\\\": \\\"S1-verify-native-and-mounted-filesystem-types\\\", \\\"argv\\\": [\\\"stat\\\", \\\"-f\\\", \\\"-c\\\", \\\"%n %T\\\", \\\"/tmp/wf6-rerun-20261014-01-S1-native\\\", \\\".\\\"], \\\"cwd\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01\\\", \\\"start_utc\\\": \\\"2026-10-14T03:26:17.405522+00:00\\\", \\\"end_utc\\\": \\\"2026-10-14T03:26:17.412639+00:00\\\", \\\"duration_seconds\\\": 0.0071188239999173675, \\\"exit_code\\\": 0, \\\"stdout\\\": \\\"steps/S1/logs/20261014T032617-c9f83d46.stdout.log\\\", \\\"stderr\\\": \\\"steps/S1/logs/20261014T032617-c9f83d46.stderr.log\\\", \\\"environment_overrides\\\": {}, \\\"permission\\\": \\\"workspace-write; network restricted; no escalation\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791948377.4289412
+      }
+    }
+  }
+}

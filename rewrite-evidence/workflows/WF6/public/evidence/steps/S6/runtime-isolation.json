@@ -1,0 +1,34 @@
+{
+  "identity": {
+    "run_id": "wf6-rerun-20261014-01",
+    "stage_id": "S6",
+    "data_dir": "/tmp/wf6-rerun-20261014-01-S6/disposable-data",
+    "ports": [
+      9006,
+      9106
+    ]
+  },
+  "auth_real_target": "/tmp/wf6-rerun-20261014-01-S6/auth",
+  "backend_launcher_sha256": "8fd9652aae79dc39ff0ada7cb40b56f305d388c64b06523dcaa57fc190f3cb92",
+  "default_sandbox_unchanged": true,
+  "credentials_exported_in_summary": false,
+  "service_lifecycles_closed": true,
+  "independent_of_previous_stages": true,
+  "both_switch_states_share_only_S6_backend": true,
+  "auth_files": [
+    {
+      "path": "/tmp/wf6-rerun-20261014-01-S6/auth/fixtures.json",
+      "sha256": "df1b7e7775fe4cdfb5c5363cb345df15b4b41b2bfd9da085af28e16434325088"
+    },
+    {
+      "path": "/tmp/wf6-rerun-20261014-01-S6/auth/admin.json",
+      "sha256": "9d2acc914ad105d4c3b25024629736e8405b51668e7ad7d8d9251aafe089c0fe"
+    }
+  ],
+  "sqlite_files": [
+    {
+      "path": "/tmp/wf6-rerun-20261014-01-S6/disposable-data/mealie.db",
+      "sha256": "99b495ec7692bbc22dad5c477a148cdcb87d05a697a0d8ce9a96abeb845cf176"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "timestamp": "2026-10-14T09:59:13.521978+00:00",
+  "verified_files": 4197,
+  "mismatches": [],
+  "self_included": false,
+  "report_links_checked": 294,
+  "note": "Validation record and the containing recorder command require final manifest regeneration; external finalize regenerates after final usage."
+}

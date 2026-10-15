@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 4124,
+    "byte_offset": 11810154,
+    "timestamp": "2026-10-14T09:06:43.756Z",
+    "turn_id": "01a13999-f4f9-78f2-8751-6c0a710636a0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf462024448191bc4baef93c4c6871",
+      "status": "completed",
+      "call_id": "call_8742348840a64754a57c9b0ec7c49f14",
+      "name": "exec",
+      "input": "text(await tools.write_stdin({session_id:49156,chars:\"\",yield_time_ms:1000,max_output_tokens:1000}));\ntext(await tools.exec_command({cmd:\"rg -n 'stage=|STAGE=|RUNTIME=|destination=|phase.*restored|entry.*label' wf6-rerun-20261014-01/wf6-evidence/usage/run_s6_c2_r2.py | head -24\",\"max_output_tokens\":1000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13999-f4f9-78f2-8751-6c0a710636a0",
+        "create_time": 1791968800.1447616
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 4127,
+    "byte_offset": 11814973,
+    "timestamp": "2026-10-14T09:06:48.915Z",
+    "turn_id": "01a13999-f4f9-78f2-8751-6c0a710636a0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a139aa-0fd3-7282-9024-9e44f64eafcf",
+      "call_id": "call_8742348840a64754a57c9b0ec7c49f14",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 5.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"c8dbf6\",\"wall_time_seconds\":5.001050381,\"session_id\":49156,\"original_token_count\":0,\"output\":\"\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"9b2bad\",\"wall_time_seconds\":0.000011767,\"exit_code\":0,\"original_token_count\":537,\"output\":\"16:STAGE=EVIDENCE/'steps/S6/continuation-02';RUNTIME=Path('/tmp/wf6-rerun-20261014-01-S6-C2-R2')\\n64:        for phase,config,mapfile in [('rollback',rollback_config,STAGE/'route-map-rollback.json'),('restored',restored_config,STAGE/'route-map-restored.json')]:\\n66:            p,entry,timer=processes.pop();assert entry['label']=='S6-C2-R2-owned-gateway'\\n78:                    assert mapdata['takeoverEnabled']==(phase=='restored');break\\n83:            if phase=='restored':\\n86:                target=run(['node',str(EVALUATOR/'frontend-e2e/node_modules/@playwright/test/cli.js'),'test']+['--grep',four,'--workers=1','--reporter=list,json,html','--output='+str(RUNTIME/'browser/four-original-test-results')],EVALUATOR/'frontend-e2e','S6-C2-R2-four-original-frozen-FAIL-flows',stage='S6',env=tenv,permission=permission)\\n89:            result=run(['node',str(EVALUATOR/'frontend-e2e/node_modules/@playwright/test/cli.js'),'test','--config='+str(config),'--output='+str(RUNTIME/'browser'/(phase+'-test-results'))],EVALUATOR/'frontend-e2e','S6-C2-R2-'+phase+'-real-browser-and-ownership',stage='S6',env=penv,permission=permission)\\n92:            if phase=='restored':assert fixtures==json.loads((STAGE/'rollback-seeded-identities.json').read_text()),'Comparable seed identities changed across switch'\\n95:            listed=run(args+['--list',*select,'--reporter=json'],EVALUATOR/'frontend-e2e','S6-C2-R2-'+phase+'-frozen-inventory',stage='S6',env=frozen_env,permission=permission);assert listed['exit_code']==0\\n102:            if phase=='restored':assert sum(x['title'].startswith('[route]') for x in specs)==66 and sum(x['title'].startswith('[flow]') for x in specs)==15 and sum(x['title']=='route table has unique entries' for x in specs)==1\\n104:            measured=run(args+[*select,'--workers=1','--reporter=list,json,html','--output='+str(RUNTIME/'browser'/(phase+'-frozen-test-results'))],EVALUATOR/'frontend-e2e','S6-C2-R2-'+phase+'-frozen-'+('selected-four' if phase=='rollback' else 'all66routes15flowsguard-strict'),stage='S6',env=frozen_env,permission=permission)\\n117:        destination=STAGE/'browser-r2';destination.mkdir(exist_ok=True)\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13999-f4f9-78f2-8751-6c0a710636a0",
+        "create_time": 1791968808.915889
+      }
+    }
+  }
+}

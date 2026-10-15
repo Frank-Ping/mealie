@@ -1,0 +1,15 @@
+tree 52264040ae4af83ac3d3e49085f40a5c21fed1c6
+parent 4c060ae124f7a0d497e7f34ba10cac860d7c3231
+author Deeumiya Huang <Abyukuri@gmail.com> 1791602098 +1300
+committer Deeumiya Huang <Abyukuri@gmail.com> 1791602098 +1300
+
+[eval] Translate Chinese passages in evidence into English
+
+The report is in English, so the Chinese parts of the WF1/WF2 transcripts
+(human messages and the agent's replies) are translated, with a note at
+the top of each affected file. "continue" stands for the Chinese keyword
+the human typed; the WF2 prompt file and WORKFLOW_METRICS.md say so too.
+Code, file names, commands and hashes are unchanged; three lines quoting
+Mealie's own locale list keep the original language name.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>

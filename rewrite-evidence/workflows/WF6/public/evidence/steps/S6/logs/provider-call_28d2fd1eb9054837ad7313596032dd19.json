@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3467,
+    "byte_offset": 10018854,
+    "timestamp": "2026-10-14T07:52:11.474Z",
+    "turn_id": "01a13964-888e-7540-98b2-3abbc8e32d90",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf349a008c8191af3e791b0098db11",
+      "status": "completed",
+      "call_id": "call_28d2fd1eb9054837ad7313596032dd19",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nfrom pathlib import Path\\nimport json,datetime as dt,shutil\\np=Path('wf6-rerun-20261014-01/wf6-evidence');s=p/'steps/S6';b=json.loads((s/'request-boundary.json').read_text());budget=json.loads((p/'experiment-budget.json').read_text());prev=budget['segments'][-1];assert prev['status']=='closed';gap=(dt.datetime.fromisoformat(b['timestamp'].replace('Z','+00:00'))-dt.datetime.fromisoformat(prev['end_utc'].replace('Z','+00:00'))).total_seconds();budget['excluded_between_turn_intervals'].append(dict(start_utc=prev['end_utc'],end_utc=b['timestamp'],elapsed_seconds=gap,category='human_pause/between_authorized_turns',activity='Not provided; excluded gap is not inferred human review.'));budget['segments'].append(dict(stage='S6',turn_id=b['turn_id'],start_utc=b['timestamp'],end_utc=None,elapsed_seconds=None,status='active'));(p/'experiment-budget.json').write_text(json.dumps(budget,indent=2)+'\\\\n');shutil.copy2(p/'steps/S5/token-usage.json',s/'S5-settlement.json');shutil.copy2(p/'steps/S5/repair-budget.json',s/'S5-repairs-retained.json');shutil.copy2(p/'steps/S4/dependency-versions.json',s/'dependency-versions.json')\\nr=Path('/tmp/wf6-rerun-20261014-01-S6');assert not r.exists();r.mkdir(mode=0o700)\\nfor x in ['auth','tmp','browser','tests','react','vue']:(r/x).mkdir(mode=0o700)\\n(r/'identity.json').write_text(json.dumps(dict(run_id='wf6-rerun-20261014-01',stage_id='S6',data_dir=str(r/'disposable-data'),ports=[9006,9106]),indent=2)+'\\\\n')\\nu=p/'usage';src=(u/'build_s5.py').read_text().replace('S5','S6');(u/'build_s6.py').write_text(src)\\nc=json.loads((s/'S5-settlement.json').read_text());print('S5 settled',{k:c[k] for k in ['status','final_reply_included','input_tokens','cached_input_tokens','output_tokens','reasoning_output_tokens','total_tokens']});print('closed experiment seconds',sum(x['elapsed_seconds'] for x in budget['segments'] if x['status']=='closed'))\\nPY\\npython3 -B wf6-rerun-20261014-01/wf6-evidence/usage/record_command.py --stage S6 --cwd '<WORKSPACE>/wf6-rerun-20261014-01' --label S6-fresh-static-and-build --permission 'Approved anonymous font/build access; sandbox retained' -- python3 -B wf6-evidence/usage/build_s6.py\",\"sandbox_permissions\":\"require_escalated\",\"justification\":\"S6 显式回退/恢复验收前重新构建相同 Vue/React 输入；仅公开字体访问、已有冻结依赖，独立 S6 build 输出，默认沙箱保留。\",\"yield_time_ms\":1000,\"max_output_tokens\":1000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13964-888e-7540-98b2-3abbc8e32d90",
+        "create_time": 1791964314.0089176
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3469,
+    "byte_offset": 10022730,
+    "timestamp": "2026-10-14T07:52:15.606Z",
+    "turn_id": "01a13964-888e-7540-98b2-3abbc8e32d90",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13965-cdf6-7a40-bdf8-443268d5e39b",
+      "call_id": "call_28d2fd1eb9054837ad7313596032dd19",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 4.1 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"2c23bc\",\"wall_time_seconds\":1.000936564,\"session_id\":19546,\"original_token_count\":61,\"output\":\"S5 settled {'status': 'exact_reported', 'final_reply_included': True, 'input_tokens': 5656914, 'cached_input_tokens': 5552256, 'output_tokens': 27523, 'reasoning_output_tokens': 7181, 'total_tokens': 5684437}\\nclosed experiment seconds 6103.925\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13964-888e-7540-98b2-3abbc8e32d90",
+        "create_time": 1791964335.6061502
+      }
+    }
+  }
+}

@@ -1,0 +1,4 @@
+{"event": "owned_service_started", "service": "backend", "pid": 57790, "group": 57790, "start_utc": "2026-10-14T08:13:36.870465+00:00", "command_id": "20261014T081336-S6-backend"}
+{"event": "owned_service_started", "service": "gateway", "pid": 57791, "group": 57791, "start_utc": "2026-10-14T08:13:36.876711+00:00", "command_id": "20261014T081336-S6-gateway"}
+{"event": "owned_service_stopped", "pid": 57791, "command_id": "20261014T081336-S6-gateway", "end_utc": "2026-10-14T08:14:29.914269+00:00", "exit_code": 0}
+{"event": "owned_service_stopped", "pid": 57790, "command_id": "20261014T081336-S6-backend", "end_utc": "2026-10-14T08:14:30.533189+00:00", "exit_code": 143}

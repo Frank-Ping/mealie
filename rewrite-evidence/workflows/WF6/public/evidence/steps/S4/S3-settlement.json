@@ -1,0 +1,189 @@
+{
+  "stage_id": "S3",
+  "status": "exact_reported",
+  "session_id": "01a137ea-f571-70f0-8cf3-7b8560c420bf",
+  "turn_ids": [
+    "01a138ae-0211-7bd3-bb3e-6360185acb50"
+  ],
+  "segments": [
+    {
+      "session_id": "01a137ea-f571-70f0-8cf3-7b8560c420bf",
+      "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+      "boundary": {
+        "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+        "line": 2428,
+        "byte_offset": 6775151,
+        "stage_id": "S3",
+        "action": "NATURAL_START",
+        "session_id": "01a137ea-f571-70f0-8cf3-7b8560c420bf",
+        "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+        "user_message_id": "msg_01a138ae-03c4-7242-8376-67377a9cf25a",
+        "actual_prompt": "先核实 S2 最终回复的用量覆盖。\n保持 S1 partial 和中断段缺口，不补零、不改标 exact_reported。\n\n仅执行 S3：验证 Vue 与最小 React 骨架的双向整页导航、\n真实登录会话、/api/users/self 身份/group，以及路由边界。\n本步不扩展 S4 的业务页面。\n\n延续 S2–S6 三小时预算；人工等待另列，不重置预算。\nS3/S4 共用最多两轮源码修复，明确记录每轮。\n\n保留英文技术记录、双语结果、失败证据和验收源码 commit。\n结束后停止，不自动进入 S4。",
+        "timestamp": "2026-10-14T04:31:30.756Z"
+      },
+      "start_event": {
+        "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+        "line": 2422,
+        "byte_offset": 6764077,
+        "timestamp": "2026-10-14T04:24:11.692Z",
+        "payload": {
+          "thread_id": "01a137ea-f571-70f0-8cf3-7b8560c420bf",
+          "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+          "session_id": "01a137ea-f571-70f0-8cf3-7b8560c420bf",
+          "root_turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+          "response_id": "resp_0aed6ad8672e0512016acf03e1ce508191bdb46d90d227d9a5",
+          "usage": {
+            "input_tokens": 188244,
+            "cached_input_tokens": 186624,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 348,
+            "reasoning_output_tokens": 0,
+            "total_tokens": 188592
+          },
+          "turn_token_usage": {
+            "input_tokens": 8195770,
+            "cached_input_tokens": 8108416,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 33264,
+            "reasoning_output_tokens": 8894,
+            "total_tokens": 8229034
+          },
+          "thread_token_usage": {
+            "input_tokens": 54146005,
+            "cached_input_tokens": 53498880,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 236279,
+            "reasoning_output_tokens": 100489,
+            "total_tokens": 54382284
+          }
+        }
+      },
+      "end_event": {
+        "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+        "line": 2771,
+        "byte_offset": 7676763,
+        "timestamp": "2026-10-14T05:00:35.148Z",
+        "payload": {
+          "thread_id": "01a137ea-f571-70f0-8cf3-7b8560c420bf",
+          "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+          "session_id": "01a137ea-f571-70f0-8cf3-7b8560c420bf",
+          "root_turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+          "response_id": "resp_0aed6ad8672e0512016acf0c6655e08191925da36527cb30e8",
+          "usage": {
+            "input_tokens": 260868,
+            "cached_input_tokens": 260480,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 361,
+            "reasoning_output_tokens": 0,
+            "total_tokens": 261229
+          },
+          "turn_token_usage": {
+            "input_tokens": 9453881,
+            "cached_input_tokens": 9373952,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 45946,
+            "reasoning_output_tokens": 22868,
+            "total_tokens": 9499827
+          },
+          "thread_token_usage": {
+            "input_tokens": 63599886,
+            "cached_input_tokens": 62872832,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 282225,
+            "reasoning_output_tokens": 123357,
+            "total_tokens": 63882111
+          }
+        }
+      },
+      "cumulative_delta": {
+        "input_tokens": 9453881,
+        "cached_input_tokens": 9373952,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 45946,
+        "reasoning_output_tokens": 22868,
+        "total_tokens": 9499827
+      },
+      "usage": {
+        "input_tokens": 9453881,
+        "cached_input_tokens": 9373952,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 45946,
+        "reasoning_output_tokens": 22868,
+        "total_tokens": 9499827
+      },
+      "response_ids": [
+        "resp_0aed6ad8672e0512016acf05a3b8388191a1a3364c2ac1d582",
+        "resp_0aed6ad8672e0512016acf05abf0808191aa1f3e3999990237",
+        "resp_0aed6ad8672e0512016acf05c812488191a165b398c216cc43",
+        "resp_0aed6ad8672e0512016acf05eb066481918f85170ab37df08b",
+        "resp_0aed6ad8672e0512016acf0621f6088191b40f1666ffe96998",
+        "resp_0aed6ad8672e0512016acf067637848191ab9ab51b08b34b64",
+        "resp_0aed6ad8672e0512016acf06bc9440819185aaf7421b79d0aa",
+        "resp_0aed6ad8672e0512016acf06f49300819186d02b8df9ca6002",
+        "resp_0aed6ad8672e0512016acf071ecd8c8191bea888663b113c8b",
+        "resp_0aed6ad8672e0512016acf072b108c81919e70163d51d56cc2",
+        "resp_0aed6ad8672e0512016acf073433848191ad9d7f0b5974ce08",
+        "resp_0aed6ad8672e0512016acf075ec54881919ac29a6c5721e360",
+        "resp_0aed6ad8672e0512016acf078116a08191aa9a089e1631241f",
+        "resp_0aed6ad8672e0512016acf07e758e08191b2ec21892c1641d4",
+        "resp_0aed6ad8672e0512016acf080d7da88191add98cd7cc263b6a",
+        "resp_0aed6ad8672e0512016acf081d428c8191adbfe55a45e86ccd",
+        "resp_0aed6ad8672e0512016acf0825390c8191b351a03cd735bd29",
+        "resp_0aed6ad8672e0512016acf08321530819187e88b0b05236ace",
+        "resp_0aed6ad8672e0512016acf088b09b081919fa291c6b2af33fc",
+        "resp_0aed6ad8672e0512016acf0894f57c8191a8be1435793e5839",
+        "resp_0aed6ad8672e0512016acf08b424dc8191b29780414f0024f9",
+        "resp_0aed6ad8672e0512016acf08bf69a4819194ecaba39a6f3e29",
+        "resp_0aed6ad8672e0512016acf08e227ec8191bd906b43c5b4859b",
+        "resp_0aed6ad8672e0512016acf0902cd7c8191ae133c5152297631",
+        "resp_0aed6ad8672e0512016acf090da96c8191bf2340114e3a5742",
+        "resp_0aed6ad8672e0512016acf097814688191aed268a12c3b0f01",
+        "resp_0aed6ad8672e0512016acf097eac4c8191b0da9909f7426397",
+        "resp_0aed6ad8672e0512016acf09a10b14819187a8c0e1af450689",
+        "resp_0aed6ad8672e0512016acf0a10a3408191969db4c3bffb6f48",
+        "resp_0aed6ad8672e0512016acf0a603fac8191b443b31209718ac6",
+        "resp_0aed6ad8672e0512016acf0a6f3f888191acaf75e510bbd630",
+        "resp_0aed6ad8672e0512016acf0aa2aea08191966cc6e667fe6344",
+        "resp_0aed6ad8672e0512016acf0acc59d48191925a68d96d9cf1dc",
+        "resp_0aed6ad8672e0512016acf0aecec288191aed753ec21395adc",
+        "resp_0aed6ad8672e0512016acf0b3d56588191b53759cd0e432c3e",
+        "resp_0aed6ad8672e0512016acf0b8c7f0c819181f498949f95ab04",
+        "resp_0aed6ad8672e0512016acf0bd760a08191982f32f54d3b5b94",
+        "resp_0aed6ad8672e0512016acf0c3557408191b9f94501dbf6c156",
+        "resp_0aed6ad8672e0512016acf0c55d278819196a01486fa778139",
+        "resp_0aed6ad8672e0512016acf0c5e202c819195abceebf2b52369",
+        "resp_0aed6ad8672e0512016acf0c6655e08191925da36527cb30e8"
+      ],
+      "final_reply_included": true,
+      "final_event": {
+        "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+        "line": 2770,
+        "byte_offset": 7674900
+      },
+      "complete_event": {
+        "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+        "line": 2773,
+        "byte_offset": 7678555
+      }
+    }
+  ],
+  "input_tokens": 9453881,
+  "cached_input_tokens": 9373952,
+  "cache_write_input_tokens": 0,
+  "output_tokens": 45946,
+  "reasoning_output_tokens": 22868,
+  "total_tokens": 9499827,
+  "known_partial_usage": {
+    "input_tokens": 9453881,
+    "cached_input_tokens": 9373952,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 45946,
+    "reasoning_output_tokens": 22868,
+    "total_tokens": 9499827
+  },
+  "final_reply_included": true,
+  "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+  "coverage_notes": [],
+  "cost": null,
+  "cache_write_semantics": "Observed separately; not added to total."
+}

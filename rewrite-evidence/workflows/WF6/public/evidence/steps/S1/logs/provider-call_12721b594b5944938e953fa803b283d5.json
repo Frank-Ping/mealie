@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1972,
+    "byte_offset": 5731419,
+    "timestamp": "2026-10-14T03:55:30.398Z",
+    "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acefd2f452c81919e60a7d90c2fa636",
+      "status": "completed",
+      "call_id": "call_12721b594b5944938e953fa803b283d5",
+      "name": "exec",
+      "input": "text(await tools.write_stdin({session_id:80454,chars:\"\",yield_time_ms:1000,max_output_tokens:800}));\ntext(await tools.exec_command({cmd:\"git --no-optional-locks -C wf6-rerun-20261014-01/mealie-wf6-coexist diff --cached --stat; cat wf6-rerun-20261014-01/mealie-wf6-coexist/rewrite-evidence/workflows/WF6/BASELINE.md | head -22\",\"max_output_tokens\":900}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+        "create_time": 1791950127.273751
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1975,
+    "byte_offset": 5735314,
+    "timestamp": "2026-10-14T03:55:35.852Z",
+    "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a1388d-222c-7c23-adf5-ab3a889cd0a3",
+      "call_id": "call_12721b594b5944938e953fa803b283d5",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 5.4 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"aeda10\",\"wall_time_seconds\":5.00157231,\"session_id\":80454,\"original_token_count\":0,\"output\":\"\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"d71392\",\"wall_time_seconds\":0.221854325,\"exit_code\":0,\"original_token_count\":291,\"output\":\" rewrite-evidence/workflows/WF6/BASELINE.md         |  18 ++++\\n .../workflows/WF6/comparison-baseline.json         | 103 +++++++++++++++++++++\\n 2 files changed, 121 insertions(+)\\n# Fresh WF6 Vue baseline / 新 Vue 基线\\n\\nGate: PASS. 原生目录完整重测通过，首轮失败保留。\\n\\nVue `4b9ca06b6581f7152e164ea0fd9d4da366975a79`; evaluator `758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d`; build `51e1fc21edd74fdb002a57a5e11b8085932a0898945685edb45177aece86d733`.\\n\\nUnit 517/517; lint 521 files clean; type diagnostics 318 separately FAIL.\\n\\n| Category / 类别 | Mounted first attempt / 首轮 | Native runtime / 重测 |\\n|---|---|---|\\n| routes | 0/66 pass; 66 fail; 0 skip | 66/66 pass; 0 fail; 0 skip |\\n| flows | 1/15 pass; 14 fail; 0 skip | 15/15 pass; 0 fail; 0 skip |\\n| guard | 1/1 pass; 0 fail; 0 skip | 1/1 pass; 0 fail; 0 skip |\\n\\nCoverage: statements 15.1%, branches 12.89%, functions 7.9%, lines 15.09%.\\n\\n[Full bilingual result and raw evidence](../../../../wf6-evidence/steps/S1/result.md). Original logs, auth, databases and browser traces stay outside Git.\\n完整双语结果与失败历史见兄弟证据目录；无 React 成果，未启动 S2。\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+        "create_time": 1791950135.8522177
+      }
+    }
+  }
+}

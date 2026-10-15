@@ -1,0 +1,127 @@
+{
+  "updated_utc": "2026-10-14T10:03:22.775885+00:00",
+  "segments": [
+    {
+      "category": "S0_setup",
+      "stage": "S0",
+      "turn_id": "01a137f3-c2d3-7db0-9623-6d33961b39eb",
+      "start_utc": "2026-10-14T01:08:04.488Z",
+      "end_utc": "2026-10-14T01:24:41.777Z",
+      "elapsed_seconds": 997.289,
+      "status": "closed",
+      "note": "Missing task completion stays null; current S7 final tail pending terminal."
+    },
+    {
+      "category": "S1_baseline",
+      "stage": "S1",
+      "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+      "start_utc": "2026-10-14T02:07:41.816Z",
+      "end_utc": null,
+      "elapsed_seconds": null,
+      "status": "partial_interrupted",
+      "note": "Missing task completion stays null; current S7 final tail pending terminal."
+    },
+    {
+      "category": "S1_baseline",
+      "stage": "S1",
+      "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+      "start_utc": "2026-10-14T03:46:52.804Z",
+      "end_utc": "2026-10-14T03:58:17.398Z",
+      "elapsed_seconds": 684.594,
+      "status": "closed",
+      "note": "Missing task completion stays null; current S7 final tail pending terminal."
+    },
+    {
+      "category": "S2_S6_experiment",
+      "stage": "S2",
+      "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+      "start_utc": "2026-10-14T04:01:41.937Z",
+      "end_utc": "2026-10-14T04:24:11.702Z",
+      "elapsed_seconds": 1349.765,
+      "status": "closed",
+      "note": "Missing task completion stays null; current S7 final tail pending terminal."
+    },
+    {
+      "category": "S2_S6_experiment",
+      "stage": "S3",
+      "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+      "start_utc": "2026-10-14T04:31:30.756Z",
+      "end_utc": "2026-10-14T05:00:35.156Z",
+      "elapsed_seconds": 1744.4,
+      "status": "closed",
+      "note": "Missing task completion stays null; current S7 final tail pending terminal."
+    },
+    {
+      "category": "S2_S6_experiment",
+      "stage": "S4",
+      "turn_id": "01a13905-d942-7e23-8387-48f7946bf050",
+      "start_utc": "2026-10-14T06:07:27.424Z",
+      "end_utc": "2026-10-14T06:38:39.154Z",
+      "elapsed_seconds": 1871.73,
+      "status": "closed",
+      "note": "Missing task completion stays null; current S7 final tail pending terminal."
+    },
+    {
+      "category": "S2_S6_experiment",
+      "stage": "S5",
+      "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+      "start_utc": "2026-10-14T07:28:35.317Z",
+      "end_utc": "2026-10-14T07:47:33.347Z",
+      "elapsed_seconds": 1138.03,
+      "status": "closed",
+      "note": "Missing task completion stays null; current S7 final tail pending terminal."
+    },
+    {
+      "category": "S2_S6_experiment",
+      "stage": "S6",
+      "turn_id": "01a13964-888e-7540-98b2-3abbc8e32d90",
+      "start_utc": "2026-10-14T07:50:52.793Z",
+      "end_utc": "2026-10-14T08:06:25.982Z",
+      "elapsed_seconds": 933.189,
+      "status": "closed",
+      "note": "Missing task completion stays null; current S7 final tail pending terminal."
+    },
+    {
+      "category": "S2_S6_experiment",
+      "stage": "S6",
+      "turn_id": "01a13974-b942-7012-950c-89399b0de489",
+      "start_utc": "2026-10-14T08:08:33.639Z",
+      "end_utc": "2026-10-14T08:21:43.133Z",
+      "elapsed_seconds": 789.494,
+      "status": "closed",
+      "note": "Missing task completion stays null; current S7 final tail pending terminal."
+    },
+    {
+      "category": "S2_S6_experiment",
+      "stage": "S6",
+      "turn_id": "01a13999-f4f9-78f2-8751-6c0a710636a0",
+      "start_utc": "2026-10-14T08:49:13.845Z",
+      "end_utc": "2026-10-14T09:21:49.740Z",
+      "elapsed_seconds": 1955.895,
+      "status": "closed",
+      "note": "Missing task completion stays null; current S7 final tail pending terminal."
+    },
+    {
+      "category": "S2_S6_experiment",
+      "stage": "S6",
+      "turn_id": "01a139bb-53dc-7111-96d4-1398771bbfb1",
+      "start_utc": "2026-10-14T09:25:40.675Z",
+      "end_utc": "2026-10-14T09:40:04.473Z",
+      "elapsed_seconds": 863.798,
+      "status": "closed",
+      "note": "Missing task completion stays null; current S7 final tail pending terminal."
+    },
+    {
+      "category": "S7_reporting",
+      "stage": "S7",
+      "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+      "start_utc": "2026-10-14T09:48:08.069Z",
+      "end_utc": "2026-10-14T10:02:30.573Z",
+      "elapsed_seconds": 862.504,
+      "status": "closed",
+      "note": "Missing task completion stays null; current S7 final tail pending terminal."
+    }
+  ],
+  "policy": "Disjoint authorized request to task_complete intervals. Nested command timing not summed. S1 unknown interruption gap stays unknown. Preparation/extra discussion remain separately recorded in their own command/window records; no inferred human review time.",
+  "human_review_time": null
+}

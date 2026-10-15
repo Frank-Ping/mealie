@@ -1,0 +1,37 @@
+[
+  {
+    "path": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Layout/LayoutParts/AppHeader.vue",
+    "sha256": "d3a23e6836d8cda2cfa29f03b2c0736342d7f82e587effa336bce98f8169d7f7",
+    "coverage": "Read only original Vue implementation or this run current routing/React; no other workflow code"
+  },
+  {
+    "path": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Layout/LayoutParts/AppSidebar.vue",
+    "sha256": "8b6e453d10953ad922b03d6f08c9349931c3b7f5990e50526dfcf2b561a3c73e",
+    "coverage": "Read only original Vue implementation or this run current routing/React; no other workflow code"
+  },
+  {
+    "path": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/components/Domain/Recipe/RecipePage/RecipePageParts/RecipePageComments.vue",
+    "sha256": "8e0a1a62e883bdf33c49a253bcb2117a008c46ff8676b726caea9c157b3bad35",
+    "coverage": "Read only original Vue implementation or this run current routing/React; no other workflow code"
+  },
+  {
+    "path": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/user/recipes/recipe-comments.ts",
+    "sha256": "0bc0305fc87c3a923f12986587575a139cd19d426bc831f83f03a99a0cca3307",
+    "coverage": "Read only original Vue implementation or this run current routing/React; no other workflow code"
+  },
+  {
+    "path": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend-react-wf6/src/main.tsx",
+    "sha256": "659ca995e1185e1344ce9325e6daeda22df1bebbbffd53eef77af96b29bd0657",
+    "coverage": "Read only original Vue implementation or this run current routing/React; no other workflow code"
+  },
+  {
+    "path": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/wf6/route-policy.mjs",
+    "sha256": "64c4555b6159822cba4ee2603b117811e0d65cf6dfdf001ef72ec18e70df23e2",
+    "coverage": "Read only original Vue implementation or this run current routing/React; no other workflow code"
+  },
+  {
+    "path": "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/middleware/wf6-boundary.global.ts",
+    "sha256": "46796953770e6ac0a549e9d38497ff1172e421cb863e2428b6075b28be1ae4a5",
+    "coverage": "Read only original Vue implementation or this run current routing/React; no other workflow code"
+  }
+]

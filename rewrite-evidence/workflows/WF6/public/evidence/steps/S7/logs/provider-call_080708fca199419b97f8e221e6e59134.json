@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 4632,
+    "byte_offset": 13732490,
+    "timestamp": "2026-10-14T09:58:53.649Z",
+    "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf524f99148191a73573f0f3750843",
+      "status": "completed",
+      "call_id": "call_080708fca199419b97f8e221e6e59134",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 - <<'PY'\\np='wf6-evidence/usage/finish_s7.py';s=open(p).read();needle=' summary=usage_summary();write(T/\\\\'usage-category-summary.json\\\\',summary)';replacement=''' summary=usage_summary();write(T/'usage-category-summary.json',summary)\\n ledger=read(E/'usage/usage-ledger.json'); config=read(E/'usage/tracking-config.json')\\n records=[json.loads(line) for line in Path(config['source_log']).read_text().splitlines()]\\n completed={r.get('payload',{}).get('turn_id'):r['timestamp'] for r in records if r.get('type')=='event_msg' and r.get('payload',{}).get('type')=='task_complete'}\\n timing=[]\\n for stage in ledger['stages']:\\n  for seg in stage['segments']:\\n   start=seg['boundary']['timestamp'];end=completed.get(seg['turn_id'])\\n   elapsed=(dt.datetime.fromisoformat(end.replace('Z','+00:00'))-dt.datetime.fromisoformat(start.replace('Z','+00:00'))).total_seconds() if end else None\\n   timing.append(dict(category='S0_setup' if stage['stage_id']=='S0' else 'S1_baseline' if stage['stage_id']=='S1' else 'S7_reporting' if stage['stage_id']=='S7' else 'S2_S6_experiment',stage=stage['stage_id'],turn_id=seg['turn_id'],start_utc=start,end_utc=end,elapsed_seconds=elapsed,status='closed' if end else 'partial_interrupted' if stage['stage_id']=='S1' else 'provisional',note='Missing task completion stays null; current S7 final tail pending terminal.'))\\n write(T/'stage-execution-timing.json',dict(updated_utc=now(),segments=timing,policy='Disjoint authorized request to task_complete intervals. Nested command timing not summed. S1 unknown interruption gap stays unknown. Preparation/extra discussion remain separately recorded in their own command/window records; no inferred human review time.',human_review_time=None))''';assert needle in s;s=s.replace(needle,replacement);open(p,'w').write(s)\\nPY\",\"workdir\":\"<WORKSPACE>/wf6-rerun-20261014-01\",\"max_output_tokens\":100}));\ntext(await tools.write_stdin({session_id:17035,chars:\"\",yield_time_ms:1000,max_output_tokens:350}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+        "create_time": 1791971919.6017182
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 4635,
+    "byte_offset": 13740216,
+    "timestamp": "2026-10-14T09:58:58.767Z",
+    "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a139d9-d1cf-7011-b219-41dfb43ad376",
+      "call_id": "call_080708fca199419b97f8e221e6e59134",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 5.1 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"4e16b3\",\"wall_time_seconds\":0.000021127,\"exit_code\":0,\"original_token_count\":0,\"output\":\"\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"196fb7\",\"wall_time_seconds\":5.001129351,\"session_id\":17035,\"original_token_count\":0,\"output\":\"\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a139cd-8328-7c83-882c-12a97fc9a466",
+        "create_time": 1791971938.767337
+      }
+    }
+  }
+}

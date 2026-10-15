@@ -1,0 +1,44 @@
+
+Running 4 tests using 1 worker
+
+  ✓  1 [flows] › tests/flows/auth.spec.ts:27:7 › auth › [flow] log out ends the session (1.5s)
+  ✓  2 [flows] › tests/flows/auth.spec.ts:39:7 › auth › [flow] a regular member is not offered admin pages (1.2s)
+  ✓  3 [flows] › tests/flows/auth.spec.ts:50:7 › auth › [flow] an admin is offered admin pages (1.6s)
+  ✘  4 [flows] › tests/flows/recipes.spec.ts:36:7 › recipes › [flow] comment on a recipe and see it after reload (45.1s)
+
+
+  1) [flows] › tests/flows/recipes.spec.ts:36:7 › recipes › [flow] comment on a recipe and see it after reload 
+
+    Test timeout of 45000ms exceeded.
+
+    Error: locator.fill: Test timeout of 45000ms exceeded.
+    Call log:
+      - waiting for getByRole('textbox', { name: 'Join the Conversation' })
+
+
+      38 |     const comment = uniqueName("E2E comment");
+      39 |     await page.goto(`/g/${f.groupSlug}/r/${f.recipe2Slug}`);
+    > 40 |     await page.getByRole("textbox", { name: "Join the Conversation" }).fill(comment);
+         |                                                                        ^
+      41 |     await page.getByRole("button", { name: "Submit" }).click();
+      42 |     await expect(visibleText(page, comment)).toBeVisible();
+      43 |     await page.reload();
+        at <WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/tests/flows/recipes.spec.ts:40:72
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S6-C2/browser/four-original-test-results/flows-recipes-recipes-flow-a3d3d-ipe-and-see-it-after-reload-flows/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S6-C2/browser/four-original-test-results/flows-recipes-recipes-flow-a3d3d-ipe-and-see-it-after-reload-flows/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S6-C2/browser/four-original-test-results/flows-recipes-recipes-flow-a3d3d-ipe-and-see-it-after-reload-flows/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S6-C2/browser/four-original-test-results/flows-recipes-recipes-flow-a3d3d-ipe-and-see-it-after-reload-flows/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [flows] › tests/flows/recipes.spec.ts:36:7 › recipes › [flow] comment on a recipe and see it after reload 
+  3 passed (53.2s)

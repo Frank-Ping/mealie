@@ -1,0 +1,2 @@
+  ✓  70 [flows] › tests/flows/auth.spec.ts:16:7 › auth › [flow] a wrong password is rejected (35.0s)
+  ✘  71 [flows] › tests/flows/auth.spec.ts:27:7 › auth › [flow] log out ends the session (46.2s)

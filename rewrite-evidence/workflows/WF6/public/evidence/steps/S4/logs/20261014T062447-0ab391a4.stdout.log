@@ -1,0 +1,8 @@
+
+Running 3 tests using 1 worker
+
+  ✓  1 ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S4/tests/s4-browser-tests.cjs:15:1 › real read-only recipe UI, keyboard link, direct refresh and retained Vue round trip (3.3s)
+  ✓  2 ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S4/tests/s4-browser-tests.cjs:35:1 › loading, real empty search, clear restoration and real missing-detail error (4.8s)
+  ✓  3 ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S4/tests/s4-browser-tests.cjs:51:1 › business rendering retains explicit Vue/mode/group boundaries (1.3s)
+
+  3 passed (13.4s)

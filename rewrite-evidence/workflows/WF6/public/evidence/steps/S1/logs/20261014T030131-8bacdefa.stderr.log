@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "<WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/usage/run_s1.py", line 123, in <module>
+    if __name__=="__main__":main()
+                            ~~~~^^
+  File "<WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/usage/run_s1.py", line 114, in main
+    command(["pnpm","exec","nuxt","typecheck"],SOURCE/"frontend","S1-Vue-type-diagnostics",approved)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/usage/run_s1.py", line 31, in command
+    if entry["exit_code"]!=0 and not allow_failure:raise RuntimeError(label+" failed; see "+entry["stderr"])
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: S1-Vue-type-diagnostics failed; see steps/S1/logs/20261014T030131-d1583192.stderr.log

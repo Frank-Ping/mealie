@@ -1,0 +1,28 @@
+{
+  "command_id": "20261014T041438-2011c583",
+  "stage_id": "S2",
+  "label": "S2-preacceptance-collector-regression",
+  "argv": [
+    "python3",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "wf6-evidence/usage",
+    "-p",
+    "test*.py"
+  ],
+  "cwd": "<WORKSPACE>/wf6-rerun-20261014-01",
+  "start_utc": "2026-10-14T04:14:38.576971+00:00",
+  "end_utc": "2026-10-14T04:14:38.745877+00:00",
+  "duration_seconds": 0.16891043999930844,
+  "exit_code": 0,
+  "stdout": "steps/S2/logs/20261014T041438-2011c583.stdout.log",
+  "stderr": "steps/S2/logs/20261014T041438-2011c583.stderr.log",
+  "environment_overrides": {},
+  "permission": "workspace-write; network restricted; no escalation",
+  "environment_capture": "Only explicit non-secret overrides; inherited secrets are not exported.",
+  "launch_error": null,
+  "stdin_path": null
+}

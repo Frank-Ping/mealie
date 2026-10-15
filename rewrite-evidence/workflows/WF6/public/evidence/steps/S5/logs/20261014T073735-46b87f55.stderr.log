@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "<WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/usage/run_s5_r1.py", line 116, in <module>
+    if __name__=='__main__':main()
+                            ~~~~^^
+  File "<WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/usage/run_s5_r1.py", line 88, in main
+    assert check['exit_code']==(1 if phase=='expected_failure' else 0)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

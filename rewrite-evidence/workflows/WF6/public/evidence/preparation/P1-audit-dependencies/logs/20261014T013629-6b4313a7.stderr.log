@@ -1,0 +1,4 @@
+  File "<WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/preparation/P1-audit-dependencies/audit_s0.py", line 28
+    final=next(r for r in rows if r["line"]>start and r["record"]["type"]=="response_item" and
+              ^
+SyntaxError: '(' was never closed

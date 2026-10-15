@@ -1,0 +1,6 @@
+
+Running 1 test using 1 worker
+
+  ✓  1 ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S5-R2/tests/s5-detection-probe.cjs:2:1 › target real recipe detail business acceptance (475ms)
+
+  1 passed (2.4s)

@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3859,
+    "byte_offset": 11003861,
+    "timestamp": "2026-10-14T08:17:35.872Z",
+    "turn_id": "01a13974-b942-7012-950c-89399b0de489",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf3a95277081918b618351876ccc18",
+      "status": "completed",
+      "call_id": "call_55f49b12a3dc4079ade270e28dee5c8b",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nfrom pathlib import Path\\np=Path('wf6-rerun-20261014-01/wf6-evidence/usage');s=(p/'postcommit_s6.py').read_text().replace('from finish_s6 import STAGE','from finish_s6_c1 import STAGE').replace(\\\"expected=['rewrite-evidence/workflows/WF6/S6-RESULT.md']\\\",\\\"expected=['rewrite-evidence/workflows/WF6/S6-C1-RESULT.md']\\\")\\ns=s.replace(\\\"decision='S6 explicit rollback and restored ownership PASS; full frozen regression FAIL (4 scope gaps). S6 repairs 0/2; S5 2/2 retained; application unchanged. Keep S1 partial and diagnostic FAIL. Stop; S7 not executed.'\\\",\\\"decision='S6 continuation: four original trace audits and existing explicit Vue functions 4/4 PASS; original four frozen FAIL retained. No application/evaluator change or source repair; S6 0/2, S5 2/2. Disjoint usage segments; stop, no S7.'\\\")\\ns+=\\\"\\\\n# Current top-level snapshot follows the accepted continuation; prior snapshots remain archived.\\\\nimport shutil\\\\nfor name in ['source-state.json','file-manifest.json','diff.patch']:\\\\n    shutil.copy2(STAGE/name,STAGE.parent/name)\\\\nparent_result=STAGE.parent/'result.md'\\\\nbody=parent_result.read_text().split('<!-- WF6-USAGE -->')[0].rstrip()\\\\nparent_result.write_text(body+f'\\\\\\\\n\\\\\\\\nLatest continuation acceptance commit / 续跑验收提交: `{head}` (`[WF6-S6]`); application bytes unchanged.\\\\\\\\n')\\\\n\\\"\\n(p/'postcommit_s6_c1.py').write_text(s)\\nPY\",\"max_output_tokens\":500}));\ntext(await tools.write_stdin({session_id:25595,chars:\"\",yield_time_ms:1000,max_output_tokens:1000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13974-b942-7012-950c-89399b0de489",
+        "create_time": 1791965845.1572084
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3862,
+    "byte_offset": 11010244,
+    "timestamp": "2026-10-14T08:17:41.016Z",
+    "turn_id": "01a13974-b942-7012-950c-89399b0de489",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a1397d-1498-7d20-9359-97a20b963caf",
+      "call_id": "call_55f49b12a3dc4079ade270e28dee5c8b",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 5.1 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"db4447\",\"wall_time_seconds\":0.000022653,\"exit_code\":0,\"original_token_count\":0,\"output\":\"\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"f69b7b\",\"wall_time_seconds\":5.001386318,\"session_id\":25595,\"original_token_count\":0,\"output\":\"\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13974-b942-7012-950c-89399b0de489",
+        "create_time": 1791965861.0160203
+      }
+    }
+  }
+}

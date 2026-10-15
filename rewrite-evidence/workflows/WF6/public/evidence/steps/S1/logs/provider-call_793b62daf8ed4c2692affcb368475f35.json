@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1924,
+    "byte_offset": 5663403,
+    "timestamp": "2026-10-14T03:53:50.354Z",
+    "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acefcc8d39c8191be87b91482887ef6",
+      "status": "completed",
+      "call_id": "call_793b62daf8ed4c2692affcb368475f35",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 -B wf6-rerun-20261014-01/wf6-evidence/usage/record_command.py --stage S1 --cwd '<WORKSPACE>/wf6-rerun-20261014-01' --label S1-final-frozen-byte-and-source-state-audit -- python3 -B wf6-evidence/usage/finish_s1.py snapshot\",\"yield_time_ms\":1000,\"max_output_tokens\":600}));\ntext(await tools.exec_command({cmd:\"git --no-optional-locks -C wf6-rerun-20261014-01/mealie-wf6-coexist status --porcelain=v1; cat wf6-rerun-20261014-01/wf6-evidence/steps/S1/logs/20261014T035339-479d45b8.stdout.log; tail -1 wf6-rerun-20261014-01/wf6-evidence/steps/S1/service-events.jsonl\",\"max_output_tokens\":1100}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+        "create_time": 1791950024.8303394
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1927,
+    "byte_offset": 5667468,
+    "timestamp": "2026-10-14T03:53:53.188Z",
+    "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a1388b-9124-7530-b7f0-e8c77042cdb7",
+      "call_id": "call_793b62daf8ed4c2692affcb368475f35",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 2.8 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"538b73\",\"wall_time_seconds\":1.001116103,\"session_id\":81048,\"original_token_count\":0,\"output\":\"\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"0289af\",\"wall_time_seconds\":1.448559087,\"exit_code\":0,\"original_token_count\":199,\"output\":\"?? rewrite-evidence/workflows/WF6/BASELINE.md\\n?? rewrite-evidence/workflows/WF6/comparison-baseline.json\\n{\\\"gate\\\": \\\"PASS\\\", \\\"build_hash\\\": \\\"51e1fc21edd74fdb002a57a5e11b8085932a0898945685edb45177aece86d733\\\", \\\"unit\\\": {\\\"total\\\": 517, \\\"passed\\\": 517, \\\"failed\\\": 0, \\\"skipped\\\": 0, \\\"files\\\": 48, \\\"distinct_measurements\\\": \\\"Coverage reruns the same unit tests; do not count twice.\\\"}, \\\"browser\\\": {\\\"routes\\\": {\\\"total\\\": 66, \\\"passed\\\": 66, \\\"failed\\\": 0, \\\"skipped\\\": 0, \\\"flaky\\\": 0}, \\\"flows\\\": {\\\"total\\\": 15, \\\"passed\\\": 15, \\\"failed\\\": 0, \\\"skipped\\\": 0, \\\"flaky\\\": 0}, \\\"guard\\\": {\\\"total\\\": 1, \\\"passed\\\": 1, \\\"failed\\\": 0, \\\"skipped\\\": 0, \\\"flaky\\\": 0}}}\\n{\\\"event\\\": \\\"owned_backend_stopped\\\", \\\"timestamp\\\": \\\"2026-10-14T03:53:21.888948+00:00\\\", \\\"pid\\\": 35011, \\\"exit_code\\\": 143, \\\"command_id\\\": \\\"20261014T035046-785b612e\\\", \\\"planned_shutdown\\\": true}\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+        "create_time": 1791950033.188623
+      }
+    }
+  }
+}

@@ -1,0 +1,615 @@
+{
+  "rows": [
+    {
+      "file": "admin.vue",
+      "url": "/admin",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "admin/backups.vue",
+      "url": "/admin/backups",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "admin/debug/openai.vue",
+      "url": "/admin/debug/openai",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "admin/debug/parser.vue",
+      "url": "/admin/debug/parser",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "admin/maintenance/index.vue",
+      "url": "/admin/maintenance",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "admin/manage/groups/[id].vue",
+      "url": "/admin/manage/groups/b5f61806-2e99-470c-a75c-33c4152c9e3b",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "admin/manage/groups/index.vue",
+      "url": "/admin/manage/groups",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "admin/manage/households/[id].vue",
+      "url": "/admin/manage/households/0b75a4a3-cd64-4972-bb71-870d32401e1f",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "admin/manage/households/index.vue",
+      "url": "/admin/manage/households",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "admin/manage/users/[id].vue",
+      "url": "/admin/manage/users/a8a4f54a-f622-4a58-a95f-b2d94dea4f5e",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "admin/manage/users/create.vue",
+      "url": "/admin/manage/users/create",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "admin/manage/users/index.vue",
+      "url": "/admin/manage/users",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "admin/setup.vue",
+      "url": "/admin/setup",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "admin/site-settings.vue",
+      "url": "/admin/site-settings",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "forgot-password.vue",
+      "url": "/forgot-password",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "login.vue",
+      "url": "/login",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "register/index.vue",
+      "url": "/register",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "reset-password.vue",
+      "url": "/reset-password",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "g/[groupSlug]/shared/r/[id].vue",
+      "url": "/g/home/shared/r/ccacaaaa-b315-4095-b3b1-29b357a8357c",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "index.vue",
+      "url": "/",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "g/[groupSlug]/index.vue",
+      "url": "/g/home",
+      "status": 200,
+      "frontend": "react",
+      "build": "2b409d4deadf1bc17acc5a4a6634e638feca52550caec23a7d6f23f6dd1493f8",
+      "scope": "Configured-group read-only pilot",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "g/[groupSlug]/r/[slug]/index.vue",
+      "url": "/g/home/r/e2e-pancakes",
+      "status": 200,
+      "frontend": "react",
+      "build": "2b409d4deadf1bc17acc5a4a6634e638feca52550caec23a7d6f23f6dd1493f8",
+      "scope": "Configured-group read-only pilot",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "g/[groupSlug]/cookbooks/index.vue",
+      "url": "/g/home/cookbooks",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "g/[groupSlug]/cookbooks/[slug].vue",
+      "url": "/g/home/cookbooks/e2e-cookbook",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "g/[groupSlug]/r/create.vue",
+      "url": "/g/home/r/create/new",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "g/[groupSlug]/r/create/index.vue",
+      "url": "/g/home/r/create",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "g/[groupSlug]/r/create/ai.vue",
+      "url": "/g/home/r/create/ai",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "g/[groupSlug]/r/create/bulk.vue",
+      "url": "/g/home/r/create/bulk",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "g/[groupSlug]/r/create/debug.vue",
+      "url": "/g/home/r/create/debug",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "g/[groupSlug]/r/create/html.vue",
+      "url": "/g/home/r/create/html",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "g/[groupSlug]/r/create/image.vue",
+      "url": "/g/home/r/create/image",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "g/[groupSlug]/r/create/new.vue",
+      "url": "/g/home/r/create/new",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "g/[groupSlug]/r/create/url.vue",
+      "url": "/g/home/r/create/url",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "g/[groupSlug]/r/create/zip.vue",
+      "url": "/g/home/r/create/zip",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "g/[groupSlug]/recipes/categories/index.vue",
+      "url": "/g/home/recipes/categories",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "g/[groupSlug]/recipes/tags/index.vue",
+      "url": "/g/home/recipes/tags",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "g/[groupSlug]/recipes/tools/index.vue",
+      "url": "/g/home/recipes/tools",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "g/[groupSlug]/recipes/finder/index.vue",
+      "url": "/g/home/recipes/finder",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "g/[groupSlug]/recipes/timeline.vue",
+      "url": "/g/home/recipes/timeline",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "group/index.vue",
+      "url": "/group",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "group/migrations.vue",
+      "url": "/group/migrations",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "group/reports/[id].vue",
+      "url": "/group/reports/ea2c172d-61f0-443b-b57a-d4ca97044ee0",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "group/data.vue",
+      "url": "/group/data/units",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "group/data/index.vue",
+      "url": "/group/data",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "group/data/foods.vue",
+      "url": "/group/data/foods",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "group/data/units.vue",
+      "url": "/group/data/units",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "group/data/labels.vue",
+      "url": "/group/data/labels",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "group/data/categories.vue",
+      "url": "/group/data/categories",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "group/data/tags.vue",
+      "url": "/group/data/tags",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "group/data/tools.vue",
+      "url": "/group/data/tools",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "group/data/recipes.vue",
+      "url": "/group/data/recipes",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "group/data/recipe-actions.vue",
+      "url": "/group/data/recipe-actions",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "household/index.vue",
+      "url": "/household",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "household/members.vue",
+      "url": "/household/members",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "household/notifiers.vue",
+      "url": "/household/notifiers",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "household/webhooks.vue",
+      "url": "/household/webhooks",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "household/mealplan/settings.vue",
+      "url": "/household/mealplan/settings",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "household/mealplan/planner.vue",
+      "url": "/household/mealplan/planner",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "household/mealplan/planner/view.vue",
+      "url": "/household/mealplan/planner/view",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "household/mealplan/planner/edit.vue",
+      "url": "/household/mealplan/planner/edit",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "shopping-lists/index.vue",
+      "url": "/shopping-lists",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "shopping-lists/[id].vue",
+      "url": "/shopping-lists/804b6a42-57df-43f5-adbe-6e09bd026157",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "user/profile/index.vue",
+      "url": "/user/profile",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "user/profile/edit.vue",
+      "url": "/user/profile/edit",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "user/profile/api-tokens.vue",
+      "url": "/user/profile/api-tokens",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    },
+    {
+      "file": "user/[id]/favorites.vue",
+      "url": "/user/1fb1ea8c-8d4b-4af0-8ca6-1edc281c61a8/favorites",
+      "status": 200,
+      "frontend": "vue",
+      "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231",
+      "scope": "Vue retained; not React migration",
+      "businessAssertion": "Separate frozen strict suite; ownership response alone is not business acceptance"
+    }
+  ],
+  "fixtureIds": {
+    "groupSlug": "home",
+    "householdSlug": "family",
+    "adminId": "1fb1ea8c-8d4b-4af0-8ca6-1edc281c61a8",
+    "memberId": "a8a4f54a-f622-4a58-a95f-b2d94dea4f5e",
+    "recipeSlug": "e2e-pancakes",
+    "recipeId": "230f8fc3-5d5e-488a-b25b-7ffd69c4ad93",
+    "recipe2Slug": "e2e-garden-salad",
+    "cookbookSlug": "e2e-cookbook",
+    "shoppingListId": "804b6a42-57df-43f5-adbe-6e09bd026157",
+    "sharedRecipeToken": "ccacaaaa-b315-4095-b3b1-29b357a8357c",
+    "reportId": "ea2c172d-61f0-443b-b57a-d4ca97044ee0",
+    "secondGroupId": "b5f61806-2e99-470c-a75c-33c4152c9e3b",
+    "secondHouseholdId": "0b75a4a3-cd64-4972-bb71-870d32401e1f",
+    "mealplanDate": "2026-10-14"
+  },
+  "disclaimer": "HTTP document ownership inventory supplements unchanged frozen business assertions."
+}

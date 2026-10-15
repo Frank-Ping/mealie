@@ -1,0 +1,13 @@
+{
+  "S2": {
+    "status": "exact_reported",
+    "input_tokens": 8195770,
+    "cached_input_tokens": 8108416,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 33264,
+    "reasoning_output_tokens": 8894,
+    "total_tokens": 8229034,
+    "final_reply_included": true,
+    "coverage_notes": []
+  }
+}

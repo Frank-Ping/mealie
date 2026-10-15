@@ -1,0 +1,13 @@
+{
+  "S1": {
+    "status": "provisional",
+    "input_tokens": 29753795,
+    "cached_input_tokens": 29447552,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 113344,
+    "reasoning_output_tokens": 61569,
+    "total_tokens": 29867139,
+    "final_reply_included": false,
+    "coverage_notes": []
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3032,
+    "byte_offset": 8683755,
+    "timestamp": "2026-10-14T06:37:48.592Z",
+    "turn_id": "01a13905-d942-7e23-8387-48f7946bf050",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf233652e48191bc090d4aac2e593f",
+      "status": "completed",
+      "call_id": "call_9e34325ff350484b8927504631707ca5",
+      "name": "exec",
+      "input": "text(await tools.write_stdin({session_id:43980,chars:\"\",yield_time_ms:1000,max_output_tokens:1000}));\ntext(await tools.exec_command({cmd:\"sed -n '268,310p' wf6-rerun-20261014-01/wf6-evidence/usage/collect_usage.py\\npython3 -B - <<'PY'\\nimport json\\nfrom pathlib import Path\\np=Path('wf6-rerun-20261014-01/wf6-evidence')\\nfor s in ['S1','S3','S4']:\\n d=json.loads((p/f'steps/{s}/token-usage.json').read_text()); print(s,{k:d.get(k) for k in ['status','final_reply_included','input_tokens','cached_input_tokens','output_tokens','reasoning_output_tokens','total_tokens']})\\nd=json.loads((p/'experiment-budget.json').read_text());print('budget',d)\\nd=json.loads((p/'steps/S4/source-state.json').read_text());print('acceptance',d.get('acceptance_commit'));print('clean',d['source']['dirty'],d['evaluator']['dirty'])\\nPY\",\"max_output_tokens\":2500}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13905-d942-7e23-8387-48f7946bf050",
+        "create_time": 1791959862.3268151
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3035,
+    "byte_offset": 8694084,
+    "timestamp": "2026-10-14T06:37:48.776Z",
+    "turn_id": "01a13905-d942-7e23-8387-48f7946bf050",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13921-a568-7880-b5c5-04dab76a51d2",
+      "call_id": "call_9e34325ff350484b8927504631707ca5",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"6a439f\",\"wall_time_seconds\":0.000010077,\"exit_code\":0,\"original_token_count\":212,\"output\":\"{\\\"command_id\\\": \\\"20261014T063731-7cb33de4\\\", \\\"stage_id\\\": \\\"S4\\\", \\\"label\\\": \\\"S4-provisional-usage-and-budget-tail\\\", \\\"argv\\\": [\\\"python3\\\", \\\"-B\\\", \\\"wf6-evidence/usage/collect_usage.py\\\", \\\"finalize\\\", \\\"--stage\\\", \\\"S4\\\", \\\"--wait-seconds\\\", \\\"0\\\"], \\\"cwd\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01\\\", \\\"start_utc\\\": \\\"2026-10-14T06:37:31.552750+00:00\\\", \\\"end_utc\\\": \\\"2026-10-14T06:37:45.649920+00:00\\\", \\\"duration_seconds\\\": 14.09717899199677, \\\"exit_code\\\": 0, \\\"stdout\\\": \\\"steps/S4/logs/20261014T063731-7cb33de4.stdout.log\\\", \\\"stderr\\\": \\\"steps/S4/logs/20261014T063731-7cb33de4.stderr.log\\\", \\\"environment_overrides\\\": {}, \\\"permission\\\": \\\"workspace-write; network restricted; no escalation\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"3ae0b0\",\"wall_time_seconds\":0.000010672,\"exit_code\":0,\"original_token_count\":1486,\"output\":\"def manifest(evidence):\\n    rows=[]\\n    for file in sorted(evidence.rglob(\\\"*\\\")):\\n        if file.is_file() and file.name!=\\\"evidence-manifest.json\\\":\\n            data=file.read_bytes();rows.append(dict(path=str(file.relative_to(evidence)),bytes=len(data),sha256=hashlib.sha256(data).hexdigest()))\\n    write_json(evidence/\\\"evidence-manifest.json\\\",dict(updated_utc=now(),self_included=False,files=rows))\\n\\ndef collect(config_path):\\n    config=json.loads(config_path.read_text());evidence=config_path.parent.parent\\n    records,issues=read_log(Path(config[\\\"source_log\\\"]))\\n    result=analyze(records,config,issues)\\n    archive=evidence/\\\"usage/exports\\\";archive.mkdir(exist_ok=True)\\n    previous=evidence/\\\"usage/usage-ledger.json\\\"\\n    if previous.exists():\\n        old=previous.read_bytes();digest=hashlib.sha256(old).hexdigest()\\n        path=archive/(digest+\\\".json\\\")\\n        if not path.exists():path.write_bytes(old)\\n    write_lines(evidence/\\\"usage/raw-token-events.jsonl\\\",result[\\\"raw\\\"])\\n    write_lines(evidence/\\\"usage/stage-boundaries.jsonl\\\",result[\\\"boundaries\\\"])\\n    write_json(evidence/\\\"usage/session-schema.json\\\",dict(source=config[\\\"source_log\\\"],session_id=config[\\\"session_id\\\"],contexts=result[\\\"contexts\\\"],\\n        authoritative_schema=\\\"token_usage_record: session_id/thread_id/turn_id/response_id, usage, turn_token_usage, thread_token_usage\\\",\\n        legacy_policy=\\\"Preserved token_count events never contribute to totals.\\\",issues=result[\\\"issues\\\"]))\\n    ledger=dict(run_id=config[\\\"run_id\\\"],updated_utc=now(),stages=result[\\\"stages\\\"],preparation=result[\\\"preparation\\\"],extra_discussion=result[\\\"extra_discussion\\\"],\\n        old_run=dict(path=str(Path(config[\\\"workspace_root\\\"])/\\\"wf6-evidence\\\"),policy=\\\"Historical record only; untouched and excluded from new-run sums.\\\"),\\n        migration_troubleshooting=dict(status=\\\"not_provided\\\",tokens=None,source=\\\"User handoff summary; no original desktop transcript imported.\\\"))\\n    categories={}\\n    for label,stage_ids in ((\\\"S0_setup\\\",[\\\"S0\\\"]),(\\\"S1_baseline\\\",[\\\"S1\\\"]),(\\\"S2_S6_experiment\\\",[f\\\"S{i}\\\" for i in range(2,7)]),(\\\"S7_reporting\\\",[\\\"S7\\\"])):\\n        selected=[s for s in result[\\\"stages\\\"] if s[\\\"stage_id\\\"] in stage_ids and s[\\\"status\\\"]!=\\\"not_executed\\\"]\\n        known={k:sum(s[\\\"known_partial_usage\\\"][k] for s in selected)\\n               if selected and all(s[\\\"known_partial_usage\\\"].get(k) is not None for s in selected) else None for k in FIELDS}\\n        categories[label]=dict(stage_ids=stage_ids,status=\\\"not_executed\\\" if not selected else \\\"exact_reported\\\" if all(s[\\\"status\\\"]==\\\"exact_reported\\\" for s in selected) else \\\"provisional\\\" if all(s[\\\"status\\\"] in (\\\"exact_reported\\\",\\\"provisional\\\") for s in selected) else \\\"partial\\\",\\n            known_usage=known,missing_coverage=[s[\\\"stage_id\\\"] for s in selected if s[\\\"status\\\"] in (\\\"partial\\\",\\\"not_provided\\\")],cost=None)\\n    ledger[\\\"categories\\\"]=categories\\n    write_json(previous,ledger)\\n    names=[\\\"stage_id\\\",\\\"status\\\",\\\"session_id\\\",\\\"turn_ids\\\",*FIELDS,\\\"final_reply_included\\\",\\\"source_log\\\",\\\"coverage_notes\\\"]\\n    for target in (evidence/\\\"usage/usage-ledger.csv\\\",evidence/\\\"usage-ledger.csv\\\"):\\n        with target.open(\\\"w\\\",newline=\\\"\\\") as stream:\\n            writer=csv.DictWriter(stream,fieldnames=names);writer.writeheader()\\n            for row in result[\\\"stages\\\"]:writer.writerow({k:json.dumps(row[k]) if isinstance(row[k],list) else row[k] for k in names})\\n    md=[\\\"# WF6 usage / 用量\\\", \\\"\\\", \\\"Total = input + output; cached and reasoning are subsets. Costs and human review time: not provided / 未提供.\\\",\\\"\\\",\\n        \\\"| Step | Status | Input | Cached | Output | Reasoning | Total | Final reply |\\\",\\\"|---|---|---:|---:|---:|---:|---:|---|\\\"]\\n    for row in result[\\\"stages\\\"]:\\n        folder=evidence/\\\"steps\\\"/row[\\\"stage_id\\\"];folder.mkdir(parents=True,exist_ok=True)\\nS1 {'status': 'partial', 'final_reply_included': True, 'input_tokens': None, 'cached_input_tokens': None, 'output_tokens': None, 'reasoning_output_tokens': None, 'total_tokens': None}\\nS3 {'status': 'exact_reported', 'final_reply_included': True, 'input_tokens': 9453881, 'cached_input_tokens': 9373952, 'output_tokens': 45946, 'reasoning_output_tokens': 22868, 'total_tokens': 9499827}\\nS4 {'status': 'provisional', 'final_reply_included': False, 'input_tokens': 6527497, 'cached_input_tokens': 6439424, 'output_tokens': 44947, 'reasoning_output_tokens': 20509, 'total_tokens': 6572444}\\nbudget {'limit_seconds': 10800, 'first_start_utc': '2026-10-14T04:01:41.937Z', 'stages': ['S2', 'S3', 'S4', 'S5', 'S6'], 'segments': [{'stage': 'S2', 'turn_id': '01a13892-b6c1-7071-9c17-b99219e2ebb6', 'start_utc': '2026-10-14T04:01:41.937Z', 'end_utc': '2026-10-14T04:24:11.702Z', 'elapsed_seconds': 1349.765, 'status': 'closed'}, {'stage': 'S3', 'turn_id': '01a138ae-0211-7bd3-bb3e-6360185acb50', 'start_utc': '2026-10-14T04:31:30.756Z', 'end_utc': '2026-10-14T05:00:35.156Z', 'elapsed_seconds': 1744.4, 'status': 'closed'}, {'stage': 'S4', 'turn_id': '01a13905-d942-7e23-8387-48f7946bf050', 'start_utc': '2026-10-14T06:07:27.424Z', 'end_utc': '2026-10-14T06:37:33.524708+00:00', 'elapsed_seconds': 1806.100708, 'status': 'provisional_active'}], 'policy': 'Only authorized model/tool execution segments. Exclude S0, preparation, S1, between-turn human pauses and S7. This first segment begins at the actual S2 request.', 'known_execution_seconds': 4900.265708, 'remaining_seconds': 5899.734292, 'excluded_between_turn_intervals': [{'start_utc': '2026-10-14T04:24:11.702Z', 'end_utc': '2026-10-14T04:31:30.756Z', 'elapsed_seconds': 439.054, 'category': 'human_pause/between_authorized_turns', 'activity': 'Not provided; elapsed gap is excluded from model/tool execution. Human review time is not inferred.'}, {'start_utc': '2026-10-14T05:00:35.156Z', 'end_utc': '2026-10-14T06:07:27.424Z', 'elapsed_seconds': 4012.268, 'category': 'human_pause/between_authorized_turns', 'activity': 'Not provided; excluded elapsed gap, not inferred review activity.'}]}\\nacceptance b977deed0fec5de86bee28a5cacc5f99ed5ced53\\nclean False False\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13905-d942-7e23-8387-48f7946bf050",
+        "create_time": 1791959868.7762527
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 738,
+    "byte_offset": 2908999,
+    "timestamp": "2026-10-14T02:10:25.821Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acee48a9408819182da7aa1752d22ea",
+      "status": "completed",
+      "call_id": "call_15972ac4a6bf4454ae99e2f5224178c9",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 -B wf6-rerun-20261014-01/wf6-evidence/usage/record_command.py --stage S1 --cwd '<WORKSPACE>/wf6-rerun-20261014-01' --label settle-P1-before-S1-baseline -- python3 -B wf6-evidence/usage/finalize_preparation.py --preparation-id P1-audit-dependencies\\nsed -n '1,95p' wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/tests/routes.spec.ts\\nsed -n '1,55p' wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/nuxt.config.ts\\nrg -n 'typecheck|vue-tsc' wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/nuxt@*/node_modules/nuxt/dist/cli* wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.pnpm/@nuxt+cli@*/node_modules/@nuxt/cli/dist/commands/typecheck* \",max_output_tokens:2300,yield_time_ms:1000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791943818.582314
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 740,
+    "byte_offset": 2911138,
+    "timestamp": "2026-10-14T02:10:26.991Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a1382c-de2f-7180-965b-ba0bd2dbccab",
+      "call_id": "call_15972ac4a6bf4454ae99e2f5224178c9",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 1.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"911885\",\"wall_time_seconds\":1.001277593,\"session_id\":69729,\"original_token_count\":0,\"output\":\"\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791943826.9914641
+      }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3232,
+    "byte_offset": 9434105,
+    "timestamp": "2026-10-14T07:36:36.026Z",
+    "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf3101a8f48191a6bd4c919f91daaf",
+      "status": "completed",
+      "call_id": "call_a7a49701cc7b4933b3fe25b310567cf3",
+      "name": "exec",
+      "input": "text(await tools.write_stdin({session_id:61710,chars:\"\",yield_time_ms:1000,max_output_tokens:1000}));\ntext(await tools.exec_command({cmd:\"tail -100 wf6-rerun-20261014-01/wf6-evidence/steps/S5/logs/20261014T073502-06a4994d.stdout.log\",\"max_output_tokens\":3200}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+        "create_time": 1791963393.6625996
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3235,
+    "byte_offset": 9441986,
+    "timestamp": "2026-10-14T07:36:36.219Z",
+    "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13957-787b-7d52-a0c7-d2034ee885f4",
+      "call_id": "call_a7a49701cc7b4933b3fe25b310567cf3",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"1d7a63\",\"wall_time_seconds\":0.000012073,\"exit_code\":1,\"original_token_count\":204,\"output\":\"{\\\"command_id\\\": \\\"20261014T073425-9430c5d5\\\", \\\"stage_id\\\": \\\"S5\\\", \\\"label\\\": \\\"S5-isolated-browser-and-detection-negative\\\", \\\"argv\\\": [\\\"python3\\\", \\\"-B\\\", \\\"wf6-evidence/usage/run_s5.py\\\"], \\\"cwd\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01\\\", \\\"start_utc\\\": \\\"2026-10-14T07:34:25.395979+00:00\\\", \\\"end_utc\\\": \\\"2026-10-14T07:36:21.039350+00:00\\\", \\\"duration_seconds\\\": 115.64339173799817, \\\"exit_code\\\": 1, \\\"stdout\\\": \\\"steps/S5/logs/20261014T073425-9430c5d5.stdout.log\\\", \\\"stderr\\\": \\\"steps/S5/logs/20261014T073425-9430c5d5.stderr.log\\\", \\\"environment_overrides\\\": {}, \\\"permission\\\": \\\"Approved bounded S5 loopback backend/gateway/Chromium; sandbox retained\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"b71a7b\",\"wall_time_seconds\":0.000012799,\"exit_code\":0,\"original_token_count\":1351,\"output\":\"\\nRunning 8 tests using 1 worker\\n\\n  ✓  1 ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S5/tests/s5-browser-tests.cjs:15:1 › real read-only recipe UI, keyboard link, direct refresh and retained Vue round trip (2.8s)\\n  ✓  2 ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S5/tests/s5-browser-tests.cjs:35:1 › loading, real empty search, clear restoration and real missing-detail error (4.9s)\\n  ✓  3 ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S5/tests/s5-browser-tests.cjs:51:1 › business rendering retains explicit Vue/mode/group boundaries (1.3s)\\n  ✓  4 ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S5/tests/s5-extra-tests.cjs:10:1 › [Mixed] login search detail Vue shopping return and browser history (3.3s)\\n  ✓  5 ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S5/tests/s5-extra-tests.cjs:22:1 › [Boundary] complete route matrix and missing assets are real 404 (2.5s)\\n  ✘  6 ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S5/tests/s5-extra-tests.cjs:29:1 › [Boundary] anonymous and expired real 401 do not request recipe data (45.1s)\\n  ✓  7 ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S5/tests/s5-extra-tests.cjs:34:1 › [Boundary] real second-group user cannot read pilot data (2.6s)\\n  ✓  8 ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S5/tests/s5-extra-tests.cjs:41:1 › [React] injected API 500 stays visible and Retry restores real backend (2.4s)\\n\\n\\n  1) ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S5/tests/s5-extra-tests.cjs:29:1 › [Boundary] anonymous and expired real 401 do not request recipe data \\n\\n    Test timeout of 45000ms exceeded.\\n\\n    Error: page.waitForResponse: Test timeout of 45000ms exceeded.\\n\\n      29 | test('[Boundary] anonymous and expired real 401 do not request recipe data',async({page,context})=>{\\n      30 |  const f=fixtures();let recipes=0;page.on('request',r=>{if(new URL(r.url()).pathname.startsWith('/api/recipes'))recipes++;});\\n    > 31 |  for(const expired of [false,true]){await context.clearCookies();if(expired)await context.addCookies([{name:'mealie.access_token',value:'[REDACTED]',url:process.env.WF6_GATEWAY_ORIGIN}]);const self=page.waitForResponse(r=>new URL(r.url()).pathname==='/api/users/self');await page.goto(`/g/${f.groupSlug}?probe=auth#preserve`);expect((await self).status()).toBe(401);await expect(page.locator('[data-wf6-session=\\\"vue-required\\\"]')).toContainText('401');await expect(page.locator('[data-wf6-business]')).toHaveCount(0);expect(recipes).toBe(0);await expect(page.getByRole('link',{name:'Use Vue login'})).toBeVisible();}\\n         |                                                                                                                                                                                                                      ^\\n      32 |  const navigation=page.waitForResponse(r=>r.request().isNavigationRequest());await page.getByRole('link',{name:'Use explicit Vue entry'}).click();expect((await navigation).headers()['x-wf6-frontend']).toBe('vue');expect(page.url()).toContain('probe=auth');expect(page.url()).toContain('#preserve');save({category:'boundary',test:'anonymous_expired_real401',status:'PASS',recipeRequests:recipes});\\n      33 | });\\n      34 | test('[Boundary] real second-group user cannot read pilot data',async({page,context})=>{\\n        at /tmp/wf6-rerun-20261014-01-S5/tests/s5-extra-tests.cjs:31:214\\n\\n    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────\\n    ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S5/browser/test-results/s5-extra-tests.cjs--Bounda-27bde--do-not-request-recipe-data/test-failed-1.png\\n    ────────────────────────────────────────────────────────────────────────────────────────────────\\n\\n    Error Context: ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S5/browser/test-results/s5-extra-tests.cjs--Bounda-27bde--do-not-request-recipe-data/error-context.md\\n\\n    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────\\n    ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S5/browser/test-results/s5-extra-tests.cjs--Bounda-27bde--do-not-request-recipe-data/trace.zip\\n    Usage:\\n\\n        npx playwright show-trace ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S5/browser/test-results/s5-extra-tests.cjs--Bounda-27bde--do-not-request-recipe-data/trace.zip\\n\\n    ────────────────────────────────────────────────────────────────────────────────────────────────\\n\\n  1 failed\\n    ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S5/tests/s5-extra-tests.cjs:29:1 › [Boundary] anonymous and expired real 401 do not request recipe data \\n  7 passed (1.2m)\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+        "create_time": 1791963396.2195082
+      }
+    }
+  }
+}

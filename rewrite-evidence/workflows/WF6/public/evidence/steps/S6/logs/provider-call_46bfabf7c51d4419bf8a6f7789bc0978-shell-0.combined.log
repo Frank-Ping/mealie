@@ -1,0 +1,24 @@
+{
+  "command_id": "20261014T093635-74651b1a",
+  "stage_id": "S6",
+  "label": "S6-C3-stage-only-successful-acceptance-record",
+  "argv": [
+    "git",
+    "-C",
+    "mealie-wf6-coexist",
+    "add",
+    "rewrite-evidence/workflows/WF6/S6-C3-RESULT.md"
+  ],
+  "cwd": "<WORKSPACE>/wf6-rerun-20261014-01",
+  "start_utc": "2026-10-14T09:36:35.907539+00:00",
+  "end_utc": "2026-10-14T09:36:35.951053+00:00",
+  "duration_seconds": 0.04351819300063653,
+  "exit_code": 0,
+  "stdout": "steps/S6/logs/20261014T093635-74651b1a.stdout.log",
+  "stderr": "steps/S6/logs/20261014T093635-74651b1a.stderr.log",
+  "environment_overrides": {},
+  "permission": "workspace-write; network restricted; no escalation",
+  "environment_capture": "Only explicit non-secret overrides; inherited secrets are not exported.",
+  "launch_error": null,
+  "stdin_path": null
+}

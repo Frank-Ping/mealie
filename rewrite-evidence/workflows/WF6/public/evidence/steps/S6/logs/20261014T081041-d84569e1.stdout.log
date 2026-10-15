@@ -1,0 +1,16 @@
+✔ list search encodes real query/pagination; clear search removes the filter (1.124003ms)
+✔ ingredient display, original text, structured quantity/unit/food/note and zero fallback (0.129718ms)
+✔ recipe links encode group and slug rather than concatenating unsafe segments (0.074036ms)
+✔ list adapter verifies identity before requesting owned data (32.404035ms)
+✔ changed identity refuses recipe request rather than showing a new group (0.730194ms)
+✔ foreign recipe group is rejected even after a valid self response (0.71407ms)
+✔ detail slug is URL encoded and group ownership validated (0.341784ms)
+✔ 401 is a session failure and 404 remains an explicit detail error (0.949445ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 147.759393

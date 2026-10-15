@@ -1,0 +1,129 @@
+Warning: truncated output (original token count: 4037)
+Total output lines: 148
+
+mealie-wf6-coexist/rewrite-evidence/baseline/coverage-by-area.txt
+mealie-wf6-coexist/rewrite-evidence/baseline/vitest-results.json.gz
+mealie-wf6-coexist/rewrite-evidence/baseline/BASELINE.md
+mealie-wf6-coexist/rewrite-evidence/runs/20260929T231339Z-frontend-P0-vue-baseline/install.log
+mealie-wf6-coexist/rewrite-evidence/runs/20260929T231339Z-frontend-P0-vue-baseline/eslint.json.gz
+mealie-wf6-coexist/rewrite-evidence/runs/20260929T231339Z-frontend-P0-vue-baseline/e2e.log
+mealie-wf6-coexist/rewrite-evidence/runs/20260929T231339Z-frontend-P0-vue-baseline/e2e-results.json.gz
+mealie-wf6-coexist/rewrite-evidence/runs/20260929T231339Z-frontend-P0-vue-baseline/e2e-install.log
+mealie-wf6-coexist/rewrite-evidence/runs/20260929T231339Z-frontend-P0-vue-baseline/build.log
+mealie-wf6-coexist/rewrite-evidence/runs/20260929T231339Z-frontend-P0-vue-baseline/types.log
+mealie-wf6-coexist/rewrite-evidence/runs/20260929T231339Z-frontend-P0-vue-baseline/types-install.log
+mealie-wf6-coexist/rewrite-evidence/runs/20260929T231339Z-frontend-P0-vue-baseline/lint.log
+# WF4 R2 Vue baseline
+
+Steps 1 and 2 are complete. The original Vue source was measured without modification. No conversion rules or React rewrite have been started.
+
+## Fixed versions
+
+- Source commit: `4b9ca06b6581f7152e164ea0fd9d4da366975a79`.
+- Branch: `rewrite/wf4-codemod-rerun`.
+- Evaluator commit: `758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d`.
+- Node 24.19.0; pnpm 11.23.0; Python 3.14.4; uv 0.11.26; Playwright 1.63.0.
+
+## Fresh results
+
+| Measurement | Result |
+| --- | --- |
+| Build | Passed, 14 seconds |
+| Unit tests | 517 passed, 0 failed, 0 skipped |
+| Lint | 0 errors, 0 warnings |
+| Vue type checker | 314 diagnostics; exit 2 |
+| Routes, all scopes, strict | 66/66 |
+| User flows | 15/15 |
+| Playwright total | 82 passed: 66 routes, 15 flows, 1 route-table guard |
+| Statement coverage | 15.1% (1959/12968) |
+| Page statement coverage | 1.82% |
+| Composable statement coverage | 49.45% |
+| Static counters | any 88; TODO 16; expect 817; test files 48 |
+| Measurement duration | 210 seconds, excluding initial tool/backend/browser setup and separate coverage run |
+| Source dirty flag | 0 |
+
+## Evidence
+
+- Run ID: `20261013T085845Z-source_frontend-WF4-R2-Vue-baseline`.
+- Raw results: `runs/20261013T085845Z-source_frontend-WF4-R2-Vue-baseline/`.
+- `metrics.csv` retains historical evaluator rows and appends the new WF4-R2 baseline.
+- `metrics-before-run.csv` separates the historical rows from this run.
+- `baseline.json` was independently checked against the saved Vitest, ESLint, Playwright and type-checker reports.
+- `coverage/coverage-summary.json` and `coverage.log` come from a separate fresh coverage execution of the same 517 tests.
+- `environment.json` records fixed inputs, hashes and the actual execution environment.
+- `measurement.log` and `dependencies.log` retain execution and preparation logs.
+
+## Interpretation and limits
+
+The type checker does not pass at baseline. These 314 diagnostics are present before rewriting and must not be described as regressions introduced by WF4-R2. The older group record has 315; the exact reason for the one-diagnostic difference has not been established, and this new result is retained without changing source or tests.
+
+The tests used the real local FastAPI backend with a fresh disposable SQLite database and browser. The backend was stopped by Playwright after the run; this is evidence of a completed browser run, not an ongoing deployed app.
+
+Canonical source and evaluator checkouts remain in the Windows workspace. Dependency preparation on OneDrive was slow, so execution used identical pinned-commit copies in WSL /var/tmp. The execution path is recorded in `execution-root.txt`. No runtime input or test assertion was modified.
+
+The evaluator is newer than the historical WF4 branch point, and available WSL memory is about 15 GiB instead of the earlier 3.8 GiB environment. Use the same evaluator and environment for subsequent WF4-R2 checkpoints, and acknowledge these differences in comparisons with earlier workflows.
+
+The next stage is Phase A: write and review the rule catalogue. The original baseline code and evidence should remain unchanged.
+S0 要将以下要求写入实验中的 `rewrite-evidence/workflows/WF6/WF6-CONTRACT.md`。S1–S7 的两种语言版本均引用同一份契约。
+
+S0 writes these requirements into the experiment's `rewrite-evidence/workflows/WF6/WF6-CONTRACT.md`. Both language versions of S1–S7 use the same contract.
+
+### 实验边界 Experiment boundaries
+
+- Workflow：同一入口按路由运行 Vue 或 React，跨边界整页跳转，显式开关退回全 Vue。使用一个实施代理。
+  One implementation agent; route-level Vue/React coexistence at one entry point, document navigation across boundaries, and explicit all-Vue rollback.
+- 输入：原 Vue commit `4b9ca06b6581f7152e164ea0fd9d4da366975a79`；evaluator commit `758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d`。先验证对象存在与内容来源。
+  Verify and pin those source and evaluator commits before use.
+- 独立目录：`mealie-wf6-coexist/`、`mealie-wf6-evaluator/`、`wf6-evidence/`。创建前检查，不覆盖已有内容；存在已识别的 WF6 工作时核对后继续，不能重置。
+  Use separate directories. Inspect existing content and continue verified WF6 work without overwriting or resetting it.
+- 分支：`rewrite/wf6-route-coexistence`。不复制其他 workflow 的 React 实现、codemod 或语义适配；原始 Vue、生成类型、locale 和冻结测试是共享输入。
+  Use the dedicated branch. Do not copy another workflow's target implementation or converters; only frozen source resources and evaluator inputs are shared.
+- 不修改旧 workflow、原报告、后端 API/schema 或 evaluator 断言。Vue 只增加必要的边界 middleware；React 使用计划里的 target stack，代码注释用英文。
+  Preserve earlier experiments, reports, backend API/schema and evaluator assertions. Add only the necessary Vue boundary middleware. Use the planned React stack and English code comments.
+- 代理必须在 sandbox 中运行并记录工具权限，不向代理提供 upstream repository、package registry 或 production service 凭据。公开依赖使用匿名访问；只允许本实验隔离的测试账号凭据。
+  Run the agent in a sandbox and record tool permissions. Do not provide upstream-repository, package-registry or production-service credentials. Access public dependencies anonymously and use only isolated local test credentials.
+- 第一轮只迁移已认证用户所属配置 group 的列表、搜索、只读详情；其他领域和高级功能继续由 Vue 提供。
+  Limit the pilot to the configured user's group a…637 tokens truncated…
+   Token deltas, cumulative boundaries, raw-event locators, coverage status and final-reply inclusion.
+
+同时更新全局 `EVIDENCE_INDEX.md`、`PROGRESS.md`、`decisions.jsonl`、`timing.csv` 和 `usage/usage-ledger.csv`。实现提交按 `[WF6-Sn]` 标识；证据来自测量时的实际源码，不以起始 commit 冒充完整快照。可分享的证据移除密码、cookie 和 bearer 值，但保留接口、状态码与去敏说明。
+
+Maintain the global index, progress, actual decision log, timing and usage ledger. Prefix commits `[WF6-Sn]` and identify the measured source snapshot. Redact credentials and tokens from shareable evidence while preserving request paths, status codes and a redaction note.
+
+原始包和全局索引位于兄弟目录 `wf6-evidence/`，不能从实验 checkout 直接提交。可提交的 `BASELINE.md`、`comparison-baseline.json`、阶段小结、`WF6-RESULTS.md`、`WF6-REPORT-MATERIAL.md` 和索引指针放在 `mealie-wf6-coexist/rewrite-evidence/workflows/WF6/`，链接外部原始证据。`[WF6-Sn]` 提交只包含 checkout 内的实现与这些小型文件。不要为提交兄弟目录而在整个工作区根目录初始化 Git。
+
+Raw bundles and the global index live in sibling `wf6-evidence/`, outside the experiment checkout's commit scope. Put committable baseline/comparison documents, step summaries, WF6-RESULTS.md, WF6-REPORT-MATERIAL.md and index pointers under `mealie-wf6-coexist/rewrite-evidence/workflows/WF6/`, linking to external raw evidence. `[WF6-Sn]` commits include only checkout implementation and these small documents. Do not initialize Git in the parent workspace to capture sibling evidence.
+
+### Token 口径 Token accounting
+
+- 每步用用户消息标记 `[[WF6:S0:START]]` 至 `[[WF6:S7:START]]` 开始，以可见最终答复末尾 `[[WF6:Sn:END]]` 标明本步工作结束。
+  Use explicit user START markers and visible final-reply END markers for every step.
+- 明确记录 session ID、实际 turn ID、原日志路径、行号/byte offset、模型与设置、开始前累计计数和结束累计计数。
+  Record session/turn identity, log source and event locations, model/settings, and start/end cumulative counters.
+- `total = input + output`。cached input 是 input 的子集，reasoning output 是 output 的子集。若 provider 暴露 cache-write，单列其原始字段和语义；不重复相加。
+  Total equals input plus output. Cached input and reasoning output are subsets. Preserve any cache-write field separately without double counting.
+- 只计算累计计数的差额，不直接相加累计快照。不用账号用量百分比或保存文本的 token 估计冒充 provider usage；未知费用写“未提供”。
+  Sum non-overlapping deltas, never cumulative snapshots. Account percentages and text-volume estimates are not provider usage; unavailable monetary cost remains unavailable.
+- 开始边界取 START 用户消息之前、能确认身份的最后累计事件。无可靠边界不能假定为零；字段缺失写 null/未提供，未发送步骤记 not_executed。
+  Use the last verified cumulative event before START. Missing boundaries or fields remain null; an unsent step is not_executed, not a fabricated usage value.
+- 有重复事件、counter reset、compaction、fork、会话更换或跨步迟到事件时保留原始记录、分段、去重并标明质量。不能把负差额截为零或把继承历史重算。未能准确恢复的数据标 partial。
+  Preserve and audit duplicates, resets, compaction, forks, session changes and late events. Split counter epochs, avoid inherited-history duplication, and mark unrecoverable gaps partial.
+- prompt 已发送但步骤阻塞、失败或中断，仍计入该步真实 tokens。修复与澄清消息使用 `[[WF6:Sn:CONTINUE]]`，继续归入同一步；明确关闭步骤后的额外讨论单列。
+  Count blocked/failed/interrupted execution. CONTINUE messages retain the same step; discussion after explicit closure is tracked separately.
+- CONTINUE 重开已结算步骤时，collector 用 `segments[]` 保存互不重叠的区间，查找最新 CONTINUE 所属 turn 的最终 END 和对应 usage。保留旧统计版本，但用新的阶段合计替换当前行，不把新累计合计再加到旧结果。关闭与重开之间的额外讨论独立计量，不被首次 START 至最新 END 的整体差值吞入。
+  On CONTINUE after settlement, store disjoint segments[] and locate the latest CONTINUE turn's final END and matching usage. Preserve older exports but replace the current step total rather than adding the new cumulative total to the old one. Keep intervening discussion outside those segments.
+- 重复 START 必须按实际用户消息身份、时间和日志位置识别。先判定它是重复指令、续跑或明确新尝试；不得仅因相同标记出现而重置计量、丢掉失败或重复计算继承历史。
+  Identify repeated START messages by actual identity, time and log location, then distinguish duplicate instructions, continuation and explicit new attempts. Repeated marker text alone must not reset accounting, erase failures or duplicate inherited history.
+- 本步最后回复前，更新 provisional 数值，并明确 `final_reply_included=false`。下一步开始先结算上一步，或用户在终端 finalize。S7 最后回复后由用户运行 collector 收尾。
+  Before replying, write provisional usage with final_reply_included=false. Settle it at the next step or externally. Finalize S7 externally after its final reply.
+- collector 只能在确认最后答复与对应 usage 均已落盘、且无身份/边界歧义时标 exact_reported。稳定文件大小本身不证明最后事件已计入；不确定时继续 provisional/partial。
+  exact_reported requires both the final reply and its matching usage plus valid boundaries. A stable file size alone is insufficient.
+- 最终汇总按互不重叠的步骤和额外讨论区间计算；分别报告 S0 准备、S1 baseline、S2–S6 实验、S7 报告整理。已知部分与缺失部分分开。
+  Sum disjoint windows and separate preparation, baseline, experiment, reporting and any extra discussion. Report known usage and missing coverage separately.
+
+### 每步回复格式 Per-step reply format
+
+本步完成或停止时，回复应简洁列出：实际完成、gate、关键证据文件、失败/限制、input/cached/output/reasoning/total、provisional 或 exact 状态、下一步。结尾写对应 END 标记；不自动执行下一步。
+
+At completion or stop, report actual work, gate, key evidence, failures/limits, input/cached/output/reasoning/total usage, coverage status and next step. End with the step's END marker and do not execute the next step automatically.
+

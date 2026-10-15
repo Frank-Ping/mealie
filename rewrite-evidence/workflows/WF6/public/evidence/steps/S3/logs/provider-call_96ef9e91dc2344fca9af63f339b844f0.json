@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2475,
+    "byte_offset": 6945653,
+    "timestamp": "2026-10-14T04:36:09.771Z",
+    "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf068c49a4819184990ee42e39220f",
+      "status": "completed",
+      "call_id": "call_96ef9e91dc2344fca9af63f339b844f0",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 - <<'PY'\\nfrom pathlib import Path\\nimport json\\np=Path('wf6-rerun-20261014-01/mealie-wf6-coexist/wf6/route-map.json');m=json.loads(p.read_text());m.update(stage='S3',takeoverEnabled=True,groupSlug='home',activeReactRoutes=m['candidateReactRoutes'],vueModes=['edit','parse','cook'],excludedSlugs=['create','shared'],navigation='React skeleton only. Vue/React boundary uses shared route-policy.mjs and document navigation; explicit wf6=vue suppresses takeover.');p.write_text(json.dumps(m,indent=2)+'\\\\n')\\nPY\",\"max_output_tokens\":200}));\ntext(await tools.apply_patch(\"*** Begin Patch\\n*** Update File: <WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/wf6/gateway.mjs\\n@@\\n import { fileURLToPath } from 'node:url';\\n+import { ownsReact } from './route-policy.mjs';\\n@@\\n-export async function createGateway({ vueDir, backendOrigin, routeMapPath = fileURLToPath(new URL('./route-map.json', import.meta.url)), buildHash }) {\\n+export async function createGateway({ vueDir, reactDir, reactBuildHash, backendOrigin, routeMapPath = fileURLToPath(new URL('./route-map.json', import.meta.url)), buildHash }) {\\n@@\\n-  if (map.takeoverEnabled || map.defaultFrontend !== 'vue' || map.activeReactRoutes.length) throw new Error('S2 supports verified all-Vue mode only. React takeover must remain disabled.');\\n+  if (map.defaultFrontend !== 'vue') throw new Error('Unowned routes must remain Vue-owned.');\\n+  const reactRoot = reactDir ? await realpath(reactDir) : null;\\n+  if (map.takeoverEnabled && (!reactRoot || !reactBuildHash || !map.groupSlug)) throw new Error('Enabled takeover requires the verified React build and configured group.');\\n+  if (map.takeoverEnabled) await stat(path.join(reactRoot, 'index.html'));\\n@@\\n       if (pathname === '/_wf6/route-map.json') {\\n@@\\n       }\\n       if (pathname.split('/').some(part => part.startsWith('.'))) return fail(404, 'Not found');\\n-      let file = path.resolve(root, '.' + pathname);\\n-      if (!file.startsWith(root + path.sep) && file !== root) return fail(400, 'Invalid path');\\n+      // Decide HTML ownership before any backend metadata handling. React failure\\n+      // remains visible; enabled takeover never falls through to a Vue build.\\n+      const reactAsset = pathname.startsWith('/_wf6/');\\n+      const reactDocument = ownsReact(req.url, map);\\n+      if ((reactAsset || reactDocument) && !reactRoot) return fail(503, 'Verified React build unavailable');\\n+      const selectedRoot = reactAsset || reactDocument ? reactRoot : root;\\n+      let file = reactDocument ? path.join(selectedRoot, 'index.html') : path.resolve(selectedRoot, '.' + (reactAsset ? pathname.slice('/_wf6'.length) : pathname));\\n+      if (!file.startsWith(selectedRoot + path.sep) && file !== selectedRoot) return fail(400, 'Invalid path');\\n@@\\n-        file = path.join(root, 'index.html'); info = await stat(file);\\n+        file = path.join(selectedRoot, 'index.html'); info = await stat(file);\\n@@\\n-      if (!resolved.startsWith(root + path.sep)) return fail(404, 'Not found');\\n+      if (!resolved.startsWith(selectedRoot + path.sep)) return fail(404, 'Not found');\\n@@\\n-      res.writeHead(200, { 'content-type': type, 'content-length': info.size, 'x-wf6-frontend': 'vue', 'x-wf6-build': buildHash,\\n+      res.writeHead(200, { 'content-type': type, 'content-length': info.size, 'x-wf6-frontend': reactAsset || reactDocument ? 'react' : 'vue', 'x-wf6-build': reactAsset || reactDocument ? reactBuildHash : buildHash,\\n@@\\n   const server = await createGateway({ vueDir: process.env.WF6_VUE_DIR, backendOrigin: process.env.WF6_BACKEND_ORIGIN,\\n-    buildHash: process.env.WF6_BUILD_HASH, routeMapPath: process.env.WF6_ROUTE_MAP });\\n-  server.listen(Number(process.env.WF6_PORT ?? 9106), '127.0.0.1', () => console.log(JSON.stringify({ event: 'gateway_ready', port: server.address().port, takeoverEnabled: false, buildHash: process.env.WF6_BUILD_HASH })));\\n+    buildHash: process.env.WF6_BUILD_HASH, reactDir: process.env.WF6_REACT_DIR, reactBuildHash: process.env.WF6_REACT_BUILD_HASH, routeMapPath: process.env.WF6_ROUTE_MAP });\\n+  server.listen(Number(process.env.WF6_PORT ?? 9106), '127.0.0.1', () => console.log(JSON.stringify({ event: 'gateway_ready', port: server.address().port, vueBuildHash: process.env.WF6_BUILD_HASH, reactBuildHash: process.env.WF6_REACT_BUILD_HASH })));\\n*** Update File: <WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/wf6/gateway.test.mjs\\n@@\\n   await writeFile(path.join(root, '_nuxt/app.js'), 'window.fixture=true;');\\n+  const routeMapPath = path.join(root, 'map.json');\\n+  await writeFile(routeMapPath, JSON.stringify({ takeoverEnabled: false, groupSlug: null, defaultFrontend: 'vue', activeReactRoutes: [], explicitVueQuery: { name: 'wf6', value: 'vue' }, backendPrefixes: ['/api', '/media'] }));\\n@@\\n-  const gateway = await createGateway({ vueDir: root, backendOrigin: `http://127.0.0.1:${backend.address().port}`, buildHash: 'fixture-only' });\\n+  const gateway = await createGateway({ vueDir: root, backendOrigin: `http://127.0.0.1:${backend.address().port}`, buildHash: 'fixture-only', routeMapPath });\\n*** Add File: <WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/wf6/route-policy.test.mjs\\n+import test from 'node:test';\\n+import assert from 'node:assert/strict';\\n+import { ownsReact, explicitVue } from './route-policy.mjs';\\n+import { readFile } from 'node:fs/promises';\\n+const map = JSON.parse(await readFile(new URL('./route-map.json', import.meta.url)));\\n+const cases = [\\n+  ['/g/home', true], ['/g/home/', true], ['/g/home/r/recipe', true], ['/g/home/r/recipe/', true],\\n+  ['/g/home?search=hello#section', true], ['/g/home/r/recipe?foo=1#ingredients', true],\\n+  ['/g/home?wf6=vue', false], ['/g/home/r/recipe?wf6=vue#ingredients', false],\\n+  ['/g/home/r/create', false], ['/g/home/r/create/', false], ['/g/home/r/create/new', false], ['/g/home/r/create/url?foo=1', false],\\n+  ['/g/home/shared/r/id', false], ['/g/home/r/shared', false], ['/g/other', false], ['/g/other/r/recipe', false],\\n+  ['/g/home/r/recipe?edit=true', false], ['/g/home/r/recipe?parse=true', false], ['/g/home/r/recipe?cook=true', false],\\n+  ['/g/home/r/recipe?mode=edit', false], ['/g/home/r/recipe?view=cook', false], ['/g/home/r/recipe?edit=false&edit=true', false],\\n+  ['/g/home/r/recipe?edit=false', true], ['/g/home/r/recipe?cook=0', true],\\n+  ['/g/home/r/recipe/edit', false], ['/g/home/r/recipe/cook', false], ['/login', false], ['/shopping-lists', false],\\n+  ['/g/home/r/%63reate', false], ['/g/home/r/a%2Fb', false], ['/g/home//', false], ['/g/home/r/%ZZ', false],\\n+];\\n+for (const [target, expected] of cases) test(`ownership ${target}`, () => assert.equal(ownsReact(target, map), expected));\\n+test('explicit Vue preserves query/hash and prevents ownership', () => {\\n+  const target = explicitVue('/g/home/r/recipe?foo=1#ingredients', map);\\n+  assert.equal(target, '/g/home/r/recipe?foo=1&wf6=vue#ingredients'); assert.equal(ownsReact(target, map), false);\\n+});\\n+test('disabled takeover returns all Vue', () => { for (const [target] of cases) assert.equal(ownsReact(target, { ...map, takeoverEnabled: false }), false); });\\n*** End Patch\"));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+        "create_time": 1791952524.2903383
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2479,
+    "byte_offset": 6964757,
+    "timestamp": "2026-10-14T04:36:12.117Z",
+    "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a138b2-4ed5-7163-8444-994af94710e2",
+      "call_id": "call_96ef9e91dc2344fca9af63f339b844f0",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 2.3 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"a025c3\",\"wall_time_seconds\":0.000014937,\"exit_code\":0,\"original_token_count\":0,\"output\":\"\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a138ae-0211-7bd3-bb3e-6360185acb50",
+        "create_time": 1791952572.1179028
+      }
+    }
+  }
+}

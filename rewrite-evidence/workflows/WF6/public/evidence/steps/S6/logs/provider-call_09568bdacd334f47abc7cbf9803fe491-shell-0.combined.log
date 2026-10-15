@@ -1,0 +1,46 @@
+wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/use-households.ts
+wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/store/use-household-store.ts
+wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/middleware/can-manage-household-only.ts
+wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/admin/admin-households.ts
+wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/user/households.ts
+wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/public/explore/households.ts
+wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/lib/api/types/household.ts
+21:  householdsSelf: `${prefix}/households/self`,
+30:  householdsSelfRecipesSlug: (recipeSlug: string) => `${prefix}/households/self/recipes/${recipeSlug}`,
+  fullName?: string | null;
+  email: string;
+  authMethod?: AuthMethod;
+  admin?: boolean;
+  group: string;
+  household: string;
+  advanced?: boolean;
+  showAnnouncements?: boolean;
+  lastReadAnnouncement?: string | null;
+  canInvite?: boolean;
+  canManage?: boolean;
+  canManageHousehold?: boolean;
+  canOrganize?: boolean;
+  groupId: string;
+  groupSlug: string;
+  householdId: string;
+  householdSlug: string;
+  tokens?: LongLiveTokenOut[] | null;
+  cacheKey: string;
+  password: string;
+  loginAttemps?: number;
+
+async function logout() {
+  try {
+    await auth.signOut("/login?direct=1");
+  }
+  catch (e) {
+    console.error(e);
+  }
+}
+</script>
+
+<style scoped>
+.v-toolbar {
+  z-index: 2010 !important;
+}
+</style>

@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 232,
+    "byte_offset": 1388533,
+    "timestamp": "2026-10-14T01:20:22.478Z",
+    "turn_id": "01a137f3-c2d3-7db0-9623-6d33961b39eb",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016aced8d2697c819196a5dda89cc93fdf",
+      "status": "completed",
+      "call_id": "call_fb535d817a05476db1e8bb04468f6678",
+      "name": "exec",
+      "input": "text(await tools.write_stdin({session_id:78948,chars:\"\",yield_time_ms:1000,max_output_tokens:1700}));\ntext(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nfrom pathlib import Path\\nimport json\\ns=Path('wf6-rerun-20261014-01/wf6-evidence/steps/S0')\\nfor line in (s/'commands.jsonl').read_text().splitlines()[-5:]:\\n d=json.loads(line);print(d['label'],d['exit_code'],d['stdout'],d['stderr'])\\nif (s/'environment.json').exists():\\n d=json.loads((s/'environment.json').read_text());print('tools',{k:v['available'] for k,v in d['versions'].items()})\\nif (s/'port-probe.json').exists():print((s/'port-probe.json').read_text())\\nPY\",max_output_tokens:1600}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a137f3-c2d3-7db0-9623-6d33961b39eb",
+        "create_time": 1791940818.4158883
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 235,
+    "byte_offset": 1394027,
+    "timestamp": "2026-10-14T01:20:27.624Z",
+    "turn_id": "01a137f3-c2d3-7db0-9623-6d33961b39eb",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a137ff-19e8-7641-bb02-281ad375fc78",
+      "call_id": "call_fb535d817a05476db1e8bb04468f6678",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 5.1 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"15c218\",\"wall_time_seconds\":5.001509967,\"session_id\":78948,\"original_token_count\":0,\"output\":\"\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"564641\",\"wall_time_seconds\":0.000012106,\"exit_code\":0,\"original_token_count\":438,\"output\":\"source-acceptance-remotes 0 steps/S0/logs/20261014T012024-4c6e25eb.stdout.log steps/S0/logs/20261014T012024-4c6e25eb.stderr.log\\nsource-declared-shallow 0 steps/S0/logs/20261014T012024-faffd6b8.stdout.log steps/S0/logs/20261014T012024-faffd6b8.stderr.log\\nevaluator-acceptance-head 0 steps/S0/logs/20261014T012024-fa534017.stdout.log steps/S0/logs/20261014T012024-fa534017.stderr.log\\nevaluator-acceptance-dirty 0 steps/S0/logs/20261014T012024-db7bba2b.stdout.log steps/S0/logs/20261014T012024-db7bba2b.stderr.log\\nevaluator-acceptance-tracked-inventory 0 steps/S0/logs/20261014T012026-0bb910cf.stdout.log steps/S0/logs/20261014T012026-0bb910cf.stderr.log\\ntools {'git': True, 'python3': True, 'node': False, 'npm': True, 'uv': False, 'task': False, 'codex': True}\\n{\\n  \\\"probes\\\": [\\n    {\\n      \\\"host\\\": \\\"127.0.0.1\\\",\\n      \\\"port\\\": 9006,\\n      \\\"checked_utc\\\": \\\"2026-10-14T01:16:41.768615+00:00\\\",\\n      \\\"reserved\\\": false,\\n      \\\"bindable\\\": null,\\n      \\\"error\\\": \\\"[Errno 1] Operation not permitted\\\"\\n    },\\n    {\\n      \\\"host\\\": \\\"127.0.0.1\\\",\\n      \\\"port\\\": 9106,\\n      \\\"checked_utc\\\": \\\"2026-10-14T01:16:41.768675+00:00\\\",\\n      \\\"reserved\\\": false,\\n      \\\"bindable\\\": null,\\n      \\\"error\\\": \\\"[Errno 1] Operation not permitted\\\"\\n    },\\n    {\\n      \\\"host\\\": \\\"127.0.0.1\\\",\\n      \\\"port\\\": 9107,\\n      \\\"checked_utc\\\": \\\"2026-10-14T01:16:41.768683+00:00\\\",\\n      \\\"reserved\\\": false,\\n      \\\"bindable\\\": null,\\n      \\\"error\\\": \\\"[Errno 1] Operation not permitted\\\"\\n    },\\n    {\\n      \\\"host\\\": \\\"127.0.0.1\\\",\\n      \\\"port\\\": 9108,\\n      \\\"checked_utc\\\": \\\"2026-10-14T01:16:41.768687+00:00\\\",\\n      \\\"reserved\\\": false,\\n      \\\"bindable\\\": null,\\n      \\\"error\\\": \\\"[Errno 1] Operation not permitted\\\"\\n    }\\n  ],\\n  \\\"note\\\": \\\"Momentary sandbox bind-and-close probes; no service was started and no port is reserved.\\\"\\n}\\n\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a137f3-c2d3-7db0-9623-6d33961b39eb",
+        "create_time": 1791940827.624014
+      }
+    }
+  }
+}

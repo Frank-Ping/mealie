@@ -1,0 +1,44 @@
+
+Running 1 test using 1 worker
+
+  ✘  1 ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S5-R1/tests/s5-detection-probe.cjs:2:1 › target real recipe detail business acceptance (5.5s)
+
+
+  1) ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S5-R1/tests/s5-detection-probe.cjs:2:1 › target real recipe detail business acceptance 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('heading', { name: 'E2E Pancakes', exact: true })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByRole('heading', { name: 'E2E Pancakes', exact: true }) with timeout 5000ms
+      - waiting for getByRole('heading', { name: 'E2E Pancakes', exact: true })
+
+
+      4 |  const auth=JSON.parse(fs.readFileSync(path.join(process.env.WF6_AUTH_DIR,'admin.json')));await page.context().addCookies(auth.cookies);
+      5 |  // Frozen auth is localhost scoped, so this probe deliberately uses that exact origin.
+    > 6 |  const response=await page.goto(`http://localhost:9106/g/${f.groupSlug}/r/${f.recipeSlug}`);expect(response.headers()['x-wf6-frontend']).toBe('react');await expect(page.getByRole('heading',{name:'E2E Pancakes',exact:true})).toBeVisible({timeout:5000});await expect(page.getByText('2 cups e2e flour',{exact:true})).toBeVisible();
+        |                                                                                                                                                                                                                                 ^
+      7 | });
+      8 |
+        at /tmp/wf6-rerun-20261014-01-S5-R1/tests/s5-detection-probe.cjs:6:225
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S5-R1/browser/probe-control/s5-detection-probe.cjs-tar-c4bb3--detail-business-acceptance/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S5-R1/browser/probe-control/s5-detection-probe.cjs-tar-c4bb3--detail-business-acceptance/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S5-R1/browser/probe-control/s5-detection-probe.cjs-tar-c4bb3--detail-business-acceptance/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S5-R1/browser/probe-control/s5-detection-probe.cjs-tar-c4bb3--detail-business-acceptance/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S5-R1/tests/s5-detection-probe.cjs:2:1 › target real recipe detail business acceptance 

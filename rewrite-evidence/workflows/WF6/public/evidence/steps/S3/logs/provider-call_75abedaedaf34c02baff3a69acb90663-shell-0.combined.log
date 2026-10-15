@@ -1,0 +1,33 @@
+{
+  "command_id": "20261014T045249-7a76a887",
+  "stage_id": "S3",
+  "label": "S3-stage-only-skeleton-boundary-and-summary",
+  "argv": [
+    "git",
+    "-C",
+    "mealie-wf6-coexist",
+    "add",
+    "--",
+    "frontend-react-wf6",
+    "frontend/app/middleware/wf6-boundary.global.ts",
+    "wf6/gateway.mjs",
+    "wf6/gateway.test.mjs",
+    "wf6/route-map.json",
+    "wf6/route-policy.mjs",
+    "wf6/route-policy.d.mts",
+    "wf6/route-policy.test.mjs",
+    "rewrite-evidence/workflows/WF6/S3-RESULT.md"
+  ],
+  "cwd": "<WORKSPACE>/wf6-rerun-20261014-01",
+  "start_utc": "2026-10-14T04:52:49.991237+00:00",
+  "end_utc": "2026-10-14T04:52:50.157910+00:00",
+  "duration_seconds": 0.1666881579985784,
+  "exit_code": 0,
+  "stdout": "steps/S3/logs/20261014T045249-7a76a887.stdout.log",
+  "stderr": "steps/S3/logs/20261014T045249-7a76a887.stderr.log",
+  "environment_overrides": {},
+  "permission": "workspace-write; network restricted; no escalation",
+  "environment_capture": "Only explicit non-secret overrides; inherited secrets are not exported.",
+  "launch_error": null,
+  "stdin_path": null
+}

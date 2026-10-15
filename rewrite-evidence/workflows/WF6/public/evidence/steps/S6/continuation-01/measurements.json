@@ -1,0 +1,20 @@
+{
+  "stage": "S6",
+  "segment": "continuation-01",
+  "overall_gate": "FAIL",
+  "explicit_Vue_functions_gate": "PASS",
+  "selected_frozen": "4/4",
+  "supplemental": "4/4",
+  "original_full_regression": "66/66 routes,11/15 flows,1/1 guard; four FAIL retained, not rerun full suite in this segment",
+  "repairs_used": 0,
+  "limit": 2,
+  "application_changes": false,
+  "evaluator_changes": false,
+  "source_at_acceptance": "e225779cadb9dde291a3aeaca1ef688c5a4905ec",
+  "vue_build": "65f086f03f54a76585c488e2b0631a9bf9301fc1f6deaa4b923d523ad1ed06dd",
+  "react_build": "2b409d4deadf1bc17acc5a4a6634e638feca52550caec23a7d6f23f6dd1493f8",
+  "react_source": "a29595c8ae1bce60b3db08a9185cbc40046c83fc224ece095bec30d2f487a7af",
+  "coverage": null,
+  "cost": null,
+  "human_review_time": null
+}

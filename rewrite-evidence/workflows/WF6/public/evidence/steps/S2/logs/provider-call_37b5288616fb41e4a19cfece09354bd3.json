@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2181,
+    "byte_offset": 6336191,
+    "timestamp": "2026-10-14T04:08:56.414Z",
+    "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf005557bc8191aefc58264fbd359e",
+      "status": "completed",
+      "call_id": "call_37b5288616fb41e4a19cfece09354bd3",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"rg -n 'storeDir|virtualStoreDir' wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/node_modules/.modules.yaml; cat wf6-rerun-20261014-01/wf6-evidence/usage/test_collect_usage.py | head -65; rg -n 'authToken|access_token|groupSlug' wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/composables/use-mealie-auth.ts | head -12\",\"max_output_tokens\":1600}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+        "create_time": 1791950933.3459136
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2184,
+    "byte_offset": 6343457,
+    "timestamp": "2026-10-14T04:08:56.653Z",
+    "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13899-5a4d-7042-91a9-1e16a1afb480",
+      "call_id": "call_37b5288616fb41e4a19cfece09354bd3",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"745c53\",\"wall_time_seconds\":0.047160612,\"exit_code\":0,\"original_token_count\":941,\"output\":\"29:  \\\"storeDir\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01/runtime/cache/pnpm/v11\\\",\\n30:  \\\"virtualStoreDir\\\": \\\".pnpm\\\",\\n31:  \\\"virtualStoreDirMaxLength\\\": 120\\n\\\"\\\"\\\"Fault injection for independent accounting; no application success claims.\\\"\\\"\\\"\\nimport copy\\nimport json\\nfrom pathlib import Path\\nimport tempfile\\nimport unittest\\nfrom collect_usage import analyze, read_log, redact, collect, original_shell_commands\\n\\nSESSION=\\\"session-test\\\"\\nSOURCE=\\\"fixture.jsonl\\\"\\n\\ndef fields(n):\\n    return dict(input_tokens=n,cached_input_tokens=0,cache_write_input_tokens=0,output_tokens=0,reasoning_output_tokens=0,total_tokens=n)\\n\\ndef event(kind,pl):\\n    return dict(type=kind,payload=pl,timestamp=\\\"2026-10-14T00:00:00Z\\\")\\n\\ndef usage(turn,rid,n,thread,turn_total=None,session=SESSION):\\n    return event(\\\"token_usage_record\\\",dict(session_id=session,thread_id=session,turn_id=turn,response_id=rid,\\n        usage=fields(n),thread_token_usage=fields(thread),turn_token_usage=fields(n if turn_total is None else turn_total)))\\n\\ndef user(turn,text,identity):\\n    return event(\\\"response_item\\\",dict(type=\\\"message\\\",role=\\\"user\\\",id=identity,content=[dict(type=\\\"input_text\\\",text=text)],\\n        internal_chat_message_metadata_passthrough=dict(turn_id=turn)))\\n\\ndef final(turn,stage=\\\"S0\\\"):\\n    return event(\\\"response_item\\\",dict(type=\\\"message\\\",role=\\\"assistant\\\",phase=\\\"final_answer\\\",turn_id=turn,\\n        content=[dict(type=\\\"output_text\\\",text=\\\"Done. [[WF6:\\\"+stage+\\\":END]]\\\")]))\\n\\ndef rows(data):\\n    return [dict(line=i,byte_offset=i*100,source_log=SOURCE,record=d) for i,d in enumerate(data,1)]\\n\\ndef fixture():\\n    return [event(\\\"session_meta\\\",dict(id=SESSION)),usage(\\\"prep\\\",\\\"p\\\",100,100),user(\\\"a\\\",\\\"[[WF6:S0:START]]\\\\nRun S0.\\\",\\\"u\\\"),\\n        usage(\\\"a\\\",\\\"r1\\\",10,110),final(\\\"a\\\"),usage(\\\"a\\\",\\\"r2\\\",3,113,13),event(\\\"event_msg\\\",dict(type=\\\"task_complete\\\",turn_id=\\\"a\\\"))]\\n\\ndef config():\\n    return dict(session_id=SESSION,source_log=SOURCE,start_line=3,start_byte_offset=300,initial_turn_id=\\\"a\\\",user_message_id=\\\"u\\\",run_id=\\\"fixture\\\",workspace_root=\\\"/fixture\\\")\\n\\nclass AccountingTests(unittest.TestCase):\\n    def measure(self,data=None,cfg=None,issues=None):\\n        return analyze(rows(fixture() if data is None else data),config() if cfg is None else cfg,issues)\\n\\n    def s0(self,result):return result[\\\"stages\\\"][0]\\n\\n    def test_exact_identity_boundary_final_and_consistency(self):\\n        s=self.s0(self.measure());self.assertEqual(s[\\\"status\\\"],\\\"exact_reported\\\");self.assertEqual(s[\\\"total_tokens\\\"],13)\\n\\n    def test_preparation_excluded(self):\\n        r=self.measure();self.assertEqual(r[\\\"preparation\\\"][\\\"known_usage\\\"][\\\"total_tokens\\\"],100);self.assertEqual(self.s0(r)[\\\"total_tokens\\\"],13)\\n\\n    def test_duplicate_response_not_added(self):\\n        data=fixture();data.insert(4,copy.deepcopy(data[3]));self.assertEqual(self.s0(self.measure(data))[\\\"total_tokens\\\"],13)\\n\\n    def test_conflicting_duplicate_is_partial(self):\\n        data=fixture();x=copy.deepcopy(data[3]);x[\\\"payload\\\"][\\\"usage\\\"]=fields(11);data.insert(4,x)\\n        self.assertEqual(self.s0(self.measure(data))[\\\"status\\\"],\\\"partial\\\")\\n\\n    def test_legacy_counters_never_added(self):\\n        data=fixture();data.insert(4,event(\\\"event_msg\\\",dict(type=\\\"token_count\\\",info=dict(total_token_usage=fields(999999)))))\\n        self.assertEqual(self.s0(self.measure(data))[\\\"total_tokens\\\"],13)\\n\\n    def test_missing_field_remains_null(self):\\n        data=fixture();del data[3][\\\"payload\\\"][\\\"usage\\\"][\\\"reasoning_output_tokens\\\"]\\n        s=self.s0(self.measure(data));self.assertEqual(s[\\\"status\\\"],\\\"partial\\\");self.assertIsNone(s[\\\"reasoning_output_tokens\\\"])\\n42:    const { data: token } = await $axios.get<{ access_token: string; token_type: \\\"bearer\\\" }>(\\\"/api/auth/oauth/callback\\\", { params });\\n43:    auth.setToken(token.access_token);\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+        "create_time": 1791950936.653575
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3649,
+    "byte_offset": 10512273,
+    "timestamp": "2026-10-14T08:02:02.711Z",
+    "turn_id": "01a13964-888e-7540-98b2-3abbc8e32d90",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf36f52fbc8191952d9b4fbe42eb27",
+      "status": "completed",
+      "call_id": "call_919763c1085d4a17900bc3015fd45b02",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nimport json,sys\\nfrom pathlib import Path\\np=Path('wf6-rerun-20261014-01/wf6-evidence');sys.path.insert(0,str(p/'usage'));from summarize_s1_browser import summarize\\ns=p/'steps/S6';d=summarize(s/'browser/restored-frozen-results.json');print(d['categories']);\\nfor case in d['cases']:\\n if case['status']=='unexpected':print('FAIL',case['title'])\\nfor f in (s/'browser/restored-frozen-test-results').rglob('error-context.md'):\\n txt=f.read_text();print(f.parent.name);print(txt[txt.find('# Error details'):txt.find('# Page snapshot')][:900]);snapshot=txt.split('# Page snapshot',1)[1].split('# Test source',1)[0];print(snapshot[:500])\\nPY\",\"max_output_tokens\":2300}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13964-888e-7540-98b2-3abbc8e32d90",
+        "create_time": 1791964917.1974719
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3652,
+    "byte_offset": 10519945,
+    "timestamp": "2026-10-14T08:02:02.965Z",
+    "turn_id": "01a13964-888e-7540-98b2-3abbc8e32d90",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a1396e-c455-7751-b7ab-f070ec92819f",
+      "call_id": "call_919763c1085d4a17900bc3015fd45b02",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"ff25cb\",\"wall_time_seconds\":0.069205096,\"exit_code\":0,\"original_token_count\":874,\"output\":\"{'routes': {'total': 66, 'passed': 66, 'failed': 0, 'skipped': 0, 'flaky': 0}, 'flows': {'total': 15, 'passed': 11, 'failed': 4, 'skipped': 0, 'flaky': 0}, 'guard': {'total': 1, 'passed': 1, 'failed': 0, 'skipped': 0, 'flaky': 0}}\\nFAIL [flow] log out ends the session\\nFAIL [flow] a regular member is not offered admin pages\\nFAIL [flow] an admin is offered admin pages\\nFAIL [flow] comment on a recipe and see it after reload\\nflows-auth-auth-flow-a-reg-15752--is-not-offered-admin-pages-flows\\n# Error details\\n\\n```\\nTest timeout of 45000ms exceeded.\\n```\\n\\n```\\nError: locator.click: Test timeout of 45000ms exceeded.\\nCall log:\\n  - waiting for getByText('Settings', { exact: true }).visible().first()\\n\\n```\\n\\n\\n\\n\\n```yaml\\n- main [ref=f2e3]:\\n  - generic [ref=f2e5]:\\n    - alert [ref=f2e6]:\\n      - generic [ref=f2e10]: Read-only recipes. Editing and other features remain available through the Vue entry.\\n    - generic [ref=f2e11]:\\n      - paragraph [ref=f2e12]: Authenticated as E2E Member\\n      - paragraph [ref=f2e13]: \\\"Group: home\\\"\\n    - generic [ref=f2e14]:\\n      - heading \\\"Recipes\\\" [level=1] [ref=f2e15]\\n      - generic [ref=f2e16]:\\n        - generic: Search...\\n        - generic [ref=f2e17]:\\n          - t\\nflows-auth-auth-flow-an-admin-is-offered-admin-pages-flows\\n# Error details\\n\\n```\\nTest timeout of 45000ms exceeded.\\n```\\n\\n```\\nError: locator.click: Test timeout of 45000ms exceeded.\\nCall log:\\n  - waiting for getByText('Settings', { exact: true }).visible().first()\\n\\n```\\n\\n\\n\\n\\n```yaml\\n- main [ref=f2e3]:\\n  - generic [ref=f2e5]:\\n    - alert [ref=f2e6]:\\n      - generic [ref=f2e10]: Read-only recipes. Editing and other features remain available through the Vue entry.\\n    - generic [ref=f2e11]:\\n      - paragraph [ref=f2e12]: Authenticated as E2E Admin\\n      - paragraph [ref=f2e13]: \\\"Group: home\\\"\\n    - generic [ref=f2e14]:\\n      - heading \\\"Recipes\\\" [level=1] [ref=f2e15]\\n      - generic [ref=f2e16]:\\n        - generic: Search...\\n        - generic [ref=f2e17]:\\n          - te\\nflows-auth-auth-flow-log-out-ends-the-session-flows\\n# Error details\\n\\n```\\nTest timeout of 45000ms exceeded.\\n```\\n\\n```\\nError: locator.click: Test timeout of 45000ms exceeded.\\nCall log:\\n  - waiting for getByRole('button', { name: 'Logout' })\\n\\n```\\n\\n\\n\\n\\n```yaml\\n- main [ref=f1e3]:\\n  - generic [ref=f1e5]:\\n    - alert [ref=f1e6]:\\n      - generic [ref=f1e10]: Read-only recipes. Editing and other features remain available through the Vue entry.\\n    - generic [ref=f1e11]:\\n      - paragraph [ref=f1e12]: Authenticated as E2E Admin\\n      - paragraph [ref=f1e13]: \\\"Group: home\\\"\\n    - generic [ref=f1e14]:\\n      - heading \\\"Recipes\\\" [level=1] [ref=f1e15]\\n      - generic [ref=f1e16]:\\n        - generic: Search...\\n        - generic [ref=f1e17]:\\n          - te\\nflows-recipes-recipes-flow-a3d3d-ipe-and-see-it-after-reload-flows\\n# Error details\\n\\n```\\nTest timeout of 45000ms exceeded.\\n```\\n\\n```\\nError: locator.fill: Test timeout of 45000ms exceeded.\\nCall log:\\n  - waiting for getByRole('textbox', { name: 'Join the Conversation' })\\n\\n```\\n\\n\\n\\n\\n```yaml\\n- main [ref=e3]:\\n  - generic [ref=e5]:\\n    - alert [ref=e6]:\\n      - generic [ref=e10]: Read-only recipes. Editing and other features remain available through the Vue entry.\\n    - generic [ref=e11]:\\n      - paragraph [ref=e12]: Authenticated as E2E Admin\\n      - paragraph [ref=e13]: \\\"Group: home\\\"\\n    - generic [ref=e14]:\\n      - link \\\"Back\\\" [ref=e15] [cursor=pointer]:\\n        - /url: /g/home\\n      - heading \\\"E2E Garden Salad\\\" [level=1] [ref=e16]\\n      - heading \\\"Ingredients\\\" [level=2] \\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13964-888e-7540-98b2-3abbc8e32d90",
+        "create_time": 1791964922.965459
+      }
+    }
+  }
+}

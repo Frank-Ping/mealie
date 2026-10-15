@@ -1,0 +1,38 @@
+{
+  "identity": {
+    "run_id": "wf6-rerun-20261014-01",
+    "stage_id": "S3",
+    "data_dir": "/tmp/wf6-rerun-20261014-01-S3/disposable-data",
+    "auth_dir": "/tmp/wf6-rerun-20261014-01-S3/auth",
+    "ports": [
+      9006,
+      9106
+    ]
+  },
+  "auth_real_target": "/tmp/wf6-rerun-20261014-01-S3/auth",
+  "backend_launcher_sha256": "8fd9652aae79dc39ff0ada7cb40b56f305d388c64b06523dcaa57fc190f3cb92",
+  "default_sandbox_unchanged": true,
+  "credentials_exported_in_summary": false,
+  "service_lifecycles_closed": true,
+  "database_files": [
+    {
+      "path": "disposable-data/mealie.db",
+      "sha256": "b9edd9cdffdc66b4490b985bf2558e8e1695fa6ba225b730587d9550dc4acda9",
+      "bytes": 1490944
+    }
+  ],
+  "auth_file_hashes": [
+    {
+      "path": "fixtures.json",
+      "sha256": "ec1659859d0f9b606aa26f41dc231eaf1f30dbad9d52c69b36f3bf1d53823c18",
+      "bytes": 649
+    },
+    {
+      "path": "admin.json",
+      "sha256": "53df3b8ad5608746376b0dc861229cced901ce32ce106675f69389619ef26859",
+      "bytes": 482
+    }
+  ],
+  "credentials_content_exported": false,
+  "browser_trace_policy": "Original trace private; sharing uses redacted requests-redacted.jsonl, excluding bodies and cookie/bearer/password values."
+}

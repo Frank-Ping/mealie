@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 979,
+    "byte_offset": 3532588,
+    "timestamp": "2026-10-14T02:34:25.628Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016aceea2ebc8c8191ac40d2c7ea8a765f",
+      "status": "completed",
+      "call_id": "call_ffc54eefe1844e9b854a258b216c1b38",
+      "name": "exec",
+      "input": "text(await tools.write_stdin({session_id:34209,chars:\"\",yield_time_ms:1000,max_output_tokens:1300}));\ntext(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nfrom pathlib import Path\\ns=Path('wf6-rerun-20261014-01/wf6-evidence/steps/S1/logs');print((s/'20261014T022219-9342196b.stdout.log').read_text()[-800:])\\nPY\",max_output_tokens:1000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791945262.7442079
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 982,
+    "byte_offset": 3536094,
+    "timestamp": "2026-10-14T02:34:30.768Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13842-e5f0-7cf1-b1e2-9669cc86d671",
+      "call_id": "call_ffc54eefe1844e9b854a258b216c1b38",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 5.1 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"85e4e8\",\"wall_time_seconds\":5.001250989,\"session_id\":34209,\"original_token_count\":0,\"output\":\"\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"3b7fa1\",\"wall_time_seconds\":0.000025071,\"exit_code\":0,\"original_token_count\":205,\"output\":\"ipe/RecipeDataAliasManagerDialog.test.ts (2 tests) 43ms\\n ✓ app/composables/partials/__tests__/use-actions-factory.test.ts (5 tests) 4ms\\n ✓ app/lib/sanitize/markdown.test.ts (10 tests) 19ms\\n ✓ app/components/Domain/Recipe/RecipeIngredients.test.ts (1 test) 39ms\\n ✓ app/composables/shopping-list-page/sub-composables/__tests__/use-shopping-list-state.test.ts (6 tests) 7ms\\n ✓ app/composables/shopping-list-page/sub-composables/__tests__/use-shopping-list-recipes.test.ts (8 tests) 3ms\\n ✓ app/composables/recipes/__tests__/use-scaled-amount.test.ts (10 tests) 3ms\\n ✓ app/lib/validators/inputs.test.ts (6 tests) 3ms\\n ✓ app/composables/shopping-list-page/sub-composables/__tests__/use-shopping-list-labels.test.ts (3 tests) 5ms\\n ✓ app/composables/recipes/__tests__/use-recipe-time.test.ts (17 tests) 38ms\\n\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791945270.768166
+      }
+    }
+  }
+}

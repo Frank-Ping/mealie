@@ -1,0 +1,233 @@
+P1_COMPLETE 705 2026-10-14T02:03:55.928Z
+S1_REQUEST 709 2732151 msg_01a1382a-58f8-7de3-b1ea-8ca5ceac2207 {'turn_id': '01a1382a-58bc-7f40-9ce8-5b97298b1cd0', 'create_time': 1791943661.8168259, 'content_item_kinds': ['user.text']} 2026-10-14T02:07:41.816Z
+import path from "path";
+import vue from "@vitejs/plugin-vue";
+import AutoImport from "unplugin-auto-import/vite";
+
+export default {
+  plugins: [
+    vue(),
+    AutoImport({
+      imports: ["vue", "@vueuse/core", "vue-i18n"],
+      dts: false,
+    }),
+  ],
+  test: {
+    globals: true,
+    environment: "jsdom",
+    setupFiles: ["./app/tests/setup.ts"],
+    coverage: {
+      provider: "v8",
+      include: ["app/{lib,components,composables,layouts,pages}/**/*.{ts,tsx,vue}"],
+      exclude: [
+        "**/*.test.*",
+        "node_modules/**",
+        "dist/**",
+        "coverage/**",
+        "**/__tests__/**",
+        "app/lib/icons/**",
+        "app/lib/api/types/**",
+      ],
+      reporter: ["html", "text-summary"],
+      all: true,
+    },
+  },
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./app"),
+      "~": path.resolve(__dirname, "./app"),
+      "@@": path.resolve(__dirname, "."),
+      "~~": path.resolve(__dirname, "."),
+    },
+  },
+};
+{
+  "extends": "./.nuxt/tsconfig.json",
+  "compilerOptions": {
+    "noImplicitAny": false,
+    "verbatimModuleSyntax": false
+  }
+}
+import fs from "node:fs";
+import path from "node:path";
+
+export const E2E_DIR = path.resolve(__dirname, "..");
+export const AUTH_DIR = path.join(E2E_DIR, ".auth");
+export const ADMIN_STATE = path.join(AUTH_DIR, "admin.json");
+export const FIXTURES_FILE = path.join(AUTH_DIR, "fixtures.json");
+
+export const ADMIN = {
+  email: "e2e-admin@example.com",
+  password: "[REDACTED]",
+  fullName: "E2E Admin",
+  username: "e2eadmin",
+};
+
+export const MEMBER = {
+  email: "e2e-member@example.com",
+  password: "[REDACTED]",
+  fullName: "E2E Member",
+  username: "e2emember",
+};
+
+/** Owned by the profile flow, which renames it; nothing else may assert on this user's name. */
+export const PROFILE_USER = {
+  email: "e2e-profile@example.com",
+  password: "E2e-Profile-Pass-123",
+  fullName: "E2E Profile User",
+  username: "e2eprofile",
+};
+
+/** Names of seeded data. All prefixed with "E2E" so assertions can't match stock UI text by accident. */
+export const NAMES = {
+  recipe: "E2E Pancakes",
+  recipe2: "E2E Garden Salad",
+  ingredient: "2 cups e2e flour",
+  instruction: "Whisk the e2e batter until smooth.",
+  category: "E2E Breakfast",
+  tag: "E2E Quick",
+  tool: "E2E Skillet",
+  cookbook: "E2E Cookbook",
+  shoppingList: "E2E Groceries",
+  shoppingList2: "E2E Hardware Store",
+  shoppingItems: ["E2E Milk", "E2E Eggs"],
+  food: "e2e flour",
+  unit: "e2e cup",
+  label: "E2E Dairy",
+  group: "E2E Second Group",
+  household: "E2E Second Household",
+  mealplanNote: "E2E Leftovers Night",
+  webhook: "E2E Webhook",
+  notifier: "E2E Notifier",
+  recipeAction: "E2E Recipe Action",
+  apiToken: "E2E Token",
+};
+
+export interface Fixtures {
+  groupSlug: string;
+  householdSlug: string;
+  adminId: string;
+  memberId: string;
+  recipeSlug: string;
+  recipeId: string;
+  recipe2Slug: string;
+  cookbookSlug: string;
+  shoppingListId: string;
+  sharedRecipeToken: string;
+  reportId: string;
+  secondGroupId: string;
+  secondHouseholdId: string;
+  /** ISO date (YYYY-MM-DD, UTC) of the seeded meal plan entries. */
+  mealplanDate: string;
+}
+
+export function loadFixtures(): Fixtures {
+  return JSON.parse(fs.readFileSync(FIXTURES_FILE, "utf-8")) as Fixtures;
+}
+/**
+ * Seeds a fresh backend with everything the route and flow tests need, via the REST API only.
+ * Writes the admin session (cookies) and the ids/slugs of the seeded data into .auth/.
+ * Safe to re-run against an already-seeded backend (E2E_REUSE_SERVER=1): lookups before creates.
+ */
+import fs from "node:fs";
+import type { FullConfig } from "@playwright/test";
+import { DEFAULT_ADMIN, MealieApi } from "./lib/api";
+import { ADMIN, ADMIN_STATE, AUTH_DIR, FIXTURES_FILE, MEMBER, NAMES, PROFILE_USER, type Fixtures } from "./lib/fixtures";
+
+// A valid, empty zip archive (just the end-of-central-directory record).
+const EMPTY_ZIP = Buffer.from([0x50, 0x4B, 0x05, 0x06, ...Array.from({ length: 18 }, () => 0)]);
+
+async function adminSession(baseURL: string): Promise<MealieApi> {
+  const existing = await MealieApi.tryLogin(baseURL, ADMIN.email, ADMIN.password);
+  if (existing) {
+    return existing;
+  }
+
+  // First run on an empty database: take over the seeded default admin. Changing its email also
+  // clears the backend's "first login" flag, so the SPA doesn't bounce every visit to /admin/setup.
+  const api = await MealieApi.login(baseURL, DEFAULT_ADMIN.email, DEFAULT_ADMIN.password);
+  const self = await api.get("/api/users/self");
+  await api.put(`/api/users/${self.id}`, {
+    ...self,
+    email: ADMIN.email,
+    username: ADMIN.username,
+    fullName: ADMIN.fullName,
+  });
+  await api.put("/api/users/password", { currentPassword: DEFAULT_ADMIN.password, newPassword: ADMIN.password });
+  await api.dispose();
+  return MealieApi.login(baseURL, ADMIN.email, ADMIN.password);
+}
+
+function todayUtc(): string {
+  return new Date().toISOString().slice(0, 10);
+}
+
+export default async function globalSetup(config: FullConfig) {
+  const baseURL = config.projects[0]!.use.baseURL!;
+  fs.mkdirSync(AUTH_DIR, { recursive: true });
+
+  const api = await adminSession(baseURL);
+  const self = await api.get("/api/users/self");
+
+  // --- organizers, foods, units, labels --------------------------------------------------------
+  const category = await api.getOrCreate("/api/organizers/categories", "name", NAMES.category, () =>
+    api.post("/api/organizers/categories", { name: NAMES.category }));
+  const tag = await api.getOrCreate("/api/organizers/tags", "name", NAMES.tag, () =>
+    api.post("/api/organizers/tags", { name: NAMES.tag }));
+  const tool = await api.getOrCreate("/api/organizers/tools", "name", NAMES.tool, () =>
+    api.post("/api/organizers/tools", { name: NAMES.tool }));
+  await api.getOrCreate("/api/foods", "name", NAMES.food, () => api.post("/api/foods", { name: NAMES.food }));
+  await api.getOrCreate("/api/units", "name", NAMES.unit, () => api.post("/api/units", { name: NAMES.unit }));
+  await api.getOrCreate("/api/groups/labels", "name", NAMES.label, () =>
+    api.post("/api/groups/labels", { name: NAMES.label, color: "#1976D2" }));
+
+  // --- recipes -----------------------------------------------------------------------------------
+  const recipes = await api.get<{ items: any[] }>("/api/recipes?perPage=-1");
+  async function recipe(name: string) {
+    const found = recipes.items.find(r => r.name === name);
+    const slug: string = found ? found.slug : await api.post("/api/recipes", { name });
+    return api.get(`/api/recipes/${slug}`);
+  }
+  let pancakes = await recipe(NAMES.recipe);
+  pancakes = await api.patch(`/api/recipes/${pancakes.slug}`, {
+    description: "Fluffy pancakes used by the E2E yardstick.",
+    recipeYield: "4 servings",
+    recipeIngredient: [{ note: NAMES.ingredient, display: NAMES.ingredient, referenceId: crypto.randomUUID() }],
+    recipeInstructions: [{ id: crypto.randomUUID(), title: "", summary: "", text: NAMES.instruction, ingredientReferences: [] }],
+    recipeCategory: [category],
+    tags: [tag],
+    tools: [tool],
+  });
+  const salad = await recipe(NAMES.recipe2);
+  await api.patch(`/api/recipes/${salad.slug}`, { tags: [tag] });
+
+  // --- cookbook, shopping list, meal plan --------------------------------------------------------
+  const cookbook = await api.getOrCreate("/api/households/cookbooks", "name", NAMES.cookbook, () =>
+    api.post("/api/households/cookbooks", {
+      name: NAMES.cookbook,
+      public: false,
+      queryFilterString: `tags.id CONTAINS ALL ["${tag.id}"]`,
+    }));
+
+  const list = await api.getOrCreate("/api/households/shopping/lists", "name", NAMES.shoppingList, async () => {
+    const created = await api.post("/api/households/shopping/lists", { name: NAMES.shoppingList });
+    for (const note of NAMES.shoppingItems) {
+      await api.post("/api/households/shopping/items", { shoppingListId: created.id, note, display: note });
+    }
+    return created;
+  });
+
+  await api.getOrCreate("/api/households/shopping/lists", "name", NAMES.shoppingList2, () =>
+    api.post("/api/households/shopping/lists", { name: NAMES.shoppingList2 }));
+
+  const favorites = await api.get<{ ratings: any[] }>("/api/users/self/favorites");
+  if (!favorites.ratings.some(r => r.recipeId === pancakes.id)) {
+    await api.post(`/api/users/${self.id}/favorites/${pancakes.slug}`);
+  }
+rg: wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/node_modules/playwright/lib/reporters/json.js: No such file or directory (os error 2)
+rg: wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/node_modules/playwright/lib/reporters/base.js: No such file or directory (os error 2)
+13:    "@nuxt/fonts",
+17:  ssr: false,
+25:  devtools: {
+129:  nitro: {
+160:  fonts: {

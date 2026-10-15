@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3132,
+    "byte_offset": 9221195,
+    "timestamp": "2026-10-14T07:31:06.244Z",
+    "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf2fb0fd348191b86df7530e854ac0",
+      "status": "completed",
+      "call_id": "call_092cd63717354202887fcb13c02dfb1d",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nfrom pathlib import Path\\nimport shutil,json\\np=Path('wf6-rerun-20261014-01/wf6-evidence/usage');s=p.parent/'steps/S5'\\nshutil.copy2(p.parent/'steps/S4/dependency-versions.json',s/'dependency-versions.json')\\nsrc=(p/'build_s4.py').read_text().replace('from prepare_s4 import RUNTIME,REACT,STAGE',\\\"RUNTIME=Path('/tmp/wf6-rerun-20261014-01-S5');REACT=SOURCE/'frontend-react-wf6';STAGE=EVIDENCE/'steps/S5'\\\").replace('S4','S5')\\n(p/'build_s5.py').write_text(src)\\nPY\\npython3 -B wf6-rerun-20261014-01/wf6-evidence/usage/record_command.py --stage S5 --cwd '<WORKSPACE>/wf6-rerun-20261014-01' --label S5-fresh-static-and-build --permission 'Approved anonymous font/build access; sandbox retained' -- python3 -B wf6-evidence/usage/build_s5.py\",\"sandbox_permissions\":\"require_escalated\",\"justification\":\"S5 需要在隔离运行目录重新构建 Vue/React；仅允许既有公开字体访问，保留冻结源码、依赖锁和默认沙箱。\",\"yield_time_ms\":1000,\"max_output_tokens\":1000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+        "create_time": 1791963056.9916947
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3134,
+    "byte_offset": 9223624,
+    "timestamp": "2026-10-14T07:31:11.761Z",
+    "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13952-8511-7ca0-8e15-d899d3d123e6",
+      "call_id": "call_092cd63717354202887fcb13c02dfb1d",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 5.5 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"9213b0\",\"wall_time_seconds\":1.001195022,\"session_id\":6920,\"original_token_count\":0,\"output\":\"\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+        "create_time": 1791963071.7610524
+      }
+    }
+  }
+}

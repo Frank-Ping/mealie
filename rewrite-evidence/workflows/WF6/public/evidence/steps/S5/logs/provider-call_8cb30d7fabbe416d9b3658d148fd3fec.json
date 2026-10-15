@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3180,
+    "byte_offset": 9333636,
+    "timestamp": "2026-10-14T07:34:38.521Z",
+    "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf308ac5b881919c18a63da5303c08",
+      "status": "completed",
+      "call_id": "call_8cb30d7fabbe416d9b3658d148fd3fec",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"cat wf6-rerun-20261014-01/mealie-wf6-coexist/wf6/route-policy.mjs\\npython3 -B - <<'PY'\\nimport json\\nfrom pathlib import Path\\np=Path('wf6-rerun-20261014-01/wf6-evidence');rows=[json.loads(l) for l in (p/'steps/S5/commands.jsonl').read_text().splitlines()];print([(r['label'],r['exit_code']) for r in rows][-5:])\\nPY\",\"max_output_tokens\":1600}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+        "create_time": 1791963274.7769585
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3183,
+    "byte_offset": 9338006,
+    "timestamp": "2026-10-14T07:34:38.671Z",
+    "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13955-ad4f-7d60-be21-f1c62d7f1a0a",
+      "call_id": "call_8cb30d7fabbe416d9b3658d148fd3fec",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.1 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"7a262a\",\"wall_time_seconds\":0.000010654,\"exit_code\":0,\"original_token_count\":337,\"output\":\"export function ownsReact(target, map) {\\n  const url = new URL(target, 'http://wf6.local');\\n  if (!map.takeoverEnabled || !map.groupSlug || url.searchParams.get(map.explicitVueQuery.name) === map.explicitVueQuery.value) return false;\\n  const modes = new Set(map.vueModes);\\n  for (const [key, value] of url.searchParams) {\\n    if (modes.has(key) && !['', 'false', '0'].includes(value.toLowerCase())) return false;\\n    if ((key === 'mode' || key === 'view') && modes.has(value.toLowerCase())) return false;\\n  }\\n  let parts;\\n  try { parts = url.pathname.replace(/\\\\/$/, '').split('/').slice(1).map(decodeURIComponent); } catch { return false; }\\n  if (parts.some(part => !part || part.includes('/') || part.includes('\\\\\\\\'))) return false;\\n  if (parts[0] !== 'g' || parts[1] !== map.groupSlug) return false;\\n  if (parts.length === 2) return true;\\n  return parts.length === 4 && parts[2] === 'r' && !map.excludedSlugs.includes(parts[3]);\\n}\\n\\nexport function explicitVue(target, map) {\\n  const url = new URL(target, 'http://wf6.local');\\n  url.searchParams.set(map.explicitVueQuery.name, map.explicitVueQuery.value);\\n  return url.pathname + url.search + url.hash;\\n}\\n[('S5-Vue-boundary-production-build', 0), ('S5-Vue-boundary-targeted-lint', 0), ('S5-fresh-static-and-build', 0), ('S5-expected-failure-stale-build-guard', 1), ('S5-stale-build-negative', 0)]\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+        "create_time": 1791963278.671738
+      }
+    }
+  }
+}

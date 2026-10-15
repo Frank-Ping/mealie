@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2005,
+    "byte_offset": 5768216,
+    "timestamp": "2026-10-14T03:56:40.032Z",
+    "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acefd74bbc8819188a63a2edf32bf91",
+      "status": "completed",
+      "call_id": "call_e5c4311913864d2db18b6df4131161db",
+      "name": "exec",
+      "input": "text(await tools.write_stdin({session_id:29896,chars:\"\",yield_time_ms:1000,max_output_tokens:700}));\ntext(await tools.exec_command({cmd:\"python3 - <<'PY'\\nimport pathlib,json\\ns=json.loads(pathlib.Path('wf6-rerun-20261014-01/wf6-evidence/steps/S1/source-state.json').read_text());print({r:{k:s[r][k] for k in ['actual_head','dirty','verified_original_file_count','frozen_file_mismatches']} for r in ['source','evaluator']})\\nPY\",\"max_output_tokens\":800}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+        "create_time": 1791950196.7361264
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2008,
+    "byte_offset": 5771548,
+    "timestamp": "2026-10-14T03:56:40.231Z",
+    "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a1388e-1da7-7713-a94d-6021c18ee7b6",
+      "call_id": "call_e5c4311913864d2db18b6df4131161db",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"42a183\",\"wall_time_seconds\":0.000011568,\"exit_code\":0,\"original_token_count\":214,\"output\":\"{\\\"command_id\\\": \\\"20261014T035629-bb216e22\\\", \\\"stage_id\\\": \\\"S1\\\", \\\"label\\\": \\\"S1-commit-evidence-documents-only\\\", \\\"argv\\\": [\\\"git\\\", \\\"-C\\\", \\\"mealie-wf6-coexist\\\", \\\"commit\\\", \\\"-m\\\", \\\"[WF6-S1] Record fresh frozen Vue baseline and preserved failures\\\"], \\\"cwd\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01\\\", \\\"start_utc\\\": \\\"2026-10-14T03:56:29.318892+00:00\\\", \\\"end_utc\\\": \\\"2026-10-14T03:56:30.814069+00:00\\\", \\\"duration_seconds\\\": 1.4952058320013748, \\\"exit_code\\\": 0, \\\"stdout\\\": \\\"steps/S1/logs/20261014T035629-bb216e22.stdout.log\\\", \\\"stderr\\\": \\\"steps/S1/logs/20261014T035629-bb216e22.stderr.log\\\", \\\"environment_overrides\\\": {}, \\\"permission\\\": \\\"workspace-write; network restricted; no escalation\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"7993c5\",\"wall_time_seconds\":0.000011195,\"exit_code\":0,\"original_token_count\":79,\"output\":\"{'source': {'actual_head': '955e790f86c9c4ff2d56e06b9e54d948cbf0e698', 'dirty': True, 'verified_original_file_count': 1711, 'frozen_file_mismatches': []}, 'evaluator': {'actual_head': '758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d', 'dirty': False, 'verified_original_file_count': 1789, 'frozen_file_mismatches': []}}\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13885-24dd-7ff3-a6cc-b87a30d19d71",
+        "create_time": 1791950200.231327
+      }
+    }
+  }
+}

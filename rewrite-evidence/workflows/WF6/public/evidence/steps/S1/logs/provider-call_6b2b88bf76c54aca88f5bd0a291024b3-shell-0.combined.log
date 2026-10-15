@@ -1,0 +1,4 @@
+old_pid_visible False
+native reports [PosixPath('/tmp/wf6-rerun-20261014-01-S1-native/browser/test-results')]
+case aliases True
+log <WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl

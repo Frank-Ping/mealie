@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1376,
+    "byte_offset": 4705680,
+    "timestamp": "2026-10-14T03:16:07.364Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acef3edad588191b88b51b73ebe4657",
+      "status": "completed",
+      "call_id": "call_921f18501d2f40c48f41fb45e8d39ff4",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 - <<'PY'\\nfrom pathlib import Path\\np=Path('wf6-rerun-20261014-01/wf6-evidence/usage/collect_usage.py')\\ns=p.read_text();a=s.index('    # Recover original tool events');b=s.index('    timing_fields=',a)\\nblock=s[a:b];start=block.index('    # Preserve provider originals');body=block[start:]\\nbody=body.replace('evidence/\\\"steps/S0/logs\\\"','stage_folder/\\\"logs\\\"').replace('evidence/\\\"steps/S0/provider-command-events.jsonl\\\"','stage_folder/\\\"provider-command-events.jsonl\\\"')\\nhead='''    # Export original visible tool events for every executed stage.\\n    for stage_row in result[\\\"stages\\\"]:\\n        if not stage_row[\\\"segments\\\"]:\\n            continue\\n        stage_folder=evidence/\\\"steps\\\"/stage_row[\\\"stage_id\\\"]\\n        tools=[v for v in result[\\\"visible\\\"] if v.get(\\\"turn_id\\\") in stage_row[\\\"turn_ids\\\"] and v[\\\"kind\\\"]==\\\"tool\\\"]\\n        write_lines(stage_folder/\\\"provider-tool-events.jsonl\\\",redact(tools))\\n'''\\ns=s[:a]+head+''.join('    '+l if l.strip() else l for l in body.splitlines(keepends=True))+s[b:];p.write_text(s)\\nPY\\npython3 -B wf6-rerun-20261014-01/wf6-evidence/usage/record_command.py --stage S1 --cwd '<WORKSPACE>/wf6-rerun-20261014-01' --label S1-collector-regression-and-disjoint-boundary-tests -- python3 -B -m unittest discover -s wf6-evidence/usage -p 'test*.py'\",\"yield_time_ms\":1000,\"max_output_tokens\":1000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791947757.6802595
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1379,
+    "byte_offset": 4712851,
+    "timestamp": "2026-10-14T03:16:07.743Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13868-ffbf-7cb2-b189-582505d46856",
+      "call_id": "call_921f18501d2f40c48f41fb45e8d39ff4",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.4 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"7686a5\",\"wall_time_seconds\":0.211044871,\"exit_code\":0,\"original_token_count\":212,\"output\":\"{\\\"command_id\\\": \\\"20261014T031607-3fd86ec3\\\", \\\"stage_id\\\": \\\"S1\\\", \\\"label\\\": \\\"S1-collector-regression-and-disjoint-boundary-tests\\\", \\\"argv\\\": [\\\"python3\\\", \\\"-B\\\", \\\"-m\\\", \\\"unittest\\\", \\\"discover\\\", \\\"-s\\\", \\\"wf6-evidence/usage\\\", \\\"-p\\\", \\\"test*.py\\\"], \\\"cwd\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01\\\", \\\"start_utc\\\": \\\"2026-10-14T03:16:07.573480+00:00\\\", \\\"end_utc\\\": \\\"2026-10-14T03:16:07.726584+00:00\\\", \\\"duration_seconds\\\": 0.1531109200004721, \\\"exit_code\\\": 0, \\\"stdout\\\": \\\"steps/S1/logs/20261014T031607-3fd86ec3.stdout.log\\\", \\\"stderr\\\": \\\"steps/S1/logs/20261014T031607-3fd86ec3.stderr.log\\\", \\\"environment_overrides\\\": {}, \\\"permission\\\": \\\"workspace-write; network restricted; no escalation\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791947767.7435575
+      }
+    }
+  }
+}

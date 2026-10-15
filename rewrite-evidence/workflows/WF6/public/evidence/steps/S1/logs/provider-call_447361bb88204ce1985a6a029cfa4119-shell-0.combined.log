@@ -1,0 +1,8 @@
+  ✘  29 [routes] › tests/routes.spec.ts:37:9 › admin › [route] g/[groupSlug]/r/create/bulk.vue (18.5s)
+  ✘  30 [routes] › tests/routes.spec.ts:37:9 › admin › [route] g/[groupSlug]/r/create/debug.vue (16.8s)
+  ✘  31 [routes] › tests/routes.spec.ts:37:9 › admin › [route] g/[groupSlug]/r/create/html.vue (17.4s)
+..........................
+----------------------------------------------------------------------
+Ran 26 tests in 0.012s
+
+OK

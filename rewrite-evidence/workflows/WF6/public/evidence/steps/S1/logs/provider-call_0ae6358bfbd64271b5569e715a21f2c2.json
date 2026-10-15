@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1735,
+    "byte_offset": 5316842,
+    "timestamp": "2026-10-14T03:43:14.785Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acefa4ef7088191bba35874ad1fd119",
+      "status": "completed",
+      "call_id": "call_0ae6358bfbd64271b5569e715a21f2c2",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 - <<'PY'\\nimport pathlib,json\\nrows=[]\\nfor name in ['tcp','tcp6']:\\n for line in pathlib.Path('/proc/net/'+name).read_text().splitlines()[1:]:\\n  cols=line.split()\\n  if int(cols[1].split(':')[1],16)==9006:rows.append({'table':name,'local':cols[1],'remote':cols[2],'state_hex':cols[3],'inode':cols[9]})\\nprint(json.dumps(rows))\\nprint('owned_previous_process_present',pathlib.Path('/proc/22712').exists())\\nPY\",\"max_output_tokens\":1800}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791949390.980039
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1738,
+    "byte_offset": 5320193,
+    "timestamp": "2026-10-14T03:43:14.911Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13881-d3df-7731-8b74-56cea63d1933",
+      "call_id": "call_0ae6358bfbd64271b5569e715a21f2c2",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.1 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"7c3f3a\",\"wall_time_seconds\":0.000010584,\"exit_code\":0,\"original_token_count\":10,\"output\":\"[]\\nowned_previous_process_present False\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791949394.9115434
+      }
+    }
+  }
+}

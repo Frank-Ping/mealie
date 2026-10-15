@@ -1,0 +1,4 @@
+?? rewrite-evidence/workflows/WF6/BASELINE.md
+?? rewrite-evidence/workflows/WF6/comparison-baseline.json
+{"gate": "PASS", "build_hash": "51e1fc21edd74fdb002a57a5e11b8085932a0898945685edb45177aece86d733", "unit": {"total": 517, "passed": 517, "failed": 0, "skipped": 0, "files": 48, "distinct_measurements": "Coverage reruns the same unit tests; do not count twice."}, "browser": {"routes": {"total": 66, "passed": 66, "failed": 0, "skipped": 0, "flaky": 0}, "flows": {"total": 15, "passed": 15, "failed": 0, "skipped": 0, "flaky": 0}, "guard": {"total": 1, "passed": 1, "failed": 0, "skipped": 0, "flaky": 0}}}
+{"event": "owned_backend_stopped", "timestamp": "2026-10-14T03:53:21.888948+00:00", "pid": 35011, "exit_code": 143, "command_id": "20261014T035046-785b612e", "planned_shutdown": true}

@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2196,
+    "byte_offset": 6368052,
+    "timestamp": "2026-10-14T04:09:32.676Z",
+    "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf007617a0819199635eef10e995d8",
+      "status": "completed",
+      "call_id": "call_6f9844ff3e7347cc97370b1b9fb59e50",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"tail -4 wf6-rerun-20261014-01/wf6-evidence/steps/S2/logs/20261014T040533-43abd8a6.stdout.log; python3 - <<'PY'\\nimport json,pathlib,datetime\\nb=pathlib.Path('wf6-rerun-20261014-01/wf6-evidence');s=b/'steps/S2';old=json.loads((b/'steps/S1/token-usage.json').read_text());(s/'S1-settlement.json').write_text(json.dumps(old,indent=2)+'\\\\n')\\nr=json.loads((s/'request-boundary.json').read_text())\\nwith (b/'decisions.jsonl').open('a') as f:f.write(json.dumps({'timestamp':r['timestamp'],'actor':'user','stage_id':'S2','decision':'Authorize S2 only, all pages Vue-owned. Start S2-S6 three-hour model/tool budget at this actual request; exclude earlier steps/preparation and human pauses. Preserve 318 type diagnostics FAIL and historical 315 comparison.','prompt':'steps/S2/[REDACTED]'})+'\\\\n')\\nPY\",\"max_output_tokens\":700}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+        "create_time": 1791950966.0952158
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 2199,
+    "byte_offset": 6372743,
+    "timestamp": "2026-10-14T04:09:32.931Z",
+    "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13899-e803-74d3-b2a0-066ea7eb01a8",
+      "call_id": "call_6f9844ff3e7347cc97370b1b9fb59e50",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"eec4f7\",\"wall_time_seconds\":0.062792393,\"exit_code\":0,\"original_token_count\":63,\"output\":\"Progress: resolved 1231, reused 0, downloaded 1228, added 1224\\nProgress: resolved 1231, reused 0, downloaded 1228, added 1225\\nProgress: resolved 1231, reused 0, downloaded 1228, added 1226\\nProgress: resolved 1231, reused 0, downloaded 1228, added 1227\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13892-b6c1-7071-9c17-b99219e2ebb6",
+        "create_time": 1791950972.9312851
+      }
+    }
+  }
+}

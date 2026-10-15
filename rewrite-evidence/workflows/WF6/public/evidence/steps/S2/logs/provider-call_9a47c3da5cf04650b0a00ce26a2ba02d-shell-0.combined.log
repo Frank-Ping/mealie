@@ -1,0 +1,2 @@
+partial True {'input_tokens': 30194364, 'cached_input_tokens': 29885568, 'cache_write_input_tokens': 0, 'output_tokens': 114262, 'reasoning_output_tokens': 61765, 'total_tokens': 30308626}
+["app/components/Domain/Recipe/RecipeAssets.vue(114,16): error TS2532: Object is possibly 'undefined'.", "app/components/Domain/Recipe/RecipeAssets.vue(127,30): error TS2532: Object is possibly 'undefined'.", "app/components/Domain/Recipe/RecipeDialogAddToShoppingList.vue(140,27): error TS2532: Object is possibly 'undefined'."]

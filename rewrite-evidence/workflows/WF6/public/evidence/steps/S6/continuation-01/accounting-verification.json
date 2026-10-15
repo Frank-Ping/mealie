@@ -1,0 +1,15 @@
+{
+  "status": "provisional",
+  "segment_count": 2,
+  "previous_final_covered": true,
+  "current_final_covered": false,
+  "non_overlapping_turn_ids": [
+    "01a13964-888e-7540-98b2-3abbc8e32d90",
+    "01a13974-b942-7012-950c-89399b0de489"
+  ],
+  "response_attribution_and_sum_verified": true,
+  "old_exports_not_added": true,
+  "S1_partial_preserved": true,
+  "S5_repairs_preserved": 2,
+  "S6_repairs_unchanged": 0
+}

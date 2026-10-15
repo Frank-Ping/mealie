@@ -1,0 +1,2 @@
+$ pnpm lint:js --max-warnings=0 --format=json '--output-file=<WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/steps/S1/machine/lint-results.json'
+$ eslint . --max-warnings=0 --format=json '--output-file=<WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/steps/S1/machine/lint-results.json'

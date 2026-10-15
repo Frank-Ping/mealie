@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3783,
+    "byte_offset": 10817992,
+    "timestamp": "2026-10-14T08:11:38.523Z",
+    "turn_id": "01a13974-b942-7012-950c-89399b0de489",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf390ad39481919c3df91f14ecd8b9",
+      "status": "completed",
+      "call_id": "call_11ef02eccd984374b17d42e92e794c8e",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"cat > wf6-rerun-20261014-01/wf6-evidence/usage/s6-existing-vue-functions.cjs <<'EOF'\\nconst fs=require('node:fs');const path=require('node:path');const {test,expect}=require(process.env.WF6_PLAYWRIGHT_MODULE);\\nconst fixtures=()=>JSON.parse(fs.readFileSync(path.join(process.env.WF6_AUTH_DIR,'fixtures.json')));\\nconst save=r=>fs.appendFileSync(process.env.WF6_BROWSER_EVIDENCE,JSON.stringify(r)+'\\\\n');\\nasync function login(page,member=false){\\n await page.goto('/login');await page.getByRole('textbox',{name:'Email or Username'}).fill(member?'e2e-member@example.com':'e2e-admin@example.com');await page.getByRole('textbox',{name:'Password'}).fill(member?'[REDACTED]':'[REDACTED]');await page.getByRole('button',{name:'Login',exact:true}).click();await expect(page.locator('[data-wf6-session=\\\"authenticated\\\"]')).toBeVisible();await expect(page.getByRole('link',{name:'E2E Pancakes',exact:true})).toBeVisible();\\n}\\nasync function explicitVue(page){\\n const prior=await page.evaluate(()=>window.__wf6DocumentId);const response=page.waitForResponse(r=>r.request().isNavigationRequest()&&r.request().resourceType()==='document');await page.getByRole('link',{name:'Use explicit Vue entry',exact:true}).click();const document=await response;expect(document.headers()['x-wf6-frontend']).toBe('vue');expect(document.headers()['x-wf6-build']).toBe(process.env.WF6_BUILD_HASH);expect(page.url()).toContain('wf6=vue');await expect(page.locator('#__nuxt')).toBeVisible();await expect(page.locator('[data-wf6-frontend=\\\"react\\\"]')).toHaveCount(0);expect(await page.evaluate(()=>window.__wf6DocumentId)).not.toBe(prior);\\n return {url:page.url(),frontend:'vue',build:document.headers()['x-wf6-build'],explicitUserAction:true};\\n}\\ntest.beforeEach(async({page,context})=>{\\n await context.addInitScript(()=>{window.__wf6DocumentId=crypto.randomUUID();});const responses=[];\\n page.on('response',r=>{const u=new URL(r.url());if(r.request().resourceType()==='document'||u.pathname==='/api/users/self'||u.pathname.includes('/comments')||u.pathname.includes('/auth/'))responses.push({path:u.pathname,queryKeys:[...u.searchParams.keys()],method:r.request().method(),status:r.status(),document:r.request().resourceType()==='document',owner:r.headers()['x-wf6-frontend']??null,build:r.headers()['x-wf6-build']??null});});page.__wf6Responses=responses;\\n});\\ntest('existing explicit Vue entry restores real Logout; React remains read-only',async({page})=>{\\n await login(page);const f=fixtures();const entry=await explicitVue(page);await page.getByRole('button',{name:'Logout',exact:true}).click();await expect(page).toHaveURL(/\\\\/login\\\\/?/);const r=await page.goto(`/g/${f.groupSlug}/r/${f.recipeSlug}`);expect(r.headers()['x-wf6-frontend']).toBe('react');await expect(page.locator('[data-wf6-session=\\\"vue-required\\\"]')).toContainText('401');await expect(page.locator('[data-wf6-business]')).toHaveCount(0);await page.getByRole('link',{name:'Use Vue login',exact:true}).click();await expect(page.getByRole('textbox',{name:'Email or Username'})).toBeVisible();await page.screenshot({path:path.join(process.env.WF6_SHOTS,'logout-then-explicit-login.png')});save({feature:'Logout',status:'PASS',entry,postLogout:'Actual Vue logout, then real React 401 and explicit Vue login; no recipe UI/no silent fallback',originalFrozenStatus:'FAIL retained (no explicit entry step; expects automatic /login redirect)',responses:page.__wf6Responses});\\n});\\ntest('existing explicit Vue entry restores member Settings with no offered admin links',async({page})=>{\\n await login(page,true);const f=fixtures();await expect(page.locator('[data-wf6-user-id]')).toHaveAttribute('data-wf6-user-id',f.memberId);const entry=await explicitVue(page);await page.getByText('Settings',{exact:true}).filter({visible:true}).first().click();await expect(page.locator('a[href^=\\\"/household\\\"]').filter({visible:true}).first()).toBeVisible();await expect(page.locator('a[href^=\\\"/admin\\\"]').filter({visible:true})).toHaveCount(0);await page.screenshot({path:path.join(process.env.WF6_SHOTS,'member-settings-vue.png')});save({feature:'Member Settings',status:'PASS',entry,originalFrozenStatus:'FAIL retained (Settings queried on React list)',responses:page.__wf6Responses});\\n});\\ntest('existing explicit Vue entry restores admin Settings and Site Settings navigation',async({page})=>{\\n await login(page);const entry=await explicitVue(page);await page.getByText('Settings',{exact:true}).filter({visible:true}).first().click();await page.locator('a[href=\\\"/admin/site-settings\\\"]').filter({visible:true}).first().click();await expect(page.getByRole('heading',{name:'Site Settings',exact:true})).toBeVisible();await expect(page.locator('[data-wf6-frontend=\\\"react\\\"]')).toHaveCount(0);await page.screenshot({path:path.join(process.env.WF6_SHOTS,'admin-settings-vue.png')});save({feature:'Admin Settings',status:'PASS',entry,originalFrozenStatus:'FAIL retained (Settings queried on React list)',responses:page.__wf6Responses});\\n});\\ntest('existing explicit Vue detail entry restores real comment and reload persistence',async({page})=>{\\n await login(page);const f=fixtures();await page.goto(`/g/${f.groupSlug}/r/${f.recipe2Slug}?probe=comment#discussion`);await expect(page.getByRole('heading',{name:'E2E Garden Salad',exact:true})).toBeVisible();const entry=await explicitVue(page);expect(page.url()).toContain('probe=comment');expect(page.url()).toContain('#discussion');const text='WF6 S6 C1 Vue-only comment '+Date.now();await page.getByRole('textbox',{name:'Join the Conversation',exact:true}).fill(text);const posted=page.waitForResponse(r=>r.request().method()==='POST'&&new URL(r.url()).pathname.includes('/comments'));await page.getByRole('button',{name:'Submit',exact:true}).click();const answer=await posted;expect(answer.ok()).toBe(true);await expect(page.getByText(text,{exact:false}).filter({visible:true}).first()).toBeVisible();const reloaded=await page.reload();expect(reloaded.headers()['x-wf6-frontend']).toBe('vue');await expect(page.getByText(text,{exact:false}).filter({visible:true}).first()).toBeVisible();await page.screenshot({path:path.join(process.env.WF6_SHOTS,'comment-vue-persisted.png')});await page.locator(`a[href=\\\"/g/${f.groupSlug}\\\"]`).filter({visible:true}).first().click();await expect(page.locator('[data-wf6-session=\\\"authenticated\\\"]')).toBeVisible();await expect(page.getByRole('link',{name:'E2E Pancakes',exact:true})).toBeVisible();save({feature:'Comments',status:'PASS',entry,commentPostStatus:answer.status(),commentWrittenBy:'Existing Vue UI only',originalFrozenStatus:'FAIL retained (textbox queried on read-only React detail)',responses:page.__wf6Responses});\\n});\\nEOF\\npython3 -B - <<'PY'\\nfrom pathlib import Path\\np=Path('wf6-rerun-20261014-01/wf6-evidence/usage');s=(p/'run_s4.py').read_text().replace('S4','S6').replace(\\\"STAGE=EVIDENCE/'steps/S6'\\\",\\\"STAGE=EVIDENCE/'steps/S6/continuation-01'\\\").replace(\\\"RUNTIME=Path('/tmp/wf6-rerun-20261014-01-S6')\\\",\\\"RUNTIME=Path('/tmp/wf6-rerun-20261014-01-S6-C1')\\\").replace(\\\"Path('/tmp/wf6-rerun-20261014-01-S3/auth')\\\",\\\"Path('/tmp/wf6-rerun-20261014-01-S6/auth')\\\").replace('s4-browser-tests.cjs','s6-existing-vue-functions.cjs').replace(\\\"screenshot:'only-on-failure'\\\",\\\"screenshot:'on'\\\")\\ns=s.replace(\\\"WF6_BROWSER_EVIDENCE=str(RUNTIME/'browser/requests-redacted.jsonl')\\\",\\\"WF6_SHOTS=str(RUNTIME/'browser'),WF6_BROWSER_EVIDENCE=str(RUNTIME/'browser/requests-redacted.jsonl')\\\")\\ns=s.replace(\\\"'S6-\\\", \\\"'S6-C1-\\\")\\n(p/'run_s6_c1.py').write_text(s)\\nPY\",\"max_output_tokens\":1000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13974-b942-7012-950c-89399b0de489",
+        "create_time": 1791965450.8296642
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3786,
+    "byte_offset": 10842735,
+    "timestamp": "2026-10-14T08:11:38.743Z",
+    "turn_id": "01a13974-b942-7012-950c-89399b0de489",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13977-8d77-7341-bd12-97190b582755",
+      "call_id": "call_11ef02eccd984374b17d42e92e794c8e",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"b73e16\",\"wall_time_seconds\":0.046748111,\"exit_code\":0,\"original_token_count\":0,\"output\":\"\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13974-b942-7012-950c-89399b0de489",
+        "create_time": 1791965498.7435749
+      }
+    }
+  }
+}

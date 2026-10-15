@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3575,
+    "byte_offset": 10214778,
+    "timestamp": "2026-10-14T07:57:03.546Z",
+    "turn_id": "01a13964-888e-7540-98b2-3abbc8e32d90",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf35cb95bc819183901faedc6720f6",
+      "status": "completed",
+      "call_id": "call_e841b1da49704b3ab66cb9172ff1182d",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"cat wf6-rerun-20261014-01/wf6-evidence/steps/S1/baseline-measurements.json\\npython3 -B - <<'PY'\\nfrom pathlib import Path\\np=Path('wf6-rerun-20261014-01/wf6-evidence/steps/S6/logs');f=max(p.glob('*.stdout.log'),key=lambda x:x.stat().st_mtime);print(f.name);print(f.read_text()[-1800:])\\nPY\",\"max_output_tokens\":1700}));\ntext(await tools.write_stdin({session_id:11492,chars:\"\",yield_time_ms:1000,max_output_tokens:1000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13964-888e-7540-98b2-3abbc8e32d90",
+        "create_time": 1791964619.5885384
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3578,
+    "byte_offset": 10288034,
+    "timestamp": "2026-10-14T07:57:08.733Z",
+    "turn_id": "01a13964-888e-7540-98b2-3abbc8e32d90",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a1396a-46fd-7ce1-a178-7e2050e4daca",
+      "call_id": "call_e841b1da49704b3ab66cb9172ff1182d",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 5.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"042fdb\",\"wall_time_seconds\":0.000012671,\"exit_code\":0,\"original_token_count\":32563,\"output\":\"Warning: truncated output (original token count: 32563)\\nTotal output lines: 2979\\n\\n{\\n  \\\"run_id\\\": \\\"wf6-rerun-20261014-01\\\",\\n  \\\"stage_id\\\": \\\"S1\\\",\\n  \\\"gate\\\": \\\"PASS\\\",\\n  \\\"source_pin\\\": \\\"4b9ca06b6581f7152e164ea0fd9d4da366975a79\\\",\\n  \\\"evaluator_pin\\\": \\\"758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d\\\",\\n  \\\"build_source_head\\\": \\\"955e790f86c9c4ff2d56e06b9e54d948cbf0e698\\\",\\n  \\\"build_hash\\\": \\\"51e1fc21edd74fdb002a57a5e11b8085932a0898945685edb45177aece86d733\\\",\\n  \\\"build_command_id\\\": \\\"20261014T021853-1d788840\\\",\\n  \\\"unit\\\": {\\n    \\\"total\\\": 517,\\n    \\\"passed\\\": 517,\\n    \\\"failed\\\": 0,\\n    \\\"skipped\\\": 0,\\n    \\\"files\\\": 48,\\n    \\\"distinct_measurements\\\": \\\"Coverage reruns the same unit tests; do not count twice.\\\"\\n  },\\n  \\\"lint\\\": {\\n    \\\"files\\\": 521,\\n    \\\"errors\\\": 0,\\n    \\\"warnings\\\": 0\\n  },\\n  \\\"coverage\\\": {\\n    \\\"lines\\\": {\\n      \\\"total\\\": 12332,\\n      \\\"covered\\\": 1861,\\n      \\\"skipped\\\": 0,\\n      \\\"pct\\\": 15.09\\n    },\\n    \\\"statements\\\": {\\n      \\\"total\\\": 12968,\\n      \\\"covered\\\": 1959,\\n      \\\"skipped\\\": 0,\\n      \\\"pct\\\": 15.1\\n    },\\n    \\\"functions\\\": {\\n      \\\"total\\\": 5350,\\n      \\\"covered\\\": 423,\\n      \\\"skipped\\\": 0,\\n      \\\"pct\\\": 7.9\\n    },\\n    \\\"branches\\\": {\\n      \\\"total\\\": 7772,\\n      \\\"covered\\\": 1002,\\n      \\\"skipped\\\": 0,\\n      \\\"pct\\\": 12.89\\n    },\\n    \\\"branchesTrue\\\": {\\n      \\\"total\\\": 0,\\n      \\\"covered\\\": 0,\\n      \\\"skipped\\\": 0,\\n      \\\"pct\\\": 100\\n    }\\n  },\\n  \\\"type_diagnostics\\\": {\\n    \\\"status\\\": \\\"FAIL\\\",\\n    \\\"exit_code\\\": 1,\\n    \\\"error_count\\\": 318,\\n    \\\"codes\\\": {\\n      \\\"TS2322\\\": 64,\\n      \\\"TS2532\\\": 78,\\n      \\\"TS2345\\\": 31,\\n      \\\"TS18048\\\": 25,\\n      \\\"TS2769\\\": 7,\\n      \\\"TS2540\\\": 2,\\n      \\\"TS2554\\\": 25,\\n      \\\"TS2339\\\": 18,\\n      \\\"TS2307\\\": 1,\\n      \\\"TS2739\\\": 4,\\n      \\\"TS4114\\\": 48,\\n      \\\"TS2353\\\": 4,\\n      \\\"TS2558\\\": 1,\\n      \\\"TS2741\\\": 1,\\n      \\\"TS2538\\\": 3,\\n      \\\"TS2304\\\": 1,\\n      \\\"TS2551\\\": 3,\\n      \\\"TS18047\\\": 2\\n    },\\n    \\\"diagnostics\\\": [\\n      \\\"app/components/Domain/Cookbook/CookbookPage.vue(106,3): error TS2322: Type 'ReadCookBook | null | undefined' is not assignable to type 'ReadCookBook | { name: string; description?: string | undefined; slug?: string | null | undefined; position?: number | undefined; public?: boolean | undefined; queryFilterString?: string | undefined; ... 4 more ...; household?: { ...; } | ... 1 more ... | undefined; } | null'.\\\",\\n      \\\"app/components/Domain/Group/GroupAIProviderDialog.test.ts(109,12): error TS2532: Object is possibly 'undefined'.\\\",\\n      \\\"app/components/Domain/Group/GroupAIProviderDialog.test.ts(116,12): error TS2532: Object is possibly 'undefined'.\\\",\\n      \\\"app/components/Domain/Household/GroupMealPlanEntryDialog.vue(178,19): error TS2345: Argument of type 'number | undefined' is not assignable to parameter of type 'number'.\\\",\\n      \\\"app/components/Domain/Household/GroupMealPlanEntryDialog.vue(178,25): error TS18048: 'month' is possibly 'undefined'.\\\",\\n      \\\"app/components/Domain/QueryFilterBuilder.vue(175,53): error TS2345: Argument of type 'FieldValue' is not assignable to parameter of type 'string'.\\\",\\n      \\\"app/components/Domain/QueryFilterBuilder.vue(176,82): error TS2345: Argument of type 'FieldValue' is not assignable to parameter of type 'string'.\\\",\\n      \\\"app/components/Domain/QueryFilterBuilder.vue(479,51): error TS2345: Argument of type 'FieldValue' is not assignable to parameter of type 'number'.\\\",\\n      \\\"app/components/Domain/QueryFilterBuilder.vue(601,9): error TS2532: Object is possibly 'undefined'.\\\",\\n      \\\"app/components/Domain/QueryFilterBuilder.vue(602,12): error TS2532: Object is possibly 'undefined'.\\\",\\n      \\\"app/components/Domain/Recipe/Rec…30863 tokens truncated…,\\n          \\\"duration_ms\\\": 1924,\\n          \\\"retries\\\": [\\n            0\\n          ]\\n        },\\n        {\\n          \\\"category\\\": \\\"flows\\\",\\n          \\\"title\\\": \\\"[flow] create a recipe by name\\\",\\n          \\\"file\\\": \\\"flows/recipes.spec.ts\\\",\\n          \\\"project\\\": \\\"flows\\\",\\n          \\\"status\\\": \\\"expected\\\",\\n          \\\"expected_status\\\": \\\"passed\\\",\\n          \\\"actual_statuses\\\": [\\n            \\\"passed\\\"\\n          ],\\n          \\\"duration_ms\\\": 1731,\\n          \\\"retries\\\": [\\n            0\\n          ]\\n        },\\n        {\\n          \\\"category\\\": \\\"flows\\\",\\n          \\\"title\\\": \\\"[flow] comment on a recipe and see it after reload\\\",\\n          \\\"file\\\": \\\"flows/recipes.spec.ts\\\",\\n          \\\"project\\\": \\\"flows\\\",\\n          \\\"status\\\": \\\"expected\\\",\\n          \\\"expected_status\\\": \\\"passed\\\",\\n          \\\"actual_statuses\\\": [\\n            \\\"passed\\\"\\n          ],\\n          \\\"duration_ms\\\": 1782,\\n          \\\"retries\\\": [\\n            0\\n          ]\\n        },\\n        {\\n          \\\"category\\\": \\\"flows\\\",\\n          \\\"title\\\": \\\"[flow] create a shopping list\\\",\\n          \\\"file\\\": \\\"flows/shopping.spec.ts\\\",\\n          \\\"project\\\": \\\"flows\\\",\\n          \\\"status\\\": \\\"expected\\\",\\n          \\\"expected_status\\\": \\\"passed\\\",\\n          \\\"actual_statuses\\\": [\\n            \\\"passed\\\"\\n          ],\\n          \\\"duration_ms\\\": 2297,\\n          \\\"retries\\\": [\\n            0\\n          ]\\n        },\\n        {\\n          \\\"category\\\": \\\"flows\\\",\\n          \\\"title\\\": \\\"[flow] add an item and check it off\\\",\\n          \\\"file\\\": \\\"flows/shopping.spec.ts\\\",\\n          \\\"project\\\": \\\"flows\\\",\\n          \\\"status\\\": \\\"expected\\\",\\n          \\\"expected_status\\\": \\\"passed\\\",\\n          \\\"actual_statuses\\\": [\\n            \\\"passed\\\"\\n          ],\\n          \\\"duration_ms\\\": 7325,\\n          \\\"retries\\\": [\\n            0\\n          ]\\n        }\\n      ],\\n      \\\"gate_checks\\\": {\\n        \\\"inventory\\\": true,\\n        \\\"routes_66\\\": true,\\n        \\\"flows_15\\\": true,\\n        \\\"guard_1\\\": true,\\n        \\\"all_passed\\\": true\\n      },\\n      \\\"runner_errors\\\": [],\\n      \\\"attempt_id\\\": \\\"browser-native\\\"\\n    }\\n  ],\\n  \\\"accepted_browser_attempt\\\": \\\"browser-native\\\",\\n  \\\"cost\\\": null,\\n  \\\"human_review_time\\\": null,\\n  \\\"S2_S6_budget\\\": \\\"not_started\\\",\\n  \\\"evidence\\\": \\\"../wf6-evidence/steps/S1\\\",\\n  \\\"scope\\\": \\\"Unmodified Vue baseline only; no React migration or coexistence tested.\\\"\\n}\\n20261014T075647-290fee55.stdout.log\\n\\nRunning 82 tests using 1 worker\\n\\n  ✓   1 [routes] › tests/routes.spec.ts:23:5 › route table has unique entries (25ms)\\n  ✓   2 [routes] › tests/routes.spec.ts:37:9 › admin › [route] admin.vue (1.3s)\\n  ✓   3 [routes] › tests/routes.spec.ts:37:9 › admin › [route] admin/backups.vue (1.0s)\\n  ✓   4 [routes] › tests/routes.spec.ts:37:9 › admin › [route] admin/debug/openai.vue (952ms)\\n  ✓   5 [routes] › tests/routes.spec.ts:37:9 › admin › [route] admin/debug/parser.vue (959ms)\\n  ✓   6 [routes] › tests/routes.spec.ts:37:9 › admin › [route] admin/maintenance/index.vue (973ms)\\n  ✓   7 [routes] › tests/routes.spec.ts:37:9 › admin › [route] admin/manage/groups/[id].vue (1.0s)\\n  ✓   8 [routes] › tests/routes.spec.ts:37:9 › admin › [route] admin/manage/groups/index.vue (966ms)\\n  ✓   9 [routes] › tests/routes.spec.ts:37:9 › admin › [route] admin/manage/households/[id].vue (1.0s)\\n  ✓  10 [routes] › tests/routes.spec.ts:37:9 › admin › [route] admin/manage/households/index.vue (971ms)\\n  ✓  11 [routes] › tests/routes.spec.ts:37:9 › admin › [route] admin/manage/users/[id].vue (1.0s)\\n\\n\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"4d690c\",\"wall_time_seconds\":5.001641727,\"session_id\":11492,\"original_token_count\":0,\"output\":\"\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13964-888e-7540-98b2-3abbc8e32d90",
+        "create_time": 1791964628.7333968
+      }
+    }
+  }
+}

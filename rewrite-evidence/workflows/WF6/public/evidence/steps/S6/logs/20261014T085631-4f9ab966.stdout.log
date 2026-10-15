@@ -1,0 +1,42 @@
+✔ ownership /g/home (1.652357ms)
+✔ ownership /g/home/ (0.171532ms)
+✔ ownership /g/home/r/recipe (0.075876ms)
+✔ ownership /g/home/r/recipe/ (0.065964ms)
+✔ ownership /g/home?search=hello#section (0.084415ms)
+✔ ownership /g/home/r/recipe?foo=1#ingredients (0.071316ms)
+✔ ownership /g/home?wf6=vue (0.064445ms)
+✔ ownership /g/home/r/recipe?wf6=vue#ingredients (0.052965ms)
+✔ ownership /g/home/r/create (0.077739ms)
+✔ ownership /g/home/r/create/ (0.140871ms)
+✔ ownership /g/home/r/create/new (0.130623ms)
+✔ ownership /g/home/r/create/url?foo=1 (0.096863ms)
+✔ ownership /g/home/shared/r/id (0.076085ms)
+✔ ownership /g/home/r/shared (1.016348ms)
+✔ ownership /g/other (0.060589ms)
+✔ ownership /g/other/r/recipe (0.051648ms)
+✔ ownership /g/home/r/recipe?edit=true (0.06094ms)
+✔ ownership /g/home/r/recipe?parse=true (0.027162ms)
+✔ ownership /g/home/r/recipe?cook=true (0.024727ms)
+✔ ownership /g/home/r/recipe?mode=edit (0.01901ms)
+✔ ownership /g/home/r/recipe?view=cook (0.017729ms)
+✔ ownership /g/home/r/recipe?edit=false&edit=true (0.023103ms)
+✔ ownership /g/home/r/recipe?edit=false (0.020952ms)
+✔ ownership /g/home/r/recipe?cook=0 (0.05384ms)
+✔ ownership /g/home/r/recipe/edit (0.020068ms)
+✔ ownership /g/home/r/recipe/cook (0.018875ms)
+✔ ownership /login (0.017015ms)
+✔ ownership /shopping-lists (0.01706ms)
+✔ ownership /g/home/r/%63reate (0.018906ms)
+✔ ownership /g/home/r/a%2Fb (0.017264ms)
+✔ ownership /g/home// (0.019395ms)
+✔ ownership /g/home/r/%ZZ (0.383789ms)
+✔ explicit Vue preserves query/hash and prevents ownership (0.185722ms)
+✔ disabled takeover returns all Vue (0.126433ms)
+ℹ tests 34
+ℹ suites 0
+ℹ pass 34
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 131.274921

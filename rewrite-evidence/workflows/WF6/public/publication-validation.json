@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "originals_unchanged": 4228,
+  "public_hashes_verified": 2722,
+  "selected_traces": 43,
+  "all_s6_traces": 23,
+  "trace_object_integrity": "PASS",
+  "comment_post_get_same_record": "PASS",
+  "s7_final_reply_and_usage": "PASS",
+  "s1_partial_preserved": "PASS",
+  "no_blob_over_50MiB": true,
+  "publication_work": "Post-experiment; excluded from sealed stage usage/timing"
+}

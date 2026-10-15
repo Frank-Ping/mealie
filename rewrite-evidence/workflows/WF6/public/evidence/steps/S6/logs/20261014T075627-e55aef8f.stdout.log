@@ -1,0 +1,9 @@
+
+Running 4 tests using 1 worker
+
+  ✓  1 ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S6/tests/s6-ownership-tests.cjs:3:1 › all frozen route ownership and comparable seeded input (319ms)
+  ✓  2 ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S6/tests/s6-restored-tests.cjs:15:1 › real read-only recipe UI, keyboard link, direct refresh and retained Vue round trip (2.8s)
+  ✓  3 ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S6/tests/s6-restored-tests.cjs:35:1 › loading, real empty search, clear restoration and real missing-detail error (4.9s)
+  ✓  4 ../../../../../../../../../../../tmp/wf6-rerun-20261014-01-S6/tests/s6-restored-tests.cjs:51:1 › business rendering retains explicit Vue/mode/group boundaries (1.2s)
+
+  4 passed (13.1s)

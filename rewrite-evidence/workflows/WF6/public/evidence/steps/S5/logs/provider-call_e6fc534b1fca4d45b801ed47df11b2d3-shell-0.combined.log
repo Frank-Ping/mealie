@@ -1,0 +1,12 @@
+wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/middleware/pwa-share-target-redirect.global.ts:7:      // login page can redirect back here after successful authentication.
+wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/middleware/pwa-share-target-redirect.global.ts:8:      const redirect = encodeURIComponent(to.fullPath);
+wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/middleware/pwa-share-target-redirect.global.ts:9:      return navigateTo(`/login?redirect=${redirect}`, { redirectCode: 302 });
+wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/middleware/pwa-share-target-redirect.global.ts:11:    return navigateTo(`/g/${groupSlug}${to.fullPath}`, { redirectCode: 302 });
+wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/middleware/advanced-only.ts:3:  // If the user is not allowed to access advanced features redirect to the home page
+wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/middleware/can-manage-only.ts:3:  // If the user is not allowed to manage group settings redirect to the home page
+wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/middleware/auth.ts:3:  // If the user is not logged in redirect to the login page, then back here once they are
+wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/middleware/auth.ts:5:    return navigateTo({ path: "/login", query: { redirect: to.fullPath } });
+wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/middleware/can-organize-only.ts:3:  // If the user is not allowed to organize data redirect to the home page
+wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/middleware/can-manage-household-only.ts:3:  // If the user is not allowed to manage group settings redirect to the home page
+wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/app/middleware/admin-only.ts:3:  // If the user is not an admin redirect to the home page
+[('S5-frozen-list-detail-routes-open-search-flows', 0), ('S5-real-business-states-keyboard-boundary-browser', 1), ('S5-owned-gateway', 0), ('S5-owned-backend', 143), ('S5-isolated-browser-and-detection-negative', 1)]

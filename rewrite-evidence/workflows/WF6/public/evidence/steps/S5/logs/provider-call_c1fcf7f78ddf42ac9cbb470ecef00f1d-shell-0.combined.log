@@ -1,0 +1,145 @@
+71:class UserRatingSummary(MealieModel):
+86:class UserRatingCreate(UserRatingSummary):
+90:class UserRatingUpdate(MealieModel):
+95:class UserRatingOut(UserRatingCreate):
+105:class UserRatings[DataT: BaseModel](BaseModel):
+109:class UserBase(MealieModel):
+116:    group: str | None = None
+164:class UserIn(UserBase):
+170:class UserOut(UserBase):
+172:    group: str
+191:class UserSummary(MealieModel):
+200:class UserPagination(PaginationBase):
+204:class UserSummaryPagination(PaginationBase):
+208:class PrivateUser(UserOut):
+import type { Recipe, RecipeSummary } from '../../frontend/app/lib/api/types/recipe.ts';
+
+export interface Identity { id: string; groupId: string; groupSlug: string; fullName: string }
+export interface RecipePage { items: RecipeSummary[]; total: number; total_pages: number; page: number }
+export class ApiError extends Error {
+  readonly status: number;
+  constructor(message: string, status: number) { super(message); this.status = status; }
+}
+export class SessionError extends ApiError {}
+
+export function accessToken(): string | null {
+  const cookie = document.cookie.split(';').map(x => x.trim()).find(x => x.startsWith('mealie.access_token='));
+  return cookie ? decodeURIComponent(cookie.slice(cookie.indexOf('=') + 1)) : null;
+}
+
+export function recipeListUrl(search: string, page = 1): string {
+  const query = new URLSearchParams({ page: String(page), perPage: '50', orderBy: 'name' });
+  if (search.trim()) query.set('search', search.trim());
+  return '/api/recipes?' + query.toString();
+}
+
+export function createRecipeApi(identity: Identity, getToken: () => string | null = accessToken, transport: typeof fetch = fetch) {
+  async function get<T>(url: string, signal: AbortSignal): Promise<T> {
+    const token = getToken();
+    const response = await transport(url, { headers: token ? { authorization: `Bearer ${token}` } : {}, credentials: 'same-origin', signal });
+    if (response.status === 401) throw new SessionError('Anonymous or expired session (401)', 401);
+    if (!response.ok) throw new ApiError(response.status === 404 ? 'Recipe not found' : `Recipe API request failed (${response.status})`, response.status);
+    return await response.json() as T;
+  }
+  async function verify(signal: AbortSignal) {
+    const current = await get<Identity>('/api/users/self', signal);
+    if (current.id !== identity.id || current.groupId !== identity.groupId || current.groupSlug !== identity.groupSlug) throw new SessionError('Session identity or group changed; use the Vue entry', 403);
+  }
+  function checkGroup(recipe: RecipeSummary) {
+    if (recipe.groupId !== identity.groupId) throw new SessionError('Recipe group does not match the verified session', 403);
+  }
+  return {
+    async list(search: string, page: number, signal: AbortSignal): Promise<RecipePage> {
+      await verify(signal);
+      const data = await get<RecipePage>(recipeListUrl(search, page), signal);
+      if (!Array.isArray(data.items)) throw new ApiError('Invalid recipe list response', 502);
+      data.items.forEach(checkGroup);
+      return data;
+    },
+    async detail(slug: string, signal: AbortSignal): Promise<Recipe> {
+      await verify(signal);
+      const data = await get<Recipe>('/api/recipes/' + encodeURIComponent(slug), signal);
+      checkGroup(data);
+      return data;
+    },
+  };
+}
+export type RecipeApi = ReturnType<typeof createRecipeApi>;
+import { useEffect, useState } from 'react';
+import { Link, Route, Routes, useParams } from 'react-router';
+import { Alert, Button, Card, CardActionArea, CardContent, Chip, Pagination, Stack, TextField, Typography } from '@mui/material';
+import { useTranslation } from 'react-i18next';
+import type { Recipe, RecipeSummary } from '../../frontend/app/lib/api/types/recipe.ts';
+import { SessionError, type RecipeApi } from './api.ts';
+import { ingredientText, recipeLink } from './model.ts';
+
+type Load<T> = { kind: 'loading' } | { kind: 'ready'; value: T } | { kind: 'error'; message: string };
+interface Props { api: RecipeApi; group: string; onSessionFailure: (reason: string) => void }
+
+function RecipeList({ api, group, onSessionFailure }: Props) {
+  const { t } = useTranslation();
+  const [search, setSearch] = useState(''); const [page, setPage] = useState(1); const [reload, setReload] = useState(0);
+  const [state, setState] = useState<Load<{ items: RecipeSummary[]; total_pages: number }>>({ kind: 'loading' });
+  useEffect(() => {
+    const abort = new AbortController();
+    const timer = setTimeout(() => {
+      setState({ kind: 'loading' });
+      void api.list(search, page, abort.signal).then(value => { if (!abort.signal.aborted) setState({ kind: 'ready', value }); }).catch(error => {
+        if (abort.signal.aborted) return;
+        if (error instanceof SessionError) onSessionFailure(error.message);
+        else setState({ kind: 'error', message: error instanceof Error ? error.message : 'Recipe request failed' });
+      });
+    }, 200);
+    return () => { clearTimeout(timer); abort.abort(); };
+  }, [api, search, page, reload, onSessionFailure]);
+  return <Stack spacing={2} data-wf6-business="list">
+    <Typography component="h1" variant="h4">{t('recipes')}</Typography>
+    <TextField label={t('search')} placeholder={t('search')} value={search} onChange={event => { setSearch(event.target.value); setPage(1); }} />
+    {state.kind === 'loading' && <Typography role="status">{t('loadingRecipes')}</Typography>}
+    {state.kind === 'error' && <Alert severity="error" role="alert">{state.message} <Button onClick={() => setReload(value => value + 1)}>Retry</Button></Alert>}
+    {state.kind === 'ready' && state.value.items.length === 0 && <Typography role="status">{t('empty')}</Typography>}
+    {state.kind === 'ready' && state.value.items.map(recipe => recipe.slug && <Card key={recipe.id ?? recipe.slug}>
+      <CardActionArea component={Link} to={recipeLink(group, recipe.slug)} aria-label={recipe.name ?? 'Untitled recipe'}>
+        <CardContent><Typography component="h2" variant="h6">{recipe.name ?? 'Untitled recipe'}</Typography>{recipe.description && <Typography>{recipe.description}</Typography>}</CardContent>
+      </CardActionArea>
+    </Card>)}
+    {state.kind === 'ready' && state.value.total_pages > 1 && <Pagination count={state.value.total_pages} page={page} onChange={(_, value) => setPage(value)} />}
+  </Stack>;
+}
+
+function RecipeDetail({ api, group, onSessionFailure }: Props) {
+  const { slug } = useParams(); const { t } = useTranslation(); const [reload, setReload] = useState(0);
+  const [state, setState] = useState<Load<Recipe>>({ kind: 'loading' });
+  useEffect(() => {
+    const abort = new AbortController();
+    setState({ kind: 'loading' });
+    void api.detail(slug ?? '', abort.signal).then(value => { if (!abort.signal.aborted) setState({ kind: 'ready', value }); }).catch(error => {
+      if (abort.signal.aborted) return;
+      if (error instanceof SessionError) onSessionFailure(error.message);
+      else setState({ kind: 'error', message: error instanceof Error ? error.message : 'Recipe request failed' });
+    });
+    return () => abort.abort();
+  }, [api, slug, reload, onSessionFailure]);
+  return <Stack spacing={2} data-wf6-business="detail">
+    <Button component={Link} to={`/g/${group}`}>{t('back')}</Button>
+    {state.kind === 'loading' && <Typography role="status">{t('loadingRecipe')}</Typography>}
+    {state.kind === 'error' && <Alert severity="error" role="alert">{state.message} <Button onClick={() => setReload(value => value + 1)}>Retry</Button></Alert>}
+    {state.kind === 'ready' && <>
+      <Typography component="h1" variant="h4">{state.value.name ?? 'Untitled recipe'}</Typography>
+      {state.value.description && <Typography>{state.value.description}</Typography>}
+      <Typography component="h2" variant="h5">{t('ingredients')}</Typography>
+      {(state.value.recipeIngredient ?? []).length === 0 && <Typography>No ingredients provided</Typography>}
+      <ul>{state.value.recipeIngredient?.map((ingredient, index) => <li key={ingredient.referenceId ?? index}>{ingredient.title && <Typography component="h3">{ingredient.title}</Typography>}{ingredientText(ingredient)}</li>)}</ul>
+      <Typography component="h2" variant="h5">{t('instructions')}</Typography>
+      {(state.value.recipeInstructions ?? []).length === 0 && <Typography>No instructions provided</Typography>}
+      <ol>{state.value.recipeInstructions?.map((step, index) => <li key={step.id ?? index}>{step.title && <Typography component="h3">{step.title}</Typography>}<Typography sx={{ whiteSpace: 'pre-wrap' }}>{step.text}</Typography></li>)}</ol>
+      {([['tools', state.value.tools], ['categories', state.value.recipeCategory], ['tags', state.value.tags]] as const).map(([label, values]) => <Stack key={label} spacing={1}>
+        <Typography component="h2" variant="h5">{t(label)}</Typography><Stack direction="row" flexWrap="wrap" gap={1}>{values?.map(value => <Chip key={value.id} label={value.name} />)}</Stack>
+      </Stack>)}
+    </>}
+  </Stack>;
+}
+
+export function RecipePages(props: Props) {
+  return <Routes><Route path="/g/:groupSlug" element={<RecipeList {...props} />} /><Route path="/g/:groupSlug/r/:slug" element={<RecipeDetail {...props} />} /></Routes>;
+}

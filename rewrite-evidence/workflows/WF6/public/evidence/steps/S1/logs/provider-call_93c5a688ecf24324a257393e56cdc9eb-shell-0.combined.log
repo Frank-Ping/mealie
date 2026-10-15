@@ -1,0 +1,69 @@
+def analyze(records, config, read_issues=None):
+    session = config["session_id"]
+    issues = list(read_issues or [])
+    metadata = [payload(r) for r in records if r["record"].get("type")=="session_meta"]
+    if not metadata or metadata[0].get("id")!=session:
+        issues.append("Session metadata missing or mismatched.")
+    raw, unique, seen, users, finals, completions, visible, contexts = [], [], {}, [], [], [], [], []
+    current_turn = None
+    message_ids = {}
+    for row in records:
+        pl=payload(row); typ=row["record"].get("type")
+        if typ=="event_msg" and pl.get("type")=="task_started":
+            current_turn=turn_of(pl)
+        if typ=="turn_context":
+            current_turn=turn_of(pl, current_turn)
+            contexts.append({**locator(row), **{k:pl.get(k) for k in ("turn_id","model","effort","approval_policy","sandbox_policy","cwd")}})
+        if typ=="token_usage_record" or (typ=="event_msg" and pl.get("type")=="token_count"):
+            raw.append({**locator(row),"timestamp":row["record"].get("timestamp"),"schema":typ if typ=="token_usage_record" else "legacy_token_count","payload":pl})
+        if typ=="token_usage_record":
+            if pl.get("session_id")!=session or pl.get("thread_id")!=session or not pl.get("turn_id") or not pl.get("response_id"):
+                issues.append(f"Foreign or unattributed usage at line {row['line']}; excluded.")
+                continue
+            key=(session,pl["response_id"])
+            if key in seen:
+                if seen[key]!=pl:issues.append(f"Conflicting response duplicate at line {row['line']}.")
+                continue
+            seen[key]=copy.deepcopy(pl);unique.append(row)
+        if typ=="response_item":
+            role=pl.get("role");item_type=pl.get("type")
+            if item_type=="message" and role=="user":
+                text=text_of(pl)
+                if text.lstrip().startswith("<environment_context>"):
+                    continue
+                turn=turn_of(pl,current_turn)
+                identity=pl.get("id")
+                if identity in message_ids and identity is not None:
+                    if message_ids[identity]!=text:issues.append("Conflicting duplicate user identity.")
+                    continue
+                if identity:message_ids[identity]=text
+                users.append(dict(row=row,text=text,turn_id=turn,message_id=identity))
+                visible.append({**locator(row),"turn_id":turn,"kind":"user","message_id":identity,"text":text})
+            elif item_type=="message" and role=="assistant" and pl.get("phase") in ("commentary","final_answer","final"):
+                turn=turn_of(pl,current_turn)
+                visible.append({**locator(row),"turn_id":turn,"kind":"assistant","phase":pl.get("phase"),"text":text_of(pl)})
+                if pl.get("phase") in ("final_answer","final"):
+                    finals.append(dict(row=row,text=text_of(pl),turn_id=turn))
+            item=registered[0]
+            if item.get("actual_prompt")!=user["text"] or item.get("turn_id")!=user["turn_id"] or item.get("line")!=user["row"]["line"]:
+                issues.append("Registered natural-language request identity/text/line mismatch.")
+                continue
+            stage=item["stage_id"];action="NATURAL_START"
+        else:continue
+        if user["row"]["line"]<config["start_line"]:continue
+        if user["row"]["line"]==config["start_line"] and (user["turn_id"]!=config.get("initial_turn_id") or user["message_id"]!=config.get("user_message_id")):
+            stage_issues[stage].append("Initial request identity disagrees with verified tracking configuration.")
+        if not user["turn_id"]:
+            stage_issues[stage].append("Missing request turn identity.")
+        existing=stage_segments[stage]
+        if action in ("START","NATURAL_START") and existing:
+            stage_issues[stage].append("Repeated START requires explicit classification; earlier segments are preserved.")
+        if action=="CONTINUE" and not existing:
+            stage_issues[stage].append("CONTINUE has no initial START in this source.")
+        if any(s["turn_id"]==user["turn_id"] for s in existing):
+            stage_issues[stage].append("Multiple request boundaries in one turn are ambiguous; no overlapping sum.")
+            continue
+        boundary={**locator(user["row"]),"stage_id":stage,"action":action,"session_id":session,
+                  "turn_id":user["turn_id"],"user_message_id":user["message_id"],"actual_prompt":user["text"],
+                  "timestamp":user["row"]["record"].get("timestamp")}
+        boundaries.append(boundary)

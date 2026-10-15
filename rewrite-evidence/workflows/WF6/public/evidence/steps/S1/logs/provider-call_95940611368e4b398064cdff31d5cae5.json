@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 835,
+    "byte_offset": 3182880,
+    "timestamp": "2026-10-14T02:18:49.716Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acee68231648191b7a86b4c9bedaf7e",
+      "status": "completed",
+      "call_id": "call_95940611368e4b398064cdff31d5cae5",
+      "name": "exec",
+      "input": "text(await tools.apply_patch(\"*** Begin Patch\\n*** Update File: <WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/usage/run_s1.py\\n@@\\n def capture_build(entry):\\n     folder=SOURCE/\\\"frontend/dist\\\"\\n+    prior=STAGE/\\\"build-artifact.json\\\"\\n+    if prior.exists():\\n+        old=json.loads(prior.read_text())\\n+        (STAGE/(\\\"build-artifact-\\\"+old[\\\"command_id\\\"]+\\\".json\\\")).write_bytes(prior.read_bytes())\\n*** End Patch\"));\ntext(await tools.exec_command({cmd:\"python3 -B wf6-rerun-20261014-01/wf6-evidence/usage/record_command.py --stage S1 --cwd '<WORKSPACE>/wf6-rerun-20261014-01' --label S1-Vue-build-approved-font-network-retest -- python3 -B wf6-evidence/usage/run_s1.py build --approved\",sandbox_permissions:\"require_escalated\",justification:\"是否允许在具体审批下重测冻结 Vue 构建所需的公开字体 provider 网络访问？首次构建 exit 0，但记录了 sandbox DNS 失败；本次保持源码、配置和 lockfile 不变，并保留两次构建证据。\",yield_time_ms:1000,max_output_tokens:1000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791944322.1960192
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 838,
+    "byte_offset": 3186428,
+    "timestamp": "2026-10-14T02:18:53.965Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13834-9a8d-7001-be54-5eb76f1011ac",
+      "call_id": "call_95940611368e4b398064cdff31d5cae5",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 4.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"6785da\",\"wall_time_seconds\":1.001790697,\"session_id\":81663,\"original_token_count\":0,\"output\":\"\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791944333.9658282
+      }
+    }
+  }
+}

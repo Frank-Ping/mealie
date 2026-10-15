@@ -1,0 +1,36 @@
+        provided=pl.get("turn_token_usage",{})
+        calculated=sums(turn_totals[turn])
+        if not valid_usage(provided) or any(calculated[k]!=provided.get(k) for k in FIELDS):
+            issues.append(f"Turn counter reconciliation failed at line {event['line']}.")
+    boundaries=[];stage_segments={f"S{i}":[] for i in range(8)};stage_issues={f"S{i}":[] for i in range(8)}
+    for user in users:
+        first=user["text"].splitlines()[0] if user["text"].splitlines() else ""
+        match=MARKER.fullmatch(first)
+        registered=[item for item in config.get("natural_requests",[]) if item.get("user_message_id")==user["message_id"]]
+        if match:
+            stage,action=match.groups()
+        elif registered:
+            item=registered[0]
+            if item.get("actual_prompt")!=user["text"] or item.get("turn_id")!=user["turn_id"] or item.get("line")!=user["row"]["line"]:
+                issues.append("Registered natural-language request identity/text/line mismatch.")
+                continue
+            stage=item["stage_id"];action=item.get("action","NATURAL_START")
+        else:continue
+        if user["row"]["line"]<config["start_line"]:continue
+        if user["row"]["line"]==config["start_line"] and (user["turn_id"]!=config.get("initial_turn_id") or user["message_id"]!=config.get("user_message_id")):
+            stage_issues[stage].append("Initial request identity disagrees with verified tracking configuration.")
+        if not user["turn_id"]:
+            stage_issues[stage].append("Missing request turn identity.")
+        existing=stage_segments[stage]
+        if action in ("START","NATURAL_START") and existing:
+            stage_issues[stage].append("Repeated START requires explicit classification; earlier segments are preserved.")
+        if action=="CONTINUE" and not existing:
+            stage_issues[stage].append("CONTINUE has no initial START in this source.")
+        if any(s["turn_id"]==user["turn_id"] for s in existing):
+            stage_issues[stage].append("Multiple request boundaries in one turn are ambiguous; no overlapping sum.")
+            continue
+        boundary={**locator(user["row"]),"stage_id":stage,"action":action,"session_id":session,
+                  "turn_id":user["turn_id"],"user_message_id":user["message_id"],"actual_prompt":user["text"],
+                  "timestamp":user["row"]["record"].get("timestamp")}
+Registered exact CONTINUE request; preserved prior exports; reviewed four original traces.
+{'stage_id': 'S6', 'action': 'CONTINUE', 'session_id': '01a137ea-f571-70f0-8cf3-7b8560c420bf', 'turn_id': '01a13974-b942-7012-950c-89399b0de489', 'user_message_id': 'msg_01a13974-ba67-70b0-a595-840f580c83c3', 'line': 3750, 'byte_offset': 10679903, 'timestamp': '2026-10-14T08:08:33.639Z'}

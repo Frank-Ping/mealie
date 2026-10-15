@@ -1,0 +1,136 @@
+✓ Lockfile passes supply-chain policies (verified 16h ago)
+Lockfile is up to date, resolution step is skipped
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Packages: +1231
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Packages are hard linked from the content-addressable store to the virtual store.
+  Content-addressable store is at: <WORKSPACE>/wf6-rerun-20261014-01/runtime/cache/pnpm/v11
+  Virtual store is at:             node_modules/.pnpm
+Progress: resolved 1231, reused 0, downloaded 9, added 1
+Progress: resolved 1231, reused 0, downloaded 42, added 8
+Progress: resolved 1231, reused 0, downloaded 74, added 10
+Progress: resolved 1231, reused 0, downloaded 132, added 12
+Progress: resolved 1231, reused 0, downloaded 212, added 20
+Progress: resolved 1231, reused 0, downloaded 273, added 23
+Progress: resolved 1231, reused 0, downloaded 326, added 28
+Progress: resolved 1231, reused 0, downloaded 373, added 29
+Progress: resolved 1231, reused 0, downloaded 403, added 32
+Progress: resolved 1231, reused 0, downloaded 429, added 36
+Progress: resolved 1231, reused 0, downloaded 487, added 38
+Progress: resolved 1231, reused 0, downloaded 547, added 42
+Progress: resolved 1231, reused 0, downloaded 609, added 46
+Progress: resolved 1231, reused 0, downloaded 679, added 49
+Progress: resolved 1231, reused 0, downloaded 758, added 54
+Progress: resolved 1231, reused 0, downloaded 848, added 58
+Progress: resolved 1231, reused 0, downloaded 940, added 63
+Progress: resolved 1231, reused 0, downloaded 1025, added 69
+Progress: resolved 1231, reused 0, downloaded 1104, added 73
+Progress: resolved 1231, reused 0, downloaded 1185, added 79
+Progress: resolved 1231, reused 0, downloaded 1225, added 100
+Progress: resolved 1231, reused 0, downloaded 1227, added 138
+Progress: resolved 1231, reused 0, downloaded 1227, added 159
+Progress: resolved 1231, reused 0, downloaded 1228, added 180
+Progress: resolved 1231, reused 0, downloaded 1228, added 234
+Progress: resolved 1231, reused 0, downloaded 1228, added 271
+Progress: resolved 1231, reused 0, downloaded 1228, added 294
+Progress: resolved 1231, reused 0, downloaded 1228, added 335
+Progress: resolved 1231, reused 0, downloaded 1228, added 353
+Progress: resolved 1231, reused 0, downloaded 1228, added 382
+Progress: resolved 1231, reused 0, downloaded 1228, added 410
+Progress: resolved 1231, reused 0, downloaded 1228, added 423
+Progress: resolved 1231, reused 0, downloaded 1228, added 433
+Progress: resolved 1231, reused 0, downloaded 1228, added 473
+Progress: resolved 1231, reused 0, downloaded 1228, added 492
+Progress: resolved 1231, reused 0, downloaded 1228, added 542
+Progress: resolved 1231, reused 0, downloaded 1228, added 552
+Progress: resolved 1231, reused 0, downloaded 1228, added 574
+Progress: resolved 1231, reused 0, downloaded 1228, added 608
+Progress: resolved 1231, reused 0, downloaded 1228, added 644
+Progress: resolved 1231, reused 0, downloaded 1228, added 684
+Progress: resolved 1231, reused 0, downloaded 1228, added 728
+Progress: resolved 1231, reused 0, downloaded 1228, added 782
+Progress: resolved 1231, reused 0, downloaded 1228, added 850
+Progress: resolved 1231, reused 0, downloaded 1228, added 858
+Progress: resolved 1231, reused 0, downloaded 1228, added 897
+Progress: resolved 1231, reused 0, downloaded 1228, added 927
+Progress: resolved 1231, reused 0, downloaded 1228, added 945
+Progress: resolved 1231, reused 0, downloaded 1228, added 967
+Progress: resolved 1231, reused 0, downloaded 1228, added 1014
+Progress: resolved 1231, reused 0, downloaded 1228, added 1059
+Progress: resolved 1231, reused 0, downloaded 1228, added 1081
+Progress: resolved 1231, reused 0, downloaded 1228, added 1097
+Progress: resolved 1231, reused 0, downloaded 1228, added 1153
+Progress: resolved 1231, reused 0, downloaded 1228, added 1208
+Progress: resolved 1231, reused 0, downloaded 1228, added 1222
+Progress: resolved 1231, reused 0, downloaded 1228, added 1223
+Progress: resolved 1231, reused 0, downloaded 1228, added 1224
+Progress: resolved 1231, reused 0, downloaded 1228, added 1226
+Progress: resolved 1231, reused 0, downloaded 1228, added 1227
+Progress: resolved 1231, reused 0, downloaded 1228, added 1228
+Progress: resolved 1231, reused 0, downloaded 1229, added 1228
+Progress: resolved 1231, reused 0, downloaded 1229, added 1229
+Progress: resolved 1231, reused 0, downloaded 1229, added 1230
+Progress: resolved 1231, reused 0, downloaded 1229, added 1231
+Progress: resolved 1231, reused 0, downloaded 1229, added 1231, done
+.../node_modules/@parcel/watcher install$ node scripts/build-from-source.js
+.../node_modules/unrs-resolver postinstall$ node postinstall.js
+.../node_modules/vue-demi postinstall$ node -e "try{require('./scripts/postinstall.js')}catch(e){}"
+.../node_modules/@parcel/watcher install: Done
+.../esbuild@0.28.2/node_modules/esbuild postinstall$ node install.js
+.../esbuild@0.25.12/node_modules/esbuild postinstall$ node install.js
+.../node_modules/unrs-resolver postinstall: Done
+.../esbuild@0.25.12/node_modules/esbuild postinstall: Done
+.../esbuild@0.28.2/node_modules/esbuild postinstall: Done
+.../node_modules/vue-demi postinstall: Done
+.../node_modules/json-editor-vue preinstall$ node -e "if (process.env.INIT_CWD === process.cwd()) { process.exit(1) }" || (npx only-allow pnpm && pnpm config set registry https://registry.npmmirror.com)
+.../node_modules/json-editor-vue preinstall: Done
+.../node_modules/json-editor-vue postinstall$ node -e "if (process.env.INIT_CWD === process.cwd()) { process.exit(1) }" || (npx simple-git-hooks && git config core.hooksPath .git/hooks/ && npx license-checker --summary --out ./licenses.txt)
+.../node_modules/json-editor-vue postinstall: Done
+
+dependencies:
++ @mdi/js 7.4.47
++ @nuxt/fonts 0.11.4
++ @nuxtjs/i18n 10.6.0
++ @vite-pwa/nuxt 0.10.8
++ @vueuse/core 12.8.2
++ @vueuse/shared 14.4.0
++ axios 1.20.0
++ date-fns 4.4.0
++ dompurify 3.4.16
++ fuse.js 7.5.0
++ isomorphic-dompurify 3.23.0
++ json-editor-vue 0.18.1
++ marked 15.0.12
++ nuxt 4.5.2
++ sse.js 2.8.0
++ ufo 1.6.4
++ vue 3.5.43
++ vue-advanced-cropper 2.8.9
++ vue-draggable-plus 0.6.1
++ vue-i18n 11.4.12
++ vuetify 4.2.2
++ vuetify-nuxt-module 1.0.0-rc.6
+
+devDependencies:
++ @nuxt/eslint 1.17.0
++ @stylistic/eslint-plugin 5.10.0
++ @types/node 25.9.8
++ @types/sortablejs 1.15.9
++ @vitejs/plugin-vue 6.0.9
++ @vitest/coverage-v8 4.1.10
++ @vitest/ui 4.1.10
++ @vue/test-utils 2.5.1
++ eslint 10.11.0
++ eslint-config-prettier 10.1.8
++ eslint-plugin-format 1.5.0
++ eslint-plugin-prettier 5.5.6
++ eslint-plugin-vue 10.11.1
++ lint-staged 15.5.2
++ prettier 3.9.9
++ sass-embedded 1.105.0
++ typescript 5.9.3
++ unplugin-auto-import 21.1.0
++ vite-plugin-commonjs 0.10.4
++ vitest 4.1.11
+
+Done in 3m 45.5s using pnpm v11.23.0

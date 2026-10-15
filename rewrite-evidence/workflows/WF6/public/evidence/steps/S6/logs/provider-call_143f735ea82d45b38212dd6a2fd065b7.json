@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3475,
+    "byte_offset": 10032084,
+    "timestamp": "2026-10-14T07:53:04.951Z",
+    "turn_id": "01a13964-888e-7540-98b2-3abbc8e32d90",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf34c5f25881918ec20570de2ab37c",
+      "status": "completed",
+      "call_id": "call_143f735ea82d45b38212dd6a2fd065b7",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nfrom pathlib import Path\\np=Path('wf6-rerun-20261014-01/wf6-evidence/usage');src=(p/'s2-browser-tests.cjs').read_text().replace(\\\"const direct = `/g/${f.groupSlug}/r/${f.recipeSlug}?wf6=vue&probe=preserved#ingredients`;\\\",\\\"const direct = `/g/${f.groupSlug}/r/${f.recipeSlug}?probe=preserved#ingredients`;\\\")\\nneedle=\\\"  await page.getByRole('link', { name: 'E2E Pancakes' }).first().click();\\\"\\ninsert=\\\"\\\"\\\"  await expect(page.locator('#__nuxt')).toBeVisible(); await expect(page.locator('[data-wf6-frontend=\\\"react\\\"]')).toHaveCount(0);\\n  await page.getByRole('textbox', { name: 'Search...', exact: true }).fill('Garden Salad');\\n  await expect(page.getByRole('link', { name: 'E2E Garden Salad' })).toBeVisible(); await expect(page.getByRole('link', { name: 'E2E Pancakes' })).toHaveCount(0);\\n  await page.getByRole('textbox', { name: 'Search...', exact: true }).fill(''); await expect(page.getByRole('link', { name: 'E2E Pancakes' }).first()).toBeVisible();\\n  await page.getByRole('link', { name: 'E2E Pancakes' }).first().click();\\\"\\\"\\\"\\nassert needle in src;src=src.replace(needle,insert).replace(\\\"provenance: 'All observed document and Vue asset responses attributed to the fresh Vue build. No React exists or runs in S2.'\\\",\\\"provenance: 'Takeover explicitly disabled. Actual Nuxt runtime; every observed document and Vue asset attributes to accepted Vue build; React does not execute.'\\\")\\nsrc=src.replace(\\\"  fs.writeFileSync(process.env.WF6_BROWSER_EVIDENCE,\\\", \\\"  await page.screenshot({path: path.join(process.env.WF6_SHOTS,'rollback-vue-list.png')});\\\\n  expect(evidence.filter(x=>x.type==='document').length).toBeLessThan(20);\\\\n  fs.writeFileSync(process.env.WF6_BROWSER_EVIDENCE,\\\")\\n(p/'s6-rollback-tests.cjs').write_text(src)\\nPY\\ncat > wf6-rerun-20261014-01/wf6-evidence/usage/s6-ownership-tests.cjs <<'EOF'\\nconst fs=require('node:fs');const path=require('node:path');const {test,expect}=require(process.env.WF6_PLAYWRIGHT_MODULE);\\nconst {ROUTES}=require(process.env.WF6_FROZEN_ROUTES);\\ntest('all frozen route ownership and comparable seeded input',async({request})=>{\\n const f=JSON.parse(fs.readFileSync(path.join(process.env.WF6_AUTH_DIR,'fixtures.json')));const map=await(await request.get('/_wf6/route-map.json')).json();expect(map.takeoverEnabled).toBe(true);\\n const {ownsReact}=await import(process.env.WF6_ROUTE_POLICY);const rows=[];\\n for(const route of ROUTES){const url=route.path(f);const r=await request.get(url,{headers:{accept:'text/html'}});const expected=ownsReact(url,map)?'react':'vue';expect(r.headers()['x-wf6-frontend'],route.file).toBe(expected);expect(r.headers()['x-wf6-build']).toBe(expected==='react'?process.env.WF6_REACT_BUILD_HASH:process.env.WF6_BUILD_HASH);rows.push({file:route.file,url,status:r.status(),frontend:expected,build:r.headers()['x-wf6-build'],scope:expected==='react'?'Configured-group read-only pilot':'Vue retained; not React migration',businessAssertion:'Separate frozen strict suite; ownership response alone is not business acceptance'});}\\n expect(rows.length).toBe(66);fs.writeFileSync(process.env.WF6_ROUTE_OWNERSHIP,JSON.stringify({rows,fixtureIds:f,disclaimer:'HTTP document ownership inventory supplements unchanged frozen business assertions.'},null,2));\\n});\\nEOF\\npython3 -B - <<'PY'\\nfrom pathlib import Path\\nimport json\\np=Path('wf6-rerun-20261014-01/wf6-evidence');s=p/'steps/S6';source=Path('wf6-rerun-20261014-01/mealie-wf6-coexist');original=(source/'wf6/route-map.json').read_bytes();(s/'route-map-restored.json').write_bytes(original);m=json.loads(original);m['takeoverEnabled']=False;m['activeReactRoutes']=[];(s/'route-map-rollback.json').write_text(json.dumps(m,indent=2)+'\\\\n')\\nprint('Explicit rollback/restored route maps saved outside source; original map unchanged.')\\nPY\",\"max_output_tokens\":1000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13964-888e-7540-98b2-3abbc8e32d90",
+        "create_time": 1791964357.9508379
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3478,
+    "byte_offset": 10045686,
+    "timestamp": "2026-10-14T07:53:05.143Z",
+    "turn_id": "01a13964-888e-7540-98b2-3abbc8e32d90",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a13966-8f77-7473-b26b-ca52c2f27001",
+      "call_id": "call_143f735ea82d45b38212dd6a2fd065b7",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.2 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"fa14df\",\"wall_time_seconds\":0.000012878,\"exit_code\":0,\"original_token_count\":21,\"output\":\"Explicit rollback/restored route maps saved outside source; original map unchanged.\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13964-888e-7540-98b2-3abbc8e32d90",
+        "create_time": 1791964385.1431048
+      }
+    }
+  }
+}

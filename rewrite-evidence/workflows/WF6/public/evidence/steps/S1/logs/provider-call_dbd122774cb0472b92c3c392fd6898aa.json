@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1434,
+    "byte_offset": 4837054,
+    "timestamp": "2026-10-14T03:20:45.337Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acef509020881918d90b23012cad37e",
+      "status": "completed",
+      "call_id": "call_dbd122774cb0472b92c3c392fd6898aa",
+      "name": "exec",
+      "input": "text(await tools.write_stdin({session_id:17385,chars:\"\",yield_time_ms:1000,max_output_tokens:1500}));\ntext(await tools.exec_command({cmd:\"python3 - <<'PY'\\nimport json,pathlib\\np=pathlib.Path('wf6-rerun-20261014-01/wf6-evidence/steps/S1/token-usage.json');d=json.loads(p.read_text());print(json.dumps({k:v for k,v in d.items() if k not in ('segments',)},ensure_ascii=False)[:2500])\\nPY\\ntail -2 wf6-rerun-20261014-01/wf6-evidence/steps/S1/logs/20261014T030622-9490b72b.stdout.log\",\"max_output_tokens\":2800}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791948041.016251
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1437,
+    "byte_offset": 4841280,
+    "timestamp": "2026-10-14T03:20:45.476Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a1386d-3ca3-7db3-b1e5-b84b6d1afcd5",
+      "call_id": "call_dbd122774cb0472b92c3c392fd6898aa",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.1 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"fab344\",\"wall_time_seconds\":0.000009067,\"exit_code\":0,\"original_token_count\":213,\"output\":\"{\\\"command_id\\\": \\\"20261014T031942-74c1d970\\\", \\\"stage_id\\\": \\\"S1\\\", \\\"label\\\": \\\"S1-interim-provider-usage-coverage-audit\\\", \\\"argv\\\": [\\\"python3\\\", \\\"-B\\\", \\\"wf6-evidence/usage/collect_usage.py\\\", \\\"finalize\\\", \\\"--stage\\\", \\\"S1\\\", \\\"--wait-seconds\\\", \\\"0\\\"], \\\"cwd\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01\\\", \\\"start_utc\\\": \\\"2026-10-14T03:19:42.012956+00:00\\\", \\\"end_utc\\\": \\\"2026-10-14T03:19:46.389527+00:00\\\", \\\"duration_seconds\\\": 4.376575255999342, \\\"exit_code\\\": 0, \\\"stdout\\\": \\\"steps/S1/logs/20261014T031942-74c1d970.stdout.log\\\", \\\"stderr\\\": \\\"steps/S1/logs/20261014T031942-74c1d970.stderr.log\\\", \\\"environment_overrides\\\": {}, \\\"permission\\\": \\\"workspace-write; network restricted; no escalation\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"72ce5d\",\"wall_time_seconds\":0.000010438,\"exit_code\":0,\"original_token_count\":248,\"output\":\"{\\\"stage_id\\\": \\\"S1\\\", \\\"status\\\": \\\"provisional\\\", \\\"session_id\\\": \\\"01a137ea-f571-70f0-8cf3-7b8560c420bf\\\", \\\"turn_ids\\\": [\\\"01a1382a-58bc-7f40-9ce8-5b97298b1cd0\\\"], \\\"input_tokens\\\": 22411904, \\\"cached_input_tokens\\\": 22230528, \\\"cache_write_input_tokens\\\": 0, \\\"output_tokens\\\": 87554, \\\"reasoning_output_tokens\\\": 51338, \\\"total_tokens\\\": 22499458, \\\"known_partial_usage\\\": {\\\"input_tokens\\\": 22411904, \\\"cached_input_tokens\\\": 22230528, \\\"cache_write_input_tokens\\\": 0, \\\"output_tokens\\\": 87554, \\\"reasoning_output_tokens\\\": 51338, \\\"total_tokens\\\": 22499458}, \\\"final_reply_included\\\": false, \\\"source_log\\\": \\\"<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl\\\", \\\"coverage_notes\\\": [], \\\"cost\\\": null, \\\"cache_write_semantics\\\": \\\"Observed separately; not added to total.\\\"}\\n  ✘  42 [routes] › tests/routes.spec.ts:37:9 › admin › [route] group/migrations.vue (17.1s)\\n  ✘  43 [routes] › tests/routes.spec.ts:37:9 › admin › [route] group/reports/[id].vue (16.3s)\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791948045.475967
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3364,
+    "byte_offset": 9725621,
+    "timestamp": "2026-10-14T07:45:17.025Z",
+    "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acf32fe69c081918d718aa00a586c88",
+      "status": "completed",
+      "call_id": "call_d32e174f98904299994db54e91dd155b",
+      "name": "exec",
+      "input": "text(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nfrom pathlib import Path\\nimport json,datetime as dt\\np=Path('wf6-rerun-20261014-01/wf6-evidence');s=p/'steps/S5';d=json.loads((s/'detection-negative.json').read_text());d.update(failure_reason_verified='Missing E2E Pancakes heading under React-owned HTML while assets were unavailable; identical business assertion passes before and after',raw_playwright_status_policy='Playwright unexpected=1 is retained untouched; experiment classifies this intentional injection as expected_failure, not ordinary regression')\\n(s/'detection-negative.json').write_text(json.dumps(d,indent=2)+'\\\\n')\\nwith (s/'attempts.jsonl').open('a') as f:f.write(json.dumps(dict(timestamp=dt.datetime.now(dt.timezone.utc).isoformat(),classification='expected_failure',phase='React-assets-unavailable',command_id=d['outcomes'][1]['command_id'],actual_exit_code=1,normal_control_exit=0,restored_exit=0,takeoverEnabled=True,repair_round=False,source_modified=False,raw_stats_unchanged=True))+'\\\\n')\\nsrc=(p/'usage/postcommit_s4.py').read_text().replace('S4','S5').replace('from finish_s4 import STAGE','from finish_s5 import STAGE');a=src.index('expected=');b=src.index('\\\\nchanged=',a);src=src[:a]+\\\"expected=['rewrite-evidence/workflows/WF6/S5-RESULT.md']\\\"+src[b:];src=src.replace('S5 real scoped read-only recipe pilot PASS, zero shared source repair rounds used.','S5 journey/boundaries/detection PASS; two S5 harness repairs used, application unchanged.').replace('Stop; S5 not executed.','Stop; S6 not executed.')\\n(p/'usage/postcommit_s5.py').write_text(src)\\nPY\\npython3 -B wf6-rerun-20261014-01/wf6-evidence/usage/record_command.py --stage S5 --cwd '<WORKSPACE>/wf6-rerun-20261014-01' --label S5-stage-only-small-bilingual-summary -- git -C mealie-wf6-coexist add rewrite-evidence/workflows/WF6/S5-RESULT.md\",\"max_output_tokens\":1000}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+        "create_time": 1791963902.4163756
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 3367,
+    "byte_offset": 9734184,
+    "timestamp": "2026-10-14T07:45:17.331Z",
+    "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a1395f-6c13-7791-9bd7-0471ebddd9ea",
+      "call_id": "call_d32e174f98904299994db54e91dd155b",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.3 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"7ca33f\",\"wall_time_seconds\":0.110353151,\"exit_code\":0,\"original_token_count\":208,\"output\":\"{\\\"command_id\\\": \\\"20261014T074517-45208e93\\\", \\\"stage_id\\\": \\\"S5\\\", \\\"label\\\": \\\"S5-stage-only-small-bilingual-summary\\\", \\\"argv\\\": [\\\"git\\\", \\\"-C\\\", \\\"mealie-wf6-coexist\\\", \\\"add\\\", \\\"rewrite-evidence/workflows/WF6/S5-RESULT.md\\\"], \\\"cwd\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01\\\", \\\"start_utc\\\": \\\"2026-10-14T07:45:17.255729+00:00\\\", \\\"end_utc\\\": \\\"2026-10-14T07:45:17.315027+00:00\\\", \\\"duration_seconds\\\": 0.059300864002580056, \\\"exit_code\\\": 0, \\\"stdout\\\": \\\"steps/S5/logs/20261014T074517-45208e93.stdout.log\\\", \\\"stderr\\\": \\\"steps/S5/logs/20261014T074517-45208e93.stderr.log\\\", \\\"environment_overrides\\\": {}, \\\"permission\\\": \\\"workspace-write; network restricted; no escalation\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a13950-206a-7bc2-bb38-6d6e5387c349",
+        "create_time": 1791963917.3312795
+      }
+    }
+  }
+}

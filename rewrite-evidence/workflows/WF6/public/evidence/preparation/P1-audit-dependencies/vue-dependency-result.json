@@ -1,0 +1,14 @@
+{
+  "action": "vue",
+  "status": "PASS",
+  "frozen_input_sha256": {
+    "/mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/uv.lock": "74f4f6a70e1ccd8f8d3d8fa69585597755ecd9fd2c8eba0fc5d3b8a7d925fda0",
+    "/mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/pyproject.toml": "043162152b34c9d509e8f93daf0571984772364709dc6b6df66fbd62d7a396a5",
+    "/mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/package.json": "d2b266865e2f34c3e7bb1f0dc03ca72d23d4a428df9ecb28d66746f28db86407",
+    "/mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/pnpm-lock.yaml": "e773fc2cc3219d2f735a96b8e20b5b7a51f3feeae0b218f3a6e011b81f481cd4",
+    "/mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic development/574-week12/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/pnpm-workspace.yaml": "2eae2b56087a33f148dfebb2328157642a5f8295ec7d14a2f8a8aee4d19d95fe",
+    "/mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic development/574-week12/wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/package.json": "0a66e0ec88d56e90dfb4a5e4c1d0f0a654c40e65ab68c2143b976f85d63f3c3b",
+    "/mnt/c/Users/auyhp/OneDrive/Desktop/574-agentic development/574-week12/wf6-rerun-20261014-01/mealie-wf6-evaluator/frontend-e2e/pnpm-lock.yaml": "af39db4f1e40760e120287096865b1d1af9389c616f954a27d6bdc07d7009bca"
+  },
+  "scope": "Dependency preparation/version inspection only; no baseline, build, unit/lint/type checks, database, login or evaluator suite executed."
+}

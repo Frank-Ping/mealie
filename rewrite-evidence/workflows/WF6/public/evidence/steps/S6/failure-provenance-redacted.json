@@ -1,0 +1,87 @@
+{
+  "rows": [
+    {
+      "trace": "browser/restored-frozen-test-results/flows-auth-auth-flow-a-reg-15752--is-not-offered-admin-pages-flows/trace.zip",
+      "documents": [
+        {
+          "url": "http://localhost:9106/login",
+          "status": 200,
+          "owner": "vue",
+          "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231"
+        },
+        {
+          "url": "http://localhost:9106/g/home",
+          "status": 200,
+          "owner": "react",
+          "build": "2b409d4deadf1bc17acc5a4a6634e638feca52550caec23a7d6f23f6dd1493f8"
+        },
+        {
+          "url": "http://localhost:9106/g/home",
+          "status": 200,
+          "owner": "react",
+          "build": "2b409d4deadf1bc17acc5a4a6634e638feca52550caec23a7d6f23f6dd1493f8"
+        }
+      ],
+      "visible_error_context_available": true,
+      "credential_fields_exported": false
+    },
+    {
+      "trace": "browser/restored-frozen-test-results/flows-auth-auth-flow-an-admin-is-offered-admin-pages-flows/trace.zip",
+      "documents": [
+        {
+          "url": "http://localhost:9106/login",
+          "status": 200,
+          "owner": "vue",
+          "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231"
+        },
+        {
+          "url": "http://localhost:9106/g/home",
+          "status": 200,
+          "owner": "react",
+          "build": "2b409d4deadf1bc17acc5a4a6634e638feca52550caec23a7d6f23f6dd1493f8"
+        },
+        {
+          "url": "http://localhost:9106/g/home",
+          "status": 200,
+          "owner": "react",
+          "build": "2b409d4deadf1bc17acc5a4a6634e638feca52550caec23a7d6f23f6dd1493f8"
+        }
+      ],
+      "visible_error_context_available": true,
+      "credential_fields_exported": false
+    },
+    {
+      "trace": "browser/restored-frozen-test-results/flows-auth-auth-flow-log-out-ends-the-session-flows/trace.zip",
+      "documents": [
+        {
+          "url": "http://localhost:9106/login",
+          "status": 200,
+          "owner": "vue",
+          "build": "3520a9f725c01e2c0a431a38299152d667b7f304b98f4f35f39054094e7bc231"
+        },
+        {
+          "url": "http://localhost:9106/g/home",
+          "status": 200,
+          "owner": "react",
+          "build": "2b409d4deadf1bc17acc5a4a6634e638feca52550caec23a7d6f23f6dd1493f8"
+        }
+      ],
+      "visible_error_context_available": true,
+      "credential_fields_exported": false
+    },
+    {
+      "trace": "browser/restored-frozen-test-results/flows-recipes-recipes-flow-a3d3d-ipe-and-see-it-after-reload-flows/trace.zip",
+      "documents": [
+        {
+          "url": "http://localhost:9106/g/home/r/e2e-garden-salad",
+          "status": 200,
+          "owner": "react",
+          "build": "2b409d4deadf1bc17acc5a4a6634e638feca52550caec23a7d6f23f6dd1493f8"
+        }
+      ],
+      "visible_error_context_available": true,
+      "credential_fields_exported": false
+    }
+  ],
+  "policy": "Only document resource type, URL/status/framework/build; cookies/bearer/response bodies excluded. Original traces untouched."
+}

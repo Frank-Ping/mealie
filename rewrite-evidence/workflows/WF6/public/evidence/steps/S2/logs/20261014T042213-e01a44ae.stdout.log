@@ -1,0 +1,7 @@
+[rewrite/wf6-route-coexistence f2a2bd9] [WF6-S2] Add verified all-Vue same-origin gateway
+ 5 files changed, 152 insertions(+)
+ create mode 100644 rewrite-evidence/workflows/WF6/S2-RESULT.md
+ create mode 100644 rewrite-evidence/workflows/WF6/TYPE-DIAGNOSTICS.md
+ create mode 100644 wf6/gateway.mjs
+ create mode 100644 wf6/gateway.test.mjs
+ create mode 100644 wf6/route-map.json

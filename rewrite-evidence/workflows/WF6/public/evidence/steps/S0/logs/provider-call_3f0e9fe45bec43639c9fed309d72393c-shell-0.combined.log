@@ -1,0 +1,49 @@
+[
+  {
+    "origin_object_store": "C:\\Users\\auyhp\\OneDrive\\Desktop\\574-agentic development\\574-week12\\mealie-wf4-rerun",
+    "pinned_sha": "4b9ca06b6581f7152e164ea0fd9d4da366975a79",
+    "tree_sha": "3f112110b1370583ea3dd4947791d48831b26c99",
+    "commit_header": "4b9ca06b6581f7152e164ea0fd9d4da366975a79\n3f112110b1370583ea3dd4947791d48831b26c99\n2026-09-30T12:51:18+13:00\n[P0] Document measuring and let measure.sh grade apps in other checkouts",
+    "target": "C:\\Users\\auyhp\\OneDrive\\Desktop\\574-agentic development\\574-week12\\mealie-wf6-coexist",
+    "initial_dirty": false,
+    "remotes": [],
+    "source_access": "Pinned Git objects only; no other workflow worktree implementation read."
+  },
+  {
+    "origin_object_store": "C:\\Users\\auyhp\\OneDrive\\Desktop\\574-agentic development\\574-week12\\mealie-wf4-evaluator",
+    "pinned_sha": "758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d",
+    "tree_sha": "52264040ae4af83ac3d3e49085f40a5c21fed1c6",
+    "commit_header": "758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d\n52264040ae4af83ac3d3e49085f40a5c21fed1c6\n2026-10-10T16:14:58+13:00\n[eval] Translate Chinese passages in evidence into English",
+    "target": "C:\\Users\\auyhp\\OneDrive\\Desktop\\574-agentic development\\574-week12\\mealie-wf6-evaluator",
+    "initial_dirty": false,
+    "remotes": [],
+    "source_access": "Pinned Git objects only; no other workflow worktree implementation read."
+  }
+]
+mealie-wf4-evaluator 4b9ca06b6581f7152e164ea0fd9d4da366975a79 missing
+98a62e1e9f0ff349c5e49be4749d44d1cc3d34dd missing
+758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d commit 758
+4c060ae124f7a0d497e7f34ba10cac860d7c3231 missing
+ 
+mealie-wf4-rerun 4b9ca06b6581f7152e164ea0fd9d4da366975a79 commit 768
+98a62e1e9f0ff349c5e49be4749d44d1cc3d34dd missing
+758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d missing
+4c060ae124f7a0d497e7f34ba10cac860d7c3231 missing
+ 
+mealie-wf5 4b9ca06b6581f7152e164ea0fd9d4da366975a79 commit 768
+98a62e1e9f0ff349c5e49be4749d44d1cc3d34dd commit 1014
+758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d missing
+4c060ae124f7a0d497e7f34ba10cac860d7c3231 missing
+ 
+mealie-wf6-coexist 4b9ca06b6581f7152e164ea0fd9d4da366975a79 commit 768
+98a62e1e9f0ff349c5e49be4749d44d1cc3d34dd missing
+758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d missing
+4c060ae124f7a0d497e7f34ba10cac860d7c3231 missing
+ 
+mealie-wf6-evaluator 4b9ca06b6581f7152e164ea0fd9d4da366975a79 missing
+98a62e1e9f0ff349c5e49be4749d44d1cc3d34dd missing
+758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d commit 758
+4c060ae124f7a0d497e7f34ba10cac860d7c3231 missing
+ 
+USER 101 {"type": "message", "id": "msg_01a137f3-c301-7993-8be6-4e81bd6db60b", "role": "user", "content": [{"type": "input_text", "text": "<environment_context>\n  <current_date>2026-10-14</current_date>\n  <timezone>Pacific/Auckland</timezone>\n  <filesystem><workspace_roots><root><WORKSPACE></root></workspace_roots><permission_profile type=\"managed\"><file_system type=\"restricted\"><entry access=\"read\"><special>:root</special></entry><entry access=\"write\"><path><WORKSPACE></path></entry><entry access=\"write\"><special>:slash_tmp</special></entry><entry access=\"write\"><special>:tmpdir</special></entry><entry access=\"read\"><path><WORKSPACE>/.git</path></entry><entry access=\"read\"><path><WORKSPACE>/.agents</path></entry><entry access=\"read\"><path><WORKSPACE>/.codex</path></entry><entry access=\"read\"><path><WORKSPACE>/.aws</path></entry></file_system></permission_profile></filesystem>\n</environment_context>"}], "internal_chat_message_metadata_passthrough": {"turn_id": "01a137f3-c2d3-7db0-9623-6d33961b39eb", "create_time": 1791940084.4812374, "content_item_kinds": ["environments.environment_context"]}}
+USER 104 {"type": "message", "id": "msg_01a137f3-c308-7400-b27e-520081c5b978", "role": "user", "content": [{"type": "input_text", "text": "[[WF6:S0:START]]\n\n正式启动 wf6-rerun-20261014-01 的 S0。\n按已读取的 S0 中文 prompt、共同契约和交接要求执行。\n\n本条实际请求为新 S0 token 起点；\n初始化 preparation 单列，保留旧失败证据和计量边界。\n\n先处理初始化发现的 Git 父对象缺失及 git show 报错，\n核实冻结来源与内容；验证完成前不得标记 gate 通过。\n\n保留原始日志，新增技术说明使用英文，\n阶段结果提供中英文对照，并建立独立 token collector。\n\n仅执行 S0，结束后停止，不自动进入 S1。"}], "internal_chat_message_metadata_passthrough": {"turn_id": "01a137f3-c2d3-7db0-9623-6d33961b39eb", "create_time": 1791940084.4880567, "content_item_kinds": ["user.text"]}}

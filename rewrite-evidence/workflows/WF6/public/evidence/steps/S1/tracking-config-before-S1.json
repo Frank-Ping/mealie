@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "run_id": "wf6-rerun-20261014-01",
+  "run_root": "<WORKSPACE>/wf6-rerun-20261014-01",
+  "workspace_root": "<WORKSPACE>",
+  "session_id": "01a137ea-f571-70f0-8cf3-7b8560c420bf",
+  "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+  "initial_turn_id": "01a137f3-c2d3-7db0-9623-6d33961b39eb",
+  "start_line": 104,
+  "start_byte_offset": 886375,
+  "user_message_id": "msg_01a137f3-c308-7400-b27e-520081c5b978",
+  "created_utc": "2026-10-14T01:09:28.572645+00:00",
+  "accounting_policy": "Attributed response records only; legacy token_count retained but never added. No inherited-history recount.",
+  "final_reply_policy": "Latest END + matching subsequent usage + task_complete + identity/boundary/counter reconciliation.",
+  "python_executable": "/usr/bin/python3",
+  "actual_prompt": "[[WF6:S0:START]]\n\n正式启动 wf6-rerun-20261014-01 的 S0。\n按已读取的 S0 中文 prompt、共同契约和交接要求执行。\n\n本条实际请求为新 S0 token 起点；\n初始化 preparation 单列，保留旧失败证据和计量边界。\n\n先处理初始化发现的 Git 父对象缺失及 git show 报错，\n核实冻结来源与内容；验证完成前不得标记 gate 通过。\n\n保留原始日志，新增技术说明使用英文，\n阶段结果提供中英文对照，并建立独立 token collector。\n\n仅执行 S0，结束后停止，不自动进入 S1。"
+}

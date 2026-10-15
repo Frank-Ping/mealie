@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1239,
+    "byte_offset": 4154138,
+    "timestamp": "2026-10-14T03:05:08.876Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016acef161d0488191bb31669ec9bd33a6",
+      "status": "completed",
+      "call_id": "call_0b202992e96c46b288e816da26be6f6e",
+      "name": "exec",
+      "input": "text(await tools.write_stdin({session_id:65102,chars:\"\",yield_time_ms:20000,max_output_tokens:1300}));\ntext(await tools.exec_command({cmd:\"python3 -B - <<'PY'\\nfrom pathlib import Path\\ns=Path('wf6-rerun-20261014-01/wf6-evidence/steps/S1/logs')\\nfor f in sorted(s.glob('20261014T0303*.stderr.log'))[-2:]:print(f.name,f.read_text()[-800:])\\nPY\",max_output_tokens:1300}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791947105.8169618
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 1242,
+    "byte_offset": 4156977,
+    "timestamp": "2026-10-14T03:05:09.014Z",
+    "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a1385e-f296-79a1-89c5-30513959e264",
+      "call_id": "call_0b202992e96c46b288e816da26be6f6e",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 0.1 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"22ceca\",\"wall_time_seconds\":0.0000098,\"exit_code\":1,\"original_token_count\":201,\"output\":\"{\\\"command_id\\\": \\\"20261014T030440-8f8bd6e5\\\", \\\"stage_id\\\": \\\"S1\\\", \\\"label\\\": \\\"S1-real-backend-browser-sandbox-capability-attempt\\\", \\\"argv\\\": [\\\"python3\\\", \\\"-B\\\", \\\"wf6-evidence/usage/browser_s1.py\\\"], \\\"cwd\\\": \\\"<WORKSPACE>/wf6-rerun-20261014-01\\\", \\\"start_utc\\\": \\\"2026-10-14T03:04:40.448138+00:00\\\", \\\"end_utc\\\": \\\"2026-10-14T03:04:44.782503+00:00\\\", \\\"duration_seconds\\\": 4.334373453999433, \\\"exit_code\\\": 1, \\\"stdout\\\": \\\"steps/S1/logs/20261014T030440-8f8bd6e5.stdout.log\\\", \\\"stderr\\\": \\\"steps/S1/logs/20261014T030440-8f8bd6e5.stderr.log\\\", \\\"environment_overrides\\\": {}, \\\"permission\\\": \\\"workspace-write; network restricted; no escalation\\\", \\\"environment_capture\\\": \\\"Only explicit non-secret overrides; inherited secrets are not exported.\\\", \\\"launch_error\\\": null, \\\"stdin_path\\\": null}\\n\"}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"2a65a2\",\"wall_time_seconds\":0.000010556,\"exit_code\":0,\"original_token_count\":19,\"output\":\"20261014T030310-441aeb13.stderr.log \\n20261014T030310-4a326863.stderr.log \\n\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a1382a-58bc-7f40-9ce8-5b97298b1cd0",
+        "create_time": 1791947109.0140507
+      }
+    }
+  }
+}

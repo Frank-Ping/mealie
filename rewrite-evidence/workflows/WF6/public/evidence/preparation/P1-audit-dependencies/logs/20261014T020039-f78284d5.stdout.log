@@ -1,0 +1,34 @@
+{"category": "extra_discussion/preparation", "preparation_id": "P1-audit-dependencies", "command_id": "20261014T020039-da14e610", "label": "preparation-final-source-head", "argv": ["git", "--no-optional-locks", "-C", "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist", "rev-parse", "HEAD"], "cwd": "<WORKSPACE>/wf6-rerun-20261014-01", "start_utc": "2026-10-14T02:00:39.556199+00:00", "end_utc": "2026-10-14T02:00:39.609849+00:00", "duration_seconds": 0.05365917999915837, "exit_code": 0, "stdout": "logs/20261014T020039-da14e610.stdout.log", "stderr": "logs/20261014T020039-da14e610.stderr.log", "environment_overrides": {}, "permission": "workspace-write; restricted network; no escalation", "launch_error": null}
+{"category": "extra_discussion/preparation", "preparation_id": "P1-audit-dependencies", "command_id": "20261014T020039-7443f23a", "label": "preparation-final-source-dirty", "argv": ["git", "--no-optional-locks", "-C", "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist", "status", "--porcelain=v1"], "cwd": "<WORKSPACE>/wf6-rerun-20261014-01", "start_utc": "2026-10-14T02:00:39.618153+00:00", "end_utc": "2026-10-14T02:00:41.185420+00:00", "duration_seconds": 1.567277546000696, "exit_code": 0, "stdout": "logs/20261014T020039-7443f23a.stdout.log", "stderr": "logs/20261014T020039-7443f23a.stderr.log", "environment_overrides": {}, "permission": "workspace-write; restricted network; no escalation", "launch_error": null}
+{"category": "extra_discussion/preparation", "preparation_id": "P1-audit-dependencies", "command_id": "20261014T020041-549378ce", "label": "preparation-final-source-remotes", "argv": ["git", "--no-optional-locks", "-C", "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist", "remote"], "cwd": "<WORKSPACE>/wf6-rerun-20261014-01", "start_utc": "2026-10-14T02:00:41.189033+00:00", "end_utc": "2026-10-14T02:00:41.230896+00:00", "duration_seconds": 0.04187938200084318, "exit_code": 0, "stdout": "logs/20261014T020041-549378ce.stdout.log", "stderr": "logs/20261014T020041-549378ce.stderr.log", "environment_overrides": {}, "permission": "workspace-write; restricted network; no escalation", "launch_error": null}
+{"category": "extra_discussion/preparation", "preparation_id": "P1-audit-dependencies", "command_id": "20261014T020048-ab24a898", "label": "preparation-final-evaluator-head", "argv": ["git", "--no-optional-locks", "-C", "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator", "rev-parse", "HEAD"], "cwd": "<WORKSPACE>/wf6-rerun-20261014-01", "start_utc": "2026-10-14T02:00:48.742532+00:00", "end_utc": "2026-10-14T02:00:48.763268+00:00", "duration_seconds": 0.02074650400027167, "exit_code": 0, "stdout": "logs/20261014T020048-ab24a898.stdout.log", "stderr": "logs/20261014T020048-ab24a898.stderr.log", "environment_overrides": {}, "permission": "workspace-write; restricted network; no escalation", "launch_error": null}
+{"category": "extra_discussion/preparation", "preparation_id": "P1-audit-dependencies", "command_id": "20261014T020048-7bef8937", "label": "preparation-final-evaluator-dirty", "argv": ["git", "--no-optional-locks", "-C", "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator", "status", "--porcelain=v1"], "cwd": "<WORKSPACE>/wf6-rerun-20261014-01", "start_utc": "2026-10-14T02:00:48.765683+00:00", "end_utc": "2026-10-14T02:00:50.515447+00:00", "duration_seconds": 1.7497798260010313, "exit_code": 0, "stdout": "logs/20261014T020048-7bef8937.stdout.log", "stderr": "logs/20261014T020048-7bef8937.stderr.log", "environment_overrides": {}, "permission": "workspace-write; restricted network; no escalation", "launch_error": null}
+{"category": "extra_discussion/preparation", "preparation_id": "P1-audit-dependencies", "command_id": "20261014T020050-72ed7ca4", "label": "preparation-final-evaluator-remotes", "argv": ["git", "--no-optional-locks", "-C", "<WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-evaluator", "remote"], "cwd": "<WORKSPACE>/wf6-rerun-20261014-01", "start_utc": "2026-10-14T02:00:50.517832+00:00", "end_utc": "2026-10-14T02:00:50.535978+00:00", "duration_seconds": 0.018162252999900375, "exit_code": 0, "stdout": "logs/20261014T020050-72ed7ca4.stdout.log", "stderr": "logs/20261014T020050-72ed7ca4.stderr.log", "environment_overrides": {}, "permission": "workspace-write; restricted network; no escalation", "launch_error": null}
+{
+  "status": "PASS",
+  "source_states": {
+    "source": {
+      "head": "955e790f86c9c4ff2d56e06b9e54d948cbf0e698",
+      "dirty": "",
+      "remotes": "",
+      "tracked_file_count": 1711,
+      "all_S0_snapshot_hashes_unchanged": true
+    },
+    "evaluator": {
+      "head": "758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d",
+      "dirty": "",
+      "remotes": "",
+      "tracked_file_count": 1789,
+      "all_S0_snapshot_hashes_unchanged": true
+    }
+  },
+  "s0_usage": {
+    "input_tokens": 3083201,
+    "cached_input_tokens": 3014528,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 37993,
+    "reasoning_output_tokens": 8014,
+    "total_tokens": 3121194
+  },
+  "remaining_dependency_blockers": []
+}

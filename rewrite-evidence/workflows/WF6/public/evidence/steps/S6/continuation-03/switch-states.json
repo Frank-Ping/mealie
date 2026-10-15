@@ -1,0 +1,107 @@
+[
+  {
+    "phase": "rollback",
+    "map_path": "<WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/steps/S6/continuation-03/route-map-rollback.json",
+    "map_sha256": "38a28f4e31a4cb86e4f83c60a5409199ab7b1b1373062396f48cbaeaadde692e",
+    "map": {
+      "version": 1,
+      "stage": "S3",
+      "takeoverEnabled": false,
+      "groupSlug": "home",
+      "defaultFrontend": "vue",
+      "explicitVueQuery": {
+        "name": "wf6",
+        "value": "vue"
+      },
+      "backendPrefixes": [
+        "/api",
+        "/media"
+      ],
+      "candidateReactRoutes": [
+        "/g/<testGroupSlug>",
+        "/g/<testGroupSlug>/r/<slug>"
+      ],
+      "vueOwnedExclusions": [
+        "create and all descendants",
+        "shared pages",
+        "other groups",
+        "edit/parse/cook modes",
+        "all non-pilot routes"
+      ],
+      "activeReactRoutes": [],
+      "navigation": "React skeleton only. Vue/React boundary uses shared route-policy.mjs and document navigation; explicit wf6=vue suppresses takeover.",
+      "vueModes": [
+        "edit",
+        "parse",
+        "cook"
+      ],
+      "excludedSlugs": [
+        "create",
+        "shared"
+      ]
+    },
+    "source_commit": "6931fbd4c50cd17b0475424e01059ced5b183cfe",
+    "gateway_sha256": "b2e452f7d0a2993629eb5ee20c0b6b697758da9378b340cbe500aebac74881e7",
+    "react_build_hash": "dc187e2077b85fabe9738cc4b275ec6e19ba28d668c7c2393db095c7425d4b49",
+    "vue_build_hash": "d5c6a8cc2db26452bcfb5d563b8a6a105303cffbf0c234a2ff846350c03d8d6c",
+    "react_source_hash": "a047cb4c06306e76a3cb7977f138844dfafd9644817fe100f7033f55780ee95e",
+    "backend_data_dir": "/tmp/wf6-rerun-20261014-01-S6-C3/disposable-data",
+    "backend_pid": 61929,
+    "service_command": "20261014T093030-S6-rollback-gateway",
+    "checked_utc": "2026-10-14T09:30:30.801436+00:00"
+  },
+  {
+    "phase": "restored",
+    "map_path": "<WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/steps/S6/continuation-03/route-map-restored.json",
+    "map_sha256": "c128c6e90489a5046ef3a63d48bb0c2e0f865ae52e057235fc43313741322369",
+    "map": {
+      "version": 1,
+      "stage": "S3",
+      "takeoverEnabled": true,
+      "groupSlug": "home",
+      "defaultFrontend": "vue",
+      "explicitVueQuery": {
+        "name": "wf6",
+        "value": "vue"
+      },
+      "backendPrefixes": [
+        "/api",
+        "/media"
+      ],
+      "candidateReactRoutes": [
+        "/g/<testGroupSlug>",
+        "/g/<testGroupSlug>/r/<slug>"
+      ],
+      "vueOwnedExclusions": [
+        "create and all descendants",
+        "shared pages",
+        "other groups",
+        "edit/parse/cook modes",
+        "all non-pilot routes"
+      ],
+      "activeReactRoutes": [
+        "/g/<testGroupSlug>",
+        "/g/<testGroupSlug>/r/<slug>"
+      ],
+      "navigation": "React skeleton only. Vue/React boundary uses shared route-policy.mjs and document navigation; explicit wf6=vue suppresses takeover.",
+      "vueModes": [
+        "edit",
+        "parse",
+        "cook"
+      ],
+      "excludedSlugs": [
+        "create",
+        "shared"
+      ]
+    },
+    "source_commit": "6931fbd4c50cd17b0475424e01059ced5b183cfe",
+    "gateway_sha256": "b2e452f7d0a2993629eb5ee20c0b6b697758da9378b340cbe500aebac74881e7",
+    "react_build_hash": "dc187e2077b85fabe9738cc4b275ec6e19ba28d668c7c2393db095c7425d4b49",
+    "vue_build_hash": "d5c6a8cc2db26452bcfb5d563b8a6a105303cffbf0c234a2ff846350c03d8d6c",
+    "react_source_hash": "a047cb4c06306e76a3cb7977f138844dfafd9644817fe100f7033f55780ee95e",
+    "backend_data_dir": "/tmp/wf6-rerun-20261014-01-S6-C3/disposable-data",
+    "backend_pid": 61929,
+    "service_command": "20261014T093102-S6-restored-gateway",
+    "checked_utc": "2026-10-14T09:31:03.131102+00:00"
+  }
+]

@@ -1,0 +1,7 @@
+[('S6-C2-Vue-boundary-targeted-lint', 0), ('S6-C2-repair1-strict-build', 0), ('S6-C2-stage-only-authorized-implementation', 0), ('S6-C2-commit-limited-implementation', 0), ('S6-C2-rollback-real-browser-and-ownership', 0), ('S6-C2-rollback-frozen-inventory', 0)]
+20261014T090134-S6-backend.stdout.log
+WARNING  2026-10-14T09:01:44 - Secrets directory '/run/secrets' does not exist
+WARNING  2026-10-14T09:01:56 - Secrets directory '/run/secrets' does not exist
+ERROR    2026-10-14T09:02:02 - Incorrect username or password from 127.0.0.1
+ERROR    2026-10-14T09:02:09 - Incorrect username or password from 127.0.0.1
+

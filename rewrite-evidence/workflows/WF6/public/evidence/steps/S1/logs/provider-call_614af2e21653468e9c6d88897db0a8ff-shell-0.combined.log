@@ -1,0 +1,45 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: flows/admin.spec.ts >> admin >> [flow] create a user and find them in user management
+- Location: tests/flows/admin.spec.ts:5:7
+
+# Error details
+
+```
+Test timeout of 45000ms exceeded.
+```
+
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e4]:
+    - banner [ref=e5]:
+      - generic [ref=e6]:
+        - button [ref=e7] [cursor=pointer]
+        - link [ref=e12] [cursor=pointer]:
+          - /url: /g/home
+          - button [ref=e13]
+        - generic [ref=e18]: Mealie
+        - generic [ref=e23]:
+          - textbox "Press '/'" [ref=e31]
+          - alert [ref=e32]
+        - button "Logout" [ref=e34] [cursor=pointer]
+    - navigation [ref=e39]:
+      - generic [ref=e40]:
+        - link "e6c9c5d9-15ff-4b12-a66f-94f9be075880 E2E Admin Favorite Recipes" [ref=e41] [cursor=pointer]:
+          - /url: /user/profile
+          - generic [ref=e43]:
+            - img "e6c9c5d9-15ff-4b12-a66f-94f9be075880" [ref=e45]:
+              - img "e6c9c5d9-15ff-4b12-a66f-94f9be075880" [ref=e46]
+            - generic [ref=e47]:
+              - generic [ref=e48]: E2E Admin
+              - link "Favorite Recipes" [ref=e50]:
+                - /url: /user/e6c9c5d9-15ff-4b12-a66f-94f9be075880/favorites
+        - separator [ref=e55]

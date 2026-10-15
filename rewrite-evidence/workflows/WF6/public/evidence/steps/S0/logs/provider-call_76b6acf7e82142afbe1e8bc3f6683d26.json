@@ -1,0 +1,53 @@
+{
+  "call": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 138,
+    "byte_offset": 1003461,
+    "timestamp": "2026-10-14T01:10:23.989Z",
+    "turn_id": "01a137f3-c2d3-7db0-9623-6d33961b39eb",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call",
+      "id": "ctc_0aed6ad8672e0512016aced65140d0819197e4592349c02ab8",
+      "status": "completed",
+      "call_id": "call_76b6acf7e82142afbe1e8bc3f6683d26",
+      "name": "exec",
+      "input": "text(await tools.apply_patch(\"*** Begin Patch\\n*** Update File: <WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/usage/record_command.py\\n@@\\n-def run(argv, cwd, label, stage=\\\"S0\\\", env=None):\\n+def run(argv, cwd, label, stage=\\\"S0\\\", env=None, stdin_path=None):\\n@@\\n-            result = subprocess.run(argv, cwd=cwd, env={**os.environ, **(env or {})}, stdout=stdout, stderr=stderr)\\n+            with open(stdin_path or os.devnull, \\\"rb\\\") as stdin:\\n+                result = subprocess.run(argv, cwd=cwd, env={**os.environ, **(env or {})}, stdin=stdin, stdout=stdout, stderr=stderr)\\n@@\\n                  launch_error=launch_error)\\n+    entry[\\\"stdin_path\\\"] = str(stdin_path) if stdin_path else None\\n*** Add File: <WORKSPACE>/wf6-rerun-20261014-01/wf6-evidence/usage/prepare_sources.py\\n+\\\"\\\"\\\"Import only pinned snapshots; declare honest shallow boundaries in new stores.\\\"\\\"\\\"\\n+from pathlib import Path\\n+import hashlib\\n+import json\\n+import subprocess\\n+from record_command import run, ROOT, EVIDENCE\\n+\\n+WORKSPACE = ROOT.parent\\n+STAGE = EVIDENCE / \\\"steps/S0\\\"\\n+\\n+def command(argv, label, cwd=ROOT, allow_failure=False, stdin_path=None):\\n+    entry = run(argv, cwd, label, env={\\\"GIT_OPTIONAL_LOCKS\\\":\\\"0\\\", \\\"GIT_TERMINAL_PROMPT\\\":\\\"0\\\"}, stdin_path=stdin_path)\\n+    data = (EVIDENCE / entry[\\\"stdout\\\"]).read_bytes()\\n+    if not allow_failure and entry[\\\"exit_code\\\"] != 0:\\n+        raise RuntimeError(f\\\"{label} failed: {entry['command_id']}\\\")\\n+    return data, entry\\n+\\n+def git(repo, args, label, **kwargs):\\n+    return command([\\\"git\\\", \\\"--no-optional-locks\\\", \\\"-C\\\", str(repo), *args], label, **kwargs)\\n+\\n+def verify_objects(repo, ids, label):\\n+    request = STAGE / (label + \\\"-object-ids.txt\\\")\\n+    request.write_text(\\\"\\\\n\\\".join(ids)+\\\"\\\\n\\\")\\n+    raw, entry = git(repo, [\\\"cat-file\\\", \\\"--batch\\\"], label+\\\"-object-bytes\\\", stdin_path=request)\\n+    cursor = 0\\n+    for expected in ids:\\n+        end = raw.index(b\\\"\\\\n\\\", cursor)\\n+        sha, kind, size = raw[cursor:end].split()\\n+        length = int(size)\\n+        body = raw[end+1:end+1+length]\\n+        actual = hashlib.sha1(kind+b\\\" \\\"+size+b\\\"\\\\0\\\"+body).hexdigest()\\n+        assert sha.decode() == expected == actual, (expected, actual)\\n+        cursor = end+length+2\\n+    assert cursor == len(raw)\\n+    return request, dict(object_count=len(ids), all_object_ids_recomputed=True,\\n+                        raw_bytes_sha256=hashlib.sha256(raw).hexdigest(), command_id=entry[\\\"command_id\\\"])\\n+\\n+def prepare():\\n+    provenance=[]\\n+    items=[(\\\"source\\\", \\\"mealie-wf6-coexist\\\", \\\"mealie-wf4-rerun\\\", \\\"4b9ca06b6581f7152e164ea0fd9d4da366975a79\\\"),\\n+           (\\\"evaluator\\\", \\\"mealie-wf6-evaluator\\\", \\\"mealie-wf4-evaluator\\\", \\\"758351adcf1cc8ec0d91a9cb8ac0ccb5ac03504d\\\")]\\n+    for role, folder, origin_folder, sha in items:\\n+        old=WORKSPACE/folder;origin=WORKSPACE/origin_folder;target=ROOT/folder\\n+        assert not target.exists(), f\\\"Refuse to overwrite {target}\\\"\\n+        _,failure=git(old,[\\\"show\\\",\\\"-s\\\",\\\"--format=fuller\\\",sha],role+\\\"-reproduce-undeclared-boundary-error\\\",allow_failure=True)\\n+        assert failure[\\\"exit_code\\\"] != 0, \\\"Expected original incomplete-history failure was not reproduced\\\"\\n+        raw,_=git(old,[\\\"cat-file\\\",\\\"-p\\\",sha],role+\\\"-pinned-commit\\\")\\n+        original,_=git(origin,[\\\"cat-file\\\",\\\"-p\\\",sha],role+\\\"-origin-pinned-commit-only\\\")\\n+        assert raw==original, \\\"Pinned object differs from historical origin store\\\"\\n+        tree=raw.splitlines()[0].split()[1].decode()\\n+        listed,_=git(old,[\\\"ls-tree\\\",\\\"-r\\\",\\\"-t\\\",\\\"-z\\\",sha],role+\\\"-pinned-tree\\\")\\n+        ids=sorted({sha,tree,*[e.split(b\\\"\\\\t\\\",1)[0].split()[2].decode() for e in listed.split(b\\\"\\\\0\\\") if e]})\\n+        request,old_verify=verify_objects(old,ids,role+\\\"-old\\\")\\n+        _,origin_verify=verify_objects(origin,ids,role+\\\"-origin\\\")\\n+        assert old_verify[\\\"raw_bytes_sha256\\\"]==origin_verify[\\\"raw_bytes_sha256\\\"]\\n+        git(ROOT,[\\\"init\\\",str(target)],role+\\\"-init-new-independent-store\\\")\\n+        packed,entry=git(old,[\\\"pack-objects\\\",\\\"--stdout\\\"],role+\\\"-export-pinned-objects-no-history\\\",stdin_path=request)\\n+        pack_path=EVIDENCE/entry[\\\"stdout\\\"]\\n+        git(target,[\\\"index-pack\\\",\\\"--stdin\\\"],role+\\\"-import-pinned-objects\\\",stdin_path=pack_path)\\n+        (target/\\\".git/shallow\\\").write_text(sha+\\\"\\\\n\\\")\\n+        git(target,[\\\"config\\\",\\\"core.autocrlf\\\",\\\"false\\\"],role+\\\"-preserve-frozen-bytes\\\")\\n+        if role==\\\"source\\\":\\n+            git(target,[\\\"checkout\\\",\\\"-b\\\",\\\"rewrite/wf6-route-coexistence\\\",sha],role+\\\"-checkout-pinned-input\\\")\\n+        else:\\n+            git(target,[\\\"checkout\\\",\\\"--detach\\\",sha],role+\\\"-checkout-pinned-input\\\")\\n+        git(target,[\\\"show\\\",\\\"-s\\\",\\\"--format=fuller\\\",sha],role+\\\"-retest-show-with-declared-boundary\\\")\\n+        git(target,[\\\"fsck\\\",\\\"--full\\\",\\\"--strict\\\"],role+\\\"-all-imported-object-integrity\\\")\\n+        dirty,_=git(target,[\\\"status\\\",\\\"--porcelain=v1\\\"],role+\\\"-initial-clean\\\")\\n+        assert not dirty\\n+        remotes,_=git(target,[\\\"remote\\\"],role+\\\"-no-remotes\\\")\\n+        assert not remotes\\n+        assert not (target/\\\".git/objects/info/alternates\\\").exists()\\n+        _,new_verify=verify_objects(target,ids,role+\\\"-new\\\")\\n+        assert new_verify[\\\"raw_bytes_sha256\\\"]==old_verify[\\\"raw_bytes_sha256\\\"]\\n+        # Check every frozen worktree file against its exact Git blob, including symlinks.\\n+        inventory=[]\\n+        for item in listed.split(b\\\"\\\\0\\\"):\\n+            if not item:continue\\n+            header,name=item.split(b\\\"\\\\t\\\",1);mode,kind,oid=header.split()\\n+            if kind!=b\\\"blob\\\":continue\\n+            path=target/name.decode()\\n+            data=path.readlink().as_posix().encode() if path.is_symlink() else path.read_bytes()\\n+            actual=hashlib.sha1(b\\\"blob \\\"+str(len(data)).encode()+b\\\"\\\\0\\\"+data).hexdigest()\\n+            assert actual==oid.decode(), str(path)\\n+            inventory.append(dict(path=name.decode(),mode=mode.decode(),git_blob=actual,sha256=hashlib.sha256(data).hexdigest()))\\n+        (STAGE/(role+\\\"-frozen-files.json\\\")).write_text(json.dumps(inventory,indent=2)+\\\"\\\\n\\\")\\n+        provenance.append(dict(role=role,pinned_sha=sha,tree_sha=tree,historical_origin_store=str(origin),\\n+            immediate_read_only_store=str(old),target=str(target),old_verification=old_verify,origin_verification=origin_verify,\\n+            new_verification=new_verify,initial_dirty=False,remotes=[],shared_objects=False,\\n+            history_policy=\\\"Pinned snapshot is an explicit shallow root. Full ancestor history is unavailable and is not claimed.\\\",\\n+            access_scope=\\\"Only specified pinned commit/tree/blob objects; no other workflow worktree implementation read.\\\"))\\n+    (STAGE/\\\"input-provenance.json\\\").write_text(json.dumps(provenance,indent=2)+\\\"\\\\n\\\")\\n+    with (STAGE/\\\"attempts.jsonl\\\").open(\\\"a\\\") as out:\\n+        out.write(json.dumps(dict(kind=\\\"missing_parent_history\\\",cause=\\\"Historical stores contain snapshot objects but lack parent objects and do not declare shallow roots.\\\",\\n+            repair=\\\"New stores import hash-verified pinned objects and explicitly declare pinned commits as shallow boundaries. Original stores are unchanged.\\\",\\n+            rerun=\\\"New git show and git fsck --full --strict succeeded; all object and worktree bytes verified.\\\",scope=\\\"Snapshot source validity; complete ancestry remains unavailable.\\\"))+\\\"\\\\n\\\")\\n+    print(\\\"Pinned source/evaluator snapshots verified; explicit new shallow boundaries accepted.\\\")\\n+\\n+if __name__==\\\"__main__\\\":prepare()\\n*** End Patch\"));\ntext(await tools.exec_command({cmd:\"python3 -B wf6-rerun-20261014-01/wf6-evidence/usage/record_command.py --cwd '<WORKSPACE>' --label prepare-and-verify-pinned-snapshots -- python3 -B wf6-rerun-20261014-01/wf6-evidence/usage/prepare_sources.py\",yield_time_ms:1000,max_output_tokens:1700}));\n",
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a137f3-c2d3-7db0-9623-6d33961b39eb",
+        "create_time": 1791940177.255788
+      }
+    }
+  },
+  "output": {
+    "source_log": "<WSL_HOME>/.codex/sessions/2026/10/14/rollout-2026-10-14T13-58-27-01a137ea-f571-70f0-8cf3-7b8560c420bf.jsonl",
+    "line": 141,
+    "byte_offset": 1022155,
+    "timestamp": "2026-10-14T01:10:25.351Z",
+    "turn_id": "01a137f3-c2d3-7db0-9623-6d33961b39eb",
+    "kind": "tool",
+    "payload": {
+      "type": "custom_tool_call_output",
+      "id": "ctco_01a137f5-e947-7e33-a440-9cfc0acdb2a8",
+      "call_id": "call_76b6acf7e82142afbe1e8bc3f6683d26",
+      "output": [
+        {
+          "type": "input_text",
+          "text": "Script completed\nWall time 1.4 seconds\nOutput:\n"
+        },
+        {
+          "type": "input_text",
+          "text": "{}"
+        },
+        {
+          "type": "input_text",
+          "text": "{\"chunk_id\":\"7a4608\",\"wall_time_seconds\":1.001504252,\"session_id\":55639,\"original_token_count\":0,\"output\":\"\"}"
+        }
+      ],
+      "internal_chat_message_metadata_passthrough": {
+        "turn_id": "01a137f3-c2d3-7db0-9623-6d33961b39eb",
+        "create_time": 1791940225.3518996
+      }
+    }
+  }
+}

@@ -1,0 +1,4 @@
+38842 ['python3', '-B', 'wf6-rerun-20261014-01/wf6-evidence/usage/record_command.py', '--stage', 'S2'] wchan do_wait stat ['4', '2']
+38843 ['python3', '-B', 'wf6-evidence/usage/build_s2.py', ''] wchan do_wait stat ['1', '2']
+38844 ['<WORKSPACE>/wf6-rerun-20261014-01/runtime/tools/bin/node', '<WORKSPACE>/wf6-rerun-20261014-01/runtime/tools/pnpm-11.23.0/package/bin/pnpm.mjs', 'generate', ''] wchan do_epoll_wait stat ['60', '28']
+38856 ['<WORKSPACE>/wf6-rerun-20261014-01/runtime/tools/node-v24.21.0-linux-x64/bin/node', '<WORKSPACE>/wf6-rerun-20261014-01/runtime/tools/pnpm-11.23.0/package/bin/pnpm.mjs', 'install', ''] wchan do_epoll_wait stat ['4823', '9604']

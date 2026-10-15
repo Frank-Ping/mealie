@@ -1,0 +1,84 @@
+Listing tests:
+  [routes] › routes.spec.ts:23:5 › route table has unique entries
+  [routes] › routes.spec.ts:37:9 › admin › [route] admin.vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] admin/backups.vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] admin/debug/openai.vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] admin/debug/parser.vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] admin/maintenance/index.vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] admin/manage/groups/[id].vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] admin/manage/groups/index.vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] admin/manage/households/[id].vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] admin/manage/households/index.vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] admin/manage/users/[id].vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] admin/manage/users/create.vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] admin/manage/users/index.vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] admin/setup.vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] admin/site-settings.vue
+  [routes] › routes.spec.ts:37:9 › anonymous › [route] forgot-password.vue
+  [routes] › routes.spec.ts:37:9 › anonymous › [route] login.vue
+  [routes] › routes.spec.ts:37:9 › anonymous › [route] register/index.vue
+  [routes] › routes.spec.ts:37:9 › anonymous › [route] reset-password.vue
+  [routes] › routes.spec.ts:37:9 › anonymous › [route] g/[groupSlug]/shared/r/[id].vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] index.vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] g/[groupSlug]/index.vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] g/[groupSlug]/r/[slug]/index.vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] g/[groupSlug]/cookbooks/index.vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] g/[groupSlug]/cookbooks/[slug].vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] g/[groupSlug]/r/create.vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] g/[groupSlug]/r/create/index.vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] g/[groupSlug]/r/create/ai.vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] g/[groupSlug]/r/create/bulk.vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] g/[groupSlug]/r/create/debug.vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] g/[groupSlug]/r/create/html.vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] g/[groupSlug]/r/create/image.vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] g/[groupSlug]/r/create/new.vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] g/[groupSlug]/r/create/url.vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] g/[groupSlug]/r/create/zip.vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] g/[groupSlug]/recipes/categories/index.vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] g/[groupSlug]/recipes/tags/index.vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] g/[groupSlug]/recipes/tools/index.vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] g/[groupSlug]/recipes/finder/index.vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] g/[groupSlug]/recipes/timeline.vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] group/index.vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] group/migrations.vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] group/reports/[id].vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] group/data.vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] group/data/index.vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] group/data/foods.vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] group/data/units.vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] group/data/labels.vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] group/data/categories.vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] group/data/tags.vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] group/data/tools.vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] group/data/recipes.vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] group/data/recipe-actions.vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] household/index.vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] household/members.vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] household/notifiers.vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] household/webhooks.vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] household/mealplan/settings.vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] household/mealplan/planner.vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] household/mealplan/planner/view.vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] household/mealplan/planner/edit.vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] shopping-lists/index.vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] shopping-lists/[id].vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] user/profile/index.vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] user/profile/edit.vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] user/profile/api-tokens.vue
+  [routes] › routes.spec.ts:37:9 › admin › [route] user/[id]/favorites.vue
+  [flows] › flows/admin.spec.ts:5:7 › admin › [flow] create a user and find them in user management
+  [flows] › flows/auth.spec.ts:8:7 › auth › [flow] log in with valid credentials and land on the recipe list
+  [flows] › flows/auth.spec.ts:16:7 › auth › [flow] a wrong password is rejected
+  [flows] › flows/auth.spec.ts:27:7 › auth › [flow] log out ends the session
+  [flows] › flows/auth.spec.ts:39:7 › auth › [flow] a regular member is not offered admin pages
+  [flows] › flows/auth.spec.ts:50:7 › auth › [flow] an admin is offered admin pages
+  [flows] › flows/mealplan.spec.ts:12:7 › meal plan › [flow] add a note to tomorrow's meal plan
+  [flows] › flows/organize.spec.ts:5:7 › organizing › [flow] create a tag in data management
+  [flows] › flows/profile.spec.ts:8:7 › profile › [flow] a member updates their full name
+  [flows] › flows/recipes.spec.ts:6:7 › recipes › [flow] open a recipe from the recipe list
+  [flows] › flows/recipes.spec.ts:15:7 › recipes › [flow] search narrows the recipe list
+  [flows] › flows/recipes.spec.ts:24:7 › recipes › [flow] create a recipe by name
+  [flows] › flows/recipes.spec.ts:36:7 › recipes › [flow] comment on a recipe and see it after reload
+  [flows] › flows/shopping.spec.ts:6:7 › shopping lists › [flow] create a shopping list
+  [flows] › flows/shopping.spec.ts:19:7 › shopping lists › [flow] add an item and check it off
+Total: 82 tests in 8 files

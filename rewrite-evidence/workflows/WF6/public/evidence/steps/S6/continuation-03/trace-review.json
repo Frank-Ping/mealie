@@ -1,0 +1,6 @@
+{
+  "trace": "steps/S6/continuation-02/browser-r2/four-original-test-results/flows-recipes-recipes-flow-a3d3d-ipe-and-see-it-after-reload-flows/trace.zip",
+  "sha256": "12b502b99ec2fc755840a4481775a2fe4735d430f2907f215a6646a6797f6ca9",
+  "audit_source": "../continuation-02/remaining-failure-audit.json",
+  "finding": "Draft textarea matched frozen first text assertion; reload cancelled pre-POST validation. Reviewed comments.tsx and api.ts; identity/group/disable checks remain unchanged."
+}

@@ -1,0 +1,73 @@
+Recreating <WORKSPACE>/wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules
+✓ Lockfile passes supply-chain policies (verified 19h ago)
+Lockfile is up to date, resolution step is skipped
+Progress: resolved 1, reused 0, downloaded 0, added 0
+Packages: +1231
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 1231, reused 0, downloaded 4, added 0
+Progress: resolved 1231, reused 0, downloaded 19, added 0
+Progress: resolved 1231, reused 0, downloaded 48, added 0
+Progress: resolved 1231, reused 0, downloaded 90, added 0
+Progress: resolved 1231, reused 0, downloaded 117, added 0
+Progress: resolved 1231, reused 0, downloaded 136, added 3
+Progress: resolved 1231, reused 0, downloaded 151, added 4
+Progress: resolved 1231, reused 0, downloaded 166, added 4
+Progress: resolved 1231, reused 0, downloaded 191, added 6
+Progress: resolved 1231, reused 0, downloaded 220, added 8
+Progress: resolved 1231, reused 0, downloaded 241, added 10
+Progress: resolved 1231, reused 0, downloaded 266, added 11
+Progress: resolved 1231, reused 0, downloaded 280, added 12
+Progress: resolved 1231, reused 0, downloaded 288, added 12
+Progress: resolved 1231, reused 0, downloaded 307, added 14
+Progress: resolved 1231, reused 0, downloaded 332, added 15
+Progress: resolved 1231, reused 0, downloaded 354, added 17
+Progress: resolved 1231, reused 0, downloaded 371, added 18
+Progress: resolved 1231, reused 0, downloaded 383, added 19
+Progress: resolved 1231, reused 0, downloaded 397, added 20
+Progress: resolved 1231, reused 0, downloaded 420, added 22
+Progress: resolved 1231, reused 0, downloaded 438, added 23
+Progress: resolved 1231, reused 0, downloaded 480, added 26
+Progress: resolved 1231, reused 0, downloaded 517, added 29
+Progress: resolved 1231, reused 0, downloaded 531, added 31
+Progress: resolved 1231, reused 0, downloaded 554, added 31
+#!/bin/sh
+exec '<WORKSPACE>/wf6-rerun-20261014-01/runtime/tools/bin/node' '<WORKSPACE>/wf6-rerun-20261014-01/runtime/tools/pnpm-11.23.0/package/bin/pnpm.mjs' "$@"
+{
+  "name": "mealie",
+  "version": "3.28.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate --spa",
+    "lint:js": "eslint .",
+    "lint": "pnpm lint:js",
+    "lint:log": "pnpm lint:js --debug",
+    "test": "vitest",
+    "test:ci": "vitest --watch=false",
+    "test:coverage": "vitest run --coverage",
+    "test:ui": "pnpm run vitest --api.host=0.0.0.0 --ui --coverage",
+    "cleanup": "nuxt cleanup"
+  },
+  "lint-staged": {
+    "*.{ts,js,vue}": "eslint"
+  },
+  "dependencies": {
+    "@mdi/js": "^7.4.47",
+    "@nuxt/fonts": "^0.11.4",
+    "@nuxtjs/i18n": "^10.6.0",
+    "@vite-pwa/nuxt": "^0.10.6",
+    "@vueuse/core": "^12.7.0",
+    "@vueuse/shared": "^14.3.0",
+    "axios": "^1.8.1",
+    "date-fns": "^4.1.0",
+    "dompurify": "^3.4.7",
+    "fuse.js": "^7.1.0",
+    "isomorphic-dompurify": "^3.4.0",
+    "json-editor-vue": "^0.18.1",
+    "marked": "^15.0.12",
+    "nuxt": "^4.4.6",
+    "sse.js": "^2.8.0",
+    "ufo": "^1.6.4",
+ls: cannot access 'wf6-rerun-20261014-01/mealie-wf6-coexist/frontend/node_modules/.modules.yaml': No such file or directory

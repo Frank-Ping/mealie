@@ -1,0 +1,13 @@
+{
+  "segment_count": 3,
+  "disjoint_identities": true,
+  "sum_reconciled": true,
+  "prior_finals_covered": true,
+  "current_final_included": false,
+  "original_failures_preserved": true,
+  "S1_partial_preserved": true,
+  "S5_repairs": 2,
+  "S6_repairs": 2,
+  "current_gate": "FAIL",
+  "dependent_full_and_boundary": "not_executed"
+}
