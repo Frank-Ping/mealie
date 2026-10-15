@@ -1,5 +1,7 @@
 # WF5 English evidence appendix with fixed GitHub references
 
+For the updated report subsection, use [Report_Section_EN.md](Report_Section_EN.md) and the [expanded appendix of specific logs and line references](Report_Appendix_EN.md).
+
 WF5 is the completed failed rule-driven migration experiment. Its historical endpoint is `8b0fae128ea823ebee4a6507d274df1f8987e8d1`. The publication evidence is pinned to `a4c00595cb0afe89639549a49d3e7dfcaf39241d` in [Frank-Ping/mealie](https://github.com/Frank-Ping/mealie); these fixed references remain usable if the branch later changes.
 
 ## Approach

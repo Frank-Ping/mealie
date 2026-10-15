@@ -1,5 +1,7 @@
 # WF5 rule driven migration evidence
 
+For the updated report subsection, use [Report_Section_EN.md](Report_Section_EN.md) and the [expanded appendix of specific logs and line references](Report_Appendix_EN.md).
+
 WF5 is the rule-driven Mealie Vue/Nuxt-to-React migration experiment. Its final result was **Gate 2 NOT READY**: three of five fixed samples remained blocked, a residual rate of at least **60%**, so batch conversion stopped. This branch publishes that completed failed attempt, its four original commits and its evidence in English. The experiment retains its recorded outcome, source commits, original prompts, logs and artifact checksums. Report descriptions use WF5 consistently.
 
 ## Evidence index

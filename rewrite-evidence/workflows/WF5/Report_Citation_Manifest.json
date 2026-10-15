@@ -1,0 +1,377 @@
+{
+  "updated": "2026-10-16",
+  "evidence_revision": "1580f5b9324dde6f64a7e96652edb8c441d759a4",
+  "scope": "WF5 report citations; existing sanitized records; no application tests rerun",
+  "files": [
+    {
+      "id": "E1",
+      "title": "Frozen baseline",
+      "label": "Baseline measurements",
+      "path": "rewrite-evidence/workflows/WF5/evidence/baseline/BASELINE.md",
+      "revision": "1580f5b9324dde6f64a7e96652edb8c441d759a4",
+      "lines": 51,
+      "sha256": "bbf4676ee575b676fe7fdac192e3f4df3c977ad2e6ed44f20829f9bf1fa34bdd",
+      "url": "https://github.com/Frank-Ping/mealie/blob/1580f5b9324dde6f64a7e96652edb8c441d759a4/rewrite-evidence/workflows/WF5/evidence/baseline/BASELINE.md#L1-L51"
+    },
+    {
+      "id": "E1",
+      "title": "Frozen baseline",
+      "label": "Machine baseline",
+      "path": "rewrite-evidence/workflows/WF5/evidence/baseline/baseline.json",
+      "revision": "1580f5b9324dde6f64a7e96652edb8c441d759a4",
+      "lines": 103,
+      "sha256": "18dae87eb330b13b92d806dac412e391680c725bae0b9245fedb6d6175f8787a",
+      "url": "https://github.com/Frank-Ping/mealie/blob/1580f5b9324dde6f64a7e96652edb8c441d759a4/rewrite-evidence/workflows/WF5/evidence/baseline/baseline.json#L1-L103"
+    },
+    {
+      "id": "E2",
+      "title": "Instructions and human decisions",
+      "label": "Retrospective English presentation",
+      "path": "rewrite-evidence/workflows/WF5/prompts/Prompts_EN.md",
+      "revision": "1580f5b9324dde6f64a7e96652edb8c441d759a4",
+      "lines": 165,
+      "sha256": "ec0abf184ae275f92b785b6097c90344767972512f2d88ceef9f5fccee5d6fe0",
+      "url": "https://github.com/Frank-Ping/mealie/blob/1580f5b9324dde6f64a7e96652edb8c441d759a4/rewrite-evidence/workflows/WF5/prompts/Prompts_EN.md#L1-L165"
+    },
+    {
+      "id": "E2",
+      "title": "Instructions and human decisions",
+      "label": "Chinese Phase A prompt",
+      "path": "rewrite-evidence/workflows/WF5/prompts/Phase_A_Original_ZH.txt",
+      "revision": "1580f5b9324dde6f64a7e96652edb8c441d759a4",
+      "lines": 28,
+      "sha256": "4ff967b1953ec5644fccfa0556114aef064c09823dcee66efcc8bfb7bb659937",
+      "url": "https://github.com/Frank-Ping/mealie/blob/1580f5b9324dde6f64a7e96652edb8c441d759a4/rewrite-evidence/workflows/WF5/prompts/Phase_A_Original_ZH.txt#L1-L28"
+    },
+    {
+      "id": "E2",
+      "title": "Instructions and human decisions",
+      "label": "Recorded decisions",
+      "path": "rewrite-evidence/workflows/WF5-decisions.md",
+      "revision": "1580f5b9324dde6f64a7e96652edb8c441d759a4",
+      "lines": 26,
+      "sha256": "8dfa8201ac1dda97d2ff834f91145140bcb60de71b749fd1eb48eb85a6e32003",
+      "url": "https://github.com/Frank-Ping/mealie/blob/1580f5b9324dde6f64a7e96652edb8c441d759a4/rewrite-evidence/workflows/WF5-decisions.md#L1-L26"
+    },
+    {
+      "id": "E3",
+      "title": "Visible execution history",
+      "label": "Phase A visible records",
+      "path": "rewrite-evidence/workflows/WF5/evidence/transcripts/Phase_A_Visible_Through_Final.jsonl",
+      "revision": "1580f5b9324dde6f64a7e96652edb8c441d759a4",
+      "lines": 42,
+      "sha256": "00ebfae9f5fc1c114eb0843b936bd4350feab59bc63a333176112abd2dcd9273",
+      "url": "https://github.com/Frank-Ping/mealie/blob/1580f5b9324dde6f64a7e96652edb8c441d759a4/rewrite-evidence/workflows/WF5/evidence/transcripts/Phase_A_Visible_Through_Final.jsonl#L1-L42"
+    },
+    {
+      "id": "E3",
+      "title": "Visible execution history",
+      "label": "Phase B visible records",
+      "path": "rewrite-evidence/workflows/WF5/evidence/transcripts/Phase_B_Visible_Through_Final.jsonl",
+      "revision": "1580f5b9324dde6f64a7e96652edb8c441d759a4",
+      "lines": 101,
+      "sha256": "a26ce9644b2eb2e493159e2ca7e3cd5a813aa9c5542d35726fe76509e126772d",
+      "url": "https://github.com/Frank-Ping/mealie/blob/1580f5b9324dde6f64a7e96652edb8c441d759a4/rewrite-evidence/workflows/WF5/evidence/transcripts/Phase_B_Visible_Through_Final.jsonl#L1-L101"
+    },
+    {
+      "id": "E4",
+      "title": "Plan and proposed rules",
+      "label": "Experiment plan",
+      "path": "rewrite-evidence/workflows/WF5-plan.md",
+      "revision": "1580f5b9324dde6f64a7e96652edb8c441d759a4",
+      "lines": 113,
+      "sha256": "3373087c9ef5c0ad3e1ab0a79f2f67d97aa6bf1f61ba3dc1d289f9350e527cc4",
+      "url": "https://github.com/Frank-Ping/mealie/blob/1580f5b9324dde6f64a7e96652edb8c441d759a4/rewrite-evidence/workflows/WF5-plan.md#L1-L113"
+    },
+    {
+      "id": "E4",
+      "title": "Plan and proposed rules",
+      "label": "Proposed rule catalogue",
+      "path": "rewrite-evidence/workflows/WF5-conversion-rules.md",
+      "revision": "1580f5b9324dde6f64a7e96652edb8c441d759a4",
+      "lines": 952,
+      "sha256": "fb975e6e09897770ac1729c99bccb7ac7b19c7a239d42461b9235833a95c9249",
+      "url": "https://github.com/Frank-Ping/mealie/blob/1580f5b9324dde6f64a7e96652edb8c441d759a4/rewrite-evidence/workflows/WF5-conversion-rules.md#L1-L952"
+    },
+    {
+      "id": "E5",
+      "title": "Fixed samples and stopping decision",
+      "label": "Gate 2 record",
+      "path": "rewrite-evidence/workflows/WF5-Gate-2-review.md",
+      "revision": "1580f5b9324dde6f64a7e96652edb8c441d759a4",
+      "lines": 46,
+      "sha256": "ad221bcd5ca94d77e2fd056dede0a001bc50065765b231a14df3a5ad13fd0c2f",
+      "url": "https://github.com/Frank-Ping/mealie/blob/1580f5b9324dde6f64a7e96652edb8c441d759a4/rewrite-evidence/workflows/WF5-Gate-2-review.md#L1-L46"
+    },
+    {
+      "id": "E5",
+      "title": "Fixed samples and stopping decision",
+      "label": "Selected sample results",
+      "path": "rewrite-evidence/workflows/WF5-B/round-3-revision-4-results.json",
+      "revision": "1580f5b9324dde6f64a7e96652edb8c441d759a4",
+      "lines": 132,
+      "sha256": "dffd366b4f59f58f1d9a7e00005733cc3baca73d14a2494b13ba1ee489cee501",
+      "url": "https://github.com/Frank-Ping/mealie/blob/1580f5b9324dde6f64a7e96652edb8c441d759a4/rewrite-evidence/workflows/WF5-B/round-3-revision-4-results.json#L1-L132"
+    },
+    {
+      "id": "E6",
+      "title": "Final implementation checks",
+      "label": "Commands timings and exit codes",
+      "path": "rewrite-evidence/workflows/WF5/evidence/implementation-checks/final-wsl/check-results.json",
+      "revision": "1580f5b9324dde6f64a7e96652edb8c441d759a4",
+      "lines": 96,
+      "sha256": "ee4a1cd6812657c300c53ed13156d1bbb504773f6dfaf965c29b8667cab4f815",
+      "url": "https://github.com/Frank-Ping/mealie/blob/1580f5b9324dde6f64a7e96652edb8c441d759a4/rewrite-evidence/workflows/WF5/evidence/implementation-checks/final-wsl/check-results.json#L1-L96"
+    },
+    {
+      "id": "E6",
+      "title": "Final implementation checks",
+      "label": "36 unit test results",
+      "path": "rewrite-evidence/workflows/WF5/evidence/implementation-checks/final-wsl/unit-results.json",
+      "revision": "1580f5b9324dde6f64a7e96652edb8c441d759a4",
+      "lines": 528,
+      "sha256": "5061f8891ac5bffafbe61958506d7044c926b7efb3864223607597d7ddbc7799",
+      "url": "https://github.com/Frank-Ping/mealie/blob/1580f5b9324dde6f64a7e96652edb8c441d759a4/rewrite-evidence/workflows/WF5/evidence/implementation-checks/final-wsl/unit-results.json#L1-L528"
+    },
+    {
+      "id": "E6",
+      "title": "Final implementation checks",
+      "label": "20 rule checks",
+      "path": "rewrite-evidence/workflows/WF5/evidence/implementation-checks/final-wsl/rules.log",
+      "revision": "1580f5b9324dde6f64a7e96652edb8c441d759a4",
+      "lines": 29,
+      "sha256": "5b79999b2fb85679cc53bbb60d62dcd19da995f9b38aa5a7bd97eb55009134ef",
+      "url": "https://github.com/Frank-Ping/mealie/blob/1580f5b9324dde6f64a7e96652edb8c441d759a4/rewrite-evidence/workflows/WF5/evidence/implementation-checks/final-wsl/rules.log#L1-L29"
+    },
+    {
+      "id": "E6",
+      "title": "Final implementation checks",
+      "label": "Type checker log",
+      "path": "rewrite-evidence/workflows/WF5/evidence/implementation-checks/final-wsl/types.log",
+      "revision": "1580f5b9324dde6f64a7e96652edb8c441d759a4",
+      "lines": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "url": "https://github.com/Frank-Ping/mealie/blob/1580f5b9324dde6f64a7e96652edb8c441d759a4/rewrite-evidence/workflows/WF5/evidence/implementation-checks/final-wsl/types.log#L1-L1"
+    },
+    {
+      "id": "E6",
+      "title": "Final implementation checks",
+      "label": "Lint log",
+      "path": "rewrite-evidence/workflows/WF5/evidence/implementation-checks/final-wsl/lint.log",
+      "revision": "1580f5b9324dde6f64a7e96652edb8c441d759a4",
+      "lines": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "url": "https://github.com/Frank-Ping/mealie/blob/1580f5b9324dde6f64a7e96652edb8c441d759a4/rewrite-evidence/workflows/WF5/evidence/implementation-checks/final-wsl/lint.log#L1-L1"
+    },
+    {
+      "id": "E6",
+      "title": "Final implementation checks",
+      "label": "SPA build log",
+      "path": "rewrite-evidence/workflows/WF5/evidence/implementation-checks/final-wsl/build.log",
+      "revision": "1580f5b9324dde6f64a7e96652edb8c441d759a4",
+      "lines": 11,
+      "sha256": "e34c7315a05ab959cad55a40c354bbf9fc97dcb3d50db61d3d43067a84ac6874",
+      "url": "https://github.com/Frank-Ping/mealie/blob/1580f5b9324dde6f64a7e96652edb8c441d759a4/rewrite-evidence/workflows/WF5/evidence/implementation-checks/final-wsl/build.log#L1-L11"
+    },
+    {
+      "id": "E6",
+      "title": "Final implementation checks",
+      "label": "Component build log",
+      "path": "rewrite-evidence/workflows/WF5/evidence/implementation-checks/final-wsl/build-components.log",
+      "revision": "1580f5b9324dde6f64a7e96652edb8c441d759a4",
+      "lines": 9,
+      "sha256": "879a938eaeb2d556e05645d0bc427a8c68b226e909456a40eb712e7ae39e0435",
+      "url": "https://github.com/Frank-Ping/mealie/blob/1580f5b9324dde6f64a7e96652edb8c441d759a4/rewrite-evidence/workflows/WF5/evidence/implementation-checks/final-wsl/build-components.log#L1-L9"
+    },
+    {
+      "id": "E7",
+      "title": "Failure history",
+      "label": "windows-lint/check-results.json",
+      "path": "rewrite-evidence/workflows/WF5/evidence/implementation-checks/failure-history/windows-lint/check-results.json",
+      "revision": "1580f5b9324dde6f64a7e96652edb8c441d759a4",
+      "lines": 82,
+      "sha256": "4500a1a1d21377842566be6d9244919a4e59d06ab4822a4753852435f746b681",
+      "url": "https://github.com/Frank-Ping/mealie/blob/1580f5b9324dde6f64a7e96652edb8c441d759a4/rewrite-evidence/workflows/WF5/evidence/implementation-checks/failure-history/windows-lint/check-results.json#L1-L82"
+    },
+    {
+      "id": "E7",
+      "title": "Failure history",
+      "label": "windows-lint/lint.log",
+      "path": "rewrite-evidence/workflows/WF5/evidence/implementation-checks/failure-history/windows-lint/lint.log",
+      "revision": "1580f5b9324dde6f64a7e96652edb8c441d759a4",
+      "lines": 7,
+      "sha256": "61ef1e0dd5f643b0e4a11dc8a0432bb527ad3a853bd81cc2449bbf7e0a64782b",
+      "url": "https://github.com/Frank-Ping/mealie/blob/1580f5b9324dde6f64a7e96652edb8c441d759a4/rewrite-evidence/workflows/WF5/evidence/implementation-checks/failure-history/windows-lint/lint.log#L1-L7"
+    },
+    {
+      "id": "E7",
+      "title": "Failure history",
+      "label": "wsl-attempt-2/wsl-build-components.log",
+      "path": "rewrite-evidence/workflows/WF5/evidence/implementation-checks/failure-history/wsl-attempt-2/wsl-build-components.log",
+      "revision": "1580f5b9324dde6f64a7e96652edb8c441d759a4",
+      "lines": 22,
+      "sha256": "7faea21c369c515b3d048618248633e9b6b9402aad73c90b29e0011f9bb7b1d3",
+      "url": "https://github.com/Frank-Ping/mealie/blob/1580f5b9324dde6f64a7e96652edb8c441d759a4/rewrite-evidence/workflows/WF5/evidence/implementation-checks/failure-history/wsl-attempt-2/wsl-build-components.log#L1-L22"
+    },
+    {
+      "id": "E7",
+      "title": "Failure history",
+      "label": "wsl-attempt-2/wsl-check-results.json",
+      "path": "rewrite-evidence/workflows/WF5/evidence/implementation-checks/failure-history/wsl-attempt-2/wsl-check-results.json",
+      "revision": "1580f5b9324dde6f64a7e96652edb8c441d759a4",
+      "lines": 96,
+      "sha256": "94d6b71507b4d32592c81df34819a389cd8dfb51c38399c1e01028c16b0311bf",
+      "url": "https://github.com/Frank-Ping/mealie/blob/1580f5b9324dde6f64a7e96652edb8c441d759a4/rewrite-evidence/workflows/WF5/evidence/implementation-checks/failure-history/wsl-attempt-2/wsl-check-results.json#L1-L96"
+    },
+    {
+      "id": "E7",
+      "title": "Failure history",
+      "label": "wsl-attempt-2/wsl-environment.txt",
+      "path": "rewrite-evidence/workflows/WF5/evidence/implementation-checks/failure-history/wsl-attempt-2/wsl-environment.txt",
+      "revision": "1580f5b9324dde6f64a7e96652edb8c441d759a4",
+      "lines": 3,
+      "sha256": "b64304034e6a6cf5dad091b0fcc28aa44d219f0a862ceb97729203117b56b756",
+      "url": "https://github.com/Frank-Ping/mealie/blob/1580f5b9324dde6f64a7e96652edb8c441d759a4/rewrite-evidence/workflows/WF5/evidence/implementation-checks/failure-history/wsl-attempt-2/wsl-environment.txt#L1-L3"
+    },
+    {
+      "id": "E7",
+      "title": "Failure history",
+      "label": "wsl-attempt-2/wsl-types.log",
+      "path": "rewrite-evidence/workflows/WF5/evidence/implementation-checks/failure-history/wsl-attempt-2/wsl-types.log",
+      "revision": "1580f5b9324dde6f64a7e96652edb8c441d759a4",
+      "lines": 2,
+      "sha256": "6b0bccc9d1a7134145f5b0419fd60fbcb642a16e20e7ea421940f2cf9f0b1e56",
+      "url": "https://github.com/Frank-Ping/mealie/blob/1580f5b9324dde6f64a7e96652edb8c441d759a4/rewrite-evidence/workflows/WF5/evidence/implementation-checks/failure-history/wsl-attempt-2/wsl-types.log#L1-L2"
+    },
+    {
+      "id": "E7",
+      "title": "Failure history",
+      "label": "wsl-attempt-2/wsl-unit.log",
+      "path": "rewrite-evidence/workflows/WF5/evidence/implementation-checks/failure-history/wsl-attempt-2/wsl-unit.log",
+      "revision": "1580f5b9324dde6f64a7e96652edb8c441d759a4",
+      "lines": 46,
+      "sha256": "5d0b121acbbbe57ecaf999b8dd794d384c094d4e04406da4e6024dae8fbbd945",
+      "url": "https://github.com/Frank-Ping/mealie/blob/1580f5b9324dde6f64a7e96652edb8c441d759a4/rewrite-evidence/workflows/WF5/evidence/implementation-checks/failure-history/wsl-attempt-2/wsl-unit.log#L1-L46"
+    },
+    {
+      "id": "E8",
+      "title": "Independent audit",
+      "label": "Audit findings",
+      "path": "rewrite-evidence/workflows/WF5/evidence/post-stop-audit/Summary_EN.md",
+      "revision": "1580f5b9324dde6f64a7e96652edb8c441d759a4",
+      "lines": 148,
+      "sha256": "f0a1e314530dcd6fc2d950ad8475867d33fd761b365b8d46c6779c1326dc6eb1",
+      "url": "https://github.com/Frank-Ping/mealie/blob/1580f5b9324dde6f64a7e96652edb8c441d759a4/rewrite-evidence/workflows/WF5/evidence/post-stop-audit/Summary_EN.md#L1-L148"
+    },
+    {
+      "id": "E8",
+      "title": "Independent audit",
+      "label": "19 fault and control cases",
+      "path": "rewrite-evidence/workflows/WF5/evidence/post-stop-audit/fault-results.json",
+      "revision": "1580f5b9324dde6f64a7e96652edb8c441d759a4",
+      "lines": 400,
+      "sha256": "074133e2671e4488c86509aa54e0663621af7bf5bfc20c75cdc4d6d2fdc92c5a",
+      "url": "https://github.com/Frank-Ping/mealie/blob/1580f5b9324dde6f64a7e96652edb8c441d759a4/rewrite-evidence/workflows/WF5/evidence/post-stop-audit/fault-results.json#L1-L400"
+    },
+    {
+      "id": "E8",
+      "title": "Independent audit",
+      "label": "16 behavior probes",
+      "path": "rewrite-evidence/workflows/WF5/evidence/post-stop-audit/probe-results.json",
+      "revision": "1580f5b9324dde6f64a7e96652edb8c441d759a4",
+      "lines": 251,
+      "sha256": "f34dbf8b07673ed317bfe737911dbdce6ab67f8a50029426c8cc0d71fc0bb9b0",
+      "url": "https://github.com/Frank-Ping/mealie/blob/1580f5b9324dde6f64a7e96652edb8c441d759a4/rewrite-evidence/workflows/WF5/evidence/post-stop-audit/probe-results.json#L1-L251"
+    },
+    {
+      "id": "E8",
+      "title": "Independent audit",
+      "label": "Probe command",
+      "path": "rewrite-evidence/workflows/WF5/evidence/post-stop-audit/probe-command.json",
+      "revision": "1580f5b9324dde6f64a7e96652edb8c441d759a4",
+      "lines": 18,
+      "sha256": "f19623cf3538289d282be026f26279f64adabc9addaad0a958094e666e2b196e",
+      "url": "https://github.com/Frank-Ping/mealie/blob/1580f5b9324dde6f64a7e96652edb8c441d759a4/rewrite-evidence/workflows/WF5/evidence/post-stop-audit/probe-command.json#L1-L18"
+    },
+    {
+      "id": "E8",
+      "title": "Independent audit",
+      "label": "Audit routine checks",
+      "path": "rewrite-evidence/workflows/WF5/evidence/post-stop-audit/check-results.json",
+      "revision": "1580f5b9324dde6f64a7e96652edb8c441d759a4",
+      "lines": 105,
+      "sha256": "1e035a6d9a21fd3fe5567edbaf5a484bf1a8a7a5d017bff808552a8b8e213a7f",
+      "url": "https://github.com/Frank-Ping/mealie/blob/1580f5b9324dde6f64a7e96652edb8c441d759a4/rewrite-evidence/workflows/WF5/evidence/post-stop-audit/check-results.json#L1-L105"
+    },
+    {
+      "id": "E9",
+      "title": "Usage and elapsed time",
+      "label": "Accounting interpretation",
+      "path": "rewrite-evidence/workflows/WF5/evidence/accounting/Accounting_EN.md",
+      "revision": "1580f5b9324dde6f64a7e96652edb8c441d759a4",
+      "lines": 102,
+      "sha256": "b1763d1e4d76ff0c862bd19ed4d89b41df0410db91b492c9ebc7367730e61f4a",
+      "url": "https://github.com/Frank-Ping/mealie/blob/1580f5b9324dde6f64a7e96652edb8c441d759a4/rewrite-evidence/workflows/WF5/evidence/accounting/Accounting_EN.md#L1-L102"
+    },
+    {
+      "id": "E9",
+      "title": "Usage and elapsed time",
+      "label": "Sealed formal counters",
+      "path": "rewrite-evidence/workflows/WF5/evidence/accounting/Sealed_R2_Accounting_Extract.json",
+      "revision": "1580f5b9324dde6f64a7e96652edb8c441d759a4",
+      "lines": 62,
+      "sha256": "45ad6c67f5492f7bbba7e158cc9f7e8203763408f17b8144aba2d5b405381a94",
+      "url": "https://github.com/Frank-Ping/mealie/blob/1580f5b9324dde6f64a7e96652edb8c441d759a4/rewrite-evidence/workflows/WF5/evidence/accounting/Sealed_R2_Accounting_Extract.json#L1-L62"
+    },
+    {
+      "id": "E9",
+      "title": "Usage and elapsed time",
+      "label": "Separate audit usage",
+      "path": "rewrite-evidence/workflows/WF5/evidence/accounting/audit-usage-summary.json",
+      "revision": "1580f5b9324dde6f64a7e96652edb8c441d759a4",
+      "lines": 362,
+      "sha256": "bb0c892c57f5191c13af5c87c253c43048e4e4f422396711946f8e8c7ff6bba4",
+      "url": "https://github.com/Frank-Ping/mealie/blob/1580f5b9324dde6f64a7e96652edb8c441d759a4/rewrite-evidence/workflows/WF5/evidence/accounting/audit-usage-summary.json#L1-L362"
+    },
+    {
+      "id": "E10",
+      "title": "Provenance and public evidence",
+      "label": "Artifact preservation map",
+      "path": "rewrite-evidence/workflows/WF5/provenance/publication-rename.json",
+      "revision": "1580f5b9324dde6f64a7e96652edb8c441d759a4",
+      "lines": 483,
+      "sha256": "d52ddaca9ca51172b1a9dc7c16d16c59a24c72793f1da722d0fdfbd50bc02124",
+      "url": "https://github.com/Frank-Ping/mealie/blob/1580f5b9324dde6f64a7e96652edb8c441d759a4/rewrite-evidence/workflows/WF5/provenance/publication-rename.json#L1-L483"
+    },
+    {
+      "id": "E10",
+      "title": "Provenance and public evidence",
+      "label": "Original and public file hashes",
+      "path": "rewrite-evidence/workflows/WF5/evidence/PUBLIC_MANIFEST.json",
+      "revision": "1580f5b9324dde6f64a7e96652edb8c441d759a4",
+      "lines": 1105,
+      "sha256": "37835cab9b79a38ccde6f9b4e036a2d41bab79a03015b8200e5f3440e042b911",
+      "url": "https://github.com/Frank-Ping/mealie/blob/1580f5b9324dde6f64a7e96652edb8c441d759a4/rewrite-evidence/workflows/WF5/evidence/PUBLIC_MANIFEST.json#L1-L1105"
+    },
+    {
+      "id": "E10",
+      "title": "Provenance and public evidence",
+      "label": "Distributed checksums",
+      "path": "rewrite-evidence/workflows/WF5/evidence/SHA256SUMS.txt",
+      "revision": "1580f5b9324dde6f64a7e96652edb8c441d759a4",
+      "lines": 111,
+      "sha256": "dca15b5816a168775f6c1342c0d1b1c5d1140ec11d4bb05c30956b936f5eeadd",
+      "url": "https://github.com/Frank-Ping/mealie/blob/1580f5b9324dde6f64a7e96652edb8c441d759a4/rewrite-evidence/workflows/WF5/evidence/SHA256SUMS.txt#L1-L111"
+    },
+    {
+      "id": "E10",
+      "title": "Provenance and public evidence",
+      "label": "Public transformations",
+      "path": "rewrite-evidence/workflows/WF5/evidence/Redactions_EN.md",
+      "revision": "1580f5b9324dde6f64a7e96652edb8c441d759a4",
+      "lines": 18,
+      "sha256": "a1ee326e12cdc025e1af50f8140dac546cabb92784b209fc4240b562796f0a81",
+      "url": "https://github.com/Frank-Ping/mealie/blob/1580f5b9324dde6f64a7e96652edb8c441d759a4/rewrite-evidence/workflows/WF5/evidence/Redactions_EN.md#L1-L18"
+    }
+  ]
+}
